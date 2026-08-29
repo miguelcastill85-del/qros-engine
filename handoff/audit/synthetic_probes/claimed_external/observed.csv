@@ -1,0 +1,2 @@
+candidate_id,birth,symbol,side,entry_seq,entry_ts_ns,entry_day,entry_price_u,exit_seq,exit_ts_ns,exit_price_u,exit_reason,gross_u,net_u,commission_u,risk_u,mae_u,mfe_u,bar_ms
+e07e410cc688eec7a7076048fa3a8d9b6227769088e483f3af2915bd90b8feb0,0,NQX,BUY,2,1704326400002000000,20240104,111,4,1704326400004000000,139,TP,28,28,0,20,0,29,1

@@ -1,0 +1,54 @@
+{
+  "carrier_scan": {
+    "block_boundary_equal_timestamp_count": 0,
+    "block_boundary_non_decreasing": true,
+    "carrier_sha256_actual": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+    "carrier_sha256_match": true,
+    "crossed_spread": 162,
+    "duplicate_timestamps_within_blocks": 29631752,
+    "first_timestamp_ms": 1516885570165,
+    "flag_counts": {
+      "2": 43155754,
+      "4": 33708329,
+      "6": 482953604
+    },
+    "last_timestamp_ms": 1785143472709,
+    "manifest_matches": {
+      "crossed_spread": true,
+      "first_timestamp_ms": true,
+      "last_timestamp_ms": true,
+      "out_of_order": true,
+      "records": true,
+      "records_by_source_clock_year": true,
+      "zero_spread": true
+    },
+    "max_ask_scaled": 307950,
+    "max_bid_scaled": 307942,
+    "max_spread_scaled": 1875,
+    "min_ask_scaled": 58715,
+    "min_bid_scaled": 58704,
+    "min_spread_scaled": -181,
+    "out_of_order_within_blocks": 0,
+    "records": 559817687,
+    "records_by_numeric_epoch_year": {
+      "2018": 30362780,
+      "2019": 29577480,
+      "2020": 41228125,
+      "2021": 45352971,
+      "2022": 128690249,
+      "2023": 61389141,
+      "2024": 65797668,
+      "2025": 79870246,
+      "2026": 77549027
+    },
+    "zero_spread": 48325
+  },
+  "parts_audit": {
+    "parts_expected": 28,
+    "parts_fail": [],
+    "parts_pass": 28
+  },
+  "schema": "QROS_NQX_PHYSICAL_AUTHORITY_RECEIPT_v0_4",
+  "status": "PHYSICAL_CUSTODY_AND_CARRIER_PASS",
+  "timezone_dst_status": "UNRESOLVED_NOT_PROMOTED"
+}

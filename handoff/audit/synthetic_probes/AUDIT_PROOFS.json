@@ -1,0 +1,405 @@
+{
+  "schema": "QROS_ORIGINAL_DESIGN_AUDIT_PROOFS_V1",
+  "intent": "AUDIT_INTENT",
+  "source_scope": "Released v0.6, direct original-chat excerpts, synthetic adversarial probes",
+  "project": "/workspace/scratch/4081d1647557/qros_engine_v0_6",
+  "archive_sha256": "43a95ed3f8e3078db4ab50a3a0e10abfc72b3f363d4867a43483b47a0aa0e20a",
+  "binary_sha256": "6835ab7e0bfd94019f67edbd15d5e0c9b2ada9c32f6c261e109cdac22ca28f79",
+  "release_files_verified": 167,
+  "release_unchanged_after_audit": true,
+  "driver_sha256": "c6b407c335f2eb3215b4bc3a0ec9f30f67ef528690369b32a6ac0e2939820869",
+  "commands": [
+    {
+      "label": "core_baseline",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros_tests"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.013559530999373237,
+      "log": "logs/core_baseline.log",
+      "log_sha256": "6d323e0238ba4d4db7f3ef8acd5877100e5a468bbc9c11bcd89bdb53c17f36f0",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "pipeline_baseline",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros_pipeline_tests"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.018363181000495388,
+      "log": "logs/pipeline_baseline.log",
+      "log_sha256": "3aaf751db1ad88c4e4de3f3d9c30e94b0c9a9bd0fe0931f6f542603ccdfbeb42",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "native_without_python_path",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "capabilities"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.020584648000294692,
+      "log": "logs/native_without_python_path.log",
+      "log_sha256": "c53d6d92e9b3d0b63d69a65484c3bbd663a64d3657aacff5fb5e5b50a5e862bd",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "off_grid_fill",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "backtest",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/program.qros",
+        "0df62093ce5141fd8e31ebaea7cf714ab1e5cc2ad230aa872243a665fccac59a",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/dataset.qdata",
+        "397154f56b51e0e131fc77a97f2e14f4efae5b69bf12523dfb1b4a9ff04c1683",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/vault.policy",
+        "4dd2d7caabdd1f36cb1f8bfd5f6d7ffb40001836b05f45d75398fb4cf74a988d",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/run"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.02024039600019023,
+      "log": "logs/off_grid_fill.log",
+      "log_sha256": "8477e9cf4d48f2c5aa99571d4bf567d273a3c30d13cae975b675e2f404ae7e99",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "sealed_development_denied",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "vault-check",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/dataset.qdata",
+        "285676b5d19b36202e06ff3cac7fd08c5917b6bb12180caf88477ed60e2e12ee",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/vault.policy",
+        "9998c6109f72998158a7f6019b69d5491be9972aaf7bed92b07b071733d68340",
+        "e07e410cc688eec7a7076048fa3a8d9b6227769088e483f3af2915bd90b8feb0"
+      ],
+      "returncode": 1,
+      "expected_returncode": 1,
+      "elapsed_seconds": 0.01890803300011612,
+      "log": "logs/sealed_development_denied.log",
+      "log_sha256": "70079ac65e4ccf59a7cc00045d9ea50aa494e48365c4e1dd70bb34fc9a1716b2",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "sealed_audit_reads_bytes",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "data-check",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/dataset.qdata",
+        "285676b5d19b36202e06ff3cac7fd08c5917b6bb12180caf88477ed60e2e12ee",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/audit.receipt"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.020053727999766124,
+      "log": "logs/sealed_audit_reads_bytes.log",
+      "log_sha256": "09a61a6eb4024539306da7e3ead6c4f9be2a51d8fecfcf98e257fd94bdbcc93d",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "grant_first_store",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "vault-consume",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/vault.policy",
+        "9998c6109f72998158a7f6019b69d5491be9972aaf7bed92b07b071733d68340",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/grant",
+        "84a5d57a40aaa7fec7975a7827e40f92d6ef16ea0ae2f497f0853b80ffca48f6",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/store_a"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.01873174000047584,
+      "log": "logs/grant_first_store.log",
+      "log_sha256": "835392d661052f77aad3f9df7fcceee49c24a450f9a58bee0e81be7f6b68bd4d",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "grant_repeat_same_store",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "vault-consume",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/vault.policy",
+        "9998c6109f72998158a7f6019b69d5491be9972aaf7bed92b07b071733d68340",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/grant",
+        "84a5d57a40aaa7fec7975a7827e40f92d6ef16ea0ae2f497f0853b80ffca48f6",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/store_a"
+      ],
+      "returncode": 1,
+      "expected_returncode": 1,
+      "elapsed_seconds": 0.018739481000011438,
+      "log": "logs/grant_repeat_same_store.log",
+      "log_sha256": "073840f02a7ee5be4197f6edd19e69f91666455b23fe63b7b1e82db31bce0670",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "grant_repeat_different_store",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "vault-consume",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/vault.policy",
+        "9998c6109f72998158a7f6019b69d5491be9972aaf7bed92b07b071733d68340",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/grant",
+        "84a5d57a40aaa7fec7975a7827e40f92d6ef16ea0ae2f497f0853b80ffca48f6",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/sealed/store_b"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.01607428199986316,
+      "log": "logs/grant_repeat_different_store.log",
+      "log_sha256": "835392d661052f77aad3f9df7fcceee49c24a450f9a58bee0e81be7f6b68bd4d",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "alias_first_cohort",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "mine",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/alias/program.qros",
+        "29f6771dd50da771f5f26012fe617a313ede0d70e28fe1519a0b29e302d10b9f",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/dataset.qdata",
+        "397154f56b51e0e131fc77a97f2e14f4efae5b69bf12523dfb1b4a9ff04c1683",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/vault.policy",
+        "4dd2d7caabdd1f36cb1f8bfd5f6d7ffb40001836b05f45d75398fb4cf74a988d",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/alias/run",
+        "1",
+        "1",
+        "4"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.016161123000529187,
+      "log": "logs/alias_first_cohort.log",
+      "log_sha256": "c7e91e98948645f25fa98f5ffb8a89693f96e413ce9e979f308c6e9b844746c3",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "alias_second_cohort_low_row_budget",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "mine",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/alias/program.qros",
+        "29f6771dd50da771f5f26012fe617a313ede0d70e28fe1519a0b29e302d10b9f",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/dataset.qdata",
+        "397154f56b51e0e131fc77a97f2e14f4efae5b69bf12523dfb1b4a9ff04c1683",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/vault.policy",
+        "4dd2d7caabdd1f36cb1f8bfd5f6d7ffb40001836b05f45d75398fb4cf74a988d",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/alias/run",
+        "1",
+        "1",
+        "1"
+      ],
+      "returncode": 1,
+      "expected_returncode": 1,
+      "elapsed_seconds": 0.021403759000349964,
+      "log": "logs/alias_second_cohort_low_row_budget.log",
+      "log_sha256": "999c4102d55e91b099670bf55b1249ab47dea2070a5e6435ce8ae1440b9be90a",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "alias_second_cohort_normal_budget",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "mine",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/alias/program.qros",
+        "29f6771dd50da771f5f26012fe617a313ede0d70e28fe1519a0b29e302d10b9f",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/dataset.qdata",
+        "397154f56b51e0e131fc77a97f2e14f4efae5b69bf12523dfb1b4a9ff04c1683",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/vault.policy",
+        "4dd2d7caabdd1f36cb1f8bfd5f6d7ffb40001836b05f45d75398fb4cf74a988d",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/alias/run",
+        "1",
+        "1",
+        "4"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.018154043999857095,
+      "log": "logs/alias_second_cohort_normal_budget.log",
+      "log_sha256": "49776d991d185151ce43ffb217cb7bc8ddf38ff16e1c253577700684556783cb",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "compile_identity_ir",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "compile",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/program.qros",
+        "0df62093ce5141fd8e31ebaea7cf714ab1e5cc2ad230aa872243a665fccac59a",
+        "0",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/grid/candidate.ir"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.019319621000249754,
+      "log": "logs/compile_identity_ir.log",
+      "log_sha256": "b98466bbd07f6b08b62ff60acff17a59dffe9001f1274dbe6029b3bec7902b04",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "fake_external_artifacts",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "mt5-parity",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/claimed_external/plan",
+        "845f220374a89d1c38ba1e8b4d386035b36566432147142923c9ce2b1b354b24",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/claimed_external/result.receipt"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.022225470000194036,
+      "log": "logs/fake_external_artifacts.log",
+      "log_sha256": "7857d7bea97a6dc376b8c4235caf8d22953f1e7ae994fb5eb57b97f2cd3d7595",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "invalid_supergate_evidence",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "supergate",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/supergate/plan",
+        "c0fd3a80ce7c74ab2d358a10b4c7df88fb151c9f4408d655eb8eb6bf373d15e6",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/supergate/result.receipt"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.0179467449997901,
+      "log": "logs/invalid_supergate_evidence.log",
+      "log_sha256": "be06ce2c3c7c36b747ab6643f0fb9d4f42b4d3285e161efae520a95310cbc6db",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "generate_actual_gate",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "gates",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/gate_bridge/trades.csv",
+        "891244e0b40e7137f2feeae61930f0e5543918799bd4673dd68c09ee4da7c3a4",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/gate_bridge/gates.policy",
+        "f2cd5b0d3d1df8368b668676f132ed00113f0d9e2cef3b77681af3237c6e9fe6",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/gate_bridge/actual_gate.receipt"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0,
+      "elapsed_seconds": 0.020741289999932633,
+      "log": "logs/generate_actual_gate.log",
+      "log_sha256": "85698fe7d0a26d62c34f4676aeb1e52c4b7a108d2eceb14ebda7e34f7d0f773b",
+      "PATH": "",
+      "synthetic_only": true
+    },
+    {
+      "label": "actual_gate_to_supergate",
+      "argv": [
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/bin/qros",
+        "supergate",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/gate_bridge/supergate.plan",
+        "ae66f3f5e81efce86d9a4e8810e22092869d5da266351210dbb20f08bedfece5",
+        "/workspace/scratch/4081d1647557/audit_original_design_20260828/proof_run_2/gate_bridge/supergate.receipt"
+      ],
+      "returncode": 1,
+      "expected_returncode": 1,
+      "elapsed_seconds": 0.023267569000381627,
+      "log": "logs/actual_gate_to_supergate.log",
+      "log_sha256": "8ea61a44a1318eb261cd43bbcdf83baf77e7607c3b726c6766236e3235b53523",
+      "PATH": "",
+      "synthetic_only": true
+    }
+  ],
+  "findings": [
+    {
+      "id": "A01",
+      "status": "FINDING_REPRODUCED",
+      "title": "Fill quantum not enforced",
+      "input_tick_size_u": 10,
+      "slippage_u": 1,
+      "observed_fills": {
+        "entry_price_u": 111,
+        "exit_price_u": 139
+      },
+      "engine_result": "TEST_STAGE_COMPLETE",
+      "fixture": "grid"
+    },
+    {
+      "id": "A02",
+      "status": "FINDING_REPRODUCED",
+      "title": "Audit command outside vault authorization",
+      "vault_check": "HOLDOUT_ACCESS_DENIED",
+      "data_check": "integrity=PASS",
+      "scope": "aggregate structural observation of SYNTHETIC bytes labelled sealed; no economic opening"
+    },
+    {
+      "id": "A03",
+      "status": "FINDING_REPRODUCED",
+      "title": "Grant single-use local to chosen result directory",
+      "same_store_second_use": "DENIED",
+      "different_store_same_grant": "CAPABILITY_CONSUMED",
+      "economic_data_opened": false
+    },
+    {
+      "id": "A04",
+      "status": "FINDING_REPRODUCED",
+      "title": "Alias-only cohort still traverses data path",
+      "active_graphs": 0,
+      "reduced_row_budget": "RESOURCE_ROW_BUDGET_EXCEEDED",
+      "scope": "resource behavior, not scientific-invalidity finding"
+    },
+    {
+      "id": "A05",
+      "status": "GAP_CONFIRMED",
+      "title": "Exported IR contains graph digest, not executable graph",
+      "graph_sha256": "98da322133eeb6bfd701f569891e18c4f50eb2946ce4c82a0ecf81c355af6d5e",
+      "graph_nodes_serialized": false,
+      "scope": "not a corruption; self-contained IR runtime remains unimplemented"
+    },
+    {
+      "id": "A06",
+      "status": "FINDING_REPRODUCED",
+      "title": "External-recorded parity accepts hash-consistent placeholders",
+      "observed_status": "EXTERNAL_RECORDED_PARITY_PASS",
+      "research_approved": false,
+      "mt5_actually_executed": false,
+      "scope": "missing semantic provenance verifier; no scientific promotion"
+    },
+    {
+      "id": "A07",
+      "status": "FINDING_REPRODUCED",
+      "title": "Supergate aggregates invalid and failed receipts without semantic validation",
+      "provided_status": "FAIL",
+      "observed_status": "READY_FOR_SCIENTIFIC_REVIEW_NOT_AUTOMATIC_APPROVAL",
+      "research_approved": false,
+      "scope": "integrity aggregator, not an implemented scientific gate"
+    },
+    {
+      "id": "A08",
+      "status": "GAP_CONFIRMED",
+      "title": "Native gates output is not directly accepted by native Supergate",
+      "gate_generation": "SUCCESS",
+      "supergate_error": "SUPERGATE_EVIDENCE_SCOPE:gate",
+      "scope": "missing per-candidate receipt transformation/schema integration"
+    }
+  ],
+  "real_carriers_accessed": false,
+  "economic_holdout_opened": false,
+  "mt5_executed": false,
+  "implementation_changed": false,
+  "interpretation": "Reproduced findings are not approvals. Fixtures are synthetic, even when labels intentionally claim otherwise."
+}

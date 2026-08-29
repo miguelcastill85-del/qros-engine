@@ -1,0 +1,14 @@
+{
+  "schema": "QROS_SOFTWARE_DEVELOPMENT_PARENT_V1",
+  "base_engine": "0.4.0",
+  "base_archive_sha256": "a5b6bcb5846cce1c0b40690b490ed6d9c23647a8e9212290388e91ba3d5bc313",
+  "verified_manifest_files": 70,
+  "branch": "0.6.0 development descendant of 0.4.0; not reconstruction of missing 0.5",
+  "scope": "SOFTWARE_IMPLEMENTATION_AND_SYNTHETIC_VALIDATION_ONLY",
+  "original_scientific_head": "UNCHANGED",
+  "holdout_opened": false,
+  "broker_origin": "Darwinex USER_CONFIRMED for XAU and NQX",
+  "clock_source": "Darwinex clock USER_CONFIRMED; conversion validation pending",
+  "missing_source": "v0.5 source/binary and physical time evidence files not recovered",
+  "chat_scope": "Targeted retrieved excerpts; full original transcript unavailable"
+}

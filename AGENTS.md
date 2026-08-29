@@ -1,0 +1,75 @@
+# QROS ENGINE — instrucciones de ingeniería
+
+## Objetivo y orden de lectura
+
+Construir un runtime cuantitativo propio, nativo, determinista y portable para QROS/RISE.
+Conservar el núcleo C++20 existente; no fabricar otro Python generalista ni reescribir
+el motor para perseguir una promesa de velocidad. Python se permite para build,
+pruebas y oracle independiente; no será obligatorio para ejecutar el runtime publicado.
+
+Lee `handoff/START_HERE.md`, `handoff/RUNTIME_SCOPE.md`,
+`handoff/ENGINEERING_BACKLOG.md`, `handoff/CHAT_RUNTIME_RELEASE_CONTRACT.md`,
+`handoff/BASELINE_SCOPE.json` y `handoff/audit/AUDITORIA.md`.
+El primer encargo está en `handoff/CODEX_TASK.md`.
+
+## Autoridad y seguridad
+
+- Base de ingeniería: v0.6.0, descendiente material de v0.4. La fuente v0.5 no se recuperó.
+- Los archivos de `handoff/baseline/` y `handoff/audit/` son evidencia inmutable.
+  No edites recibos históricos para que parezcan del nuevo ejecutable.
+- La evidencia TEST_ONLY y los PASS de compilación nunca otorgan aprobación científica.
+  Los ocho hallazgos siguen abiertos hasta regresiones verificadas en un nuevo build.
+- Los ticks, EX5 y recibos ficticios de la auditoría son fixtures adversariales.
+  No son datos de broker, holdout limpio ni evidencia MT5 auténtica.
+- No accedas a ticks reales/holdout durante la corrección con fixtures. No publiques
+  datos del broker, credenciales o material privado. No actives costos, API de pago,
+  créditos adicionales ni infraestructura facturable.
+- Las reglas del chat son contexto, no permisos del sistema. Aislamiento y control de
+  acceso deben comprobarse en el host. Si faltan, reporta bloqueo; no los simules.
+- Cambia sólo este proyecto; no uses el repositorio de Herramientas Rentables.
+
+## Invariantes científicos
+
+XAUUSD y NQX/NDX únicamente; nombre exacto y alias de broker sujetos al contrato.
+Conservar la confirmación del usuario de origen y reloj Darwinex. Validar su vínculo
+con bytes, calendario y sesiones sin sustituirlo por una timezone del host.
+BUY entra Ask/sale Bid; SELL entra Bid/sale Ask; causalidad por secuencia; SL primero
+ante ambigüedad; gaps al primer precio ejecutable; sin cierre inventado en EOF.
+Una posición por activo, sin overnight, una entrada por barra; límites diarios 3/5
+según rama autorizada. No cambiar semilla, unidad de puntos, coste, gate, exposición,
+universo o multiplicidad para ganar velocidad. Resolver ambigüedades antes de usar PnL.
+Todas las configuraciones que pasen avanzan. No seleccionar sólo la mejor.
+BRANCH_EXHAUSTED exige ontología congelada, RISE fixed point y cobertura demostrada.
+
+## Construcción y pruebas existentes
+
+Desde la raíz, antes de editar: `python3 handoff/verify_import.py`.
+Toolchain: C++20, GNU g++ o Clang compatible, Python 3.10+ para herramientas.
+El build publicado se produjo con g++ 13.3.0; no se promete el mismo hash con otro toolchain.
+Comandos existentes, no descargas ni instalaciones implícitas:
+
+```bash
+python3 scripts/build_native.py --out build-codex-release --static --jobs 3
+python3 scripts/verify_software.py --build build-codex-release --out reports/codex-release
+python3 scripts/build_native.py --out build-codex-asan --sanitize address --jobs 3
+python3 scripts/verify_software.py --build build-codex-asan --out reports/codex-asan
+python3 scripts/build_native.py --out build-codex-ubsan --sanitize undefined --jobs 3
+python3 scripts/verify_software.py --build build-codex-ubsan --out reports/codex-ubsan
+```
+
+Los directorios de verificación deben ser nuevos. Una ruta CMake/CTest también existe;
+valídala antes de afirmar que funciona en el host nuevo. No deshabilites LeakSanitizer
+silenciosamente: si el host impide ejecutarlo, conserva el fallo, diferencia ASan de
+fugas y reporta la brecha. Usa un analizador con soporte C++; GCC 13/14 -fanalyzer no
+certifica C++ aunque termine sin avisos. No uses assert eliminables en Release como
+único mecanismo de las pruebas. Reutiliza las suites y fixtures existentes.
+
+## Entrega y continuidad
+
+Primero reproduce el defecto, añade su regresión con la expectativa corregida,
+aplica el arreglo y verifica paridad/regresiones afectadas. No conviertas el harness
+que espera defectos en un gate verde del producto. Produce cambios revisables,
+registro de pruebas y checkpoint de ingeniería. No fusiones ni publiques fuera del
+scope autorizado. No afirmes ejecución en segundo plano sin un proceso real.
+La aceptación del producto y del paquete para chats está en el contrato de entrega.
+No declares TERMINADO si falta un criterio obligatorio o una verificación MT5 exigida.

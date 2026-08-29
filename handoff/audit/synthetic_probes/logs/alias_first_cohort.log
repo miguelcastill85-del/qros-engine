@@ -1,0 +1,5 @@
+START_CHUNK start=0 end=1 graphs=1
+COMMITTED coverage=1/2 head=cc0e8d30ba96f34b13289c6e52d513d2a66958ffe32d2fc3fc75294d4388d97f
+status=PAUSED_AT_CHUNK_BOUNDARY
+next_birth=1
+background_running=0

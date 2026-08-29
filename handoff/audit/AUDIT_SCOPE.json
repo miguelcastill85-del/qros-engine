@@ -1,0 +1,101 @@
+{
+  "schema": "QROS_ORIGINAL_DESIGN_AUDIT_SCOPE_V1",
+  "date_utc": "2026-08-28T20:03:58.874717+00:00",
+  "intent": "AUDIT_INTENT",
+  "status": "AUDIT_COMPLETED_IMPLEMENTATION_UNCHANGED",
+  "scientific_authority": false,
+  "engine_approval": false,
+  "base_engine": "0.6.0",
+  "base_binary_sha256": "6835ab7e0bfd94019f67edbd15d5e0c9b2ada9c32f6c261e109cdac22ca28f79",
+  "base_archive_sha256": "43a95ed3f8e3078db4ab50a3a0e10abfc72b3f363d4867a43483b47a0aa0e20a",
+  "base_archive_library_file_id": "libfile_3aac53897720819185f4c0535938bc8d",
+  "base_source_root_sha256": "d78be57f8e79c0537074019a75e8bf6da36d3c544955cee8e2aa3698a3bdd31a",
+  "report_sha256": "9d67be0c644ab0958a266ac3118247ca465fd7493da4fba885467375b40158a8",
+  "probe_driver_sha256": "c6b407c335f2eb3215b4bc3a0ec9f30f67ef528690369b32a6ac0e2939820869",
+  "probe_report_sha256": "aea83531a9e4844dd92be6c50df17b3e34a8ae0b1042660944530b8fbab5331b",
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+  "sources": [
+    {
+      "role": "USER_REQUIREMENTS",
+      "source": "Original-chat excerpts supplied in the current user message; architectural and historical assertions, not a complete frozen scientific contract"
+    },
+    {
+      "role": "ATTACHMENT",
+      "path": "/workspace/scratch/4081d1647557/upload/README.md",
+      "sha256": "d3d009bb6eda24d4b3cd8d9b8167e128d8afe6aac4dba4c9d00da84a4931e668"
+    },
+    {
+      "role": "SOFTWARE_BASE",
+      "path": "/workspace/scratch/4081d1647557/qros_engine_v0_6",
+      "files_verified_against_release": 167
+    },
+    {
+      "role": "PRIMARY_TECHNICAL_REFERENCES",
+      "consultation_date": "2026-08-28",
+      "links_and_claims": "See AUDITORIA.md"
+    }
+  ],
+  "not_recovered": [
+    "v0.5 source and binary",
+    "complete original chat beyond supplied/recovered excerpts"
+  ],
+  "not_executed": [
+    "real NQX/XAU carrier replay",
+    "economic holdout evaluation",
+    "MT5/MetaEditor",
+    "Clang analysis",
+    "full new sanitizer suite in this audit"
+  ],
+  "fresh_probes": {
+    "native_invocations": 17,
+    "finding_ids": [
+      "A01",
+      "A02",
+      "A03",
+      "A04",
+      "A05",
+      "A06",
+      "A07",
+      "A08"
+    ]
+  },
+  "static_analysis": {
+    "scope": "four translation units",
+    "compiler_version": "13.3.0",
+    "results": [
+      {
+        "source": "src/feature_graph.cpp",
+        "returncode": 1,
+        "timed_out": false,
+        "status": "NOT_CLEAN"
+      },
+      {
+        "source": "src/backtest.cpp",
+        "returncode": 0,
+        "timed_out": false,
+        "status": "PASS"
+      },
+      {
+        "source": "src/vault.cpp",
+        "returncode": 0,
+        "timed_out": false,
+        "status": "PASS"
+      },
+      {
+        "source": "src/universe.cpp",
+        "returncode": -9,
+        "timed_out": true,
+        "status": "NOT_CLEAN"
+      }
+    ],
+    "minimal_deque_control_same_diagnostic": true,
+    "compiler_documentation_suitability": "C only in GCC 13.3 and 14.2; no C++ correctness certificate"
+  },
+  "data_origin": "Darwinex source and source clock user-confirmed; not reopened as a question",
+  "engine_changes": false,
+  "research_promoted": false,
+  "holdout_opened": false,
+  "background_running": false,
+  "next_proposed_engineering_work": "Instrument quantum checks, semantic evidence schemas/integration, protected canonical vault consumption; then IR/state machines, authorized real-data golden corpus and automated MT5 parity",
+  "synthetic_evidence_warning": "Fixtures deliberately claim EXTERNAL_MT5 or contain FAIL receipts to test validators. They are never real external/scientific evidence."
+}

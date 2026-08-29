@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "scope": "SYNTHETIC_EXAMPLES_ONLY",
+  "entrypoint_sha256": "6835ab7e0bfd94019f67edbd15d5e0c9b2ada9c32f6c261e109cdac22ca28f79",
+  "adapter_sha256": "fdad20d7dd5c1a98fb12e62186242be1742d742e5d8ab43a9346734dc570907a",
+  "examples": {
+    "nqx": {
+      "status": "PASS",
+      "completion_sha256": "f441554cc7edd412782114b78eca6d01cbcb6dc367aae246b4fbaf79603af0b1",
+      "ledger_sha256": "7bd7fa90fb602a7187c41d01f09021ded6de603ffab41108fce8e82a49fb5d86",
+      "raw_births": 96
+    },
+    "xau": {
+      "status": "PASS",
+      "completion_sha256": "89309b7e78319ff0d1b2d655585a5c27485cd8177cde051b96e2cff063f81606",
+      "ledger_sha256": "700b82069a953076b65f823f89ed5c0ae8f40115533e7e1b8888056daf18ac00",
+      "raw_births": 96
+    }
+  }
+}

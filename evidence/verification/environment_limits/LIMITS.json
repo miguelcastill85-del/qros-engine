@@ -1,0 +1,7 @@
+{
+  "leak_sanitizer": "NOT_VERIFIED: /proc task inspection unavailable on the observed development build",
+  "final_address_sanitizer": "RUN_WITH_detect_leaks=0",
+  "cmake_ctest": "NOT_EXECUTED: cmake absent",
+  "clang": "NOT_EXECUTED: clang++ absent",
+  "mt5": "NOT_EXECUTED: terminal, MetaEditor and Wine absent"
+}

@@ -1,0 +1,2060 @@
+In member function 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]':
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 1-2
+    |
+    |/usr/include/c++/13/bits/stl_deque.h:575:7:
+    |  575 |       _Map_alloc_type
+    |      |       ^~~~~~~~~~~~~~~
+    |      |       |
+    |      |       (1) region created on stack here
+    |      |       (2) capacity: 8 bytes
+    |
+  'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 3
+    |
+    |cc1plus:
+    | (3): use of uninitialized value '[01m[K<unknown>[m[K' here
+    |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'void std::_Deque_base<_Tp, _Alloc>::_M_deallocate_map(_Map_pointer, std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 1-2
+    |
+    |  601 |       _M_deallocate_map(_Map_pointer __p, size_t __n) _GLIBCXX_NOEXCEPT
+    |      |       ^~~~~~~~~~~~~~~~~
+    |      |       |
+    |      |       (1) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+    |  602 |       {
+    |  603 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+    |      |                         ~~~~~~~~~~~
+    |      |                         |
+    |      |                         (2) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+    |
+    +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 3-5
+           |
+           |  575 |       _Map_alloc_type
+           |      |       ~~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (4) region created on stack here
+           |      |       (5) capacity: 8 bytes
+           |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+           |      |       ^~~~~~~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (3) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+           |
+         'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 6
+           |
+           |cc1plus:
+           | (6): use of uninitialized value '[01m[K<unknown>[m[K' here
+           |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 1-2
+    |
+    |  594 |       _M_allocate_map(size_t __n)
+    |      |       ^~~~~~~~~~~~~~~
+    |      |       |
+    |      |       (1) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+    |  595 |       {
+    |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+    |      |                         ~~~~~~~~~~~
+    |      |                         |
+    |      |                         (2) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+    |
+    +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 3-5
+           |
+           |  575 |       _Map_alloc_type
+           |      |       ~~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (4) region created on stack here
+           |      |       (5) capacity: 8 bytes
+           |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+           |      |       ^~~~~~~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (3) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+           |
+         'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 6
+           |
+           |cc1plus:
+           | (6): use of uninitialized value '[01m[K<unknown>[m[K' here
+           |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'void std::deque<_Tp, _Alloc>::_M_reallocate_map(size_type, bool) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 1-4
+    |
+    |/usr/include/c++/13/bits/deque.tcc:931:5:
+    |  931 |     deque<_Tp, _Alloc>::
+    |      |     ^~~~~~~~~~~~~~~~~~
+    |      |     |
+    |      |     (1) entry to 'std::deque<qros::pipeline::Value>::_M_reallocate_map'
+    |......
+    |  939 |       if (this->_M_impl._M_map_size > 2 * __new_num_nodes)
+    |      |       ~~
+    |      |       |
+    |      |       (2) following 'false' branch...
+    |......
+    |  955 |           size_type __new_map_size = this->_M_impl._M_map_size
+    |      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                    |
+    |      |                                                    (3) ...to here
+    |......
+    |  959 |           _Map_pointer __new_map = this->_M_allocate_map(__new_map_size);
+    |      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                         |
+    |      |                                                         (4) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map' from 'std::deque<qros::pipeline::Value>::_M_reallocate_map'
+    |
+    +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 5-6
+           |
+           |/usr/include/c++/13/bits/stl_deque.h:594:7:
+           |  594 |       _M_allocate_map(size_t __n)
+           |      |       ^~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (5) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+           |  595 |       {
+           |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+           |      |                         ~~~~~~~~~~~
+           |      |                         |
+           |      |                         (6) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+           |
+           +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 7-9
+                  |
+                  |  575 |       _Map_alloc_type
+                  |      |       ~~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (8) region created on stack here
+                  |      |       (9) capacity: 8 bytes
+                  |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                  |      |       ^~~~~~~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (7) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                  |
+                'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 10
+                  |
+                  |cc1plus:
+                  | (10): use of uninitialized value '[01m[K<unknown>[m[K' here
+                  |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'std::_Deque_base<_Tp, _Alloc>::~_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 1-4
+    |
+    |  617 |     _Deque_base<_Tp, _Alloc>::
+    |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+    |      |     |
+    |      |     (1) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+    |......
+    |  620 |       if (this->_M_impl._M_map)
+    |      |       ~~
+    |      |       |
+    |      |       (2) following 'true' branch...
+    |......
+    |  623 |                            this->_M_impl._M_finish._M_node + 1);
+    |      |                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                    |
+    |      |                                                    (3) ...to here
+    |  624 |           _M_deallocate_map(this->_M_impl._M_map, this->_M_impl._M_map_size);
+    |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                            |
+    |      |                            (4) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+    |
+    +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_deallocate_map(_Map_pointer, std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 5-6
+           |
+           |  601 |       _M_deallocate_map(_Map_pointer __p, size_t __n) _GLIBCXX_NOEXCEPT
+           |      |       ^~~~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (5) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+           |  602 |       {
+           |  603 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+           |      |                         ~~~~~~~~~~~
+           |      |                         |
+           |      |                         (6) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+           |
+           +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 7-9
+                  |
+                  |  575 |       _Map_alloc_type
+                  |      |       ~~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (8) region created on stack here
+                  |      |       (9) capacity: 8 bytes
+                  |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                  |      |       ^~~~~~~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (7) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                  |
+                'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 10
+                  |
+                  |cc1plus:
+                  | (10): use of uninitialized value '[01m[K<unknown>[m[K' here
+                  |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'void std::deque<_Tp, _Alloc>::_M_reserve_map_at_back(size_type) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 1-4
+    |
+    | 2168 |       _M_reserve_map_at_back(size_type __nodes_to_add = 1)
+    |      |       ^~~~~~~~~~~~~~~~~~~~~~
+    |      |       |
+    |      |       (1) entry to 'std::deque<qros::pipeline::Value>::_M_reserve_map_at_back'
+    | 2169 |       {
+    | 2170 |         if (__nodes_to_add + 1 > this->_M_impl._M_map_size
+    |      |         ~~
+    |      |         |
+    |      |         (2) following 'true' branch...
+    | 2171 |             - (this->_M_impl._M_finish._M_node - this->_M_impl._M_map))
+    | 2172 |           _M_reallocate_map(__nodes_to_add, false);
+    |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                            |
+    |      |                            (3) ...to here
+    |      |                            (4) calling 'std::deque<qros::pipeline::Value>::_M_reallocate_map' from 'std::deque<qros::pipeline::Value>::_M_reserve_map_at_back'
+    |
+    +--> 'void std::deque<_Tp, _Alloc>::_M_reallocate_map(size_type, bool) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 5-8
+           |
+           |/usr/include/c++/13/bits/deque.tcc:931:5:
+           |  931 |     deque<_Tp, _Alloc>::
+           |      |     ^~~~~~~~~~~~~~~~~~
+           |      |     |
+           |      |     (5) entry to 'std::deque<qros::pipeline::Value>::_M_reallocate_map'
+           |......
+           |  939 |       if (this->_M_impl._M_map_size > 2 * __new_num_nodes)
+           |      |       ~~
+           |      |       |
+           |      |       (6) following 'false' branch...
+           |......
+           |  955 |           size_type __new_map_size = this->_M_impl._M_map_size
+           |      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                                    |
+           |      |                                                    (7) ...to here
+           |......
+           |  959 |           _Map_pointer __new_map = this->_M_allocate_map(__new_map_size);
+           |      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                                         |
+           |      |                                                         (8) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map' from 'std::deque<qros::pipeline::Value>::_M_reallocate_map'
+           |
+           +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 9-10
+                  |
+                  |/usr/include/c++/13/bits/stl_deque.h:594:7:
+                  |  594 |       _M_allocate_map(size_t __n)
+                  |      |       ^~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (9) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                  |  595 |       {
+                  |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                  |      |                         ~~~~~~~~~~~
+                  |      |                         |
+                  |      |                         (10) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                  |
+                  +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 11-13
+                         |
+                         |  575 |       _Map_alloc_type
+                         |      |       ~~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (12) region created on stack here
+                         |      |       (13) capacity: 8 bytes
+                         |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                         |      |       ^~~~~~~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (11) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                         |
+                       'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 14
+                         |
+                         |cc1plus:
+                         | (14): use of uninitialized value '[01m[K<unknown>[m[K' here
+                         |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 1-2
+    |
+    |  638 |     _Deque_base<_Tp, _Alloc>::
+    |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+    |      |     |
+    |      |     (1) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+    |......
+    |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+    |      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                                    |
+    |      |                                                                    (2) calling 'std::__deque_buf_size' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+    |
+    +--> 'constexpr std::size_t std::__deque_buf_size(size_t)': events 3-5
+           |
+           |   96 |   __deque_buf_size(size_t __size)
+           |      |   ^~~~~~~~~~~~~~~~
+           |      |   |
+           |      |   (3) entry to 'std::__deque_buf_size'
+           |   97 |   { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
+           |      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |   98 |             ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+           |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |             |
+           |      |             (4) following 'true' branch (when '__size <= 511')...
+           |      |             (5) ...to here
+           |
+    <------+
+    |
+  'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 6-7
+    |
+    |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+    |      |                                                    ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+    |      |                                                                    |
+    |      |                                                                    (6) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::__deque_buf_size'
+    |......
+    |  646 |       this->_M_impl._M_map = _M_allocate_map(this->_M_impl._M_map_size);
+    |      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                             |
+    |      |                                             (7) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+    |
+    +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 8-9
+           |
+           |  594 |       _M_allocate_map(size_t __n)
+           |      |       ^~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (8) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+           |  595 |       {
+           |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+           |      |                         ~~~~~~~~~~~
+           |      |                         |
+           |      |                         (9) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+           |
+           +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 10-12
+                  |
+                  |  575 |       _Map_alloc_type
+                  |      |       ~~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (11) region created on stack here
+                  |      |       (12) capacity: 8 bytes
+                  |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                  |      |       ^~~~~~~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (10) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                  |
+                'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 13
+                  |
+                  |cc1plus:
+                  | (13): use of uninitialized value '[01m[K<unknown>[m[K' here
+                  |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'std::_Deque_base<_Tp, _Alloc>::_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 1-2
+    |
+    |  458 |       _Deque_base()
+    |      |       ^~~~~~~~~~~
+    |      |       |
+    |      |       (1) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+    |  459 |       : _M_impl()
+    |  460 |       { _M_initialize_map(0); }
+    |      |         ~~~~~~~~~~~~~~~~~~~~
+    |      |                          |
+    |      |                          (2) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+    |
+    +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 3-4
+           |
+           |  638 |     _Deque_base<_Tp, _Alloc>::
+           |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+           |      |     |
+           |      |     (3) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+           |......
+           |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+           |      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                                                    |
+           |      |                                                                    (4) calling 'std::__deque_buf_size' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+           |
+           +--> 'constexpr std::size_t std::__deque_buf_size(size_t)': events 5-7
+                  |
+                  |   96 |   __deque_buf_size(size_t __size)
+                  |      |   ^~~~~~~~~~~~~~~~
+                  |      |   |
+                  |      |   (5) entry to 'std::__deque_buf_size'
+                  |   97 |   { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
+                  |      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |   98 |             ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+                  |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |             |
+                  |      |             (6) following 'true' branch (when '__size <= 511')...
+                  |      |             (7) ...to here
+                  |
+           <------+
+           |
+         'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 8-9
+           |
+           |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+           |      |                                                    ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+           |      |                                                                    |
+           |      |                                                                    (8) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::__deque_buf_size'
+           |......
+           |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+           |      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                           |
+           |      |                                           (9) calling 'std::max<long unsigned int>' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+           |  645 |                                            size_t(__num_nodes + 2));
+           |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~ 
+           |
+           +--> 'constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = long unsigned int]': events 10-12
+                  |
+                  |/usr/include/c++/13/bits/stl_algobase.h:257:5:
+                  |  257 |     max(const _Tp& __a, const _Tp& __b)
+                  |      |     ^~~
+                  |      |     |
+                  |      |     (10) entry to 'std::max<long unsigned int>'
+                  |......
+                  |  262 |       if (__a < __b)
+                  |      |       ~~
+                  |      |       |
+                  |      |       (11) following 'false' branch...
+                  |  263 |         return __b;
+                  |  264 |       return __a;
+                  |      |              ~~~
+                  |      |              |
+                  |      |              (12) ...to here
+                  |
+           <------+
+           |
+         'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 13-14
+           |
+           |/usr/include/c++/13/bits/stl_deque.h:644:43:
+           |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+           |      |                                   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                           |
+           |      |                                           (13) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::max<long unsigned int>'
+           |  645 |                                            size_t(__num_nodes + 2));
+           |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~
+           |  646 |       this->_M_impl._M_map = _M_allocate_map(this->_M_impl._M_map_size);
+           |      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                             |
+           |      |                                             (14) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+           |
+           +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 15-16
+                  |
+                  |  594 |       _M_allocate_map(size_t __n)
+                  |      |       ^~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (15) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                  |  595 |       {
+                  |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                  |      |                         ~~~~~~~~~~~
+                  |      |                         |
+                  |      |                         (16) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                  |
+                  +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 17-19
+                         |
+                         |  575 |       _Map_alloc_type
+                         |      |       ~~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (18) region created on stack here
+                         |      |       (19) capacity: 8 bytes
+                         |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                         |      |       ^~~~~~~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (17) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                         |
+                       'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 20
+                         |
+                         |cc1plus:
+                         | (20): use of uninitialized value '[01m[K<unknown>[m[K' here
+                         |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'std::deque<_Tp, _Alloc>::deque() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 1-2
+    |
+    |  855 |       deque() = default;
+    |      |       ^~~~~
+    |      |       |
+    |      |       (1) entry to 'std::deque<qros::pipeline::Value>::deque'
+    |      |       (2) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base' from 'std::deque<qros::pipeline::Value>::deque'
+    |
+    +--> 'std::_Deque_base<_Tp, _Alloc>::_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 3-4
+           |
+           |  458 |       _Deque_base()
+           |      |       ^~~~~~~~~~~
+           |      |       |
+           |      |       (3) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+           |  459 |       : _M_impl()
+           |  460 |       { _M_initialize_map(0); }
+           |      |         ~~~~~~~~~~~~~~~~~~~~
+           |      |                          |
+           |      |                          (4) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+           |
+           +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 5-6
+                  |
+                  |  638 |     _Deque_base<_Tp, _Alloc>::
+                  |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |     |
+                  |      |     (5) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                  |......
+                  |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                  |      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                                                                    |
+                  |      |                                                                    (6) calling 'std::__deque_buf_size' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                  |
+                  +--> 'constexpr std::size_t std::__deque_buf_size(size_t)': events 7-9
+                         |
+                         |   96 |   __deque_buf_size(size_t __size)
+                         |      |   ^~~~~~~~~~~~~~~~
+                         |      |   |
+                         |      |   (7) entry to 'std::__deque_buf_size'
+                         |   97 |   { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
+                         |      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |   98 |             ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+                         |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |             |
+                         |      |             (8) following 'true' branch (when '__size <= 511')...
+                         |      |             (9) ...to here
+                         |
+                  <------+
+                  |
+                'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 10-11
+                  |
+                  |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                  |      |                                                    ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+                  |      |                                                                    |
+                  |      |                                                                    (10) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::__deque_buf_size'
+                  |......
+                  |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                  |      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                                           |
+                  |      |                                           (11) calling 'std::max<long unsigned int>' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                  |  645 |                                            size_t(__num_nodes + 2));
+                  |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~ 
+                  |
+                  +--> 'constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = long unsigned int]': events 12-14
+                         |
+                         |/usr/include/c++/13/bits/stl_algobase.h:257:5:
+                         |  257 |     max(const _Tp& __a, const _Tp& __b)
+                         |      |     ^~~
+                         |      |     |
+                         |      |     (12) entry to 'std::max<long unsigned int>'
+                         |......
+                         |  262 |       if (__a < __b)
+                         |      |       ~~
+                         |      |       |
+                         |      |       (13) following 'false' branch...
+                         |  263 |         return __b;
+                         |  264 |       return __a;
+                         |      |              ~~~
+                         |      |              |
+                         |      |              (14) ...to here
+                         |
+                  <------+
+                  |
+                'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 15-16
+                  |
+                  |/usr/include/c++/13/bits/stl_deque.h:644:43:
+                  |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                  |      |                                   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                                           |
+                  |      |                                           (15) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::max<long unsigned int>'
+                  |  645 |                                            size_t(__num_nodes + 2));
+                  |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~
+                  |  646 |       this->_M_impl._M_map = _M_allocate_map(this->_M_impl._M_map_size);
+                  |      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                                             |
+                  |      |                                             (16) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                  |
+                  +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 17-18
+                         |
+                         |  594 |       _M_allocate_map(size_t __n)
+                         |      |       ^~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (17) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                         |  595 |       {
+                         |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                         |      |                         ~~~~~~~~~~~
+                         |      |                         |
+                         |      |                         (18) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                         |
+                         +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 19-21
+                                |
+                                |  575 |       _Map_alloc_type
+                                |      |       ~~~~~~~~~~~~~~~
+                                |      |       |
+                                |      |       (20) region created on stack here
+                                |      |       (21) capacity: 8 bytes
+                                |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                |      |       ^~~~~~~~~~~~~~~~~~~~
+                                |      |       |
+                                |      |       (19) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                                |
+                              'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 22
+                                |
+                                |cc1plus:
+                                | (22): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'std::deque<_Tp, _Alloc>::~deque() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 1-2
+    |
+    | 1027 |       ~deque()
+    |      |       ^
+    |      |       |
+    |      |       (1) entry to 'std::deque<qros::pipeline::Value>::~deque'
+    | 1028 |       { _M_destroy_data(begin(), end(), _M_get_Tp_allocator()); }
+    |      |                                                                 ~
+    |      |                                                                 |
+    |      |                                                                 (2) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base' from 'std::deque<qros::pipeline::Value>::~deque'
+    |
+    +--> 'std::_Deque_base<_Tp, _Alloc>::~_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 3-6
+           |
+           |  617 |     _Deque_base<_Tp, _Alloc>::
+           |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+           |      |     |
+           |      |     (3) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+           |......
+           |  620 |       if (this->_M_impl._M_map)
+           |      |       ~~
+           |      |       |
+           |      |       (4) following 'true' branch...
+           |......
+           |  623 |                            this->_M_impl._M_finish._M_node + 1);
+           |      |                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                                    |
+           |      |                                                    (5) ...to here
+           |  624 |           _M_deallocate_map(this->_M_impl._M_map, this->_M_impl._M_map_size);
+           |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                            |
+           |      |                            (6) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+           |
+           +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_deallocate_map(_Map_pointer, std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 7-8
+                  |
+                  |  601 |       _M_deallocate_map(_Map_pointer __p, size_t __n) _GLIBCXX_NOEXCEPT
+                  |      |       ^~~~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (7) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+                  |  602 |       {
+                  |  603 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                  |      |                         ~~~~~~~~~~~
+                  |      |                         |
+                  |      |                         (8) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+                  |
+                  +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 9-11
+                         |
+                         |  575 |       _Map_alloc_type
+                         |      |       ~~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (10) region created on stack here
+                         |      |       (11) capacity: 8 bytes
+                         |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                         |      |       ^~~~~~~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (9) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                         |
+                       'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 12
+                         |
+                         |cc1plus:
+                         | (12): use of uninitialized value '[01m[K<unknown>[m[K' here
+                         |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'qros::pipeline::NodeState::~NodeState()': events 1-2
+    |
+    |/workspace/scratch/4081d1647557/qros_engine_v0_6/include/qros/pipeline.hpp:75:8:
+    |   75 | struct NodeState {
+    |      |        ^~~~~~~~~
+    |      |        |
+    |      |        (1) entry to 'qros::pipeline::NodeState::~NodeState'
+    |      |        (2) calling 'std::deque<qros::pipeline::Value>::~deque' from 'qros::pipeline::NodeState::~NodeState'
+    |
+    +--> 'std::deque<_Tp, _Alloc>::~deque() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 3-4
+           |
+           |/usr/include/c++/13/bits/stl_deque.h:1027:7:
+           | 1027 |       ~deque()
+           |      |       ^
+           |      |       |
+           |      |       (3) entry to 'std::deque<qros::pipeline::Value>::~deque'
+           | 1028 |       { _M_destroy_data(begin(), end(), _M_get_Tp_allocator()); }
+           |      |                                                                 ~
+           |      |                                                                 |
+           |      |                                                                 (4) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base' from 'std::deque<qros::pipeline::Value>::~deque'
+           |
+           +--> 'std::_Deque_base<_Tp, _Alloc>::~_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 5-8
+                  |
+                  |  617 |     _Deque_base<_Tp, _Alloc>::
+                  |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |     |
+                  |      |     (5) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+                  |......
+                  |  620 |       if (this->_M_impl._M_map)
+                  |      |       ~~
+                  |      |       |
+                  |      |       (6) following 'true' branch...
+                  |......
+                  |  623 |                            this->_M_impl._M_finish._M_node + 1);
+                  |      |                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                                                    |
+                  |      |                                                    (7) ...to here
+                  |  624 |           _M_deallocate_map(this->_M_impl._M_map, this->_M_impl._M_map_size);
+                  |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                            |
+                  |      |                            (8) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+                  |
+                  +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_deallocate_map(_Map_pointer, std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 9-10
+                         |
+                         |  601 |       _M_deallocate_map(_Map_pointer __p, size_t __n) _GLIBCXX_NOEXCEPT
+                         |      |       ^~~~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (9) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+                         |  602 |       {
+                         |  603 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                         |      |                         ~~~~~~~~~~~
+                         |      |                         |
+                         |      |                         (10) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+                         |
+                         +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 11-13
+                                |
+                                |  575 |       _Map_alloc_type
+                                |      |       ~~~~~~~~~~~~~~~
+                                |      |       |
+                                |      |       (12) region created on stack here
+                                |      |       (13) capacity: 8 bytes
+                                |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                |      |       ^~~~~~~~~~~~~~~~~~~~
+                                |      |       |
+                                |      |       (11) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                                |
+                              'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 14
+                                |
+                                |cc1plus:
+                                | (14): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'qros::pipeline::NodeState::NodeState()': events 1-2
+    |
+    |/workspace/scratch/4081d1647557/qros_engine_v0_6/include/qros/pipeline.hpp:75:8:
+    |   75 | struct NodeState {
+    |      |        ^~~~~~~~~
+    |      |        |
+    |      |        (1) entry to 'qros::pipeline::NodeState::NodeState'
+    |      |        (2) calling 'std::deque<qros::pipeline::Value>::deque' from 'qros::pipeline::NodeState::NodeState'
+    |
+    +--> 'std::deque<_Tp, _Alloc>::deque() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 3-4
+           |
+           |/usr/include/c++/13/bits/stl_deque.h:855:7:
+           |  855 |       deque() = default;
+           |      |       ^~~~~
+           |      |       |
+           |      |       (3) entry to 'std::deque<qros::pipeline::Value>::deque'
+           |      |       (4) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base' from 'std::deque<qros::pipeline::Value>::deque'
+           |
+           +--> 'std::_Deque_base<_Tp, _Alloc>::_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 5-6
+                  |
+                  |  458 |       _Deque_base()
+                  |      |       ^~~~~~~~~~~
+                  |      |       |
+                  |      |       (5) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+                  |  459 |       : _M_impl()
+                  |  460 |       { _M_initialize_map(0); }
+                  |      |         ~~~~~~~~~~~~~~~~~~~~
+                  |      |                          |
+                  |      |                          (6) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+                  |
+                  +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 7-8
+                         |
+                         |  638 |     _Deque_base<_Tp, _Alloc>::
+                         |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |     |
+                         |      |     (7) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                         |......
+                         |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                         |      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                                                                    |
+                         |      |                                                                    (8) calling 'std::__deque_buf_size' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                         |
+                         +--> 'constexpr std::size_t std::__deque_buf_size(size_t)': events 9-11
+                                |
+                                |   96 |   __deque_buf_size(size_t __size)
+                                |      |   ^~~~~~~~~~~~~~~~
+                                |      |   |
+                                |      |   (9) entry to 'std::__deque_buf_size'
+                                |   97 |   { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
+                                |      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |   98 |             ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+                                |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |             |
+                                |      |             (10) following 'true' branch (when '__size <= 511')...
+                                |      |             (11) ...to here
+                                |
+                         <------+
+                         |
+                       'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 12-13
+                         |
+                         |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                         |      |                                                    ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+                         |      |                                                                    |
+                         |      |                                                                    (12) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::__deque_buf_size'
+                         |......
+                         |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                         |      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                                           |
+                         |      |                                           (13) calling 'std::max<long unsigned int>' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                         |  645 |                                            size_t(__num_nodes + 2));
+                         |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~ 
+                         |
+                         +--> 'constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = long unsigned int]': events 14-16
+                                |
+                                |/usr/include/c++/13/bits/stl_algobase.h:257:5:
+                                |  257 |     max(const _Tp& __a, const _Tp& __b)
+                                |      |     ^~~
+                                |      |     |
+                                |      |     (14) entry to 'std::max<long unsigned int>'
+                                |......
+                                |  262 |       if (__a < __b)
+                                |      |       ~~
+                                |      |       |
+                                |      |       (15) following 'false' branch...
+                                |  263 |         return __b;
+                                |  264 |       return __a;
+                                |      |              ~~~
+                                |      |              |
+                                |      |              (16) ...to here
+                                |
+                         <------+
+                         |
+                       'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 17-18
+                         |
+                         |/usr/include/c++/13/bits/stl_deque.h:644:43:
+                         |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                         |      |                                   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                                           |
+                         |      |                                           (17) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::max<long unsigned int>'
+                         |  645 |                                            size_t(__num_nodes + 2));
+                         |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~
+                         |  646 |       this->_M_impl._M_map = _M_allocate_map(this->_M_impl._M_map_size);
+                         |      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                                             |
+                         |      |                                             (18) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                         |
+                         +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 19-20
+                                |
+                                |  594 |       _M_allocate_map(size_t __n)
+                                |      |       ^~~~~~~~~~~~~~~
+                                |      |       |
+                                |      |       (19) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                                |  595 |       {
+                                |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                                |      |                         ~~~~~~~~~~~
+                                |      |                         |
+                                |      |                         (20) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                                |
+                                +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 21-23
+                                       |
+                                       |  575 |       _Map_alloc_type
+                                       |      |       ~~~~~~~~~~~~~~~
+                                       |      |       |
+                                       |      |       (22) region created on stack here
+                                       |      |       (23) capacity: 8 bytes
+                                       |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                       |      |       ^~~~~~~~~~~~~~~~~~~~
+                                       |      |       |
+                                       |      |       (21) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                                       |
+                                     'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 24
+                                       |
+                                       |cc1plus:
+                                       | (24): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                       |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'constexpr void std::destroy_at(_Tp*) [with _Tp = qros::pipeline::NodeState]': events 1-2
+    |
+    |/usr/include/c++/13/bits/stl_construct.h:80:5:
+    |   80 |     destroy_at(_Tp* __location)
+    |      |     ^~~~~~~~~~
+    |      |     |
+    |      |     (1) entry to 'std::destroy_at<qros::pipeline::NodeState>'
+    |......
+    |   88 |         __location->~_Tp();
+    |      |         ~~~~~~~~~~~~~~~~~~
+    |      |                         |
+    |      |                         (2) calling 'qros::pipeline::NodeState::~NodeState' from 'std::destroy_at<qros::pipeline::NodeState>'
+    |
+    +--> 'qros::pipeline::NodeState::~NodeState()': events 3-4
+           |
+           |/workspace/scratch/4081d1647557/qros_engine_v0_6/include/qros/pipeline.hpp:75:8:
+           |   75 | struct NodeState {
+           |      |        ^~~~~~~~~
+           |      |        |
+           |      |        (3) entry to 'qros::pipeline::NodeState::~NodeState'
+           |      |        (4) calling 'std::deque<qros::pipeline::Value>::~deque' from 'qros::pipeline::NodeState::~NodeState'
+           |
+           +--> 'std::deque<_Tp, _Alloc>::~deque() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 5-6
+                  |
+                  |/usr/include/c++/13/bits/stl_deque.h:1027:7:
+                  | 1027 |       ~deque()
+                  |      |       ^
+                  |      |       |
+                  |      |       (5) entry to 'std::deque<qros::pipeline::Value>::~deque'
+                  | 1028 |       { _M_destroy_data(begin(), end(), _M_get_Tp_allocator()); }
+                  |      |                                                                 ~
+                  |      |                                                                 |
+                  |      |                                                                 (6) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base' from 'std::deque<qros::pipeline::Value>::~deque'
+                  |
+                  +--> 'std::_Deque_base<_Tp, _Alloc>::~_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 7-10
+                         |
+                         |  617 |     _Deque_base<_Tp, _Alloc>::
+                         |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |     |
+                         |      |     (7) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+                         |......
+                         |  620 |       if (this->_M_impl._M_map)
+                         |      |       ~~
+                         |      |       |
+                         |      |       (8) following 'true' branch...
+                         |......
+                         |  623 |                            this->_M_impl._M_finish._M_node + 1);
+                         |      |                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                                                    |
+                         |      |                                                    (9) ...to here
+                         |  624 |           _M_deallocate_map(this->_M_impl._M_map, this->_M_impl._M_map_size);
+                         |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                            |
+                         |      |                            (10) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+                         |
+                         +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_deallocate_map(_Map_pointer, std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 11-12
+                                |
+                                |  601 |       _M_deallocate_map(_Map_pointer __p, size_t __n) _GLIBCXX_NOEXCEPT
+                                |      |       ^~~~~~~~~~~~~~~~~
+                                |      |       |
+                                |      |       (11) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+                                |  602 |       {
+                                |  603 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                                |      |                         ~~~~~~~~~~~
+                                |      |                         |
+                                |      |                         (12) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+                                |
+                                +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 13-15
+                                       |
+                                       |  575 |       _Map_alloc_type
+                                       |      |       ~~~~~~~~~~~~~~~
+                                       |      |       |
+                                       |      |       (14) region created on stack here
+                                       |      |       (15) capacity: 8 bytes
+                                       |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                       |      |       ^~~~~~~~~~~~~~~~~~~~
+                                       |      |       |
+                                       |      |       (13) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                                       |
+                                     'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 16
+                                       |
+                                       |cc1plus:
+                                       | (16): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                       |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'constexpr void std::_Destroy(_Tp*) [with _Tp = qros::pipeline::NodeState]': events 1-2
+    |
+    |/usr/include/c++/13/bits/stl_construct.h:146:5:
+    |  146 |     _Destroy(_Tp* __pointer)
+    |      |     ^~~~~~~~
+    |      |     |
+    |      |     (1) entry to 'std::_Destroy<qros::pipeline::NodeState>'
+    |......
+    |  149 |       std::destroy_at(__pointer);
+    |      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                      |
+    |      |                      (2) calling 'std::destroy_at<qros::pipeline::NodeState>' from 'std::_Destroy<qros::pipeline::NodeState>'
+    |
+    +--> 'constexpr void std::destroy_at(_Tp*) [with _Tp = qros::pipeline::NodeState]': events 3-4
+           |
+           |   80 |     destroy_at(_Tp* __location)
+           |      |     ^~~~~~~~~~
+           |      |     |
+           |      |     (3) entry to 'std::destroy_at<qros::pipeline::NodeState>'
+           |......
+           |   88 |         __location->~_Tp();
+           |      |         ~~~~~~~~~~~~~~~~~~
+           |      |                         |
+           |      |                         (4) calling 'qros::pipeline::NodeState::~NodeState' from 'std::destroy_at<qros::pipeline::NodeState>'
+           |
+           +--> 'qros::pipeline::NodeState::~NodeState()': events 5-6
+                  |
+                  |/workspace/scratch/4081d1647557/qros_engine_v0_6/include/qros/pipeline.hpp:75:8:
+                  |   75 | struct NodeState {
+                  |      |        ^~~~~~~~~
+                  |      |        |
+                  |      |        (5) entry to 'qros::pipeline::NodeState::~NodeState'
+                  |      |        (6) calling 'std::deque<qros::pipeline::Value>::~deque' from 'qros::pipeline::NodeState::~NodeState'
+                  |
+                  +--> 'std::deque<_Tp, _Alloc>::~deque() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 7-8
+                         |
+                         |/usr/include/c++/13/bits/stl_deque.h:1027:7:
+                         | 1027 |       ~deque()
+                         |      |       ^
+                         |      |       |
+                         |      |       (7) entry to 'std::deque<qros::pipeline::Value>::~deque'
+                         | 1028 |       { _M_destroy_data(begin(), end(), _M_get_Tp_allocator()); }
+                         |      |                                                                 ~
+                         |      |                                                                 |
+                         |      |                                                                 (8) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base' from 'std::deque<qros::pipeline::Value>::~deque'
+                         |
+                         +--> 'std::_Deque_base<_Tp, _Alloc>::~_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 9-12
+                                |
+                                |  617 |     _Deque_base<_Tp, _Alloc>::
+                                |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |     |
+                                |      |     (9) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+                                |......
+                                |  620 |       if (this->_M_impl._M_map)
+                                |      |       ~~
+                                |      |       |
+                                |      |       (10) following 'true' branch...
+                                |......
+                                |  623 |                            this->_M_impl._M_finish._M_node + 1);
+                                |      |                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |                                                    |
+                                |      |                                                    (11) ...to here
+                                |  624 |           _M_deallocate_map(this->_M_impl._M_map, this->_M_impl._M_map_size);
+                                |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |                            |
+                                |      |                            (12) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+                                |
+                                +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_deallocate_map(_Map_pointer, std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 13-14
+                                       |
+                                       |  601 |       _M_deallocate_map(_Map_pointer __p, size_t __n) _GLIBCXX_NOEXCEPT
+                                       |      |       ^~~~~~~~~~~~~~~~~
+                                       |      |       |
+                                       |      |       (13) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+                                       |  602 |       {
+                                       |  603 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                                       |      |                         ~~~~~~~~~~~
+                                       |      |                         |
+                                       |      |                         (14) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+                                       |
+                                       +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 15-17
+                                              |
+                                              |  575 |       _Map_alloc_type
+                                              |      |       ~~~~~~~~~~~~~~~
+                                              |      |       |
+                                              |      |       (16) region created on stack here
+                                              |      |       (17) capacity: 8 bytes
+                                              |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                              |      |       ^~~~~~~~~~~~~~~~~~~~
+                                              |      |       |
+                                              |      |       (15) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                                              |
+                                            'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 18
+                                              |
+                                              |cc1plus:
+                                              | (18): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                              |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'constexpr decltype (::new(void*(0)) _Tp) std::construct_at(_Tp*, _Args&& ...) [with _Tp = qros::pipeline::NodeState; _Args = {}]': events 1-2
+    |
+    |/usr/include/c++/13/bits/stl_construct.h:94:5:
+    |   94 |     construct_at(_Tp* __location, _Args&&... __args)
+    |      |     ^~~~~~~~~~~~
+    |      |     |
+    |      |     (1) entry to 'std::construct_at<qros::pipeline::NodeState>'
+    |......
+    |   97 |     { return ::new((void*)__location) _Tp(std::forward<_Args>(__args)...); }
+    |      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |              |
+    |      |              (2) calling 'qros::pipeline::NodeState::NodeState' from 'std::construct_at<qros::pipeline::NodeState>'
+    |
+    +--> 'qros::pipeline::NodeState::NodeState()': events 3-4
+           |
+           |/workspace/scratch/4081d1647557/qros_engine_v0_6/include/qros/pipeline.hpp:75:8:
+           |   75 | struct NodeState {
+           |      |        ^~~~~~~~~
+           |      |        |
+           |      |        (3) entry to 'qros::pipeline::NodeState::NodeState'
+           |      |        (4) calling 'std::deque<qros::pipeline::Value>::deque' from 'qros::pipeline::NodeState::NodeState'
+           |
+           +--> 'std::deque<_Tp, _Alloc>::deque() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 5-6
+                  |
+                  |/usr/include/c++/13/bits/stl_deque.h:855:7:
+                  |  855 |       deque() = default;
+                  |      |       ^~~~~
+                  |      |       |
+                  |      |       (5) entry to 'std::deque<qros::pipeline::Value>::deque'
+                  |      |       (6) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base' from 'std::deque<qros::pipeline::Value>::deque'
+                  |
+                  +--> 'std::_Deque_base<_Tp, _Alloc>::_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 7-8
+                         |
+                         |  458 |       _Deque_base()
+                         |      |       ^~~~~~~~~~~
+                         |      |       |
+                         |      |       (7) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+                         |  459 |       : _M_impl()
+                         |  460 |       { _M_initialize_map(0); }
+                         |      |         ~~~~~~~~~~~~~~~~~~~~
+                         |      |                          |
+                         |      |                          (8) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+                         |
+                         +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 9-10
+                                |
+                                |  638 |     _Deque_base<_Tp, _Alloc>::
+                                |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |     |
+                                |      |     (9) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                |......
+                                |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                                |      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |                                                                    |
+                                |      |                                                                    (10) calling 'std::__deque_buf_size' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                |
+                                +--> 'constexpr std::size_t std::__deque_buf_size(size_t)': events 11-13
+                                       |
+                                       |   96 |   __deque_buf_size(size_t __size)
+                                       |      |   ^~~~~~~~~~~~~~~~
+                                       |      |   |
+                                       |      |   (11) entry to 'std::__deque_buf_size'
+                                       |   97 |   { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
+                                       |      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |   98 |             ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+                                       |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |      |             |
+                                       |      |             (12) following 'true' branch (when '__size <= 511')...
+                                       |      |             (13) ...to here
+                                       |
+                                <------+
+                                |
+                              'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 14-15
+                                |
+                                |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                                |      |                                                    ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+                                |      |                                                                    |
+                                |      |                                                                    (14) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::__deque_buf_size'
+                                |......
+                                |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                                |      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |                                           |
+                                |      |                                           (15) calling 'std::max<long unsigned int>' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                |  645 |                                            size_t(__num_nodes + 2));
+                                |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~ 
+                                |
+                                +--> 'constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = long unsigned int]': events 16-18
+                                       |
+                                       |/usr/include/c++/13/bits/stl_algobase.h:257:5:
+                                       |  257 |     max(const _Tp& __a, const _Tp& __b)
+                                       |      |     ^~~
+                                       |      |     |
+                                       |      |     (16) entry to 'std::max<long unsigned int>'
+                                       |......
+                                       |  262 |       if (__a < __b)
+                                       |      |       ~~
+                                       |      |       |
+                                       |      |       (17) following 'false' branch...
+                                       |  263 |         return __b;
+                                       |  264 |       return __a;
+                                       |      |              ~~~
+                                       |      |              |
+                                       |      |              (18) ...to here
+                                       |
+                                <------+
+                                |
+                              'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 19-20
+                                |
+                                |/usr/include/c++/13/bits/stl_deque.h:644:43:
+                                |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                                |      |                                   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |                                           |
+                                |      |                                           (19) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::max<long unsigned int>'
+                                |  645 |                                            size_t(__num_nodes + 2));
+                                |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~
+                                |  646 |       this->_M_impl._M_map = _M_allocate_map(this->_M_impl._M_map_size);
+                                |      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |                                             |
+                                |      |                                             (20) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                |
+                                +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 21-22
+                                       |
+                                       |  594 |       _M_allocate_map(size_t __n)
+                                       |      |       ^~~~~~~~~~~~~~~
+                                       |      |       |
+                                       |      |       (21) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                                       |  595 |       {
+                                       |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                                       |      |                         ~~~~~~~~~~~
+                                       |      |                         |
+                                       |      |                         (22) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                                       |
+                                       +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 23-25
+                                              |
+                                              |  575 |       _Map_alloc_type
+                                              |      |       ~~~~~~~~~~~~~~~
+                                              |      |       |
+                                              |      |       (24) region created on stack here
+                                              |      |       (25) capacity: 8 bytes
+                                              |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                              |      |       ^~~~~~~~~~~~~~~~~~~~
+                                              |      |       |
+                                              |      |       (23) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                                              |
+                                            'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 26
+                                              |
+                                              |cc1plus:
+                                              | (26): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                              |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'static constexpr void std::_Destroy_aux<<anonymous> >::__destroy(_ForwardIterator, _ForwardIterator) [with _ForwardIterator = qros::pipeline::NodeState*; bool <anonymous> = false]': events 1-4
+    |
+    |/usr/include/c++/13/bits/stl_construct.h:160:9:
+    |  160 |         __destroy(_ForwardIterator __first, _ForwardIterator __last)
+    |      |         ^~~~~~~~~
+    |      |         |
+    |      |         (1) entry to 'std::_Destroy_aux<false>::__destroy<qros::pipeline::NodeState*>'
+    |  161 |         {
+    |  162 |           for (; __first != __last; ++__first)
+    |      |                  ~~~~~~~~~~~~~~~~~
+    |      |                          |
+    |      |                          (2) following 'true' branch (when '__first != __last')...
+    |  163 |             std::_Destroy(std::__addressof(*__first));
+    |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                          |
+    |      |                          (3) ...to here
+    |      |                          (4) calling 'std::_Destroy<qros::pipeline::NodeState>' from 'std::_Destroy_aux<false>::__destroy<qros::pipeline::NodeState*>'
+    |
+    +--> 'constexpr void std::_Destroy(_Tp*) [with _Tp = qros::pipeline::NodeState]': events 5-6
+           |
+           |  146 |     _Destroy(_Tp* __pointer)
+           |      |     ^~~~~~~~
+           |      |     |
+           |      |     (5) entry to 'std::_Destroy<qros::pipeline::NodeState>'
+           |......
+           |  149 |       std::destroy_at(__pointer);
+           |      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                      |
+           |      |                      (6) calling 'std::destroy_at<qros::pipeline::NodeState>' from 'std::_Destroy<qros::pipeline::NodeState>'
+           |
+           +--> 'constexpr void std::destroy_at(_Tp*) [with _Tp = qros::pipeline::NodeState]': events 7-8
+                  |
+                  |   80 |     destroy_at(_Tp* __location)
+                  |      |     ^~~~~~~~~~
+                  |      |     |
+                  |      |     (7) entry to 'std::destroy_at<qros::pipeline::NodeState>'
+                  |......
+                  |   88 |         __location->~_Tp();
+                  |      |         ~~~~~~~~~~~~~~~~~~
+                  |      |                         |
+                  |      |                         (8) calling 'qros::pipeline::NodeState::~NodeState' from 'std::destroy_at<qros::pipeline::NodeState>'
+                  |
+                  +--> 'qros::pipeline::NodeState::~NodeState()': events 9-10
+                         |
+                         |/workspace/scratch/4081d1647557/qros_engine_v0_6/include/qros/pipeline.hpp:75:8:
+                         |   75 | struct NodeState {
+                         |      |        ^~~~~~~~~
+                         |      |        |
+                         |      |        (9) entry to 'qros::pipeline::NodeState::~NodeState'
+                         |      |        (10) calling 'std::deque<qros::pipeline::Value>::~deque' from 'qros::pipeline::NodeState::~NodeState'
+                         |
+                         +--> 'std::deque<_Tp, _Alloc>::~deque() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 11-12
+                                |
+                                |/usr/include/c++/13/bits/stl_deque.h:1027:7:
+                                | 1027 |       ~deque()
+                                |      |       ^
+                                |      |       |
+                                |      |       (11) entry to 'std::deque<qros::pipeline::Value>::~deque'
+                                | 1028 |       { _M_destroy_data(begin(), end(), _M_get_Tp_allocator()); }
+                                |      |                                                                 ~
+                                |      |                                                                 |
+                                |      |                                                                 (12) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base' from 'std::deque<qros::pipeline::Value>::~deque'
+                                |
+                                +--> 'std::_Deque_base<_Tp, _Alloc>::~_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 13-16
+                                       |
+                                       |  617 |     _Deque_base<_Tp, _Alloc>::
+                                       |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+                                       |      |     |
+                                       |      |     (13) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+                                       |......
+                                       |  620 |       if (this->_M_impl._M_map)
+                                       |      |       ~~
+                                       |      |       |
+                                       |      |       (14) following 'true' branch...
+                                       |......
+                                       |  623 |                            this->_M_impl._M_finish._M_node + 1);
+                                       |      |                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |      |                                                    |
+                                       |      |                                                    (15) ...to here
+                                       |  624 |           _M_deallocate_map(this->_M_impl._M_map, this->_M_impl._M_map_size);
+                                       |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |      |                            |
+                                       |      |                            (16) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::~_Deque_base'
+                                       |
+                                       +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_deallocate_map(_Map_pointer, std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 17-18
+                                              |
+                                              |  601 |       _M_deallocate_map(_Map_pointer __p, size_t __n) _GLIBCXX_NOEXCEPT
+                                              |      |       ^~~~~~~~~~~~~~~~~
+                                              |      |       |
+                                              |      |       (17) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+                                              |  602 |       {
+                                              |  603 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                                              |      |                         ~~~~~~~~~~~
+                                              |      |                         |
+                                              |      |                         (18) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_deallocate_map'
+                                              |
+                                              +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 19-21
+                                                     |
+                                                     |  575 |       _Map_alloc_type
+                                                     |      |       ~~~~~~~~~~~~~~~
+                                                     |      |       |
+                                                     |      |       (20) region created on stack here
+                                                     |      |       (21) capacity: 8 bytes
+                                                     |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                                     |      |       ^~~~~~~~~~~~~~~~~~~~
+                                                     |      |       |
+                                                     |      |       (19) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                                                     |
+                                                   'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 22
+                                                     |
+                                                     |cc1plus:
+                                                     | (22): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                                     |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'constexpr void std::_Construct(_Tp*, _Args&& ...) [with _Tp = qros::pipeline::NodeState; _Args = {}]': events 1-4
+    |
+    |/usr/include/c++/13/bits/stl_construct.h:109:5:
+    |  109 |     _Construct(_Tp* __p, _Args&&... __args)
+    |      |     ^~~~~~~~~~
+    |      |     |
+    |      |     (1) entry to 'std::_Construct<qros::pipeline::NodeState>'
+    |......
+    |  112 |       if (std::__is_constant_evaluated())
+    |      |       ~~
+    |      |       |
+    |      |       (2) following 'false' branch...
+    |......
+    |  119 |       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
+    |      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |       |     |
+    |      |       |     (3) ...to here
+    |      |       (4) calling 'qros::pipeline::NodeState::NodeState' from 'std::_Construct<qros::pipeline::NodeState>'
+    |
+    +--> 'qros::pipeline::NodeState::NodeState()': events 5-6
+           |
+           |/workspace/scratch/4081d1647557/qros_engine_v0_6/include/qros/pipeline.hpp:75:8:
+           |   75 | struct NodeState {
+           |      |        ^~~~~~~~~
+           |      |        |
+           |      |        (5) entry to 'qros::pipeline::NodeState::NodeState'
+           |      |        (6) calling 'std::deque<qros::pipeline::Value>::deque' from 'qros::pipeline::NodeState::NodeState'
+           |
+           +--> 'std::deque<_Tp, _Alloc>::deque() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 7-8
+                  |
+                  |/usr/include/c++/13/bits/stl_deque.h:855:7:
+                  |  855 |       deque() = default;
+                  |      |       ^~~~~
+                  |      |       |
+                  |      |       (7) entry to 'std::deque<qros::pipeline::Value>::deque'
+                  |      |       (8) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base' from 'std::deque<qros::pipeline::Value>::deque'
+                  |
+                  +--> 'std::_Deque_base<_Tp, _Alloc>::_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 9-10
+                         |
+                         |  458 |       _Deque_base()
+                         |      |       ^~~~~~~~~~~
+                         |      |       |
+                         |      |       (9) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+                         |  459 |       : _M_impl()
+                         |  460 |       { _M_initialize_map(0); }
+                         |      |         ~~~~~~~~~~~~~~~~~~~~
+                         |      |                          |
+                         |      |                          (10) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+                         |
+                         +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 11-12
+                                |
+                                |  638 |     _Deque_base<_Tp, _Alloc>::
+                                |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |     |
+                                |      |     (11) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                |......
+                                |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                                |      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |                                                                    |
+                                |      |                                                                    (12) calling 'std::__deque_buf_size' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                |
+                                +--> 'constexpr std::size_t std::__deque_buf_size(size_t)': events 13-15
+                                       |
+                                       |   96 |   __deque_buf_size(size_t __size)
+                                       |      |   ^~~~~~~~~~~~~~~~
+                                       |      |   |
+                                       |      |   (13) entry to 'std::__deque_buf_size'
+                                       |   97 |   { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
+                                       |      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |   98 |             ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+                                       |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |      |             |
+                                       |      |             (14) following 'true' branch (when '__size <= 511')...
+                                       |      |             (15) ...to here
+                                       |
+                                <------+
+                                |
+                              'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 16-17
+                                |
+                                |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                                |      |                                                    ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+                                |      |                                                                    |
+                                |      |                                                                    (16) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::__deque_buf_size'
+                                |......
+                                |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                                |      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |                                           |
+                                |      |                                           (17) calling 'std::max<long unsigned int>' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                |  645 |                                            size_t(__num_nodes + 2));
+                                |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~ 
+                                |
+                                +--> 'constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = long unsigned int]': events 18-20
+                                       |
+                                       |/usr/include/c++/13/bits/stl_algobase.h:257:5:
+                                       |  257 |     max(const _Tp& __a, const _Tp& __b)
+                                       |      |     ^~~
+                                       |      |     |
+                                       |      |     (18) entry to 'std::max<long unsigned int>'
+                                       |......
+                                       |  262 |       if (__a < __b)
+                                       |      |       ~~
+                                       |      |       |
+                                       |      |       (19) following 'false' branch...
+                                       |  263 |         return __b;
+                                       |  264 |       return __a;
+                                       |      |              ~~~
+                                       |      |              |
+                                       |      |              (20) ...to here
+                                       |
+                                <------+
+                                |
+                              'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 21-22
+                                |
+                                |/usr/include/c++/13/bits/stl_deque.h:644:43:
+                                |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                                |      |                                   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |                                           |
+                                |      |                                           (21) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::max<long unsigned int>'
+                                |  645 |                                            size_t(__num_nodes + 2));
+                                |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~
+                                |  646 |       this->_M_impl._M_map = _M_allocate_map(this->_M_impl._M_map_size);
+                                |      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |                                             |
+                                |      |                                             (22) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                |
+                                +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 23-24
+                                       |
+                                       |  594 |       _M_allocate_map(size_t __n)
+                                       |      |       ^~~~~~~~~~~~~~~
+                                       |      |       |
+                                       |      |       (23) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                                       |  595 |       {
+                                       |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                                       |      |                         ~~~~~~~~~~~
+                                       |      |                         |
+                                       |      |                         (24) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                                       |
+                                       +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 25-27
+                                              |
+                                              |  575 |       _Map_alloc_type
+                                              |      |       ~~~~~~~~~~~~~~~
+                                              |      |       |
+                                              |      |       (26) region created on stack here
+                                              |      |       (27) capacity: 8 bytes
+                                              |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                              |      |       ^~~~~~~~~~~~~~~~~~~~
+                                              |      |       |
+                                              |      |       (25) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                                              |
+                                            'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 28
+                                              |
+                                              |cc1plus:
+                                              | (28): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                              |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'void std::deque<_Tp, _Alloc>::_M_push_back_aux(_Args&& ...) [with _Args = {qros::pipeline::Value}; _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 1-2
+    |
+    |/usr/include/c++/13/bits/deque.tcc:484:7:
+    |  484 |       deque<_Tp, _Alloc>::
+    |      |       ^~~~~~~~~~~~~~~~~~
+    |      |       |
+    |      |       (1) entry to 'std::deque<qros::pipeline::Value>::_M_push_back_aux<qros::pipeline::Value>'
+    |......
+    |  492 |         if (size() == max_size())
+    |      |             ~~~~~~
+    |      |                 |
+    |      |                 (2) calling 'std::deque<qros::pipeline::Value>::size' from 'std::deque<qros::pipeline::Value>::_M_push_back_aux<qros::pipeline::Value>'
+    |
+    +--> 'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::size() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 3-4
+           |
+           |/usr/include/c++/13/bits/stl_deque.h:1268:7:
+           | 1268 |       size() const _GLIBCXX_NOEXCEPT
+           |      |       ^~~~
+           |      |       |
+           |      |       (3) entry to 'std::deque<qros::pipeline::Value>::size'
+           | 1269 |       { return this->_M_impl._M_finish - this->_M_impl._M_start; }
+           |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                        |
+           |      |                                        (4) calling 'std::operator-' from 'std::deque<qros::pipeline::Value>::size'
+           |
+           +--> 'std::_Deque_iterator<qros::pipeline::Value, qros::pipeline::Value&, qros::pipeline::Value*>::difference_type std::operator-(const _Deque_iterator<qros::pipeline::Value, qros::pipeline::Value&, qros::pipeline::Value*>::_Self&, const _Deque_iterator<qros::pipeline::Value, qros::pipeline::Value&, qros::pipeline::Value*>::_Self&)': events 5-6
+                  |
+                  |  370 |       operator-(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+                  |      |       ^~~~~~~~
+                  |      |       |
+                  |      |       (5) entry to 'std::operator-'
+                  |  371 |       {
+                  |  372 |         return difference_type(_S_buffer_size())
+                  |      |                                ~~~~~~~~~~~~~~~~
+                  |      |                                              |
+                  |      |                                              (6) calling 'std::_Deque_iterator<qros::pipeline::Value, qros::pipeline::Value&, qros::pipeline::Value*>::_S_buffer_size' from 'std::operator-'
+                  |
+                  +--> 'static std::size_t std::_Deque_iterator<_Tp, _Ref, _Ptr>::_S_buffer_size() [with _Tp = qros::pipeline::Value; _Ref = qros::pipeline::Value&; _Ptr = qros::pipeline::Value*]': events 7-8
+                         |
+                         |  131 |       static size_t _S_buffer_size() _GLIBCXX_NOEXCEPT
+                         |      |                     ^~~~~~~~~~~~~~
+                         |      |                     |
+                         |      |                     (7) entry to 'std::_Deque_iterator<qros::pipeline::Value, qros::pipeline::Value&, qros::pipeline::Value*>::_S_buffer_size'
+                         |  132 |       { return __deque_buf_size(sizeof(_Tp)); }
+                         |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                                |
+                         |      |                                (8) calling 'std::__deque_buf_size' from 'std::_Deque_iterator<qros::pipeline::Value, qros::pipeline::Value&, qros::pipeline::Value*>::_S_buffer_size'
+                         |
+                         +--> 'constexpr std::size_t std::__deque_buf_size(size_t)': events 9-11
+                                |
+                                |   96 |   __deque_buf_size(size_t __size)
+                                |      |   ^~~~~~~~~~~~~~~~
+                                |      |   |
+                                |      |   (9) entry to 'std::__deque_buf_size'
+                                |   97 |   { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
+                                |      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |   98 |             ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+                                |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |             |
+                                |      |             (10) following 'true' branch (when '__size <= 511')...
+                                |      |             (11) ...to here
+                                |
+                         <------+
+                         |
+                       'static std::size_t std::_Deque_iterator<_Tp, _Ref, _Ptr>::_S_buffer_size() [with _Tp = qros::pipeline::Value; _Ref = qros::pipeline::Value&; _Ptr = qros::pipeline::Value*]': event 12
+                         |
+                         |  132 |       { return __deque_buf_size(sizeof(_Tp)); }
+                         |      |                ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+                         |      |                                |
+                         |      |                                (12) returning to 'std::_Deque_iterator<qros::pipeline::Value, qros::pipeline::Value&, qros::pipeline::Value*>::_S_buffer_size' from 'std::__deque_buf_size'
+                         |
+                  <------+
+                  |
+                'std::_Deque_iterator<qros::pipeline::Value, qros::pipeline::Value&, qros::pipeline::Value*>::difference_type std::operator-(const _Deque_iterator<qros::pipeline::Value, qros::pipeline::Value&, qros::pipeline::Value*>::_Self&, const _Deque_iterator<qros::pipeline::Value, qros::pipeline::Value&, qros::pipeline::Value*>::_Self&)': event 13
+                  |
+                  |  372 |         return difference_type(_S_buffer_size())
+                  |      |                                ~~~~~~~~~~~~~~^~
+                  |      |                                              |
+                  |      |                                              (13) returning to 'std::operator-' from 'std::_Deque_iterator<qros::pipeline::Value, qros::pipeline::Value&, qros::pipeline::Value*>::_S_buffer_size'
+                  |
+           <------+
+           |
+         'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::size() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 14
+           |
+           | 1269 |       { return this->_M_impl._M_finish - this->_M_impl._M_start; }
+           |      |                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                        |
+           |      |                                        (14) returning to 'std::deque<qros::pipeline::Value>::size' from 'std::operator-'
+           |
+    <------+
+    |
+  'void std::deque<_Tp, _Alloc>::_M_push_back_aux(_Args&& ...) [with _Args = {qros::pipeline::Value}; _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 15-16
+    |
+    |/usr/include/c++/13/bits/deque.tcc:492:17:
+    |  492 |         if (size() == max_size())
+    |      |             ~~~~^~    ~~~~~~~~~~
+    |      |                 |             |
+    |      |                 |             (16) calling 'std::deque<qros::pipeline::Value>::max_size' from 'std::deque<qros::pipeline::Value>::_M_push_back_aux<qros::pipeline::Value>'
+    |      |                 (15) returning to 'std::deque<qros::pipeline::Value>::_M_push_back_aux<qros::pipeline::Value>' from 'std::deque<qros::pipeline::Value>::size'
+    |
+    +--> 'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::max_size() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 17-18
+           |
+           |/usr/include/c++/13/bits/stl_deque.h:1274:7:
+           | 1274 |       max_size() const _GLIBCXX_NOEXCEPT
+           |      |       ^~~~~~~~
+           |      |       |
+           |      |       (17) entry to 'std::deque<qros::pipeline::Value>::max_size'
+           | 1275 |       { return _S_max_size(_M_get_Tp_allocator()); }
+           |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                           |
+           |      |                           (18) calling 'std::deque<qros::pipeline::Value>::_S_max_size' from 'std::deque<qros::pipeline::Value>::max_size'
+           |
+           +--> 'static std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 19-20
+                  |
+                  | 1876 |       _S_max_size(const _Tp_alloc_type& __a) _GLIBCXX_NOEXCEPT
+                  |      |       ^~~~~~~~~~~
+                  |      |       |
+                  |      |       (19) entry to 'std::deque<qros::pipeline::Value>::_S_max_size'
+                  |......
+                  | 1880 |         return (std::min)(__diffmax, __allocmax);
+                  |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                          |
+                  |      |                          (20) calling 'std::min<long unsigned int>' from 'std::deque<qros::pipeline::Value>::_S_max_size'
+                  |
+                  +--> 'constexpr const _Tp& std::min(const _Tp&, const _Tp&) [with _Tp = long unsigned int]': events 21-23
+                         |
+                         |/usr/include/c++/13/bits/stl_algobase.h:233:5:
+                         |  233 |     min(const _Tp& __a, const _Tp& __b)
+                         |      |     ^~~
+                         |      |     |
+                         |      |     (21) entry to 'std::min<long unsigned int>'
+                         |......
+                         |  238 |       if (__b < __a)
+                         |      |       ~~
+                         |      |       |
+                         |      |       (22) following 'true' branch...
+                         |  239 |         return __b;
+                         |      |                ~~~
+                         |      |                |
+                         |      |                (23) ...to here
+                         |
+                  <------+
+                  |
+                'static std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 24
+                  |
+                  |/usr/include/c++/13/bits/stl_deque.h:1880:26:
+                  | 1880 |         return (std::min)(__diffmax, __allocmax);
+                  |      |                ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                          |
+                  |      |                          (24) returning to 'std::deque<qros::pipeline::Value>::_S_max_size' from 'std::min<long unsigned int>'
+                  |
+           <------+
+           |
+         'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::max_size() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 25
+           |
+           | 1275 |       { return _S_max_size(_M_get_Tp_allocator()); }
+           |      |                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+           |      |                           |
+           |      |                           (25) returning to 'std::deque<qros::pipeline::Value>::max_size' from 'std::deque<qros::pipeline::Value>::_S_max_size'
+           |
+    <------+
+    |
+  'void std::deque<_Tp, _Alloc>::_M_push_back_aux(_Args&& ...) [with _Args = {qros::pipeline::Value}; _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 26-29
+    |
+    |/usr/include/c++/13/bits/deque.tcc:492:31:
+    |  492 |         if (size() == max_size())
+    |      |         ~~            ~~~~~~~~^~
+    |      |         |                     |
+    |      |         |                     (26) returning to 'std::deque<qros::pipeline::Value>::_M_push_back_aux<qros::pipeline::Value>' from 'std::deque<qros::pipeline::Value>::max_size'
+    |      |         (27) following 'false' branch...
+    |......
+    |  496 |         _M_reserve_map_at_back();
+    |      |         ~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                               |
+    |      |                               (28) ...to here
+    |      |                               (29) calling 'std::deque<qros::pipeline::Value>::_M_reserve_map_at_back' from 'std::deque<qros::pipeline::Value>::_M_push_back_aux<qros::pipeline::Value>'
+    |
+    +--> 'void std::deque<_Tp, _Alloc>::_M_reserve_map_at_back(size_type) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 30-33
+           |
+           |/usr/include/c++/13/bits/stl_deque.h:2168:7:
+           | 2168 |       _M_reserve_map_at_back(size_type __nodes_to_add = 1)
+           |      |       ^~~~~~~~~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (30) entry to 'std::deque<qros::pipeline::Value>::_M_reserve_map_at_back'
+           | 2169 |       {
+           | 2170 |         if (__nodes_to_add + 1 > this->_M_impl._M_map_size
+           |      |         ~~
+           |      |         |
+           |      |         (31) following 'true' branch...
+           | 2171 |             - (this->_M_impl._M_finish._M_node - this->_M_impl._M_map))
+           | 2172 |           _M_reallocate_map(__nodes_to_add, false);
+           |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                            |
+           |      |                            (32) ...to here
+           |      |                            (33) calling 'std::deque<qros::pipeline::Value>::_M_reallocate_map' from 'std::deque<qros::pipeline::Value>::_M_reserve_map_at_back'
+           |
+           +--> 'void std::deque<_Tp, _Alloc>::_M_reallocate_map(size_type, bool) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 34-37
+                  |
+                  |/usr/include/c++/13/bits/deque.tcc:931:5:
+                  |  931 |     deque<_Tp, _Alloc>::
+                  |      |     ^~~~~~~~~~~~~~~~~~
+                  |      |     |
+                  |      |     (34) entry to 'std::deque<qros::pipeline::Value>::_M_reallocate_map'
+                  |......
+                  |  939 |       if (this->_M_impl._M_map_size > 2 * __new_num_nodes)
+                  |      |       ~~
+                  |      |       |
+                  |      |       (35) following 'false' branch...
+                  |......
+                  |  955 |           size_type __new_map_size = this->_M_impl._M_map_size
+                  |      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                                                    |
+                  |      |                                                    (36) ...to here
+                  |......
+                  |  959 |           _Map_pointer __new_map = this->_M_allocate_map(__new_map_size);
+                  |      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                                                         |
+                  |      |                                                         (37) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map' from 'std::deque<qros::pipeline::Value>::_M_reallocate_map'
+                  |
+                  +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 38-39
+                         |
+                         |/usr/include/c++/13/bits/stl_deque.h:594:7:
+                         |  594 |       _M_allocate_map(size_t __n)
+                         |      |       ^~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (38) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                         |  595 |       {
+                         |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                         |      |                         ~~~~~~~~~~~
+                         |      |                         |
+                         |      |                         (39) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                         |
+                         +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 40-42
+                                |
+                                |  575 |       _Map_alloc_type
+                                |      |       ~~~~~~~~~~~~~~~
+                                |      |       |
+                                |      |       (41) region created on stack here
+                                |      |       (42) capacity: 8 bytes
+                                |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                |      |       ^~~~~~~~~~~~~~~~~~~~
+                                |      |       |
+                                |      |       (40) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                                |
+                              'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 43
+                                |
+                                |cc1plus:
+                                | (43): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'static constexpr _ForwardIterator std::__uninitialized_default_n_1<_TrivialValueType>::__uninit_default_n(_ForwardIterator, _Size) [with _ForwardIterator = qros::pipeline::NodeState*; _Size = long unsigned int; bool _TrivialValueType = false]': events 1-4
+    |
+    |/usr/include/c++/13/bits/stl_uninitialized.h:637:9:
+    |  637 |         __uninit_default_n(_ForwardIterator __first, _Size __n)
+    |      |         ^~~~~~~~~~~~~~~~~~
+    |      |         |
+    |      |         (1) entry to 'std::__uninitialized_default_n_1<false>::__uninit_default_n<qros::pipeline::NodeState*, long unsigned int>'
+    |......
+    |  642 |               for (; __n > 0; --__n, (void) ++__cur)
+    |      |                      ~~~~~~~
+    |      |                          |
+    |      |                          (2) following 'true' branch (when '__n != 0')...
+    |  643 |                 std::_Construct(std::__addressof(*__cur));
+    |      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                |
+    |      |                                (3) ...to here
+    |      |                                (4) calling 'std::_Construct<qros::pipeline::NodeState>' from 'std::__uninitialized_default_n_1<false>::__uninit_default_n<qros::pipeline::NodeState*, long unsigned int>'
+    |
+    +--> 'constexpr void std::_Construct(_Tp*, _Args&& ...) [with _Tp = qros::pipeline::NodeState; _Args = {}]': events 5-8
+           |
+           |/usr/include/c++/13/bits/stl_construct.h:109:5:
+           |  109 |     _Construct(_Tp* __p, _Args&&... __args)
+           |      |     ^~~~~~~~~~
+           |      |     |
+           |      |     (5) entry to 'std::_Construct<qros::pipeline::NodeState>'
+           |......
+           |  112 |       if (std::__is_constant_evaluated())
+           |      |       ~~
+           |      |       |
+           |      |       (6) following 'false' branch...
+           |......
+           |  119 |       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
+           |      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |       |     |
+           |      |       |     (7) ...to here
+           |      |       (8) calling 'qros::pipeline::NodeState::NodeState' from 'std::_Construct<qros::pipeline::NodeState>'
+           |
+           +--> 'qros::pipeline::NodeState::NodeState()': events 9-10
+                  |
+                  |/workspace/scratch/4081d1647557/qros_engine_v0_6/include/qros/pipeline.hpp:75:8:
+                  |   75 | struct NodeState {
+                  |      |        ^~~~~~~~~
+                  |      |        |
+                  |      |        (9) entry to 'qros::pipeline::NodeState::NodeState'
+                  |      |        (10) calling 'std::deque<qros::pipeline::Value>::deque' from 'qros::pipeline::NodeState::NodeState'
+                  |
+                  +--> 'std::deque<_Tp, _Alloc>::deque() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 11-12
+                         |
+                         |/usr/include/c++/13/bits/stl_deque.h:855:7:
+                         |  855 |       deque() = default;
+                         |      |       ^~~~~
+                         |      |       |
+                         |      |       (11) entry to 'std::deque<qros::pipeline::Value>::deque'
+                         |      |       (12) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base' from 'std::deque<qros::pipeline::Value>::deque'
+                         |
+                         +--> 'std::_Deque_base<_Tp, _Alloc>::_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 13-14
+                                |
+                                |  458 |       _Deque_base()
+                                |      |       ^~~~~~~~~~~
+                                |      |       |
+                                |      |       (13) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+                                |  459 |       : _M_impl()
+                                |  460 |       { _M_initialize_map(0); }
+                                |      |         ~~~~~~~~~~~~~~~~~~~~
+                                |      |                          |
+                                |      |                          (14) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+                                |
+                                +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 15-16
+                                       |
+                                       |  638 |     _Deque_base<_Tp, _Alloc>::
+                                       |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+                                       |      |     |
+                                       |      |     (15) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                       |......
+                                       |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                                       |      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |      |                                                                    |
+                                       |      |                                                                    (16) calling 'std::__deque_buf_size' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                       |
+                                       +--> 'constexpr std::size_t std::__deque_buf_size(size_t)': events 17-19
+                                              |
+                                              |   96 |   __deque_buf_size(size_t __size)
+                                              |      |   ^~~~~~~~~~~~~~~~
+                                              |      |   |
+                                              |      |   (17) entry to 'std::__deque_buf_size'
+                                              |   97 |   { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
+                                              |      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                              |   98 |             ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+                                              |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                              |      |             |
+                                              |      |             (18) following 'true' branch (when '__size <= 511')...
+                                              |      |             (19) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 20-21
+                                       |
+                                       |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                                       |      |                                                    ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+                                       |      |                                                                    |
+                                       |      |                                                                    (20) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::__deque_buf_size'
+                                       |......
+                                       |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                                       |      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |      |                                           |
+                                       |      |                                           (21) calling 'std::max<long unsigned int>' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                       |  645 |                                            size_t(__num_nodes + 2));
+                                       |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~ 
+                                       |
+                                       +--> 'constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = long unsigned int]': events 22-24
+                                              |
+                                              |/usr/include/c++/13/bits/stl_algobase.h:257:5:
+                                              |  257 |     max(const _Tp& __a, const _Tp& __b)
+                                              |      |     ^~~
+                                              |      |     |
+                                              |      |     (22) entry to 'std::max<long unsigned int>'
+                                              |......
+                                              |  262 |       if (__a < __b)
+                                              |      |       ~~
+                                              |      |       |
+                                              |      |       (23) following 'false' branch...
+                                              |  263 |         return __b;
+                                              |  264 |       return __a;
+                                              |      |              ~~~
+                                              |      |              |
+                                              |      |              (24) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 25-26
+                                       |
+                                       |/usr/include/c++/13/bits/stl_deque.h:644:43:
+                                       |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                                       |      |                                   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |      |                                           |
+                                       |      |                                           (25) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::max<long unsigned int>'
+                                       |  645 |                                            size_t(__num_nodes + 2));
+                                       |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |  646 |       this->_M_impl._M_map = _M_allocate_map(this->_M_impl._M_map_size);
+                                       |      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |      |                                             |
+                                       |      |                                             (26) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                       |
+                                       +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 27-28
+                                              |
+                                              |  594 |       _M_allocate_map(size_t __n)
+                                              |      |       ^~~~~~~~~~~~~~~
+                                              |      |       |
+                                              |      |       (27) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                                              |  595 |       {
+                                              |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                                              |      |                         ~~~~~~~~~~~
+                                              |      |                         |
+                                              |      |                         (28) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                                              |
+                                              +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 29-31
+                                                     |
+                                                     |  575 |       _Map_alloc_type
+                                                     |      |       ~~~~~~~~~~~~~~~
+                                                     |      |       |
+                                                     |      |       (30) region created on stack here
+                                                     |      |       (31) capacity: 8 bytes
+                                                     |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                                     |      |       ^~~~~~~~~~~~~~~~~~~~
+                                                     |      |       |
+                                                     |      |       (29) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                                                     |
+                                                   'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 32
+                                                     |
+                                                     |cc1plus:
+                                                     | (32): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                                     |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'constexpr _ForwardIterator std::__uninitialized_default_n(_ForwardIterator, _Size) [with _ForwardIterator = qros::pipeline::NodeState*; _Size = long unsigned int]': events 1-4
+    |
+    |/usr/include/c++/13/bits/stl_uninitialized.h:696:5:
+    |  696 |     __uninitialized_default_n(_ForwardIterator __first, _Size __n)
+    |      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |     |
+    |      |     (1) entry to 'std::__uninitialized_default_n<qros::pipeline::NodeState*, long unsigned int>'
+    |......
+    |  699 |       if (std::is_constant_evaluated())
+    |      |       ~~
+    |      |       |
+    |      |       (2) following 'false' branch...
+    |......
+    |  707 |       constexpr bool __can_fill
+    |      |                      ~~~~~~~~~~
+    |      |                      |
+    |      |                      (3) ...to here
+    |......
+    |  710 |       return __uninitialized_default_n_1<__is_trivial(_ValueType)
+    |      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |  711 |                                          && __can_fill>::
+    |      |                                          ~~~~~~~~~~~~~~~~
+    |  712 |         __uninit_default_n(__first, __n);
+    |      |         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                           |
+    |      |                           (4) calling 'std::__uninitialized_default_n_1<false>::__uninit_default_n<qros::pipeline::NodeState*, long unsigned int>' from 'std::__uninitialized_default_n<qros::pipeline::NodeState*, long unsigned int>'
+    |
+    +--> 'static constexpr _ForwardIterator std::__uninitialized_default_n_1<_TrivialValueType>::__uninit_default_n(_ForwardIterator, _Size) [with _ForwardIterator = qros::pipeline::NodeState*; _Size = long unsigned int; bool _TrivialValueType = false]': events 5-8
+           |
+           |  637 |         __uninit_default_n(_ForwardIterator __first, _Size __n)
+           |      |         ^~~~~~~~~~~~~~~~~~
+           |      |         |
+           |      |         (5) entry to 'std::__uninitialized_default_n_1<false>::__uninit_default_n<qros::pipeline::NodeState*, long unsigned int>'
+           |......
+           |  642 |               for (; __n > 0; --__n, (void) ++__cur)
+           |      |                      ~~~~~~~
+           |      |                          |
+           |      |                          (6) following 'true' branch (when '__n != 0')...
+           |  643 |                 std::_Construct(std::__addressof(*__cur));
+           |      |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                |
+           |      |                                (7) ...to here
+           |      |                                (8) calling 'std::_Construct<qros::pipeline::NodeState>' from 'std::__uninitialized_default_n_1<false>::__uninit_default_n<qros::pipeline::NodeState*, long unsigned int>'
+           |
+           +--> 'constexpr void std::_Construct(_Tp*, _Args&& ...) [with _Tp = qros::pipeline::NodeState; _Args = {}]': events 9-12
+                  |
+                  |/usr/include/c++/13/bits/stl_construct.h:109:5:
+                  |  109 |     _Construct(_Tp* __p, _Args&&... __args)
+                  |      |     ^~~~~~~~~~
+                  |      |     |
+                  |      |     (9) entry to 'std::_Construct<qros::pipeline::NodeState>'
+                  |......
+                  |  112 |       if (std::__is_constant_evaluated())
+                  |      |       ~~
+                  |      |       |
+                  |      |       (10) following 'false' branch...
+                  |......
+                  |  119 |       ::new((void*)__p) _Tp(std::forward<_Args>(__args)...);
+                  |      |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |       |     |
+                  |      |       |     (11) ...to here
+                  |      |       (12) calling 'qros::pipeline::NodeState::NodeState' from 'std::_Construct<qros::pipeline::NodeState>'
+                  |
+                  +--> 'qros::pipeline::NodeState::NodeState()': events 13-14
+                         |
+                         |/workspace/scratch/4081d1647557/qros_engine_v0_6/include/qros/pipeline.hpp:75:8:
+                         |   75 | struct NodeState {
+                         |      |        ^~~~~~~~~
+                         |      |        |
+                         |      |        (13) entry to 'qros::pipeline::NodeState::NodeState'
+                         |      |        (14) calling 'std::deque<qros::pipeline::Value>::deque' from 'qros::pipeline::NodeState::NodeState'
+                         |
+                         +--> 'std::deque<_Tp, _Alloc>::deque() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 15-16
+                                |
+                                |/usr/include/c++/13/bits/stl_deque.h:855:7:
+                                |  855 |       deque() = default;
+                                |      |       ^~~~~
+                                |      |       |
+                                |      |       (15) entry to 'std::deque<qros::pipeline::Value>::deque'
+                                |      |       (16) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base' from 'std::deque<qros::pipeline::Value>::deque'
+                                |
+                                +--> 'std::_Deque_base<_Tp, _Alloc>::_Deque_base() [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 17-18
+                                       |
+                                       |  458 |       _Deque_base()
+                                       |      |       ^~~~~~~~~~~
+                                       |      |       |
+                                       |      |       (17) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+                                       |  459 |       : _M_impl()
+                                       |  460 |       { _M_initialize_map(0); }
+                                       |      |         ~~~~~~~~~~~~~~~~~~~~
+                                       |      |                          |
+                                       |      |                          (18) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_Deque_base'
+                                       |
+                                       +--> 'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 19-20
+                                              |
+                                              |  638 |     _Deque_base<_Tp, _Alloc>::
+                                              |      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+                                              |      |     |
+                                              |      |     (19) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                              |......
+                                              |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                                              |      |                                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                              |      |                                                                    |
+                                              |      |                                                                    (20) calling 'std::__deque_buf_size' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                              |
+                                              +--> 'constexpr std::size_t std::__deque_buf_size(size_t)': events 21-23
+                                                     |
+                                                     |   96 |   __deque_buf_size(size_t __size)
+                                                     |      |   ^~~~~~~~~~~~~~~~
+                                                     |      |   |
+                                                     |      |   (21) entry to 'std::__deque_buf_size'
+                                                     |   97 |   { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
+                                                     |      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                     |   98 |             ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+                                                     |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                     |      |             |
+                                                     |      |             (22) following 'true' branch (when '__size <= 511')...
+                                                     |      |             (23) ...to here
+                                                     |
+                                              <------+
+                                              |
+                                            'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 24-25
+                                              |
+                                              |  641 |       const size_t __num_nodes = (__num_elements / __deque_buf_size(sizeof(_Tp))
+                                              |      |                                                    ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+                                              |      |                                                                    |
+                                              |      |                                                                    (24) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::__deque_buf_size'
+                                              |......
+                                              |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                                              |      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                              |      |                                           |
+                                              |      |                                           (25) calling 'std::max<long unsigned int>' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                              |  645 |                                            size_t(__num_nodes + 2));
+                                              |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~ 
+                                              |
+                                              +--> 'constexpr const _Tp& std::max(const _Tp&, const _Tp&) [with _Tp = long unsigned int]': events 26-28
+                                                     |
+                                                     |/usr/include/c++/13/bits/stl_algobase.h:257:5:
+                                                     |  257 |     max(const _Tp& __a, const _Tp& __b)
+                                                     |      |     ^~~
+                                                     |      |     |
+                                                     |      |     (26) entry to 'std::max<long unsigned int>'
+                                                     |......
+                                                     |  262 |       if (__a < __b)
+                                                     |      |       ~~
+                                                     |      |       |
+                                                     |      |       (27) following 'false' branch...
+                                                     |  263 |         return __b;
+                                                     |  264 |       return __a;
+                                                     |      |              ~~~
+                                                     |      |              |
+                                                     |      |              (28) ...to here
+                                                     |
+                                              <------+
+                                              |
+                                            'void std::_Deque_base<_Tp, _Alloc>::_M_initialize_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 29-30
+                                              |
+                                              |/usr/include/c++/13/bits/stl_deque.h:644:43:
+                                              |  644 |       this->_M_impl._M_map_size = std::max((size_t) _S_initial_map_size,
+                                              |      |                                   ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                              |      |                                           |
+                                              |      |                                           (29) returning to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map' from 'std::max<long unsigned int>'
+                                              |  645 |                                            size_t(__num_nodes + 2));
+                                              |      |                                            ~~~~~~~~~~~~~~~~~~~~~~~~
+                                              |  646 |       this->_M_impl._M_map = _M_allocate_map(this->_M_impl._M_map_size);
+                                              |      |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                              |      |                                             |
+                                              |      |                                             (30) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_initialize_map'
+                                              |
+                                              +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 31-32
+                                                     |
+                                                     |  594 |       _M_allocate_map(size_t __n)
+                                                     |      |       ^~~~~~~~~~~~~~~
+                                                     |      |       |
+                                                     |      |       (31) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                                                     |  595 |       {
+                                                     |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                                                     |      |                         ~~~~~~~~~~~
+                                                     |      |                         |
+                                                     |      |                         (32) calling 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator' from 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_allocate_map'
+                                                     |
+                                                     +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': events 33-35
+                                                            |
+                                                            |  575 |       _Map_alloc_type
+                                                            |      |       ~~~~~~~~~~~~~~~
+                                                            |      |       |
+                                                            |      |       (34) region created on stack here
+                                                            |      |       (35) capacity: 8 bytes
+                                                            |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                                            |      |       ^~~~~~~~~~~~~~~~~~~~
+                                                            |      |       |
+                                                            |      |       (33) entry to 'std::_Deque_base<qros::pipeline::Value, std::allocator<qros::pipeline::Value> >::_M_get_map_allocator'
+                                                            |
+                                                          'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = qros::pipeline::Value; _Alloc = std::allocator<qros::pipeline::Value>]': event 36
+                                                            |
+                                                            |cc1plus:
+                                                            | (36): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                                            |
+cc1plus: all warnings being treated as errors

@@ -1,0 +1,9 @@
+QROS_VAULT_POLICY_V1
+authorization_id=SOFTWARE_TEST_ONLY
+data_sha256=a7e62d0426bb65072df27386f61077393c3dc27a7623478c8839666726e0deba
+dataset_spec_sha256=2623ace84887c44da8d909b69739c8a21e9326b8e97bf37c7fe75bdb0948c4cf
+development_first_day=20200101
+development_last_day=20251231
+exposure=SYNTHETIC
+holdout_first_day=20260101
+holdout_last_day=20261231

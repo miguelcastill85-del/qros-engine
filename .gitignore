@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+/build*/
+/reports/
+/out/
+/runs/
+/data/
+/holdout/
+/handoff-qa/
+/dist/
+NQX_PACKED17_FULL_2018_2026.bin
+XAU_PACKED17_CENT_FULL_2018_2026.bin
+QROS_NQX_FULL_HISTORY_v2_part*-of-028.zip
+QROS_XAU_FULL_HISTORY_v2_part*-of-035.zip

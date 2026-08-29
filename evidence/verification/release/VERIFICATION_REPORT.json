@@ -1,0 +1,110 @@
+{
+  "schema": "QROS_SOFTWARE_VERIFICATION_V1",
+  "status": "PASS",
+  "purpose": "TEST_ONLY",
+  "build_receipt_sha256": "15067906fcd28e3c7e5fd8557424c81274b54952fdb7a00d2bee10f135e195d8",
+  "source_root_sha256": "d78be57f8e79c0537074019a75e8bf6da36d3c544955cee8e2aa3698a3bdd31a",
+  "entrypoint_sha256": "6835ab7e0bfd94019f67edbd15d5e0c9b2ada9c32f6c261e109cdac22ca28f79",
+  "test_and_reference_bindings": {
+    "tests/test_core.cpp": "3c32d1e842b683fb2c8c572a03e05d2b064cf3ecbd24d65976fd030412e8f855",
+    "tests/test_pipeline.cpp": "182da693699af62e592a7c66f0adc16a68f9e580dacd82746cb9723166d8c446",
+    "tests/test_pipeline_integration.py": "189db1f215b571819e2552f6ea40235ca832ef4bf3b73355babf3e78f1beed81",
+    "tests/prepare_fixtures.py": "cb4e5162f9067f411b662675940500aa5141810bb6a53d64e3330bbecd9cbd66",
+    "tests/check_active_authorities.py": "65564cdde4aa37cad83a4a9c56c27cf035efc1fd00a6b828543616a3d8524d40",
+    "tests/time_fixture_lib.py": "76019b9cd818583b99fcb45f75a72339c4f5ab5902e0938335d41525683db31a",
+    "scripts/verify_software.py": "4e6f04a353a955155ea578a9f2ef5e240c2825c7ec85a248edfc05929f7d4e38",
+    "reference/replay_reference.py": "96dad8a7f23cbee5d716800dd8a0abcdf2824c169901c6f34bac05b4c81b2b75",
+    "reference/qdata_reference.py": "46378b6c0019858f7ef3fe1945e759bef3b0d81ee6bb3d63e3e5ebb20eda1741",
+    "reference/custody_reference.py": "625573ae3652b19ef868c472201c4047853386483c1aea53ba5c285721f6ca15",
+    "reference/time_authority_reference.py": "e6ccf5815d203e2757298b6a4ab6fe5c20331fc5a321d92402121e6d70065186",
+    "reference/pipeline_reference.py": "6f99fda8cf9ad3c1b2acb3ca727f4cf50fe3721f04f1c7b838a2d837dbdf8f50",
+    "tests/parity_randomized.py": "3e77adb80196d968e0900b5c9a1aba38ca870d419eead0c97a57e47c92e9e444",
+    "tests/qdata_parity_randomized.py": "2deef66605ad4fdacdb4e890364afbb18c1ee06e8aff89fd2aaea88f5ee55e3b",
+    "tests/qdata_negative_cases.py": "4a1fb6ca99d12a6b3d25a8b34bb6b3ec83f412d4a840b9e901deff0d0787fca8",
+    "tests/custody_negative_cases.py": "51de0b9be7a75cb5a2c664407aa5ca7994835373439100a6b6116d4d416cbda3",
+    "tests/custody_parity_randomized.py": "562c61832dc13120d91c8a69f6417018325eb5ce596eac8e378847969fa208ed",
+    "tests/time_authority_negative_cases.py": "7912f8e7bfeb498f59cd88f23bf8601c7206c6a925d3f5fc60514a5f135f94c9",
+    "tests/time_authority_parity_randomized.py": "003ab5ec5648660f365f7835a7e6135d59391a05d4a973d9966a90e1222b4f3c"
+  },
+  "suites": [
+    {
+      "suite": "prepare_fixtures",
+      "exit_code": 0,
+      "elapsed_seconds": 0.165,
+      "log_sha256": "bb0023efde194078cf2456617cc7170f734a418e92edb31277015621cc9eed0d"
+    },
+    {
+      "suite": "core_native",
+      "exit_code": 0,
+      "elapsed_seconds": 0.017,
+      "log_sha256": "6d323e0238ba4d4db7f3ef8acd5877100e5a468bbc9c11bcd89bdb53c17f36f0"
+    },
+    {
+      "suite": "pipeline_native",
+      "exit_code": 0,
+      "elapsed_seconds": 0.017,
+      "log_sha256": "3aaf751db1ad88c4e4de3f3d9c30e94b0c9a9bd0fe0931f6f542603ccdfbeb42"
+    },
+    {
+      "suite": "active_authorities",
+      "exit_code": 0,
+      "elapsed_seconds": 0.033,
+      "log_sha256": "340f1b8da895314c516540a7fe4ee769276c32d79aceb710863afe0e96955133"
+    },
+    {
+      "suite": "pipeline_integration",
+      "exit_code": 0,
+      "elapsed_seconds": 3.284,
+      "log_sha256": "fcc23faa301bb6be4eba777b0b1875e2eb0dc924dd036de284e1271d7cb7cecd"
+    },
+    {
+      "suite": "parity_randomized",
+      "exit_code": 0,
+      "elapsed_seconds": 1.525,
+      "log_sha256": "738756127c823a9d98574a4e2baacd5b6857f10d4eb9f7c990de33c7caf293d9"
+    },
+    {
+      "suite": "qdata_parity_randomized",
+      "exit_code": 0,
+      "elapsed_seconds": 1.928,
+      "log_sha256": "c9ab5ca7d5049134fe9f8697b16e6f2811507ebcfc40dbb404637ad4f7bf15a2"
+    },
+    {
+      "suite": "qdata_negative_cases",
+      "exit_code": 0,
+      "elapsed_seconds": 1.337,
+      "log_sha256": "ac7a14b06b2c53795b6601b83c4e31b10bdd20949dac872fd7ca66396f41538c"
+    },
+    {
+      "suite": "custody_negative_cases",
+      "exit_code": 0,
+      "elapsed_seconds": 1.143,
+      "log_sha256": "f52f324eb9ed9b5a9f8e8aae8df61d29f2cd1dce153eb888801b9d11e3fa2ece"
+    },
+    {
+      "suite": "custody_parity_randomized",
+      "exit_code": 0,
+      "elapsed_seconds": 1.86,
+      "log_sha256": "756e164337bbd169a11bdf383917efa447b075273e4014be5afbbba778464b4c"
+    },
+    {
+      "suite": "time_authority_negative_cases",
+      "exit_code": 0,
+      "elapsed_seconds": 1.346,
+      "log_sha256": "fc87bba998082d74a15a7871a75e3d7f4c84a9004fab03251b7650d642d23c76"
+    },
+    {
+      "suite": "time_authority_parity_randomized",
+      "exit_code": 0,
+      "elapsed_seconds": 1.092,
+      "log_sha256": "1567cb7074f565152227084b217fe7f831f8a545d132a8d44e3588d09f6aacd0"
+    }
+  ],
+  "elapsed_seconds": 4.931,
+  "mt5_compiled": false,
+  "real_broker_data_replayed": false,
+  "holdout_opened": false,
+  "research_approved": false,
+  "leak_check_requested": "enabled",
+  "leak_check_supported_here": "NOT_ASSERTED; see sanitizer logs"
+}

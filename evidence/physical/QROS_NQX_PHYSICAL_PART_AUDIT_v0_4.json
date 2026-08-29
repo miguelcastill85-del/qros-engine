@@ -1,0 +1,488 @@
+{
+  "asset": "NQX",
+  "manifest": "QROS_NQX_FULL_HISTORY_ZIP_MANIFEST_v2.json",
+  "parts": [
+    {
+      "actual_bytes": 100816656,
+      "archive_sha256_actual": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+      "first_timestamp_ms_actual": 1516885570165,
+      "index": 1,
+      "last_timestamp_ms_actual": 1537471736644,
+      "members": [
+        "NQX_PACKED17_rows_000000000_019999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "0a0f1814e51bb649aeeadc05a982b052bfaa3a6ea48c6b81c8ec7e1af096f60d",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 113466374,
+      "archive_sha256_actual": "53f827fa0b611d9e2b00db78b1da29b1c41f0d2d7d7e912ddcec12de42984a24",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+      "first_timestamp_ms_actual": 1537471737118,
+      "index": 2,
+      "last_timestamp_ms_actual": 1554752865147,
+      "members": [
+        "NQX_PACKED17_rows_020000000_039999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "371e8c4bff51ed6896101aec9212aa6fcc6677eb650c1e2b1e08739c2518da91",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 111669173,
+      "archive_sha256_actual": "48463c8dd2b020356fd9b21caea470cec4e9340d8a8fd0e25bea8fcb0c512c8b",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip",
+      "first_timestamp_ms_actual": 1554752865306,
+      "index": 3,
+      "last_timestamp_ms_actual": 1577997468216,
+      "members": [
+        "NQX_PACKED17_rows_040000000_059999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "0a74851c86bc8e07585921da2598f5ceefdccaa7cf2a16dd48d3ebcd00267cdf",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 100912007,
+      "archive_sha256_actual": "e7eb189d5f5d335c43f99431f5a476581efcd4058582092c920b1ecce8760e07",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part004-of-028.zip",
+      "first_timestamp_ms_actual": 1577997472532,
+      "index": 4,
+      "last_timestamp_ms_actual": 1594632113145,
+      "members": [
+        "NQX_PACKED17_rows_060000000_079999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "bf3790cb93a2d302ddf10c5d520e700d0b3d1da1a606404b55f5378bb59c6267",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 105002267,
+      "archive_sha256_actual": "72d8fe7dba177abac915d44d3945ffffcfe17ba187ea81944117f6b87a4598f5",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part005-of-028.zip",
+      "first_timestamp_ms_actual": 1594632113145,
+      "index": 5,
+      "last_timestamp_ms_actual": 1608825224596,
+      "members": [
+        "NQX_PACKED17_rows_080000000_099999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "30ef71e2cf737a0476102a9fec5d183f678b009bf7604b12b265e7032a56702b",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 108683637,
+      "archive_sha256_actual": "fedfccac7ae2149e830a90ec8ca9ed442bdd39d1ef9637bf275361366f706e2e",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part006-of-028.zip",
+      "first_timestamp_ms_actual": 1608825225537,
+      "index": 6,
+      "last_timestamp_ms_actual": 1622111870892,
+      "members": [
+        "NQX_PACKED17_rows_100000000_119999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "e953a2c733d0c7d7fa7b705af50bc2cbb8b46eddc0f809ba4c1c74992c802d53",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 88703217,
+      "archive_sha256_actual": "3c7b5b3160782b866dfc417cb6ee1d3b327049e96cd049393231fa7e03c884e7",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part007-of-028.zip",
+      "first_timestamp_ms_actual": 1622111871093,
+      "index": 7,
+      "last_timestamp_ms_actual": 1637609522675,
+      "members": [
+        "NQX_PACKED17_rows_120000000_139999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "01745158f0832905e24ad2c628a6c31afecb1908ea6bc44d856d27c9888dbe17",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 96397826,
+      "archive_sha256_actual": "36b00fcac9e0dcfb7455a547270609c6e785a8b7658a5189e211c105367ff7a9",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part008-of-028.zip",
+      "first_timestamp_ms_actual": 1637609522729,
+      "index": 8,
+      "last_timestamp_ms_actual": 1645804706912,
+      "members": [
+        "NQX_PACKED17_rows_140000000_159999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "95937ddc98d09e01df0ac858e4da5f06ee377d15d63ae75de310130b600db009",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 95825939,
+      "archive_sha256_actual": "0f772abeebc8e4e0a614ed821550dd2fc8f390fff9bae4b1543267b11d1fbde4",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part009-of-028.zip",
+      "first_timestamp_ms_actual": 1645804706960,
+      "index": 9,
+      "last_timestamp_ms_actual": 1652899362767,
+      "members": [
+        "NQX_PACKED17_rows_160000000_179999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "a5fa6d919f03ee7aa1dc06bf2c601e16ac6fb74eb087681028b6785b9058bb12",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 85982396,
+      "archive_sha256_actual": "fea39a6f359aff47473c42493dab04aff672804fc32fe52be4bb0f3216cc6601",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part010-of-028.zip",
+      "first_timestamp_ms_actual": 1652899362975,
+      "index": 10,
+      "last_timestamp_ms_actual": 1656292820500,
+      "members": [
+        "NQX_PACKED17_rows_180000000_199999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "c62a8f728101e4a2b028ced65ae2fa8c8a1d5655e119a97765093f4a30f3d10b",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 84871573,
+      "archive_sha256_actual": "99cff58e92eaefdf898c4dd8a2a9abfa31a688ac96665b431380a2d3a7d6b368",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part011-of-028.zip",
+      "first_timestamp_ms_actual": 1656292821598,
+      "index": 11,
+      "last_timestamp_ms_actual": 1659474136169,
+      "members": [
+        "NQX_PACKED17_rows_200000000_219999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "b771925c98947bc4e293aa5aaeeb13dc2ffc2b62d384ee7c34ddd6142c32eba1",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 86966392,
+      "archive_sha256_actual": "301a0298af677bdf2ec4fcad581cd93bd418beac548f897c7b281a78ad74b681",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part012-of-028.zip",
+      "first_timestamp_ms_actual": 1659474136178,
+      "index": 12,
+      "last_timestamp_ms_actual": 1664836013481,
+      "members": [
+        "NQX_PACKED17_rows_220000000_239999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "cd3832576e33a814c7ebc5be930d0b3a5272e7b1d5784c46ad700acee1f8dc1f",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 85502020,
+      "archive_sha256_actual": "b8e9e642c53e83ff2a90cf13d3f3cac792dbc112a08c7c2f7e72bbb4266fe277",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part013-of-028.zip",
+      "first_timestamp_ms_actual": 1664836013680,
+      "index": 13,
+      "last_timestamp_ms_actual": 1667481482196,
+      "members": [
+        "NQX_PACKED17_rows_240000000_259999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "7d311625da3faf12fdb6653ab3654f16597b86589cfd1adfac1d1384014a0348",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 90452378,
+      "archive_sha256_actual": "5b440b76959c598dc8f65427e2704c08d54fd028c68d43ed04b6d83680b56817",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part014-of-028.zip",
+      "first_timestamp_ms_actual": 1667481482249,
+      "index": 14,
+      "last_timestamp_ms_actual": 1675098428012,
+      "members": [
+        "NQX_PACKED17_rows_260000000_279999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "af659b1198f7589fba1e7805ac5db53152d37f0cfe955721689782cf006ccd14",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 89842399,
+      "archive_sha256_actual": "b445bfdda89830bc58f32d4827970ad28aa5d11a0133bc60273b14447e26f6bb",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part015-of-028.zip",
+      "first_timestamp_ms_actual": 1675098428065,
+      "index": 15,
+      "last_timestamp_ms_actual": 1684875914280,
+      "members": [
+        "NQX_PACKED17_rows_280000000_299999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "c4fb10f5f61108fbbda529e3a0d080b5ea9b62dfc85115219ed739487715322e",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 90223034,
+      "archive_sha256_actual": "53f83129c36955c6e001f1060161ff0821781775e7b1c57dedf0d37e06adc4cc",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part016-of-028.zip",
+      "first_timestamp_ms_actual": 1684875914630,
+      "index": 16,
+      "last_timestamp_ms_actual": 1695402026443,
+      "members": [
+        "NQX_PACKED17_rows_300000000_319999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "86b829dff5b502fcbb6f7c096d2015319cfa76b8049eec8b88d3cd7dacfbce6c",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 89703469,
+      "archive_sha256_actual": "3dba93a5eb83991a2e0421daedf8896547a85ae4a72d41b2ed5c25072fea8a7a",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part017-of-028.zip",
+      "first_timestamp_ms_actual": 1695402026491,
+      "index": 17,
+      "last_timestamp_ms_actual": 1705927047152,
+      "members": [
+        "NQX_PACKED17_rows_320000000_339999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "4e237e723fde4c62af137a9e33b74211e2249ef84f50335d0e489d554bce85d4",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 90775306,
+      "archive_sha256_actual": "78ef26efea77fe76c70c23b72e08c3f596755d4805fe8b7bbd795a354013b530",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part018-of-028.zip",
+      "first_timestamp_ms_actual": 1705927047203,
+      "index": 18,
+      "last_timestamp_ms_actual": 1715792049220,
+      "members": [
+        "NQX_PACKED17_rows_340000000_359999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "ae553093d638e5eb73428d9810f9a75c7e3bff5e8bc1806488def72758ad233c",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 92156531,
+      "archive_sha256_actual": "8b004f944b84125079980cb8989e1787cb45bd93ae89246f8de4078c69201f23",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part019-of-028.zip",
+      "first_timestamp_ms_actual": 1715792049257,
+      "index": 19,
+      "last_timestamp_ms_actual": 1724957881714,
+      "members": [
+        "NQX_PACKED17_rows_360000000_379999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "37b2d86f6dc9164dc08ea3d69e22e7cd6aa8ce07e26f3f484da4011ab576d357",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 91394688,
+      "archive_sha256_actual": "29e72e161e328a3398c0fcf6c5f40730c9e3737a844e2c0e2e9d0182d4d1efa7",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part020-of-028.zip",
+      "first_timestamp_ms_actual": 1724957881764,
+      "index": 20,
+      "last_timestamp_ms_actual": 1734558590226,
+      "members": [
+        "NQX_PACKED17_rows_380000000_399999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "23909f539d540fe703d32b114f2147de52a31aec76b0d5f576baabce3f367b70",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 93588337,
+      "archive_sha256_actual": "6c5ab889c33878d0e0a39454e2392d9a0f451c297cce6cf6ab2493605544b8fa",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part021-of-028.zip",
+      "first_timestamp_ms_actual": 1734558590272,
+      "index": 21,
+      "last_timestamp_ms_actual": 1743165142227,
+      "members": [
+        "NQX_PACKED17_rows_400000000_419999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "3afdfb3aa0f2c674e64e3791cd7657ec04dc577ca2c76511611b75add747a1d9",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 95319635,
+      "archive_sha256_actual": "5413d214da1064c8390e336538fb92ddc1615f71e7a8b5113636fcec469c929b",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part022-of-028.zip",
+      "first_timestamp_ms_actual": 1743165142522,
+      "index": 22,
+      "last_timestamp_ms_actual": 1750037405455,
+      "members": [
+        "NQX_PACKED17_rows_420000000_439999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "bb0ce6a1eab7d6b043322828d72b6f688bff30aef46fdc42bfbba8762ffce8f5",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 91607284,
+      "archive_sha256_actual": "ac2a700d6d828e91e9df18658e682f9a638b9c0cf631e5985dcba7d0ab02235d",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part023-of-028.zip",
+      "first_timestamp_ms_actual": 1750037405502,
+      "index": 23,
+      "last_timestamp_ms_actual": 1760133386071,
+      "members": [
+        "NQX_PACKED17_rows_440000000_459999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "2d4664204348106b39baa8fe164d2b3b1fc445250b8385d94360aa7b5bcd9cd6",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 95357571,
+      "archive_sha256_actual": "6ff78762765e16f61e0b82e80019bf4d590c849e4116ba422cea7d79466f98e1",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part024-of-028.zip",
+      "first_timestamp_ms_actual": 1760133386123,
+      "index": 24,
+      "last_timestamp_ms_actual": 1766012709418,
+      "members": [
+        "NQX_PACKED17_rows_460000000_479999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "29c830adec52ad6f0960f1b6e60f4e7157b1d869e58a6118c92eaca1f4eceaf6",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 94047835,
+      "archive_sha256_actual": "65b42f3300a604ee104a6dfb73ec4f0d27108809a281ec0a7378248455f99e8c",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part025-of-028.zip",
+      "first_timestamp_ms_actual": 1766012709468,
+      "index": 25,
+      "last_timestamp_ms_actual": 1772204645602,
+      "members": [
+        "NQX_PACKED17_rows_480000000_499999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "6b4b81a791014e3335b03dfe2817895ff108e2be0afab9c0435e56bab0849a6e",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 96336960,
+      "archive_sha256_actual": "b64f081d90559c2ac06d6e64c4ba7ab4aad43423003e032394ffb7e8eb25ffc8",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part026-of-028.zip",
+      "first_timestamp_ms_actual": 1772204645804,
+      "index": 26,
+      "last_timestamp_ms_actual": 1776791979279,
+      "members": [
+        "NQX_PACKED17_rows_500000000_519999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "2017e8ec2b310e71100f8e25aa287f8d3660b542ee5aaa5dfd755527eccfbb27",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 96623282,
+      "archive_sha256_actual": "66018d3789f126e73301653471ebe87a02e4976693e0fec8259a4c6c71057ebb",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part027-of-028.zip",
+      "first_timestamp_ms_actual": 1776791979334,
+      "index": 27,
+      "last_timestamp_ms_actual": 1781196806594,
+      "members": [
+        "NQX_PACKED17_rows_520000000_539999999.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 340000000,
+      "payload_sha256_actual": "5744098b0639742b722fe4432d466ac9a4762f271d089cacf0c1796a3a0598a1",
+      "records_actual": 20000000,
+      "status": "PASS"
+    },
+    {
+      "actual_bytes": 101766153,
+      "archive_sha256_actual": "56c2687738eab95979cda683b1a466ccbf7e0d4221f6c91d836b6dd6d770e9ce",
+      "file": "QROS_NQX_FULL_HISTORY_v2_part028-of-028.zip",
+      "first_timestamp_ms_actual": 1781196806639,
+      "index": 28,
+      "last_timestamp_ms_actual": 1785143472709,
+      "members": [
+        "NQX_PACKED17_rows_540000000_559817686.bin",
+        "PART_META.json"
+      ],
+      "part_meta_match": true,
+      "payload_bytes_actual": 336900679,
+      "payload_sha256_actual": "14e6251254969ee6878a667ffd02960f891aa6598295b00a3997056f90f9e230",
+      "records_actual": 19817687,
+      "status": "PASS"
+    }
+  ],
+  "schema": "QROS_PHYSICAL_ZIP_PART_AUDIT_1.0",
+  "summary": {
+    "parts_expected": 28,
+    "parts_fail": [],
+    "parts_pass": 28
+  }
+}

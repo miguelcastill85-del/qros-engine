@@ -1,0 +1,46 @@
+{
+  "schema": "QROS_SOFTWARE_CHECKPOINT_V1",
+  "engine_version": "0.6.0",
+  "date_utc": "2026-08-28",
+  "scope": "SOFTWARE_IMPLEMENTATION_AND_SYNTHETIC_VALIDATION",
+  "status": "TEST_SCOPE_VERIFIED_COMPLETE_PRODUCT_NOT_FINISHED",
+  "entrypoint_sha256": "6835ab7e0bfd94019f67edbd15d5e0c9b2ada9c32f6c261e109cdac22ca28f79",
+  "source_root_sha256": "d78be57f8e79c0537074019a75e8bf6da36d3c544955cee8e2aa3698a3bdd31a",
+  "build_contract_sha256": "1278c2be7ebad5ff78cc29b461e8e3336d4712855344cef724208bc12fa260b9",
+  "parent": "VERIFIED_V0_4_DESCENDANT_NOT_RECOVERED_V0_5",
+  "broker_origin": "DARWINEX_USER_CONFIRMED_FOR_NQX_AND_XAU",
+  "source_clock": "DARWINEX_USER_CONFIRMED; NO_OFFSET_SUBTRACTION_IN_RECOVERED_CONVERTER_CODE",
+  "verification": {
+    "release_suites": 12,
+    "asan_suites": 12,
+    "ubsan_suites": 12,
+    "pipeline_checks": 179,
+    "independent_trade_comparisons": 576,
+    "feature_cells_compared": 74400,
+    "feature_opcodes": 26,
+    "core_property_cases": 10000,
+    "static_builds_byte_identical": true,
+    "leak_check_verified": false
+  },
+  "research_ready": false,
+  "holdout_opened": false,
+  "new_real_data_pnl_computed": false,
+  "scientific_head_promoted": false,
+  "branch_exhausted": false,
+  "portfolio_production_approved": false,
+  "mt5_compiled_or_executed": false,
+  "background_running": false,
+  "pending_implementation": [
+    "SCIENTIFIC_SUPERGATE_METHODS_AND_FROZEN_SPEC",
+    "PHYSICALLY_SEALED_HOLDOUT_AND_EXPOSURE_LOG",
+    "JOINT_PORTFOLIO_REPLAY_AND_MARK_TO_MARKET_RISK",
+    "AUTOMATED_MT5_RAW_DEALS_IMPORT_AND_TERMINAL_PARITY"
+  ],
+  "pending_external_evidence": [
+    "FULL_ORIGINAL_CHAT_OR_FROZEN_SCIENTIFIC_CONTRACT",
+    "FULL_CARRIER_TIME_SESSION_BINDING_AND_CROSSED_QUOTE_POLICY",
+    "ACCESSIBLE_MT5_METAEDITOR_TESTER_ENVIRONMENT"
+  ],
+  "next_action": "Recover the precise scientific specification before defining approval gates; connect a dedicated MT5 tester and complete external parity. Do not unfreeze or mine real data by deleting TEST_ONLY guards.",
+  "output_policy": "OWNED_IMMUTABLE_FILES_AND_HASHED_MANIFEST"
+}

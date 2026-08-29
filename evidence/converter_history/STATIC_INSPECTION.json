@@ -1,0 +1,16 @@
+{
+  "schema": "QROS_CONVERTER_STATIC_INSPECTION_V1",
+  "scope": "READ_ONLY_CODE_INSPECTION_NOT_FULL_CARRIER_RECONVERSION",
+  "files_sha256": {
+    "nqx_csv_stream_to_packed17.c": "573f2cd58e816e64611e08db63d16e0529e2b2e0f1055f6d1c433b17bc0cd5ff",
+    "xau_packed17_cent_full_from_rar.cpp": "310ef0de14b632ff27ac470818d5b7c3fe4cd72340ce530eef837c7612575382"
+  },
+  "source_archive_sha256": "59a9896c9ce3ada2157c66e5c2e96aa7255de5639a873a598460643727433639",
+  "broker_origin": "DARWINEX_USER_CONFIRMED",
+  "nqx_timestamp_construction": "days_from_civil(date) * 86400000 + time_of_day_ms; source lines 126-129",
+  "xau_timestamp_construction": "date_cache.day_ms + time_of_day_ms; source line 244",
+  "timezone_offset_subtracted_in_these_paths": false,
+  "executed_converter_binaries": false,
+  "raw_to_canonical_real_records_rechecked": false,
+  "historical_rar_code_is_active_carrier_authority": false
+}

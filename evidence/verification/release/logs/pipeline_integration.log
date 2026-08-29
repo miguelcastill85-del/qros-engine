@@ -1,0 +1,3 @@
+PARITY trades=576 unique_candidates=48
+INTERRUPTION_AND_FENCING_PASS
+{"status": "PASS", "checks": 179, "independent_trade_comparisons": 576, "independent_feature_cells": 74400, "elapsed_seconds": 3.184}

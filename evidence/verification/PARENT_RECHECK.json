@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "verified_files": 70,
+  "base_manifest_sha256": "bb56fd53eb099bd77a9b653ef244876d2ec29488c332f4b5e9ff12daddf27281",
+  "base_entrypoint_sha256": "15a69d9f8f32082985267d4e8c65d526f9e290278666c8dca8336e4a6194dc6a",
+  "base_untouched": true
+}

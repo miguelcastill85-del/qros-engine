@@ -1,0 +1,12 @@
+==9==Can't open /proc/8/task for reading.
+==8==LeakSanitizer has encountered a fatal error.
+==8==HINT: For debugging, try setting environment variable LSAN_OPTIONS=verbosity=1:log_threads=1
+==8==HINT: LeakSanitizer does not work under ptrace (strace, gdb, etc)
+Traceback (most recent call last):
+  File "/workspace/scratch/4081d1647557/qros_engine_v0_6/tests/prepare_fixtures.py", line 65, in <module>
+    prepare(args.binary.resolve(), args.root.resolve())
+  File "/workspace/scratch/4081d1647557/qros_engine_v0_6/tests/prepare_fixtures.py", line 42, in prepare
+    subprocess.run([str(binary), "source-custody", str(profile), str(source), str(source.parent/"custody_test.receipt")],
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/workspace/scratch/4081d1647557/qros_engine_v0_6/build-asan/qros', 'source-custody', '/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/verify-asan-r1/fixtures/examples/custody_v1/profile.custody', '/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/verify-asan-r1/fixtures/examples/custody_v1/source', '/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/verify-asan-r1/fixtures/examples/custody_v1/custody_test.receipt']' returned non-zero exit status 1.

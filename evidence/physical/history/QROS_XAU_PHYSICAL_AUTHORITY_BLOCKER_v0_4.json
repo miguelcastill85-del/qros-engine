@@ -1,0 +1,15 @@
+{
+  "actual_bytes": 45072384,
+  "actual_sha256": "76d24e947c5a14713001d398676ea7073fd0b648d2c60ee8d30389b7ed61281a",
+  "blocked_part": 29,
+  "evidence_note": "File begins with ZIP local-header signature PK\\x03\\x04 but is truncated before valid central directory.",
+  "expected_bytes": 124142300,
+  "expected_sha256": "5ae00dd3e864d63856adfa2d913663622c4ffb0e786912ca4d825f79340c3040",
+  "file": "QROS_XAU_FULL_HISTORY_v2_part029-of-035.zip",
+  "other_parts_status": "34_OF_35_ARCHIVE_AND_PAYLOAD_PASS",
+  "parts_expected": 35,
+  "parts_pass": 34,
+  "schema": "QROS_XAU_PHYSICAL_AUTHORITY_BLOCKER_v0_4",
+  "status": "BLOCKED_BY_CORRUPT_OR_TRUNCATED_PART",
+  "zip_open_status": "BAD_ZIP_NO_CENTRAL_DIRECTORY"
+}

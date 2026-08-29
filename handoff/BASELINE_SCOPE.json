@@ -1,0 +1,99 @@
+{
+  "schema": "QROS_CODEX_ENGINEERING_HANDOFF_V1",
+  "created_at_utc": "2026-08-28T23:18:07.392559+00:00",
+  "purpose": "SOFTWARE_HANDOFF_NOT_SCIENTIFIC_MIGRATION_OR_NEW_ENGINE_RELEASE",
+  "base": {
+    "version": "0.6.0",
+    "archive": "handoff/baseline/QROS_ENGINE_v0_6_SOFTWARE_20260828_R1.zip",
+    "archive_sha256": "43a95ed3f8e3078db4ab50a3a0e10abfc72b3f363d4867a43483b47a0aa0e20a",
+    "binary": "bin/qros",
+    "binary_sha256": "6835ab7e0bfd94019f67edbd15d5e0c9b2ada9c32f6c261e109cdac22ca28f79",
+    "source_root_sha256": "d78be57f8e79c0537074019a75e8bf6da36d3c544955cee8e2aa3698a3bdd31a",
+    "files_verified_unchanged": 167,
+    "lineage": "v0.4 -> v0.6; v0.5 not recovered",
+    "parent_authority": "control/PARENT.json; history preserved, not fully rerun in this handoff"
+  },
+  "audit": {
+    "archive_sha256": "581bca625bb0ccd77ee62a832ef29c2e6c6bb0c0f75669d4e6945d82d20b4e59",
+    "files_verified": 92,
+    "report": "handoff/audit/AUDITORIA.md",
+    "findings": "A01..A08",
+    "proofs": "handoff/audit/synthetic_probes/AUDIT_PROOFS.json",
+    "reproduced_in_prior_audit": true,
+    "reproduced_again_in_this_handoff": true,
+    "fixes_applied": false,
+    "fresh_relocated_invocations": 17,
+    "fresh_relocated_findings": 8,
+    "fresh_relocated_scope": "Only baseline code and synthetic data; all eight defects/gaps remain open."
+  },
+  "fresh_verification": {
+    "archive_crc_pass": true,
+    "manifests_pass": true,
+    "explicit_source_root_pass": true,
+    "elf_machine": "x86-64",
+    "elf_has_PT_INTERP": false,
+    "environment": {
+      "os": "Linux",
+      "machine": "x86_64"
+    },
+    "commands": [
+      {
+        "command": [
+          "bin/qros",
+          "capabilities"
+        ],
+        "exit_code": 0,
+        "stdout": "QROS_SOFTWARE_CAPABILITIES_V1\ncompiler=CLOSED_TYPED_DAG_LAZY_FINITE_AXES\ndata=STREAMING_CSV5_PACKED17_HASH_BOUND_SESSIONS_SHARD_V3\ngates=BH_BY_YEAR_BLOCK_SCREEN\nholdout=DEVELOPMENT_DENIAL_SINGLE_CONSUMPTION_PRIMITIVE\nlanguage=CXX20_NATIVE\nminer=DETERMINISTIC_BIRTH_CHUNKS_SHARED_FEATURE_GRAPHS\nmt5=EXPORT_AND_PARITY_INFRASTRUCTURE_EXTERNAL_EXECUTION_NOT_VERIFIED\nportfolio=TEST_ONLY_LEDGER_ALLOCATION_NOT_JOINT_REPLAY\nproduction_research_ready=0\nstore=LOCAL_FLOCK_FENCING_CAS_IMMUTABLE_HASH_CHAIN\nversion=0.6.0\n",
+        "stderr": "",
+        "path_empty": true,
+        "scope": "NATIVE_TEST_ONLY_NOT_REAL_DATA"
+      },
+      {
+        "command": [
+          "bin/qros_tests"
+        ],
+        "exit_code": 0,
+        "stdout": "ALL_TESTS_PASS\n",
+        "stderr": "",
+        "path_empty": true,
+        "scope": "NATIVE_TEST_ONLY_NOT_REAL_DATA"
+      },
+      {
+        "command": [
+          "bin/qros_pipeline_tests"
+        ],
+        "exit_code": 0,
+        "stdout": "PIPELINE_TESTS_PASS checks=40\n",
+        "stderr": "",
+        "path_empty": true,
+        "scope": "NATIVE_TEST_ONLY_NOT_REAL_DATA"
+      }
+    ],
+    "full_release_sanitizer_suites_rerun": false
+  },
+  "unavailable_or_not_transferred": [
+    "full original chat and exhaustive frozen scientific contract",
+    "v0.5 source and binary",
+    "real tick carriers and economic results; references only",
+    "research campaign HEAD and RUN_QUEUE",
+    "working MetaEditor/MT5 tester host",
+    "physically isolated holdout evaluator"
+  ],
+  "state": {
+    "engineering_next_action": "verify import, reproduce baseline defects, implement P0 regressions and fixes",
+    "scientific_head": "UNCHANGED_NOT_SELECTED_BY_THIS_HANDOFF",
+    "real_ticks_replayed": false,
+    "holdout_opened": false,
+    "research_approved": false,
+    "mt5_executed": false,
+    "remote_repository_created": false,
+    "codex_task_submitted": false,
+    "background_running": false
+  },
+  "notes": [
+    "Older receipts and capability strings describe their original scope and may overstate constraints affected by the audit.",
+    "The original MANIFEST covers baseline payload only; HANDOFF_MANIFEST covers the new transfer.",
+    "Hash equality provides integrity relative to the known artifact, not broker authenticity or permissions.",
+    "verify_import is for the initial import; expected to reject modified code after development starts."
+  ]
+}

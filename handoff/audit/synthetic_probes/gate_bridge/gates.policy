@@ -1,0 +1,16 @@
+QROS_GATE_POLICY_V1
+alpha_ppm=999999
+completion_path=completion.receipt
+completion_sha256=9382657fb9d51019b8e4b37d8a0f6eccc558c0e863441747eb6d22a1ff0c17c1
+correction=BH
+max_dd_u=1000000
+max_negative_years=10
+method=YEAR_BLOCK_SIGN_FLIP_V1
+min_pf_ppm=0
+min_positive_years=0
+min_trades=1
+n_tests=1
+program_path=program.qros
+program_sha256=0df62093ce5141fd8e31ebaea7cf714ab1e5cc2ad230aa872243a665fccac59a
+repetitions=99
+rng_seed=12345

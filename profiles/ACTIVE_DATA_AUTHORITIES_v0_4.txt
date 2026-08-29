@@ -1,0 +1,2 @@
+01f7322ca775d1e6d82933507ef786cb40ab9db89a511d40634a99eddb9efc1f  NQX_FULL_HISTORY_ZIP_v2.authority
+af8e87fabb184dfebf38db1bf67470040fec56ee0c0cc037f0ac0e8e8ed10efa  XAU_FULL_HISTORY_ZIP_v2.authority

@@ -1,0 +1,15 @@
+QROS_MT5_PARITY_RECEIPT_V1
+COST=0
+DATA=0
+FILL=0
+SESSION=0
+SIGNAL=0
+candidate_id=e07e410cc688eec7a7076048fa3a8d9b6227769088e483f3af2915bd90b8feb0
+expected_trades=1
+frozen_spec_sha256=0df62093ce5141fd8e31ebaea7cf714ab1e5cc2ad230aa872243a665fccac59a
+mt5_runtime_independently_executed_here=0
+observed_trades=1
+plan_sha256=845f220374a89d1c38ba1e8b4d386035b36566432147142923c9ce2b1b354b24
+provenance_class=EXTERNAL_ARTIFACTS_SUPPLIED
+research_approved=0
+status=EXTERNAL_RECORDED_PARITY_PASS

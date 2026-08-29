@@ -1,0 +1,691 @@
+In member function 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]':
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': events 1-2
+    |
+    |/usr/include/c++/13/bits/stl_deque.h:575:7:
+    |  575 |       _Map_alloc_type
+    |      |       ^~~~~~~~~~~~~~~
+    |      |       |
+    |      |       (1) region created on stack here
+    |      |       (2) capacity: 8 bytes
+    |
+  'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': event 3
+    |
+    |cc1plus:
+    | (3): use of uninitialized value '[01m[K<unknown>[m[K' here
+    |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 1-2
+    |
+    |  594 |       _M_allocate_map(size_t __n)
+    |      |       ^~~~~~~~~~~~~~~
+    |      |       |
+    |      |       (1) entry to 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map'
+    |  595 |       {
+    |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+    |      |                         ~~~~~~~~~~~
+    |      |                         |
+    |      |                         (2) calling 'std::_Deque_base<Value, std::allocator<Value> >::_M_get_map_allocator' from 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map'
+    |
+    +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': events 3-5
+           |
+           |  575 |       _Map_alloc_type
+           |      |       ~~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (4) region created on stack here
+           |      |       (5) capacity: 8 bytes
+           |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+           |      |       ^~~~~~~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (3) entry to 'std::_Deque_base<Value, std::allocator<Value> >::_M_get_map_allocator'
+           |
+         'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': event 6
+           |
+           |cc1plus:
+           | (6): use of uninitialized value '[01m[K<unknown>[m[K' here
+           |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'void std::deque<_Tp, _Alloc>::_M_reallocate_map(size_type, bool) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 1-4
+    |
+    |/usr/include/c++/13/bits/deque.tcc:931:5:
+    |  931 |     deque<_Tp, _Alloc>::
+    |      |     ^~~~~~~~~~~~~~~~~~
+    |      |     |
+    |      |     (1) entry to 'std::deque<Value>::_M_reallocate_map'
+    |......
+    |  939 |       if (this->_M_impl._M_map_size > 2 * __new_num_nodes)
+    |      |       ~~
+    |      |       |
+    |      |       (2) following 'false' branch...
+    |......
+    |  955 |           size_type __new_map_size = this->_M_impl._M_map_size
+    |      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                    |
+    |      |                                                    (3) ...to here
+    |......
+    |  959 |           _Map_pointer __new_map = this->_M_allocate_map(__new_map_size);
+    |      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                                                         |
+    |      |                                                         (4) calling 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map' from 'std::deque<Value>::_M_reallocate_map'
+    |
+    +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 5-6
+           |
+           |/usr/include/c++/13/bits/stl_deque.h:594:7:
+           |  594 |       _M_allocate_map(size_t __n)
+           |      |       ^~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (5) entry to 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map'
+           |  595 |       {
+           |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+           |      |                         ~~~~~~~~~~~
+           |      |                         |
+           |      |                         (6) calling 'std::_Deque_base<Value, std::allocator<Value> >::_M_get_map_allocator' from 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map'
+           |
+           +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': events 7-9
+                  |
+                  |  575 |       _Map_alloc_type
+                  |      |       ~~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (8) region created on stack here
+                  |      |       (9) capacity: 8 bytes
+                  |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                  |      |       ^~~~~~~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (7) entry to 'std::_Deque_base<Value, std::allocator<Value> >::_M_get_map_allocator'
+                  |
+                'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': event 10
+                  |
+                  |cc1plus:
+                  | (10): use of uninitialized value '[01m[K<unknown>[m[K' here
+                  |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'void std::deque<_Tp, _Alloc>::_M_reserve_map_at_back(size_type) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 1-4
+    |
+    | 2168 |       _M_reserve_map_at_back(size_type __nodes_to_add = 1)
+    |      |       ^~~~~~~~~~~~~~~~~~~~~~
+    |      |       |
+    |      |       (1) entry to 'std::deque<Value>::_M_reserve_map_at_back'
+    | 2169 |       {
+    | 2170 |         if (__nodes_to_add + 1 > this->_M_impl._M_map_size
+    |      |         ~~
+    |      |         |
+    |      |         (2) following 'true' branch...
+    | 2171 |             - (this->_M_impl._M_finish._M_node - this->_M_impl._M_map))
+    | 2172 |           _M_reallocate_map(__nodes_to_add, false);
+    |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                            |
+    |      |                            (3) ...to here
+    |      |                            (4) calling 'std::deque<Value>::_M_reallocate_map' from 'std::deque<Value>::_M_reserve_map_at_back'
+    |
+    +--> 'void std::deque<_Tp, _Alloc>::_M_reallocate_map(size_type, bool) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 5-8
+           |
+           |/usr/include/c++/13/bits/deque.tcc:931:5:
+           |  931 |     deque<_Tp, _Alloc>::
+           |      |     ^~~~~~~~~~~~~~~~~~
+           |      |     |
+           |      |     (5) entry to 'std::deque<Value>::_M_reallocate_map'
+           |......
+           |  939 |       if (this->_M_impl._M_map_size > 2 * __new_num_nodes)
+           |      |       ~~
+           |      |       |
+           |      |       (6) following 'false' branch...
+           |......
+           |  955 |           size_type __new_map_size = this->_M_impl._M_map_size
+           |      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                                    |
+           |      |                                                    (7) ...to here
+           |......
+           |  959 |           _Map_pointer __new_map = this->_M_allocate_map(__new_map_size);
+           |      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                                         |
+           |      |                                                         (8) calling 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map' from 'std::deque<Value>::_M_reallocate_map'
+           |
+           +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 9-10
+                  |
+                  |/usr/include/c++/13/bits/stl_deque.h:594:7:
+                  |  594 |       _M_allocate_map(size_t __n)
+                  |      |       ^~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (9) entry to 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map'
+                  |  595 |       {
+                  |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                  |      |                         ~~~~~~~~~~~
+                  |      |                         |
+                  |      |                         (10) calling 'std::_Deque_base<Value, std::allocator<Value> >::_M_get_map_allocator' from 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map'
+                  |
+                  +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': events 11-13
+                         |
+                         |  575 |       _Map_alloc_type
+                         |      |       ~~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (12) region created on stack here
+                         |      |       (13) capacity: 8 bytes
+                         |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                         |      |       ^~~~~~~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (11) entry to 'std::_Deque_base<Value, std::allocator<Value> >::_M_get_map_allocator'
+                         |
+                       'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': event 14
+                         |
+                         |cc1plus:
+                         | (14): use of uninitialized value '[01m[K<unknown>[m[K' here
+                         |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'void std::deque<_Tp, _Alloc>::_M_push_back_aux(_Args&& ...) [with _Args = {Value}; _Tp = Value; _Alloc = std::allocator<Value>]': events 1-2
+    |
+    |/usr/include/c++/13/bits/deque.tcc:484:7:
+    |  484 |       deque<_Tp, _Alloc>::
+    |      |       ^~~~~~~~~~~~~~~~~~
+    |      |       |
+    |      |       (1) entry to 'std::deque<Value>::_M_push_back_aux<Value>'
+    |......
+    |  492 |         if (size() == max_size())
+    |      |             ~~~~~~
+    |      |                 |
+    |      |                 (2) calling 'std::deque<Value>::size' from 'std::deque<Value>::_M_push_back_aux<Value>'
+    |
+    +--> 'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::size() const [with _Tp = Value; _Alloc = std::allocator<Value>]': events 3-4
+           |
+           |/usr/include/c++/13/bits/stl_deque.h:1268:7:
+           | 1268 |       size() const _GLIBCXX_NOEXCEPT
+           |      |       ^~~~
+           |      |       |
+           |      |       (3) entry to 'std::deque<Value>::size'
+           | 1269 |       { return this->_M_impl._M_finish - this->_M_impl._M_start; }
+           |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                        |
+           |      |                                        (4) calling 'std::operator-' from 'std::deque<Value>::size'
+           |
+           +--> 'std::_Deque_iterator<Value, Value&, Value*>::difference_type std::operator-(const _Deque_iterator<Value, Value&, Value*>::_Self&, const _Deque_iterator<Value, Value&, Value*>::_Self&)': events 5-6
+                  |
+                  |  370 |       operator-(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+                  |      |       ^~~~~~~~
+                  |      |       |
+                  |      |       (5) entry to 'std::operator-'
+                  |  371 |       {
+                  |  372 |         return difference_type(_S_buffer_size())
+                  |      |                                ~~~~~~~~~~~~~~~~
+                  |      |                                              |
+                  |      |                                              (6) calling 'std::_Deque_iterator<Value, Value&, Value*>::_S_buffer_size' from 'std::operator-'
+                  |
+                  +--> 'static std::size_t std::_Deque_iterator<_Tp, _Ref, _Ptr>::_S_buffer_size() [with _Tp = Value; _Ref = Value&; _Ptr = Value*]': events 7-8
+                         |
+                         |  131 |       static size_t _S_buffer_size() _GLIBCXX_NOEXCEPT
+                         |      |                     ^~~~~~~~~~~~~~
+                         |      |                     |
+                         |      |                     (7) entry to 'std::_Deque_iterator<Value, Value&, Value*>::_S_buffer_size'
+                         |  132 |       { return __deque_buf_size(sizeof(_Tp)); }
+                         |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                                |
+                         |      |                                (8) calling 'std::__deque_buf_size' from 'std::_Deque_iterator<Value, Value&, Value*>::_S_buffer_size'
+                         |
+                         +--> 'constexpr std::size_t std::__deque_buf_size(size_t)': events 9-11
+                                |
+                                |   96 |   __deque_buf_size(size_t __size)
+                                |      |   ^~~~~~~~~~~~~~~~
+                                |      |   |
+                                |      |   (9) entry to 'std::__deque_buf_size'
+                                |   97 |   { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
+                                |      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |   98 |             ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+                                |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |             |
+                                |      |             (10) following 'true' branch (when '__size <= 511')...
+                                |      |             (11) ...to here
+                                |
+                         <------+
+                         |
+                       'static std::size_t std::_Deque_iterator<_Tp, _Ref, _Ptr>::_S_buffer_size() [with _Tp = Value; _Ref = Value&; _Ptr = Value*]': event 12
+                         |
+                         |  132 |       { return __deque_buf_size(sizeof(_Tp)); }
+                         |      |                ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+                         |      |                                |
+                         |      |                                (12) returning to 'std::_Deque_iterator<Value, Value&, Value*>::_S_buffer_size' from 'std::__deque_buf_size'
+                         |
+                  <------+
+                  |
+                'std::_Deque_iterator<Value, Value&, Value*>::difference_type std::operator-(const _Deque_iterator<Value, Value&, Value*>::_Self&, const _Deque_iterator<Value, Value&, Value*>::_Self&)': event 13
+                  |
+                  |  372 |         return difference_type(_S_buffer_size())
+                  |      |                                ~~~~~~~~~~~~~~^~
+                  |      |                                              |
+                  |      |                                              (13) returning to 'std::operator-' from 'std::_Deque_iterator<Value, Value&, Value*>::_S_buffer_size'
+                  |
+           <------+
+           |
+         'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::size() const [with _Tp = Value; _Alloc = std::allocator<Value>]': event 14
+           |
+           | 1269 |       { return this->_M_impl._M_finish - this->_M_impl._M_start; }
+           |      |                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                                        |
+           |      |                                        (14) returning to 'std::deque<Value>::size' from 'std::operator-'
+           |
+    <------+
+    |
+  'void std::deque<_Tp, _Alloc>::_M_push_back_aux(_Args&& ...) [with _Args = {Value}; _Tp = Value; _Alloc = std::allocator<Value>]': events 15-16
+    |
+    |/usr/include/c++/13/bits/deque.tcc:492:17:
+    |  492 |         if (size() == max_size())
+    |      |             ~~~~^~    ~~~~~~~~~~
+    |      |                 |             |
+    |      |                 |             (16) calling 'std::deque<Value>::max_size' from 'std::deque<Value>::_M_push_back_aux<Value>'
+    |      |                 (15) returning to 'std::deque<Value>::_M_push_back_aux<Value>' from 'std::deque<Value>::size'
+    |
+    +--> 'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::max_size() const [with _Tp = Value; _Alloc = std::allocator<Value>]': events 17-18
+           |
+           |/usr/include/c++/13/bits/stl_deque.h:1274:7:
+           | 1274 |       max_size() const _GLIBCXX_NOEXCEPT
+           |      |       ^~~~~~~~
+           |      |       |
+           |      |       (17) entry to 'std::deque<Value>::max_size'
+           | 1275 |       { return _S_max_size(_M_get_Tp_allocator()); }
+           |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                           |
+           |      |                           (18) calling 'std::deque<Value>::_S_max_size' from 'std::deque<Value>::max_size'
+           |
+           +--> 'static std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 19-20
+                  |
+                  | 1876 |       _S_max_size(const _Tp_alloc_type& __a) _GLIBCXX_NOEXCEPT
+                  |      |       ^~~~~~~~~~~
+                  |      |       |
+                  |      |       (19) entry to 'std::deque<Value>::_S_max_size'
+                  |......
+                  | 1880 |         return (std::min)(__diffmax, __allocmax);
+                  |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                          |
+                  |      |                          (20) calling 'std::min<long unsigned int>' from 'std::deque<Value>::_S_max_size'
+                  |
+                  +--> 'constexpr const _Tp& std::min(const _Tp&, const _Tp&) [with _Tp = long unsigned int]': events 21-23
+                         |
+                         |/usr/include/c++/13/bits/stl_algobase.h:233:5:
+                         |  233 |     min(const _Tp& __a, const _Tp& __b)
+                         |      |     ^~~
+                         |      |     |
+                         |      |     (21) entry to 'std::min<long unsigned int>'
+                         |......
+                         |  238 |       if (__b < __a)
+                         |      |       ~~
+                         |      |       |
+                         |      |       (22) following 'true' branch...
+                         |  239 |         return __b;
+                         |      |                ~~~
+                         |      |                |
+                         |      |                (23) ...to here
+                         |
+                  <------+
+                  |
+                'static std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = Value; _Alloc = std::allocator<Value>]': event 24
+                  |
+                  |/usr/include/c++/13/bits/stl_deque.h:1880:26:
+                  | 1880 |         return (std::min)(__diffmax, __allocmax);
+                  |      |                ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                          |
+                  |      |                          (24) returning to 'std::deque<Value>::_S_max_size' from 'std::min<long unsigned int>'
+                  |
+           <------+
+           |
+         'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::max_size() const [with _Tp = Value; _Alloc = std::allocator<Value>]': event 25
+           |
+           | 1275 |       { return _S_max_size(_M_get_Tp_allocator()); }
+           |      |                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+           |      |                           |
+           |      |                           (25) returning to 'std::deque<Value>::max_size' from 'std::deque<Value>::_S_max_size'
+           |
+    <------+
+    |
+  'void std::deque<_Tp, _Alloc>::_M_push_back_aux(_Args&& ...) [with _Args = {Value}; _Tp = Value; _Alloc = std::allocator<Value>]': events 26-29
+    |
+    |/usr/include/c++/13/bits/deque.tcc:492:31:
+    |  492 |         if (size() == max_size())
+    |      |         ~~            ~~~~~~~~^~
+    |      |         |                     |
+    |      |         |                     (26) returning to 'std::deque<Value>::_M_push_back_aux<Value>' from 'std::deque<Value>::max_size'
+    |      |         (27) following 'false' branch...
+    |......
+    |  496 |         _M_reserve_map_at_back();
+    |      |         ~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                               |
+    |      |                               (28) ...to here
+    |      |                               (29) calling 'std::deque<Value>::_M_reserve_map_at_back' from 'std::deque<Value>::_M_push_back_aux<Value>'
+    |
+    +--> 'void std::deque<_Tp, _Alloc>::_M_reserve_map_at_back(size_type) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 30-33
+           |
+           |/usr/include/c++/13/bits/stl_deque.h:2168:7:
+           | 2168 |       _M_reserve_map_at_back(size_type __nodes_to_add = 1)
+           |      |       ^~~~~~~~~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (30) entry to 'std::deque<Value>::_M_reserve_map_at_back'
+           | 2169 |       {
+           | 2170 |         if (__nodes_to_add + 1 > this->_M_impl._M_map_size
+           |      |         ~~
+           |      |         |
+           |      |         (31) following 'true' branch...
+           | 2171 |             - (this->_M_impl._M_finish._M_node - this->_M_impl._M_map))
+           | 2172 |           _M_reallocate_map(__nodes_to_add, false);
+           |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                            |
+           |      |                            (32) ...to here
+           |      |                            (33) calling 'std::deque<Value>::_M_reallocate_map' from 'std::deque<Value>::_M_reserve_map_at_back'
+           |
+           +--> 'void std::deque<_Tp, _Alloc>::_M_reallocate_map(size_type, bool) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 34-37
+                  |
+                  |/usr/include/c++/13/bits/deque.tcc:931:5:
+                  |  931 |     deque<_Tp, _Alloc>::
+                  |      |     ^~~~~~~~~~~~~~~~~~
+                  |      |     |
+                  |      |     (34) entry to 'std::deque<Value>::_M_reallocate_map'
+                  |......
+                  |  939 |       if (this->_M_impl._M_map_size > 2 * __new_num_nodes)
+                  |      |       ~~
+                  |      |       |
+                  |      |       (35) following 'false' branch...
+                  |......
+                  |  955 |           size_type __new_map_size = this->_M_impl._M_map_size
+                  |      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                                                    |
+                  |      |                                                    (36) ...to here
+                  |......
+                  |  959 |           _Map_pointer __new_map = this->_M_allocate_map(__new_map_size);
+                  |      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                                                         |
+                  |      |                                                         (37) calling 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map' from 'std::deque<Value>::_M_reallocate_map'
+                  |
+                  +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 38-39
+                         |
+                         |/usr/include/c++/13/bits/stl_deque.h:594:7:
+                         |  594 |       _M_allocate_map(size_t __n)
+                         |      |       ^~~~~~~~~~~~~~~
+                         |      |       |
+                         |      |       (38) entry to 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map'
+                         |  595 |       {
+                         |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                         |      |                         ~~~~~~~~~~~
+                         |      |                         |
+                         |      |                         (39) calling 'std::_Deque_base<Value, std::allocator<Value> >::_M_get_map_allocator' from 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map'
+                         |
+                         +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': events 40-42
+                                |
+                                |  575 |       _Map_alloc_type
+                                |      |       ~~~~~~~~~~~~~~~
+                                |      |       |
+                                |      |       (41) region created on stack here
+                                |      |       (42) capacity: 8 bytes
+                                |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                |      |       ^~~~~~~~~~~~~~~~~~~~
+                                |      |       |
+                                |      |       (40) entry to 'std::_Deque_base<Value, std::allocator<Value> >::_M_get_map_allocator'
+                                |
+                              'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': event 43
+                                |
+                                |cc1plus:
+                                | (43): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                |
+cc1plus: error: use of uninitialized value '<unknown>' [CWE-457] [-Werror=analyzer-use-of-uninitialized-value]
+  'std::deque<_Tp, _Alloc>::reference std::deque<_Tp, _Alloc>::emplace_back(_Args&& ...) [with _Args = {Value}; _Tp = Value; _Alloc = std::allocator<Value>]': events 1-4
+    |
+    |/usr/include/c++/13/bits/deque.tcc:164:7:
+    |  164 |       deque<_Tp, _Alloc>::
+    |      |       ^~~~~~~~~~~~~~~~~~
+    |      |       |
+    |      |       (1) entry to 'std::deque<Value>::emplace_back<Value>'
+    |......
+    |  167 |         if (this->_M_impl._M_finish._M_cur
+    |      |         ~~
+    |      |         |
+    |      |         (2) following 'false' branch...
+    |......
+    |  176 |           _M_push_back_aux(std::forward<_Args>(__args)...);
+    |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    |      |                           |
+    |      |                           (3) ...to here
+    |      |                           (4) calling 'std::deque<Value>::_M_push_back_aux<Value>' from 'std::deque<Value>::emplace_back<Value>'
+    |
+    +--> 'void std::deque<_Tp, _Alloc>::_M_push_back_aux(_Args&& ...) [with _Args = {Value}; _Tp = Value; _Alloc = std::allocator<Value>]': events 5-6
+           |
+           |  484 |       deque<_Tp, _Alloc>::
+           |      |       ^~~~~~~~~~~~~~~~~~
+           |      |       |
+           |      |       (5) entry to 'std::deque<Value>::_M_push_back_aux<Value>'
+           |......
+           |  492 |         if (size() == max_size())
+           |      |             ~~~~~~
+           |      |                 |
+           |      |                 (6) calling 'std::deque<Value>::size' from 'std::deque<Value>::_M_push_back_aux<Value>'
+           |
+           +--> 'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::size() const [with _Tp = Value; _Alloc = std::allocator<Value>]': events 7-8
+                  |
+                  |/usr/include/c++/13/bits/stl_deque.h:1268:7:
+                  | 1268 |       size() const _GLIBCXX_NOEXCEPT
+                  |      |       ^~~~
+                  |      |       |
+                  |      |       (7) entry to 'std::deque<Value>::size'
+                  | 1269 |       { return this->_M_impl._M_finish - this->_M_impl._M_start; }
+                  |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                                        |
+                  |      |                                        (8) calling 'std::operator-' from 'std::deque<Value>::size'
+                  |
+                  +--> 'std::_Deque_iterator<Value, Value&, Value*>::difference_type std::operator-(const _Deque_iterator<Value, Value&, Value*>::_Self&, const _Deque_iterator<Value, Value&, Value*>::_Self&)': events 9-10
+                         |
+                         |  370 |       operator-(const _Self& __x, const _Self& __y) _GLIBCXX_NOEXCEPT
+                         |      |       ^~~~~~~~
+                         |      |       |
+                         |      |       (9) entry to 'std::operator-'
+                         |  371 |       {
+                         |  372 |         return difference_type(_S_buffer_size())
+                         |      |                                ~~~~~~~~~~~~~~~~
+                         |      |                                              |
+                         |      |                                              (10) calling 'std::_Deque_iterator<Value, Value&, Value*>::_S_buffer_size' from 'std::operator-'
+                         |
+                         +--> 'static std::size_t std::_Deque_iterator<_Tp, _Ref, _Ptr>::_S_buffer_size() [with _Tp = Value; _Ref = Value&; _Ptr = Value*]': events 11-12
+                                |
+                                |  131 |       static size_t _S_buffer_size() _GLIBCXX_NOEXCEPT
+                                |      |                     ^~~~~~~~~~~~~~
+                                |      |                     |
+                                |      |                     (11) entry to 'std::_Deque_iterator<Value, Value&, Value*>::_S_buffer_size'
+                                |  132 |       { return __deque_buf_size(sizeof(_Tp)); }
+                                |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                |      |                                |
+                                |      |                                (12) calling 'std::__deque_buf_size' from 'std::_Deque_iterator<Value, Value&, Value*>::_S_buffer_size'
+                                |
+                                +--> 'constexpr std::size_t std::__deque_buf_size(size_t)': events 13-15
+                                       |
+                                       |   96 |   __deque_buf_size(size_t __size)
+                                       |      |   ^~~~~~~~~~~~~~~~
+                                       |      |   |
+                                       |      |   (13) entry to 'std::__deque_buf_size'
+                                       |   97 |   { return (__size < _GLIBCXX_DEQUE_BUF_SIZE
+                                       |      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |   98 |             ? size_t(_GLIBCXX_DEQUE_BUF_SIZE / __size) : size_t(1)); }
+                                       |      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                       |      |             |
+                                       |      |             (14) following 'true' branch (when '__size <= 511')...
+                                       |      |             (15) ...to here
+                                       |
+                                <------+
+                                |
+                              'static std::size_t std::_Deque_iterator<_Tp, _Ref, _Ptr>::_S_buffer_size() [with _Tp = Value; _Ref = Value&; _Ptr = Value*]': event 16
+                                |
+                                |  132 |       { return __deque_buf_size(sizeof(_Tp)); }
+                                |      |                ~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+                                |      |                                |
+                                |      |                                (16) returning to 'std::_Deque_iterator<Value, Value&, Value*>::_S_buffer_size' from 'std::__deque_buf_size'
+                                |
+                         <------+
+                         |
+                       'std::_Deque_iterator<Value, Value&, Value*>::difference_type std::operator-(const _Deque_iterator<Value, Value&, Value*>::_Self&, const _Deque_iterator<Value, Value&, Value*>::_Self&)': event 17
+                         |
+                         |  372 |         return difference_type(_S_buffer_size())
+                         |      |                                ~~~~~~~~~~~~~~^~
+                         |      |                                              |
+                         |      |                                              (17) returning to 'std::operator-' from 'std::_Deque_iterator<Value, Value&, Value*>::_S_buffer_size'
+                         |
+                  <------+
+                  |
+                'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::size() const [with _Tp = Value; _Alloc = std::allocator<Value>]': event 18
+                  |
+                  | 1269 |       { return this->_M_impl._M_finish - this->_M_impl._M_start; }
+                  |      |                ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                                        |
+                  |      |                                        (18) returning to 'std::deque<Value>::size' from 'std::operator-'
+                  |
+           <------+
+           |
+         'void std::deque<_Tp, _Alloc>::_M_push_back_aux(_Args&& ...) [with _Args = {Value}; _Tp = Value; _Alloc = std::allocator<Value>]': events 19-20
+           |
+           |/usr/include/c++/13/bits/deque.tcc:492:17:
+           |  492 |         if (size() == max_size())
+           |      |             ~~~~^~    ~~~~~~~~~~
+           |      |                 |             |
+           |      |                 |             (20) calling 'std::deque<Value>::max_size' from 'std::deque<Value>::_M_push_back_aux<Value>'
+           |      |                 (19) returning to 'std::deque<Value>::_M_push_back_aux<Value>' from 'std::deque<Value>::size'
+           |
+           +--> 'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::max_size() const [with _Tp = Value; _Alloc = std::allocator<Value>]': events 21-22
+                  |
+                  |/usr/include/c++/13/bits/stl_deque.h:1274:7:
+                  | 1274 |       max_size() const _GLIBCXX_NOEXCEPT
+                  |      |       ^~~~~~~~
+                  |      |       |
+                  |      |       (21) entry to 'std::deque<Value>::max_size'
+                  | 1275 |       { return _S_max_size(_M_get_Tp_allocator()); }
+                  |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                           |
+                  |      |                           (22) calling 'std::deque<Value>::_S_max_size' from 'std::deque<Value>::max_size'
+                  |
+                  +--> 'static std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 23-24
+                         |
+                         | 1876 |       _S_max_size(const _Tp_alloc_type& __a) _GLIBCXX_NOEXCEPT
+                         |      |       ^~~~~~~~~~~
+                         |      |       |
+                         |      |       (23) entry to 'std::deque<Value>::_S_max_size'
+                         |......
+                         | 1880 |         return (std::min)(__diffmax, __allocmax);
+                         |      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                          |
+                         |      |                          (24) calling 'std::min<long unsigned int>' from 'std::deque<Value>::_S_max_size'
+                         |
+                         +--> 'constexpr const _Tp& std::min(const _Tp&, const _Tp&) [with _Tp = long unsigned int]': events 25-27
+                                |
+                                |/usr/include/c++/13/bits/stl_algobase.h:233:5:
+                                |  233 |     min(const _Tp& __a, const _Tp& __b)
+                                |      |     ^~~
+                                |      |     |
+                                |      |     (25) entry to 'std::min<long unsigned int>'
+                                |......
+                                |  238 |       if (__b < __a)
+                                |      |       ~~
+                                |      |       |
+                                |      |       (26) following 'true' branch...
+                                |  239 |         return __b;
+                                |      |                ~~~
+                                |      |                |
+                                |      |                (27) ...to here
+                                |
+                         <------+
+                         |
+                       'static std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::_S_max_size(const _Tp_alloc_type&) [with _Tp = Value; _Alloc = std::allocator<Value>]': event 28
+                         |
+                         |/usr/include/c++/13/bits/stl_deque.h:1880:26:
+                         | 1880 |         return (std::min)(__diffmax, __allocmax);
+                         |      |                ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                          |
+                         |      |                          (28) returning to 'std::deque<Value>::_S_max_size' from 'std::min<long unsigned int>'
+                         |
+                  <------+
+                  |
+                'std::deque<_Tp, _Alloc>::size_type std::deque<_Tp, _Alloc>::max_size() const [with _Tp = Value; _Alloc = std::allocator<Value>]': event 29
+                  |
+                  | 1275 |       { return _S_max_size(_M_get_Tp_allocator()); }
+                  |      |                ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                           |
+                  |      |                           (29) returning to 'std::deque<Value>::max_size' from 'std::deque<Value>::_S_max_size'
+                  |
+           <------+
+           |
+         'void std::deque<_Tp, _Alloc>::_M_push_back_aux(_Args&& ...) [with _Args = {Value}; _Tp = Value; _Alloc = std::allocator<Value>]': events 30-33
+           |
+           |/usr/include/c++/13/bits/deque.tcc:492:31:
+           |  492 |         if (size() == max_size())
+           |      |         ~~            ~~~~~~~~^~
+           |      |         |                     |
+           |      |         |                     (30) returning to 'std::deque<Value>::_M_push_back_aux<Value>' from 'std::deque<Value>::max_size'
+           |      |         (31) following 'false' branch...
+           |......
+           |  496 |         _M_reserve_map_at_back();
+           |      |         ~~~~~~~~~~~~~~~~~~~~~~~~
+           |      |                               |
+           |      |                               (32) ...to here
+           |      |                               (33) calling 'std::deque<Value>::_M_reserve_map_at_back' from 'std::deque<Value>::_M_push_back_aux<Value>'
+           |
+           +--> 'void std::deque<_Tp, _Alloc>::_M_reserve_map_at_back(size_type) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 34-37
+                  |
+                  |/usr/include/c++/13/bits/stl_deque.h:2168:7:
+                  | 2168 |       _M_reserve_map_at_back(size_type __nodes_to_add = 1)
+                  |      |       ^~~~~~~~~~~~~~~~~~~~~~
+                  |      |       |
+                  |      |       (34) entry to 'std::deque<Value>::_M_reserve_map_at_back'
+                  | 2169 |       {
+                  | 2170 |         if (__nodes_to_add + 1 > this->_M_impl._M_map_size
+                  |      |         ~~
+                  |      |         |
+                  |      |         (35) following 'true' branch...
+                  | 2171 |             - (this->_M_impl._M_finish._M_node - this->_M_impl._M_map))
+                  | 2172 |           _M_reallocate_map(__nodes_to_add, false);
+                  |      |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                  |      |                            |
+                  |      |                            (36) ...to here
+                  |      |                            (37) calling 'std::deque<Value>::_M_reallocate_map' from 'std::deque<Value>::_M_reserve_map_at_back'
+                  |
+                  +--> 'void std::deque<_Tp, _Alloc>::_M_reallocate_map(size_type, bool) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 38-41
+                         |
+                         |/usr/include/c++/13/bits/deque.tcc:931:5:
+                         |  931 |     deque<_Tp, _Alloc>::
+                         |      |     ^~~~~~~~~~~~~~~~~~
+                         |      |     |
+                         |      |     (38) entry to 'std::deque<Value>::_M_reallocate_map'
+                         |......
+                         |  939 |       if (this->_M_impl._M_map_size > 2 * __new_num_nodes)
+                         |      |       ~~
+                         |      |       |
+                         |      |       (39) following 'false' branch...
+                         |......
+                         |  955 |           size_type __new_map_size = this->_M_impl._M_map_size
+                         |      |                                      ~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                                                    |
+                         |      |                                                    (40) ...to here
+                         |......
+                         |  959 |           _Map_pointer __new_map = this->_M_allocate_map(__new_map_size);
+                         |      |                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                         |      |                                                         |
+                         |      |                                                         (41) calling 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map' from 'std::deque<Value>::_M_reallocate_map'
+                         |
+                         +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_pointer std::_Deque_base<_Tp, _Alloc>::_M_allocate_map(std::size_t) [with _Tp = Value; _Alloc = std::allocator<Value>]': events 42-43
+                                |
+                                |/usr/include/c++/13/bits/stl_deque.h:594:7:
+                                |  594 |       _M_allocate_map(size_t __n)
+                                |      |       ^~~~~~~~~~~~~~~
+                                |      |       |
+                                |      |       (42) entry to 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map'
+                                |  595 |       {
+                                |  596 |         _Map_alloc_type __map_alloc = _M_get_map_allocator();
+                                |      |                         ~~~~~~~~~~~
+                                |      |                         |
+                                |      |                         (43) calling 'std::_Deque_base<Value, std::allocator<Value> >::_M_get_map_allocator' from 'std::_Deque_base<Value, std::allocator<Value> >::_M_allocate_map'
+                                |
+                                +--> 'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': events 44-46
+                                       |
+                                       |  575 |       _Map_alloc_type
+                                       |      |       ~~~~~~~~~~~~~~~
+                                       |      |       |
+                                       |      |       (45) region created on stack here
+                                       |      |       (46) capacity: 8 bytes
+                                       |  576 |       _M_get_map_allocator() const _GLIBCXX_NOEXCEPT
+                                       |      |       ^~~~~~~~~~~~~~~~~~~~
+                                       |      |       |
+                                       |      |       (44) entry to 'std::_Deque_base<Value, std::allocator<Value> >::_M_get_map_allocator'
+                                       |
+                                     'std::_Deque_base<_Tp, _Alloc>::_Map_alloc_type std::_Deque_base<_Tp, _Alloc>::_M_get_map_allocator() const [with _Tp = Value; _Alloc = std::allocator<Value>]': event 47
+                                       |
+                                       |cc1plus:
+                                       | (47): use of uninitialized value '[01m[K<unknown>[m[K' here
+                                       |
+cc1plus: all warnings being treated as errors

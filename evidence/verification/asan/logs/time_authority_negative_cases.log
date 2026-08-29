@@ -1,0 +1,26 @@
+PASS positive
+PASS schedule_hash_tamper
+PASS anchors_hash_tamper
+PASS provenance_hash_tamper
+PASS schedule_gap
+PASS schedule_same_adjacent_offset
+PASS schedule_jump_too_large
+PASS anchor_wrong_offset
+PASS anchor_nonintegral_offset
+PASS anchor_nonmonotonic
+PASS transition_bracket_missing
+PASS edge_coverage_far
+PASS anchor_evidence_id_mismatch
+PASS provenance_semantic_mismatch
+PASS forged_custody_flag
+PASS custody_root_profile_mismatch
+PASS research_rejects_synthetic
+PASS research_requires_production_custody
+PASS duplicate_anchor_id
+PASS invalid_clock_domain
+PASS min_anchor_gate
+PASS custody_receipt_exact_hash_binding
+PASS schedule_symlink_rejected
+PASS profile_symlink_rejected
+PASS provenance_size_bound
+TIME_AUTHORITY_CASES_PASS=24

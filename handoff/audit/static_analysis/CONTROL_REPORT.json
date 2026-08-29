@@ -1,0 +1,27 @@
+{
+  "scope": "MINIMAL_CONTROL_NOT_QROS_CODE",
+  "command": [
+    "/usr/bin/g++",
+    "-std=c++20",
+    "-O0",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wconversion",
+    "-Wshadow",
+    "-Werror",
+    "-fanalyzer",
+    "-c",
+    "/workspace/scratch/4081d1647557/audit_original_design_20260828/static_analysis/deque_control.cpp",
+    "-o",
+    "/workspace/scratch/4081d1647557/audit_original_design_20260828/static_analysis/deque_control.o"
+  ],
+  "returncode": 1,
+  "timed_out": false,
+  "elapsed_seconds": 0.8770475089995671,
+  "source_sha256": "c2f2028f3f05c0e72a56b832cf99ded18b4d590dcd52ed06f952860c5f279c1e",
+  "log_sha256": "786b865e1e87795bb5f2f7f84d6c7951dfa60cf9b81b3ad0680aaee3c4b5977f",
+  "diagnostic_count": 6,
+  "same_diagnostic_family": true,
+  "interpretation": "Compiler/control evidence; does not classify all QROS warnings as false positives."
+}

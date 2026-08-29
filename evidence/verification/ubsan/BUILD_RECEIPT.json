@@ -1,0 +1,79 @@
+{
+  "status": "BUILD_PASS",
+  "contract": {
+    "schema": "QROS_MANUAL_BUILD_CONTRACT_V1",
+    "source_root": "d78be57f8e79c0537074019a75e8bf6da36d3c544955cee8e2aa3698a3bdd31a",
+    "compiler": "/usr/bin/x86_64-linux-gnu-g++-13",
+    "compiler_sha256": "52f1ddb33fe78b9441e0f42e9cd22c571f1101938e046c8a26582494e041cc73",
+    "compiler_version": "13.3.0",
+    "flags": [
+      "-std=c++20",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Wconversion",
+      "-Wshadow",
+      "-Werror",
+      "-D_GLIBCXX_ASSERTIONS",
+      "-Iinclude",
+      "-I<BUILD>/generated",
+      "-ffile-prefix-map=<SOURCE>=.",
+      "-fmacro-prefix-map=<SOURCE>=.",
+      "-O1",
+      "-g",
+      "-fno-omit-frame-pointer",
+      "-fsanitize=undefined"
+    ],
+    "link_flags": [
+      "-Wl,--build-id=none"
+    ],
+    "system": "Linux",
+    "machine": "x86_64",
+    "build_adapter_sha256": "4915998ab6ce94ec9f4b39b73b8ad7d297682f0f0b5e142366ff3fa9ade5da1b"
+  },
+  "build_contract_sha256": "5cda82531ed9f9866d16d8e7665f947ef7aed118ac6dac72fb7df8eb050058b8",
+  "source_root_sha256": "d78be57f8e79c0537074019a75e8bf6da36d3c544955cee8e2aa3698a3bdd31a",
+  "source_bindings": {
+    "CMakeLists.txt": "56e20a8a0e2661e98f019340bf55a8cb377a15385931f0ff1c3ebc27ddac64b7",
+    "cmake/build_identity.hpp.in": "27b7cac8df373f2735bd5a0743ae3fd7cb0b956402f6228643fc3ac356a16036",
+    "include/qros/canonical_text.hpp": "d817637478edabaf7823ff0d2f0379ad8261303e8fd866edeabfd2b891b1c25c",
+    "include/qros/core.hpp": "2eb48c84e4cc9de089562941d34cbbc720a1dfbcab138397074cd601c9dc1de4",
+    "include/qros/custody.hpp": "0cf0fc1faa5c34e02b4d5ce1be76048e15f0ab02c3924bba54f5c7281a4442c1",
+    "include/qros/qdata.hpp": "47ecc02a43ec29742cf402b96b48253be2af3127c1dc1f50c889bceba167b42b",
+    "include/qros/sha256.hpp": "98e8db0ccdd399306088ed04e058384422a9cdc77fde3b1a0b3c2b970e1fdd6a",
+    "include/qros/time_authority.hpp": "611f617bf671bb5fc84a27c944a8d390a6ce9c7fc167e61660886d6587d8a03a",
+    "include/qros/text_snapshot.hpp": "af61765b43f1873d24bc2fd6f086421314214c3e36e0c74c4a88fa8ef89b5278",
+    "src/core.cpp": "f06840ea874d6eb8c36e46af043895ff8006729b49bff67df5a42fab616b5f75",
+    "src/custody.cpp": "b17fe1858618da1f39f181d6ebf069ae330d9002002e84d7dab002493381da36",
+    "src/qdata.cpp": "655214032737e1a0b2cf953444166783ecf37276c1da9b763ed804b08356ee79",
+    "src/sha256.cpp": "fd32f66bdf9621ab1d0638c3127b441e527b6c1e4339e3b9adba7a6dcbb3858d",
+    "src/time_authority.cpp": "bafc977edcf684f656ab143d8f63629004ca843d5895341016db1e5055fddb09",
+    "src/text_snapshot.cpp": "604e96e47f48b454bc2a6e0138ee41ff8a45a306ca1237f2e770198971f213db",
+    "include/qros/pipeline.hpp": "7d360acae6be27215c355e8bd29035891e0f6db43f52b92eb4431f2bf520fd16",
+    "include/qros/mt5_template.hpp": "95a282016d14f66a21bfbc7b8b999594b708d0d57383a77ce25e63d54ec3e105",
+    "src/pipeline_common.cpp": "104361177477002bfbe61b25a8abf690695faecc89a9e925a1c5ce7a54731ff2",
+    "src/pipeline_data.cpp": "c228cc6b76bfc4ef3b59223808ccb751e361168ffb800a6a7133ae62bfd3082b",
+    "src/feature_graph.cpp": "79ec7b1ed69006817ec61aca0682c2a3586b1ddf5c8f18d24b7e38922c5fdc44",
+    "src/universe.cpp": "752f9b8395d81f0a478b3bc73783a6152757a87218707c628d731180bc9eccb1",
+    "src/backtest.cpp": "fc17f24e83b68c5754b32f409b2e6a925efdc77ff745cd63e4ac3708408a4317",
+    "src/result_store.cpp": "6a8cfca0b0ab1ba691c9238e902d3042d8f4824b26140b9c1a00650572b4c060",
+    "src/gates.cpp": "07fc54e1fe4e617264f8aa250b67a357e7e506a181a663a1ffbd21adb76cd898",
+    "src/vault.cpp": "e2a6936d5e41f19b2e7e65b3d8f5a598ab5816be3af97dff66512a8fb92d8acf",
+    "src/portfolio.cpp": "09c34147d3cdeaa8328bbb6df361787133457156bd4649b2115a066b8b2b96e1",
+    "src/pipeline_cli.cpp": "d1453d35b97f4d044157f5475a32dc41812e16d8cbc41a59729160c601163eb3",
+    "src/mt5_bridge.cpp": "7cc6062ab875ba3dc59bf05d978d60f647f74e5596c297d283610524bcd9d652",
+    "scripts/build_native.py": "4915998ab6ce94ec9f4b39b73b8ad7d297682f0f0b5e142366ff3fa9ade5da1b",
+    "src/main.cpp": "dcdac85acc9d940b570b95905b0bef1ba0737207af1cfc057823762b558f4662"
+  },
+  "test_source_bindings": {
+    "tests/test_core.cpp": "3c32d1e842b683fb2c8c572a03e05d2b064cf3ecbd24d65976fd030412e8f855",
+    "tests/test_pipeline.cpp": "182da693699af62e592a7c66f0adc16a68f9e580dacd82746cb9723166d8c446"
+  },
+  "executables": {
+    "qros": "c248e545edb6a5e96766c46a4ff337b07008a5b3715f0dc478cb0881672d10ad",
+    "qros_tests": "a0a952d852d00788d9a72f9c62fb799c88b1c78d8a2a87d2a031e7794c1220e8",
+    "qros_pipeline_tests": "07eeccd11efc9ebacb96cc1aa9ec61553fdbf6a5f1789221e2bd088d318f0448"
+  },
+  "tests_executed": false,
+  "mt5_compiled": false
+}

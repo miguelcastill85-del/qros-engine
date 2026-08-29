@@ -1,0 +1,23 @@
+PASS positive
+PASS missing_part
+PASS same_length_mutation
+PASS truncated_part
+PASS swapped_equal_size_parts
+PASS extra_namespace_file
+PASS symlink_part
+PASS hardlink_alias
+PASS casefold_collision
+PASS decoded_mutation
+PASS symlink_decoded
+PASS unknown_decoder_is_pending
+PASS source_directory_symlink_real
+PASS non_regular_fifo
+PASS profile_total_mismatch
+PASS profile_part_order
+PASS profile_duplicate_name
+PASS profile_traversal
+PASS profile_bad_hash_case
+PASS immutable_receipt_conflict
+PASS custody_profile_symlink_rejected
+PASS custody_profile_size_bound
+CUSTODY_NEGATIVE_CASES_PASS=22

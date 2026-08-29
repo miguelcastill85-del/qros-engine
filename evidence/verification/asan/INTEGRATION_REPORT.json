@@ -1,0 +1,865 @@
+{
+  "schema": "QROS_SOFTWARE_INTEGRATION_REPORT_V1",
+  "status": "PASS",
+  "purpose": "TEST_ONLY",
+  "checks": 179,
+  "entrypoint_sha256": "0d2424c6992e5721ac59f91e816111e0670d73cd1ba1cd0c684b6218c6c9e734",
+  "test_sha256": "189db1f215b571819e2552f6ea40235ca832ef4bf3b73355babf3e78f1beed81",
+  "oracle_sha256": "6f99fda8cf9ad3c1b2acb3ca727f4cf50fe3721f04f1c7b838a2d837dbdf8f50",
+  "independent_trade_comparisons": 576,
+  "independent_feature_cells": 74400,
+  "elapsed_seconds": 19.077,
+  "labels": [
+    "data integrity does not promote research",
+    "data integrity does not promote research",
+    "bounded pause at birth 14",
+    "pause cannot claim completion",
+    "ledger identical across chunks, resume, CSV5 and PACKED17",
+    "completed rerun idempotent",
+    "raw N_TESTS retains aliases and causal exclusions",
+    "complete test stage leaves scientific head unchanged",
+    "nontrivial synthetic trade coverage",
+    "independent trade count birth 0",
+    "independent trade count birth 1",
+    "independent trade count birth 2",
+    "independent trade count birth 3",
+    "independent trade count birth 4",
+    "independent trade count birth 5",
+    "independent trade count birth 6",
+    "independent trade count birth 7",
+    "independent trade count birth 8",
+    "independent trade count birth 9",
+    "independent trade count birth 10",
+    "independent trade count birth 11",
+    "independent trade count birth 12",
+    "independent trade count birth 13",
+    "independent trade count birth 14",
+    "independent trade count birth 15",
+    "independent trade count birth 36",
+    "independent trade count birth 37",
+    "independent trade count birth 38",
+    "independent trade count birth 39",
+    "independent trade count birth 44",
+    "independent trade count birth 45",
+    "independent trade count birth 46",
+    "independent trade count birth 47",
+    "independent trade count birth 48",
+    "independent trade count birth 49",
+    "independent trade count birth 50",
+    "independent trade count birth 51",
+    "independent trade count birth 52",
+    "independent trade count birth 53",
+    "independent trade count birth 54",
+    "independent trade count birth 55",
+    "independent trade count birth 56",
+    "independent trade count birth 57",
+    "independent trade count birth 58",
+    "independent trade count birth 59",
+    "independent trade count birth 60",
+    "independent trade count birth 61",
+    "independent trade count birth 62",
+    "independent trade count birth 63",
+    "independent trade count birth 84",
+    "independent trade count birth 85",
+    "independent trade count birth 86",
+    "independent trade count birth 87",
+    "independent trade count birth 92",
+    "independent trade count birth 93",
+    "independent trade count birth 94",
+    "independent trade count birth 95",
+    "independent parity includes both sides",
+    "all 26 native feature opcodes compared",
+    "edge trade count buy-gap",
+    "edge exact independent parity buy-gap",
+    "edge unresolved classification buy-gap",
+    "gaps execute observed price beyond stop distance buy-gap",
+    "edge trade count sell-gap",
+    "edge exact independent parity sell-gap",
+    "edge unresolved classification sell-gap",
+    "gaps execute observed price beyond stop distance sell-gap",
+    "edge trade count session-last-executable",
+    "edge exact independent parity session-last-executable",
+    "edge unresolved classification session-last-executable",
+    "EOD uses actual last executable post-entry quote",
+    "edge trade count no-fabricated-close",
+    "edge unresolved classification no-fabricated-close",
+    "single entry quote cannot fabricate an exit",
+    "edge trade count no-entry-at-close",
+    "edge unresolved classification no-entry-at-close",
+    "edge trade count pending-expiry",
+    "edge exact independent parity pending-expiry",
+    "edge unresolved classification pending-expiry",
+    "edge trade count xau-cent-scale",
+    "edge exact independent parity xau-cent-scale",
+    "edge unresolved classification xau-cent-scale",
+    "conversion preserves source clock",
+    "reject CONVERSION_RECORD_MISMATCH: ERROR: CONVERSION_RECORD_MISMATCH\n",
+    "all provided shard rows verified",
+    "reject SHARD_CHAIN_METADATA_MISMATCH: ERROR: SHARD_CHAIN_METADATA_MISMATCH\n",
+    "reject SHARD_CONTRACT_ROOT_MISMATCH: ERROR: SHARD_CONTRACT_ROOT_MISMATCH\n",
+    "reject CONTRACT_HASH_MISMATCH: ERROR: CONTRACT_HASH_MISMATCH\n",
+    "reject RESOURCE_ROW_BUDGET_EXCEEDED: START_CHUNK start=0 end=1 graphs=1\nERROR: RESOURCE_ROW_BUDGET_EXCEEDED\n",
+    "resource limit cannot advance head",
+    "reject DATA_AUTHORITY_HASH_MISMATCH: START_CHUNK start=0 end=1 graphs=1\nERROR: DATA_AUTHORITY_HASH_MISMATCH\n",
+    "late hash failure discards all candidate work",
+    "reject TRUNCATED_PACKED17: ERROR: TRUNCATED_PACKED17\n",
+    "reject CROSSED_QUOTE_RESEARCH_POLICY: START_CHUNK start=0 end=1 graphs=1\nERROR: CROSSED_QUOTE_RESEARCH_POLICY\n",
+    "final crossed quote blocks commit",
+    "reject INPUT_PATH_TRAVERSAL: ERROR: INPUT_PATH_TRAVERSAL\n",
+    "reject SYMLINK_FORBIDDEN: ERROR: SYMLINK_FORBIDDEN\n",
+    "reject SHARD_CONTRACT_BINDING: ERROR: SHARD_CONTRACT_BINDING\n",
+    "reject RESEARCH_BLOCKED_EXTERNAL_TIME_QDATA_AND_FROZEN_ONTOLOGY_REQUIRED: ERROR: RESEARCH_BLOCKED_EXTERNAL_TIME_QDATA_AND_FROZEN_ONTOLOGY_REQUIRED\n",
+    "reject HOLDOUT_ACCESS_DENIED: ERROR: HOLDOUT_ACCESS_DENIED\n",
+    "no research dispatch created",
+    "grant consumption opens no economic data",
+    "reject HOLDOUT_CAPABILITY_ALREADY_CONSUMED: ERROR: HOLDOUT_CAPABILITY_ALREADY_CONSUMED\n",
+    "screen cannot approve scientific research",
+    "independent net and settled drawdown 0c4433de",
+    "independent net and settled drawdown 17a45dfe",
+    "independent net and settled drawdown 1997b48d",
+    "independent net and settled drawdown 1e91e3e1",
+    "independent net and settled drawdown 227da6e7",
+    "independent net and settled drawdown 23158ec6",
+    "independent net and settled drawdown 2abaa922",
+    "independent net and settled drawdown 36cbabbb",
+    "independent net and settled drawdown 3a78bcba",
+    "independent net and settled drawdown 3b90f0f2",
+    "independent net and settled drawdown 44a6a9d5",
+    "independent net and settled drawdown 4734d167",
+    "independent net and settled drawdown 4838c1e6",
+    "independent net and settled drawdown 4bee9965",
+    "independent net and settled drawdown 4df47736",
+    "independent net and settled drawdown 5090eab3",
+    "independent net and settled drawdown 61f79eca",
+    "independent net and settled drawdown 62f46b55",
+    "independent net and settled drawdown 68554fad",
+    "independent net and settled drawdown 69da4ade",
+    "independent net and settled drawdown 6bf66c64",
+    "independent net and settled drawdown 77ae964d",
+    "independent net and settled drawdown 789c015c",
+    "independent net and settled drawdown 7a01b627",
+    "independent net and settled drawdown 7eb34bca",
+    "independent net and settled drawdown 802d7143",
+    "independent net and settled drawdown 8bbc878a",
+    "independent net and settled drawdown 90a65563",
+    "independent net and settled drawdown 920ceeb5",
+    "independent net and settled drawdown a51bdc3c",
+    "independent net and settled drawdown b368e650",
+    "independent net and settled drawdown b64a7c71",
+    "independent net and settled drawdown ba6a59a5",
+    "independent net and settled drawdown bb2eb5ee",
+    "independent net and settled drawdown c3acbb0b",
+    "independent net and settled drawdown c5285b0c",
+    "independent net and settled drawdown c74554aa",
+    "independent net and settled drawdown ccde2e5d",
+    "independent net and settled drawdown ce9e59bb",
+    "independent net and settled drawdown cfc44559",
+    "independent net and settled drawdown d559b117",
+    "independent net and settled drawdown d63e6746",
+    "independent net and settled drawdown d9828381",
+    "independent net and settled drawdown dbcebbb6",
+    "independent net and settled drawdown e880dcb4",
+    "independent net and settled drawdown f8e1925c",
+    "independent net and settled drawdown fc3efa2f",
+    "independent net and settled drawdown fe3b6df3",
+    "reject GATE_DECLARED_FAMILY_OR_RNG: ERROR: GATE_DECLARED_FAMILY_OR_RNG\n",
+    "missing external validations block Supergate",
+    "reject SUPERGATE_EVIDENCE_SCOPE: ERROR: SUPERGATE_EVIDENCE_SCOPE:gate\n",
+    "a positive synthetic screen still cannot promote research",
+    "reject GATE_LEDGER_EXECUTION_SPEC_MISMATCH: ERROR: GATE_LEDGER_EXECUTION_SPEC_MISMATCH\n",
+    "portfolio diagnostic scope explicit",
+    "portfolio per-asset daily cap enforced",
+    "export has tester guard and trade result checks",
+    "export never claims MT5 compilation",
+    "MT5 synthetic match cannot imply real tester parity",
+    "reject MT5_PARITY_REQUIRES_OBSERVED_TRADES: ERROR: MT5_PARITY_REQUIRES_OBSERVED_TRADES\n",
+    "exit 2: es=1\nfrozen_spec_sha256=5bbbb610b0a4f65bb92c37e25b05e2fe1673a5c7e6a07e236476b5647e62d0ab\nmt5_runtime_independently_executed_here=0\nobserved_trades=1\nplan_sha256=2926e6f00c4f5992aa1e158a1ca7b6f80fae79130c291c8b1a701a620113907f\nprovenance_class=SYNTHETIC_FIXTURE\nresearch_approved=0\nstatus=PARITY_FAIL\n",
+    "classify MT5 difference DATA",
+    "exit 2: es=1\nfrozen_spec_sha256=5bbbb610b0a4f65bb92c37e25b05e2fe1673a5c7e6a07e236476b5647e62d0ab\nmt5_runtime_independently_executed_here=0\nobserved_trades=1\nplan_sha256=abf8881dd9923f8c5a4edfc5bd2eaf4f6d5d971a31c9707d1c33183fcc4fbb5d\nprovenance_class=SYNTHETIC_FIXTURE\nresearch_approved=0\nstatus=PARITY_FAIL\n",
+    "classify MT5 difference SIGNAL",
+    "exit 2: es=1\nfrozen_spec_sha256=5bbbb610b0a4f65bb92c37e25b05e2fe1673a5c7e6a07e236476b5647e62d0ab\nmt5_runtime_independently_executed_here=0\nobserved_trades=1\nplan_sha256=319c2ec6b5d98b1058799754a4e30a57a1392930b75c535f393c3271ba51730f\nprovenance_class=SYNTHETIC_FIXTURE\nresearch_approved=0\nstatus=PARITY_FAIL\n",
+    "classify MT5 difference FILL",
+    "exit 2: es=1\nfrozen_spec_sha256=5bbbb610b0a4f65bb92c37e25b05e2fe1673a5c7e6a07e236476b5647e62d0ab\nmt5_runtime_independently_executed_here=0\nobserved_trades=1\nplan_sha256=7777593a95dc66032ca1866dfeb0afff6b49903ad9d69cdf9e711b0bde0a307b\nprovenance_class=SYNTHETIC_FIXTURE\nresearch_approved=0\nstatus=PARITY_FAIL\n",
+    "classify MT5 difference COST",
+    "exit 2: es=1\nfrozen_spec_sha256=5bbbb610b0a4f65bb92c37e25b05e2fe1673a5c7e6a07e236476b5647e62d0ab\nmt5_runtime_independently_executed_here=0\nobserved_trades=1\nplan_sha256=ee699648b080ff7bb69dcaecb960f21903670c5ba8ef0b7bd9b4ca2f5056cf17\nprovenance_class=SYNTHETIC_FIXTURE\nresearch_approved=0\nstatus=PARITY_FAIL\n",
+    "classify MT5 difference SESSION",
+    "reject SCOPE_ALREADY_OWNED: ERROR: SCOPE_ALREADY_OWNED\n",
+    "real SIGKILL cannot fabricate a committed chunk",
+    "SIGKILL recovery equals uninterrupted execution",
+    "active physical authority hashes match their profiles",
+    "altered XAU authority profile rejected",
+    "reject STORE_INPUT_OR_ENTRYPOINT_CHANGED: ERROR: STORE_INPUT_OR_ENTRYPOINT_CHANGED\n"
+  ],
+  "commands": [
+    {
+      "args": [
+        "data-check",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/dataset.qdata",
+        "b3c45a59aa8e3e3a7d4450c02765534b0d2e0f586606967af1609f3965761fda",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/audit.receipt"
+      ],
+      "status": 0,
+      "output_sha256": "2206da6b8ddf61a17efa66c4b478dd6468316228969e38fe98879e46492521f1"
+    },
+    {
+      "args": [
+        "data-check",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/packed/dataset.qdata",
+        "e80cd80f565020bbf1e13220799e33483a120b999722eb7996183b54eb57708a",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/packed/audit.receipt"
+      ],
+      "status": 0,
+      "output_sha256": "03ad047aba1f83010b94a370d3eb58a5d60c65e18df2c2011815e80e0aa6f10f"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/universe.qros",
+        "5bbbb610b0a4f65bb92c37e25b05e2fe1673a5c7e6a07e236476b5647e62d0ab",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/dataset.qdata",
+        "b3c45a59aa8e3e3a7d4450c02765534b0d2e0f586606967af1609f3965761fda",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/vault.policy",
+        "58f5dffab1d56298b7f52639426a8353a6e66f0f0ef4ba633cc16ae492a14583",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/resumed",
+        "7",
+        "2",
+        "10000000"
+      ],
+      "status": 0,
+      "output_sha256": "7806a40956ef28561eb6562ff03d0b809fcb033d6a4268a8652c80a72467fbfb"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/universe.qros",
+        "5bbbb610b0a4f65bb92c37e25b05e2fe1673a5c7e6a07e236476b5647e62d0ab",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/dataset.qdata",
+        "b3c45a59aa8e3e3a7d4450c02765534b0d2e0f586606967af1609f3965761fda",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/vault.policy",
+        "58f5dffab1d56298b7f52639426a8353a6e66f0f0ef4ba633cc16ae492a14583",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/resumed",
+        "11",
+        "100",
+        "10000000"
+      ],
+      "status": 0,
+      "output_sha256": "fe92c6aec0f0b557606b197f677502451afaf4881ae48f1cf4dcb08b21faa86e"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/universe.qros",
+        "5bbbb610b0a4f65bb92c37e25b05e2fe1673a5c7e6a07e236476b5647e62d0ab",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/dataset.qdata",
+        "b3c45a59aa8e3e3a7d4450c02765534b0d2e0f586606967af1609f3965761fda",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/vault.policy",
+        "58f5dffab1d56298b7f52639426a8353a6e66f0f0ef4ba633cc16ae492a14583",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/fresh",
+        "31",
+        "100",
+        "10000000"
+      ],
+      "status": 0,
+      "output_sha256": "b2f5fc1da91d25b45f36d7507a8b93f1fe435488bccd3cf0e5eb0d8016c5f226"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/universe.qros",
+        "5bbbb610b0a4f65bb92c37e25b05e2fe1673a5c7e6a07e236476b5647e62d0ab",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/packed/dataset.qdata",
+        "e80cd80f565020bbf1e13220799e33483a120b999722eb7996183b54eb57708a",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/packed/vault.policy",
+        "153ab749fd80501966cc754a4261eaf6528efd1c16e74c253ecf04b6b2e067e1",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/binary-run",
+        "96",
+        "100",
+        "10000000"
+      ],
+      "status": 0,
+      "output_sha256": "f83b3103858fe658218c546b5fe3b67158327a132c1be6cf14e3b935ca648501"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/universe.qros",
+        "5bbbb610b0a4f65bb92c37e25b05e2fe1673a5c7e6a07e236476b5647e62d0ab",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/dataset.qdata",
+        "b3c45a59aa8e3e3a7d4450c02765534b0d2e0f586606967af1609f3965761fda",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/vault.policy",
+        "58f5dffab1d56298b7f52639426a8353a6e66f0f0ef4ba633cc16ae492a14583",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/resumed",
+        "13",
+        "100",
+        "10000000"
+      ],
+      "status": 0,
+      "output_sha256": "16bbb2a2ded7c7085b0bf7d26e0b3846aa190960aa2a4a49e2c69b68572fd6d3"
+    },
+    {
+      "args": [
+        "features",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/all-ops.qros",
+        "149ab57c68868d27fa4b9ccd21cb4286279f11813792a23f6a80fb6ab29a6750",
+        "0",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/dataset.qdata",
+        "b3c45a59aa8e3e3a7d4450c02765534b0d2e0f586606967af1609f3965761fda",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/vault.policy",
+        "58f5dffab1d56298b7f52639426a8353a6e66f0f0ef4ba633cc16ae492a14583",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/features.csv"
+      ],
+      "status": 0,
+      "output_sha256": "5a8c3d16c44bc39312d882d39760e17826e9390d4477ccbfb3a4b2cd767b2595"
+    },
+    {
+      "args": [
+        "backtest",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/buy-gap/case.qros",
+        "78535657bea74eb356be8c0d0ebba12f2f1c37aa5b431bbcbd6608c231e2dd91",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/buy-gap/dataset.qdata",
+        "b279a665b58cd051e1ccd7984b1829c436888ab87ac385d02c7eaaf49ad4a236",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/buy-gap/vault.policy",
+        "0a89efb90128b848f092b9427035796869d229033a64396decd27916965ba3f2",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/buy-gap/result"
+      ],
+      "status": 0,
+      "output_sha256": "3640522d7c567e649106ec1b2d9bb5172cd0387f0ac49de845e6e863cdf2fd71"
+    },
+    {
+      "args": [
+        "backtest",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/sell-gap/case.qros",
+        "4b0d0d3194a36cd1406f760c2dbfad5b9730693521dff7c724312c8a0e0c8d32",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/sell-gap/dataset.qdata",
+        "17f25fa4103d847f9086b2d62f20afba47c0c0da6605f71fe2633b9a42d79f92",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/sell-gap/vault.policy",
+        "6f9892bf1edd5b6eb16fb9871e3c972746e1975574501a00cfe648aa5f1d01be",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/sell-gap/result"
+      ],
+      "status": 0,
+      "output_sha256": "bb2931f03af63cc2b171f610825accf93a9c6a84097c2703eaa0c90eca4422e1"
+    },
+    {
+      "args": [
+        "backtest",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/session-last-executable/case.qros",
+        "9b896e3871e5bd0427fbeff3096d19f3b389f4cfaeebc3fa292455dbb9d10831",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/session-last-executable/dataset.qdata",
+        "b075f77fef10a757fc1fde03f82115a786ba799364389fc4dab161636cdaee54",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/session-last-executable/vault.policy",
+        "99ee32077182809330a8a28f1e781ab0231452898b7700731cce09a1a1888e1e",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/session-last-executable/result"
+      ],
+      "status": 0,
+      "output_sha256": "63b6e2eec828be018983ec6b9fc6fd20e1175cac4aa9166b567abdd32929e53d"
+    },
+    {
+      "args": [
+        "backtest",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/no-fabricated-close/case.qros",
+        "42df713ca04f8063bdd3912455be3d9f534c5937ad4c150ec94ca338f1341b64",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/no-fabricated-close/dataset.qdata",
+        "9d8dd6d6dba97bc0dc39384f784b916327f2cb9a036cf4729ea2eb055ebe3dc2",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/no-fabricated-close/vault.policy",
+        "f6238b611092bee3a068c4b2b9e064f46b5eb08255aa048f3ea7d20b1007794d",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/no-fabricated-close/result"
+      ],
+      "status": 0,
+      "output_sha256": "b3f278962b4bd15b6da0bb2ec27af87f1d3c19b135bdc20c08844f138cb540c2"
+    },
+    {
+      "args": [
+        "backtest",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/no-entry-at-close/case.qros",
+        "5cc769642ce37c618c5c2e28dc8f012d823021de4d69ef4b54b1d9f3c0bcc92f",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/no-entry-at-close/dataset.qdata",
+        "f22867d9aab9eebc8fec58c3d601521a506812934b4a1ba5cdcd07cef10583cf",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/no-entry-at-close/vault.policy",
+        "7c6212c4982425b91b14bcbf881e5325acd957a6d1cc78f8e23206d6fc5b8e24",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/no-entry-at-close/result"
+      ],
+      "status": 0,
+      "output_sha256": "1e00947307cdda47203a198e886a332249d7630bf29aa255ffc84713589056b7"
+    },
+    {
+      "args": [
+        "backtest",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/pending-expiry/case.qros",
+        "9cc23cef2fd5d5d872d3be47dc5430a62dea9acf74033e93ae89797554f146d7",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/pending-expiry/dataset.qdata",
+        "2cb1c425907764cc803f1df09b522fb74c633b84795e842bd777e4f255db2bff",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/pending-expiry/vault.policy",
+        "e0d6bae4b535d6a7021eac518d4bc8768a18967f2b7bb1d3b4f9413800e83fbe",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/pending-expiry/result"
+      ],
+      "status": 0,
+      "output_sha256": "72fe0f6bca791d4821a604da7cebdd49238d021a6bb9f9495270192b97b200a4"
+    },
+    {
+      "args": [
+        "backtest",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/xau-cent-scale/case.qros",
+        "98a2da2a61083e0308bb129fc76cef956009a91cb718236cb9f5e34cca882d2c",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/xau-cent-scale/dataset.qdata",
+        "f16c82417edb45bcf8c4e8f730728185ca371de9f8bae37d0aeff8931445e5bf",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/xau-cent-scale/vault.policy",
+        "580710a18571a53fd748501d79379bff4b9bc34964792e743cd53935f0f61274",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/execution-edges/xau-cent-scale/result"
+      ],
+      "status": 0,
+      "output_sha256": "4b23e3f3fbe5a28983ed37c396a439cbb58d087b6fe36a43c7483b0c603c2bbd"
+    },
+    {
+      "args": [
+        "verify-conversion",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/conversion.contract",
+        "7a19ba004359a6b7e2c113598a78ff6222bb9ac72e6aeae43d673e0212b1f2ee",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/conversion.receipt"
+      ],
+      "status": 0,
+      "output_sha256": "6ab748a48edfe12c33d60cdc08756314fec32894bd557db8c2f2d2b25e2d9d33"
+    },
+    {
+      "args": [
+        "verify-conversion",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/conversion-mismatch.contract",
+        "60e992fbbe65a3d1fd5e4cd2217dde5ef6fc859c1acaf86da812be7db0ecf8af",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/must-not-convert"
+      ],
+      "status": 1,
+      "output_sha256": "3e43a7bde8679bdf743077bdbc97ab8947596699045928dd1abcc7b67582d022"
+    },
+    {
+      "args": [
+        "verify-shards",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/shards.csv",
+        "452641fa8e827a2590f70bb95db7002d5a1c73f14b7fadf37392c3ed0d3f06c1",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/shards.receipt"
+      ],
+      "status": 0,
+      "output_sha256": "328ed683f22733423351db663cf73eca2bef5e1ca8b5d3f9ce2deeedf9797d1e"
+    },
+    {
+      "args": [
+        "verify-shards",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mixed-scale.csv",
+        "1541d34c8d0b1837b8b5713327f19c7f2a2d549563b3e5f3d6deb9cb8299c517",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/must-not-mix"
+      ],
+      "status": 1,
+      "output_sha256": "3943ee145371a541e80aa383d961587be95f7b853680cd1c65118ea3e8d76107"
+    },
+    {
+      "args": [
+        "verify-shards",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/shards-bad.csv",
+        "206862e335e322fe519cadc3073b4eb0e52426de440b5656f706c544ee60258b",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/must-not-shard"
+      ],
+      "status": 1,
+      "output_sha256": "f1d7244dc7ac64363d3559b5b406c94bfbc65f56424b21fd8fb939853d2315d9"
+    },
+    {
+      "args": [
+        "compile",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/single.qros",
+        "0000000000000000000000000000000000000000000000000000000000000000",
+        "0",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/wrong-program"
+      ],
+      "status": 1,
+      "output_sha256": "6c502f2524e8a3d030d60f511057bd85536e4a9573d0c29750232dfc889dd881"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/single.qros",
+        "ea5a944ad65e2ef11d3e43a2fb3db8333f22c77c2c5e3d8d0759b0c204b65206",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/dataset.qdata",
+        "b3c45a59aa8e3e3a7d4450c02765534b0d2e0f586606967af1609f3965761fda",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/vault.policy",
+        "58f5dffab1d56298b7f52639426a8353a6e66f0f0ef4ba633cc16ae492a14583",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/budget",
+        "13",
+        "100",
+        "10"
+      ],
+      "status": 1,
+      "output_sha256": "fd1f4d7dbeca4ed13e4273729d0ba58cb457b9c05e1ec497c7b5492439327269"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/single.qros",
+        "ea5a944ad65e2ef11d3e43a2fb3db8333f22c77c2c5e3d8d0759b0c204b65206",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/wrong-hash/dataset.qdata",
+        "b3c45a59aa8e3e3a7d4450c02765534b0d2e0f586606967af1609f3965761fda",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/wrong-hash/vault.policy",
+        "58f5dffab1d56298b7f52639426a8353a6e66f0f0ef4ba633cc16ae492a14583",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/hash-store",
+        "13",
+        "100",
+        "10000000"
+      ],
+      "status": 1,
+      "output_sha256": "41d9167d4fd622f4ea460a0c23a450cb24c0777bc2263ced9d11357e9209f14b"
+    },
+    {
+      "args": [
+        "data-check",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/truncated/dataset.qdata",
+        "e80cd80f565020bbf1e13220799e33483a120b999722eb7996183b54eb57708a",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/must-not-short"
+      ],
+      "status": 1,
+      "output_sha256": "389f76a814ca979053d1d73d8ea8025348834322b09c883b952b1cb7acc296e3"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/single.qros",
+        "ea5a944ad65e2ef11d3e43a2fb3db8333f22c77c2c5e3d8d0759b0c204b65206",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/crossed/dataset.qdata",
+        "ea9f3e9d3d280c9f3ba134b0ab4bbc0782ae289d248c21c5d647d09676e0b391",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/crossed/vault.policy",
+        "64243d11220177fc57492dc304a2030e52ce0afd768edde44a05d7c8546f170a",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/crossed-store",
+        "13",
+        "100",
+        "10000000"
+      ],
+      "status": 1,
+      "output_sha256": "773f32572a1d3a531232d56935858a9d14b9f3ae48ec8418146418d6abb81a47"
+    },
+    {
+      "args": [
+        "data-check",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/traversal/dataset.qdata",
+        "196e3733b95871253a9b7ef181a14be93d993f2b9d8b0c2a2505709b1eb5595d",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/must-not-traversal"
+      ],
+      "status": 1,
+      "output_sha256": "eb2324ff5ec7f7c96c610c822570eb6c649aec2c304b92fc08178c0ff3212c90"
+    },
+    {
+      "args": [
+        "data-check",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/symlink/dataset.qdata",
+        "4e022c55cc0a3c9467000138823874c446a89b2e52accffa6453c9de363f56b1",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/must-not-symlink"
+      ],
+      "status": 1,
+      "output_sha256": "cb50c27cca78964a92ed2d1e9fdf1f8f277cde4898fdc7ee8d8972a96cd0ee8b"
+    },
+    {
+      "args": [
+        "data-check",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/anchor/dataset.qdata",
+        "d06117ae9ec8299d1d47f2f8e252316300cacd5a98089d6dc7ff610d35e7bf4b",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/must-not-anchor"
+      ],
+      "status": 1,
+      "output_sha256": "9fddaf880474a885cf56ab3780ce5395b92fbc29d3d73c25eb652d10b8a1cfea"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/research-denied.qros",
+        "ac3279d495e93da9c2f373b5690a8e90e3d843499f81b41b1b95a0c50479fed9",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/real-denied/dataset.qdata",
+        "db4f5f8bbf901c16394ecb6545934981603c51bcf0dcd1055cbfe3f18a2d960e",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/real-denied/vault.policy",
+        "7d250cd821a520b15bec626a5e3b3d5a6340f9c3e085fcc3446a7001e5031760",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/must-not-research",
+        "13",
+        "100",
+        "10000000"
+      ],
+      "status": 1,
+      "output_sha256": "40b02225ce3216a3433b648313800ad28a244d73e046e442a878f3fafe7ce527"
+    },
+    {
+      "args": [
+        "vault-check",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/sealed/dataset.qdata",
+        "51e6625c2bfb2fa5f2155da3f35cd6bc4f45091304f8356e161e1fcbb62618e3",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/sealed/vault.policy",
+        "4519b42cc4c566437ff2f690be1f7db73c623978d2a04e876acdf047dd74a315",
+        "ea5a944ad65e2ef11d3e43a2fb3db8333f22c77c2c5e3d8d0759b0c204b65206"
+      ],
+      "status": 1,
+      "output_sha256": "70079ac65e4ccf59a7cc00045d9ea50aa494e48365c4e1dd70bb34fc9a1716b2"
+    },
+    {
+      "args": [
+        "vault-consume",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/sealed/vault.policy",
+        "4519b42cc4c566437ff2f690be1f7db73c623978d2a04e876acdf047dd74a315",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/grant.fixture",
+        "d9746a332444683e65fb5e77715d2b1a6e13187c180b054d9e3838533df7ae51",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/grant-store"
+      ],
+      "status": 0,
+      "output_sha256": "8d1f3e6ddc97d64deaa31ea8570e433d33bc315a2fa6c3ceedea73b1a674f313"
+    },
+    {
+      "args": [
+        "vault-consume",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/sealed/vault.policy",
+        "4519b42cc4c566437ff2f690be1f7db73c623978d2a04e876acdf047dd74a315",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/grant.fixture",
+        "d9746a332444683e65fb5e77715d2b1a6e13187c180b054d9e3838533df7ae51",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/grant-store"
+      ],
+      "status": 1,
+      "output_sha256": "073840f02a7ee5be4197f6edd19e69f91666455b23fe63b7b1e82db31bce0670"
+    },
+    {
+      "args": [
+        "gates",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/resumed/final/trades.csv",
+        "e73dfbe95e444d47d49908aa06697e899ce8eb6a6d32e567cc048af2c6d767b0",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/gate.policy",
+        "7456cac99c1b1eeac521d55cfc55c7183ae0a793c6ef42630c7b9d5d2012d45d",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/gate.receipt"
+      ],
+      "status": 0,
+      "output_sha256": "fe3de3d78dcf4bfbcf50e27a1e77f2e73ff62e145ccd5c897160027324f36b5a"
+    },
+    {
+      "args": [
+        "gates",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/resumed/final/trades.csv",
+        "e73dfbe95e444d47d49908aa06697e899ce8eb6a6d32e567cc048af2c6d767b0",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/gate-undercount.policy",
+        "dae3c2664a87e73cc000af7e07f4e5520cd9d78c894f18af9234d4b74b9f7326",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/must-not-gate"
+      ],
+      "status": 1,
+      "output_sha256": "a672af918b8d7b0edaf23c24ae564c9ab13ee9b3498fb1855a88e1745f0e84a3"
+    },
+    {
+      "args": [
+        "supergate",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/supergate.plan",
+        "d717fd609aac9d093770faadd6c6f26b201533474fa036c868e4e21dcebbe466",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/supergate.receipt"
+      ],
+      "status": 0,
+      "output_sha256": "42ef35b0351f205ff98509b90227b78de18ab1a7253ac42db51751a3f08732cd"
+    },
+    {
+      "args": [
+        "supergate",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/supergate-fake-scope.plan",
+        "d0ee459ad9573c7e02256e0d1e248d21478d1315161d904921447637ee5964d0",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/must-not-supergate"
+      ],
+      "status": 1,
+      "output_sha256": "8ea61a44a1318eb261cd43bbcdf83baf77e7607c3b726c6766236e3235b53523"
+    },
+    {
+      "args": [
+        "backtest",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/positive-gate/candidate.qros",
+        "ea5a944ad65e2ef11d3e43a2fb3db8333f22c77c2c5e3d8d0759b0c204b65206",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/positive-gate/dataset.qdata",
+        "52a41f6ecaddfa5b6361d26f89d0fdd0d92a9024675ffaff7e0972cff3f2cdbe",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/positive-gate/vault.policy",
+        "1b196dd4fcc54889e62ddfe9ac24976ef6a8de7214fa6f80aecf504f599c1890",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/positive-gate/result"
+      ],
+      "status": 0,
+      "output_sha256": "1e9b1b8bf5a09916ee31687281032f29c2e8250624da670013c8ecd64f9891cb"
+    },
+    {
+      "args": [
+        "gates",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/positive-gate/result/final/trades.csv",
+        "a942a14229e84ad7ba8c2bae244587e750a72251de1d5d8afaeb3d4fedcd92a3",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/positive-gate/gate.policy",
+        "235152f758eddb5a7f42e35daa5005f922ce143ea0a753987e459aa5693bd402",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/positive-gate/gate.receipt"
+      ],
+      "status": 0,
+      "output_sha256": "d45dc53c0d38934dc3fd1ff6c3048a9b789e629e6f52ed8e18921406f335877b"
+    },
+    {
+      "args": [
+        "gates",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/positive-gate/forged-risk.fixture.csv",
+        "41cfb2b4e77c3075a202d8a6d1e5e9d6eb95e32b2baf317f63108d892c71ee97",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/positive-gate/forged-risk.policy",
+        "5ebd4a8df05917f35b3374d0ec432a8e933069513537cacb8ad1da2cbf334064",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/positive-gate/must-not-approve"
+      ],
+      "status": 1,
+      "output_sha256": "a81ba54ad1954507fe68ca5e90d665b2a191d8cd86d730d49f7312a8f6a59d97"
+    },
+    {
+      "args": [
+        "portfolio",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/portfolio.plan",
+        "9ddefd057e0e0a7ff6a4b1db835e47eba9ceb3b54a9372058c8798bd3b78c2b9",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/allocated.csv",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/portfolio.receipt"
+      ],
+      "status": 0,
+      "output_sha256": "99609e1e82dfbe7626d52d2668b76372d6d1dec3b389b3ecb81d5b8db045eecd"
+    },
+    {
+      "args": [
+        "export-mt5",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/export.qros",
+        "ea5a944ad65e2ef11d3e43a2fb3db8333f22c77c2c5e3d8d0759b0c204b65206",
+        "0",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/SYNTHETIC_QROS.mq5"
+      ],
+      "status": 0,
+      "output_sha256": "f3ed24bc7815b499f7d46950475f313db225510e6e91176be7ee68220048b6b4"
+    },
+    {
+      "args": [
+        "mt5-parity",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/parity.plan",
+        "e7853c74f12bf2c328bee123aead4a2ce685ee10ff743710744c1447ca8e1663",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/parity.receipt"
+      ],
+      "status": 0,
+      "output_sha256": "b016740e31fccac45ffae5b368433d9cb54605660b812a07edf77257e8fbb214"
+    },
+    {
+      "args": [
+        "mt5-parity",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/empty.plan",
+        "e44c4a6fbedea70ec52b501c274a338cb5f46bc2f65cdc63cb40a94651ef46af",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/must-not-empty"
+      ],
+      "status": 1,
+      "output_sha256": "e44ecee025dca38fdc98a9bc5867e45be7357624d808c4c33f1502b28e99ed4f"
+    },
+    {
+      "args": [
+        "mt5-parity",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/DATA.plan",
+        "2926e6f00c4f5992aa1e158a1ca7b6f80fae79130c291c8b1a701a620113907f",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/DATA.receipt"
+      ],
+      "status": 2,
+      "output_sha256": "d8395b49e4b77a352f2bd11c1a756a78a51032007a37b273de13cd314f6d1731"
+    },
+    {
+      "args": [
+        "mt5-parity",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/SIGNAL.plan",
+        "abf8881dd9923f8c5a4edfc5bd2eaf4f6d5d971a31c9707d1c33183fcc4fbb5d",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/SIGNAL.receipt"
+      ],
+      "status": 2,
+      "output_sha256": "60ca32daae39704df7eb2dd6faa284059cd7daacfdf8c9d08904c3a561a7510d"
+    },
+    {
+      "args": [
+        "mt5-parity",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/FILL.plan",
+        "319c2ec6b5d98b1058799754a4e30a57a1392930b75c535f393c3271ba51730f",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/FILL.receipt"
+      ],
+      "status": 2,
+      "output_sha256": "1c781a015ff478d80f03b0d7c22f7259e9f532008c9d8cc98ff73b1180623e7f"
+    },
+    {
+      "args": [
+        "mt5-parity",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/COST.plan",
+        "7777593a95dc66032ca1866dfeb0afff6b49903ad9d69cdf9e711b0bde0a307b",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/COST.receipt"
+      ],
+      "status": 2,
+      "output_sha256": "be0f79b4fe83427b90316cf56089755732e090bf9bd7bf050b35a05b48d5673b"
+    },
+    {
+      "args": [
+        "mt5-parity",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/SESSION.plan",
+        "ee699648b080ff7bb69dcaecb960f21903670c5ba8ef0b7bd9b4ca2f5056cf17",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/mt5/SESSION.receipt"
+      ],
+      "status": 2,
+      "output_sha256": "422f199500b9e7c1af7deb06c40799d2ccfc8ca4861198b3dc566166846c1e2b"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/single.qros",
+        "ea5a944ad65e2ef11d3e43a2fb3db8333f22c77c2c5e3d8d0759b0c204b65206",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/interrupt-data/dataset.qdata",
+        "6e35859cbd6c0c9a1ffc007421586a02c7769e73bfaafff764f56e6a58985fef",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/interrupt-data/vault.policy",
+        "8a9b80e263606d4ad9c9984c0dfba4ffb0cf92c8ba03f7b9b8ce098c9a78d98f",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/interrupted",
+        "1",
+        "1",
+        "200000"
+      ],
+      "status": 1,
+      "output_sha256": "a333540eb20190611f65d5c902735b374c4098a02efa059bb2453d4e7d08b01f"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/single.qros",
+        "ea5a944ad65e2ef11d3e43a2fb3db8333f22c77c2c5e3d8d0759b0c204b65206",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/interrupt-data/dataset.qdata",
+        "6e35859cbd6c0c9a1ffc007421586a02c7769e73bfaafff764f56e6a58985fef",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/interrupt-data/vault.policy",
+        "8a9b80e263606d4ad9c9984c0dfba4ffb0cf92c8ba03f7b9b8ce098c9a78d98f",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/interrupted",
+        "1",
+        "1",
+        "200000"
+      ],
+      "status": 0,
+      "output_sha256": "2fa31d43c147dbdc13bd2d254b86ff39ca64d4e5e0b4016cf86527b2c9d9fefe"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/single.qros",
+        "ea5a944ad65e2ef11d3e43a2fb3db8333f22c77c2c5e3d8d0759b0c204b65206",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/interrupt-data/dataset.qdata",
+        "6e35859cbd6c0c9a1ffc007421586a02c7769e73bfaafff764f56e6a58985fef",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/interrupt-data/vault.policy",
+        "8a9b80e263606d4ad9c9984c0dfba4ffb0cf92c8ba03f7b9b8ce098c9a78d98f",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/interrupt-fresh",
+        "1",
+        "1",
+        "200000"
+      ],
+      "status": 0,
+      "output_sha256": "2fa31d43c147dbdc13bd2d254b86ff39ca64d4e5e0b4016cf86527b2c9d9fefe"
+    },
+    {
+      "args": [
+        "mine",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/single.qros",
+        "ea5a944ad65e2ef11d3e43a2fb3db8333f22c77c2c5e3d8d0759b0c204b65206",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/dataset.qdata",
+        "b3c45a59aa8e3e3a7d4450c02765534b0d2e0f586606967af1609f3965761fda",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/csv/vault.policy",
+        "58f5dffab1d56298b7f52639426a8353a6e66f0f0ef4ba633cc16ae492a14583",
+        "/workspace/scratch/4081d1647557/qros_engine_v0_6/reports/final-asan/integration/resumed",
+        "13",
+        "100",
+        "10000000"
+      ],
+      "status": 1,
+      "output_sha256": "6cd5db7fe233b8bb150764781f3db0533bbea6b13095ca2526a629d45cbb7191"
+    }
+  ],
+  "real_broker_ticks_used": false,
+  "mt5_executed": false,
+  "research_approved": false,
+  "error": null,
+  "leak_check_requested": "disabled"
+}
