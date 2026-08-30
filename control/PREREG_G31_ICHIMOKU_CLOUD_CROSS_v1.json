@@ -1,0 +1,51 @@
+{
+  "schema": "QROS_CAMPAIGN_PREREGISTRATION_V1",
+  "campaign": "QROS_G31_PUBLIC_ICHIMOKU_CLOUD_CROSS_v1",
+  "seed": "PUBLIC_SEED_G31",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "root_genealogy": "G31_ICHIMOKU_STYLE_TREND_CROSS",
+  "genealogy_class": "ROOT_ANCHOR",
+  "prior_ex_ante": "A",
+  "causal_thesis": "A fresh short-horizon equilibrium cross has continuation expectancy when price is already confirmed on the same side of a slower rolling-range cloud proxy. The hypothesized edge is trend-state transition plus structural location, not Bollinger mean reversion, volatility-shock momentum, or simple EMA pullback.",
+  "public_authority": {
+    "repository": "Mohammed-AB/forex-strategy-lab",
+    "commit": "df34085afb615818038c0e8bedc5aad837883e5c",
+    "source_file": "forex_backtester.py",
+    "git_blob_sha1": "b6fe1a3c9c6dad89049a8271e772cc39e23f1a99",
+    "sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
+    "source_bytes": 53694,
+    "source_freeze_ref": "control/SOURCE_FREEZE_PUBLIC0184_v1.json",
+    "observed_semantics": {
+      "signal_function": "sig_ichimoku",
+      "tenkan": "(rolling_high_9 + rolling_low_9) / 2",
+      "kijun": "(rolling_high_26 + rolling_low_26) / 2",
+      "cloud_a": "(tenkan + kijun) / 2 WITHOUT_FORWARD_DISPLACEMENT",
+      "cloud_b": "(rolling_high_52 + rolling_low_52) / 2 WITHOUT_FORWARD_DISPLACEMENT",
+      "buy": "fresh Tenkan-above-Kijun cross AND close above contemporaneous cloud proxy",
+      "sell": "fresh Tenkan-below-Kijun cross AND close below contemporaneous cloud proxy"
+    }
+  },
+  "assets": ["NQX","XAUUSD"],
+  "sides": ["BUY","SELL"],
+  "development_policy": {
+    "development_scope": "DEVELOPMENT_ONLY_2018_2019_UNTIL_SEPARATE_HOLDOUT_AUTHORIZATION",
+    "holdout": "SEALED",
+    "parameter_mining_before_ontology_freeze": false,
+    "independent_implementation_required": true,
+    "bid_ask_execution_required": true,
+    "same_day_exit_required": true,
+    "max_new_entries_per_day_portfolio": 3,
+    "timezone_sessions_disabled_until_proven": true
+  },
+  "required_before_results": [
+    "CAUSAL_SOURCE_AUDIT",
+    "FREEZE_G31_SIGNAL_ONTOLOGY_AND_PARAMETER_UNIVERSE",
+    "RISE_FIXED_POINT_FOR_G31",
+    "REAL_NQX_XAU_DATA_AUDIT",
+    "IMPLEMENT_PRIMARY_AND_INDEPENDENT_PARITY_ENGINES"
+  ],
+  "approval_path": "DEVELOPMENT_GATES_THEN_SINGLE_HOLDOUT_OPEN_THEN_SUPERGATE_THEN_MT5_PARITY",
+  "branch_exhaustion_authorized": false,
+  "results_present": false,
+  "next_action": "G31_CAUSAL_SOURCE_AUDIT"
+}
