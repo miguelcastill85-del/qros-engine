@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V13",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V14",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "scope": "CONTROL_AND_SCIENTIFIC_CONTINUITY",
   "repository": "miguelcastill85-del/qros-engine",
@@ -24,10 +24,8 @@
       "rise": "control/RISE_PUBLIC0184_v3.json",
       "rise_status": "FIXED_POINT",
       "dev_prefix_integrity": "PASS",
-      "clock_reference": "DARWINEX_MT5_SERVER_TIME",
       "full_m1_h1_independent_bar_parity": "PASS",
       "signal_mask_parity": "PASS",
-      "signal_mask_parity_ref": "control/G29_SIGNAL_MASK_PARITY_v1.json",
       "mining_authorized": true,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -39,15 +37,15 @@
       "rise": "control/RISE_G30_v2.json",
       "rise_status": "FIXED_POINT",
       "dev_prefix_integrity": "PASS",
-      "clock_reference": "DARWINEX_MT5_SERVER_TIME",
       "full_m1_h1_independent_bar_parity": "PASS",
       "signal_mask_parity": "PASS",
-      "signal_mask_parity_ref": "control/G30_SIGNAL_MASK_PARITY_v1.json",
       "stage1_signal_core_slice": "COMPLETE",
       "stage1_signal_core_slice_ref": "control/G30_STAGE1_SIGNAL_MINING_v2.json",
       "stage1_raw_identities": 8208,
       "stage1_unique_masks_after_bid_mid_union": 7522,
       "stage1_exact_aliases": 686,
+      "causal_tick_execution_index_gate": "PASS",
+      "causal_tick_execution_index_gate_ref": "control/G30_CAUSAL_TICK_EXECUTION_INDEX_GATE_v1.json",
       "mining_authorized": true,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -59,10 +57,8 @@
       "rise": "control/RISE_G31_v2.json",
       "rise_status": "FIXED_POINT",
       "dev_prefix_integrity": "PASS",
-      "clock_reference": "DARWINEX_MT5_SERVER_TIME",
       "full_m1_h1_independent_bar_parity": "PASS",
       "signal_mask_parity": "PASS",
-      "signal_mask_parity_ref": "control/G31_SIGNAL_MASK_PARITY_v1.json",
       "mining_authorized": true,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -76,19 +72,22 @@
     "assume_utc": false,
     "civil_session_dst_mapping_required": true
   },
-  "full_bar_parity_gate": {
-    "receipt": "control/FULL_BAR_PARITY_GATE_G29_G30_G31_v1.json",
-    "status": "PASS",
-    "timeframes": ["M1","M5","M10","M15","M30","H1"],
-    "all_mismatches": 0
-  },
   "signal_parity_gate": {
     "receipt": "control/SIGNAL_MASK_PARITY_GATE_G29_G30_G31_v1.json",
     "status": "PASS",
-    "G29": "PASS",
-    "G30": "PASS",
-    "G31": "PASS",
     "development_mining_authorized": true
+  },
+  "g30_stage1": {
+    "signal_receipt": "control/G30_STAGE1_SIGNAL_MINING_v2.json",
+    "signal_core_status": "COMPLETE",
+    "identities_raw": 8208,
+    "unique_masks": 7522,
+    "exact_aliases": 686,
+    "execution_index_gate": "control/G30_CAUSAL_TICK_EXECUTION_INDEX_GATE_v1.json",
+    "execution_index_status": "PASS_FOR_SCORING",
+    "NQX_index_receipt": "control/NQX_DEV_CAUSAL_TICK_EXECUTION_INDEX_v1.json",
+    "XAUUSD_index_receipt": "control/XAUUSD_DEV_CAUSAL_TICK_EXECUTION_INDEX_v1.json",
+    "economic_scoring": "PENDING"
   },
   "scientific_head": {
     "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
@@ -98,23 +97,23 @@
     "full_bar_parity": "PASS",
     "signal_mask_parity": "PASS",
     "stage1_signal_core_slice": "COMPLETE",
-    "stage1_signal_core_slice_ref": "control/G30_STAGE1_SIGNAL_MINING_v2.json",
+    "causal_tick_execution_index_gate": "PASS",
     "mining_authorized": true
   },
   "execution_annotation": {
     "container_transport": "RECOVERED",
-    "g30_stage1_runner_sha256": "9abd7c324600795a4f3620585e3f61a9708deae43f13a420f528e56807eac579",
-    "g30_stage1_shards": 24,
-    "g30_stage1_initial_monolithic_attempt": "DISCARDED_NO_RECEIPT",
-    "g30_stage1_current": "COMPLETE_SIGNAL_CORE_SLICE_NO_PNL",
-    "scientific_effect": "SIGNAL CORE SLICE MINED AND DEDUPED; NO ECONOMIC SCORING YET"
+    "g30_stage1_signal_runner_sha256": "9abd7c324600795a4f3620585e3f61a9708deae43f13a420f528e56807eac579",
+    "g30_execution_index_runner_sha256": "bd2c7c5f1e0fefec252b0a114acfaa89595270793e87aadece9477d510037292",
+    "NQX_execution_index_sha256": "1ceca48bc5648db706f3f0423ec03df6296db5059d0e96ac17dc087c0d2bb00e",
+    "XAUUSD_execution_index_sha256": "3d7ee57171ac1a40e254ec6ed202b227a491c3c420d88201495e1ee1f281e4ad",
+    "scientific_effect": "CAUSAL ENTRY INDEX COMPLETE ON DEVELOPMENT; NO ECONOMIC PNL YET"
   },
-  "next_action": "BUILD_G30_CAUSAL_TICK_EXECUTION_INDEX_ON_DEVELOPMENT_THEN_ECONOMIC_SCORE_DEDUPED_CORE_MASKS_WITH_BID_ASK_AND_COST_REGIMES",
+  "next_action": "ECONOMIC_SCORE_G30_STAGE1_DEDUPED_MASKS_USING_PUBLIC_MANAGEMENT_ANCHOR_ATR3_RR1P5_HOLD20_WITH_TICK_BID_ASK_ON_DEVELOPMENT_ONLY",
   "following_action": "CLUSTER_PLATEAUS_AND_FREEZE_REPRESENTATIVE_SEEDS_ONLY_AFTER_DEVELOPMENT_ECONOMIC_SCORING",
   "safety": {
     "branch_exhaustion_authorized": false,
     "holdout_access_authorized": false,
-    "pnl_read_authorized": false,
+    "pnl_read_authorized": true,
     "scientific_execution_authorized": true
   },
   "software_state": {
