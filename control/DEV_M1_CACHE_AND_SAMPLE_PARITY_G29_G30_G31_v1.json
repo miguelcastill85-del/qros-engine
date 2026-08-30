@@ -1,0 +1,38 @@
+{
+  "schema": "QROS_DEV_M1_CACHE_AND_SAMPLE_PARITY_V1",
+  "status": "PRIMARY_CACHE_PASS_SAMPLE_INDEPENDENT_PARITY_PASS",
+  "scope": "DEVELOPMENT_PREFIX_ONLY_NO_HOLDOUT_PNL",
+  "clock_reference": "DARWINEX_MT5_SERVER_TIME_AS_STORED_IN_TICKS",
+  "NQX": {
+    "development_prefix_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "primary_cache_file": "NQX_DEV_M1_EXECUTABLE_QUOTE_CACHE_v2.npz",
+    "primary_cache_sha256": "18899702e207b8f192f05e0649fca3ca593bed07d1c955bdb811e202f12cd525",
+    "rows": 673097,
+    "ticks_in_bars_after_crossed_exclusion": 59940100,
+    "independent_method": "pandas_groupby_deterministic_head_tail_windows_per_dev_part",
+    "sample_windows": 6,
+    "sample_records_total": 600000,
+    "sample_parity": "PASS"
+  },
+  "XAUUSD": {
+    "development_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "primary_cache_file": "XAU_DEV_M1_EXECUTABLE_QUOTE_CACHE_v2.npz",
+    "primary_cache_sha256": "f29ca5d258bbda9e0f8e7a3dde0e6891a4db695f016ac9cc9eaad6e7dc176ba2",
+    "rows": 681772,
+    "ticks_in_bars_after_crossed_exclusion": 151382314,
+    "independent_method": "pandas_groupby_deterministic_head_tail_windows_per_dev_part",
+    "sample_windows": 16,
+    "sample_records_total": 1600000,
+    "sample_parity": "PASS"
+  },
+  "crossed_tick_policy": "EXCLUDED_FROM_BAR_QUOTE_CONSTRUCTION",
+  "zero_spread_policy": "PRESERVED_AS_OBSERVED_BUT_MUST_NOT_CREATE_ARTIFICIAL_EXECUTION_FILL",
+  "limitations": [
+    "Independent parity is deterministic sampled parity, not yet a complete independent rebuild of every M1 bar.",
+    "M5-M10-M15-M30-H1 parity and campaign signal-mask parity remain pending."
+  ],
+  "mining_authorized": false,
+  "holdout_opened": false,
+  "economic_results_computed": false,
+  "next_action": "FULL_M1_TO_H1_PARITY_THEN_G30_G29_G31_SIGNAL_MASK_PARITY"
+}
