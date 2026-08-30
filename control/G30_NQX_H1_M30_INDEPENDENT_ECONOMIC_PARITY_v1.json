@@ -1,0 +1,18 @@
+{
+  "schema":"QROS_G30_NQX_H1_M30_INDEPENDENT_ECONOMIC_PARITY_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"DEVELOPMENT_RUNNING",
+  "scope":"DEV_2018_2019_ONLY",
+  "purpose":"Independent recomputation for economic parity before any v4 promotion",
+  "source_carrier":{"file":"NQX_DEV_PACKED17_2018_2019_v1.bin","records":59940260,"bytes":1018984420,"sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf","status":"PASS_REMATERIALIZED_THIS_RUNTIME"},
+  "independent_engine":{"m30_script_sha256":"1bbf76c852718670f18294e437bcc2698a4ef2759d9861c9467df370371cbf15","h1_script_sha256":"8a453a669046f6a9eba335e6c9b051df73f06d4f2e767e55e274ba73fae7bbbd","implementation":"DIRECT_PACKED17_TICK_ENGINE_INDEPENDENT_OF_PRIMARY_V4_CACHE_AND_FROZEN_OUTCOME_SCORER","bar_quotes":"ASK_GTE_BID","execution_quotes":"ASK_GT_BID","units":"NATIVE_PACKED17_SCALED","atr":"TRUE_RANGE_SMA14","signal_stage1":"HIGH_LOW_RANGE_OVER_ATR__CURRENT_OR_LAGGED__9_THRESHOLDS__4_PERSISTENCE_FAMILIES__N_1_2_3_4_5_8_BODY_ONLY_N1","management":"ATR_STOP_3R_DISTANCE__TP_1P5R__TIME_STOP_20_BARS__SAME_STORED_CLOCK_DAY__SL_FIRST","buy_sell_separate":true},
+  "m30":{"bars":22670,"raw_identities":342,"unique_masks":313,"independent_output_sha256":"1b08c015af80a8557bbebb98be9496d7c5e3ca8c19a866a61a1609b892a58dc6","sum_buy_trades_across_unique_masks":238189,"sum_sell_trades_across_unique_masks":269082,"primary_structural_reference":{"bars":22670,"unique_masks":313,"output_sha256":"23f7dc00658ed4eb2e5e31df950b4ee1ef95e3089b5569aedcbf9ea484ad524c"},"structural_parity":"PASS_BARS_AND_UNIQUE_MASK_COUNT"},
+  "h1":{"bars":11341,"raw_identities":342,"unique_masks":314,"independent_output_sha256":"423cf45e98989fe377822ac2df9c9bfca892e2b198e9e6b9b467c4163b5ce7ce","sum_buy_trades_across_unique_masks":132694,"sum_sell_trades_across_unique_masks":153904,"primary_structural_reference":{"bars":11341,"unique_masks":314,"output_sha256":"6408a0c5e69b1f4c11a190d6914ae271f8e829db8558b377ed12fa3167d9b3de"},"structural_parity":"PASS_BARS_AND_UNIQUE_MASK_COUNT"},
+  "parity_status":"PARTIAL_STRUCTURAL_PASS_NUMERIC_TRADE_BY_TRADE_COMPARISON_BLOCKED",
+  "blocker":{"cause":"PRIMARY_V4_DETAILED_OUTPUT_BYTES_AND_EXACT_RUNNER_BYTES_NOT_MATERIALIZED_IN_CURRENT_RUNTIME","searched":["current /mnt/data","GitHub repository search","File Library current+historical search","Dropbox /QROS search"],"result":"NO_EXECUTABLE_PRIMARY_OUTPUT_OR_RUNNER_BYTES_FOUND","why_hash_only_is_insufficient":"SHA256 proves identity if bytes are available but cannot reconstruct the primary per-mask/per-trade values needed for independent numeric parity"},
+  "scientific_disposition":"NO_ECONOMIC_SHARD_PROMOTION_YET",
+  "holdout_opened":false,
+  "gate_a":"NOT_EVALUATED",
+  "branch_exhausted":false,
+  "next_action":"RECOVER_OR_REGENERATE_PRIMARY_V4_DETAILED H1/M30 OUTPUT UNDER EXACT FROZEN SEMANTICS, THEN COMPARE MASK_BY_MASK AND TRADE_BY_TRADE AGAINST THIS INDEPENDENT ENGINE BEFORE PROMOTION"
+}
