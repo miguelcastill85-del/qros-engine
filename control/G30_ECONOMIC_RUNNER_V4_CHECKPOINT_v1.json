@@ -1,0 +1,19 @@
+{
+  "schema":"QROS_G30_ECONOMIC_RUNNER_V4_CHECKPOINT_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"DEVELOPMENT_RUNNING",
+  "runner_local_path":"/mnt/data/qros_g30_econ_numba_v4.py",
+  "runner_sha256":"ef671e449eb7e2fbed42704c7bd9dec01de0768310f6eb48fb2265409767abe4",
+  "unit_semantics":"ALL_PRICES_AND_ATR_IN_NATIVE_PACKED17_SCALED_UNITS_R_DIMENSIONLESS",
+  "buy_sell_separate":true,
+  "single_winner_selection_forbidden":true,
+  "all_gate_pass_configurations_advance":true,
+  "nqx_dev_carrier":{"records":59940260,"bytes":1018984420,"sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf","status":"PASS"},
+  "nqx_m1_cache_v3":{"rows":673097,"included_ticks":59940100,"zero_spread_ticks":48205,"sha256":"9ad6db3988cc4f41002cc806155a8dba02f70d7cb30f1190293da5ecf978e2be","midpoint_extrema":"EXACT_CONTEMPORANEOUS_BID_PLUS_ASK_OVER_2"},
+  "xauusd_m1_cache_v3":{"rows":681772,"included_ticks":151382314,"zero_spread_ticks":942184,"sha256":"957239c303f7816217d7c37de79c831a2c41c384257877caed53d246e1fe3f3a","midpoint_extrema":"EXACT_CONTEMPORANEOUS_BID_PLUS_ASK_OVER_2"},
+  "root_cause_check":{"NQX_H1_BID":{"status":"COMPUTED_PENDING_INDEPENDENT_PARITY","bars":11341,"unique_masks":314,"output_sha256":"6408a0c5e69b1f4c11a190d6914ae271f8e829db8558b377ed12fa3167d9b3de"},"NQX_M30_BID":{"status":"NOT_COMPLETED_CONTAINER_TRANSPORT_FAILURE_AFTER_TIMEOUT"}},
+  "economic_promotion":"NOT_YET_AUTHORIZED",
+  "holdout_opened":false,
+  "branch_exhausted":false,
+  "next_action":"COMPLETE NQX_M30_BID ROOT_CAUSE CHECK, RUN INDEPENDENT ECONOMIC PARITY ON H1/M30 SAMPLES, THEN PROMOTE V4 AND RERUN ALL 12 NQX SHARDS FROM SCRATCH"
+}
