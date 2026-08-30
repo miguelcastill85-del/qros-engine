@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_RISE_G30_V1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "ontology_ref": "control/G30_UNIVERSE_ONTOLOGY_v1.json",
+  "status": "RISE_ITERATION_1_COMPLETE_NOT_FIXED_POINT",
+  "economic_results_seen": false,
+  "holdout_opened": false,
+  "findings": [
+    {
+      "id": "G30_R01_SPREAD_EXPANSION_CONTEXT",
+      "severity": "HIGH",
+      "finding": "A large apparent range can coincide with abnormal spread expansion. Spread state must be separated from true directional shock.",
+      "required_fix": "Enumerate NONE and causal spread-percentile/absolute-spread filters; never create artificial fills from zero spread."
+    },
+    {
+      "id": "G30_R02_SHOCK_CLUSTERING_REFRACTORY",
+      "severity": "MEDIUM",
+      "finding": "Repeated adjacent shock bars may represent one event rather than independent entries.",
+      "required_fix": "Enumerate event refractory windows and consolidate overlapping shock bars into one event identity before scoring."
+    },
+    {
+      "id": "G30_R03_TICK_INTENSITY_CONTEXT",
+      "severity": "MEDIUM",
+      "finding": "Canonical tick streams allow distinguishing price shock with/without abnormal quote intensity without requiring external volume.",
+      "required_fix": "Add optional causal tick-count intensity context as a descendant; keep NONE baseline."
+    },
+    {
+      "id": "G30_R04_DATA_GAP_SHOCK",
+      "severity": "HIGH",
+      "finding": "A large true range after a data gap or market reopening must not be silently treated as ordinary intraday shock.",
+      "required_fix": "Freeze bar-continuity/gap flags and include NONE/EXCLUDE_DATA_GAP/REOPENING_SEPARATE_EVENT policies before mining."
+    },
+    {
+      "id": "G30_R05_ENTRY_LATENCY",
+      "severity": "MEDIUM",
+      "finding": "The discovery identity is first executable quote after close; latency variants belong to stress validation, not alpha mining.",
+      "required_fix": "Freeze zero additional discovery latency and preregister latency stress buckets."
+    }
+  ],
+  "fixed_point": false,
+  "branch_exhaustion_authorized": false,
+  "next_action": "G30_ONTOLOGY_V2_THEN_RISE_FIXED_POINT_TEST"
+}
