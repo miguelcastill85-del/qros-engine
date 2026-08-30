@@ -1,0 +1,46 @@
+{
+  "schema": "QROS_G30_STAGE1_SIGNAL_MINING_V2",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state": "DEVELOPMENT_RUNNING",
+  "scope": "DEVELOPMENT_SIGNAL_ONLY_NO_PNL",
+  "runner_sha256": "9abd7c324600795a4f3620585e3f61a9708deae43f13a420f528e56807eac579",
+  "holdout_opened": false,
+  "pnl_computed": false,
+  "shards": 24,
+  "identities_raw": 8208,
+  "unique_masks_within_shards": 7612,
+  "exact_aliases_within_shards": 596,
+  "unique_masks_after_bid_mid_union": 7522,
+  "exact_aliases_after_bid_mid_union": 686,
+  "by_asset": {
+    "NQX": {
+      "identities_raw": 4104,
+      "unique_masks_within_shards": 3828,
+      "exact_aliases_within_shards": 276,
+      "by_tf": {
+        "M1": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 647, "exact_aliases_after_bid_mid_union": 37},
+        "M5": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 641, "exact_aliases_after_bid_mid_union": 43},
+        "M10": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 638, "exact_aliases_after_bid_mid_union": 46},
+        "M15": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 638, "exact_aliases_after_bid_mid_union": 46},
+        "M30": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 615, "exact_aliases_after_bid_mid_union": 69},
+        "H1": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 607, "exact_aliases_after_bid_mid_union": 77}
+      }
+    },
+    "XAUUSD": {
+      "identities_raw": 4104,
+      "unique_masks_within_shards": 3784,
+      "exact_aliases_within_shards": 320,
+      "by_tf": {
+        "M1": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 648, "exact_aliases_after_bid_mid_union": 36},
+        "M5": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 641, "exact_aliases_after_bid_mid_union": 43},
+        "M10": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 643, "exact_aliases_after_bid_mid_union": 41},
+        "M15": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 633, "exact_aliases_after_bid_mid_union": 51},
+        "M30": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 607, "exact_aliases_after_bid_mid_union": 77},
+        "H1": {"identities_across_bid_mid": 684, "unique_masks_after_bid_mid_union": 564, "exact_aliases_after_bid_mid_union": 120}
+      }
+    }
+  },
+  "ontology_scope_note": "This is only the preregistered core slice: HIGH_LOW_RANGE_OVER_ATR, ATR14 SMA_TR, CURRENT_BAR_INCLUDED/LAGGED_PRE_SHOCK, thresholds, persistence families and n, with other contexts NONE. It does not exhaust G30 ontology.",
+  "status": "STAGE1_SIGNAL_CORE_SLICE_COMPLETE",
+  "branch_exhausted": false
+}
