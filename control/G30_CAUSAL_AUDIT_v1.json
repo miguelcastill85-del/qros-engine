@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_G30_CAUSAL_AUDIT_V1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "source": {
+    "repository": "Mohammed-AB/forex-strategy-lab",
+    "commit": "df34085afb615818038c0e8bedc5aad837883e5c",
+    "path": "forex_backtester.py",
+    "function": "sig_news_momentum",
+    "bytes": 53694,
+    "sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
+    "git_blob_sha1": "b6fe1a3c9c6dad89049a8271e772cc39e23f1a99"
+  },
+  "findings": [
+    {
+      "id": "G30_F01_SIGNAL_CLOSE_CAUSAL",
+      "status": "PASS_WITH_EXECUTION_DELAY",
+      "finding": "The shock and directional-persistence conditions use only the current completed bar and prior closes. They are causal if evaluated after the current bar closes.",
+      "required_execution": "Enter only at the first executable quote after the signal bar close."
+    },
+    {
+      "id": "G30_F02_ATR_INCLUDES_SIGNAL_BAR",
+      "status": "CAUSAL_BUT_SEMANTIC_CHOICE",
+      "finding": "The public ATR is computed on a rolling true-range mean that includes the current shock bar. This is causal at bar close but changes the meaning of shock relative to using only pre-shock volatility.",
+      "required_action": "Preregister both CURRENT_INCLUDED and LAGGED_PRE_SHOCK ATR normalization as distinct causal interpretations before mining."
+    },
+    {
+      "id": "G30_F03_NP_ROLL_BOUNDARY",
+      "status": "DEFECT_CONFIRMED",
+      "finding": "np.roll for c1/c2/c3 wraps terminal observations into the first three rows.",
+      "required_action": "Invalidate the first three observations of every series using three lags."
+    },
+    {
+      "id": "G30_F04_PUBLIC_FILL_MODEL",
+      "status": "REJECT_PUBLIC_ECONOMICS",
+      "finding": "The public simulator enters at signal-bar close and does not implement QROS Bid/Ask execution.",
+      "required_action": "Do not import public PnL. Reimplement QROS execution with BUY Ask/Bid and SELL Bid/Ask, SL-first ambiguity, first available gap fill and same-day exit."
+    }
+  ],
+  "decision": "THESIS_ADMISSIBLE_PUBLIC_ECONOMICS_NOT_ADMISSIBLE",
+  "holdout_opened": false,
+  "economic_results_read": false,
+  "next_action": "FREEZE_G30_UNIVERSE_ONTOLOGY_AND_RISE"
+}
