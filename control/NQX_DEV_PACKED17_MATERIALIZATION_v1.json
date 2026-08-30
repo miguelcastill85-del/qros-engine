@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_NQX_DEV_PACKED17_MATERIALIZATION_V1",
+  "asset": "NQX",
+  "scope": "DEVELOPMENT_ONLY_EXECUTION_SCORING_INFRASTRUCTURE",
+  "output_runtime_path": "/mnt/data/NQX_DEV_PACKED17_2018_2019_v1.bin",
+  "bytes": 1018984420,
+  "records": 59940260,
+  "record_bytes": 17,
+  "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+  "expected_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+  "integrity": "PASS",
+  "construction": [
+    {"carrier":"QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip","bytes":340000000},
+    {"carrier":"QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip","bytes":340000000},
+    {"carrier":"QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip","bytes":338984420}
+  ],
+  "holdout_opened": false,
+  "economic_results": false,
+  "status": "PASS"
+}
