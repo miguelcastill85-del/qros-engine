@@ -1,0 +1,18 @@
+{
+  "schema": "QROS_RISE_ADVERSARIAL_AUDIT_V1",
+  "campaign": "QROS_G31_PUBLIC_ICHIMOKU_CLOUD_CROSS_v1",
+  "iteration": 1,
+  "input_ontology": "control/G31_UNIVERSE_ONTOLOGY_v1.json",
+  "results_seen": false,
+  "status": "CHANGES_REQUIRED",
+  "findings": [
+    {"id":"G31_R1_01","class":"CAUSALITY","finding":"STANDARD_DISPLACED_DESCENDANT is underspecified. Using a forward-shifted plotted Senkou value at the current bar can accidentally read information unavailable at signal time.","required_change":"Define displaced cloud causally from values computed 26 bars earlier, never by negative shift/future indexing."},
+    {"id":"G31_R1_02","class":"BOUNDARY","finding":"Warm-up and prior-cross requirements are not explicit for each period combination.","required_change":"Require max(fast,slow,cloud_b,volatility/spread/tick lookback)+1 completed bars before eligibility."},
+    {"id":"G31_R1_03","class":"TIES","finding":"Equality handling at Tenkan/Kijun and cloud boundaries is unspecified.","required_change":"Freeze strict cross definitions and strict/weak cloud-location alternatives as separate identities."},
+    {"id":"G31_R1_04","class":"REDUNDANCY","finding":"Several period combinations can collapse to identical masks or impossible parameter orderings.","required_change":"Preregister deterministic constraints and exact-mask deduplication before multiplicity counting."},
+    {"id":"G31_R1_05","class":"GAPS","finding":"Rolling highs/lows across long market closures can contaminate cross timing.","required_change":"Add reset/carry policies across proven data gaps as explicitly tagged descendants; do not silently bridge closures."},
+    {"id":"G31_R1_06","class":"FEATURE_SEMANTICS","finding":"MID feature construction with crossed or zero spread ticks is underspecified.","required_change":"Preserve observed quotes; exclude crossed quotes from feature construction unless a dedicated descendant is preregistered; zero spread may be observed but cannot create artificial fills."},
+    {"id":"G31_R1_07","class":"ORTHOGONALITY","finding":"G31 may correlate with G29 because both encode trend continuation.","required_change":"Treat G31 as scientifically distinct at research stage but require event overlap/correlation and marginal contribution tests before portfolio risk allocation."}
+  ],
+  "next_action": "AMEND_G31_ONTOLOGY_AND_RERUN_RISE"
+}
