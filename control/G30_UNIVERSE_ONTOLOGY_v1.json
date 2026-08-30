@@ -1,0 +1,74 @@
+{
+  "schema": "QROS_G30_UNIVERSE_ONTOLOGY_V1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "root_genealogy": "G30_VOLATILITY_SHOCK_MOMENTUM",
+  "status": "UNIVERSE_ONTOLOGY_FROZEN_CANDIDATE",
+  "results_seen": false,
+  "holdout_opened": false,
+  "assets": ["NQX","XAUUSD"],
+  "sides": ["BUY","SELL"],
+  "causal_clock": {
+    "signal_known": "AFTER_BAR_CLOSE",
+    "entry": "FIRST_EXECUTABLE_QUOTE_AFTER_SIGNAL_CLOSE",
+    "lag_boundary": "FIRST_MAX_LAG_ROWS_INVALIDATED"
+  },
+  "dimensions": {
+    "signal_timeframe": ["M1","M5","M10","M15","M30","H1"],
+    "feature_quote_side": ["BID","MID"],
+    "bar_price_transform": ["CLOSE","HL2","HLC3","OHLC4"],
+    "shock_measure": [
+      "HIGH_LOW_RANGE_OVER_ATR",
+      "TRUE_RANGE_OVER_ATR",
+      "ABS_CLOSE_TO_CLOSE_RETURN_OVER_ATR",
+      "BODY_OVER_ATR"
+    ],
+    "atr_period": [7,10,14,20,28,50],
+    "atr_smoothing": ["SMA_TR","WILDER_RMA_TR","EMA_TR"],
+    "atr_reference_timing": ["CURRENT_BAR_INCLUDED","LAGGED_ONE_BAR_PRE_SHOCK"],
+    "shock_threshold": [1.0,1.25,1.5,1.75,2.0,2.5,3.0,3.5,4.0],
+    "directional_persistence_family": [
+      "CURRENT_CLOSE_EXCEEDS_ALL_PRIOR_N_CLOSES",
+      "STRICT_MONOTONIC_N_CLOSE_SEQUENCE",
+      "CURRENT_CLOSE_BREAKS_PRIOR_N_BAR_EXTREME",
+      "SHOCK_BAR_BODY_DIRECTION_ONLY"
+    ],
+    "persistence_n": [1,2,3,4,5,8],
+    "close_location_filter": ["NONE","TOP_BOTTOM_50PCT","TOP_BOTTOM_33PCT","TOP_BOTTOM_25PCT"],
+    "wick_filter": ["NONE","MAX_OPPOSING_WICK_50PCT_RANGE","MAX_OPPOSING_WICK_33PCT_RANGE","MAX_OPPOSING_WICK_20PCT_RANGE"],
+    "post_shock_confirmation": ["NONE","NEXT_BAR_DIRECTIONAL_CLOSE","NEXT_BAR_BREAK_SHOCK_EXTREME","TWO_BAR_CONTINUATION"],
+    "confirmation_window_bars": [0,1,2,3],
+    "volatility_regime_context": ["NONE","ATR_ABOVE_MEDIAN","ATR_PERCENTILE_20_80","ATR_TOP_QUINTILE","PRE_SHOCK_COMPRESSION"],
+    "volatility_lookback": [20,50,100,200,500],
+    "session_initial": ["ALL"],
+    "session_after_timezone_proof": ["ASIA","LONDON","NEW_YORK","LONDON_NY_OVERLAP"],
+    "day_of_week": ["ALL","MON","TUE","WED","THU","FRI"]
+  },
+  "management_separation": {
+    "discovery_stop_family": ["ATR_FIXED","SHOCK_BAR_EXTREME"],
+    "atr_stop_mult": [0.5,0.75,1.0,1.25,1.5,2.0,2.5,3.0],
+    "reward_r_multiple": [0.75,1.0,1.25,1.5,2.0,2.5,3.0,4.0],
+    "time_stop_bars": [1,2,3,5,8,13,20],
+    "post_signal_profiles": ["BREAK_EVEN","TRAILING","PARTIALS","VOLATILITY_EXIT","SESSION_END_EXIT"],
+    "identity_rule": "MANAGEMENT_PROFILES_ARE_TIERS_UNLESS_ENTRY_CAUSALITY_CHANGES"
+  },
+  "execution_contract": {
+    "buy_entry": "ASK",
+    "buy_exit": "BID",
+    "sell_entry": "BID",
+    "sell_exit": "ASK",
+    "ambiguous_sl_tp": "SL_FIRST",
+    "gaps": "FIRST_ACTUALLY_AVAILABLE_PRICE",
+    "zero_spread": "NO_ARTIFICIAL_FILL",
+    "same_day_exit": true,
+    "one_active_position_per_asset": true,
+    "cost_regimes": ["CENTRAL","CONSERVATIVE","SEVERE"]
+  },
+  "dedupe": {
+    "identical_signal_masks": "ONE_TEST_WITH_ALIASES",
+    "impossible_or_redundant_parameter_combinations": "REMOVE_BEFORE_SCORING",
+    "buy_sell": "SEPARATE",
+    "management": "HIGHLY_OVERLAPPING_VARIANTS_ARE_TIERS"
+  },
+  "branch_exhaustion_condition": "PROHIBITED_UNTIL_RISE_FIXED_POINT_AND_COVERAGE_RECEIPT",
+  "next_action": "RISE_G30_ITERATION_1"
+}
