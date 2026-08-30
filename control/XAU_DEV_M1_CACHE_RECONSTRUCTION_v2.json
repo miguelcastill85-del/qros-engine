@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_XAU_DEV_M1_CACHE_RECONSTRUCTION_V2",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state": "DEVELOPMENT_RUNNING",
+  "scope": "DEVELOPMENT_2018_2019_DERIVED_CACHE_ONLY",
+  "source_carrier": {
+    "path": "XAUUSD_DEV_PACKED17_2018_2019_v1.bin",
+    "bytes": 2573500596,
+    "records": 151382388,
+    "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "integrity": "PASS"
+  },
+  "cache": {
+    "runtime_path": "/mnt/data/XAU_DEV_M1_EXECUTABLE_QUOTE_CACHE_v2.npz",
+    "rows": 681772,
+    "included_ticks": 151382314,
+    "crossed_ticks_excluded": 74,
+    "zero_spread_ticks_preserved_in_diagnostic_cache": 942184,
+    "first_bucket_ms": 1516885560000,
+    "last_bucket_ms": 1577836680000,
+    "runtime_npz_sha256": "0e6c13e8530ed154dfe67de55dfcc5d5fadd3cbd270600b5ec5ccfc1f78b58f9",
+    "note": "NPZ container hash is runtime-specific; scientific identity is additionally bound by source-carrier hash, schema, row/tick counts and per-array content hashes."
+  },
+  "array_sha256": {
+    "bucket": "155c7cdc460863cc0255351d1d273a09154336c30ed15bbecac9f7d5a5fbcfb7",
+    "bid_o": "20c3ac4de7363052b0d070b8615f2853f08d50e080694aa60c34a7df20b4a2e3",
+    "bid_c": "7cc7b10d4c5f92c1b7f21c1cdeb5d774a353faa126b0b55773027984f7b9383f",
+    "ask_o": "62d9062f706abda4335d1a47d44dec5f4004c01748f01721b4812f4bdec6e41d",
+    "ask_c": "7dda5bf093d8e41df32bd7c32d8b9627a4943f1ef5dda3f59cb06922c9a834eb",
+    "bid_h": "d7996c895b1b763f561423b278602a09638143e4f299d56ca2872b0fc961a1dd",
+    "ask_h": "c261cfb61851f1f1e6e9741c5cb150fe9e52892d7b9a198ca7ad4ae757f749de",
+    "bid_l": "dd8cd8089892e766dc0735dbd7f99b234e50d3472cfe919e2b4943f1338f644c",
+    "ask_l": "307246d86420ec66d6a29e0f2da6d57dbd27527ee668e1469fa884e6c7976d87",
+    "spread_min": "aefb9f89a50ff173e0c7b01ed04a9ed6949932586c6dfdb2e46213530445b5c6",
+    "spread_max": "79e99da01b6dea39d529c30115c61168b301d634aef241c486908e8291933c84",
+    "ticks": "4b930d14eaba782087be89d30a996256666ee55d73a9d1c5636bb96d2484bfb7",
+    "spread_sum": "a56edb84b2467312ca531c0d0f79636501cff93c30aa2244a85255922f7b1cbe",
+    "zero_ticks": "4005a75494b3e30f8b3f7cf3b536db0117205f4001bb41315588d11f15d9ef79",
+    "spread_avg": "4045951315a728e44878dd50619e4e0d4d81a610015be571de57dfd7a61ec4c5"
+  },
+  "reconstruction_runner_sha256": "d5714b8540cf10e29c879631b99fa3cc80d82acfc2973ed3b5403ee2ac92c5ad",
+  "runtime_seconds": 11.123565673828125,
+  "status": "PASS_DERIVED_CACHE_RESTORED",
+  "holdout_opened": false,
+  "economic_pnl_computed": false,
+  "branch_exhausted": false
+}
