@@ -1,0 +1,25 @@
+{
+  "schema": "QROS_SCIENTIFIC_HEAD_PROMOTION_RECEIPT_V1",
+  "status": "PROMOTED_FOR_CONTINUITY_NOT_EXECUTION_READY",
+  "scientific_head_path": "control/SCIENTIFIC_HEAD.json",
+  "campaign": "QROS_PUBLIC_0181_BB_WINNER_PRO_v1",
+  "state": "DEVELOPMENT_RUNNING",
+  "control_parent_main": "b54504bf9680d8da920e9c0a6dbf191e68850256",
+  "continuity": {
+    "control_authority": "PROMOTED",
+    "scientific_head_recovered": true,
+    "cross_chat_scientific_recovery_pending": true
+  },
+  "guards": {
+    "scientific_execution_authorized": false,
+    "holdout_access_authorized": false,
+    "pnl_read_authorized": false,
+    "branch_exhaustion_authorized": false
+  },
+  "blocking_runtime_identities": [
+    "QROS_PUBLIC0181_AUTHORITY_AMENDMENT_v1.json",
+    "QROS_RISE_Q_AUDIT_HARDENING_BASELINE_v1.json",
+    "XAUUSD_200S_BIDASK_DEV_2018_2019_v1.csv"
+  ],
+  "next_action": "MATERIALIZE_EXACT_AUTH_BASELINE_XAU_DEV_THEN_EXECUTE_OHLC4_SMA_ATR_FULL_RANGE_L80_SELL"
+}
