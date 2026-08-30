@@ -1,0 +1,47 @@
+{
+  "artifact_store": {
+    "provider": "Dropbox",
+    "role": "ARTIFACT_STORE_NOT_SCIENTIFIC_AUTHORITY",
+    "root_path": "/QROS",
+    "storage_manifest_file_id": "id:3hcdcMy0pHAAAAAAAAAADg",
+    "storage_manifest_path": "/QROS/QROS_STORAGE_MANIFEST_v1.json"
+  },
+  "base_main_commit": "bcb2f9181cc5604aced59c8296529682452637b5",
+  "control_branch": "chore/qros-control-authority-v1",
+  "governance": {
+    "predevelopment_protocol": "governance/QROS_RISE_PREDEVELOPMENT_UNIVERSE_FREEZE_PROTOCOL_v1.5.md",
+    "predevelopment_protocol_sha256": "26e48dcfd443cefbec7023ece9179dfe46123bc6fd1079a4bc9e37755162703b",
+    "project_policy_json": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.0.json",
+    "project_policy_md": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.0.md"
+  },
+  "mcp": {
+    "required_for_current_architecture": false,
+    "status": "FROZEN"
+  },
+  "next_action": "VERIFY_CONTROL_AUTHORITY_MANIFEST_AND_OPEN_REVIEW_PR",
+  "protocol_materialization_commit": "eb861c61d0d063c56b9d63294de08867f2bf592c",
+  "repository": "miguelcastill85-del/qros-engine",
+  "safety": {
+    "branch_exhaustion_authorized": false,
+    "holdout_access_authorized": false,
+    "pnl_read_authorized": false,
+    "scientific_execution_authorized": false
+  },
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V1",
+  "scientific_head": {
+    "authority_ref": null,
+    "reason": "Repository currently proves engineering/control state, not a complete recovered scientific HEAD.",
+    "status": "NOT_PROMOTED"
+  },
+  "scope": "CONTROL_CONTINUITY_ONLY",
+  "software_state": {
+    "git_blob_sha": "c283f4464cf108131638d74e43fb355121aa6506",
+    "holdout_opened": false,
+    "mt5_compiled_or_executed": false,
+    "new_real_data_pnl_computed": false,
+    "path": "control/STATE.json",
+    "research_ready": false,
+    "scientific_head_promoted": false
+  },
+  "status": "CONTROL_AUTHORITY_CANDIDATE"
+}
