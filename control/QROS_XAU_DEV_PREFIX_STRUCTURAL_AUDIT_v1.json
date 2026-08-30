@@ -1,0 +1,44 @@
+{
+  "asset": "XAU",
+  "bar_structure_epoch_aligned_diagnostic_only": {
+    "H1": {"bars": 11394, "gap_events": 499, "max_missing_buckets": 73},
+    "M1": {"bars": 681772, "gap_events": 562, "max_missing_buckets": 4382},
+    "M10": {"bars": 68326, "gap_events": 500, "max_missing_buckets": 438},
+    "M15": {"bars": 45551, "gap_events": 500, "max_missing_buckets": 292},
+    "M30": {"bars": 22781, "gap_events": 500, "max_missing_buckets": 146},
+    "M5": {"bars": 136544, "gap_events": 500, "max_missing_buckets": 876}
+  },
+  "development_prefix": {
+    "bytes": 2573500596,
+    "expected_bytes": 2573500596,
+    "expected_records": 151382388,
+    "expected_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "hash_pass": true,
+    "records": 151382388,
+    "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
+  },
+  "economic_results_computed": false,
+  "holdout_pnl_read": false,
+  "parts": [
+    {"bytes_consumed":340000000,"file":"QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip","full_payload_consumed":true,"sha256_consumed":"b302be60a191aa70517f81ac06fbdfb5c53ff900b687c255222478068840267b"},
+    {"bytes_consumed":340000000,"file":"QROS_XAU_FULL_HISTORY_v2_part002-of-035.zip","full_payload_consumed":true,"sha256_consumed":"22a55911b5556d62e86f2ae36364fd062d13183daf7796451ec24bb77c5e0a73"},
+    {"bytes_consumed":340000000,"file":"QROS_XAU_FULL_HISTORY_v2_part003-of-035.zip","full_payload_consumed":true,"sha256_consumed":"4ccd9dc1929e36b911a1a18eef0f05cb0874a73abfc81b269bfd64d53a692ddd"},
+    {"bytes_consumed":340000000,"file":"QROS_XAU_FULL_HISTORY_v2_part004-of-035.zip","full_payload_consumed":true,"sha256_consumed":"47ea938186b4e6c5e799602e3696c1a2871867b270f942f92d96763e5131f13e"},
+    {"bytes_consumed":340000000,"file":"QROS_XAU_FULL_HISTORY_v2_part005-of-035.zip","full_payload_consumed":true,"sha256_consumed":"8bb0376fe33904c80ee3e25337e446797378201eaa22f39041685286b48a1f39"},
+    {"bytes_consumed":340000000,"file":"QROS_XAU_FULL_HISTORY_v2_part006-of-035.zip","full_payload_consumed":true,"sha256_consumed":"3ce26873d8492c8a41837b76459165a239aaa8f2a26e0837b3e52663470cf52e"},
+    {"bytes_consumed":340000000,"file":"QROS_XAU_FULL_HISTORY_v2_part007-of-035.zip","full_payload_consumed":true,"sha256_consumed":"4f8f853b9a7ff5cf54c9b59bcacbcca373953e027960154a9f4efc716a8eab36"},
+    {"bytes_consumed":193500596,"file":"QROS_XAU_FULL_HISTORY_v2_part008-of-035.zip","full_payload_consumed":false,"sha256_consumed":"3370ce4533cd7abff4fe444b392e728f6aadd7f4afb16512dba3444a1c63722d"}
+  ],
+  "schema": "QROS_DEV_PREFIX_STRUCTURAL_AUDIT_V1",
+  "status": "PASS",
+  "tick_audit": {
+    "crossed_spread": 74,
+    "epoch_year_counts_diagnostic_only": {"2018":68184772,"2019":83197616},
+    "first_timestamp_ms": 1516885566846,
+    "flags_hist": {"2":64201599,"4":62915923,"6":24264866},
+    "last_timestamp_ms": 1577836737796,
+    "out_of_order_pairs": 0,
+    "zero_spread": 942184
+  },
+  "timezone_policy": "NOT_PROVEN_FROM_PACKED17; epoch-aligned bar counts are structural diagnostics only and MUST NOT authorize session mining or DST assumptions."
+}
