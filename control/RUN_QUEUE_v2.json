@@ -1,0 +1,40 @@
+{
+  "schema": "QROS_RUN_QUEUE_V2",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "campaign": "QROS_PUBLIC_0181_BB_WINNER_PRO_v1",
+  "scientific_head": "control/SCIENTIFIC_HEAD.json",
+  "queue": [
+    {
+      "seq": 1,
+      "action": "MATERIALIZE_EXACT_RUNTIME_IDENTITIES",
+      "required": [
+        {"file":"QROS_PUBLIC0181_AUTHORITY_AMENDMENT_v1.json","sha256":"8a9792af8f4db55877633bc43dec6241290e3e2c8ca5a533d4819658c6b53934"},
+        {"file":"QROS_RISE_Q_AUDIT_HARDENING_BASELINE_v1.json","sha256":"8c46a8a26f06488ab120dfb101983f45f7eae82057655d897a5b8745fce62632"},
+        {"file":"XAUUSD_200S_BIDASK_DEV_2018_2019_v1.csv","sha256":"a9324a87bb5825d15da8ae1189d42326102c9ecf37b46032fb839a6be6b97f4e"}
+      ]
+    },
+    {
+      "seq": 2,
+      "action": "EXECUTE_F5_BLOCK",
+      "block": "OHLC4/SMA/ATR/FULL_RANGE/L80/SELL",
+      "precondition": "SEQ1_ALL_HASH_PASS"
+    },
+    {
+      "seq": 3,
+      "action": "EXECUTE_F5_BLOCK",
+      "block": "OHLC4/EMA/ATR/FULL_RANGE/L80/SELL",
+      "precondition": "SEQ2_SCIENTIFICALLY_CLOSED"
+    },
+    {
+      "seq": 4,
+      "action": "RECONCILE_F5_AND_F1_F8_COVERAGE",
+      "precondition": "SEQ3_SCIENTIFICALLY_CLOSED"
+    }
+  ],
+  "guards": {
+    "rerun_closed_blocks": false,
+    "holdout_opened": false,
+    "supergate_authorized": false,
+    "branch_exhaustion_authorized": false
+  }
+}
