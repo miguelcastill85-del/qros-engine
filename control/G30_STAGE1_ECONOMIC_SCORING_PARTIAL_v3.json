@@ -1,0 +1,56 @@
+{
+  "schema": "QROS_G30_STAGE1_ECONOMIC_SCORING_PARTIAL_V3",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state": "DEVELOPMENT_RUNNING",
+  "scope": "DEVELOPMENT_2018_2019_ONLY",
+  "holdout_opened": false,
+  "management_anchor": {"atr_mult": 3.0, "rr": 1.5, "hold_bars": 20, "same_day": true, "sl_first": true, "entry": "FIRST_EXECUTABLE_QUOTE_AFTER_SIGNAL_CLOSE", "buy": "ASK_IN_BID_OUT", "sell": "BID_IN_ASK_OUT"},
+  "runner_v3_sha256": "a0b1468e289e2db913404ab78ec75466c09745ff3ed53e54e9fa46dd64ac8431",
+  "nqx": {
+    "economic_shards_completed": 12,
+    "economic_shards_total": 12,
+    "status": "COMPLETE_ANCHOR_SCORING",
+    "scored_unique_masks": 3828,
+    "best_net_with_min_100_trades": {
+      "shard": "NQX_M10_MID.json",
+      "trades": 632,
+      "net_r": 13.669382771986626,
+      "pf": 1.4200793644145828,
+      "expectancy_r": 0.021628770208839597,
+      "max_dd_r": 1.4084932151800995,
+      "y2018_net_r": 6.357055150375716,
+      "y2019_net_r": 7.312327621610913,
+      "params": {"timing": "CURRENT_BAR_INCLUDED", "threshold": 3.0, "persistence": "CURRENT_CLOSE_EXCEEDS_ALL_PRIOR_N_CLOSES", "n": 1}
+    },
+    "best_pf_with_min_100_trades": {
+      "shard": "NQX_M10_BID.json",
+      "trades": 103,
+      "net_r": 4.300609230724056,
+      "pf": 2.04365344393862,
+      "expectancy_r": 0.041753487676932585,
+      "max_dd_r": 0.6419665978283153,
+      "y2018_net_r": 3.825557926698874,
+      "y2019_net_r": 0.47505130402518364,
+      "params": {"timing": "CURRENT_BAR_INCLUDED", "threshold": 2.5, "persistence": "STRICT_MONOTONIC_N_CLOSE_SEQUENCE", "n": 5}
+    },
+    "configs_both_2018_2019_positive_min_100_trades": 556,
+    "configs_both_2018_2019_positive_min_300_trades": 426,
+    "gate_a": "NOT_EVALUATED_YET",
+    "cost_stress": "PENDING"
+  },
+  "xauusd": {
+    "dev_carrier_materialized": true,
+    "dev_carrier_bytes": 2573500596,
+    "dev_carrier_records": 151382388,
+    "dev_carrier_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "dev_carrier_integrity": "PASS",
+    "economic_shards_completed": 2,
+    "economic_shards_total": 12,
+    "completed": ["XAUUSD_H1_BID", "XAUUSD_H1_MID"],
+    "last_attempt": "XAUUSD_M30_BID_TIMEOUT_NO_RECEIPT",
+    "status": "PARTIAL"
+  },
+  "branch_exhausted": false,
+  "decision": "CONTINUE_DEVELOPMENT_SCORING",
+  "next_action": "OPTIMIZE_OR_SHARD_XAUUSD_M30_AND_LOWER_TF_SCORING_WITHOUT_SEMANTIC_CHANGE_THEN_COMPLETE_XAUUSD_12_OF_12"
+}
