@@ -1,0 +1,50 @@
+{
+  "schema": "QROS_RISE_PUBLIC0184_V2",
+  "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+  "ontology_ref": "control/G29_UNIVERSE_ONTOLOGY_v2.json",
+  "status": "RISE_ITERATION_2_COMPLETE_NOT_FIXED_POINT",
+  "economic_results_seen": false,
+  "holdout_opened": false,
+  "resolved_from_v1": ["R01_BAR_ANCHOR_PHASE","R02_SIGNAL_PRICE_SOURCE","R03_EMA_INITIALIZATION_WARMUP","R04_CROSSED_AND_ZERO_SPREAD_QUOTES","R05_SESSION_TIMEZONE_DEPENDENCE","R06_POSITION_INTERFERENCE","R07_HTF_LTF_NONINTEGER_RELATIONS","R08_SIGNAL_CONFIRMATION_ZERO_WINDOW"],
+  "new_findings": [
+    {
+      "id": "R09_PRICE_TRANSFORM_UNIVERSE",
+      "severity": "MEDIUM",
+      "finding": "The source uses close, but transferable causal descendants may compute the same EMA geometry on other causal bar-price transforms. The ontology freezes quote side but not OHLC price transform.",
+      "required_fix": "Enumerate CLOSE, HL2, HLC3 and OHLC4 as preregistered feature transforms."
+    },
+    {
+      "id": "R10_ATR_DEFINITION",
+      "severity": "HIGH",
+      "finding": "ATR is used both for pullback distance and discovery management, but period and smoothing are not frozen as dimensions.",
+      "required_fix": "Enumerate ATR period and causal smoothing families; keep source default SMA(14) explicitly represented."
+    },
+    {
+      "id": "R11_SLOPE_LOOKBACK",
+      "severity": "MEDIUM",
+      "finding": "Slope-based HTF/LTF regime families are listed without a slope lookback definition.",
+      "required_fix": "Enumerate slope lookback in closed bars and define sign as value[t]-value[t-k]."
+    },
+    {
+      "id": "R12_REGIME_PERSISTENCE",
+      "severity": "MEDIUM",
+      "finding": "A one-bar EMA ordering and a persistent ordering are causally distinct implementations of the same regime thesis.",
+      "required_fix": "Enumerate minimum consecutive closed HTF bars satisfying regime."
+    },
+    {
+      "id": "R13_PULLBACK_DURATION_AND_RECOVERY_OVERSHOOT",
+      "severity": "MEDIUM",
+      "finding": "Pullback event depth is frozen but event duration and recovery overshoot beyond the EMA are not.",
+      "required_fix": "Enumerate maximum pullback duration and recovery overshoot in ATR units."
+    },
+    {
+      "id": "R14_ENTRY_LATENCY_BUCKET",
+      "severity": "MEDIUM",
+      "finding": "First executable quote is the primary rule, but latency stress belongs to validation and should not silently alter discovery identity.",
+      "required_fix": "Freeze discovery latency to first executable quote; preregister latency as validation stress only."
+    }
+  ],
+  "fixed_point": false,
+  "branch_exhaustion_authorized": false,
+  "next_action": "MATERIALIZE_G29_UNIVERSE_ONTOLOGY_V3_THEN_RISE_ITERATION_3"
+}
