@@ -1,0 +1,85 @@
+{
+  "asset": "NQX",
+  "bar_structure_epoch_aligned_diagnostic_only": {
+    "H1": {
+      "bars": 11341,
+      "gap_events": 500,
+      "max_missing_buckets": 71
+    },
+    "M1": {
+      "bars": 673097,
+      "gap_events": 1842,
+      "max_missing_buckets": 4319
+    },
+    "M10": {
+      "bars": 67775,
+      "gap_events": 715,
+      "max_missing_buckets": 431
+    },
+    "M15": {
+      "bars": 45312,
+      "gap_events": 516,
+      "max_missing_buckets": 287
+    },
+    "M30": {
+      "bars": 22670,
+      "gap_events": 500,
+      "max_missing_buckets": 143
+    },
+    "M5": {
+      "bars": 135250,
+      "gap_events": 882,
+      "max_missing_buckets": 863
+    }
+  },
+  "development_prefix": {
+    "bytes": 1018984420,
+    "expected_bytes": 1018984420,
+    "expected_records": 59940260,
+    "expected_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "hash_pass": true,
+    "records": 59940260,
+    "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf"
+  },
+  "economic_results_computed": false,
+  "holdout_pnl_read": false,
+  "parts": [
+    {
+      "bytes_consumed": 340000000,
+      "file": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+      "full_payload_consumed": true,
+      "sha256_consumed": "0a0f1814e51bb649aeeadc05a982b052bfaa3a6ea48c6b81c8ec7e1af096f60d"
+    },
+    {
+      "bytes_consumed": 340000000,
+      "file": "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+      "full_payload_consumed": true,
+      "sha256_consumed": "371e8c4bff51ed6896101aec9212aa6fcc6677eb650c1e2b1e08739c2518da91"
+    },
+    {
+      "bytes_consumed": 338984420,
+      "file": "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip",
+      "full_payload_consumed": false,
+      "sha256_consumed": "646da2cbdb608d815de73618d72aa7aacc416aeba93d8124bbb91727cf3169e1"
+    }
+  ],
+  "schema": "QROS_DEV_PREFIX_STRUCTURAL_AUDIT_V1",
+  "status": "PASS",
+  "tick_audit": {
+    "crossed_spread": 160,
+    "epoch_year_counts_diagnostic_only": {
+      "2018": 30362780,
+      "2019": 29577480
+    },
+    "first_timestamp_ms": 1516885570165,
+    "flags_hist": {
+      "2": 17619217,
+      "4": 17510261,
+      "6": 24810782
+    },
+    "last_timestamp_ms": 1577836797469,
+    "out_of_order_pairs": 0,
+    "zero_spread": 48205
+  },
+  "timezone_policy": "NOT_PROVEN_FROM_PACKED17; epoch-aligned bar counts are structural diagnostics only and MUST NOT authorize session mining or DST assumptions."
+}
