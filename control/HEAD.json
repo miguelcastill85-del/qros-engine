@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V8",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V9",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "scope": "CONTROL_AND_SCIENTIFIC_CONTINUITY",
   "repository": "miguelcastill85-del/qros-engine",
@@ -25,9 +25,10 @@
       "ontology": "control/G29_UNIVERSE_ONTOLOGY_v3.json",
       "rise": "control/RISE_PUBLIC0184_v3.json",
       "rise_status": "FIXED_POINT",
-      "data_gate": "control/DATA_GATE_G29_G30_G31_DEV_PREFIX_v1.json",
       "dev_prefix_integrity": "PASS",
-      "session_mining": "DISABLED_TIMEZONE_UNPROVEN",
+      "clock_reference": "DARWINEX_MT5_SERVER_TIME",
+      "m1_primary_cache": "PASS",
+      "m1_independent_sample_parity": "PASS",
       "mining_authorized": false,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -37,13 +38,13 @@
       "state": "PREREGISTERED_NO_RESULTS",
       "authority_ref": "control/PREREG_G30_VOLATILITY_SHOCK_MOMENTUM_v1.json",
       "source_sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
-      "causal_audit": "control/G30_CAUSAL_AUDIT_v1.json",
       "ontology": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
       "rise": "control/RISE_G30_v2.json",
       "rise_status": "FIXED_POINT",
-      "data_gate": "control/DATA_GATE_G29_G30_G31_DEV_PREFIX_v1.json",
       "dev_prefix_integrity": "PASS",
-      "session_mining": "DISABLED_TIMEZONE_UNPROVEN",
+      "clock_reference": "DARWINEX_MT5_SERVER_TIME",
+      "m1_primary_cache": "PASS",
+      "m1_independent_sample_parity": "PASS",
       "mining_authorized": false,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -53,59 +54,44 @@
       "state": "PREREGISTERED_NO_RESULTS",
       "authority_ref": "control/PREREG_G31_ICHIMOKU_CLOUD_CROSS_v1.json",
       "source_sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
-      "causal_audit": "control/G31_CAUSAL_AUDIT_v1.json",
       "ontology": "control/G31_UNIVERSE_ONTOLOGY_v2.json",
       "rise": "control/RISE_G31_v2.json",
       "rise_status": "FIXED_POINT",
-      "data_gate": "control/DATA_GATE_G29_G30_G31_DEV_PREFIX_v1.json",
       "dev_prefix_integrity": "PASS",
-      "session_mining": "DISABLED_TIMEZONE_UNPROVEN",
+      "clock_reference": "DARWINEX_MT5_SERVER_TIME",
+      "m1_primary_cache": "PASS",
+      "m1_independent_sample_parity": "PASS",
       "mining_authorized": false,
       "holdout_opened": false,
       "branch_exhausted": false
     }
   },
+  "data_provenance": {
+    "receipt": "control/DARWINEX_MT5_DATA_PROVENANCE_TIME_REFERENCE_v1.json",
+    "source_platform": "DARWINEX_MT5",
+    "time_reference": "DARWINEX_MT5_SERVER_TIME_AS_STORED_IN_TICKS",
+    "timestamp_transformation": "NONE",
+    "assume_utc": false,
+    "civil_session_dst_mapping_required": true
+  },
+  "dev_bar_cache_gate": {
+    "receipt": "control/DEV_M1_CACHE_AND_SAMPLE_PARITY_G29_G30_G31_v1.json",
+    "NQX_cache_sha256": "18899702e207b8f192f05e0649fca3ca593bed07d1c955bdb811e202f12cd525",
+    "XAUUSD_cache_sha256": "f29ca5d258bbda9e0f8e7a3dde0e6891a4db695f016ac9cc9eaad6e7dc176ba2",
+    "primary_cache_status": "PASS",
+    "independent_sample_parity": "PASS",
+    "full_independent_parity": "PENDING"
+  },
   "scientific_head": {
     "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
     "state": "PREREGISTERED_NO_RESULTS",
     "root_genealogy": "G30_VOLATILITY_SHOCK_MOMENTUM",
-    "authority_ref": "control/PREREG_G30_VOLATILITY_SHOCK_MOMENTUM_v1.json",
-    "ontology": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
-    "rise": "control/RISE_G30_v2.json",
     "rise_status": "FIXED_POINT",
-    "data_gate": "control/DATA_GATE_G29_G30_G31_DEV_PREFIX_v1.json",
-    "dev_prefix_integrity": "PASS",
     "parallel_preregistered_genealogies": ["G29_MULTI_TIMEFRAME_TREND_PULLBACK","G31_ICHIMOKU_STYLE_TREND_CROSS"],
     "mining_authorized": false
   },
-  "runtime_data_io": {
-    "NQX_structural_receipt": "control/QROS_NQX_DEV_PREFIX_STRUCTURAL_AUDIT_v1.json",
-    "XAUUSD_structural_receipt": "control/QROS_XAU_DEV_PREFIX_STRUCTURAL_AUDIT_v1.json",
-    "data_gate": "control/DATA_GATE_G29_G30_G31_DEV_PREFIX_v1.json",
-    "status": "DEV_PREFIX_EXACT_HASH_AND_STRUCTURE_PASS",
-    "timezone_dst": "UNPROVEN",
-    "execution_policy": "SESSION_ALL_ONLY_UNTIL_TIMEZONE_PROOF"
-  },
-  "canonical_data_authorities": {
-    "NQX": {
-      "carrier": "NQX_PACKED17_FULL_2018_2026.bin",
-      "bytes": 9516900679,
-      "records": 559817687,
-      "sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
-      "development_prefix_bytes": 1018984420,
-      "development_prefix_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf"
-    },
-    "XAUUSD": {
-      "carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
-      "bytes": 11850036456,
-      "records": 697060968,
-      "sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
-      "development_prefix_bytes": 2573500596,
-      "development_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
-    }
-  },
-  "next_action": "BUILD_PRIMARY_AND_INDEPENDENT_M1_TO_H1_BAR_ENGINES_ON_DEV_PREFIX_SESSION_ALL_ONLY",
-  "following_action": "PARITY_G30_G29_G31_SIGNAL_MASKS_THEN_DEVELOPMENT_MINING_IF_PASS",
+  "next_action": "FULL_INDEPENDENT_M1_TO_H1_BAR_PARITY_NQX_THEN_XAUUSD",
+  "following_action": "G30_G29_G31_SIGNAL_MASK_PARITY_THEN_DEVELOPMENT_MINING_IF_PASS",
   "safety": {
     "branch_exhaustion_authorized": false,
     "holdout_access_authorized": false,
