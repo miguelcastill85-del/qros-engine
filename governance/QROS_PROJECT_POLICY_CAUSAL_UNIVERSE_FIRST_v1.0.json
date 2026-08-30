@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_1.0",
+  "state": "ACTIVE_PROJECT_INVARIANT",
+  "scope": "ALL_NEW_CAMPAIGNS_AND_ALL_NOT_YET_ECONOMICALLY_EXPOSED_CAMPAIGNS",
+  "linked_protocol": {
+    "name": "QROS_RISE_PREDEVELOPMENT_UNIVERSE_FREEZE_PROTOCOL_v1.5",
+    "sha256": "26e48dcfd443cefbec7023ece9179dfe46123bc6fd1079a4bc9e37755162703b"
+  },
+  "hard_invariants": {
+    "enumeration_complete_implies_ontology_complete": false,
+    "unexamined_cell_count_zero_proves_ontology_frozen": false,
+    "predevelopment_coverage_receipt_proves_ontology_sufficiency": false,
+    "development_allowed_before_ontology_sufficiency_pass": false,
+    "pnl_read_allowed_before_universe_freeze_gate_pass": false
+  },
+  "required_before_development": [
+    "ROOT_MECHANISM_EXPLICIT",
+    "GENEALOGY_IDENTITY_INVARIANTS_FROZEN",
+    "CAUSAL_DIMENSION_MAP_COMPLETE",
+    "ALLOWED_MUTATION_OPERATORS_FROZEN",
+    "ONTOLOGY_SUFFICIENCY_ADVERSARIAL_ROUND_1_PASS",
+    "ONTOLOGY_SUFFICIENCY_ADVERSARIAL_ROUND_2_PASS",
+    "NEW_ELIGIBLE_FAMILY_DELTA_0",
+    "NEW_CAUSAL_DIMENSION_DELTA_0",
+    "NEW_MUTATION_OPERATOR_DELTA_0",
+    "NEW_UNRESOLVED_AMBIGUITY_DELTA_0",
+    "ONTOLOGY_SUFFICIENCY_AUDIT_RECEIPT_PASS",
+    "PREDEVELOPMENT_UNIVERSE_COVERAGE_RECEIPT_PASS",
+    "RISE_FIXED_POINT_TRUE",
+    "UNIVERSE_ONTOLOGY_FROZEN_TRUE",
+    "EXACT_ENUMERATOR_PARITY_PASS",
+    "FROZEN_UNIVERSE_MANIFEST_PRESENT",
+    "MULTIPLICITY_SPEC_FROZEN"
+  ],
+  "fail_closed_state": {
+    "EXECUTION_STATE": "PREREGISTERED_NO_RESULTS",
+    "UNIVERSE_FREEZE_GATE": "FAIL",
+    "DEVELOPMENT_AUTHORIZED": false,
+    "PNL_READ": false
+  },
+  "automatic_commands": ["continua", "continúa", "comienza", "sigue", "adelante", "ejecuta", "prosigue"],
+  "anti_drift": "Data readiness, bar materialization, enumerator completion, large configuration count, or UNEXAMINED_CELL_COUNT=0 never authorizes development by itself. Return to ONTOLOGY_SUFFICIENCY_AUDIT until all required receipts pass."
+}
