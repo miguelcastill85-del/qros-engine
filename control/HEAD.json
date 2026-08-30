@@ -1,13 +1,13 @@
 {
-  "schema":"QROS_PERSISTENT_CONTROL_HEAD_V20",
+  "schema":"QROS_PERSISTENT_CONTROL_HEAD_V21",
   "status":"CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "repository":"miguelcastill85-del/qros-engine",
-  "scientific_head":{"campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1","state":"DEVELOPMENT_RUNNING","economic_scoring":"V4_CORRECTED_RUNNER_ROOT_CAUSE_CHECK_IN_PROGRESS"},
-  "g30":{"ontology":"control/G30_UNIVERSE_ONTOLOGY_v2.json","rise":"control/RISE_G30_v2.json","rise_status":"FIXED_POINT","signal_core":"COMPLETE","signal_mask_parity":"PASS","bar_parity":"PASS","causal_tick_execution_index":"PASS","economic_unit_correction_ref":"control/G30_ECONOMIC_SCORING_UNIT_CORRECTION_v1.json","economic_runner_v4_checkpoint_ref":"control/G30_ECONOMIC_RUNNER_V4_CHECKPOINT_v1.json","runner_v4_sha256":"ef671e449eb7e2fbed42704c7bd9dec01de0768310f6eb48fb2265409767abe4","valid_promoted_economic_shards_nqx":0,"valid_promoted_economic_shards_xauusd":0,"nqx_h1_bid_v4":"COMPUTED_PENDING_INDEPENDENT_PARITY","nqx_m30_bid_v4":"PENDING_CONTAINER_TRANSPORT_RECOVERY","holdout_opened":false,"gate_a":"NOT_EVALUATED","branch_exhausted":false},
+  "scientific_head":{"campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1","state":"DEVELOPMENT_RUNNING","economic_scoring":"V4_CORRECTED_ROOT_CAUSE_CHECK_CONTINUES"},
+  "g30":{"ontology":"control/G30_UNIVERSE_ONTOLOGY_v2.json","rise":"control/RISE_G30_v2.json","rise_status":"FIXED_POINT","signal_core":"COMPLETE","signal_mask_parity":"PASS","bar_parity":"PASS","causal_tick_execution_index":"PASS","economic_unit_correction_ref":"control/G30_ECONOMIC_SCORING_UNIT_CORRECTION_v1.json","economic_runner_v4_checkpoint_ref":"control/G30_ECONOMIC_RUNNER_V4_CHECKPOINT_v1.json","runner_v4_sha256":"ef671e449eb7e2fbed42704c7bd9dec01de0768310f6eb48fb2265409767abe4","nqx_h1_bid_v4":"COMPUTED_PENDING_INDEPENDENT_PARITY","nqx_m30_bid_v4_outcome_precompute":"COMPLETE_22670_BARS_12_CHUNKS","nqx_m30_bid_v4_outcome_ref":"control/G30_NQX_M30_BID_V4_OUTCOME_PRECOMPUTE_v1.json","nqx_m30_bid_mask_scoring":"PENDING_AFTER_MONOLITHIC_SCORER_TIMEOUT","valid_promoted_economic_shards_nqx":0,"valid_promoted_economic_shards_xauusd":0,"holdout_opened":false,"gate_a":"NOT_EVALUATED","branch_exhausted":false},
   "data_derivatives":{"nqx_dev_carrier_sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf","nqx_m1_cache_v3_sha256":"9ad6db3988cc4f41002cc806155a8dba02f70d7cb30f1190293da5ecf978e2be","xau_m1_cache_v3_sha256":"957239c303f7816217d7c37de79c831a2c41c384257877caed53d246e1fe3f3a"},
   "governance":{"all_gate_pass_configurations_advance":true,"single_winner_selection_forbidden":true,"buy_sell_separate_required":true,"holdout_access_authorized":false,"branch_exhaustion_authorized":false},
-  "execution_annotation":{"container_transport":"FAILED_AFTER_NQX_H1_BID_V4_COMPLETION","scientific_effect":"NO ECONOMIC SHARD PROMOTED WITHOUT INDEPENDENT PARITY"},
-  "next_action":"ON CONTAINER RECOVERY COMPLETE NQX_M30_BID V4, RUN INDEPENDENT ECONOMIC PARITY FOR H1/M30, THEN PROMOTE V4 AND RERUN ALL 12 NQX SHARDS FROM SCRATCH",
-  "following_action":"RERUN XAUUSD 12 SHARDS V4; COST STRESS; GATE A; ALL PASS ADVANCE; HOLDOUT REMAINS SEALED",
+  "execution_annotation":{"container_transport":"INTERMITTENT_BUT_CHUNKED_M30_OUTCOME_PATH_SUCCEEDED","nqx_m30_bid_v4_outcomes":"COMPLETE_CONTIGUOUS_0_22670","monolithic_mask_scorer":"TIMEOUT_NO_RESULT_PROMOTED","scientific_effect":"ROOT_CAUSE_CHECK ADVANCED WITHOUT PROMOTING UNPARITIED ECONOMICS"},
+  "next_action":"SHARD_OR_VECTORIZE NQX_M30_BID MASK SCORING FROM FROZEN V4 OUTCOMES; THEN RUN INDEPENDENT ECONOMIC PARITY FOR NQX H1_BID AND M30_BID",
+  "following_action":"IF PARITY PASS PROMOTE V4 THEN RERUN ALL 12 NQX SHARDS FROM SCRATCH; THEN XAUUSD 12 SHARDS; COST STRESS; GATE A; ALL PASS ADVANCE; HOLDOUT SEALED",
   "software_state":{"research_ready":true,"holdout_opened":false,"mt5_compiled_or_executed":false}
 }
