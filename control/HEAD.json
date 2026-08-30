@@ -8,6 +8,11 @@
   },
   "base_main_commit": "bcb2f9181cc5604aced59c8296529682452637b5",
   "control_branch": "chore/qros-control-authority-v1",
+  "control_authority": {
+    "cross_chat_recovery": "PASS",
+    "promotion_receipt": "control/CONTROL_AUTHORITY_PROMOTION_RECEIPT_v1.json",
+    "status": "PROMOTED"
+  },
   "governance": {
     "predevelopment_protocol": "governance/QROS_RISE_PREDEVELOPMENT_UNIVERSE_FREEZE_PROTOCOL_v1.5.md",
     "predevelopment_protocol_sha256": "26e48dcfd443cefbec7023ece9179dfe46123bc6fd1079a4bc9e37755162703b",
@@ -18,7 +23,7 @@
     "required_for_current_architecture": false,
     "status": "FROZEN"
   },
-  "next_action": "VERIFY_CONTROL_AUTHORITY_MANIFEST_AND_OPEN_REVIEW_PR",
+  "next_action": "SCIENTIFIC_HEAD_RECOVERY",
   "protocol_materialization_commit": "eb861c61d0d063c56b9d63294de08867f2bf592c",
   "repository": "miguelcastill85-del/qros-engine",
   "safety": {
@@ -30,7 +35,7 @@
   "schema": "QROS_PERSISTENT_CONTROL_HEAD_V1",
   "scientific_head": {
     "authority_ref": null,
-    "reason": "Repository currently proves engineering/control state, not a complete recovered scientific HEAD.",
+    "reason": "Persistent control authority is promoted, but the complete recovered scientific HEAD remains unavailable or unverified.",
     "status": "NOT_PROMOTED"
   },
   "scope": "CONTROL_CONTINUITY_ONLY",
@@ -43,5 +48,5 @@
     "research_ready": false,
     "scientific_head_promoted": false
   },
-  "status": "CONTROL_AUTHORITY_CANDIDATE"
+  "status": "CONTROL_AUTHORITY_PROMOTED"
 }
