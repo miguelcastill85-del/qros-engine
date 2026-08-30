@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V6",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V7",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "scope": "CONTROL_AND_SCIENTIFIC_CONTINUITY",
   "repository": "miguelcastill85-del/qros-engine",
@@ -19,16 +19,13 @@
     },
     "G29": {
       "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
-      "state": "BLOCKED_BY_INFRASTRUCTURE",
+      "state": "PREREGISTERED_NO_RESULTS",
       "authority_ref": "control/PREREG_PUBLIC0184_v3.json",
-      "source_freeze": "control/SOURCE_FREEZE_PUBLIC0184_v1.json",
       "source_sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
-      "causal_audit": "control/PUBLIC0184_CAUSAL_AUDIT_v1.json",
       "ontology": "control/G29_UNIVERSE_ONTOLOGY_v3.json",
       "rise": "control/RISE_PUBLIC0184_v3.json",
       "rise_status": "FIXED_POINT",
-      "blocker": "control/DATA_AUDIT_PUBLIC0184_BLOCKER_v1.json",
-      "blocked_stage": "NQX_XAU_MTF_DATA_AUDIT",
+      "data_io": "PHYSICAL_PARTS_RECOVERED_AUDIT_PENDING",
       "mining_authorized": false,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -42,7 +39,20 @@
       "ontology": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
       "rise": "control/RISE_G30_v2.json",
       "rise_status": "FIXED_POINT",
-      "real_data_audit_gate": "BLOCKED_BY_CURRENT_RUNTIME_IO",
+      "data_io": "PHYSICAL_PARTS_RECOVERED_AUDIT_PENDING",
+      "mining_authorized": false,
+      "holdout_opened": false,
+      "branch_exhausted": false
+    },
+    "G31": {
+      "campaign": "QROS_G31_PUBLIC_ICHIMOKU_CLOUD_CROSS_v1",
+      "state": "PREREGISTERED_NO_RESULTS",
+      "authority_ref": "control/PREREG_G31_ICHIMOKU_CLOUD_CROSS_v1.json",
+      "source_sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
+      "causal_audit": "control/G31_CAUSAL_AUDIT_v1.json",
+      "ontology": "control/G31_UNIVERSE_ONTOLOGY_v2.json",
+      "rise": "control/RISE_G31_v2.json",
+      "rise_status": "FIXED_POINT",
       "mining_authorized": false,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -56,20 +66,32 @@
     "ontology": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
     "rise": "control/RISE_G30_v2.json",
     "rise_status": "FIXED_POINT",
+    "parallel_preregistered_genealogy": "G31_ICHIMOKU_STYLE_TREND_CROSS",
     "mining_authorized": false
+  },
+  "runtime_data_io": {
+    "receipt": "control/CURRENT_RUNTIME_DATA_IO_RECOVERY_v1.json",
+    "NQX_parts": "28_OF_28_OBSERVED",
+    "XAUUSD_parts": "35_OF_35_OBSERVED",
+    "status": "PHYSICAL_PARTS_PRESENT_AUDIT_EXECUTION_PENDING",
+    "execution_policy": "CHUNKED_RESUMABLE_ONLY"
   },
   "canonical_data_authorities": {
     "NQX": {
       "carrier": "NQX_PACKED17_FULL_2018_2026.bin",
       "bytes": 9516900679,
       "records": 559817687,
-      "sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608"
+      "sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+      "development_prefix_bytes": 1018984420,
+      "development_prefix_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf"
     },
     "XAUUSD": {
       "carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
       "bytes": 11850036456,
       "records": 697060968,
-      "sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4"
+      "sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+      "development_prefix_bytes": 2573500596,
+      "development_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
     }
   },
   "artifact_store": {
@@ -78,9 +100,9 @@
     "root_path": "/QROS",
     "storage_manifest_path": "/QROS/QROS_STORAGE_MANIFEST_v3.json"
   },
-  "authority_manifest": "control/CONTROL_AUTHORITY_MANIFEST_v2.json",
-  "next_action": "RECOVER_CANONICAL_DATA_IO_THEN_RUN_G30_AND_G29_REAL_DATA_AUDITS",
-  "following_action": "IMPLEMENT_PRIMARY_AND_INDEPENDENT_ENGINES_FOR_FIRST_DATA_AUDIT_PASS_CAMPAIGN",
+  "next_action": "RUN_CHUNKED_RESUMABLE_NQX_DEV_PREFIX_AUDIT_FOR_G30_G29_G31",
+  "following_action": "RUN_CHUNKED_RESUMABLE_XAU_DEV_PREFIX_AUDIT_FOR_G30_G29_G31",
+  "then_action": "IMPLEMENT_PRIMARY_AND_INDEPENDENT_ENGINES_FOR_FIRST_DATA_AUDIT_PASS_CAMPAIGN",
   "safety": {
     "branch_exhaustion_authorized": false,
     "holdout_access_authorized": false,
