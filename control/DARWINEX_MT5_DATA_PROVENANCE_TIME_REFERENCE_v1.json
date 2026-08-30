@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_DARWINEX_MT5_DATA_PROVENANCE_TIME_REFERENCE_V1",
+  "status": "FROZEN_USER_CONFIRMED_PROVENANCE",
+  "assets": ["NQX","XAUUSD"],
+  "source_platform": "DARWINEX_MT5",
+  "user_confirmation": "The NQX and XAUUSD data used by QROS were downloaded from MT5 of the Darwinex broker.",
+  "time_reference": "DARWINEX_MT5_SERVER_TIME_AS_STORED_IN_TICKS",
+  "timestamp_transformation": "NONE",
+  "assume_utc": false,
+  "external_dst_inference": false,
+  "bar_clock_policy": "BUILD_BARS_DIRECTLY_FROM_STORED_DARWINEX_MT5_TICK_TIMESTAMPS",
+  "session_policy": {
+    "SERVER_CLOCK_WINDOWS": "AUTHORIZED",
+    "SESSION_ALL": "AUTHORIZED",
+    "CIVIL_LONDON_NEW_YORK_LABELS": "REQUIRE_EXPLICIT_DST_MAPPING_BEFORE_USE"
+  },
+  "scientific_scope": "PROVENANCE_AND_CLOCK_REFERENCE_ONLY; DOES_NOT ALTER TICK BYTES OR ECONOMIC RESULTS",
+  "holdout_opened": false,
+  "economic_results_computed": false
+}
