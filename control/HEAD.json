@@ -1,52 +1,46 @@
 {
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V2",
+  "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
+  "scope": "CONTROL_AND_SCIENTIFIC_CONTINUITY",
+  "repository": "miguelcastill85-del/qros-engine",
+  "control_authority": {
+    "status": "PROMOTED",
+    "cross_chat_recovery": "PASS",
+    "promotion_receipt": "control/CONTROL_AUTHORITY_PROMOTION_RECEIPT_v1.json"
+  },
+  "scientific_head": {
+    "status": "PROMOTED_FOR_CONTINUITY_NOT_EXECUTION_READY",
+    "authority_ref": "control/SCIENTIFIC_HEAD.json",
+    "promotion_receipt": "control/SCIENTIFIC_HEAD_PROMOTION_RECEIPT_v1.json",
+    "campaign": "QROS_PUBLIC_0181_BB_WINNER_PRO_v1",
+    "state": "DEVELOPMENT_RUNNING"
+  },
   "artifact_store": {
     "provider": "Dropbox",
     "role": "ARTIFACT_STORE_NOT_SCIENTIFIC_AUTHORITY",
     "root_path": "/QROS",
-    "storage_manifest_file_id": "id:3hcdcMy0pHAAAAAAAAAADg",
-    "storage_manifest_path": "/QROS/QROS_STORAGE_MANIFEST_v1.json"
+    "storage_manifest_path": "/QROS/QROS_STORAGE_MANIFEST_v3.json"
   },
-  "base_main_commit": "bcb2f9181cc5604aced59c8296529682452637b5",
-  "control_branch": "chore/qros-control-authority-v1",
-  "control_authority": {
-    "cross_chat_recovery": "PASS",
-    "promotion_receipt": "control/CONTROL_AUTHORITY_PROMOTION_RECEIPT_v1.json",
-    "status": "PROMOTED"
-  },
-  "governance": {
-    "predevelopment_protocol": "governance/QROS_RISE_PREDEVELOPMENT_UNIVERSE_FREEZE_PROTOCOL_v1.5.md",
-    "predevelopment_protocol_sha256": "26e48dcfd443cefbec7023ece9179dfe46123bc6fd1079a4bc9e37755162703b",
-    "project_policy_json": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.0.json",
-    "project_policy_md": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.0.md"
-  },
-  "mcp": {
-    "required_for_current_architecture": false,
-    "status": "FROZEN"
-  },
-  "next_action": "SCIENTIFIC_HEAD_RECOVERY",
-  "protocol_materialization_commit": "eb861c61d0d063c56b9d63294de08867f2bf592c",
-  "repository": "miguelcastill85-del/qros-engine",
+  "run_queue": "control/RUN_QUEUE_v2.json",
+  "authority_manifest": "control/CONTROL_AUTHORITY_MANIFEST_v2.json",
+  "next_action": "MATERIALIZE_EXACT_AUTH_BASELINE_XAU_DEV_THEN_EXECUTE_OHLC4_SMA_ATR_FULL_RANGE_L80_SELL",
+  "following_action": "EXECUTE_OHLC4_EMA_ATR_FULL_RANGE_L80_SELL",
   "safety": {
     "branch_exhaustion_authorized": false,
     "holdout_access_authorized": false,
     "pnl_read_authorized": false,
     "scientific_execution_authorized": false
   },
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V1",
-  "scientific_head": {
-    "authority_ref": null,
-    "reason": "Persistent control authority is promoted, but the complete recovered scientific HEAD remains unavailable or unverified.",
-    "status": "NOT_PROMOTED"
-  },
-  "scope": "CONTROL_CONTINUITY_ONLY",
   "software_state": {
-    "git_blob_sha": "c283f4464cf108131638d74e43fb355121aa6506",
-    "holdout_opened": false,
-    "mt5_compiled_or_executed": false,
-    "new_real_data_pnl_computed": false,
-    "path": "control/STATE.json",
     "research_ready": false,
-    "scientific_head_promoted": false
+    "holdout_opened": false,
+    "new_real_data_pnl_computed": false,
+    "scientific_head_promoted": true,
+    "mt5_compiled_or_executed": false
   },
-  "status": "CONTROL_AUTHORITY_PROMOTED"
+  "mcp": {
+    "required_for_current_architecture": false,
+    "status": "FROZEN"
+  },
+  "parent_control_main": "b54504bf9680d8da920e9c0a6dbf191e68850256"
 }
