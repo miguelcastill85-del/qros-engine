@@ -1,0 +1,19 @@
+{
+  "schema":"QROS_G30_ECONOMIC_SCORING_UNIT_CORRECTION_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"DEVELOPMENT_RUNNING",
+  "severity":"SCIENTIFIC_INVALIDATION",
+  "root_cause":"INCONSISTENT_PRICE_UNIT_NORMALIZATION_BETWEEN_FEATURE_CACHE_AND_RAW_TICK_EXECUTION",
+  "defect":{"entry_exit":"raw tick bid/ask divided by asset scale","stop_distance":"ATR cache remained in scaled integer units","effect":"NQX stop geometry effectively 10x and XAUUSD 100x relative to normalized tick prices"},
+  "affected_runners":["qros_g30_econ_numba_v2.py","qros_g30_econ_numba_v3.py"],
+  "affected_runner_v3_sha256":"a0b1468e289e2db913404ab78ec75466c09745ff3ed53e54e9fa46dd64ac8431",
+  "affected_receipts":["control/G30_STAGE1_ECONOMIC_SCORING_PARTIAL_v1.json","control/G30_STAGE1_ECONOMIC_SCORING_PARTIAL_v2.json","control/G30_STAGE1_ECONOMIC_SCORING_PARTIAL_v3.json"],
+  "affected_outputs":"ALL_V2_V3_ECONOMIC_SHARDS_NQX_AND_XAUUSD",
+  "disposition":"SUPERSEDED_INVALID_UNIT_MISMATCH_NO_GATE_A_USE",
+  "invalidated_claims":{"nqx_economic_12_of_12":true,"xauusd_economic_2_of_12":true,"all_reported_v2_v3_pf_net_r_expectancy_dd":true},
+  "unaffected":["G30 signal masks and signal-mask parity","full M1-H1 bar parity","causal tick execution index","canonical DEV carriers and hashes","XAUUSD M1 cache reconstruction","holdout seal","ontology and RISE fixed point"],
+  "required_correction":"Use one coherent price unit. Preferred implementation keeps raw packed17 bid/ask and cache OHLC/ATR in scaled integer units and removes division by scale from entry/exit prices. Revalidate economic implementation independently before promotion.",
+  "governance":{"buy_sell_separate_required":true,"all_gate_pass_configurations_advance":true,"single_winner_selection_forbidden":true,"holdout_opened":false,"branch_exhausted":false},
+  "economic_conclusion":"NOT_ESTABLISHED_AFTER_INVALIDATION",
+  "next_action":"BUILD_HASH_AND_PARITY_TEST_CORRECTED_ECONOMIC_RUNNER_V4_THEN_RERUN_NQX_H1_BID_AND_M30_BID_AS_ROOT_CAUSE_CHECK_BEFORE_ALL_12_NQX_SHARDS_FROM_SCRATCH"
+}
