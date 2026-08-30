@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V3",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V4",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "scope": "CONTROL_AND_SCIENTIFIC_CONTINUITY",
   "repository": "miguelcastill85-del/qros-engine",
@@ -18,10 +18,16 @@
   },
   "scientific_head": {
     "status": "PREREGISTERED_NO_RESULTS",
-    "authority_ref": "control/PREREG_PUBLIC0184_v1.json",
+    "authority_ref": "control/PREREG_PUBLIC0184_v2.json",
     "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
     "seed": "PUBLIC_SEED_0184",
-    "root_genealogy": "G29_MULTI_TIMEFRAME_TREND_PULLBACK"
+    "root_genealogy": "G29_MULTI_TIMEFRAME_TREND_PULLBACK",
+    "causal_audit": "control/PUBLIC0184_CAUSAL_AUDIT_v1.json",
+    "ontology": "control/G29_UNIVERSE_ONTOLOGY_v3.json",
+    "rise": "control/RISE_PUBLIC0184_v3.json",
+    "rise_status": "FIXED_POINT",
+    "source_sha256_status": "PENDING_CI_BYTE_FREEZE",
+    "mining_authorized": false
   },
   "artifact_store": {
     "provider": "Dropbox",
@@ -30,7 +36,8 @@
     "storage_manifest_path": "/QROS/QROS_STORAGE_MANIFEST_v3.json"
   },
   "authority_manifest": "control/CONTROL_AUTHORITY_MANIFEST_v2.json",
-  "next_action": "FREEZE_EXACT_PUBLIC0184_SOURCE_BYTES_SHA256_AND_BUILD_G29_UNIVERSE_ONTOLOGY",
+  "next_action": "RUN_PUBLIC0184_SOURCE_SHA256_CI_THEN_NQX_XAU_MTF_DATA_AUDIT",
+  "following_action": "IMPLEMENT_PRIMARY_AND_INDEPENDENT_CAUSAL_G29_ENGINES",
   "safety": {
     "branch_exhaustion_authorized": false,
     "holdout_access_authorized": false,
