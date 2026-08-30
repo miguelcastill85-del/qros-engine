@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V12",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V13",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "scope": "CONTROL_AND_SCIENTIFIC_CONTINUITY",
   "repository": "miguelcastill85-del/qros-engine",
@@ -43,6 +43,11 @@
       "full_m1_h1_independent_bar_parity": "PASS",
       "signal_mask_parity": "PASS",
       "signal_mask_parity_ref": "control/G30_SIGNAL_MASK_PARITY_v1.json",
+      "stage1_signal_core_slice": "COMPLETE",
+      "stage1_signal_core_slice_ref": "control/G30_STAGE1_SIGNAL_MINING_v2.json",
+      "stage1_raw_identities": 8208,
+      "stage1_unique_masks_after_bid_mid_union": 7522,
+      "stage1_exact_aliases": 686,
       "mining_authorized": true,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -81,11 +86,8 @@
     "receipt": "control/SIGNAL_MASK_PARITY_GATE_G29_G30_G31_v1.json",
     "status": "PASS",
     "G29": "PASS",
-    "G29_ref": "control/G29_SIGNAL_MASK_PARITY_v1.json",
     "G30": "PASS",
-    "G30_ref": "control/G30_SIGNAL_MASK_PARITY_v1.json",
     "G31": "PASS",
-    "G31_ref": "control/G31_SIGNAL_MASK_PARITY_v1.json",
     "development_mining_authorized": true
   },
   "scientific_head": {
@@ -95,17 +97,20 @@
     "rise_status": "FIXED_POINT",
     "full_bar_parity": "PASS",
     "signal_mask_parity": "PASS",
+    "stage1_signal_core_slice": "COMPLETE",
+    "stage1_signal_core_slice_ref": "control/G30_STAGE1_SIGNAL_MINING_v2.json",
     "mining_authorized": true
   },
   "execution_annotation": {
-    "g31_signal_parity_runtime": "PASS_WITH_ZERO_MISMATCHES",
-    "g31_receipt_sha256_local": "d68d87ac466395ac398dcb71cd176e0020663e7b80c389a88a6db829e9ed6240",
-    "g30_stage1_attempt": "NO_RECEIPT_NO_RESULTS",
-    "g30_stage1_failure": "FIRST_ATTEMPT_TIMEOUT_THEN_CONTAINER_CLIENT_RESPONSE_ERROR",
-    "scientific_effect": "NONE; no partial mining output promoted"
+    "container_transport": "RECOVERED",
+    "g30_stage1_runner_sha256": "9abd7c324600795a4f3620585e3f61a9708deae43f13a420f528e56807eac579",
+    "g30_stage1_shards": 24,
+    "g30_stage1_initial_monolithic_attempt": "DISCARDED_NO_RECEIPT",
+    "g30_stage1_current": "COMPLETE_SIGNAL_CORE_SLICE_NO_PNL",
+    "scientific_effect": "SIGNAL CORE SLICE MINED AND DEDUPED; NO ECONOMIC SCORING YET"
   },
-  "next_action": "RETRY_G30_STAGE1_SIGNAL_ONLY_DEVELOPMENT_MINING_IN_SMALL_DETERMINISTIC_SHARDS",
-  "following_action": "DEDUPE_IDENTICAL_MASKS_THEN_ADD_ECONOMIC_SCORING_WITH_BID_ASK_COST_REGIMES_ON_DEVELOPMENT_ONLY",
+  "next_action": "BUILD_G30_CAUSAL_TICK_EXECUTION_INDEX_ON_DEVELOPMENT_THEN_ECONOMIC_SCORE_DEDUPED_CORE_MASKS_WITH_BID_ASK_AND_COST_REGIMES",
+  "following_action": "CLUSTER_PLATEAUS_AND_FREEZE_REPRESENTATIVE_SEEDS_ONLY_AFTER_DEVELOPMENT_ECONOMIC_SCORING",
   "safety": {
     "branch_exhaustion_authorized": false,
     "holdout_access_authorized": false,
