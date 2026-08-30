@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_G30_CAUSAL_TICK_EXECUTION_INDEX_GATE_V1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "DEVELOPMENT_ONLY_NO_PNL",
+  "runner_sha256": "bd2c7c5f1e0fefec252b0a114acfaa89595270793e87aadece9477d510037292",
+  "asset_receipts": {
+    "NQX": "control/NQX_DEV_CAUSAL_TICK_EXECUTION_INDEX_v1.json",
+    "XAUUSD": "control/XAUUSD_DEV_CAUSAL_TICK_EXECUTION_INDEX_v1.json"
+  },
+  "decision": "PASS_FOR_ECONOMIC_SCORING_WITH_TRAILING_LAST_BOUNDARY_EXCLUDED",
+  "holdout_opened": false,
+  "pnl_computed": false,
+  "execution_contract": {
+    "entry_boundary": "FIRST_ELIGIBLE_QUOTE_TS_GTE_SIGNAL_BAR_CLOSE",
+    "eligible_quote": "ASK_GT_BID",
+    "zero_spread": "NOT_EXECUTABLE",
+    "crossed": "NOT_EXECUTABLE"
+  },
+  "next_action": "ECONOMIC_SCORE_G30_STAGE1_DEDUPED_MASKS_PUBLIC_MANAGEMENT_ANCHOR_ON_DEVELOPMENT_ONLY"
+}
