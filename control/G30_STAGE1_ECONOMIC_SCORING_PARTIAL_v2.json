@@ -1,0 +1,38 @@
+{
+  "schema": "QROS_G30_STAGE1_ECONOMIC_SCORING_PARTIAL_V2",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state": "DEVELOPMENT_RUNNING",
+  "scope": "DEVELOPMENT_ONLY_NO_HOLDOUT",
+  "management_anchor": {
+    "atr_mult": 3.0,
+    "rr": 1.5,
+    "hold_bars": 20,
+    "same_day": true,
+    "execution": "TICK_LEVEL_BID_ASK_SL_FIRST_FIRST_EXECUTABLE_QUOTE"
+  },
+  "nqx_completed_shards": [
+    "NQX_H1_BID",
+    "NQX_H1_MID",
+    "NQX_M30_BID",
+    "NQX_M30_MID",
+    "NQX_M15_BID",
+    "NQX_M15_MID",
+    "NQX_M10_BID",
+    "NQX_M10_MID",
+    "NQX_M5_BID",
+    "NQX_M5_MID",
+    "NQX_M1_BID"
+  ],
+  "nqx_pending_shards": ["NQX_M1_MID"],
+  "xauusd_status": "PENDING_AFTER_NQX_COMPLETION",
+  "runner_v2": "qros_g30_econ_numba_v2.py",
+  "runner_v3": "qros_g30_econ_numba_v3.py",
+  "runner_v3_sha256": "a0b1468e289e2db913404ab78ec75466c09745ff3ed53e54e9fa46dd64ac8431",
+  "runner_v3_change": "MOVED_PER_MASK_TRADE_AGGREGATION_INTO_NUMBA_JIT_TO_REMOVE_M1_PYTHON_LOOP_TIMEOUT_WITHOUT_CHANGING_SIGNAL_OR_EXECUTION_SEMANTICS",
+  "m1_bid_v2_attempt": "TIMED_OUT_NO_RECEIPT",
+  "m1_bid_v3": "PASS",
+  "m1_mid_v3_attempt": "CONTAINER_CLIENT_RESPONSE_ERROR_NO_RECEIPT",
+  "holdout_opened": false,
+  "branch_exhausted": false,
+  "status": "PARTIAL_CHECKPOINT_PRESERVE_COMPLETED_SHARDS"
+}
