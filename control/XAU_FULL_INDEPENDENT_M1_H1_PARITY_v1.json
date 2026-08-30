@@ -1,0 +1,19 @@
+{
+  "asset": "XAUUSD",
+  "checks": {
+    "H1": {"index_equal": true, "mismatches": 0, "rows": 11394, "status": "PASS"},
+    "M1": {"index_equal": true, "mismatches": 0, "rows": 681772, "status": "PASS"},
+    "M10": {"index_equal": true, "mismatches": 0, "rows": 68326, "status": "PASS"},
+    "M15": {"index_equal": true, "mismatches": 0, "rows": 45551, "status": "PASS"},
+    "M30": {"index_equal": true, "mismatches": 0, "rows": 22781, "status": "PASS"},
+    "M5": {"index_equal": true, "mismatches": 0, "rows": 136544, "status": "PASS"}
+  },
+  "economic_results_computed": false,
+  "holdout_pnl_read": false,
+  "independent_method": "pandas_groupby_streaming_all_dev_parts_then_cross_part_consolidation",
+  "primary_cache": "XAU_DEV_M1_EXECUTABLE_QUOTE_CACHE_v2.npz",
+  "primary_cache_sha256": "f29ca5d258bbda9e0f8e7a3dde0e6891a4db695f016ac9cc9eaad6e7dc176ba2",
+  "primary_method": "numpy_reduceat_sharded",
+  "schema": "QROS_FULL_INDEPENDENT_M1_TO_H1_BAR_PARITY_V1",
+  "status": "PASS"
+}
