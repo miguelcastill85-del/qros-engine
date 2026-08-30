@@ -1,0 +1,57 @@
+{
+  "schema": "QROS_MULTI_CAMPAIGN_DEV_DATA_GATE_V1",
+  "campaigns": [
+    "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+    "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+    "QROS_G31_PUBLIC_ICHIMOKU_CLOUD_CROSS_v1"
+  ],
+  "scope": "2018_2019_DEVELOPMENT_PREFIX_STRUCTURAL_GATE_ONLY",
+  "results_seen": false,
+  "economic_results_computed": false,
+  "holdout_opened": false,
+  "authorities": {
+    "NQX": {
+      "receipt": "control/QROS_NQX_DEV_PREFIX_STRUCTURAL_AUDIT_v1.json",
+      "bytes": 1018984420,
+      "records": 59940260,
+      "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+      "hash_pass": true,
+      "out_of_order_pairs": 0,
+      "zero_spread": 48205,
+      "crossed_spread": 160
+    },
+    "XAUUSD": {
+      "receipt": "control/QROS_XAU_DEV_PREFIX_STRUCTURAL_AUDIT_v1.json",
+      "bytes": 2573500596,
+      "records": 151382388,
+      "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+      "hash_pass": true,
+      "out_of_order_pairs": 0,
+      "zero_spread": 942184,
+      "crossed_spread": 74
+    }
+  },
+  "bar_structure_diagnostics": {
+    "timeframes": ["M1","M5","M10","M15","M30","H1"],
+    "alignment": "EPOCH_ALIGNED_DIAGNOSTIC_ONLY",
+    "gaps_present": true,
+    "gap_policy_required": "EXPLICIT_DESCENDANT_POLICY; NO IMPUTATION",
+    "crossed_spread_policy": "NO_EXECUTABLE_FILL_FROM_CROSSED_QUOTES",
+    "zero_spread_policy": "PRESERVE_OBSERVATION_BUT_NO_ARTIFICIAL_FILL"
+  },
+  "timezone_dst": {
+    "status": "UNPROVEN",
+    "consequence": "SESSION_MINING_DISABLED",
+    "allowed_initial_research": "TIMEZONE_AGNOSTIC_ALL_SESSION_ONLY"
+  },
+  "gate_decision": {
+    "structural_dev_prefix_integrity": "PASS",
+    "chronological_order": "PASS",
+    "bid_ask_anomaly_visibility": "PASS",
+    "timezone_sensitive_session_research": "FAIL_CLOSED",
+    "timezone_agnostic_signal_engine_construction": "AUTHORIZED_BEFORE_ECONOMIC_RESULTS",
+    "economic_mining": "NOT_AUTHORIZED_UNTIL_PRIMARY_INDEPENDENT_BAR_AND_SIGNAL_PARITY_PASS"
+  },
+  "next_action": "BUILD_PRIMARY_AND_INDEPENDENT_M1_TO_H1_BAR_ENGINES_ON_DEV_PREFIX_WITH_SESSION_ALL_ONLY",
+  "branch_exhaustion_authorized": false
+}
