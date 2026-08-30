@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_RISE_ADVERSARIAL_AUDIT_V2",
+  "campaign": "QROS_G31_PUBLIC_ICHIMOKU_CLOUD_CROSS_v1",
+  "iteration": 2,
+  "input_ontology": "control/G31_UNIVERSE_ONTOLOGY_v2.json",
+  "results_seen": false,
+  "holdout_opened": false,
+  "status": "FIXED_POINT",
+  "checks": {
+    "source_semantics_preserved": "PASS",
+    "public_vs_standard_cloud_separated": "PASS",
+    "standard_displaced_cloud_no_lookahead_contract": "PASS",
+    "np_roll_boundary_removed": "PASS",
+    "warmup_rule_explicit": "PASS",
+    "ties_explicit": "PASS",
+    "gap_window_policy_explicit": "PASS",
+    "crossed_zero_spread_policy_explicit": "PASS",
+    "buy_sell_separated": "PASS",
+    "signal_management_separated": "PASS",
+    "timezone_sessions_fail_closed": "PASS",
+    "exact_mask_dedupe_before_multiplicity": "PASS",
+    "portfolio_orthogonality_gate_explicit": "PASS",
+    "branch_exhaustion_fail_closed": "PASS"
+  },
+  "universe_ontology_frozen": true,
+  "branch_exhaustion_authorized": false,
+  "mining_authorized": false,
+  "next_gate": "REAL_NQX_XAU_DATA_AUDIT_THEN_PRIMARY_INDEPENDENT_PARITY"
+}
