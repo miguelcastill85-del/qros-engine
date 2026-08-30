@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V10",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V11",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "scope": "CONTROL_AND_SCIENTIFIC_CONTINUITY",
   "repository": "miguelcastill85-del/qros-engine",
@@ -26,6 +26,8 @@
       "dev_prefix_integrity": "PASS",
       "clock_reference": "DARWINEX_MT5_SERVER_TIME",
       "full_m1_h1_independent_bar_parity": "PASS",
+      "signal_mask_parity": "PASS",
+      "signal_mask_parity_ref": "control/G29_SIGNAL_MASK_PARITY_v1.json",
       "mining_authorized": false,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -39,6 +41,8 @@
       "dev_prefix_integrity": "PASS",
       "clock_reference": "DARWINEX_MT5_SERVER_TIME",
       "full_m1_h1_independent_bar_parity": "PASS",
+      "signal_mask_parity": "PASS",
+      "signal_mask_parity_ref": "control/G30_SIGNAL_MASK_PARITY_v1.json",
       "mining_authorized": false,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -52,6 +56,7 @@
       "dev_prefix_integrity": "PASS",
       "clock_reference": "DARWINEX_MT5_SERVER_TIME",
       "full_m1_h1_independent_bar_parity": "PASS",
+      "signal_mask_parity": "PENDING",
       "mining_authorized": false,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -68,22 +73,32 @@
   "full_bar_parity_gate": {
     "receipt": "control/FULL_BAR_PARITY_GATE_G29_G30_G31_v1.json",
     "status": "PASS",
-    "NQX_receipt": "control/NQX_FULL_INDEPENDENT_M1_H1_PARITY_v1.json",
-    "XAUUSD_receipt": "control/XAU_FULL_INDEPENDENT_M1_H1_PARITY_v1.json",
     "timeframes": ["M1","M5","M10","M15","M30","H1"],
     "all_mismatches": 0
   },
+  "signal_parity_gate": {
+    "G30": "PASS",
+    "G30_ref": "control/G30_SIGNAL_MASK_PARITY_v1.json",
+    "G29": "PASS",
+    "G29_ref": "control/G29_SIGNAL_MASK_PARITY_v1.json",
+    "G31": "PENDING"
+  },
   "scientific_head": {
-    "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+    "campaign": "QROS_G31_PUBLIC_ICHIMOKU_CLOUD_CROSS_v1",
     "state": "PREREGISTERED_NO_RESULTS",
-    "root_genealogy": "G30_VOLATILITY_SHOCK_MOMENTUM",
+    "root_genealogy": "G31_ICHIMOKU_STYLE_TREND_CROSS",
     "rise_status": "FIXED_POINT",
     "full_bar_parity": "PASS",
-    "parallel_preregistered_genealogies": ["G29_MULTI_TIMEFRAME_TREND_PULLBACK","G31_ICHIMOKU_STYLE_TREND_CROSS"],
+    "signal_mask_parity": "PENDING",
     "mining_authorized": false
   },
-  "next_action": "G30_PRIMARY_AND_INDEPENDENT_SIGNAL_MASK_PARITY_ON_DEV_THEN_G29_THEN_G31",
-  "following_action": "AUTHORIZE_DEVELOPMENT_MINING_ONLY_FOR_CAMPAIGNS_WITH_SIGNAL_MASK_PARITY_PASS",
+  "execution_annotation": {
+    "container_transport": "CLIENT_RESPONSE_ERROR_ON_TWO_CONSECUTIVE_RETRIES_AFTER_G29_PASS",
+    "scientific_effect": "NONE; G29/G30 receipts promoted, G31 not claimed",
+    "pause_reason": "RUNTIME_CONTAINER_TRANSPORT_ONLY"
+  },
+  "next_action": "RUN_G31_PRIMARY_AND_INDEPENDENT_SIGNAL_MASK_PARITY_ON_ELIGIBLE_NONCROSSED_FEATURE_BARS",
+  "following_action": "AUTHORIZE_DEVELOPMENT_MINING_ONLY_AFTER_G31_SIGNAL_MASK_PARITY_PASS_AND_SIGNAL_PARITY_GATE_CLOSED",
   "safety": {
     "branch_exhaustion_authorized": false,
     "holdout_access_authorized": false,
