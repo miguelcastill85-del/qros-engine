@@ -1,0 +1,37 @@
+{
+  "schema": "QROS_G30_SIGNAL_MASK_PARITY_V1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "PUBLIC_SEMANTICS_PARITY_NO_PNL",
+  "status": "PASS",
+  "all_mismatches": 0,
+  "assets": ["NQX", "XAUUSD"],
+  "timeframes": ["M1", "M5", "M10", "M15", "M30", "H1"],
+  "feature_quote_sides": ["BID", "MID"],
+  "public_semantics": {
+    "atr": "TRUE_RANGE_SMA14_CURRENT_INCLUDED",
+    "vol_thresh": 2.0,
+    "persistence": "CURRENT_CLOSE_GT_LT_PRIOR_1_2_3",
+    "session": "ALL",
+    "weekday_only": true,
+    "first_3_rows_invalidated": true
+  },
+  "time_reference": "DARWINEX_MT5_SERVER_TIME_AS_STORED_IN_TICKS",
+  "bar_engine_primary": "NUMPY_REDUCEAT",
+  "bar_engine_independent": "PANDAS_GROUPBY",
+  "signal_engine_primary": "NUMPY_ARRAY_LOGIC",
+  "signal_engine_independent": "PANDAS_SHIFT_ROLLING_LOGIC",
+  "bar_value_mismatches": 0,
+  "signal_mask_mismatches": 0,
+  "runtime_receipt_sha256": "1984f76ddba933c00afe98ce2a570d0532d61982ba2ed00175ba0f587747dd25",
+  "runtime_script_sha256": "51efaae2421fdd51bfcc0f6a7eb8e5d25d761b61f60b4e2e0de38651bfb16b5c",
+  "diagnostic_correction": {
+    "initial_issue": "PRIMARY_TR_FIRST_ROW_NAN_PROPAGATION_CAUSED_4_EARLY_NQX_M15_MASK_MISMATCHES",
+    "root_cause": "np.maximum propagated NaN while public pandas row-wise max ignored NaN on first previous-close row",
+    "correction": "use fmax semantics so first TR equals high-low, matching frozen public source semantics",
+    "post_correction_mismatches": 0
+  },
+  "economic_pnl_computed": false,
+  "holdout_opened": false,
+  "mining_performed": false,
+  "decision": "G30_SIGNAL_MASK_PARITY_PASS"
+}
