@@ -1,0 +1,56 @@
+{
+  "schema": "QROS_CAMPAIGN_PREREGISTRATION_V2",
+  "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+  "seed": "PUBLIC_SEED_0184",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "root_genealogy": "G29_MULTI_TIMEFRAME_TREND_PULLBACK",
+  "genealogy_class": "ROOT_ANCHOR",
+  "prior_ex_ante": "A+",
+  "supersedes": "control/PREREG_PUBLIC0184_v1.json",
+  "public_authority": {
+    "repository": "Mohammed-AB/forex-strategy-lab",
+    "commit": "df34085afb615818038c0e8bedc5aad837883e5c",
+    "source_file": "forex_backtester.py",
+    "git_blob_sha1": "b6fe1a3c9c6dad89049a8271e772cc39e23f1a99",
+    "sha256": "PENDING_CI_BYTE_FREEZE",
+    "byte_freeze_workflow": ".github/workflows/public0184-source-freeze.yml"
+  },
+  "causal_audit": {
+    "ref": "control/PUBLIC0184_CAUSAL_AUDIT_v1.json",
+    "public_implementation_admissible": false,
+    "thesis_admissible": true,
+    "critical_defect": "H1_PARTIAL_BAR_LOOKAHEAD",
+    "qros_correction": "LAST_FULLY_CLOSED_HTF_STATE_ONLY"
+  },
+  "universe": {
+    "ontology_ref": "control/G29_UNIVERSE_ONTOLOGY_v3.json",
+    "status": "FROZEN",
+    "rise_ref": "control/RISE_PUBLIC0184_v3.json",
+    "rise_status": "FIXED_POINT"
+  },
+  "assets": ["NQX","XAUUSD"],
+  "sides": ["BUY","SELL"],
+  "holdout": "SEALED",
+  "economic_results_present": false,
+  "mining_authorized": false,
+  "remaining_predevelopment_gates": [
+    "SOURCE_SHA256_CI_PASS",
+    "NQX_XAU_MTF_DATA_AUDIT_PASS",
+    "PRIMARY_ENGINE_IMPLEMENTED",
+    "INDEPENDENT_ENGINE_IMPLEMENTED",
+    "CAUSAL_FEATURE_PARITY_PASS"
+  ],
+  "execution_contract": {
+    "entry_after_signal_close": true,
+    "buy_entry": "ASK",
+    "buy_exit": "BID",
+    "sell_entry": "BID",
+    "sell_exit": "ASK",
+    "sl_tp_ambiguity": "SL_FIRST",
+    "gap": "FIRST_AVAILABLE_PRICE",
+    "same_day_exit": true,
+    "one_active_position_per_asset": true
+  },
+  "branch_exhaustion_authorized": false,
+  "next_action": "OPEN_PR_RUN_SOURCE_SHA256_CI_THEN_AUDIT_NQX_XAU_MTF_BAR_CONSTRUCTION"
+}
