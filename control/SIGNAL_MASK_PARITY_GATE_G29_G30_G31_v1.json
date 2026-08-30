@@ -1,0 +1,17 @@
+{
+  "schema": "QROS_SIGNAL_MASK_PARITY_GATE_G29_G30_G31_V1",
+  "status": "PASS",
+  "scope": "PREDEVELOPMENT_SIGNAL_ENGINE_PARITY_NO_PNL",
+  "campaigns": {
+    "G29": {"status": "PASS", "ref": "control/G29_SIGNAL_MASK_PARITY_v1.json"},
+    "G30": {"status": "PASS", "ref": "control/G30_SIGNAL_MASK_PARITY_v1.json"},
+    "G31": {"status": "PASS", "ref": "control/G31_SIGNAL_MASK_PARITY_v1.json"}
+  },
+  "bar_parity_ref": "control/FULL_BAR_PARITY_GATE_G29_G30_G31_v1.json",
+  "time_reference": "DARWINEX_MT5_SERVER_TIME_AS_STORED_IN_TICKS",
+  "holdout_opened": false,
+  "pnl_computed": false,
+  "development_mining_authorized": true,
+  "authorization_scope": "DEVELOPMENT_ONLY; HOLDOUT_REMAINS_SEALED; candidate-specific parity and dedupe remain mandatory before promotion",
+  "branch_exhaustion_authorized": false
+}
