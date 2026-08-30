@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V2",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V3",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "scope": "CONTROL_AND_SCIENTIFIC_CONTINUITY",
   "repository": "miguelcastill85-del/qros-engine",
@@ -8,12 +8,20 @@
     "cross_chat_recovery": "PASS",
     "promotion_receipt": "control/CONTROL_AUTHORITY_PROMOTION_RECEIPT_v1.json"
   },
-  "scientific_head": {
-    "status": "PROMOTED_FOR_CONTINUITY_NOT_EXECUTION_READY",
-    "authority_ref": "control/SCIENTIFIC_HEAD.json",
-    "promotion_receipt": "control/SCIENTIFIC_HEAD_PROMOTION_RECEIPT_v1.json",
+  "previous_campaign": {
     "campaign": "QROS_PUBLIC_0181_BB_WINNER_PRO_v1",
-    "state": "DEVELOPMENT_RUNNING"
+    "decision": "REJECTED",
+    "decision_ref": "control/DECISION_PUBLIC0181_v1.json",
+    "economic_conclusion": "NOT_ESTABLISHED",
+    "archive_policy": "OBSERVATIONAL_RESERVE_FOR_FUTURE_BYTE_RECOVERY",
+    "branch_exhausted": false
+  },
+  "scientific_head": {
+    "status": "PREREGISTERED_NO_RESULTS",
+    "authority_ref": "control/PREREG_PUBLIC0184_v1.json",
+    "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+    "seed": "PUBLIC_SEED_0184",
+    "root_genealogy": "G29_MULTI_TIMEFRAME_TREND_PULLBACK"
   },
   "artifact_store": {
     "provider": "Dropbox",
@@ -21,10 +29,8 @@
     "root_path": "/QROS",
     "storage_manifest_path": "/QROS/QROS_STORAGE_MANIFEST_v3.json"
   },
-  "run_queue": "control/RUN_QUEUE_v2.json",
   "authority_manifest": "control/CONTROL_AUTHORITY_MANIFEST_v2.json",
-  "next_action": "MATERIALIZE_EXACT_AUTH_BASELINE_XAU_DEV_THEN_EXECUTE_OHLC4_SMA_ATR_FULL_RANGE_L80_SELL",
-  "following_action": "EXECUTE_OHLC4_EMA_ATR_FULL_RANGE_L80_SELL",
+  "next_action": "FREEZE_EXACT_PUBLIC0184_SOURCE_BYTES_SHA256_AND_BUILD_G29_UNIVERSE_ONTOLOGY",
   "safety": {
     "branch_exhaustion_authorized": false,
     "holdout_access_authorized": false,
@@ -35,12 +41,10 @@
     "research_ready": false,
     "holdout_opened": false,
     "new_real_data_pnl_computed": false,
-    "scientific_head_promoted": true,
     "mt5_compiled_or_executed": false
   },
   "mcp": {
     "required_for_current_architecture": false,
     "status": "FROZEN"
-  },
-  "parent_control_main": "b54504bf9680d8da920e9c0a6dbf191e68850256"
+  }
 }
