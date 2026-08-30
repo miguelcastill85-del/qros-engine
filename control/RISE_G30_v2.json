@@ -1,0 +1,22 @@
+{
+  "schema": "QROS_RISE_G30_V2",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "ontology_ref": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
+  "status": "RISE_FIXED_POINT",
+  "economic_results_seen": false,
+  "holdout_opened": false,
+  "resolved_from_v1": ["G30_R01_SPREAD_EXPANSION_CONTEXT","G30_R02_SHOCK_CLUSTERING_REFRACTORY","G30_R03_TICK_INTENSITY_CONTEXT","G30_R04_DATA_GAP_SHOCK","G30_R05_ENTRY_LATENCY"],
+  "fixed_point_test": {
+    "new_causal_dimension_found": false,
+    "new_event_identity_found": false,
+    "new_execution_identity_found": false,
+    "new_data_gap_class_found": false,
+    "new_management_signal_conflation_found": false
+  },
+  "fixed_point": true,
+  "ontology_frozen": true,
+  "real_data_audit_gate": "BLOCKED_BY_CURRENT_RUNTIME_IO",
+  "mining_authorized": false,
+  "branch_exhaustion_authorized": false,
+  "next_action": "RECOVER_CANONICAL_DATA_IO_THEN_REAL_DATA_AUDIT_AND_PARITY_ENGINES"
+}
