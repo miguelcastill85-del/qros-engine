@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_G31_CAUSAL_AUDIT_V1",
+  "campaign": "QROS_G31_PUBLIC_ICHIMOKU_CLOUD_CROSS_v1",
+  "source_sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
+  "status": "PASS_WITH_MANDATORY_HARDENING",
+  "results_seen": false,
+  "holdout_opened": false,
+  "findings": [
+    {
+      "id": "G31_F1",
+      "severity": "IMPORTANT",
+      "finding": "The public implementation is Ichimoku-style but not standard displaced Ichimoku: senkou_a and senkou_b are contemporaneous rolling values and are not shifted 26 bars forward.",
+      "decision": "Preserve the public semantics as one explicit branch; standard displaced Ichimoku, if investigated, must be a separate preregistered descendant and not silently substituted."
+    },
+    {
+      "id": "G31_F2",
+      "severity": "CAUSAL_BUG_AT_BOUNDARY",
+      "finding": "The public implementation uses np.roll for prior Tenkan/Kijun, causing wrap-around at the first row.",
+      "decision": "Invalidate the first required lag row rather than accepting wrap-around."
+    },
+    {
+      "id": "G31_F3",
+      "severity": "EXECUTION_MISMATCH",
+      "finding": "Public fast_simulate enters at signal close and does not implement QROS Bid/Ask execution.",
+      "decision": "Public PnL is inadmissible. QROS entry occurs at the first executable quote strictly after signal close; BUY enters Ask and SELL enters Bid."
+    },
+    {
+      "id": "G31_F4",
+      "severity": "TIMEZONE_UNKNOWN",
+      "finding": "Session labels cannot be used until broker/source timezone and DST behavior are proven.",
+      "decision": "Initial discovery session is ALL only."
+    }
+  ],
+  "causal_contract": {
+    "signal_known": "AFTER_SIGNAL_BAR_CLOSE",
+    "entry": "FIRST_EXECUTABLE_QUOTE_AFTER_SIGNAL_CLOSE",
+    "buy_entry": "ASK",
+    "sell_entry": "BID",
+    "buy_exit": "BID",
+    "sell_exit": "ASK",
+    "ambiguous_sl_tp": "SL_FIRST",
+    "gap_fill": "FIRST_ACTUALLY_AVAILABLE_PRICE",
+    "same_day_exit": true,
+    "first_lag_rows_invalidated": true
+  },
+  "decision": "PUBLIC_THESIS_ACCEPTED_FOR_QROS_RESEARCH_PUBLIC_EXECUTION_REJECTED",
+  "next_action": "FREEZE_G31_UNIVERSE_ONTOLOGY"
+}
