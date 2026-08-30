@@ -1,0 +1,18 @@
+{
+  "schema":"QROS_G30_NQX_H1_M30_V4_NUMERIC_PARITY_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"DEVELOPMENT_RUNNING",
+  "scope":"DEV_2018_2019_ONLY",
+  "asset":"NQX",
+  "feature_side":"BID",
+  "primary_regeneration":{"script":"g30_primary_regen_v4_parity.py","sha256":"3a327adeacce4d5dd97c6fffc67c68dff342da79417b89b05cf9e377d8089094","semantics":"ALL_PRICES_AND_ATR_NATIVE_PACKED17_SCALED_UNITS; BUY_ASK_IN_BID_OUT; SELL_BID_IN_ASK_OUT; ATR3; RR1.5; HOLD20; SAME_DAY; SL_FIRST; EXECUTABLE_QUOTES_ASK_GT_BID"},
+  "independent_engine":{"m30_script":"g30_independent_m30_v1.py","h1_script":"g30_independent_h1_v1.py","m30_output_sha256":"1b08c015af80a8557bbebb98be9496d7c5e3ca8c19a866a61a1609b892a58dc6","h1_output_sha256":"423cf45e98989fe377822ac2df9c9bfca892e2b198e9e6b9b467c4163b5ce7ce"},
+  "comparisons":{"M30":{"bars_primary":22670,"bars_independent":22670,"unique_masks_primary":313,"unique_masks_independent":313,"mask_set_equal":true,"trade_count_differences":0,"max_abs_diff_net_r":0.0,"max_abs_diff_pf":0.0,"max_abs_diff_win":0.0,"max_abs_diff_expectancy":0.0,"primary_output_sha256":"56f8de8655dd92ffeabe412b379ade01fb489544e209dba873b25ded8b3a7315","status":"PASS"},"H1":{"bars_primary":11341,"bars_independent":11341,"unique_masks_primary":314,"unique_masks_independent":314,"mask_set_equal":true,"trade_count_differences":0,"max_abs_diff_net_r":0.0,"max_abs_diff_pf":0.0,"max_abs_diff_win":0.0,"max_abs_diff_expectancy":0.0,"primary_output_sha256":"55367f90eb76bd43d86eee77c073c6b4236dab690bb5f63dbb174f286d47258b","status":"PASS"}},
+  "parity_level":"FULL_MASK_BY_MASK_NUMERIC_PARITY_FOR_N_COUNTS_NET_R_PF_WIN_EXPECTANCY",
+  "trade_sequence_parity":"NOT_ASSERTED_FROM_THESE_SUMMARY_OUTPUTS",
+  "decision":"PASS_FOR_DEV_ECONOMIC_ENGINE_PROMOTION",
+  "holdout_opened":false,
+  "gate_a":"NOT_EVALUATED",
+  "branch_exhausted":false,
+  "next_action":"PROMOTE_V4_FOR_DEV_ECONOMIC_SCORING_AND_RERUN_ALL_12_NQX_SHARDS_FROM_SCRATCH; BUY_AND_SELL_SEPARATE; ALL_GATE_PASS_CONFIGURATIONS_ADVANCE"
+}
