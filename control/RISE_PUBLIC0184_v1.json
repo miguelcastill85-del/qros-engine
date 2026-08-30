@@ -1,0 +1,61 @@
+{
+  "schema": "QROS_RISE_PUBLIC0184_V1",
+  "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+  "ontology_ref": "control/G29_UNIVERSE_ONTOLOGY_v1.json",
+  "status": "RISE_ITERATION_1_COMPLETE_NOT_FIXED_POINT",
+  "economic_results_seen": false,
+  "holdout_opened": false,
+  "adversarial_findings": [
+    {
+      "id": "R01_BAR_ANCHOR_PHASE",
+      "severity": "HIGH",
+      "finding": "The ontology lists LTF/HTF durations but does not yet freeze canonical bar anchoring/phase for every timeframe. Multi-timeframe state can differ if bars are phase-shifted.",
+      "required_fix": "Freeze bars from canonical quote timestamps with one deterministic anchor convention per dataset; no session-relative re-anchoring during mining."
+    },
+    {
+      "id": "R02_SIGNAL_PRICE_SOURCE",
+      "severity": "HIGH",
+      "finding": "Public seed uses a single close series, while QROS canonical data contains Bid/Ask. Feature price source must be frozen separately from execution side.",
+      "required_fix": "Enumerate causal feature sources BID and MID as preregistered interpretations; ASK-only is redundant unless independently justified. Execution remains Bid/Ask-specific."
+    },
+    {
+      "id": "R03_EMA_INITIALIZATION_WARMUP",
+      "severity": "MEDIUM",
+      "finding": "EMA values depend on initialization at the start of the available sample.",
+      "required_fix": "Require a deterministic pre-development warmup where available and exclude at least 10 times the largest active EMA period after a hard dataset boundary before signals are eligible."
+    },
+    {
+      "id": "R04_CROSSED_AND_ZERO_SPREAD_QUOTES",
+      "severity": "HIGH",
+      "finding": "Data authority preserves crossed and zero-spread states, but feature-bar construction policy is not explicit.",
+      "required_fix": "Preserve quote chronology; crossed quotes cannot create fills. Zero-spread states cannot create artificial fills. Feature bars must use the frozen causal source and document whether invalid quote states are included or excluded consistently."
+    },
+    {
+      "id": "R05_SESSION_TIMEZONE_DEPENDENCE",
+      "severity": "HIGH",
+      "finding": "Session filters are not causal-stable until broker/server timezone and DST are demonstrated.",
+      "required_fix": "Keep ALL-session baseline always eligible; named sessions remain disabled for economic mining until timezone/DST mapping is proven from data authority."
+    },
+    {
+      "id": "R06_POSITION_INTERFERENCE",
+      "severity": "MEDIUM",
+      "finding": "The ontology freezes first signal per bar but not one-active-position-per-asset interaction during module research.",
+      "required_fix": "Primary module simulation permits at most one active position per asset and rejects overlapping entries until the prior trade exits. Portfolio max-three-new-entries/day is evaluated separately after module eligibility."
+    },
+    {
+      "id": "R07_HTF_LTF_NONINTEGER_RELATIONS",
+      "severity": "MEDIUM",
+      "finding": "Some listed HTF/LTF pairs are duration-ordered but not integer multiples, which can create ambiguous aggregation lineage.",
+      "required_fix": "Require HTF duration to be an integer multiple of LTF duration for the initial frozen ontology; noninteger relations require a separate descendant with explicit tick-level aggregation."
+    },
+    {
+      "id": "R08_SIGNAL_CONFIRMATION_ZERO_WINDOW",
+      "severity": "LOW",
+      "finding": "NO_EXTRA_CONFIRMATION and confirmation_window=0 overlap with touch/reclaim definitions and may duplicate masks.",
+      "required_fix": "Apply structural dedupe before scoring and record identical masks as aliases, not independent tests."
+    }
+  ],
+  "fixed_point": false,
+  "branch_exhaustion_authorized": false,
+  "next_action": "MATERIALIZE_G29_ONTOLOGY_V2_WITH_R01_R08_CORRECTIONS_THEN_RERUN_RISE"
+}

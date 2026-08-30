@@ -1,0 +1,25 @@
+{
+  "schema": "QROS_RISE_PUBLIC0184_V3",
+  "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+  "ontology_ref": "control/G29_UNIVERSE_ONTOLOGY_v3.json",
+  "status": "RISE_FIXED_POINT",
+  "economic_results_seen": false,
+  "holdout_opened": false,
+  "resolved_from_v2": ["R09_PRICE_TRANSFORM_UNIVERSE","R10_ATR_DEFINITION","R11_SLOPE_LOOKBACK","R12_REGIME_PERSISTENCE","R13_PULLBACK_DURATION_AND_RECOVERY_OVERSHOOT","R14_ENTRY_LATENCY_BUCKET"],
+  "fixed_point_test": {
+    "new_causal_dimension_found": false,
+    "new_execution_identity_found": false,
+    "new_time_alignment_defect_found": false,
+    "new_management_signal_conflation_found": false,
+    "new_dedupe_class_found": false
+  },
+  "fixed_point": true,
+  "ontology_frozen": true,
+  "source_sha256_gate": "PENDING_CI_BYTE_FREEZE",
+  "data_audit_gate": "PENDING_NQX_XAU_MTF_BAR_AND_TIMEZONE_AUDIT",
+  "implementation_gate": "PENDING_PRIMARY_AND_INDEPENDENT_ENGINES",
+  "mining_authorized": false,
+  "branch_exhaustion_authorized": false,
+  "reason_mining_still_closed": "RISE fixed point is necessary but not sufficient. Exact source SHA-256, data audit, and two-engine parity must pass first.",
+  "next_action": "COMPLETE_SOURCE_SHA256_CI_AND_DATA_AUDIT_THEN_IMPLEMENT_PARITY_ENGINES"
+}

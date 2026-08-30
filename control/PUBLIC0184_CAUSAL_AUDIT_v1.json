@@ -1,0 +1,65 @@
+{
+  "schema": "QROS_PUBLIC0184_CAUSAL_AUDIT_V1",
+  "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+  "seed": "PUBLIC_SEED_0184",
+  "source_authority": {
+    "repository": "Mohammed-AB/forex-strategy-lab",
+    "commit": "df34085afb615818038c0e8bedc5aad837883e5c",
+    "path": "forex_backtester.py",
+    "git_blob_sha1": "b6fe1a3c9c6dad89049a8271e772cc39e23f1a99",
+    "sha256_status": "PENDING_BYTE_LEVEL_EXPORT",
+    "source_content_identity": "EXACT_BY_GIT_COMMIT_PATH_AND_BLOB_SHA1"
+  },
+  "audit_scope": [
+    "M5_SIGNAL_CAUSALITY",
+    "H1_RESAMPLE_ALIGNMENT",
+    "ENTRY_TIMING",
+    "NP_ROLL_BOUNDARY",
+    "PUBLIC_SIMULATION_FILL_MODEL"
+  ],
+  "findings": [
+    {
+      "id": "F01_H1_PARTIAL_BAR_LOOKAHEAD",
+      "severity": "CRITICAL",
+      "status": "CONFIRMED",
+      "evidence": "The source computes h1.close via resample('1h').last(), labels the hourly aggregate at the start of the hour, computes H1 EMA8/EMA21 on that series, then merge_asof(... direction='backward') into M5 timestamps without delaying availability until the H1 bar is closed.",
+      "impact": "For M5 bars inside an hour, the H1 regime may contain information from later M5 closes in the same hour. Public implementation is not admissible as causal QROS execution semantics.",
+      "mandatory_correction": "Construct H1 bars causally and expose EMA state to M5 only after the contributing H1 bar has fully closed. Equivalent implementation: shift the completed-H1 regime by one H1 bucket before as-of alignment, with explicit timestamp convention tested independently."
+    },
+    {
+      "id": "F02_SIGNAL_AT_CURRENT_M5_CLOSE",
+      "severity": "MATERIAL",
+      "status": "CONFIRMED",
+      "evidence": "sig_mtf_ema uses current M5 close, current EMA and previous close/EMA to emit the signal.",
+      "impact": "Entry at that same close would be non-executable under QROS causal execution rules.",
+      "mandatory_correction": "Signal becomes known only after the M5 bar closes; entry must occur at the first executable Bid/Ask quote after signal close."
+    },
+    {
+      "id": "F03_NP_ROLL_WRAPAROUND",
+      "severity": "LOW_BOUNDARY",
+      "status": "CONFIRMED",
+      "evidence": "prev_c=np.roll(c,1) and prev_f=np.roll(fast,1) wrap the final sample into index 0.",
+      "impact": "The first observation is contaminated by future/end-of-series data.",
+      "mandatory_correction": "Explicitly invalidate the first row for every lagged feature; no wraparound is allowed."
+    },
+    {
+      "id": "F04_PUBLIC_FILL_MODEL_NOT_QROS_COMPLIANT",
+      "severity": "CRITICAL_FOR_ECONOMICS",
+      "status": "CONFIRMED",
+      "evidence": "The public simulator enters at signal-bar close, uses OHLC highs/lows for exits, does not use Bid/Ask, and fills SL/TP at synthetic barrier prices.",
+      "impact": "Public PnL cannot be imported into QROS. Only the signal thesis and parameter genealogy are admissible.",
+      "mandatory_correction": "Reimplement on QROS Bid/Ask data with BUY Ask entry/Bid exit, SELL Bid entry/Ask exit, SL-first ambiguity, first available price on gaps, no artificial zero-spread fills, and same-day exit."
+    }
+  ],
+  "causal_seed_after_correction": {
+    "higher_timeframe_regime": "EMA_FAST_HTF > EMA_SLOW_HTF for BUY; inverse for SELL, using last fully closed HTF bar only",
+    "lower_timeframe_event": "temporary pullback toward/through a fast LTF EMA followed by causal recovery/continuation confirmation",
+    "entry": "first executable quote after the confirming LTF bar closes",
+    "sides": "BUY_AND_SELL_SEPARATE",
+    "management": "SEPARATE_FROM_SIGNAL_DISCOVERY"
+  },
+  "decision": "THESIS_SURVIVES_SOURCE_AUDIT_BUT_PUBLIC_IMPLEMENTATION_REJECTED_FOR_CAUSAL_EXECUTION",
+  "economic_results_read": false,
+  "holdout_opened": false,
+  "next_action": "FREEZE_G29_UNIVERSE_WITH_CAUSAL_HTF_ALIGNMENT_AND_COMPLETE_RISE_FIXED_POINT"
+}

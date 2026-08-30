@@ -1,0 +1,42 @@
+name: public0184-source-freeze
+
+on:
+  push:
+    branches: [research/public0184-g29-causal-audit-v1]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  freeze-source:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch immutable public source and compute identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          URL='https://raw.githubusercontent.com/Mohammed-AB/forex-strategy-lab/df34085afb615818038c0e8bedc5aad837883e5c/forex_backtester.py'
+          curl --fail --silent --show-error --location "$URL" -o source.py
+          BYTES=$(wc -c < source.py | tr -d ' ')
+          SHA256=$(sha256sum source.py | awk '{print $1}')
+          GIT_SHA1=$(python3 - <<'PY'
+          import hashlib
+          b=open('source.py','rb').read()
+          h=hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          print(h)
+          PY
+          )
+          echo "PUBLIC0184_SOURCE_BYTES=$BYTES"
+          echo "PUBLIC0184_SOURCE_SHA256=$SHA256"
+          echo "PUBLIC0184_SOURCE_GIT_BLOB_SHA1=$GIT_SHA1"
+          test "$GIT_SHA1" = 'b6fe1a3c9c6dad89049a8271e772cc39e23f1a99'
+      - name: Causal-source anchors
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -F "resample(\"1h\").last()" source.py
+          grep -F "merge_asof" source.py
+          grep -F "def sig_mtf_ema" source.py

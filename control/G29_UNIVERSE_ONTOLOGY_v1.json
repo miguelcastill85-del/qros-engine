@@ -1,0 +1,116 @@
+{
+  "schema": "QROS_G29_UNIVERSE_ONTOLOGY_V1",
+  "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+  "root_genealogy": "G29_MULTI_TIMEFRAME_TREND_PULLBACK",
+  "status": "UNIVERSE_ONTOLOGY_FROZEN_PENDING_RISE_FIXED_POINT_AND_SOURCE_SHA256",
+  "results_seen": false,
+  "holdout_opened": false,
+  "assets": ["NQX","XAUUSD"],
+  "sides": ["BUY","SELL"],
+  "principle": "All listed dimensions are ex-ante causal interpretations or descendants of the public multi-timeframe trend-pullback thesis. Management is not allowed to redefine signal eligibility retrospectively.",
+  "causal_clock": {
+    "signal_known": "AFTER_LTF_BAR_CLOSE",
+    "htf_state_known": "ONLY_AFTER_CONTRIBUTING_HTF_BAR_CLOSE",
+    "entry": "FIRST_EXECUTABLE_QUOTE_AFTER_SIGNAL_CLOSE",
+    "timezone": "BROKER_SERVER_LABEL_UNPROVEN_UNTIL_DATA_AUDIT",
+    "dst": "NO_ASSUMPTION_UNTIL_PROVEN"
+  },
+  "dimensions": {
+    "ltf_timeframe": ["M1","M5","M10","M15","M30"],
+    "htf_timeframe": ["M15","M30","H1","H2","H4"],
+    "timeframe_constraint": "HTF_DURATION_STRICTLY_GREATER_THAN_LTF_DURATION",
+    "htf_regime_family": [
+      "EMA_FAST_GT_EMA_SLOW",
+      "EMA_FAST_GT_EMA_SLOW_AND_SLOPE_FAST_POSITIVE",
+      "EMA_FAST_GT_EMA_SLOW_AND_BOTH_SLOPES_POSITIVE",
+      "PRICE_GT_EMA_SLOW_AND_EMA_FAST_GT_EMA_SLOW"
+    ],
+    "htf_ema_fast_period": [5,8,9,12,13,20,21,26,34,50],
+    "htf_ema_slow_period": [13,20,21,26,34,50,55,89,100,144,200],
+    "ema_period_constraint": "FAST_LT_SLOW",
+    "ltf_trend_family": [
+      "EMA_FAST_GT_EMA_SLOW",
+      "PRICE_GT_EMA_FAST_GT_EMA_SLOW",
+      "EMA_FAST_SLOPE_WITH_HTF_ONLY",
+      "NO_LTF_TREND_FILTER_HTF_ONLY"
+    ],
+    "ltf_ema_fast_period": [5,8,9,10,12,13,15,18,20,21,25,30,34],
+    "ltf_ema_slow_period": [20,21,26,34,35,40,50,55,60,80,89,100,144,200],
+    "pullback_event_family": [
+      "TOUCH_FAST_EMA",
+      "CLOSE_WITHIN_ATR_BAND_OF_FAST_EMA",
+      "CROSS_THROUGH_FAST_EMA_AND_CLOSE_BACK_WITH_TREND",
+      "WICK_THROUGH_FAST_EMA_AND_CLOSE_BACK_WITH_TREND",
+      "RETRACE_TOWARD_SLOW_EMA_WITHOUT_INVALIDATING_HTF_REGIME",
+      "PRIOR_CLOSE_OPPOSITE_SIDE_THEN_CURRENT_CLOSE_RECOVERS_FAST_EMA"
+    ],
+    "pullback_atr_band": [0.0,0.1,0.2,0.3,0.5,0.75,1.0],
+    "retrace_depth_atr": [0.25,0.5,0.75,1.0,1.25,1.5,2.0],
+    "confirmation_family": [
+      "CLOSE_BACK_ACROSS_FAST_EMA",
+      "CLOSE_WITH_TREND_AND_ABOVE_BELOW_FAST_EMA",
+      "BREAK_PULLBACK_BAR_EXTREME_NEXT_BAR",
+      "TWO_CLOSES_WITH_TREND",
+      "NO_EXTRA_CONFIRMATION_AFTER_CAUSAL_TOUCH"
+    ],
+    "confirmation_window_bars": [0,1,2,3,4,6],
+    "htf_age_limit_ltf_bars": ["UNTIL_NEXT_HTF_CLOSE",1,2,3,6,12],
+    "volatility_context": [
+      "NONE",
+      "ATR_ABOVE_ROLLING_MEDIAN",
+      "ATR_BELOW_ROLLING_MEDIAN",
+      "ATR_PERCENTILE_20_80",
+      "RANGE_EXPANSION",
+      "RANGE_COMPRESSION"
+    ],
+    "session_context": ["ALL","ASIA","LONDON","NEW_YORK","LONDON_NY_OVERLAP"],
+    "day_of_week_context": ["ALL","MON_TUE_WED_THU_FRI_SEPARATE","EXCLUDE_FRIDAY_LATE"],
+    "reclaim_count": [1,2],
+    "max_signal_age_bars": [0,1,2,3],
+    "same_bar_duplicate_policy": ["FIRST_SIGNAL_ONLY"],
+    "same_day_exit": [true]
+  },
+  "signal_management_separation": {
+    "signal_discovery_management": {
+      "initial_stop_family": ["ATR_FIXED","PULLBACK_EXTREME"],
+      "atr_stop_mult": [0.5,0.75,1.0,1.25,1.5,2.0,2.5,3.0],
+      "reward_r_multiple": [0.75,1.0,1.25,1.5,2.0,2.5,3.0],
+      "time_stop_ltf_bars": [3,6,9,12,18,24],
+      "purpose": "STANDARDIZED_DISCOVERY_ONLY_NOT_ALPHA_IDENTITY"
+    },
+    "post_signal_management_research": [
+      "BREAK_EVEN",
+      "TRAILING",
+      "PARTIALS",
+      "STRUCTURAL_TARGETS",
+      "HTF_EXIT",
+      "SESSION_END_EXIT"
+    ],
+    "rule": "Post-signal management profiles are tiers of the same alpha module unless they create a causally distinct entry event."
+  },
+  "dedupe_rules": [
+    "REMOVE_PARAMETER_COMBINATIONS_WITH_FAST_GTE_SLOW",
+    "REMOVE_HTF_LTE_LTF",
+    "MERGE_IDENTICAL_SIGNAL_MASKS_BEFORE_ECONOMIC_SCORING",
+    "MERGE_HIGHLY_OVERLAPPING_MANAGEMENT_VARIANTS_AS_TIERS",
+    "BUY_AND_SELL_REMAIN_SEPARATE_FOR_DISCOVERY_AND_GATES",
+    "NO_RETROSPECTIVE_PARAMETER_ADDITION_AFTER_RESULTS"
+  ],
+  "required_parity": [
+    "PRIMARY_VECTOR_ENGINE",
+    "INDEPENDENT_EVENT_DRIVEN_ENGINE",
+    "TRADE_BY_TRADE_PARITY_BEFORE_HOLDOUT"
+  ],
+  "execution_contract": {
+    "buy_entry": "ASK",
+    "buy_exit": "BID",
+    "sell_entry": "BID",
+    "sell_exit": "ASK",
+    "ambiguous_sl_tp": "SL_FIRST",
+    "gaps": "FIRST_ACTUALLY_AVAILABLE_PRICE",
+    "zero_spread": "NO_ARTIFICIAL_FILL",
+    "cost_regimes": ["CENTRAL","CONSERVATIVE","SEVERE"]
+  },
+  "branch_exhaustion_condition": "PROHIBITED_UNTIL_RISE_FIXED_POINT_AND_COVERAGE_RECEIPT_FOR_ALL_ELIGIBLE_FAMILIES",
+  "next_action": "RISE_ADVERSARIAL_AUDIT_OF_G29_ONTOLOGY"
+}
