@@ -1,0 +1,39 @@
+{
+  "schema": "QROS_G29_SIGNAL_MASK_PARITY_V1",
+  "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+  "scope": "HARDENED_PUBLIC_ROOT_SEMANTICS_NO_PNL",
+  "status": "PASS",
+  "all_mismatches": 0,
+  "time_reference": "DARWINEX_MT5_SERVER_TIME_AS_STORED_IN_TICKS",
+  "semantics": {
+    "ltf": "M5",
+    "htf": "H1",
+    "ltf_ema": [20,50],
+    "htf_ema": [8,21],
+    "atr": "TRUE_RANGE_SMA14",
+    "pullback": "ABS_CLOSE_MINUS_EMA20_LT_0.5_ATR14",
+    "reclaim": "PRIOR_CLOSE_OPPOSITE_SIDE_THEN_CURRENT_CLOSE_WITH_TREND",
+    "htf_alignment": "LAST_FULLY_CLOSED_H1_ASOF_M5_SIGNAL_CLOSE",
+    "warmup": "10X_MAX_ACTIVE_EMA_PERIOD_PER_TF",
+    "session": "ALL"
+  },
+  "engines": {
+    "primary": "NUMPY_REDUCEAT_RECURSIVE_EMA_SEARCHSORTED_HTF_ALIGNMENT",
+    "independent": "PANDAS_GROUPBY_EWM_MERGE_ASOF_CLOSED_HTF_ALIGNMENT"
+  },
+  "results": {
+    "NQX": {
+      "BID": {"m5_bars":135250,"h1_bars":11341,"bar_mismatches":0,"mask_mismatches":0,"buy_signals":2104,"sell_signals":1381,"mask_sha256":"1ed1096d7dee84bcc28038f0c944c9838031d8f2fdf385aa3022928670106420"},
+      "MID": {"m5_bars":135250,"h1_bars":11341,"bar_mismatches":0,"mask_mismatches":0,"buy_signals":2116,"sell_signals":1389,"mask_sha256":"a90f828fb70ee3e90b7d6b93f15c40abfd435f0edec84d36fd0337943efc5b00"}
+    },
+    "XAUUSD": {
+      "BID": {"m5_bars":136544,"h1_bars":11394,"bar_mismatches":0,"mask_mismatches":0,"buy_signals":2013,"sell_signals":1882,"mask_sha256":"8e85ab01f7525f4bbe41ad4fd3597d60e8687475a88213f1ef5d5f1e05605104"},
+      "MID": {"m5_bars":136544,"h1_bars":11394,"bar_mismatches":0,"mask_mismatches":0,"buy_signals":2037,"sell_signals":1887,"mask_sha256":"4f55f4014089dadc5230a6159cc82301c809c811823c0239a3601da6b8303143"}
+    }
+  },
+  "public_lookahead_defect_used": false,
+  "holdout_opened": false,
+  "pnl_computed": false,
+  "mining_performed": false,
+  "decision": "G29_SIGNAL_MASK_PARITY_PASS"
+}
