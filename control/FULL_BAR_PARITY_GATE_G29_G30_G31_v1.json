@@ -1,0 +1,26 @@
+{
+  "schema": "QROS_FULL_BAR_PARITY_GATE_G29_G30_G31_V1",
+  "scope": ["G29","G30","G31"],
+  "clock_reference": "DARWINEX_MT5_SERVER_TIME_AS_STORED_IN_TICKS",
+  "NQX": {
+    "receipt": "control/NQX_FULL_INDEPENDENT_M1_H1_PARITY_v1.json",
+    "status": "PASS",
+    "timeframes": ["M1","M5","M10","M15","M30","H1"],
+    "all_mismatches": 0,
+    "source_dev_prefix_hash_pass": true
+  },
+  "XAUUSD": {
+    "receipt": "control/XAU_FULL_INDEPENDENT_M1_H1_PARITY_v1.json",
+    "status": "PASS",
+    "timeframes": ["M1","M5","M10","M15","M30","H1"],
+    "all_mismatches": 0,
+    "source_dev_prefix_integrity_authority": "PASS_FROM_PRIOR_STRUCTURAL_AUDIT"
+  },
+  "primary_method": "numpy_reduceat_sharded",
+  "independent_method": "pandas_groupby_streaming_full_dev_prefix",
+  "bar_parity": "PASS",
+  "holdout_opened": false,
+  "economic_results_computed": false,
+  "mining_authorized": false,
+  "next_gate": "G30_SIGNAL_MASK_PRIMARY_INDEPENDENT_PARITY_THEN_G29_THEN_G31"
+}
