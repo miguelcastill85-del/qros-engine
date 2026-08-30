@@ -1,0 +1,11 @@
+{
+  "schema": "QROS_CONTROL_AUTHORITY_PROMOTION_RECEIPT_V1",
+  "cross_chat_recovery_test": "PASS",
+  "control_authority": "PROMOTED",
+  "scientific_head": "NOT_PROMOTED",
+  "pnl_read_authorized": false,
+  "holdout_access_authorized": false,
+  "scientific_execution_authorized": false,
+  "branch_exhaustion_authorized": false,
+  "next_action": "SCIENTIFIC_HEAD_RECOVERY"
+}
