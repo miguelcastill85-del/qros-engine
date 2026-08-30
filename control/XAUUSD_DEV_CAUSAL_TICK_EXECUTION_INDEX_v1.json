@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_CAUSAL_TICK_EXECUTION_INDEX_V1",
+  "asset": "XAUUSD",
+  "scope": "DEVELOPMENT_ONLY_NO_PNL",
+  "source_prefix_bytes": 2573500596,
+  "source_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "source_records": 151382388,
+  "m1_boundaries": 681772,
+  "resolved": 681771,
+  "unresolved": 1,
+  "boundary_rule": "SIGNAL_KNOWN_AT_BAR_CLOSE; FIRST_EXECUTABLE_QUOTE_WITH_TS_GTE_CLOSE_TS",
+  "quote_eligibility": "ASK_GT_BID; ZERO_SPREAD_AND_CROSSED_QUOTES_NOT_EXECUTABLE",
+  "output": "XAUUSD_DEV_CAUSAL_TICK_EXECUTION_INDEX_v1.npz",
+  "output_sha256": "3d7ee57171ac1a40e254ec6ed202b227a491c3c420d88201495e1ee1f281e4ad",
+  "latency_ms": {"min":0,"p50":179,"p90":1819,"p99":10091,"max":262920285},
+  "boundaries_with_zero_skips": 2475,
+  "zero_skips_total": 5378,
+  "boundaries_with_cross_skips": 0,
+  "cross_skips_total": 0,
+  "status": "PASS_WITH_TRAILING_UNRESOLVED"
+}
