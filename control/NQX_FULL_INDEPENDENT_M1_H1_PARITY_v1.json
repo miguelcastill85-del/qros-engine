@@ -1,0 +1,24 @@
+{
+  "asset": "NQX",
+  "checks": {
+    "H1": {"index_equal": true, "mismatches": 0, "rows": 11341, "status": "PASS"},
+    "M1": {"index_equal": true, "mismatches": 0, "rows": 673097, "status": "PASS"},
+    "M10": {"index_equal": true, "mismatches": 0, "rows": 67775, "status": "PASS"},
+    "M15": {"index_equal": true, "mismatches": 0, "rows": 45312, "status": "PASS"},
+    "M30": {"index_equal": true, "mismatches": 0, "rows": 22670, "status": "PASS"},
+    "M5": {"index_equal": true, "mismatches": 0, "rows": 135250, "status": "PASS"}
+  },
+  "economic_results_computed": false,
+  "elapsed_seconds": 16.069,
+  "holdout_pnl_read": false,
+  "independent_method": "pandas_groupby_streaming_full_dev_prefix",
+  "primary_cache": "NQX_DEV_M1_EXECUTABLE_QUOTE_CACHE_v2.npz",
+  "primary_cache_sha256": "18899702e207b8f192f05e0649fca3ca593bed07d1c955bdb811e202f12cd525",
+  "primary_method": "numpy_reduceat_sharded",
+  "schema": "QROS_FULL_INDEPENDENT_M1_TO_H1_BAR_PARITY_V1",
+  "source_bytes": 1018984420,
+  "source_dev_prefix_expected_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+  "source_dev_prefix_observed_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+  "source_hash_pass": true,
+  "status": "PASS"
+}
