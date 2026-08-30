@@ -1,0 +1,45 @@
+{
+  "schema": "QROS_CAMPAIGN_PREREGISTRATION_V1",
+  "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+  "seed": "PUBLIC_SEED_0184",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "root_genealogy": "G29_MULTI_TIMEFRAME_TREND_PULLBACK",
+  "genealogy_class": "ROOT_ANCHOR",
+  "prior_ex_ante": "A+",
+  "causal_thesis": "A lower-timeframe pullback has positive continuation expectancy only when the higher-timeframe EMA regime is aligned in the same direction; the hypothesized edge comes from multi-horizon trend persistence plus temporary local retracement, not Bollinger-band mean reversion.",
+  "public_authority": {
+    "repository": "Mohammed-AB/forex-strategy-lab",
+    "commit": "df34085afb615818038c0e8bedc5aad837883e5c",
+    "source_file": "forex_backtester.py",
+    "git_blob_sha1": "b6fe1a3c9c6dad89049a8271e772cc39e23f1a99",
+    "sha256": "PENDING_BYTE_FREEZE_BEFORE_MINING",
+    "observed_semantics": {
+      "base_timeframe": "M5",
+      "higher_timeframe": "H1",
+      "higher_timeframe_alignment": "EMA8_H1_vs_EMA21_H1",
+      "signal_family": "pullback entries gated by H1 EMA alignment"
+    }
+  },
+  "assets": ["NQX","XAUUSD"],
+  "sides": ["BUY","SELL"],
+  "development_policy": {
+    "holdout": "SEALED",
+    "parameter_mining_before_authority_freeze": false,
+    "independent_implementation_required": true,
+    "bid_ask_execution_required": true,
+    "same_day_exit_required": true,
+    "max_new_entries_per_day_portfolio": 3
+  },
+  "required_before_results": [
+    "FREEZE_EXACT_SOURCE_BYTES_AND_SHA256",
+    "AUDIT_M5_AND_H1_CAUSAL_ALIGNMENT_NO_LOOKAHEAD",
+    "FREEZE_SIGNAL_ONTOLOGY_AND_PARAMETER_UNIVERSE",
+    "RISE_FIXED_POINT_FOR_G29",
+    "IMPLEMENT_PRIMARY_AND_INDEPENDENT_PARITY_ENGINES",
+    "AUDIT_NQX_XAU_DATA_COVERAGE_TIMEZONE_DST_BIDASK"
+  ],
+  "approval_path": "DEVELOPMENT_GATES_THEN_SINGLE_HOLDOUT_OPEN_THEN_SUPERGATE_THEN_MT5_PARITY",
+  "branch_exhaustion_authorized": false,
+  "results_present": false,
+  "next_action": "FREEZE_EXACT_PUBLIC_SOURCE_BYTES_AND_BUILD_G29_UNIVERSE_ONTOLOGY"
+}
