@@ -1,0 +1,17 @@
+{
+  "schema": "QROS_DERIVED_CARRIER_REMATERIALIZATION_V1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "asset": "XAUUSD",
+  "scope": "DEVELOPMENT_2018_2019_DERIVED_TEMPORARY_CARRIER",
+  "source_authority": "QROS_XAU_FULL_HISTORY_v2 multipart ZIP authority",
+  "target_file": "XAUUSD_DEV_PACKED17_2018_2019_v1.bin",
+  "bytes": 2573500596,
+  "records": 151382388,
+  "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "expected_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "integrity": "PASS",
+  "semantic_change": false,
+  "economic_results_computed": false,
+  "holdout_opened": false,
+  "note": "Carrier re-materialized from canonical multipart ZIP bytes after runtime-local derived artifact loss. No scientific inputs or rules changed. Subsequent M1 cache rebuild attempt timed out and produced no promoted cache receipt."
+}
