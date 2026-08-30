@@ -1,0 +1,39 @@
+{
+  "schema": "QROS_CAMPAIGN_PREREGISTRATION_V1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "seed": "PUBLIC_SOURCE_FOREX_STRATEGY_LAB_NEWS_MOMENTUM",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "root_genealogy": "G30_VOLATILITY_SHOCK_MOMENTUM",
+  "genealogy_class": "ROOT_ANCHOR",
+  "causal_thesis": "An unusually large causal price range relative to recent true range, followed by directional close persistence, may indicate temporary order-flow continuation rather than mean reversion. The hypothesized edge is conditional continuation after a volatility shock, independent of multi-timeframe EMA pullback geometry.",
+  "public_authority": {
+    "repository": "Mohammed-AB/forex-strategy-lab",
+    "commit": "df34085afb615818038c0e8bedc5aad837883e5c",
+    "source_file": "forex_backtester.py",
+    "bytes": 53694,
+    "git_blob_sha1": "b6fe1a3c9c6dad89049a8271e772cc39e23f1a99",
+    "sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
+    "source_freeze_ref": "control/SOURCE_FREEZE_PUBLIC0184_v1.json",
+    "source_function": "sig_news_momentum"
+  },
+  "observed_public_semantics": {
+    "shock": "CURRENT_BAR_RANGE_GT_ATR_X_VOL_THRESH",
+    "directional_persistence": "CURRENT_CLOSE_GREATER_OR_LESS_THAN_PRIOR_1_2_3_CLOSES",
+    "public_defaults": {"atr_mult":3.0,"rr":1.5,"vol_thresh":2.0},
+    "public_hold_bars": 20
+  },
+  "assets": ["NQX","XAUUSD"],
+  "sides": ["BUY","SELL"],
+  "holdout": "SEALED",
+  "economic_results_present": false,
+  "mining_authorized": false,
+  "required_before_results": [
+    "CAUSAL_SOURCE_AUDIT",
+    "FREEZE_G30_UNIVERSE_ONTOLOGY",
+    "RISE_FIXED_POINT_G30",
+    "REAL_DATA_AUDIT_PASS",
+    "PRIMARY_AND_INDEPENDENT_PARITY_ENGINES"
+  ],
+  "branch_exhaustion_authorized": false,
+  "next_action": "CAUSAL_AUDIT_AND_G30_ONTOLOGY"
+}
