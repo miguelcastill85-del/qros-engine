@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V7",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V8",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "scope": "CONTROL_AND_SCIENTIFIC_CONTINUITY",
   "repository": "miguelcastill85-del/qros-engine",
@@ -25,7 +25,9 @@
       "ontology": "control/G29_UNIVERSE_ONTOLOGY_v3.json",
       "rise": "control/RISE_PUBLIC0184_v3.json",
       "rise_status": "FIXED_POINT",
-      "data_io": "PHYSICAL_PARTS_RECOVERED_AUDIT_PENDING",
+      "data_gate": "control/DATA_GATE_G29_G30_G31_DEV_PREFIX_v1.json",
+      "dev_prefix_integrity": "PASS",
+      "session_mining": "DISABLED_TIMEZONE_UNPROVEN",
       "mining_authorized": false,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -39,7 +41,9 @@
       "ontology": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
       "rise": "control/RISE_G30_v2.json",
       "rise_status": "FIXED_POINT",
-      "data_io": "PHYSICAL_PARTS_RECOVERED_AUDIT_PENDING",
+      "data_gate": "control/DATA_GATE_G29_G30_G31_DEV_PREFIX_v1.json",
+      "dev_prefix_integrity": "PASS",
+      "session_mining": "DISABLED_TIMEZONE_UNPROVEN",
       "mining_authorized": false,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -53,6 +57,9 @@
       "ontology": "control/G31_UNIVERSE_ONTOLOGY_v2.json",
       "rise": "control/RISE_G31_v2.json",
       "rise_status": "FIXED_POINT",
+      "data_gate": "control/DATA_GATE_G29_G30_G31_DEV_PREFIX_v1.json",
+      "dev_prefix_integrity": "PASS",
+      "session_mining": "DISABLED_TIMEZONE_UNPROVEN",
       "mining_authorized": false,
       "holdout_opened": false,
       "branch_exhausted": false
@@ -66,15 +73,18 @@
     "ontology": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
     "rise": "control/RISE_G30_v2.json",
     "rise_status": "FIXED_POINT",
-    "parallel_preregistered_genealogy": "G31_ICHIMOKU_STYLE_TREND_CROSS",
+    "data_gate": "control/DATA_GATE_G29_G30_G31_DEV_PREFIX_v1.json",
+    "dev_prefix_integrity": "PASS",
+    "parallel_preregistered_genealogies": ["G29_MULTI_TIMEFRAME_TREND_PULLBACK","G31_ICHIMOKU_STYLE_TREND_CROSS"],
     "mining_authorized": false
   },
   "runtime_data_io": {
-    "receipt": "control/CURRENT_RUNTIME_DATA_IO_RECOVERY_v1.json",
-    "NQX_parts": "28_OF_28_OBSERVED",
-    "XAUUSD_parts": "35_OF_35_OBSERVED",
-    "status": "PHYSICAL_PARTS_PRESENT_AUDIT_EXECUTION_PENDING",
-    "execution_policy": "CHUNKED_RESUMABLE_ONLY"
+    "NQX_structural_receipt": "control/QROS_NQX_DEV_PREFIX_STRUCTURAL_AUDIT_v1.json",
+    "XAUUSD_structural_receipt": "control/QROS_XAU_DEV_PREFIX_STRUCTURAL_AUDIT_v1.json",
+    "data_gate": "control/DATA_GATE_G29_G30_G31_DEV_PREFIX_v1.json",
+    "status": "DEV_PREFIX_EXACT_HASH_AND_STRUCTURE_PASS",
+    "timezone_dst": "UNPROVEN",
+    "execution_policy": "SESSION_ALL_ONLY_UNTIL_TIMEZONE_PROOF"
   },
   "canonical_data_authorities": {
     "NQX": {
@@ -94,15 +104,8 @@
       "development_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
     }
   },
-  "artifact_store": {
-    "provider": "Dropbox",
-    "role": "ARTIFACT_STORE_NOT_SCIENTIFIC_AUTHORITY",
-    "root_path": "/QROS",
-    "storage_manifest_path": "/QROS/QROS_STORAGE_MANIFEST_v3.json"
-  },
-  "next_action": "RUN_CHUNKED_RESUMABLE_NQX_DEV_PREFIX_AUDIT_FOR_G30_G29_G31",
-  "following_action": "RUN_CHUNKED_RESUMABLE_XAU_DEV_PREFIX_AUDIT_FOR_G30_G29_G31",
-  "then_action": "IMPLEMENT_PRIMARY_AND_INDEPENDENT_ENGINES_FOR_FIRST_DATA_AUDIT_PASS_CAMPAIGN",
+  "next_action": "BUILD_PRIMARY_AND_INDEPENDENT_M1_TO_H1_BAR_ENGINES_ON_DEV_PREFIX_SESSION_ALL_ONLY",
+  "following_action": "PARITY_G30_G29_G31_SIGNAL_MASKS_THEN_DEVELOPMENT_MINING_IF_PASS",
   "safety": {
     "branch_exhaustion_authorized": false,
     "holdout_access_authorized": false,
@@ -114,9 +117,5 @@
     "holdout_opened": false,
     "new_real_data_pnl_computed": false,
     "mt5_compiled_or_executed": false
-  },
-  "mcp": {
-    "required_for_current_architecture": false,
-    "status": "FROZEN"
   }
 }
