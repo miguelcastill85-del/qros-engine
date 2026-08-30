@@ -1,0 +1,30 @@
+{
+  "schema": "QROS_G30_STAGE1_ECONOMIC_SCORING_PARTIAL_V1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state": "DEVELOPMENT_RUNNING",
+  "scope": "DEVELOPMENT_ONLY_PARTIAL_CHECKPOINT",
+  "management_anchor": {"atr_stop_mult": 3.0, "rr": 1.5, "hold_bars": 20, "same_day": true},
+  "execution": "EXACT_TICK_BID_ASK_FIRST_EXECUTABLE_AFTER_SIGNAL_CLOSE_ZERO_AND_CROSSED_EXCLUDED_SL_FIRST",
+  "cost_status": "CENTRAL_OBSERVED_BID_ASK_ONLY; CONSERVATIVE_AND_SEVERE_PENDING",
+  "completed_shards": [
+    {"asset":"NQX","tf":"H1","feature_side":"BID","masks":314},
+    {"asset":"NQX","tf":"H1","feature_side":"MID","masks":314},
+    {"asset":"NQX","tf":"M30","feature_side":"BID","masks":313}
+  ],
+  "completed_masks": 941,
+  "stage1_unique_masks_total": 7522,
+  "coverage_note": "Partial only; masks are shard-local scoring records and this receipt is not a Gate A decision.",
+  "diagnostics": {
+    "NQX_H1_BID": {"max_pf":2.686158959055255,"max_net_r":1.7285569743454008,"both_2018_2019_positive_count":26},
+    "NQX_H1_MID": {"max_pf":2.356123168246302,"max_net_r":1.7263409397958691,"both_2018_2019_positive_count":18},
+    "NQX_M30_BID": {"max_pf":7.210579237432337,"max_net_r":8.602329747710193,"both_2018_2019_positive_count":28},
+    "highest_net_r_observed": {"tf":"M30","feature_side":"BID","trades":608,"net_r":8.602329747710193,"pf":1.258789992526321,"expectancy_r":0.01414856866399703,"max_dd_r":3.191517377500873,"y2018_net_r":5.567702243263583,"y2019_net_r":3.0346275044466102,"params":{"timing":"LAGGED_ONE_BAR_PRE_SHOCK","threshold":1.25,"persistence":"STRICT_MONOTONIC_N_CLOSE_SEQUENCE","n":3}},
+    "highest_pf_observed": {"tf":"M30","feature_side":"BID","trades":7,"net_r":0.28830073308150894,"pf":7.210579237432337,"note":"Very low sample; not promotion evidence."}
+  },
+  "runner": "qros_g30_econ_numba_v2.py",
+  "runner_status": "NUMBA_OUTCOME_PRECOMPUTE_WORKING; transport timeout interrupted subsequent shard sequence",
+  "holdout_opened": false,
+  "branch_exhausted": false,
+  "decision": "NO_DECISION_PARTIAL",
+  "next_action": "RESUME_REMAINING_NQX_SHARDS_THEN_XAUUSD; APPLY CENTRAL_CONSERVATIVE_SEVERE_COSTS; ONLY THEN CLUSTER_PLATEAUS_AND_GATE_A"
+}
