@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V5",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V6",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "scope": "CONTROL_AND_SCIENTIFIC_CONTINUITY",
   "repository": "miguelcastill85-del/qros-engine",
@@ -8,27 +8,69 @@
     "cross_chat_recovery": "PASS",
     "promotion_receipt": "control/CONTROL_AUTHORITY_PROMOTION_RECEIPT_v1.json"
   },
-  "previous_campaign": {
-    "campaign": "QROS_PUBLIC_0181_BB_WINNER_PRO_v1",
-    "decision": "REJECTED",
-    "decision_ref": "control/DECISION_PUBLIC0181_v1.json",
-    "economic_conclusion": "NOT_ESTABLISHED",
-    "archive_policy": "OBSERVATIONAL_RESERVE_FOR_FUTURE_BYTE_RECOVERY",
-    "branch_exhausted": false
+  "campaign_inventory": {
+    "0181": {
+      "campaign": "QROS_PUBLIC_0181_BB_WINNER_PRO_v1",
+      "decision": "REJECTED",
+      "decision_ref": "control/DECISION_PUBLIC0181_v1.json",
+      "economic_conclusion": "NOT_ESTABLISHED",
+      "archive_policy": "OBSERVATIONAL_RESERVE_FOR_FUTURE_BYTE_RECOVERY",
+      "branch_exhausted": false
+    },
+    "G29": {
+      "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+      "state": "BLOCKED_BY_INFRASTRUCTURE",
+      "authority_ref": "control/PREREG_PUBLIC0184_v3.json",
+      "source_freeze": "control/SOURCE_FREEZE_PUBLIC0184_v1.json",
+      "source_sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
+      "causal_audit": "control/PUBLIC0184_CAUSAL_AUDIT_v1.json",
+      "ontology": "control/G29_UNIVERSE_ONTOLOGY_v3.json",
+      "rise": "control/RISE_PUBLIC0184_v3.json",
+      "rise_status": "FIXED_POINT",
+      "blocker": "control/DATA_AUDIT_PUBLIC0184_BLOCKER_v1.json",
+      "blocked_stage": "NQX_XAU_MTF_DATA_AUDIT",
+      "mining_authorized": false,
+      "holdout_opened": false,
+      "branch_exhausted": false
+    },
+    "G30": {
+      "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+      "state": "PREREGISTERED_NO_RESULTS",
+      "authority_ref": "control/PREREG_G30_VOLATILITY_SHOCK_MOMENTUM_v1.json",
+      "source_sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
+      "causal_audit": "control/G30_CAUSAL_AUDIT_v1.json",
+      "ontology": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
+      "rise": "control/RISE_G30_v2.json",
+      "rise_status": "FIXED_POINT",
+      "real_data_audit_gate": "BLOCKED_BY_CURRENT_RUNTIME_IO",
+      "mining_authorized": false,
+      "holdout_opened": false,
+      "branch_exhausted": false
+    }
   },
   "scientific_head": {
-    "status": "PREREGISTERED_NO_RESULTS",
-    "authority_ref": "control/PREREG_PUBLIC0184_v3.json",
-    "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
-    "seed": "PUBLIC_SEED_0184",
-    "root_genealogy": "G29_MULTI_TIMEFRAME_TREND_PULLBACK",
-    "causal_audit": "control/PUBLIC0184_CAUSAL_AUDIT_v1.json",
-    "source_freeze": "control/SOURCE_FREEZE_PUBLIC0184_v1.json",
-    "source_sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
-    "ontology": "control/G29_UNIVERSE_ONTOLOGY_v3.json",
-    "rise": "control/RISE_PUBLIC0184_v3.json",
+    "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+    "state": "PREREGISTERED_NO_RESULTS",
+    "root_genealogy": "G30_VOLATILITY_SHOCK_MOMENTUM",
+    "authority_ref": "control/PREREG_G30_VOLATILITY_SHOCK_MOMENTUM_v1.json",
+    "ontology": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
+    "rise": "control/RISE_G30_v2.json",
     "rise_status": "FIXED_POINT",
     "mining_authorized": false
+  },
+  "canonical_data_authorities": {
+    "NQX": {
+      "carrier": "NQX_PACKED17_FULL_2018_2026.bin",
+      "bytes": 9516900679,
+      "records": 559817687,
+      "sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608"
+    },
+    "XAUUSD": {
+      "carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+      "bytes": 11850036456,
+      "records": 697060968,
+      "sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4"
+    }
   },
   "artifact_store": {
     "provider": "Dropbox",
@@ -37,8 +79,8 @@
     "storage_manifest_path": "/QROS/QROS_STORAGE_MANIFEST_v3.json"
   },
   "authority_manifest": "control/CONTROL_AUTHORITY_MANIFEST_v2.json",
-  "next_action": "NQX_XAU_MTF_DATA_AUDIT",
-  "following_action": "IMPLEMENT_PRIMARY_AND_INDEPENDENT_CAUSAL_G29_ENGINES",
+  "next_action": "RECOVER_CANONICAL_DATA_IO_THEN_RUN_G30_AND_G29_REAL_DATA_AUDITS",
+  "following_action": "IMPLEMENT_PRIMARY_AND_INDEPENDENT_ENGINES_FOR_FIRST_DATA_AUDIT_PASS_CAMPAIGN",
   "safety": {
     "branch_exhaustion_authorized": false,
     "holdout_access_authorized": false,
