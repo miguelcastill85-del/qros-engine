@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_CAMPAIGN_DECISION_V1",
+  "campaign": "QROS_PUBLIC_0181_BB_WINNER_PRO_v1",
+  "seed": "PUBLIC_SEED_0181",
+  "decision": "REJECTED",
+  "decision_basis": "REPRODUCIBILITY_GATE_FAILURE_BY_UNRESOLVED_EXACT_INPUT_IDENTITY",
+  "economic_conclusion": "NOT_ESTABLISHED",
+  "reason": "The campaign cannot complete its preregistered development universe because the exact XAU development cache required by the frozen runner remains unavailable byte-for-byte. The remaining two frozen F5 blocks therefore cannot be executed without violating authority hashes. Independent parity is pending, multiplicity is not run, Gate A has no formally declared survivors, holdout remains sealed, and Supergate is prohibited.",
+  "scientific_interpretation": "This is not evidence that the alpha thesis is economically false. It is a hard rejection for promotion under QROS because reproducibility and exact input authority are mandatory gates.",
+  "preserved_work": {
+    "f5_tail_total_blocks": 16,
+    "f5_tail_closed_blocks": 14,
+    "f5_tail_closed_identities": 1344,
+    "f5_tail_pending_identities": 192,
+    "pending_blocks": [
+      "OHLC4/SMA/ATR/FULL_RANGE/L80/SELL",
+      "OHLC4/EMA/ATR/FULL_RANGE/L80/SELL"
+    ]
+  },
+  "guards": {
+    "holdout_opened": false,
+    "oos_strategy_pnl_exposed": false,
+    "supergate_executed": false,
+    "branch_exhausted": false,
+    "rerun_closed_blocks": false
+  },
+  "archive_policy": "PRESERVE_AS_OBSERVATIONAL_RESERVE_FOR_FUTURE_BYTE_RECOVERY_WITHOUT_BLOCKING_NEW_ROOT_RESEARCH",
+  "next_campaign_rule": "OPEN_ONLY_A_CAUSALLY_DISTINCT_ROOT_GENEALOGY"
+}
