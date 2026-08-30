@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V17",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V18",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "scope": "CONTROL_AND_SCIENTIFIC_CONTINUITY",
   "repository": "miguelcastill85-del/qros-engine",
@@ -28,6 +28,8 @@
       "xauusd_economic_shards_total":12,
       "xauusd_dev_carrier_integrity":"PASS",
       "xauusd_dev_carrier_rematerialization_ref":"control/XAUUSD_DEV_PACKED17_REMATERIALIZATION_v1.json",
+      "xauusd_m1_cache_reconstruction":"PASS",
+      "xauusd_m1_cache_reconstruction_ref":"control/XAU_DEV_M1_CACHE_RECONSTRUCTION_v2.json",
       "mining_authorized":true,
       "holdout_opened":false,
       "branch_exhausted":false
@@ -45,26 +47,30 @@
     "nqx_shards_total":12,
     "nqx_scored_unique_masks":3828,
     "xauusd_dev_carrier_sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "xauusd_m1_cache_rows":681772,
+    "xauusd_m1_cache_included_ticks":151382314,
+    "xauusd_m1_cache_crossed_excluded":74,
+    "xauusd_m1_cache_zero_ticks":942184,
     "xauusd_shards_completed":2,
     "xauusd_shards_total":12,
     "xauusd_completed":["H1_BID","H1_MID"],
     "cost_stress":"PENDING",
     "gate_a":"NOT_EVALUATED_YET"
   },
-  "scientific_head": {"campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1","state":"DEVELOPMENT_RUNNING","root_genealogy":"G30_VOLATILITY_SHOCK_MOMENTUM","economic_scoring":"NQX_COMPLETE_XAUUSD_2_OF_12"},
+  "scientific_head": {"campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1","state":"DEVELOPMENT_RUNNING","root_genealogy":"G30_VOLATILITY_SHOCK_MOMENTUM","economic_scoring":"NQX_COMPLETE_XAUUSD_2_OF_12","xauusd_cache":"RESTORED_VERIFIED"},
   "execution_annotation": {
     "container_transport":"RECOVERED",
     "g30_economic_runner_v3_sha256":"a0b1468e289e2db913404ab78ec75466c09745ff3ed53e54e9fa46dd64ac8431",
-    "xauusd_dev_carrier_rematerialization":"PASS",
-    "xauusd_dev_carrier_bytes":2573500596,
-    "xauusd_dev_carrier_records":151382388,
-    "xauusd_dev_carrier_sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
-    "xauusd_m1_cache_rebuild":"TIMEOUT_NO_PROMOTED_RECEIPT",
     "runner_byte_recovery":"SEARCHED_GITHUB_AND_FILE_LIBRARY_NOT_FOUND_AS_STORED_ARTIFACT",
-    "scientific_effect":"CANONICAL XAU DEV DERIVED CARRIER RESTORED EXACTLY; NO NEW ECONOMIC RESULT; PRIOR VALID SHARDS PRESERVED"
+    "xauusd_dev_carrier":"PASS_EXACT_HASH",
+    "xauusd_m1_cache_reconstruction":"PASS_IN_11P1236_SECONDS",
+    "xauusd_m1_cache_runtime_npz_sha256":"0e6c13e8530ed154dfe67de55dfcc5d5fadd3cbd270600b5ec5ccfc1f78b58f9",
+    "reconstructed_v4_attempt":"XAUUSD_M30_BID_TIMEOUT_NO_RECEIPT_NOT_PROMOTED",
+    "reconstructed_v4_warning":"MID_BAR_EXTREMA_FROM_M1_ENVELOPES_NOT_ACCEPTABLE_FOR_PROMOTION_WITHOUT_INDEPENDENT_TICK_PARITY",
+    "scientific_effect":"XAU DEV CACHE RESTORED AND CONTENT-BOUND; NO NEW ECONOMIC RESULT PROMOTED; PRIOR H1 SHARDS PRESERVED"
   },
-  "next_action":"REBUILD_XAUUSD_M1_CACHE_IN_DETERMINISTIC_SHARDS_OR_RECOVER_EXACT_RUNNER_BYTES_THEN_RESUME_XAUUSD_M30_BID_WITHOUT_SEMANTIC_CHANGE",
-  "following_action":"COMPLETE_XAUUSD_12_OF_12_THEN_APPLY_CENTRAL_CONSERVATIVE_SEVERE_COST_STRESS_THEN_PLATEAU_CLUSTERING_AND_GATE_A_ON_COMPLETE_DEVELOPMENT_ONLY",
+  "next_action":"BUILD_SHARDED_EXACT_TICK_OUTCOME_PRECOMPUTE_FOR_XAUUSD_M30_BID_FROM_VERIFIED_CARRIER_AND_CACHE_WITH_CHECKPOINTS; VALIDATE_SIGNAL_AND_BAR_PARITY_BEFORE ECONOMIC PROMOTION",
+  "following_action":"RESUME XAUUSD_M30_BID THEN COMPLETE REMAINING XAUUSD SHARDS; ALL GATE-PASS CONFIGURATIONS ADVANCE; THEN COST STRESS, PLATEAU CLUSTERING AND GATE_A",
   "safety":{"branch_exhaustion_authorized":false,"holdout_access_authorized":false,"pnl_read_authorized":true,"scientific_execution_authorized":true},
   "software_state":{"research_ready":true,"holdout_opened":false,"mt5_compiled_or_executed":false}
 }
