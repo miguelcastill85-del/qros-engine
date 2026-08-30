@@ -1,0 +1,17 @@
+{
+  "schema":"QROS_G30_V4_ONE_POSITION_EXECUTION_CORRECTION_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"DEVELOPMENT_RUNNING",
+  "severity":"SCIENTIFIC_EXECUTION_CONTRACT_VIOLATION",
+  "root_cause":"V4_SUMMARY_SCORING_COUNTED_EVERY_SIGNAL_INDEPENDENTLY_AND_DID_NOT_ENFORCE_ONE_ACTIVE_POSITION_PER_ASSET_WITHIN_STANDALONE_BUY_OR_SELL",
+  "governing_contract":{"one_active_position_per_asset":true,"buy_sell_separate_required":true,"same_day_exit":true},
+  "affected":{"runner_v4_sha256":"ef671e449eb7e2fbed42704c7bd9dec01de0768310f6eb48fb2265409767abe4","numeric_parity_ref":"control/G30_NQX_H1_M30_V4_NUMERIC_PARITY_v1.json","scope":"ALL V4 ECONOMIC METRICS AND PROMOTION CLAIMS; parity itself only proved two implementations agreed on the same incomplete execution semantics"},
+  "disposition":"SUPERSEDED_INVALID_FOR_GATE_A_OR_ECONOMIC_PROMOTION",
+  "unaffected":["signal masks","signal mask parity","bar parity","causal tick execution index","data hashes","unit mismatch correction","holdout seal","ontology and RISE fixed point"],
+  "materiality_check":{"NQX_H1_BID":{"unique_masks":314,"buy_sell_records_with_trade_count_change":548},"NQX_M30_BID":{"unique_masks":313,"buy_sell_records_with_trade_count_change":547}},
+  "replacement":{"runner":"g30_nqx_v5_onepos.py","runner_sha256":"7119e88fd964ecfc7e1525b2bd2fb99e7022ac707ed201000842d6b4db36061f","nqx_m1_feature_cache_v4_sha256":"336cfa4bb0f7251b8034be75b0c414e2f6ce6072e0d3c7f73c1e7331fb2523bf","execution_semantics":"BUY Ask in/Bid out; SELL Bid in/Ask out; SL first; same-day; ATR3 RR1.5 hold20; one active position per asset enforced independently in BUY and SELL standalone; strict re-entry only when next entry timestamp is greater than prior exit timestamp","H1_BID_output_sha256":"79da329cc8e46bc5f64745aa31d7e201caf8e7fbaeb8b0c81b1eaa7a66dac248","M30_BID_output_sha256":"7247cbdab5e3be62f54182ead0ff4855fb27d6b0a61267aa97ff93e4a42ded88"},
+  "economic_promotion":"NOT_AUTHORIZED_UNTIL_INDEPENDENT_V5_PARITY",
+  "holdout_opened":false,
+  "branch_exhausted":false,
+  "next_action":"BUILD INDEPENDENT V5 ONE-POSITION PARITY FOR NQX H1 BID AND M30 BID; ONLY AFTER PASS RERUN ALL 12 NQX SHARDS"
+}
