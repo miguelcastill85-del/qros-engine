@@ -1,0 +1,27 @@
+{
+  "schema": "QROS_PUBLIC_SOURCE_FREEZE_RECEIPT_V1",
+  "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+  "seed": "PUBLIC_SEED_0184",
+  "source": {
+    "repository": "Mohammed-AB/forex-strategy-lab",
+    "commit": "df34085afb615818038c0e8bedc5aad837883e5c",
+    "path": "forex_backtester.py",
+    "bytes": 53694,
+    "sha256": "942da0244872143077b9882e81d887a175b70a0d1c217592291ba3b9ebe1f8c9",
+    "git_blob_sha1": "b6fe1a3c9c6dad89049a8271e772cc39e23f1a99"
+  },
+  "verification": {
+    "workflow": "public0184-source-freeze",
+    "workflow_run_id": 33300876453,
+    "job_id": 99228668721,
+    "run_head_sha": "4892bad1f2aad1504e8723d95499e0ada753175d",
+    "conclusion": "success",
+    "git_blob_recomputed_from_downloaded_bytes": true,
+    "git_blob_matches_preregistered": true,
+    "causal_anchor_greps": "PASS"
+  },
+  "status": "SOURCE_BYTES_IDENTITY_FROZEN_PASS",
+  "economic_results_read": false,
+  "holdout_opened": false,
+  "next_action": "NQX_XAU_MTF_DATA_AUDIT"
+}
