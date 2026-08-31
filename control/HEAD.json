@@ -1,12 +1,12 @@
 {
-  "schema":"QROS_PERSISTENT_CONTROL_HEAD_V25",
+  "schema":"QROS_PERSISTENT_CONTROL_HEAD_V26",
   "status":"CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
   "repository":"miguelcastill85-del/qros-engine",
-  "scientific_head":{"campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1","state":"DEVELOPMENT_RUNNING","economic_scoring":"V5_ONE_POSITION_CORRECTION_PARITY_PENDING"},
-  "g30":{"ontology":"control/G30_UNIVERSE_ONTOLOGY_v2.json","rise":"control/RISE_G30_v2.json","rise_status":"FIXED_POINT","signal_core":"COMPLETE","signal_mask_parity":"PASS","bar_parity":"PASS","causal_tick_execution_index":"PASS","unit_correction_ref":"control/G30_ECONOMIC_SCORING_UNIT_CORRECTION_v1.json","v4_one_position_correction_ref":"control/G30_V4_ONE_POSITION_EXECUTION_CORRECTION_v1.json","v4_status":"SUPERSEDED_INVALID_FOR_GATE_A_MISSING_ONE_POSITION_ARBITRATION","v5_runner_sha256":"7119e88fd964ecfc7e1525b2bd2fb99e7022ac707ed201000842d6b4db36061f","nqx_h1_bid_v5":"COMPUTED_PENDING_INDEPENDENT_PARITY","nqx_m30_bid_v5":"COMPUTED_PENDING_INDEPENDENT_PARITY","valid_promoted_economic_shards_nqx":0,"valid_promoted_economic_shards_xauusd":0,"holdout_opened":false,"gate_a":"NOT_EVALUATED","branch_exhausted":false},
-  "materiality":{"H1_BID_buy_sell_records_trade_count_changed_vs_v4":548,"M30_BID_buy_sell_records_trade_count_changed_vs_v4":547},
+  "scientific_head":{"campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1","state":"DEVELOPMENT_RUNNING","economic_scoring":"V5_ONE_POSITION_DEV_ENGINE_PROMOTED_AFTER_FULL_H1_M30_TRADE_SEQUENCE_PARITY"},
+  "g30":{"ontology":"control/G30_UNIVERSE_ONTOLOGY_v2.json","rise":"control/RISE_G30_v2.json","rise_status":"FIXED_POINT","signal_core":"COMPLETE","signal_mask_parity":"PASS","bar_parity":"PASS","causal_tick_execution_index":"PASS","unit_correction_ref":"control/G30_ECONOMIC_SCORING_UNIT_CORRECTION_v1.json","v4_one_position_correction_ref":"control/G30_V4_ONE_POSITION_EXECUTION_CORRECTION_v1.json","v4_status":"SUPERSEDED_INVALID_FOR_GATE_A_MISSING_ONE_POSITION_ARBITRATION","v5_runner_sha256":"7119e88fd964ecfc7e1525b2bd2fb99e7022ac707ed201000842d6b4db36061f","v5_trade_sequence_parity_ref":"control/G30_NQX_H1_M30_V5_ONEPOS_TRADE_SEQUENCE_PARITY_v1.json","v5_trade_sequence_parity":"PASS_H1_M30_BID_1254_SIDE_LEDGERS_ZERO_MISMATCH","v5_dev_economic_engine":"PROMOTED_FOR_DEV_SHARD_RERUN","valid_promoted_economic_shards_nqx":0,"valid_promoted_economic_shards_xauusd":0,"holdout_opened":false,"gate_a":"NOT_EVALUATED","branch_exhausted":false},
+  "parity":{"H1_BID":{"bars":11341,"unique_masks":314,"side_ledgers":628,"trade_sequence_hash_mismatches":0},"M30_BID":{"bars":22670,"unique_masks":313,"side_ledgers":626,"trade_sequence_hash_mismatches":0},"total_side_ledgers":1254,"status":"PASS"},
   "governance":{"all_gate_pass_configurations_advance":true,"single_winner_selection_forbidden":true,"buy_sell_separate_required":true,"one_active_position_per_asset":true,"holdout_access_authorized":false,"branch_exhaustion_authorized":false},
-  "next_action":"RUN_INDEPENDENT_V5_ONE_POSITION_PARITY_FOR_NQX_H1_BID_AND_M30_BID; PROMOTE ONLY IF PASS",
-  "following_action":"RERUN ALL 12 NQX SHARDS UNDER V5; THEN XAUUSD 12; COST STRESS; GATE A; ALL PASS ADVANCE; HOLDOUT SEALED",
+  "next_action":"RERUN_ALL_12_NQX_STAGE1_ECONOMIC_SHARDS_FROM_SCRATCH_UNDER_V5_WITH_BUY_SELL_SEPARATE_AND_COMBINED_SUPPLEMENTAL; SCORE_ALL_SHARD_LOCAL_UNIQUE_MASKS",
+  "following_action":"COMPLETE NQX 12/12; THEN XAUUSD 12/12; COST STRESS; GATE A; ALL PASS ADVANCE; HOLDOUT SEALED",
   "software_state":{"research_ready":true,"holdout_opened":false,"mt5_compiled_or_executed":false}
 }
