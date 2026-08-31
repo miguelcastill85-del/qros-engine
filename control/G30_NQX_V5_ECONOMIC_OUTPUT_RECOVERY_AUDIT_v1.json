@@ -1,0 +1,18 @@
+{
+  "schema":"QROS_G30_NQX_V5_ECONOMIC_OUTPUT_RECOVERY_AUDIT_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"DEVELOPMENT_RUNNING",
+  "scope":"DEV_2018_2019_ONLY_NO_HOLDOUT",
+  "authority_head":"QROS_PERSISTENT_CONTROL_HEAD_V35",
+  "objective":"Recover prior V5 economic output bytes by recorded SHA before deterministic regeneration",
+  "searches":{"runtime":"NO_V5_ECONOMIC_OUTPUT_FILES_FOUND; canonical NQX DEV carrier and exact-descendant parity receipts present","github":"NO_OUTPUT_BYTES_FOUND_BY_RECORDED_SHA; control receipts present","dropbox":"NO_MATCH_FOR_G30_NQX_M1_BID_V5_OR_RECORDED_M1_BID_SHA"},
+  "canonical_input":{"path":"/mnt/data/NQX_DEV_PACKED17_2018_2019_v1.bin","bytes":1018984420,"sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf","runtime_present":true},
+  "recoverable_authority":{"v5_execution_contract_ref":"control/G30_V4_ONE_POSITION_EXECUTION_CORRECTION_v1.json","v5_trade_sequence_parity_ref":"control/G30_NQX_H1_M30_V5_ONEPOS_TRADE_SEQUENCE_PARITY_v1.json","chunk_engine_ref":"control/G30_NQX_V5_CHUNK_ENGINE_AND_M15_CHECKPOINT_v1.json","11of12_hash_manifest_ref":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json","exact_descendant_12of12_signal_ref":"control/G30_NQX_EXACT_DESCENDANT_12_OF_12_DUAL_PARITY_v1.json"},
+  "scientific_decision":"RECOVERY_BY_HASH_EXHAUSTED_FOR_AVAILABLE_RUNTIME_GITHUB_DROPBOX_PATHS. DO_NOT CLAIM ECONOMIC BINDING FROM HASH RECEIPTS ALONE. REGENERATE DETERMINISTICALLY FROM CANONICAL RAW NQX DEV UNDER FROZEN V5 EXECUTION CONTRACT AND EXACT-DESCENDANT SIGNAL IDENTITIES; require exact mask binding before promotion.",
+  "economic_binding_to_exact_descendant":"NOT_YET_ESTABLISHED",
+  "valid_promoted_economic_shards_nqx":11,
+  "gate_a":"NOT_EVALUATED",
+  "holdout_opened":false,
+  "branch_exhausted":false,
+  "next_action":"RECONSTRUCT V5 ECONOMIC RUNNER FROM FROZEN RECEIPTS; FIRST REGENERATE H1_BID AND M30_BID AND REQUIRE ZERO-DIFF AGAINST THE ALREADY-FROZEN V5 TRADE-SEQUENCE CONTRACT/KNOWN METRICS WHERE RECOVERABLE; THEN SHARDED 12_OF_12 REGENERATION AND EXACT MASK BINDING"
+}
