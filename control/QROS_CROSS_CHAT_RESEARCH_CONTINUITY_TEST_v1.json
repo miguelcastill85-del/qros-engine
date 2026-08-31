@@ -1,0 +1,83 @@
+{
+  "schema": "QROS_CROSS_CHAT_RESEARCH_CONTINUITY_TEST_v1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "purpose": "Validate that a fresh chat/runtime can recover the exact scientific thread from GitHub authority, rematerialize only the canonical data required for the next authorized action, and continue the active strategy research without relying on derived files from the previous runtime.",
+  "scientific_scope": "G30_CONTINUITY_ONLY_NO_HOLDOUT_NO_MT5_NO_RETROACTIVE_REWRITE",
+  "source_head": {
+    "path": "control/HEAD.json",
+    "schema": "QROS_PERSISTENT_CONTROL_HEAD_V45",
+    "blob_sha": "02b282b8837c302e61e69fc8873a7584943a34d1",
+    "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+    "state": "DEVELOPMENT_RUNNING",
+    "valid_promoted_economic_shards_nqx": 11,
+    "m30_second_engine_parity": "PASS_313_CLASSES_626_OF_626_EXACT_LEDGER_HASHES_ZERO_MISMATCH",
+    "holdout_opened": false,
+    "gate_a": "NOT_EVALUATED",
+    "next_action": "CONTINUE SHARDED 12_OF_12 NQX ECONOMICS UNDER THE EXACT MID DESCENDANT AND FROZEN V5 EXECUTION CONTRACT; RECONCILE THE 11 ALREADY VALID PROMOTED SHARDS BEFORE EXECUTING THE REMAINING SHARD; PRESERVE ALL PASSING CONFIGURATIONS; HOLDOUT SEALED"
+  },
+  "canonical_data_authority": {
+    "asset_required_for_next_action": "NQX_ONLY",
+    "xau_required_now": false,
+    "nqx_archive_pattern": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip..QROS_NQX_FULL_HISTORY_v2_part028-of-028.zip",
+    "nqx_parts": 28,
+    "nqx_manifest_library_name": "QROS_NQX_FULL_HISTORY_ZIP_MANIFEST_v2.json",
+    "nqx_file_index_library_name": "QROS_NQX_ZIP_FILE_INDEX_v3.json",
+    "nqx_full_carrier": "NQX_PACKED17_FULL_2018_2026.bin",
+    "nqx_full_carrier_bytes": 9516900679,
+    "nqx_full_carrier_records": 559817687,
+    "nqx_full_carrier_sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+    "nqx_dev_scope": "2018_2019",
+    "nqx_dev_bytes": 1018984420,
+    "nqx_dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "record_layout": "little_endian_int64_timestamp_ms_int32_bid_scaled_int32_ask_scaled_uint8_flags",
+    "price_unit": "0.1_NDX_NQX"
+  },
+  "fresh_chat_constraints": {
+    "must_not_use_previous_runtime_mnt_data": true,
+    "must_recover_control_from_github": true,
+    "must_attempt_file_library_recovery_before_asking_user_to_reupload": true,
+    "if_physical_zip_bytes_cannot_be_materialized_from_library": "ASK_ONLY_FOR_THE_28_CANONICAL_NQX_ZIPS_REQUIRED_FOR_CURRENT_NEXT_ACTION",
+    "must_not_request_xau_for_current_next_action": true,
+    "must_not_repeat_completed_m30_626_of_626_parity_without_a_hash_or_dependency_failure": true,
+    "must_not_open_holdout": true,
+    "must_not_run_mt5": true,
+    "must_not_rewrite_frozen_signal_or_execution_rules": true,
+    "all_gate_pass_configurations_advance": true,
+    "single_winner_selection_forbidden": true
+  },
+  "required_recovery_sequence": [
+    "Fetch control/HEAD.json from miguelcastill85-del/qros-engine and require blob SHA 02b282b8837c302e61e69fc8873a7584943a34d1 unless a newer HEAD exists; if newer, audit continuity and use the newer authoritative HEAD only if it causally supersedes V45.",
+    "Recover the referenced G30 ontology, RISE fixed-point artifacts, exact MID descendant parity evidence, frozen V5 execution contract, M30 626/626 parity receipt, inventory, and rematerialization policy from GitHub.",
+    "Reconcile the 11 already valid promoted NQX economic shards from persistent receipts before computing anything new.",
+    "Identify the exact remaining NQX shard required by the authoritative checkpoint.",
+    "Determine the minimal canonical bytes required for that remaining shard. Prefer the NQX DEV 2018-2019 prefix rather than reconstructing the full 2018-2026 carrier when the frozen runner does not require later years.",
+    "Attempt to locate the 28 canonical NQX ZIP carriers in File Library using the manifest/file index. If File Library references cannot materialize bytes into the fresh runtime, request only those 28 NQX ZIPs from the user.",
+    "Verify archive size/SHA-256 and payload identity against the canonical manifest before use. Reconstruct only the required canonical stream/prefix and require NQX DEV SHA-256 451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf.",
+    "Rematerialize only missing derived dependencies using frozen runners and expected hashes. Do not treat deterministic rematerialization as new scientific mining.",
+    "Execute only the remaining authorized NQX economic shard under the exact MID descendant and frozen V5 execution contract.",
+    "Persist the resulting checkpoint/receipts in GitHub and update HEAD only after all required integrity checks pass."
+  ],
+  "pass_criteria": {
+    "scientific_thread_recovered_without_user_reexplaining_history": true,
+    "completed_work_not_repeated_unnecessarily": true,
+    "only_minimal_required_asset_requested": "NQX",
+    "canonical_input_verified_by_sha256": true,
+    "remaining_shard_identified_from_persistent_authority": true,
+    "remaining_shard_execution_continues_from_checkpoint": true,
+    "holdout_remains_sealed": true,
+    "no_mt5": true,
+    "no_rule_rewrite": true,
+    "no_single_winner_selection": true
+  },
+  "failure_conditions": [
+    "Fresh chat cannot reconstruct the active campaign and next action from persistent GitHub authority.",
+    "Fresh chat asks the user to restate strategy history that is already persisted.",
+    "Fresh chat repeats M30 626/626 parity without a demonstrated dependency/hash failure.",
+    "Fresh chat requests XAU despite current next action requiring NQX only.",
+    "Fresh chat uses unverified ZIP/carrier bytes.",
+    "Fresh chat changes frozen rules, opens holdout, runs MT5, or promotes a single winner.",
+    "Fresh chat declares infrastructure block solely because a derived runtime artifact is absent when exact deterministic rematerialization is available."
+  ],
+  "production_adoption_authorized": false,
+  "head_modification_by_this_preregistration": false
+}
