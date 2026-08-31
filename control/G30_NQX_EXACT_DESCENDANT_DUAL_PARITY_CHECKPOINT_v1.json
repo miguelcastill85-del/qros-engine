@@ -1,0 +1,32 @@
+{
+  "schema":"QROS_G30_NQX_EXACT_DESCENDANT_DUAL_PARITY_CHECKPOINT_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "lineage":"EXACT_CONTEMPORANEOUS_MID_IDENTITY_DESCENDANT",
+  "state":"DEVELOPMENT_RUNNING",
+  "scope":"DEV_2018_2019_SIGNAL_ONLY_NO_PNL_NO_HOLDOUT",
+  "input":{"file":"NQX_DEV_PACKED17_2018_2019_v1.bin","sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf"},
+  "engines":{"A":"numpy memmap + chunk reduceat raw-tick bar construction","B":"pandas chunk groupby raw-tick bar construction"},
+  "bar_semantics":"crossed ask<bid excluded; zero spread retained; BID uses bid tick; MID uses exact contemporaneous x2=bid+ask per tick; OHLC extrema from actual contemporaneous ticks",
+  "signal_universe":{"raw_identities_per_shard":342,"thresholds":[1,1.25,1.5,1.75,2,2.5,3,3.5,4],"timings":["CURRENT_BAR_INCLUDED","LAGGED_ONE_BAR_PRE_SHOCK"],"n":[1,2,3,4,5,8],"families":["CLOSE_EXCEEDS_PRIOR_N_CLOSES","STRICT_MONOTONIC_N_CLOSE_SEQUENCE","CLOSE_BREAKS_PRIOR_N_BAR_EXTREME","SHOCK_BAR_BODY_DIRECTION_ONLY"]},
+  "completed_shards":8,
+  "total_shards":12,
+  "results":[
+    {"shard":"M1_BID","bars":673097,"unique_masks":323,"bar_parity":true,"signal_parity":true,"identity_mismatches":0,"output_sha256":"2f2ecbeb36147f2883cadde950dc91f6906e808d6baaa26db7a8f861c63a52a7"},
+    {"shard":"M1_MID","bars":673097,"unique_masks":324,"bar_parity":true,"signal_parity":true,"identity_mismatches":0,"output_sha256":"a6d46be837eca96e85d1d3d986ac54c66eeb11bbcb939e35a65e5fa317e269cd"},
+    {"shard":"M5_BID","bars":135250,"unique_masks":322,"bar_parity":true,"signal_parity":true,"identity_mismatches":0,"output_sha256":"693e9f770e1a580577871d2ee8080595eab34e533599bcdba7934c060bd0a599"},
+    {"shard":"M5_MID","bars":135250,"unique_masks":322,"bar_parity":true,"signal_parity":true,"identity_mismatches":0,"output_sha256":"320e8784f3ed05e84f663aa51963bfc90f876abe482aebe50d0bdc2f8c8544e0"},
+    {"shard":"M10_BID","bars":67775,"unique_masks":321,"bar_parity":true,"signal_parity":true,"identity_mismatches":0,"output_sha256":"279d80431e2816e7ee53faa74f2a2f61b8d5ef0c84230523bd274a975ab4f20e"},
+    {"shard":"M10_MID","bars":67775,"unique_masks":321,"bar_parity":true,"signal_parity":true,"identity_mismatches":0,"output_sha256":"9ab0f23d97d7a76bcc1ace3d877d7e67de38a385ee8d5e286c679e35fd3885aa"},
+    {"shard":"M15_BID","bars":45312,"unique_masks":322,"bar_parity":true,"signal_parity":true,"identity_mismatches":0,"output_sha256":"8c4c71650a0371e44070adab25ccae76c14bf6b2c32e5279040cff58e40aea82"},
+    {"shard":"M15_MID","bars":45312,"unique_masks":321,"bar_parity":true,"signal_parity":true,"identity_mismatches":0,"output_sha256":"b9ef9a0fe3f3619e1020ef941345bb49b6f0c69b461eea14dff3cb8a5e98b322"}
+  ],
+  "pending_shards":["M30_BID","M30_MID","H1_BID","H1_MID"],
+  "m5_mid_primary_result":{"bars":135250,"raw_identities":342,"unique_masks":322,"two_independent_engines_bar_parity":true,"two_independent_engines_signal_parity":true,"identity_mismatches":0},
+  "runner_sha256":"5876498d1dac63a5aee54d8cf37765efbbb06710ea62861793285de9afae9696",
+  "execution_issue":{"status":"PAUSED_BY_INTERMITTENT_CONTAINER_TRANSPORT","error":"ClientResponseError","failed_attempts_after_8_shards":3,"scientific_outputs_promoted_from_failed_attempt":0},
+  "holdout_opened":false,
+  "economic_pnl_computed":false,
+  "gate_a":"NOT_EVALUATED",
+  "branch_exhausted":false,
+  "next_action":"RESUME M30_BID M30_MID H1_BID H1_MID DUAL RAW-TICK PARITY; THEN AUDIT ALL 12 EXACT-DESCENDANT SHARDS AND BIND EXISTING V5 ECONOMIC OUTPUTS ONLY ON EXACT MASK IDENTITY MATCH"
+}
