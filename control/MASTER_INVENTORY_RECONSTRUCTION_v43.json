@@ -1,0 +1,150 @@
+{
+  "schema": "QROS_MASTER_INVENTORY_RECONSTRUCTION_V43",
+  "scope": "REPOSITORY_VERIFIABLE_CONTROL_STATE_ONLY",
+  "repository": "miguelcastill85-del/qros-engine",
+  "base_control_head": {
+    "schema": "QROS_PERSISTENT_CONTROL_HEAD_V42",
+    "commit_sha": "69196370ac17d768807c9777758dba0914c5025e"
+  },
+  "authority_reconciliation": {
+    "effective_continuity_authority": "control/HEAD.json V42 at base commit",
+    "stale_or_narrower_layers": [
+      {
+        "path": "control/SCIENTIFIC_HEAD.json",
+        "campaign": "QROS_PUBLIC_0181_BB_WINNER_PRO_v1",
+        "role": "HISTORICAL_PROMOTED_CONTINUITY_LAYER_NOT_CURRENT_EXECUTION_HEAD"
+      },
+      {
+        "path": "control/STATE.json",
+        "role": "SOFTWARE_V0_6_CHECKPOINT_NOT_CURRENT_SCIENTIFIC_EXECUTION_HEAD"
+      },
+      {
+        "path": "control/RUN_QUEUE_v3.json",
+        "role": "FAIL_CLOSED_QUEUE_RECONCILED_UNDER_NEWER_HEAD_NEXT_ACTION"
+      }
+    ]
+  },
+  "data_authorities": {
+    "NQX": {
+      "carrier": "NQX_PACKED17_FULL_2018_2026.bin",
+      "records": 559817687,
+      "bytes": 9516900679,
+      "sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+      "development_prefix_records": 59940260,
+      "development_prefix_bytes": 1018984420,
+      "development_prefix_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+      "runtime_byte_materialization_current_session": "NOT_AVAILABLE"
+    },
+    "XAUUSD": {
+      "carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+      "records": 697060968,
+      "bytes": 11850036456,
+      "sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+      "development_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+      "runtime_byte_materialization_current_session": "NOT_AVAILABLE"
+    }
+  },
+  "campaigns": [
+    {
+      "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+      "genealogy": "G30_VOLATILITY_SHOCK_MOMENTUM",
+      "status": "BLOCKED_BY_INFRASTRUCTURE",
+      "priority": "ACTIVE_HEAD",
+      "ontology": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
+      "ontology_state": "UNIVERSE_ONTOLOGY_FROZEN",
+      "rise": "control/RISE_G30_v2.json",
+      "rise_state": "RISE_FIXED_POINT",
+      "assets": ["NQX","XAUUSD"],
+      "sides": ["BUY","SELL"],
+      "development": "2018_2019_ONLY",
+      "exact_mid_descendant_signal_parity": "PASS_12_OF_12_RAW_TICK_DUAL_ENGINE_ZERO_IDENTITY_MISMATCH",
+      "h1_current_economic_parity": "PASS_628_OF_628_ZERO_HASH_MISMATCH",
+      "m30_primary": "COMPLETE_313_CLASSES_626_LEDGERS",
+      "m30_second_engine_chunk_prep": "PASS_16_OF_16_59940260_RECORDS",
+      "m30_second_engine_current_parity": "PENDING_0_OF_626_VERIFIED_UNDER_CURRENT_SENTINEL",
+      "promoted_economic_shards_nqx": 11,
+      "promoted_economic_shards_xauusd": 0,
+      "gate_a": "NOT_EVALUATED",
+      "holdout_opened": false,
+      "mt5": "NOT_EXECUTED",
+      "branch_exhausted": false,
+      "current_block_ref": "control/G30_NQX_M30_SECOND_ENGINE_RESUMABILITY_AUDIT_v1.json"
+    },
+    {
+      "campaign": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+      "genealogy": "G29_MULTI_TIMEFRAME_TREND_PULLBACK",
+      "status": "PREREGISTERED_NO_RESULTS",
+      "priority": "PRESERVED_NOT_CURRENT_HEAD",
+      "ontology": "control/G29_UNIVERSE_ONTOLOGY_v3.json",
+      "ontology_state": "UNIVERSE_ONTOLOGY_FROZEN",
+      "rise": "control/RISE_PUBLIC0184_v3.json",
+      "rise_state": "RISE_FIXED_POINT",
+      "mining_authorized": false,
+      "pending": ["SOURCE_SHA256_CI_GATE","NQX_XAU_MTF_DATA_AUDIT","PRIMARY_INDEPENDENT_ENGINE_PARITY"],
+      "holdout_opened": false,
+      "branch_exhausted": false
+    },
+    {
+      "campaign": "QROS_G31_PUBLIC_ICHIMOKU_CLOUD_CROSS_v1",
+      "genealogy": "G31_ICHIMOKU_STYLE_TREND_CROSS",
+      "status": "PREREGISTERED_NO_RESULTS",
+      "priority": "PRESERVED_NOT_CURRENT_HEAD",
+      "ontology": "control/G31_UNIVERSE_ONTOLOGY_v2.json",
+      "ontology_state": "UNIVERSE_ONTOLOGY_FROZEN",
+      "rise": "control/RISE_G31_v2.json",
+      "rise_state": "FIXED_POINT",
+      "mining_authorized": false,
+      "pending": ["REAL_NQX_XAU_DATA_AUDIT","PRIMARY_INDEPENDENT_PARITY"],
+      "holdout_opened": false,
+      "branch_exhausted": false
+    },
+    {
+      "campaign": "QROS_PUBLIC_0181_BB_WINNER_PRO_v1",
+      "status": "HISTORICAL_CONTINUITY_CHECKPOINT",
+      "priority": "SUPERSEDED_AS_CURRENT_HEAD",
+      "source": "control/SCIENTIFIC_HEAD.json",
+      "holdout_opened": false,
+      "note": "Preserved for provenance; not reactivated because newer control/HEAD.json selects G30."
+    }
+  ],
+  "g30_frozen_execution_contract": {
+    "buy": "ASK_IN_BID_OUT",
+    "sell": "BID_IN_ASK_OUT",
+    "fills": "ASK_GT_BID_ONLY",
+    "signal_features": "ASK_GTE_BID_ZERO_SPREAD_PRESERVED",
+    "atr_period": 14,
+    "atr_mult": 3.0,
+    "rr": 1.5,
+    "hold_bars": 20,
+    "same_day_exit": true,
+    "ambiguous_sl_tp": "SL_FIRST",
+    "one_active_position_per_asset_standalone": true,
+    "same_timestamp_reentry": "BLOCKED_STRICT_ENTRY_TS_GT_PREV_EXIT_TS"
+  },
+  "frozen_or_preserved_evidence": {
+    "g30_historical_h1_m30_v5_trade_sequence_parity": {
+      "ref": "control/G30_NQX_H1_M30_V5_ONEPOS_TRADE_SEQUENCE_PARITY_v1.json",
+      "historical_m30_ledgers": 626,
+      "historical_m30_hash_mismatches": 0,
+      "current_binding_status": "NOT_ACCEPTED_AS_CURRENT_SENTINEL_PROOF_BECAUSE_PER_LEDGER_HASH_BYTES_NOT_RECOVERED"
+    },
+    "g30_current_sentinel": "control/G30_NQX_V5_CURRENT_SENTINEL_PARITY_v1.json",
+    "g30_chunk_prep": "control/G30_NQX_M30_SECOND_ENGINE_CHUNK_PREP_v1.json"
+  },
+  "portfolio_inventory": {
+    "approved_final_modules_from_current_repository_control": [],
+    "approved_research_modules_from_current_repository_control": [],
+    "note": "This reconstruction is intentionally limited to repository-verifiable current control state. Historical portfolio modules mentioned outside this repository are not silently re-promoted without matching current repository authority receipts."
+  },
+  "global_guards": {
+    "all_gate_pass_configurations_advance": true,
+    "single_winner_selection_forbidden": true,
+    "buy_sell_separate_required": true,
+    "holdout_access_authorized": false,
+    "branch_exhaustion_authorized": false,
+    "m30_exact_626_of_626_requirement_relaxed": false,
+    "repeat_completed_work_authorized": false
+  },
+  "decision": "INVENTORY_RECONSTRUCTED_FAIL_CLOSED",
+  "next_action": "RECOVER_EXACT_16_G30_M30_SECOND_ENGINE_CHUNK_PAYLOAD_BYTES_BY_RECORDED_SHA256; THEN RESUME SMALL_RANGE_FINALIZATION. HOLDOUT REMAINS SEALED."
+}
