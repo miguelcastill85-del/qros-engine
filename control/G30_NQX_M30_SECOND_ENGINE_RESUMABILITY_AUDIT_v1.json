@@ -1,0 +1,67 @@
+{
+  "schema": "QROS_G30_NQX_M30_SECOND_ENGINE_RESUMABILITY_AUDIT_V1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "scope": "DEV_2018_2019_ONLY_NO_HOLDOUT",
+  "parent_control_head": {
+    "schema": "QROS_PERSISTENT_CONTROL_HEAD_V42",
+    "commit_sha": "69196370ac17d768807c9777758dba0914c5025e",
+    "head_blob_sha1": "1d54dfcf4335320265373619e9e229aa606f1c75"
+  },
+  "objective": "Resume the authorized M30 second-engine finalization from the 16 previously verified raw-tick chunk summaries without repeating completed chunk preparation, then require 626/626 exact ledger-hash parity.",
+  "verified_prior_checkpoint": {
+    "ref": "control/G30_NQX_M30_SECOND_ENGINE_CHUNK_PREP_v1.json",
+    "raw_tick_chunks": 16,
+    "raw_records_covered": 59940260,
+    "coverage_status": "PASS_CONTIGUOUS_0_TO_59940260",
+    "chunk_payload_hashes_recorded": 16,
+    "primary_unique_signal_classes": 313,
+    "primary_buy_sell_ledgers": 626,
+    "finalization_attempt": "TIMED_OUT_120S_BEFORE_VERIFIED_OUTPUT",
+    "scientific_outputs_promoted_from_finalization": 0
+  },
+  "recovery_search_executed": [
+    {
+      "location": "GITHUB_REPOSITORY_MAIN",
+      "result": "CONTROL_RECEIPT_PRESENT_BUT_NO_16_CHUNK_PAYLOAD_FILES_OR_PER_RANGE_FINALIZATION_OUTPUTS_FOUND",
+      "evidence": "Repository control tree contains the chunk-prep receipt and runtime-block receipt; the 16 hashes are embedded in the receipt, but no locator/path/size/schema for recoverable chunk payload bytes is persisted."
+    },
+    {
+      "location": "DROPBOX_/QROS",
+      "result": "NO_G30_M30_CHUNK_PAYLOADS_FOUND",
+      "evidence": "checkpoints contains only PUBLIC0181 continuity material; artifacts, datasets, campaigns, archive and canonical were empty at inspection time."
+    },
+    {
+      "location": "CURRENT_RUNTIME_/mnt/data",
+      "result": "NO_QROS_M30_CHUNK_PAYLOADS_FOUND",
+      "evidence": "Only the conversation-provided Investigacion XAUUSD text file was materialized."
+    },
+    {
+      "location": "CHATGPT_FILE_LIBRARY",
+      "result": "NO_MATCH_FOR_16_CHUNK_HASHES_OR_G30_M30_SECOND_ENGINE_PAYLOADS",
+      "evidence": "Exact searches by checkpoint identifier, raw-record count and chunk SHA-256 did not locate recoverable chunk-summary files. Canonical NQX data authority/catalog remains documented separately but is not byte-materialized in this runtime."
+    },
+    {
+      "location": "HISTORICAL_PER_LEDGER_PARITY_RECOVERY",
+      "result": "NO_RECOVERABLE_PER_LEDGER_HASH_BYTES_FOUND",
+      "evidence": "control/G30_NQX_H1_M30_V5_ONEPOS_TRADE_SEQUENCE_PARITY_v1.json records historical 626/626 parity, while control/G30_NQX_V5_CURRENT_SENTINEL_PARITY_v1.json explicitly states old per-ledger hash bytes are not present in current authority receipts. Exact File Library searches did not recover a usable historical per-ledger artifact."
+    }
+  ],
+  "root_cause": "RESUMABILITY_ARTIFACT_GAP: the prior runtime verified 16 chunk payloads and recorded their SHA-256 values, but the checkpoint did not persist byte locators, sizes, schemas or payload files in an accessible persistent store. The current runtime therefore cannot consume the completed chunks without either recovering their exact bytes or repeating chunk preparation.",
+  "scientific_constraints": {
+    "repeat_completed_chunk_preparation_authorized": false,
+    "transitive_inference_from_historical_aggregate_parity_authorized": false,
+    "m30_exact_626_of_626_requirement_relaxed": false,
+    "partial_outputs_promoted": false,
+    "holdout_access_authorized": false,
+    "pnl_read_authorized": false,
+    "gate_a_evaluation_authorized_before_parity": false,
+    "branch_exhaustion_authorized": false
+  },
+  "decision": "BLOCKED_BY_INFRASTRUCTURE_ARTIFACT_RESUMABILITY",
+  "next_action": "RECOVER_EXACT_16_M30_SECOND_ENGINE_CHUNK_PAYLOAD_BYTES_BY_RECORDED_SHA256_FROM_A_PERSISTENT_SOURCE_OR_PRIOR_RUNTIME; VERIFY_ALL_16_HASHES_BEFORE_USE. DO_NOT RECOMPUTE COMPLETED CHUNK PREPARATION UNDER CURRENT AUTHORITY.",
+  "following_action": "AFTER_EXACT_CHUNK_BYTES_ARE_MATERIALIZED, SPLIT FINALIZATION BY SMALL DETERMINISTIC SIGNAL_IDENTITY RANGES WITH PER_RANGE_SHA256 CHECKPOINTS; MERGE ONLY AFTER 313_CLASS_626_LEDGER COVERAGE; REQUIRE 626_OF_626 EXACT LEDGER_HASH_PARITY BEFORE SENTINEL PROMOTION.",
+  "holdout_opened": false,
+  "gate_a": "NOT_EVALUATED",
+  "branch_exhausted": false
+}
