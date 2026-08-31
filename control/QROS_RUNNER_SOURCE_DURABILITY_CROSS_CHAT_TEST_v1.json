@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_TEST_v1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "purpose": "Prove that a fresh chat can recover exact continuation-critical Python source bytes from GitHub, verify their SHA-256 before execution, and fail closed on source identity errors.",
+  "scientific_scope": "INFRASTRUCTURE_ONLY_NO_PNL_NO_HOLDOUT_NO_HEAD_CHANGE",
+  "policy_ref": "governance/QROS_RUNNER_SOURCE_DURABILITY_GATE_v1.json",
+  "stage1_receipt_ref": "control/QROS_RUNNER_SOURCE_DURABILITY_CANARY_STAGE1_v1.json",
+  "sources": [
+    {
+      "role": "CANARY",
+      "path": "control/recovery/qros_runner_source_durability_canary_v1.py",
+      "sha256": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+      "bytes": 635,
+      "execute": true,
+      "expected_stdout_sha256": "76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9"
+    },
+    {
+      "role": "G30_REPLACEMENT_CANDIDATE",
+      "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+      "sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+      "bytes": 11424,
+      "execute": false,
+      "reason": "Fresh-chat test validates exact source-byte recoverability only; scientific execution remains controlled by the migration preregistration and equivalence gates."
+    }
+  ],
+  "positive_tests": [
+    "Fetch both sources from GitHub without using prior runtime files.",
+    "Decode/read exact source bytes and require byte count and SHA-256 for both.",
+    "Execute only the canary and require exact stdout SHA-256.",
+    "Confirm the G30 replacement source is recoverable byte-for-byte but do not execute M1_MID."
+  ],
+  "negative_tests": [
+    "Mutate one byte of the canary in memory and require source SHA mismatch before execution.",
+    "Use an intentionally wrong expected SHA and require fail-closed.",
+    "Request an intentionally nonexistent source path and require fail-closed without substituting a similarly named file."
+  ],
+  "pass_condition": "All positive and negative tests pass in a fresh runtime. Persist QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_PASS_v1.json. Do not modify scientific HEAD.",
+  "failure_condition": "Any inability to recover exact source bytes, any SHA mismatch, execution before source verification, or silent source substitution fails the test.",
+  "head_modification_authorized": false,
+  "holdout_access_authorized": false,
+  "pnl_access_authorized": false
+}
