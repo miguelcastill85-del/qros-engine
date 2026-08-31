@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_CROSS_CHAT_CANARY_REMOTE_STAGE1_RECEIPT_v1",
+  "status": "PASS_READY_FOR_FRESH_CHAT",
+  "plan_ref": "control/QROS_CROSS_CHAT_RESUMABILITY_CANARY_PLAN_v1.json",
+  "amendment_ref": "control/QROS_CROSS_CHAT_RESUMABILITY_CANARY_PLAN_AMENDMENT_v1.json",
+  "artifact_manifest_ref": "control/QROS_CROSS_CHAT_CANARY_ARTIFACT_MANIFEST_v1.json",
+  "dropbox_namespace": "/QROS/artifacts/cas-canary/v1/sha256",
+  "current_chat_remote_readback": "PASS_2_OF_2_CHUNKS_AND_FULL_ARTIFACT_SHA",
+  "artifact_sha256": "c83d15db38c3ce55c801e232792ce6d0e66334ee527adc165786bc8c8fa687b3",
+  "chunk_raw_sha256": [
+    "ef4eb9ff2b9989d7c2a5a07f6f9a5d312b2ca197e3877c07de8ce93cd174cc4c",
+    "e0834db0fd741299f232b53f2210cfa047fea5fe49a3af6df9c2170514eb5739"
+  ],
+  "chunk_encoded_sha256": [
+    "f54936241ed702836ebddaee20f5007c1ba6eaea5bb9285e898efe613c8f17c5",
+    "9d684dfcd8332841bb8eae3a120129ed275b1f8472d40248e21b6c9729bd6fae"
+  ],
+  "fresh_chat_instruction": "Recover control/QROS_CROSS_CHAT_CANARY_ARTIFACT_MANIFEST_v1.json from miguelcastill85-del/qros-engine. Without using any file from the previous chat/runtime, fetch the two Dropbox objects using the manifest file_id/ns_path locators, strip transport whitespace only, verify encoded SHA-256, Base64-decode, verify each raw SHA-256, order strictly by manifest ordinal, concatenate, and require full artifact SHA-256 c83d15db38c3ce55c801e232792ce6d0e66334ee527adc165786bc8c8fa687b3. Persist CROSS_CHAT_CANARY_PASS only if every check passes. Do not modify scientific HEAD, PnL, holdout, or G30 research state.",
+  "fresh_chat_gate": "PENDING",
+  "negative_tests_after_fresh_chat_pass": [
+    "MISSING_CHUNK_FAIL_CLOSED",
+    "ENCODED_CORRUPTION_FAIL_CLOSED",
+    "WRONG_PHYSICAL_ORDER_CORRECTED_ONLY_BY_MANIFEST_ORDINALS"
+  ],
+  "scientific_head_modified": false,
+  "holdout_opened": false,
+  "pnl_read": false,
+  "production_adoption_authorized": false
+}
