@@ -1,0 +1,28 @@
+{
+  "schema":"QROS_G30_NQX_V5_11_OF_12_CHECKPOINT_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"DEVELOPMENT_RUNNING",
+  "scope":"DEV_2018_2019_ONLY",
+  "engine":"V5_ONE_POSITION_CHUNKED",
+  "completed_shards":11,
+  "total_shards":12,
+  "completed":[
+    {"shard":"H1_BID","bars":11341,"unique_masks":314,"output_sha256":"e90111c42e7f36d2776c0ac1f134c4d0b026c7337be441e6ac79e23e0ff962e5"},
+    {"shard":"H1_MID","bars":11341,"unique_masks":314,"output_sha256":"4fea790499b27a6497eedb7ee337cda678dea1df76c01be116b6f72a37c91393"},
+    {"shard":"M30_BID","bars":22670,"unique_masks":313,"output_sha256":"14e7b0db71650ff560c391bb648e00d524f83c2b3a6087518e652c32e4d80100"},
+    {"shard":"M30_MID","bars":22670,"unique_masks":312,"output_sha256":"4ee96fab1f92389437c9dc4b2bdeefde88aabaa31e5a6d4fd89a4135358ef632"},
+    {"shard":"M15_BID","bars":45312,"unique_masks":322,"output_sha256":"0f3839b9bd0460f693850a3132e7d57dc36b2ae78281b20c21876dc35e11794e"},
+    {"shard":"M15_MID","bars":45312,"unique_masks":321,"output_sha256":"fdfb5c9a94738b37dd1a5051ad0cff01124fa18b26f0ac8d3eee31efe4f515c2"},
+    {"shard":"M10_BID","bars":67775,"unique_masks":321,"output_sha256":"468e9234f7c19537e83846985ac0a784b726d4b7f6b6dcf07b173703684021b0"},
+    {"shard":"M10_MID","bars":67775,"unique_masks":321,"output_sha256":"3a5e704608868c990fe099abb7349487423ef17510f19780748a9c2e71f6c9ce"},
+    {"shard":"M5_BID","bars":135250,"unique_masks":322,"output_sha256":"bd20096463f8e862c754739e3f11b8bc67819101faf91d960b61808d51a50688"},
+    {"shard":"M5_MID","bars":135250,"unique_masks":322,"output_sha256":"1214ec59bae624f26f0040501bee5f5c42189ee69cdebc99f9a6d836afc38f59"},
+    {"shard":"M1_BID","bars":673097,"unique_masks":323,"output_sha256":"01f4d855e4b3e3af5cb975bacff49ecaf482282a9e866d0020eccc193fbc1134"}
+  ],
+  "pending":["M1_MID"],
+  "m1_mid_attempt":{"status":"CONTAINER_TRANSPORT_CLIENTRESPONSEERROR_BEFORE_VERIFIED_COMPLETION","promoted":false},
+  "holdout_opened":false,
+  "gate_a":"NOT_EVALUATED",
+  "branch_exhausted":false,
+  "next_action":"RESUME_OR_RESTART_M1_MID_FROM_VERIFIED_CHUNK_BOUNDARY; SCORE; AUDIT 12_OF_12; THEN CONSOLIDATE NQX DEV FOR COST_STRESS_AND_GATE_A"
+}
