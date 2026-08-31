@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_G30_NQX_V5_CURRENT_SENTINEL_PARITY_V1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "DEV_2018_2019_ONLY_NO_HOLDOUT",
+  "input_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+  "H1_BID": {
+    "bars": 11341,
+    "unique_signal_classes": 314,
+    "buy_sell_ledgers": 628,
+    "slow_vs_fast_same_keyset": true,
+    "ledger_hash_mismatches": 0,
+    "trade_count_slow": 167505,
+    "trade_count_fast": 167505,
+    "net_r_sum_slow": -1065.975167238367,
+    "net_r_sum_fast": -1065.975167238367,
+    "status": "PASS_CURRENT_TWO_ENGINE_EXACT_LEDGER_HASH_PARITY"
+  },
+  "M30_BID": {
+    "bars": 22670,
+    "raw_identities": 342,
+    "unique_signal_classes": 313,
+    "buy_sell_ledgers": 626,
+    "selected_trades": 278659,
+    "net_r_sum": -2904.632068838994,
+    "fast_output_sha256": "f99fcebeec7127f3d693b275300d700f40901f1ff3516e91228bbe4095dff965",
+    "status": "FAST_ENGINE_COMPLETE_INDEPENDENT_SECOND_ENGINE_PENDING"
+  },
+  "historical_sentinel_binding": "NOT_YET_PROVEN_BECAUSE_OLD_PER_LEDGER_HASH_BYTES_ARE_NOT_PRESENT_IN_CURRENT_AUTHORITY_RECEIPTS",
+  "holdout_opened": false,
+  "gate_a": "NOT_EVALUATED",
+  "branch_exhausted": false,
+  "next_action": "BUILD SECOND INDEPENDENT M30_BID EXECUTION ENGINE OR RECOVER HISTORICAL PER_LEDGER HASHES; REQUIRE 626/626 EXACT LEDGER HASH PARITY BEFORE SENTINEL PROMOTION"
+}
