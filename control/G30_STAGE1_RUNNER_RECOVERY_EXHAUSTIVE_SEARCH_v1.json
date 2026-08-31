@@ -1,0 +1,23 @@
+{
+  "schema":"QROS_G30_STAGE1_RUNNER_RECOVERY_EXHAUSTIVE_SEARCH_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"BLOCKED_BY_INFRASTRUCTURE",
+  "scope":"RECOVERY_OF_HISTORICAL_STAGE1_IMPLEMENTATION_BYTES_ONLY",
+  "target":{"file":"qros_g30_stage1_shard_v2.py","sha256":"9abd7c324600795a4f3620585e3f61a9708deae43f13a420f528e56807eac579"},
+  "searched_sources":[
+    {"source":"CURRENT_RUNTIME_MNT_DATA_AND_HOME","result":"NOT_FOUND_BY_FILENAME_OR_SHA_TEXT"},
+    {"source":"GITHUB_REPOSITORY_miguelcastill85-del/qros-engine","result":"NOT_FOUND_BY_FILENAME_OR_SHA_CODE_SEARCH"},
+    {"source":"GITHUB_STAGE1_COMMIT_1adee08f48c01b8b8bef95d34274a67a162f942a","result":"COMMIT_CONTAINS_ONLY_CONTROL/G30_STAGE1_SIGNAL_MINING_v2.json; RUNNER_BYTES_NOT_COMMITTED"},
+    {"source":"CHAT_FILE_LIBRARY_AND_CURRENT_UPLOADS","result":"NOT_FOUND_BY_FILENAME_SHA_OR_G30_STAGE1_M5_MID_QUERIES"},
+    {"source":"DROPBOX_QROS_SEARCH","result":"NOT_FOUND_BY_FILENAME_OR_SHA"},
+    {"source":"PERSONAL_CONTEXT_RECOVERY","result":"NO_RUNNER_CODE_OR_MASK_LEDGER_FOUND"}
+  ],
+  "preserved_authority":{"stage1_receipt":"control/G30_STAGE1_SIGNAL_MINING_v2.json","stage1_runner_sha256":"9abd7c324600795a4f3620585e3f61a9708deae43f13a420f528e56807eac579","frozen_m5_mid_unique_masks":321},
+  "additional_evidence":{"v2_cache_schema":"control/XAU_DEV_M1_CACHE_RECONSTRUCTION_v2.json","v2_cache_has_exact_midpoint_extrema":false,"v2_cache_arrays":"bid_o,bid_c,ask_o,ask_c,bid_h,ask_h,bid_l,ask_l plus spread diagnostics; no contemporaneous mid_h/mid_l arrays","m5_mid_diagnostic":"control/G30_NQX_M5_MID_EXACT_VS_ASYNC_ENVELOPE_DIAGNOSTIC_v1.json","diagnostic_delta":"EXACT_CONTEMPORANEOUS_MID produces +1 unique partition versus asynchronous envelope in same direction as 322 versus 321"},
+  "scientific_boundary":"The evidence strongly localizes the historical 321 count to legacy MID construction semantics, but exact byte-equivalence cannot be asserted without the historical runner or mask ledger. Frozen Stage1 counts are not rewritten.",
+  "decision":"DO_NOT_PROMOTE_M5_MID_AS_IDENTITY_PARITY_PASS. Keep 12 economic outputs materialized, 11 promoted. The identity-parity subtask is BLOCKED_BY_INFRASTRUCTURE, not a strategy rejection and not branch exhaustion.",
+  "holdout_opened":false,
+  "gate_a":"NOT_EVALUATED",
+  "branch_exhausted":false,
+  "next_legitimate_route":"Freeze a corrected descendant identity authority that explicitly preregisters exact contemporaneous MID and independently regenerate its signal masks from raw ticks; only after independent parity may the existing exact-MID economic shard be bound to that descendant. Preserve legacy Stage1 as exposed diagnostic lineage, not rewritten authority."
+}
