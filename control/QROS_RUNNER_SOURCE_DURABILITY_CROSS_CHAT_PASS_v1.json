@@ -1,0 +1,79 @@
+{
+  "decision": "CROSS_CHAT_SOURCE_DURABILITY_PASS",
+  "executed_at": "2026-08-31T19:51:42-04:00",
+  "fresh_runtime_policy": {
+    "prior_runtime_files_used": false,
+    "source_of_authority": "GitHub",
+    "verification_before_execution": true
+  },
+  "negative_tests": [
+    {
+      "actual_mutated_sha256": "f1744ff629a5fc2bef239a8b7a9c3286fc14dc6032fcdb17f552452c1c7b516f",
+      "cause": "SHA256_MISMATCH",
+      "executed_after_failed_verification": false,
+      "expected_sha256": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+      "name": "MUTATE_ONE_BYTE",
+      "status": "PASS_FAIL_CLOSED"
+    },
+    {
+      "actual_sha256": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+      "cause": "SHA256_MISMATCH",
+      "executed_after_failed_verification": false,
+      "intentionally_wrong_expected_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "name": "WRONG_EXPECTED_SHA",
+      "status": "PASS_FAIL_CLOSED"
+    },
+    {
+      "cause": "Not Found",
+      "executed": false,
+      "github_status": 404,
+      "name": "NONEXISTENT_SOURCE_PATH",
+      "requested_path": "control/recovery/QROS_INTENTIONALLY_NONEXISTENT_SOURCE_NEGATIVE_TEST_v1.py",
+      "silent_substitution": false,
+      "status": "PASS_FAIL_CLOSED"
+    }
+  ],
+  "repository": "miguelcastill85-del/qros-engine",
+  "schema": "QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_PASS_v1",
+  "scope_guards": {
+    "control_HEAD_json_modified": false,
+    "g30_m1_mid_executed": false,
+    "holdout_opened": false,
+    "mt5_executed": false,
+    "pnl_read": false
+  },
+  "sources": [
+    {
+      "actual_bytes": 635,
+      "actual_sha256": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+      "actual_stdout_sha256": "76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9",
+      "byte_identity": "PASS",
+      "executed": true,
+      "expected_bytes": 635,
+      "expected_sha256": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+      "expected_stdout_sha256": "76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9",
+      "github_blob_sha": "96268adee547e68215ef73cb48eeee1469c5f411",
+      "path": "control/recovery/qros_runner_source_durability_canary_v1.py",
+      "returncode": 0,
+      "role": "CANARY",
+      "stderr_bytes": 0,
+      "stdout_bytes": 174,
+      "stdout_identity": "PASS"
+    },
+    {
+      "actual_bytes": 11424,
+      "actual_sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+      "byte_identity": "PASS",
+      "executed": false,
+      "expected_bytes": 11424,
+      "expected_sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+      "github_blob_sha": "e414a1f6ee4897bc297d0953053e4a9f5ad31b21",
+      "m1_mid_executed": false,
+      "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+      "role": "G30_REPLACEMENT_CANDIDATE"
+    }
+  ],
+  "status": "PASS",
+  "test_blob_sha": "5e328def5ca45d53d6735e65b08fb22962564613",
+  "test_ref": "control/QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_TEST_v1.json"
+}
