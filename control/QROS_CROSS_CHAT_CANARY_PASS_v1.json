@@ -1,0 +1,86 @@
+{
+  "chunk_results": [
+    {
+      "base64_roundtrip": true,
+      "dropbox_content_hash_observed": "d65927527d61c332e0c75dd65a91ac1872857558e434be0ec32365144320bbaa",
+      "dropbox_content_hash_recomputed": "d65927527d61c332e0c75dd65a91ac1872857558e434be0ec32365144320bbaa",
+      "encoded_bytes": 1368,
+      "encoded_sha256": "f54936241ed702836ebddaee20f5007c1ba6eaea5bb9285e898efe613c8f17c5",
+      "ordinal": 0,
+      "raw_bytes": 1024,
+      "raw_sha256": "ef4eb9ff2b9989d7c2a5a07f6f9a5d312b2ca197e3877c07de8ce93cd174cc4c",
+      "result": "PASS"
+    },
+    {
+      "base64_roundtrip": true,
+      "dropbox_content_hash_observed": "1ce522cd74d54f29125b544c6150efe8c813113a417fcc4e6591c92b6b02d9aa",
+      "dropbox_content_hash_recomputed": "1ce522cd74d54f29125b544c6150efe8c813113a417fcc4e6591c92b6b02d9aa",
+      "encoded_bytes": 1368,
+      "encoded_sha256": "9d684dfcd8332841bb8eae3a120129ed275b1f8472d40248e21b6c9729bd6fae",
+      "ordinal": 1,
+      "raw_bytes": 1024,
+      "raw_sha256": "e0834db0fd741299f232b53f2210cfa047fea5fe49a3af6df9c2170514eb5739",
+      "result": "PASS"
+    }
+  ],
+  "fresh_runtime_dependency": {
+    "dropbox_file_ids": [
+      "id:3hcdcMy0pHAAAAAAAAAAFw",
+      "id:3hcdcMy0pHAAAAAAAAAAGA"
+    ],
+    "dropbox_objects_fetched_by_manifest_locator": 2,
+    "previous_runtime_files_used": false,
+    "remote_binding_note": "Dropbox object size=1368 for each object and observed Dropbox content_hash exactly matches the recomputed Dropbox content hash of the verified no-wrap Base64 bytes.",
+    "transport_whitespace_policy": "STRIP_TRANSPORT_WHITESPACE_ONLY"
+  },
+  "g30_modified": false,
+  "gate": "CROSS_CHAT_CANARY_PASS_WITH_NEGATIVE_TESTS_PASS",
+  "holdout_opened": false,
+  "negative_tests": [
+    {
+      "cause": "required_ordinals_[0,1]_observed_[0]",
+      "name": "MISSING_CHUNK_FAIL_CLOSED",
+      "result": "PASS_FAIL_CLOSED"
+    },
+    {
+      "cause": "encoded_sha256_mismatch:bf48f0e42485e79cc56003b2cb5e2d52b8f33ebaa6e897095672d8181a9b5f9d",
+      "name": "ENCODED_CORRUPTION_FAIL_CLOSED",
+      "result": "PASS_FAIL_CLOSED"
+    },
+    {
+      "corrected_sha256": "c83d15db38c3ce55c801e232792ce6d0e66334ee527adc165786bc8c8fa687b3",
+      "name": "WRONG_PHYSICAL_ORDER_CORRECTED_ONLY_BY_MANIFEST_ORDINALS",
+      "result": "PASS_CORRECTED_ONLY_BY_MANIFEST_ORDINALS",
+      "wrong_physical_sha256": "c16b20debfdf7e47afe695b43f345a941ce8e706e995af8f2ab82578088de434"
+    }
+  ],
+  "pnl_read": false,
+  "positive_checks": {
+    "artifact_bytes": 2048,
+    "artifact_sha256_expected": "c83d15db38c3ce55c801e232792ce6d0e66334ee527adc165786bc8c8fa687b3",
+    "artifact_sha256_observed": "c83d15db38c3ce55c801e232792ce6d0e66334ee527adc165786bc8c8fa687b3",
+    "base64_decodes_verified": 2,
+    "dropbox_content_hash_matches_exact_encoded_bytes": 2,
+    "encoded_sha256_verified": 2,
+    "encoded_size_verified": 2,
+    "manifest_chunk_count": 2,
+    "ordinals": [
+      0,
+      1
+    ],
+    "raw_sha256_verified": 2,
+    "raw_size_verified": 2,
+    "result": "PASS"
+  },
+  "production_adoption_authorized": false,
+  "schema": "QROS_CROSS_CHAT_CANARY_PASS_v1",
+  "scientific_head_modified": false,
+  "scientific_scope": "INFRASTRUCTURE_ONLY_NO_PNL_NO_HOLDOUT_NO_GATE_CHANGE",
+  "source_refs": {
+    "amendment": "control/QROS_CROSS_CHAT_RESUMABILITY_CANARY_PLAN_AMENDMENT_v1.json",
+    "artifact_manifest": "control/QROS_CROSS_CHAT_CANARY_ARTIFACT_MANIFEST_v1.json",
+    "plan": "control/QROS_CROSS_CHAT_RESUMABILITY_CANARY_PLAN_v1.json",
+    "stage1_receipt": "control/QROS_CROSS_CHAT_CANARY_REMOTE_STAGE1_RECEIPT_v1.json"
+  },
+  "status": "CROSS_CHAT_CANARY_PASS"
+}
