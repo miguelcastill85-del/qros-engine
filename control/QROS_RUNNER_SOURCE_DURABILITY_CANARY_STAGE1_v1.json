@@ -1,0 +1,34 @@
+{
+  "schema": "QROS_RUNNER_SOURCE_DURABILITY_CANARY_STAGE1_v1",
+  "status": "LOCAL_AND_GITHUB_READBACK_PASS_CROSS_CHAT_PENDING",
+  "scientific_scope": "INFRASTRUCTURE_ONLY_NO_PNL_NO_HOLDOUT_NO_HEAD_CHANGE",
+  "policy_ref": "governance/QROS_RUNNER_SOURCE_DURABILITY_GATE_v1.json",
+  "source": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "path": "control/recovery/qros_runner_source_durability_canary_v1.py",
+    "creation_commit_sha": "7612e0bd4c61e6ca4d7b598b4dbffb0a47a4c2a9",
+    "git_blob_sha": "96268adee547e68215ef73cb48eeee1469c5f411",
+    "source_bytes_expected": 635,
+    "source_bytes_readback": 635,
+    "source_sha256_expected": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+    "source_sha256_readback": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+    "readback_encoding": "GITHUB_FETCH_FILE_BASE64_DECODED_EXACT_BYTES",
+    "readback_verified": true
+  },
+  "execution_fixture": {
+    "fixture_bytes": 4136,
+    "fixture_sha256": "48549c9ec09c79cf3f7726f80c45726928983af90508c9d40e88239e7889793b",
+    "expected_stdout_bytes": 174,
+    "expected_stdout_sha256": "76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9",
+    "local_execution_result": "PASS"
+  },
+  "local_negative_tests": {
+    "one_byte_source_mutation_detected_by_sha256": true,
+    "wrong_expected_source_sha_fails_closed": true,
+    "missing_repository_path_required_to_fail_closed": true
+  },
+  "cross_chat_test_required": true,
+  "cross_chat_instruction": "Fresh runtime must fetch this receipt and the canonical source from GitHub, decode exact bytes, require the source SHA, execute it, require stdout SHA, and execute the three negative tests without using prior runtime files.",
+  "adoption_authorized": false,
+  "head_modified": false
+}
