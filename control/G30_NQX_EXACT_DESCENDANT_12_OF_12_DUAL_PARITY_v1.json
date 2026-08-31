@@ -1,0 +1,22 @@
+{
+  "schema":"QROS_G30_NQX_EXACT_DESCENDANT_12_OF_12_DUAL_PARITY_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"DEVELOPMENT_RUNNING",
+  "scope":"DEV_2018_2019_SIGNAL_ONLY_NO_PNL_NO_HOLDOUT",
+  "descendant":"EXACT_CONTEMPORANEOUS_MID_IDENTITY_DESCENDANT",
+  "input_sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+  "runner_sha256":"5876498d1dac63a5aee54d8cf37765efbbb06710ea62861793285de9afae9696",
+  "shards_total":12,
+  "shards_passed":12,
+  "identity_mismatches_total":0,
+  "bar_parity_all":true,
+  "signal_parity_all":true,
+  "unique_masks":{"M1_BID":323,"M1_MID":324,"M5_BID":322,"M5_MID":322,"M10_BID":321,"M10_MID":321,"M15_BID":322,"M15_MID":321,"M30_BID":313,"M30_MID":312,"H1_BID":314,"H1_MID":314},
+  "newly_completed":{"M30_BID":{"bars":22670,"ledger_sha256":"0005b76728852c2988feee198087b1a14318203d251efa21dbfe3bd85a994704","output_sha256":"1a6526ff80b9ee0f9f1ae5a07d670b9401fcb5817e13fa933cd70a745b7e11e2"},"M30_MID":{"bars":22670,"ledger_sha256":"9003d018e8ebe0da47f9670542a5e4fd9a1d60d675ab6f089f4ae22ccd86d90d","output_sha256":"ed107ea87722fd67a21a992f61a7585d5574739c634c8585211597461a633ee7"},"H1_BID":{"bars":11341,"ledger_sha256":"ce9fb2236da3089cfdd50f4436f466f584d558696c16a99fd21f4a1be537ca1b","output_sha256":"640635e0c71d7cb0c9705043db794b5e3455767c04b8caa4badad2883553812f"},"H1_MID":{"bars":11341,"ledger_sha256":"75184bed75edd788ed3675065e22228c9c88d7d1b15531c67d715bca5861c5b6","output_sha256":"1fd56d6052ae00accabec1f6c0c8f37e4b76b6c1721a7f156e857fe4f83b009a"}},
+  "economic_binding_status":"PENDING_EXACT_MASK_IDENTITY_BINDING_TO_EXISTING_V5_OUTPUTS",
+  "economic_output_bytes_current_runtime":"NOT_PRESENT",
+  "holdout_opened":false,
+  "gate_a":"NOT_EVALUATED",
+  "branch_exhausted":false,
+  "decision":"PASS_12_OF_12_DUAL_RAW_TICK_SIGNAL_PARITY_FOR_CORRECTED_DESCENDANT"
+}
