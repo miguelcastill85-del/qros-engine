@@ -1,0 +1,63 @@
+{
+  "schema": "QROS_G30_V5_RUNNER_SOURCE_MIGRATION_M30_EQUIVALENCE_v1",
+  "status": "PASS_M30_BID_EQUIVALENCE_CROSS_CHAT_SOURCE_READBACK_STILL_REQUIRED",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "DEV_2018_2019_IMPLEMENTATION_MIGRATION_ONLY_NO_HOLDOUT_NO_GATE_A",
+  "preregistration_ref": "control/G30_V5_LEGACY_RUNNER_SOURCE_MIGRATION_PREREG_v1.json",
+  "legacy_missing_sources": {
+    "outcome_runner_sha256": "6a181ec21cc63c7c9bb4effe26aae40089b49f9e610b50417cd244199e9e018e",
+    "scorer_sha256": "63128f582a7e802014052454da2a47bc11838d9be50c363420865d57adf867a6",
+    "state": "SOURCE_BYTES_UNAVAILABLE_NOT_RELABELED_NOT_RECOVERED"
+  },
+  "replacement_candidate": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+    "creation_commit_sha": "954e6f5d6516d1cd9c85706354f39f744fc68d81",
+    "source_sha256_before_execution": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+    "source_bytes": 11424,
+    "implementation_identity": "NEW_SHA_NEW_IMPLEMENTATION_NOT_LEGACY_HASH"
+  },
+  "canonical_input": {
+    "bytes": 1018984420,
+    "records": 59940260,
+    "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "reconstructed_from_canonical_zip_parts": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip..part003-of-028.zip",
+    "verification": "PASS_EXACT"
+  },
+  "m30_bid_equivalence": {
+    "bars": 22670,
+    "raw_identities": 342,
+    "unique_masks": 313,
+    "side_ledgers": 626,
+    "same_signal_hash_side_keyset": true,
+    "ordered_trade_ledger_sha256_mismatches": 0,
+    "metric_mismatches": 0,
+    "total_selected_trades_candidate": 278659,
+    "total_selected_trades_reference_oracle": 278659,
+    "net_r_sum_candidate": -2904.632068838994,
+    "net_r_sum_reference_oracle": -2904.632068838994,
+    "candidate_output_sha256": "d547ec0b7d0e0e30c424223bd938e8c7442088b54e30197ae13582ffa63a76a7",
+    "reference_authority_chain": [
+      "control/G30_NQX_H1_M30_V5_ONEPOS_TRADE_SEQUENCE_PARITY_v1.json",
+      "control/G30_NQX_M30_SECOND_ENGINE_626_PARITY_v1.json",
+      "control/recovery/g30_m30_oracle_and_frozen_parity_v1.py",
+      "control/recovery/g30_v5_m30_indep3_finalize_v1.py"
+    ],
+    "interpretation": "Replacement candidate reproduces the previously frozen M30 BID V5 signal-keyset, ordered selected-trade ledger semantics and aggregate diagnostics exactly in the exposed DEV scope. This is software equivalence evidence only, not strategy selection."
+  },
+  "not_yet_authorized": [
+    "M1_MID economic execution",
+    "12_of_12 economic promotion",
+    "Gate A",
+    "holdout access",
+    "HEAD replacement"
+  ],
+  "remaining_migration_gates": [
+    "Fresh-chat GitHub source-byte readback SHA validation under QROS_RUNNER_SOURCE_DURABILITY_GATE_v1.",
+    "Signal-count reproduction for the exact descendant across the required 12 shards, with exact M30 BID signal-hash keyset already covered by the 626-ledger test.",
+    "Independent second implementation agreement for pending M1_MID before its economic promotion."
+  ],
+  "holdout_opened": false,
+  "gate_a": "NOT_EVALUATED",
+  "head_modified": false
+}
