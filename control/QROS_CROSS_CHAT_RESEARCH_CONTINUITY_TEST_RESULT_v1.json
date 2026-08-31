@@ -1,0 +1,70 @@
+{
+  "schema": "QROS_CROSS_CHAT_RESEARCH_CONTINUITY_TEST_RESULT_v1",
+  "preregistration_ref": "control/QROS_CROSS_CHAT_RESEARCH_CONTINUITY_TEST_v1.json",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "execution_status": "BLOCKED_BY_INFRASTRUCTURE",
+  "blocker_class": "CANONICAL_NQX_BYTES_NOT_MATERIALIZABLE_IN_FRESH_RUNTIME",
+  "head": {
+    "path": "control/HEAD.json",
+    "schema": "QROS_PERSISTENT_CONTROL_HEAD_V45",
+    "blob_sha_verified": "02b282b8837c302e61e69fc8873a7584943a34d1",
+    "newer_causal_superseding_head_found": false,
+    "modified_by_this_test": false
+  },
+  "reconciliation": {
+    "valid_promoted_nqx_economic_shards": 11,
+    "remaining_shard": "M1_MID",
+    "m30_second_engine_parity": "REUSED_PASS_313_CLASSES_626_OF_626_EXACT_LEDGER_HASHES_ZERO_MISMATCH",
+    "completed_work_repeated": false
+  },
+  "canonical_input_required": {
+    "asset": "NQX_ONLY",
+    "scope": "DEV_2018_2019",
+    "bytes": 1018984420,
+    "records": 59940260,
+    "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "minimal_payload_construction": [
+      "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+      "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+      "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip"
+    ]
+  },
+  "file_library_probe": {
+    "saved_catalog": "28_OF_28_SAVED_CATALOG_CONFIRMED",
+    "manifest_and_index_recovered": true,
+    "physical_zip_bytes_materialized_into_runtime": false,
+    "boundary": "FILE_LIBRARY_REFERENCES_IDENTIFY_OBJECTS_BUT_DO_NOT_EXPOSE_EXECUTABLE_ARCHIVE_BYTES_TO_THIS_RUNTIME"
+  },
+  "dropbox_probe": {
+    "root": "/QROS",
+    "nqx_search_matches": 0,
+    "canonical_folder_entries": 0,
+    "datasets_folder_entries": 0,
+    "physical_nqx_bytes_materialized": false
+  },
+  "frozen_runner_integrity": {
+    "outcome_runner": "g30_nqx_v5_outcome_chunk_v2.py",
+    "outcome_runner_sha256": "6a181ec21cc63c7c9bb4effe26aae40089b49f9e610b50417cd244199e9e018e",
+    "scorer": "g30_nqx_v5_score_chunks.py",
+    "scorer_sha256": "63128f582a7e802014052454da2a47bc11838d9be50c363420865d57adf867a6",
+    "substitute_runner_used": false,
+    "note": "Exact runner identities are preserved. No equivalent-but-different runner was introduced. Runner-source recovery remains subject to exact-hash verification after canonical input bytes are materialized."
+  },
+  "preregistered_reupload_request": {
+    "reason": "Fresh-chat File Library references cannot materialize physical ZIP bytes; preregistration requires asking only for the 28 canonical NQX ZIPs and forbids requesting XAU.",
+    "pattern": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip..QROS_NQX_FULL_HISTORY_v2_part028-of-028.zip",
+    "count": 28,
+    "xau_requested": false
+  },
+  "guards": {
+    "previous_runtime_mnt_data_used": false,
+    "holdout_opened": false,
+    "mt5_run": false,
+    "frozen_rules_changed": false,
+    "single_winner_selected": false,
+    "gate_a_evaluated": false,
+    "branch_exhausted": false
+  },
+  "next_action_after_bytes_arrive": "VERIFY ALL PROVIDED NQX ZIP SIZE/SHA256/PAYLOAD AGAINST CANONICAL MANIFEST; RECONSTRUCT DEV PREFIX ONLY; REQUIRE SHA256 451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf; RECOVER/VERIFY FROZEN V5 RUNNERS BY EXACT HASH; EXECUTE ONLY M1_MID; AUDIT 12_OF_12; THEN CONSOLIDATE NQX DEV FOR COST_STRESS_AND_GATE_A WITHOUT OPENING HOLDOUT."
+}
