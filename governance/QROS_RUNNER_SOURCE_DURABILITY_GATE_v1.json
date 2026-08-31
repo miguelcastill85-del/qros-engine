@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_RUNNER_SOURCE_DURABILITY_GATE_v1",
+  "status": "PREREGISTERED_AND_ADOPTABLE_AFTER_CANARY_PASS",
+  "purpose": "Prevent cross-chat deadlocks caused by checkpoints that record runner hashes without persisting the exact source bytes required for deterministic continuation.",
+  "scientific_scope": "INFRASTRUCTURE_GOVERNANCE_ONLY_NO_PNL_NO_HOLDOUT_NO_GATE_CHANGE",
+  "definitions": {
+    "continuation_critical_source": "Any runner, scorer, materializer, finalizer, converter, parity engine, or other executable source whose exact implementation is required to reproduce, rematerialize, validate, or continue an authoritative checkpoint.",
+    "durable_source": "Exact source bytes stored in persistent repository authority and verified by independent readback SHA-256.",
+    "hash_only_reference": "A filename and/or SHA-256 recorded without recoverable exact source bytes. A hash-only reference is identity evidence but is NOT sufficient resumability evidence."
+  },
+  "mandatory_promotion_gate": {
+    "rule": "A checkpoint or HEAD MUST NOT be promoted as cross-chat resumable when any continuation-critical source lacks durable exact source bytes.",
+    "required_fields_per_source": [
+      "logical_role",
+      "source_sha256",
+      "source_bytes",
+      "repository",
+      "repository_path",
+      "commit_sha",
+      "git_blob_sha",
+      "readback_sha256",
+      "readback_verified",
+      "runtime_or_dependency_contract",
+      "entrypoint_or_cli_contract",
+      "required_for_continuation"
+    ],
+    "pass_condition": "For every required_for_continuation=true source, source_sha256 == readback_sha256 AND readback_verified=true AND repository_path resolves to the exact bytes.",
+    "fail_condition": "Any missing source bytes, missing locator, hash mismatch, or unverified readback fails closed and forbids resumable promotion."
+  },
+  "source_storage_policy": {
+    "primary_store_for_text_sources": "GitHub canonical repository",
+    "recommended_namespace": "control/recovery/ or control/runners/sha256/<prefix>/",
+    "mnt_data_role": "EPHEMERAL_RUNTIME_CACHE_ONLY",
+    "dropbox_role": "OPTIONAL_ARTIFACT_STORE_NOT_REQUIRED_FOR_SMALL_TEXT_SOURCE_BYTES",
+    "source_identity": "SHA256_OF_EXACT_FILE_BYTES",
+    "normalization": "NONE_AFTER_FREEZE; newline or encoding changes create a new source identity"
+  },
+  "derived_artifact_rule": {
+    "policy_ref": "control/DERIVED_ARTIFACT_DETERMINISTIC_REMATERIALIZATION_POLICY_v1.json",
+    "rule": "Absence of a derived runtime artifact alone is not a blocker when canonical inputs, durable exact source bytes, dependency contract, and expected output hash permit exact deterministic rematerialization."
+  },
+  "legacy_missing_source_migration": {
+    "rule": "Historical missing source bytes MUST NOT be fabricated, silently reconstructed under the old hash, or treated as recovered.",
+    "allowed_route": "Create a new implementation with a new immutable source SHA under a preregistered IMPLEMENTATION_MIGRATION bridge.",
+    "requirements": [
+      "Preserve the legacy filename and SHA as SOURCE_BYTES_UNAVAILABLE historical identities.",
+      "Freeze the replacement source bytes in GitHub BEFORE evaluating the pending scientific shard.",
+      "Use only previously exposed development evidence for equivalence validation; do not access holdout.",
+      "Require exact signal identity where applicable and exact ordered trade-ledger parity where recoverable.",
+      "Require zero rule changes to signal, execution, risk, cost, and selection semantics.",
+      "A failed equivalence test blocks the replacement; it must not be tuned retrospectively to the pending shard's economic result.",
+      "Only after the equivalence gate passes may the replacement implementation be used prospectively on work that was not previously promoted."
+    ]
+  },
+  "cross_chat_acceptance_test": {
+    "source_path": "control/recovery/qros_runner_source_durability_canary_v1.py",
+    "expected_source_sha256": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+    "expected_source_bytes": 635,
+    "expected_fixture_sha256": "48549c9ec09c79cf3f7726f80c45726928983af90508c9d40e88239e7889793b",
+    "expected_stdout_sha256": "76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9",
+    "negative_tests": [
+      "One-byte source mutation must fail source SHA before execution.",
+      "Wrong expected source SHA must fail closed.",
+      "Missing repository path must fail closed.",
+      "Executed canonical source must emit the exact deterministic stdout SHA."
+    ]
+  },
+  "adoption_condition": "CANARY must be recovered and executed from a fresh chat/runtime using GitHub only, with all positive and negative tests passing. Until then this policy is not allowed to modify the scientific HEAD.",
+  "head_modification_authorized_by_this_file": false,
+  "holdout_access_authorized": false,
+  "pnl_access_authorized": false
+}
