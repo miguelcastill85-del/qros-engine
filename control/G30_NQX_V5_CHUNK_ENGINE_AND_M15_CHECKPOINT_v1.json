@@ -1,0 +1,18 @@
+{
+  "schema":"QROS_G30_NQX_V5_CHUNK_ENGINE_AND_M15_CHECKPOINT_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"DEVELOPMENT_RUNNING",
+  "scope":"DEV_2018_2019_ONLY",
+  "holdout_opened":false,
+  "chunk_engine":{"outcome_runner":"g30_nqx_v5_outcome_chunk_v2.py","outcome_runner_sha256":"6a181ec21cc63c7c9bb4effe26aae40089b49f9e610b50417cd244199e9e018e","scorer":"g30_nqx_v5_score_chunks.py","scorer_sha256":"63128f582a7e802014052454da2a47bc11838d9be50c363420865d57adf867a6","semantics":"FROZEN_V5_ONE_ACTIVE_POSITION_PER_ASSET_BUY_SELL_SEPARATE","precompute_optimization":"OUTCOMES_PRECOMPUTED_FOR_SUPERSET_MIN_SHOCK_MASK_ONLY; EXACT_SIGNAL_MASKS_APPLIED_AT_SCORING; NO_RULE_CHANGE"},
+  "engine_parity_check":{"reference":"G30_NQX_H1_BID_V5_ONEPOS.json","chunked":"G30_NQX_H1_BID_V5_CHUNKED.json","tf":"H1","feature_side":"BID","bars":11341,"unique_masks":314,"metric_records_compared":628,"count_mismatches":0,"max_metric_diff":0.0,"status":"PASS"},
+  "completed_shards":[
+    {"asset":"NQX","tf":"M15","feature_side":"BID","bars":45312,"raw_identities":342,"unique_masks":322,"chunks":10,"output_sha256":"0f3839b9bd0460f693850a3132e7d57dc36b2ae78281b20c21876dc35e11794e","status":"COMPLETE_V5_DEV"},
+    {"asset":"NQX","tf":"M15","feature_side":"MID","bars":45312,"raw_identities":342,"unique_masks":321,"chunks":10,"output_sha256":"fdfb5c9a94738b37dd1a5051ad0cff01124fa18b26f0ac8d3eee31efe4f515c2","status":"COMPLETE_V5_DEV"}
+  ],
+  "valid_promoted_economic_shards_nqx":2,
+  "valid_promoted_economic_shards_xauusd":0,
+  "gate_a":"NOT_EVALUATED",
+  "branch_exhausted":false,
+  "next_action":"CONTINUE NQX V5 SHARDS M10 BID/MID THEN M5 BID/MID THEN M1 BID/MID; REGENERATE M30/H1 MID AND CONSOLIDATE 12/12 BEFORE COST STRESS"
+}
