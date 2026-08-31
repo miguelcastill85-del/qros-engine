@@ -1,0 +1,17 @@
+{
+  "schema":"QROS_G30_NQX_M5_MID_EXACT_VS_ASYNC_ENVELOPE_DIAGNOSTIC_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"DEVELOPMENT_RUNNING",
+  "scope":"DEV_2018_2019_ONLY_NO_HOLDOUT",
+  "authority_head":"QROS_PERSISTENT_CONTROL_HEAD_V31",
+  "input":{"file":"NQX_DEV_PACKED17_2018_2019_v1.bin","bytes":1018984420,"sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf"},
+  "diagnostic_script":{"file":"g30_m5_mid_semantics_diag.py","sha256":"3edc4bc860c5489dee6cb69f67e2a5070391a6f977cdb4376acd0f4b32623828"},
+  "bars_m5":135250,
+  "comparison":{"exact_tick_contemporaneous_mid":{"definition":"per-tick midpoint x2=bid+ask; bar H/L from extrema of contemporaneous midpoint ticks","raw_identities":342,"diagnostic_unique_partition_count":232},"asynchronous_envelope_mid":{"definition":"bar midpoint H/L reconstructed from independently aggregated bid/ask extrema: H2=bid_high+ask_high; L2=bid_low+ask_low","raw_identities":342,"diagnostic_unique_partition_count":231},"delta_unique":1,"weekday_filter_sensitivity":"NO_CHANGE_TO_232_VS_231_DELTA"},
+  "localized_partition_change":{"split_classes":1,"identities":["CURRENT_BAR_INCLUDED|threshold=4|BREAK_EXTREME|n=2","CURRENT_BAR_INCLUDED|threshold=4|BREAK_EXTREME|n=3","CURRENT_BAR_INCLUDED|threshold=4|BREAK_EXTREME|n=4"],"effect":"these identities form one alias class under asynchronous-envelope MID but split into two classes under exact contemporaneous MID"},
+  "interpretation":{"observed_frozen_stage1_m5_mid_unique":321,"observed_v5_exact_mid_m5_mid_unique":322,"same_direction_delta":1,"root_cause_status":"STRONGLY_LOCALIZED_TO_MID_BAR_CONSTRUCTION_SEMANTICS_BUT_ABSOLUTE_FROZEN_STAGE1_IDENTITY_PARTITION_NOT_YET_BYTE_REPRODUCED","important_caveat":"diagnostic identity hashing/partition reconstruction is not asserted byte-identical to the historical Stage1 runner; therefore this receipt does not by itself authorize rewriting the frozen Stage1 authority"},
+  "scientific_decision":"DO_NOT_CHANGE_PREREGISTERED_SIGNAL_RULES. Treat M5_MID plus-one as implementation-semantics discrepancy. Recover historical Stage1 runner/mask ledger if available; otherwise build a byte-equivalent Stage1 identity reproducer before deciding which lineage is authoritative. Exact contemporaneous MID remains required for corrected economic execution unless a preregistered feature definition explicitly states otherwise.",
+  "holdout_opened":false,
+  "gate_a":"NOT_EVALUATED",
+  "branch_exhausted":false
+}
