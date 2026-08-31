@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_G30_NQX_V5_12SHARD_RERUN_START_BLOCK_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scientific_state":"DEVELOPMENT_RUNNING",
+  "execution_annotation":"CURRENT_RUNTIME_CONTAINER_TRANSPORT_FAILURE",
+  "pause_reason":"ClientResponseError returned by container execution on three consecutive attempts, including a direct shell retry and an independent Python-runtime retry, immediately after V5 parity promotion.",
+  "completed_before_block":{"v5_trade_sequence_parity_ref":"control/G30_NQX_H1_M30_V5_ONEPOS_TRADE_SEQUENCE_PARITY_v1.json","parity_status":"PASS","side_ledgers_compared":1254,"trade_sequence_hash_mismatches":0},
+  "attempted_next_action":"GENERALIZE_AND_START_RERUN_ALL_12_NQX_STAGE1_V5_SHARDS",
+  "scientific_outputs_promoted_from_failed_attempt":0,
+  "valid_promoted_economic_shards_nqx":0,
+  "holdout_opened":false,
+  "gate_a":"NOT_EVALUATED",
+  "branch_exhausted":false,
+  "resolution":"RETRY_SAME_FROZEN_V5_12_SHARD_ACTION_WHEN_CONTAINER_RUNTIME_RESPONDS; DO_NOT_CHANGE_RULES_OR_REUSE_INVALID_V4_ECONOMICS"
+}
