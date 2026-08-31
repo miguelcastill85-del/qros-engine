@@ -1,0 +1,27 @@
+{
+  "schema":"QROS_CROSS_CHAT_NQX_UPLOAD_BATCH_RECEIPT_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scientific_state":"DEVELOPMENT_RUNNING",
+  "authority_head":"QROS_PERSISTENT_CONTROL_HEAD_V45",
+  "head_modified":false,
+  "scope":"CURRENT_CHAT_PHYSICAL_UPLOAD_VERIFICATION_ONLY_NO_HOLDOUT_NO_MT5",
+  "verified_parts_count":10,
+  "verified_parts":[
+    {"index":8,"file":"QROS_NQX_FULL_HISTORY_v2_part008-of-028.zip","zip_bytes":96397826,"zip_sha256":"36b00fcac9e0dcfb7455a547270609c6e785a8b7658a5189e211c105367ff7a9","payload_member":"NQX_PACKED17_rows_140000000_159999999.bin","payload_bytes":340000000,"payload_sha256":"95937ddc98d09e01df0ac858e4da5f06ee377d15d63ae75de310130b600db009","status":"PASS"},
+    {"index":19,"file":"QROS_NQX_FULL_HISTORY_v2_part019-of-028.zip","zip_bytes":92156531,"zip_sha256":"8b004f944b84125079980cb8989e1787cb45bd93ae89246f8de4078c69201f23","payload_member":"NQX_PACKED17_rows_360000000_379999999.bin","payload_bytes":340000000,"payload_sha256":"37b2d86f6dc9164dc08ea3d69e22e7cd6aa8ce07e26f3f484da4011ab576d357","status":"PASS"},
+    {"index":21,"file":"QROS_NQX_FULL_HISTORY_v2_part021-of-028.zip","zip_bytes":93588337,"zip_sha256":"6c5ab889c33878d0e0a39454e2392d9a0f451c297cce6cf6ab2493605544b8fa","payload_member":"NQX_PACKED17_rows_400000000_419999999.bin","payload_bytes":340000000,"payload_sha256":"3afdfb3aa0f2c674e64e3791cd7657ec04dc577ca2c76511611b75add747a1d9","status":"PASS"},
+    {"index":22,"file":"QROS_NQX_FULL_HISTORY_v2_part022-of-028.zip","zip_bytes":95319635,"zip_sha256":"5413d214da1064c8390e336538fb92ddc1615f71e7a8b5113636fcec469c929b","payload_member":"NQX_PACKED17_rows_420000000_439999999.bin","payload_bytes":340000000,"payload_sha256":"bb0ce6a1eab7d6b043322828d72b6f688bff30aef46fdc42bfbba8762ffce8f5","status":"PASS"},
+    {"index":23,"file":"QROS_NQX_FULL_HISTORY_v2_part023-of-028.zip","zip_bytes":91607284,"zip_sha256":"ac2a700d6d828e91e9df18658e682f9a638b9c0cf631e5985dcba7d0ab02235d","payload_member":"NQX_PACKED17_rows_440000000_459999999.bin","payload_bytes":340000000,"payload_sha256":"2d4664204348106b39baa8fe164d2b3b1fc445250b8385d94360aa7b5bcd9cd6","status":"PASS"},
+    {"index":24,"file":"QROS_NQX_FULL_HISTORY_v2_part024-of-028.zip","zip_bytes":95357571,"zip_sha256":"6ff78762765e16f61e0b82e80019bf4d590c849e4116ba422cea7d79466f98e1","payload_member":"NQX_PACKED17_rows_460000000_479999999.bin","payload_bytes":340000000,"payload_sha256":"29c830adec52ad6f0960f1b6e60f4e7157b1d869e58a6118c92eaca1f4eceaf6","status":"PASS"},
+    {"index":25,"file":"QROS_NQX_FULL_HISTORY_v2_part025-of-028.zip","zip_bytes":94047835,"zip_sha256":"65b42f3300a604ee104a6dfb73ec4f0d27108809a281ec0a7378248455f99e8c","payload_member":"NQX_PACKED17_rows_480000000_499999999.bin","payload_bytes":340000000,"payload_sha256":"6b4b81a791014e3335b03dfe2817895ff108e2be0afab9c0435e56bab0849a6e","status":"PASS"},
+    {"index":26,"file":"QROS_NQX_FULL_HISTORY_v2_part026-of-028.zip","zip_bytes":96336960,"zip_sha256":"b64f081d90559c2ac06d6e64c4ba7ab4aad43423003e032394ffb7e8eb25ffc8","payload_member":"NQX_PACKED17_rows_500000000_519999999.bin","payload_bytes":340000000,"payload_sha256":"2017e8ec2b310e71100f8e25aa287f8d3660b542ee5aaa5dfd755527eccfbb27","status":"PASS"},
+    {"index":27,"file":"QROS_NQX_FULL_HISTORY_v2_part027-of-028.zip","zip_bytes":96623282,"zip_sha256":"66018d3789f126e73301653471ebe87a02e4976693e0fec8259a4c6c71057ebb","payload_member":"NQX_PACKED17_rows_520000000_539999999.bin","payload_bytes":340000000,"payload_sha256":"5744098b0639742b722fe4432d466ac9a4762f271d089cacf0c1796a3a0598a1","status":"PASS"},
+    {"index":28,"file":"QROS_NQX_FULL_HISTORY_v2_part028-of-028.zip","zip_bytes":101766153,"zip_sha256":"56c2687738eab95979cda683b1a466ccbf7e0d4221f6c91d836b6dd6d770e9ce","payload_member":"NQX_PACKED17_rows_540000000_559817686.bin","payload_bytes":336900679,"payload_sha256":"14e6251254969ee6878a667ffd02960f891aa6598295b00a3997056f90f9e230","status":"PASS"}
+  ],
+  "verification":{"zip_size_and_sha256":"PASS_10_OF_10","zip_member_identity":"PASS_10_OF_10","payload_stream_decompression_crc":"PASS_10_OF_10","payload_sha256":"PASS_10_OF_10"},
+  "physically_missing_parts":[1,2,3,4,5,6,7,9,10,11,12,13,14,15,16,17,18,20],
+  "critical_for_next_scientific_action":[1,2,3],
+  "remaining_shard":"M1_MID",
+  "guards":{"holdout_opened":false,"mt5_run":false,"gate_a_evaluated":false,"frozen_rules_changed":false,"single_winner_selected":false,"branch_exhausted":false},
+  "next_action":"WHEN PARTS 001-003 ARE PHYSICALLY PRESENT, VERIFY THEM IDENTICALLY; RECONSTRUCT ONLY NQX DEV 2018-2019 PREFIX; REQUIRE SHA256 451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf; THEN RECOVER AND EXACT-HASH-VERIFY FROZEN V5 RUNNERS BEFORE EXECUTING ONLY M1_MID. CONTINUE COLLECTING OTHER PREREGISTERED NQX PARTS WITHOUT REQUESTING XAU."
+}
