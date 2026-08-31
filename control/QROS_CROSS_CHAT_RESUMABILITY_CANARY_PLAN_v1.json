@@ -1,0 +1,50 @@
+{
+  "schema": "QROS_CROSS_CHAT_RESUMABILITY_CANARY_PLAN_v1",
+  "status": "PREREGISTERED_NO_REMOTE_MUTATION_YET",
+  "purpose": "Validate content-addressed resumability across a fresh ChatGPT runtime before production rollout.",
+  "scientific_scope": "INFRASTRUCTURE_ONLY_NO_PNL_NO_HOLDOUT_NO_GATE_CHANGE",
+  "source_checkpoint": {
+    "file": "QROS_G30_M30_SECOND_ENGINE_RESUMABLE_CHECKPOINT_v1_LIBRARY.zip",
+    "bytes": 37711438,
+    "sha256": "394493b462aef3ec5a8340e473eb578947f445ecd59ecee3abfc517f62894e41",
+    "contained_payloads": 16
+  },
+  "transport": {
+    "raw_chunk_size_bytes": 2097152,
+    "encoding": "BASE64_RFC4648_NO_WRAP",
+    "cas_path_template": "/QROS/artifacts/cas-canary/v1/sha256/<first2>/<raw_sha256>.b64",
+    "reason": "2MiB raw chunks keep Base64 payloads well below the 5,000,000-byte text-create ceiling."
+  },
+  "local_validation_ref": "control/QROS_CAS_PROTOCOL_LOCAL_VALIDATION_v1.json",
+  "remote_canary_artifact_selection": {
+    "artifact": "part_04.npz",
+    "artifact_bytes": 3733132,
+    "artifact_sha256": "e664349997e6d012e142c732223c1d409a49b3c7550f51c0515f129177f76378",
+    "chunks": 2,
+    "selection_reason": "Largest source payload; exercises multi-chunk reconstruction and maximum transport size."
+  },
+  "remote_test_sequence": [
+    "Create isolated /QROS/artifacts/cas-canary/v1/sha256 subtree only; do not touch production CAS.",
+    "Upload the two Base64 chunks for part_04.npz by content hash.",
+    "Read both objects back through Dropbox connector.",
+    "Verify encoded bytes/hash, decode, verify each raw chunk SHA-256, reconstruct part_04.npz, verify full SHA-256.",
+    "Persist a canary artifact manifest and storage receipts in GitHub; do not modify scientific HEAD.",
+    "Start a fresh chat/runtime with no dependence on current /mnt/data.",
+    "Fresh chat reads GitHub canary manifest, fetches Dropbox chunks, reconstructs payload, verifies exact full SHA-256.",
+    "Fresh chat emits CROSS_CHAT_CANARY_PASS receipt only if every hash/size/schema gate passes.",
+    "After successful cross-chat recovery, run negative tests: missing chunk must block, corrupted encoded payload must block, wrong ordinal must not silently reconstruct.",
+    "Only after all canary gates pass may production protocol be proposed for adoption."
+  ],
+  "pass_criteria": {
+    "current_chat_remote_readback": "2_OF_2_CHUNKS_PASS_AND_FULL_ARTIFACT_SHA_PASS",
+    "fresh_chat_recovery": "2_OF_2_CHUNKS_PASS_AND_FULL_ARTIFACT_SHA_PASS_WITHOUT_PRIOR_RUNTIME_FILES",
+    "negative_missing_chunk": "MUST_FAIL_CLOSED",
+    "negative_corruption": "MUST_FAIL_CLOSED",
+    "negative_wrong_order": "MUST_FAIL_OR_BE_CORRECTED_ONLY_BY_MANIFEST_ORDINALS",
+    "scientific_head_unchanged_during_canary": true,
+    "holdout_opened": false,
+    "pnl_read": false
+  },
+  "rollback": "Delete only /QROS/artifacts/cas-canary after separate explicit confirmation; GitHub canary receipts may remain as immutable test evidence.",
+  "production_adoption_authorized": false
+}
