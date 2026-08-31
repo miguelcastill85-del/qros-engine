@@ -1,0 +1,32 @@
+{
+  "schema": "QROS_CROSS_CHAT_RESUMABILITY_CANARY_PLAN_AMENDMENT_v1",
+  "status": "PREREGISTERED_BEFORE_REMOTE_CANARY_RESULTS",
+  "purpose": "Amend only the transport payload size used for the remote cross-chat canary because the current Dropbox connector exposes text create but no direct runtime-file or binary-upload action.",
+  "scientific_scope": "INFRASTRUCTURE_ONLY_NO_PNL_NO_HOLDOUT_NO_GATE_CHANGE",
+  "original_plan_ref": "control/QROS_CROSS_CHAT_RESUMABILITY_CANARY_PLAN_v1.json",
+  "local_validation_ref": "control/QROS_CAS_PROTOCOL_LOCAL_VALIDATION_v1.json",
+  "constraint_observed": "Dropbox connector can create UTF-8 text files up to 5MB but does not expose a byte-preserving upload from /mnt/data or a direct binary upload action. Therefore the current runtime cannot inject the 2.8MB and 2.18MB Base64 strings for part_04.npz into Dropbox without serializing those strings through the model/tool argument surface.",
+  "amendment": {
+    "remote_canary_payload": "DETERMINISTIC_SYNTHETIC_TWO_CHUNK_ARTIFACT",
+    "remote_canary_chunk_raw_bytes": 1024,
+    "remote_canary_chunks": 2,
+    "generator": "chunk_i = first_1024_bytes_of_SHA256(counter||i) stream with counter encoded uint64 big-endian, concatenating SHA256 blocks until 1024 bytes",
+    "encoding": "BASE64_RFC4648_NO_WRAP",
+    "cas_path_template": "/QROS/artifacts/cas-canary/v1/sha256/<first2>/<raw_sha256>.b64",
+    "reason": "The cross-chat canary is intended to validate locator discovery, durable-store readback, manifest-driven ordering, Base64 decode, raw-hash verification, full-artifact reconstruction, and fail-closed behavior. Production-size transport margin and exact reconstruction of the real 16 M30 NPZ payloads were already validated locally on the actual bytes in QROS_CAS_PROTOCOL_LOCAL_VALIDATION_v1. The two concerns are intentionally separated."
+  },
+  "unchanged_pass_criteria": {
+    "fresh_chat_must_not_depend_on_previous_runtime": true,
+    "must_fetch_manifest_from_github": true,
+    "must_fetch_chunks_from_dropbox": true,
+    "must_verify_each_raw_sha256": true,
+    "must_reconstruct_artifact_sha256": true,
+    "missing_chunk_must_fail_closed": true,
+    "corruption_must_fail_closed": true,
+    "wrong_physical_order_must_be_corrected_only_by_manifest_ordinals": true,
+    "scientific_head_unchanged": true,
+    "holdout_opened": false,
+    "pnl_read": false
+  },
+  "production_adoption_authorized": false
+}
