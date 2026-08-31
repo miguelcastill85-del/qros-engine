@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_G30_NQX_V5_12SHARD_SIGNAL_IDENTITY_AUDIT_V1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state": "DEVELOPMENT_RUNNING",
+  "scope": "DEV_2018_2019_ONLY",
+  "m1_mid": {
+    "status": "MATERIALIZED_NOT_PROMOTED_PENDING_SIGNAL_IDENTITY_AUDIT",
+    "bars": 673097,
+    "unique_masks_current": 324,
+    "chunks": 7,
+    "output_sha256": "a00ae30942ff1273197b6e283acd72ca5a465ac87495138a9597952f82002a58",
+    "scorer_v2_sha256": "fc2f5491822407db8aab573eba54cea71e45805afcad0ca909afcb0d3e9de34b",
+    "scorer_v2_semantic_regression_check": "PASS_M1_BID_BYTE_IDENTICAL_TO_PRIOR_SCORER_OUTPUT_SHA256_01f4d855e4b3e3af5cb975bacff49ecaf482282a9e866d0020eccc193fbc1134"
+  },
+  "frozen_stage1_authority": "control/G30_STAGE1_SIGNAL_MINING_v2.json",
+  "frozen_stage1_nqx_unique_masks_within_shards": 3828,
+  "current_v5_total_unique_masks_within_shards": 3829,
+  "by_tf_union_audit": {
+    "M1": {"current_union": 647, "frozen_stage1_union": 647, "status": "PASS"},
+    "M5": {"current_union": 643, "frozen_stage1_union": 641, "status": "FAIL", "delta": 2},
+    "M10": {"current_union": 638, "frozen_stage1_union": 638, "status": "PASS"},
+    "M15": {"current_union": 637, "frozen_stage1_union": 638, "status": "FAIL", "delta": -1},
+    "M30": {"current_union": 615, "frozen_stage1_union": 615, "status": "PASS"},
+    "H1": {"current_union": 598, "frozen_stage1_union": 607, "status": "FAIL", "delta": -9}
+  },
+  "current_side_counts": {
+    "M1": {"BID": 323, "MID": 324},
+    "M5": {"BID": 322, "MID": 322},
+    "M10": {"BID": 321, "MID": 321},
+    "M15": {"BID": 322, "MID": 321},
+    "M30": {"BID": 313, "MID": 312},
+    "H1": {"BID": 314, "MID": 314}
+  },
+  "economic_outputs_materialized": 12,
+  "valid_promoted_economic_shards_nqx": 11,
+  "status": "FAIL_SIGNAL_IDENTITY_DRIFT",
+  "holdout_opened": false,
+  "gate_a": "NOT_EVALUATED",
+  "branch_exhausted": false,
+  "scientific_decision": "DO_NOT_PROMOTE_12_OF_12_OR_EVALUATE_GATE_A_UNTIL_FROZEN_STAGE1_SIGNAL_MASK_IDENTITY_PARITY_IS_RESTORED",
+  "next_action": "RECONSTRUCT_FROZEN_STAGE1_SIGNAL_IDENTITY_SEMANTICS_AND_COMPARE_MASK_BY_MASK_FOR_M5_M15_H1; REUSE_EXISTING_V5_OUTCOME_CHUNKS_ONLY_AFTER_SIGNAL_MASK_PARITY"
+}
