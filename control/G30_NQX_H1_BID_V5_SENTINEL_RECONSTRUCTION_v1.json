@@ -1,0 +1,18 @@
+{
+  "schema":"QROS_G30_NQX_H1_BID_V5_SENTINEL_RECONSTRUCTION_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state":"DEVELOPMENT_RUNNING",
+  "scope":"DEV_2018_2019_ONLY_NO_HOLDOUT",
+  "input":{"file":"NQX_DEV_PACKED17_2018_2019_v1.bin","bytes":1018984420,"sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf"},
+  "reconstruction_runner":{"file":"g30_v5_sentinel_rebuild_v2.py","sha256":"bdc04c6a92a4c838862a5735fffbd2aaeac1b0501d30e45d9a732425a45f3ba6"},
+  "frozen_contract":{"feature_quotes":"ASK_GTE_BID_ZERO_SPREAD_PRESERVED","fills":"ASK_GT_BID_ONLY","buy":"ASK_IN_BID_OUT","sell":"BID_IN_ASK_OUT","atr_period":14,"atr_mult":3.0,"rr":1.5,"hold_bars":20,"same_day_exit":true,"ambiguous_sl_tp":"SL_FIRST","one_active_position_per_asset_standalone":true,"same_timestamp_reentry":"BLOCKED_STRICT_ENTRY_TS_GT_PREV_EXIT_TS"},
+  "H1_BID":{"bars":11341,"raw_identities":342,"unique_signal_masks":314,"raw_side_records_scored":684,"raw_total_selected_trades":182587,"raw_net_r_sum_across_alias_including_records":-956.563205765202,"runtime_output_sha256":"dff20fff4b56c929f0d8ee73d879656d34f38e9b007a182da1438f77cc54dc23","status":"RECONSTRUCTED_UNDER_FROZEN_CONTRACT_NOT_YET_HISTORICAL_PARITY_BOUND"},
+  "important_caveat":"The reconstruction currently contains all 342 raw identities before alias-collapse, while the historical sentinel parity authority compared 314 unique masks x BUY/SELL = 628 side ledgers. Therefore these economic aggregates MUST NOT be compared directly to the historical 628-ledger sentinel or used for Gate A until exact alias-collapse and historical binding are completed.",
+  "M30_BID":{"status":"NOT_COMPLETED","reason":"runtime wall-clock timeout after repeated deterministic attempts; no partial economic result promoted"},
+  "historical_sentinel_authority":"control/G30_NQX_H1_M30_V5_ONEPOS_TRADE_SEQUENCE_PARITY_v1.json",
+  "historical_expected":{"H1_BID":{"bars":11341,"unique_masks":314,"side_ledgers":628},"M30_BID":{"bars":22670,"unique_masks":313,"side_ledgers":626}},
+  "scientific_decision":"H1 reconstruction is an execution checkpoint only, not a parity PASS. Complete deterministic alias-collapse to 314 masks and M30 chunked reconstruction before binding to exact-descendant economics.",
+  "holdout_opened":false,
+  "gate_a":"NOT_EVALUATED",
+  "branch_exhausted":false
+}
