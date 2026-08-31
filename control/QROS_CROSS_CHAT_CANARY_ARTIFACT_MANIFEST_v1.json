@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_CROSS_CHAT_CANARY_ARTIFACT_MANIFEST_v1",
+  "status": "DURABLE_STORE_READBACK_VERIFIED_CURRENT_CHAT",
+  "scientific_scope": "INFRASTRUCTURE_ONLY_NO_PNL_NO_HOLDOUT_NO_GATE_CHANGE",
+  "artifact": {
+    "artifact_id": "QROS_CAS_CANARY_SYNTHETIC_2X1024_v1",
+    "artifact_bytes": 2048,
+    "artifact_sha256": "c83d15db38c3ce55c801e232792ce6d0e66334ee527adc165786bc8c8fa687b3",
+    "generator": "chunk_i = first_1024_bytes_of_SHA256(counter||i) stream, counter uint64 big-endian, i uint32 big-endian, SHA256 blocks concatenated until 1024 bytes",
+    "encoding": "BASE64_RFC4648_NO_WRAP",
+    "chunks": [
+      {
+        "ordinal": 0,
+        "offset": 0,
+        "raw_bytes": 1024,
+        "raw_sha256": "ef4eb9ff2b9989d7c2a5a07f6f9a5d312b2ca197e3877c07de8ce93cd174cc4c",
+        "encoded_bytes": 1368,
+        "encoded_sha256": "f54936241ed702836ebddaee20f5007c1ba6eaea5bb9285e898efe613c8f17c5",
+        "dropbox_file_id": "id:3hcdcMy0pHAAAAAAAAAAFw",
+        "dropbox_ns_path": "ns:14974421075//QROS/artifacts/cas-canary/v1/sha256/ef/ef4eb9ff2b9989d7c2a5a07f6f9a5d312b2ca197e3877c07de8ce93cd174cc4c.b64",
+        "dropbox_path_display": "/QROS/artifacts/cas-canary/v1/sha256/ef/ef4eb9ff2b9989d7c2a5a07f6f9a5d312b2ca197e3877c07de8ce93cd174cc4c.b64"
+      },
+      {
+        "ordinal": 1,
+        "offset": 1024,
+        "raw_bytes": 1024,
+        "raw_sha256": "e0834db0fd741299f232b53f2210cfa047fea5fe49a3af6df9c2170514eb5739",
+        "encoded_bytes": 1368,
+        "encoded_sha256": "9d684dfcd8332841bb8eae3a120129ed275b1f8472d40248e21b6c9729bd6fae",
+        "dropbox_file_id": "id:3hcdcMy0pHAAAAAAAAAAGA",
+        "dropbox_ns_path": "ns:14974421075//QROS/artifacts/cas-canary/v1/sha256/e0/e0834db0fd741299f232b53f2210cfa047fea5fe49a3af6df9c2170514eb5739.b64",
+        "dropbox_path_display": "/QROS/artifacts/cas-canary/v1/sha256/e0/e0834db0fd741299f232b53f2210cfa047fea5fe49a3af6df9c2170514eb5739.b64"
+      }
+    ]
+  },
+  "readback_current_chat": {
+    "chunks_read": 2,
+    "encoded_hashes_verified": 2,
+    "raw_hashes_verified": 2,
+    "artifact_reconstruction_sha256_verified": true,
+    "artifact_sha256_observed": "c83d15db38c3ce55c801e232792ce6d0e66334ee527adc165786bc8c8fa687b3",
+    "result": "PASS"
+  },
+  "next_gate": "FRESH_CHAT_RECOVERY_WITHOUT_PREVIOUS_RUNTIME_FILES",
+  "scientific_head_modified": false,
+  "production_adoption_authorized": false
+}
