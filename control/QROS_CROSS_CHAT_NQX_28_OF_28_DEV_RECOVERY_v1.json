@@ -1,0 +1,17 @@
+{
+  "schema":"QROS_CROSS_CHAT_NQX_28_OF_28_DEV_RECOVERY_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scientific_state":"DEVELOPMENT_RUNNING",
+  "authority_head":"QROS_PERSISTENT_CONTROL_HEAD_V45",
+  "authority_head_blob_sha":"02b282b8837c302e61e69fc8873a7584943a34d1",
+  "head_modified":false,
+  "scope":"NQX_PHYSICAL_CARRIER_RECOVERY_AND_DEV_PREFIX_ONLY_NO_HOLDOUT_NO_MT5",
+  "physical_archive_set":{"parts_present":28,"parts_required":28,"status":"PASS_28_OF_28_PHYSICALLY_PRESENT"},
+  "archive_integrity":{"zip_size_sha256":"PASS_28_OF_28","zip_crc":"PASS_28_OF_28","part_meta_schema_ranges":"PASS_28_OF_28","payload_member_size_sha256":"PASS_28_OF_28","references":["control/QROS_CROSS_CHAT_NQX_UPLOAD_BATCH_RECEIPT_v1.json","control/QROS_CROSS_CHAT_NQX_UPLOAD_BATCH2_RECEIPT_v1.json"],"final_newly_verified_parts":[2,3,4,5,6,7,12,16]},
+  "canonical_full_carrier":{"expected_bytes":9516900679,"expected_records":559817687,"expected_sha256":"6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608","full_stream_sha256_reproduction":"NOT_PROMOTED_RUNTIME_WALL_LIMIT_DURING_STREAM_ATTEMPT","note":"All 28 ZIP and all 28 individual PACKED17 payload hashes are exact; the full 9.5GB concatenated SHA stream was attempted but did not complete within the execution-channel wall limit. This does not alter or infer the expected carrier hash."},
+  "development_prefix":{"source_parts":[1,2,3],"bytes":1018984420,"records":59940260,"sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf","expected_sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf","status":"PASS_EXACT_SHA256","first_timestamp_ms":1516885570165,"last_timestamp_ms":1577836797469,"out_of_order_records":0,"adjacent_duplicate_timestamps":465513,"positive_spread_records":59891895,"zero_spread_records":48205,"crossed_spread_records":160,"spread_scaled":{"min":-72,"p01":2,"p50":6,"p95":13,"p99":40,"max":1875},"execution_fill_policy":"ZERO_OR_CROSSED_SPREAD_PRESERVED_AS_OBSERVED_DATA_NOT_ALLOWED_AS_ARTIFICIAL_FILL"},
+  "remaining_shard":"M1_MID",
+  "runner_recovery":{"required_outcome_runner":"g30_nqx_v5_outcome_chunk_v2.py","required_outcome_sha256":"6a181ec21cc63c7c9bb4effe26aae40089b49f9e610b50417cd244199e9e018e","required_scorer":"g30_nqx_v5_score_chunks.py","required_scorer_sha256":"63128f582a7e802014052454da2a47bc11838d9be50c363420865d57adf867a6","github_current_tree":"NOT_FOUND","github_commit_7e19dbd9adabfa6fb79a9965e36b40e0c6e0aa71":"CHECKPOINT_ONLY_NO_RUNNER_SOURCE","file_library_exact_name_or_hash":"NOT_FOUND","dropbox_exact_name_or_hash":"NOT_FOUND","uploaded_recovery_bridge_and_tools":"NO_G30_V5_RUNNER_SOURCE","local_current_runtime_text_probe":"NOT_FOUND","equivalent_substitute_used":false,"status":"BLOCKED_EXACT_SOURCE_BYTES_UNAVAILABLE"},
+  "guards":{"holdout_opened":false,"mt5_run":false,"gate_a_evaluated":false,"frozen_rules_changed":false,"single_winner_selected":false,"branch_exhausted":false},
+  "next_action":"RECOVER EXACT HISTORICAL BYTES FOR THE TWO FROZEN V5 RUNNERS AND REQUIRE THEIR SHA256; THEN EXECUTE ONLY M1_MID AGAINST THE VERIFIED DEV PREFIX; PROMOTE ONLY AFTER COMPLETE OUTPUT AND IDENTITY AUDIT; AUDIT 12_OF_12; THEN COST STRESS/GATE_A."
+}
