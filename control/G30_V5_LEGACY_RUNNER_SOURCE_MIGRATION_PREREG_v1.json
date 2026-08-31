@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_G30_V5_LEGACY_RUNNER_SOURCE_MIGRATION_PREREG_v1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "DEV_2018_2019_IMPLEMENTATION_MIGRATION_ONLY_NO_HOLDOUT_NO_GATE_A",
+  "problem": {
+    "legacy_outcome_runner": "g30_nqx_v5_outcome_chunk_v2.py",
+    "legacy_outcome_runner_sha256": "6a181ec21cc63c7c9bb4effe26aae40089b49f9e610b50417cd244199e9e018e",
+    "legacy_scorer": "g30_nqx_v5_score_chunks.py",
+    "legacy_scorer_sha256": "63128f582a7e802014052454da2a47bc11838d9be50c363420865d57adf867a6",
+    "legacy_source_state": "SOURCE_BYTES_UNAVAILABLE_AFTER_EXHAUSTIVE_GITHUB_FILE_LIBRARY_DROPBOX_RUNTIME_SEARCH",
+    "historical_identity_must_be_preserved": true
+  },
+  "migration_type": "NEW_IMPLEMENTATION_NEW_SHA_NOT_RECOVERY_OF_OLD_BYTES",
+  "scientific_rules_frozen": {
+    "signal_lineage": "EXACT_CONTEMPORANEOUS_MID_IDENTITY_DESCENDANT",
+    "signal_evidence_ref": "control/G30_NQX_EXACT_DESCENDANT_12_OF_12_DUAL_PARITY_v1.json",
+    "execution_contract_ref": "control/G30_NQX_H1_M30_V5_ONEPOS_TRADE_SEQUENCE_PARITY_v1.json",
+    "buy": "ASK_IN_BID_OUT",
+    "sell": "BID_IN_ASK_OUT",
+    "feature_quotes": "ASK_GTE_BID_ZERO_SPREAD_PRESERVED_CROSSED_EXCLUDED",
+    "fills": "ASK_GT_BID_ONLY",
+    "atr_period": 14,
+    "atr_mult": 3.0,
+    "rr": 1.5,
+    "hold_bars": 20,
+    "same_day_exit": true,
+    "ambiguous_sl_tp": "SL_FIRST",
+    "one_active_position_per_asset_standalone": true,
+    "same_timestamp_reentry": "BLOCKED_STRICT_ENTRY_TS_GT_PREV_EXIT_TS",
+    "mid_bar_semantics": "EXACT_CONTEMPORANEOUS_MID_X2_EQUALS_BID_PLUS_ASK_PER_TICK; EXTREMA_FROM_ACTUAL_CONTEMPORANEOUS_TICKS"
+  },
+  "replacement_source_requirements": {
+    "persist_exact_source_in_github_before_pending_shard_execution": true,
+    "new_source_sha_required": true,
+    "readback_sha_must_match": true,
+    "dependency_contract_must_be_frozen": true,
+    "must_not_claim_legacy_sha": true
+  },
+  "equivalence_gate_before_M1_MID": {
+    "canonical_input_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "tests": [
+      "M30_BID: exact mask keyset and 626/626 ordered selected-trade ledger SHA-256 parity against the persisted frozen V5 parity authority; zero mismatches required.",
+      "H1_BID: exact mask keyset and 628/628 ordered selected-trade ledger SHA-256 parity when the required persisted comparison evidence can be materialized; otherwise H1 may not substitute for the mandatory M30 626/626 test.",
+      "Signal engine: reproduce the exact-descendant unique-mask counts for all 12 NQX shards and exact M30_BID signal hash keyset where persisted ledger receipts expose it.",
+      "Two independent implementations must agree on the pending M1_MID signal masks and ordered trade ledgers before economic promotion.",
+      "No comparison may use holdout or MT5."
+    ],
+    "pass_condition": "All mandatory available parity tests are exact with zero mismatches and no scientific rule changes.",
+    "fail_condition": "Any signal identity, trade sequence, R-byte, rule, or source integrity mismatch fails closed. Replacement may not be tuned using M1_MID economic performance."
+  },
+  "pending_scientific_work": {
+    "authoritative_checkpoint_ref": "control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json",
+    "remaining_shard": "M1_MID",
+    "completed_shards_to_preserve": 11,
+    "repeat_completed_work_only_for_equivalence_validation": true,
+    "holdout_opened": false,
+    "gate_a": "NOT_EVALUATED"
+  },
+  "promotion_rule": "Only after the implementation-equivalence gate passes may a new durable replacement runner be used for M1_MID. Passing the software migration does not approve the strategy and does not open holdout.",
+  "head_modification_authorized_by_this_preregistration": false
+}
