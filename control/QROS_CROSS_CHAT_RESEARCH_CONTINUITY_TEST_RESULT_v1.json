@@ -1,70 +1,15 @@
 {
-  "schema": "QROS_CROSS_CHAT_RESEARCH_CONTINUITY_TEST_RESULT_v1",
-  "preregistration_ref": "control/QROS_CROSS_CHAT_RESEARCH_CONTINUITY_TEST_v1.json",
-  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
-  "scientific_state": "DEVELOPMENT_RUNNING",
-  "execution_status": "BLOCKED_BY_INFRASTRUCTURE",
-  "blocker_class": "CANONICAL_NQX_BYTES_NOT_MATERIALIZABLE_IN_FRESH_RUNTIME",
-  "head": {
-    "path": "control/HEAD.json",
-    "schema": "QROS_PERSISTENT_CONTROL_HEAD_V45",
-    "blob_sha_verified": "02b282b8837c302e61e69fc8873a7584943a34d1",
-    "newer_causal_superseding_head_found": false,
-    "modified_by_this_test": false
-  },
-  "reconciliation": {
-    "valid_promoted_nqx_economic_shards": 11,
-    "remaining_shard": "M1_MID",
-    "m30_second_engine_parity": "REUSED_PASS_313_CLASSES_626_OF_626_EXACT_LEDGER_HASHES_ZERO_MISMATCH",
-    "completed_work_repeated": false
-  },
-  "canonical_input_required": {
-    "asset": "NQX_ONLY",
-    "scope": "DEV_2018_2019",
-    "bytes": 1018984420,
-    "records": 59940260,
-    "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
-    "minimal_payload_construction": [
-      "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
-      "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
-      "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip"
-    ]
-  },
-  "file_library_probe": {
-    "saved_catalog": "28_OF_28_SAVED_CATALOG_CONFIRMED",
-    "manifest_and_index_recovered": true,
-    "physical_zip_bytes_materialized_into_runtime": false,
-    "boundary": "FILE_LIBRARY_REFERENCES_IDENTIFY_OBJECTS_BUT_DO_NOT_EXPOSE_EXECUTABLE_ARCHIVE_BYTES_TO_THIS_RUNTIME"
-  },
-  "dropbox_probe": {
-    "root": "/QROS",
-    "nqx_search_matches": 0,
-    "canonical_folder_entries": 0,
-    "datasets_folder_entries": 0,
-    "physical_nqx_bytes_materialized": false
-  },
-  "frozen_runner_integrity": {
-    "outcome_runner": "g30_nqx_v5_outcome_chunk_v2.py",
-    "outcome_runner_sha256": "6a181ec21cc63c7c9bb4effe26aae40089b49f9e610b50417cd244199e9e018e",
-    "scorer": "g30_nqx_v5_score_chunks.py",
-    "scorer_sha256": "63128f582a7e802014052454da2a47bc11838d9be50c363420865d57adf867a6",
-    "substitute_runner_used": false,
-    "note": "Exact runner identities are preserved. No equivalent-but-different runner was introduced. Runner-source recovery remains subject to exact-hash verification after canonical input bytes are materialized."
-  },
-  "preregistered_reupload_request": {
-    "reason": "Fresh-chat File Library references cannot materialize physical ZIP bytes; preregistration requires asking only for the 28 canonical NQX ZIPs and forbids requesting XAU.",
-    "pattern": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip..QROS_NQX_FULL_HISTORY_v2_part028-of-028.zip",
-    "count": 28,
-    "xau_requested": false
-  },
-  "guards": {
-    "previous_runtime_mnt_data_used": false,
-    "holdout_opened": false,
-    "mt5_run": false,
-    "frozen_rules_changed": false,
-    "single_winner_selected": false,
-    "gate_a_evaluated": false,
-    "branch_exhausted": false
-  },
-  "next_action_after_bytes_arrive": "VERIFY ALL PROVIDED NQX ZIP SIZE/SHA256/PAYLOAD AGAINST CANONICAL MANIFEST; RECONSTRUCT DEV PREFIX ONLY; REQUIRE SHA256 451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf; RECOVER/VERIFY FROZEN V5 RUNNERS BY EXACT HASH; EXECUTE ONLY M1_MID; AUDIT 12_OF_12; THEN CONSOLIDATE NQX DEV FOR COST_STRESS_AND_GATE_A WITHOUT OPENING HOLDOUT."
+  "schema":"QROS_CROSS_CHAT_RESEARCH_CONTINUITY_TEST_RESULT_v1",
+  "preregistration_ref":"control/QROS_CROSS_CHAT_RESEARCH_CONTINUITY_TEST_v1.json",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scientific_state":"DEVELOPMENT_RUNNING",
+  "execution_status":"BLOCKED_BY_INFRASTRUCTURE",
+  "blocker_class":"FROZEN_V5_RUNNER_EXACT_SOURCE_BYTES_UNAVAILABLE",
+  "head":{"path":"control/HEAD.json","schema":"QROS_PERSISTENT_CONTROL_HEAD_V45","blob_sha_verified":"02b282b8837c302e61e69fc8873a7584943a34d1","newer_causal_superseding_head_found":false,"modified_by_this_test":false},
+  "reconciliation":{"valid_promoted_nqx_economic_shards":11,"remaining_shard":"M1_MID","m30_second_engine_parity":"REUSED_PASS_313_CLASSES_626_OF_626_EXACT_LEDGER_HASHES_ZERO_MISMATCH","completed_work_repeated":false},
+  "canonical_input_recovery":{"asset":"NQX_ONLY","physical_archives":"PASS_28_OF_28","archive_size_sha_crc_meta_payload_hash":"PASS_28_OF_28","dev_scope":"2018_2019","dev_bytes":1018984420,"dev_records":59940260,"dev_sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf","dev_exact_hash_pass":true,"dev_out_of_order":0,"dev_zero_spread":48205,"dev_crossed_spread":160,"recovery_receipt":"control/QROS_CROSS_CHAT_NQX_28_OF_28_DEV_RECOVERY_v1.json"},
+  "full_carrier_note":{"expected_bytes":9516900679,"expected_records":559817687,"expected_sha256":"6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608","individual_payload_hashes_verified":28,"full_concatenated_sha256_reproduction":"NOT_PROMOTED_RUNTIME_WALL_LIMIT_DURING_STREAM_ATTEMPT"},
+  "frozen_runner_integrity":{"outcome_runner":"g30_nqx_v5_outcome_chunk_v2.py","outcome_runner_sha256":"6a181ec21cc63c7c9bb4effe26aae40089b49f9e610b50417cd244199e9e018e","scorer":"g30_nqx_v5_score_chunks.py","scorer_sha256":"63128f582a7e802014052454da2a47bc11838d9be50c363420865d57adf867a6","checkpoint_ref":"control/G30_NQX_V5_CHUNK_ENGINE_AND_M15_CHECKPOINT_v1.json","github_current_tree":"NOT_FOUND","github_historical_checkpoint_commit":"CHECKED_7e19dbd9adabfa6fb79a9965e36b40e0c6e0aa71_CHECKPOINT_ONLY","file_library":"NOT_FOUND_BY_EXACT_NAME_OR_HASH","dropbox":"NOT_FOUND_BY_EXACT_NAME_OR_HASH","uploaded_recovery_bridge_and_tools":"NO_MATCH","equivalent_substitute_used":false},
+  "guards":{"previous_runtime_mnt_data_used":false,"holdout_opened":false,"mt5_run":false,"frozen_rules_changed":false,"single_winner_selected":false,"gate_a_evaluated":false,"branch_exhausted":false},
+  "next_action":"RECOVER EXACT HISTORICAL SOURCE BYTES FOR g30_nqx_v5_outcome_chunk_v2.py AND g30_nqx_v5_score_chunks.py AND REQUIRE THE FROZEN SHA256 VALUES. ONLY THEN EXECUTE M1_MID ON THE VERIFIED DEV PREFIX; AUDIT 12_OF_12; THEN COST_STRESS_AND_GATE_A WITHOUT OPENING HOLDOUT."
 }
