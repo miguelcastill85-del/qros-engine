@@ -1,0 +1,20 @@
+{
+  "schema":"QROS_G30_EXACT_CONTEMPORANEOUS_MID_IDENTITY_DESCENDANT_PREREG_V1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "genealogy":"IMPLEMENTATION_CORRECTION_DESCENDANT_OF_FROZEN_STAGE1_CORE_SLICE",
+  "state":"PREREGISTERED_NO_RESULTS",
+  "reason":"Historical Stage1 MID identity byte implementation is unavailable; exact contemporaneous MID is required to remove asynchronous bid/ask-extrema envelope artifact without rewriting legacy Stage1 authority.",
+  "data_scope":"DEV_2018_2019_ONLY",
+  "holdout":"SEALED_NO_ACCESS",
+  "assets":["NQX","XAUUSD"],
+  "timeframes":["M1","M5","M10","M15","M30","H1"],
+  "feature_quote_sides":["BID","MID"],
+  "mid_definition":{"MID":"per_tick_midpoint_x2=bid+ask; bar open/close/high/low computed from contemporaneous midpoint ticks only","crossed_quotes":"excluded_from_feature_bars","zero_spread_quotes":"preserved_for_features"},
+  "signal_universe":{"shock":"HIGH_LOW_RANGE_OVER_ATR","atr":"SMA_TRUE_RANGE_14","atr_timing":["CURRENT_BAR_INCLUDED","LAGGED_ONE_BAR_PRE_SHOCK"],"thresholds":[1.0,1.25,1.5,1.75,2.0,2.5,3.0,3.5,4.0],"persistence_families":["CURRENT_CLOSE_EXCEEDS_ALL_PRIOR_N_CLOSES","STRICT_MONOTONIC_N_CLOSE_SEQUENCE","CURRENT_CLOSE_BREAKS_PRIOR_N_BAR_EXTREME","SHOCK_BAR_BODY_DIRECTION_ONLY"],"n":[1,2,3,4,5,8],"body_direction_n":1,"session":"ALL"},
+  "identity_rule":"342 raw identities per asset/timeframe/feature-side; exact aliases may be deduplicated only after independently reproduced signal masks. No economic metric may influence aliasing or identity acceptance.",
+  "parity_requirement":"Two independent raw-tick signal implementations must match mask-by-mask for all identities before binding any existing economic output to this descendant.",
+  "economic_binding":"Existing V5 economic outputs are observational artifacts until their signal mask identities are bound to this corrected descendant by independent parity; no Gate A evaluation before binding.",
+  "legacy_stage1":"control/G30_STAGE1_SIGNAL_MINING_v2.json remains frozen and is never rewritten; its M5 MID 321 count remains historical authority for that legacy implementation lineage.",
+  "branch_exhausted":false,
+  "next_action":"Build two independent exact-MID raw-tick signal generators and compare all 342 M5 MID identities first; if PASS expand parity to all 12 NQX shards before economic binding."
+}
