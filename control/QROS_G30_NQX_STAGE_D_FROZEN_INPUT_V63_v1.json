@@ -1,0 +1,33 @@
+{
+  "schema":"QROS_G30_NQX_STAGE_D_FROZEN_INPUT_V63_v1",
+  "status":"FROZEN_CANDIDATE_BEFORE_STAGE_D_PNL",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "human_name":"Campaña 30 — Continuación después de un shock de volatilidad",
+  "asset":"NQX",
+  "gate_ref":"control/QROS_G30_NQX_STAGED_TEMPORAL_ACCEPTANCE_GATES_V58_v1.json",
+  "stage_b_verdict_ref":"control/QROS_G30_NQX_STAGE_B_2020_2021_VERDICT_V61_v1.json",
+  "stage_c_verdict_ref":"control/QROS_G30_NQX_STAGE_C_2022_2024_VERDICT_V62_v1.json",
+  "input_candidates":1,
+  "candidate":{
+    "cluster":"G30V59C015",
+    "stable_id":"M10_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|3.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|3",
+    "direction":"SELL",
+    "timeframe":"M10",
+    "feature_side":"MID",
+    "timing":"LAGGED_ONE_BAR_PRE_SHOCK",
+    "threshold":3.5,
+    "persistence":"STRICT_MONOTONIC_N_CLOSE_SEQUENCE",
+    "n":3,
+    "management":{"atr_mult":3.0,"rr":1.5,"hold_bars":20,"same_day":true,"sl_first":true,"entry":"FIRST_EXECUTABLE_QUOTE_AFTER_SIGNAL_CLOSE","sell":"BID_IN_ASK_OUT","gap":"FIRST_ACTUALLY_AVAILABLE_PRICE","one_active_position_per_asset":true,"strict_reentry_after_previous_exit":true},
+    "stage_b":{"period":"2020-2021","trades":126,"pf_central":1.2408592342875189,"net_r_central":13.840503174134819},
+    "stage_c":{"period":"2022-2024","trades":175,"pf_central":1.2851311188717922,"net_r_central":22.77635400671594,"ledger_sha256":"b0f6f95b66cf19e57cc4f03feeecfe3a81e8d65955e0c62b2edd0589b898700e"}
+  },
+  "stage_d_scope":"DARWINEX_MT5_SERVER_CLOCK_2025_THROUGH_2026_07_27_PARTIAL",
+  "stage_d_pnl_read_before_freeze":false,
+  "retuning_forbidden":true,
+  "single_winner_selection_forbidden":true,
+  "xau":false,
+  "mt5":false,
+  "branch_exhausted":false,
+  "next_action":"VERIFY FULL NQX DATA AUTHORITY, THEN OPEN ONLY 2025-2026 PARTIAL FOR THIS ONE FROZEN CANDIDATE WITH TWO INDEPENDENT IMPLEMENTATIONS AND APPLY THE PRE-FROZEN STAGE_D GATE."
+}
