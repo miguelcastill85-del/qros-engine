@@ -1,0 +1,32 @@
+{
+  "schema":"QROS_G30_NQX_GATE_A_CLUSTERING_PREREG_V49_v1",
+  "status":"PREREGISTERED_NO_RESULTS",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope":"NQX_DEV_2018_2019_GATE_A_SURVIVORS_ONLY_NO_HOLDOUT",
+  "authority_head":"QROS_PERSISTENT_CONTROL_HEAD_V49",
+  "survivor_authority_ref":"control/QROS_G30_NQX_COST_STRESS_GATE_A_DEV_V48_v1.json",
+  "survivors_expected":226,
+  "guards":{"buy_sell_separate":true,"holdout_access":false,"mt5":false,"single_winner_selection":false,"branch_exhaustion":false,"economic_best_used_for_representative":false},
+  "similarity":{
+    "signal":"JACCARD_OF_EXACT_CAUSAL_SIGNAL_CLOSE_TIMESTAMPS_WITHIN_SAME_DIRECTION",
+    "trade":"JACCARD_OF_EXACT_SELECTED_ENTRY_TIMESTAMPS_UNDER_FROZEN_ONE_POSITION_EXECUTION_WITHIN_SAME_DIRECTION",
+    "daily_r_correlation":"PEARSON_OF_CENTRAL_R_AGGREGATED_BY_RAW_EPOCH_DAY_DIAGNOSTIC_ONLY_NOT_AN_EDGE_REQUIREMENT",
+    "pair_edge_rule":"SAME_DIRECTION_AND_SIGNAL_JACCARD_GTE_0.50_AND_TRADE_ENTRY_JACCARD_GTE_0.50_AND_GEOMETRIC_MEAN_OF_THE_TWO_GTE_0.70",
+    "connected_components":"UNDIRECTED_TRANSITIVE_COMPONENTS_OF_PREREGISTERED_PAIR_EDGE_RULE"
+  },
+  "plateau":{
+    "parameter_local_neighbor":"SAME_DIRECTION_AND_SAME_TIMEFRAME_AND_IDENTICAL_FAMILY_WITH_EXACTLY_ONE_OF_FEATURE_SIDE_TIMING_THRESHOLD_OR_N_CHANGED; THRESHOLD_OR_N_CHANGE_MUST_BE_ADJACENT_ON_FROZEN_GRID; FEATURE_SIDE_OR_TIMING_MAY_FLIP",
+    "support_rule":"CLUSTER_SIZE_GTE_2_AND_AT_LEAST_ONE_PARAMETER_LOCAL_NEIGHBOR_PAIR_INSIDE_CLUSTER",
+    "singleton_policy":"FREEZE_AS_ISOLATED_CANDIDATE_NOT_REJECTED",
+    "nonlocal_multi_member_policy":"FREEZE_AS_MULTI_MEMBER_NONLOCAL_CLUSTER_NOT_REJECTED"
+  },
+  "representative":{
+    "rule":"MEDOID_MAXIMIZING_MEAN_GEOMETRIC_SIGNAL_TRADE_SIMILARITY_TO_OTHER_MEMBERS_IN_CLUSTER",
+    "singleton":"SELF",
+    "tie_break":"LEXICOGRAPHIC_STABLE_IDENTITY",
+    "economic_metric_used":false,
+    "all_aliases_preserved":true
+  },
+  "reporting":["cluster_count","cluster_sizes","plateau_supported_clusters","isolated_candidates","representative_ids","alias_membership","within_cluster_similarity","daily_r_correlation_diagnostic","Gate_A_metric_ranges_if_available"],
+  "next_if_pass":"FREEZE_ONE_REPRESENTATIVE_PER_CLUSTER_WITH_ALL_ALIASES_AND_TIERS_PRESERVED; HOLDOUT_REMAINS_SEALED"
+}
