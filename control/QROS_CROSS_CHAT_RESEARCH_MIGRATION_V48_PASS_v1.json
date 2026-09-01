@@ -1,0 +1,88 @@
+{
+  "schema": "QROS_CROSS_CHAT_RESEARCH_MIGRATION_V48_PASS_v1",
+  "status": "PASS",
+  "decision": "CROSS_CHAT_RESEARCH_MIGRATION_V48_PASS",
+  "repository": "miguelcastill85-del/qros-engine",
+  "migration_ref": "control/QROS_CROSS_CHAT_RESEARCH_MIGRATION_V48_v1.json",
+  "fresh_runtime": {
+    "prior_runtime_files_used": false,
+    "mnt_data_used": false,
+    "authority_source": "GitHub",
+    "file_library_used_for_nqx_discovery_only": true
+  },
+  "head": {
+    "path": "control/HEAD.json",
+    "schema": "QROS_PERSISTENT_CONTROL_HEAD_V48",
+    "git_blob_sha": "3bf8114c4002ec7f5e20ce737acff83bb50caf49",
+    "modified_by_migration": false,
+    "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+    "state": "DEVELOPMENT_RUNNING",
+    "holdout": "LOCKED_UNOPENED_DURING_MIGRATION",
+    "gate_a": "NOT_EVALUATED"
+  },
+  "runner_source_durability": {
+    "gate_ref": "governance/QROS_RUNNER_SOURCE_DURABILITY_GATE_v1.json",
+    "gate_state": "IMPLEMENTED_ACTIVE_RECERTIFIED",
+    "cross_chat_pass_ref": "control/QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_PASS_v1.json",
+    "cross_chat_pass_commit": "d9a7cbe294140a84e045187518667dc47936d444",
+    "sources": [
+      {
+        "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+        "bytes": 11424,
+        "sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+        "verification": "PASS_EXACT",
+        "executed": false
+      },
+      {
+        "path": "control/recovery/g30_m1_mid_v5_independent_engine_v1.py",
+        "bytes": 11617,
+        "sha256": "f05028238ec73f28317db7d0d5b705b6fc91870c6627fe472b3687674458e2a4",
+        "verification": "PASS_EXACT",
+        "executed": false
+      },
+      {
+        "path": "control/recovery/qros_runner_source_durability_canary_v1.py",
+        "bytes": 635,
+        "sha256": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+        "verification": "PASS_EXACT",
+        "executed": true,
+        "returncode": 0,
+        "stdout_bytes": 174,
+        "stdout_sha256": "76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9",
+        "stdout_identity": "PASS_EXACT"
+      }
+    ]
+  },
+  "scientific_invariants": {
+    "nqx_promoted_economic_shards": "12_OF_12",
+    "m30_bid_ordered_ledgers": "626_OF_626_ZERO_MISMATCH",
+    "m1_mid_ordered_ledgers": "648_OF_648_ZERO_MISMATCH",
+    "m1_mid_durable_promotion": "PASS_PROMOTED_DEV_SHARD",
+    "holdout_opened": false,
+    "gate_a_evaluated": false,
+    "mt5_executed": false,
+    "branch_exhausted": false
+  },
+  "nqx_data_discovery": {
+    "authority_id": "QROS_NQX_FULL_HISTORY_ZIP_v2",
+    "library_catalog": "28_OF_28_SAVED_CATALOG_CONFIRMED",
+    "physical_zip_bytes_materialized_in_this_runtime": false,
+    "dev_expected_bytes": 1018984420,
+    "dev_expected_records": 59940260,
+    "dev_expected_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "minimum_zip_parts_if_dev_rematerialization_becomes_required": [
+      "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+      "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+      "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip"
+    ],
+    "xau_requested": false
+  },
+  "closed_scientific_work_repeated": false,
+  "next_authorized_action": "AUDIT_AND_RECONCILE_NQX_12_OF_12_ECONOMIC_SHARD_MANIFEST_THEN_RUN_COST_STRESS_AND_GATE_A_DEV",
+  "guards": {
+    "head_modified": false,
+    "holdout_opened": false,
+    "mt5_executed": false,
+    "branch_exhausted_declared": false
+  }
+}
