@@ -1,0 +1,74 @@
+{
+  "schema": "QROS_CROSS_CHAT_RESEARCH_MIGRATION_V48_v1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "purpose": "Migrate the active G30 research to a fresh chat/runtime and re-certify that the validated cross-chat source-durability mechanism is implemented, active, and sufficient to continue from the current scientific checkpoint without redoing completed work.",
+  "repository": "miguelcastill85-del/qros-engine",
+  "baseline_head": {
+    "path": "control/HEAD.json",
+    "schema": "QROS_PERSISTENT_CONTROL_HEAD_V48",
+    "blob_sha": "3bf8114c4002ec7f5e20ce737acff83bb50caf49",
+    "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+    "state": "DEVELOPMENT_RUNNING",
+    "valid_promoted_nqx_economic_shards": 12,
+    "remaining_nqx_shard": null,
+    "holdout_opened": false,
+    "gate_a": "NOT_EVALUATED"
+  },
+  "durability_authority": {
+    "policy_ref": "governance/QROS_RUNNER_SOURCE_DURABILITY_GATE_v1.json",
+    "required_policy_status": "ADOPTED_CROSS_CHAT_PASS",
+    "pass_ref": "control/QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_PASS_v1.json",
+    "pass_commit": "d9a7cbe294140a84e045187518667dc47936d444",
+    "require_hash_only_reference_sufficient_for_resumability": false
+  },
+  "continuation_critical_sources_to_reverify_from_github": [
+    {
+      "role": "G30_DURABLE_PRIMARY_REPLACEMENT",
+      "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+      "sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+      "bytes": 11424
+    },
+    {
+      "role": "G30_M1_MID_INDEPENDENT_PARITY",
+      "path": "control/recovery/g30_m1_mid_v5_independent_engine_v1.py",
+      "sha256": "f05028238ec73f28317db7d0d5b705b6fc91870c6627fe472b3687674458e2a4"
+    },
+    {
+      "role": "RUNNER_SOURCE_DURABILITY_CANARY",
+      "path": "control/recovery/qros_runner_source_durability_canary_v1.py",
+      "sha256": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+      "bytes": 635,
+      "expected_stdout_sha256": "76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9"
+    }
+  ],
+  "scientific_checkpoint_refs": [
+    "control/G30_NQX_M1_MID_V5_DURABLE_PROMOTION_v1.json",
+    "control/G30_V5_M1_MID_DUAL_IMPLEMENTATION_PARITY_PASS_v1.json",
+    "control/G30_V5_REPLACEMENT_12SHARD_SIGNAL_COUNT_PARITY_v1.json",
+    "control/G30_NQX_M30_SECOND_ENGINE_626_PARITY_v1.json"
+  ],
+  "fresh_runtime_acceptance_tests": [
+    "Do not use any file from the prior chat runtime or prior /mnt/data.",
+    "Fetch this migration manifest and control/HEAD.json from GitHub. Require HEAD V48 and blob SHA 3bf8114c4002ec7f5e20ce737acff83bb50caf49 unless a causally newer authoritative HEAD explicitly supersedes V48; if newer, reconcile ancestry and continue only if all V48 scientific facts remain preserved or explicitly superseded.",
+    "Fetch governance/QROS_RUNNER_SOURCE_DURABILITY_GATE_v1.json and require policy_status ADOPTED_CROSS_CHAT_PASS, mandatory_for_future_continuation_critical_sources=true, and hash-only references insufficient for resumability.",
+    "Fetch the persisted CROSS_CHAT_SOURCE_DURABILITY_PASS receipt and verify its commit/ref before trusting the policy adoption.",
+    "Recover every continuation-critical source listed above directly from GitHub; verify exact SHA-256 before any execution. Do not silently substitute similarly named files.",
+    "Execute only the source-durability canary during re-certification and require its exact stdout SHA-256. The scientific G30 sources are byte-verified first and are executed later only when required by the authorized research next action.",
+    "Confirm the M1_MID durable promotion receipt is PASS_PROMOTED_DEV_SHARD, output SHA-256 50db30146fe98dc5545a5d85e4d6f170953d621355125395efb96861146cc525, and NQX economic shards advanced from 11 to 12 without holdout or Gate A.",
+    "Confirm completed M30 626/626 and M1_MID 648/648 parity are reused and not recomputed unless a dependency must be rematerialized for the next action.",
+    "Find canonical NQX data in File Library first. If physical bytes are unavailable, request only the exact NQX canonical ZIP parts needed; do not request XAU unless the next authorized action actually requires XAU.",
+    "If NQX DEV must be rematerialized, require 1,018,984,420 bytes, 59,940,260 records and SHA-256 451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf before scientific execution.",
+    "Persist control/QROS_CROSS_CHAT_RESEARCH_MIGRATION_V48_PASS_v1.json only after all migration checks pass. The receipt must record fresh_runtime=true, prior_runtime_files_used=false, source_durability_active=true, all_required_sources_hash_verified=true, completed_work_repeated=false, holdout_opened=false, mt5_executed=false."
+  ],
+  "authorized_scientific_continuation_after_migration_pass": "AUDIT AND RECONCILE THE PROMOTED NQX 12_OF_12 DEV ECONOMIC SHARD MANIFEST INCLUDING M1_MID OUTPUT SHA; THEN RUN PREREGISTERED DEV COST_STRESS AND GATE_A ACROSS ALL PASSING CONFIGURATIONS WITHOUT SINGLE-WINNER SELECTION. HOLDOUT REMAINS SEALED.",
+  "guards": {
+    "holdout_access_authorized": false,
+    "mt5_authorized": false,
+    "branch_exhaustion_authorized": false,
+    "single_winner_selection_forbidden": true,
+    "legacy_missing_source_silent_reconstruction_forbidden": true,
+    "completed_scientific_work_should_not_be_repeated_without_dependency_reason": true
+  },
+  "pass_condition": "A fresh chat proves the source-durability policy is active using GitHub-only source recovery, preserves the V48 scientific checkpoint, persists the migration PASS receipt, and continues directly into the authorized 12/12 reconciliation and DEV Gate A path without opening holdout.",
+  "head_modification_authorized_by_this_manifest": false
+}
