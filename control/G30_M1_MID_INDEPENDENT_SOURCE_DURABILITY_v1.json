@@ -1,0 +1,26 @@
+{
+  "schema": "QROS_G30_M1_MID_INDEPENDENT_SOURCE_DURABILITY_v1",
+  "status": "PASS_EXACT_SOURCE_BYTES",
+  "scope": "INFRASTRUCTURE_ONLY_NO_PNL_NO_HOLDOUT",
+  "policy_ref": "governance/QROS_RUNNER_SOURCE_DURABILITY_GATE_v1.json",
+  "source": {
+    "logical_role": "G30_M1_MID_INDEPENDENT_PARITY_ENGINE",
+    "repository": "miguelcastill85-del/qros-engine",
+    "repository_path": "control/recovery/g30_m1_mid_v5_independent_engine_v1.py",
+    "creation_commit_sha": "238d49f8324877d71b1975dfa5b8e6138cc3af1b",
+    "git_blob_sha": "d4a6fc8d816dc29f9a1cf97d9ca10f007eef071b",
+    "source_bytes": 11617,
+    "source_sha256": "f05028238ec73f28317db7d0d5b705b6fc91870c6627fe472b3687674458e2a4",
+    "runtime_copy_path": "/mnt/data/g30_m1_mid_v5_independent_engine_v1.py",
+    "runtime_git_blob_sha_recomputed": "d4a6fc8d816dc29f9a1cf97d9ca10f007eef071b",
+    "readback_sha256": "f05028238ec73f28317db7d0d5b705b6fc91870c6627fe472b3687674458e2a4",
+    "readback_verified": true,
+    "runtime_or_dependency_contract": "CPython + NumPy + Numba; canonical PACKED17 little-endian ts:int64,bid:int32,ask:int32,flags:uint8",
+    "entrypoint_or_cli_contract": "Library-style parity functions imported by a preregistered orchestration; no strategy-ranking CLI",
+    "required_for_continuation": true
+  },
+  "verification_method": "The runtime copy was reconstructed from the exact persisted source text. Its Git blob SHA-1 was recomputed as SHA1('blob '+byte_length+'\\0'+bytes) and matched the GitHub blob SHA exactly; SHA-256 and byte length were then frozen before execution.",
+  "execution_before_verification": false,
+  "holdout_opened": false,
+  "pnl_read": false
+}
