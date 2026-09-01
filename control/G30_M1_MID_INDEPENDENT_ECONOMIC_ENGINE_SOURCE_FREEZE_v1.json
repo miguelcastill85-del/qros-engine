@@ -1,0 +1,32 @@
+{
+  "schema": "QROS_G30_M1_MID_INDEPENDENT_ECONOMIC_ENGINE_SOURCE_FREEZE_v1",
+  "status": "PASS_DURABLE_SOURCE_READBACK_BEFORE_EXECUTION",
+  "scope": "INFRASTRUCTURE_AND_IMPLEMENTATION_IDENTITY_ONLY_NO_PNL_NO_HOLDOUT",
+  "preregistration_ref": "control/G30_M1_MID_REPLACEMENT_ECONOMIC_PARITY_PREREG_v1.json",
+  "source": {
+    "logical_role": "INDEPENDENT_M1_MID_ECONOMIC_PARITY_ENGINE",
+    "repository": "miguelcastill85-del/qros-engine",
+    "repository_path": "control/recovery/g30_m1_mid_independent_economic_engine_v1.py",
+    "creation_commit_sha": "bebe9ac5c6b6fc322e28f68507062c5adbf63c0a",
+    "git_blob_sha": "6a81126dd4f54e528f20d1681b0d11b1c8cade95",
+    "source_bytes": 7641,
+    "source_sha256": "21127496ddbd930d8dc8e6be2ba567fd87107bfcaa9fca8b644406b1d24e7ad6",
+    "readback_sha256": "21127496ddbd930d8dc8e6be2ba567fd87107bfcaa9fca8b644406b1d24e7ad6",
+    "readback_verified": true,
+    "readback_method": "GITHUB_FETCH_BLOB_EXACT_CONTENT_PLUS_GIT_BLOB_IDENTITY_RECOMPUTATION",
+    "required_for_continuation": true,
+    "entrypoint_or_cli_contract": "--src CANONICAL_NQX_DEV --minutes-dir EXACT_16_PART_EXECUTABLE_MINUTE_INDEX --signal-runner DURABLE_SIGNAL_V3 --out JSON",
+    "runtime_or_dependency_contract": "CPython+NumPy+Numba; no external network during computation"
+  },
+  "dependencies": {
+    "canonical_input_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "signal_runner_path": "control/recovery/g30_signal_identity_independent_parity_v3.py",
+    "signal_runner_sha256": "65933b2de83051919820776ff3ae23ce5b751f2842fcaf4d6657f9e85f0dd1b8",
+    "signal_runner_git_blob_sha": "099077a65cb61ee4baaffa159b3f9c972f8231a3",
+    "candidate_source_sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2"
+  },
+  "economic_execution_performed_by_this_receipt": false,
+  "holdout_opened": false,
+  "pnl_read": false,
+  "mt5_executed": false
+}
