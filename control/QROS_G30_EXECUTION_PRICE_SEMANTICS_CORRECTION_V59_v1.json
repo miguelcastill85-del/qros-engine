@@ -1,0 +1,128 @@
+{
+  "schema": "QROS_G30_EXECUTION_PRICE_SEMANTICS_CORRECTION_V59_v1",
+  "status": "PASS_DEVELOPMENT_CORRECTION_NO_2020_PLUS_STRATEGY_PNL_READ",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "asset": "NQX",
+  "scope": "EXPOSED_DEV_2018_2019_ONLY",
+  "root_cause": "The frozen V5 outcome runner detected the first executable quote that crossed SL/TP but then assigned exactly -1R or +1.5R instead of valuing the exit at the first actually observed Bid/Ask price. This conflicts with the project execution contract FIRST_ACTUALLY_AVAILABLE_PRICE.",
+  "evidence": {
+    "canonical_dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "canonical_dev_records": 59940260,
+    "legacy_fixed_fill_gate_a_replay": {
+      "evaluated": 7658,
+      "survivors": 226,
+      "expected_survivors": 226,
+      "all_12_shard_counts_match_frozen_v48": true,
+      "per_shard": {
+        "H1_BID": 15,
+        "H1_MID": 13,
+        "M30_BID": 2,
+        "M30_MID": 2,
+        "M15_BID": 21,
+        "M15_MID": 33,
+        "M10_BID": 63,
+        "M10_MID": 70,
+        "M5_BID": 3,
+        "M5_MID": 4,
+        "M1_BID": 0,
+        "M1_MID": 0
+      }
+    },
+    "first_available_price_gate_a_replay": {
+      "evaluated": 7658,
+      "survivors": 206,
+      "per_shard": {
+        "H1_BID": 15,
+        "H1_MID": 12,
+        "M30_BID": 2,
+        "M30_MID": 2,
+        "M15_BID": 20,
+        "M15_MID": 30,
+        "M10_BID": 56,
+        "M10_MID": 62,
+        "M5_BID": 2,
+        "M5_MID": 5,
+        "M1_BID": 0,
+        "M1_MID": 0
+      },
+      "local_output_sha256": "76ce9b3094acc45ae833030d8c1cbcfafc54e23657d9964853417e8888193694"
+    },
+    "old_34_representative_diagnostic": {
+      "old_representatives_passing_corrected_gate": 33,
+      "old_representatives_failing_corrected_gate": 1,
+      "failed_old_representative": "M15_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|2.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|4",
+      "aggregate_first_available_minus_fixed_R_over_old_34": -4.12630150694381,
+      "maximum_absolute_single_trade_R_difference": 0.567915247824442,
+      "local_dual_parity_output_sha256": "61da4561c8616cb246d7a6c11968ec7c9ca197ebf6c98016225d1a478f540106"
+    }
+  },
+  "corrected_clustering": {
+    "algorithm": "UNCHANGED_FROM_QROS_G30_NQX_GATE_A_CLUSTERING_PREREG_V49_v1",
+    "survivors_input": 206,
+    "clusters_total": 34,
+    "plateau_supported_clusters": 20,
+    "isolated_singletons": 11,
+    "multi_member_nonlocal_clusters": 3,
+    "edge_count": 1949,
+    "parameter_local_pairs": 264,
+    "largest_cluster": 56,
+    "cluster_size_median": 2.0,
+    "local_output_sha256": "a8195e110e29a7c93a2653fd5dbe21276725d2264d0dfacb93c978f27dea5f77",
+    "representatives_frozen": 34,
+    "same_representative_identities_as_v49": 32,
+    "superseded_v49_representatives": [
+      "M15_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|2.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|4",
+      "M5_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|3.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|4"
+    ],
+    "new_representatives": [
+      "M5_MID:SELL:CURRENT_BAR_INCLUDED|3|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|4",
+      "M5_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|4|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|3"
+    ],
+    "representatives": [
+      "H1_MID:BUY:CURRENT_BAR_INCLUDED|1.75|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|4",
+      "H1_MID:BUY:CURRENT_BAR_INCLUDED|2.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|2",
+      "H1_BID:BUY:CURRENT_BAR_INCLUDED|2|CLOSE_BREAKS_PRIOR_N_BAR_EXTREME|1",
+      "H1_BID:BUY:CURRENT_BAR_INCLUDED|2|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|2",
+      "H1_BID:BUY:LAGGED_ONE_BAR_PRE_SHOCK|2.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|2",
+      "H1_BID:BUY:LAGGED_ONE_BAR_PRE_SHOCK|3|CLOSE_EXCEEDS_PRIOR_N_CLOSES|4",
+      "M10_BID:BUY:CURRENT_BAR_INCLUDED|1.75|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|5",
+      "M10_BID:BUY:CURRENT_BAR_INCLUDED|2.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|4",
+      "M10_BID:BUY:CURRENT_BAR_INCLUDED|3|CLOSE_EXCEEDS_PRIOR_N_CLOSES|4",
+      "M10_BID:BUY:LAGGED_ONE_BAR_PRE_SHOCK|3.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|2",
+      "M10_BID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|4|CLOSE_EXCEEDS_PRIOR_N_CLOSES|4",
+      "M10_BID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|4|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|2",
+      "M10_MID:SELL:CURRENT_BAR_INCLUDED|4|CLOSE_EXCEEDS_PRIOR_N_CLOSES|3",
+      "M10_BID:SELL:CURRENT_BAR_INCLUDED|4|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|2",
+      "M10_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|3.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|3",
+      "M10_MID:BUY:LAGGED_ONE_BAR_PRE_SHOCK|2.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|5",
+      "M15_MID:SELL:CURRENT_BAR_INCLUDED|1.75|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|5",
+      "M15_BID:SELL:CURRENT_BAR_INCLUDED|2.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|3",
+      "M15_BID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|3|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|4",
+      "M15_BID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|3.5|CLOSE_EXCEEDS_PRIOR_N_CLOSES|4",
+      "M15_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|4|CLOSE_EXCEEDS_PRIOR_N_CLOSES|4",
+      "M15_BID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|4|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|3",
+      "M15_MID:BUY:CURRENT_BAR_INCLUDED|1.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|5",
+      "M15_MID:BUY:CURRENT_BAR_INCLUDED|2|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|5",
+      "M15_MID:BUY:LAGGED_ONE_BAR_PRE_SHOCK|3|CLOSE_BREAKS_PRIOR_N_BAR_EXTREME|5",
+      "M15_MID:SELL:CURRENT_BAR_INCLUDED|4|CLOSE_EXCEEDS_PRIOR_N_CLOSES|2",
+      "M15_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|2.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|5",
+      "M30_BID:BUY:CURRENT_BAR_INCLUDED|1.75|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|3",
+      "M30_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|2.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|4",
+      "M30_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|3|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|3",
+      "M5_BID:BUY:CURRENT_BAR_INCLUDED|1|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|8",
+      "M5_MID:BUY:CURRENT_BAR_INCLUDED|1.25|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|8",
+      "M5_MID:SELL:CURRENT_BAR_INCLUDED|3|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|4",
+      "M5_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|4|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|3"
+    ]
+  },
+  "scientific_disposition": {
+    "v48_gate_a": "HISTORICAL_FIXED_FILL_RESULT_SUPERSEDED_FOR_EXECUTION_PRICE_SEMANTICS",
+    "v49_frozen_candidates": "HISTORICAL_SELECTION_SUPERSEDED_BEFORE_FUTURE_PNL",
+    "v58_staged_temporal_gate": "REMAINS_ACTIVE; ITS ECONOMIC THRESHOLDS WERE FROZEN BEFORE FUTURE PNL AND ITS EXECUTION CONTRACT ALREADY REQUIRES FIRST_ACTUALLY_AVAILABLE_PRICE",
+    "future_pnl_2020_2026_read": false,
+    "retuning_from_future": false,
+    "mt5_executed": false,
+    "branch_exhausted": false
+  },
+  "next_action": "CERTIFY TWO INDEPENDENT FIRST_AVAILABLE_PRICE EXECUTORS ON EXPOSED 2018-2019 FOR THE 34 CORRECTED REPRESENTATIVES. ONLY AFTER EXACT PARITY OPEN STAGE_B 2020-2021; KEEP 2022-2026 SEALED UNTIL SEQUENTIAL GATES AUTHORIZE THEM."
+}
