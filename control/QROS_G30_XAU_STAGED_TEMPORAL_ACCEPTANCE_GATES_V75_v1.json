@@ -1,0 +1,21 @@
+{
+  "schema":"QROS_G30_XAU_STAGED_TEMPORAL_ACCEPTANCE_GATES_V75_v1",
+  "status":"FROZEN_PROSPECTIVELY_BEFORE_ANY_XAU_2020_PLUS_STRATEGY_PNL",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "human_name":"Campaña 30 — Continuación después de un shock de volatilidad",
+  "asset":"XAUUSD",
+  "freeze_date":"2026-09-01",
+  "derivation_authority":"control/QROS_G30_NQX_STAGED_TEMPORAL_ACCEPTANCE_GATES_V58_v1.json",
+  "derivation_rule":"ASSET_NEUTRAL_TRANSFER_OF_ALREADY_FROZEN_G30_TEMPORAL_GATE; SAME_THRESHOLDS_AND_STAGE_SUPPORT; XAU OBSERVED BID_ASK COSTS USED; NO XAU 2020_PLUS ECONOMIC DATA USED",
+  "scientific_firewall":{"xau_strategy_pnl_2020_2026_read_before_freeze":false,"retuning_forbidden":true,"single_winner_selection_forbidden":true,"buy_sell_separate":true,"all_passing_representatives_advance":true},
+  "execution_contract":{"buy":"ASK_IN_BID_OUT","sell":"BID_IN_ASK_OUT","executable_quote":"ASK_GT_BID_ONLY","ambiguous_sl_tp":"SL_FIRST","gap":"FIRST_ACTUALLY_AVAILABLE_PRICE","same_day_exit":true,"one_active_position_per_asset":true,"same_timestamp_reentry":"BLOCKED_STRICT_ENTRY_TS_GT_PREV_EXIT_TS"},
+  "cost_regimes":{"central":"REAL_OBSERVED_BID_ASK_ALREADY_EMBEDDED","conservative":"PLUS_0.5X_OBSERVED_SPREAD_ADVERSE_AT_ENTRY_AND_EXIT","severe":"PLUS_1.0X_OBSERVED_SPREAD_ADVERSE_AT_ENTRY_AND_EXIT"},
+  "stages":[
+    {"id":"STAGE_B_INTERNAL_CONFIRMATION","period":"DARWINEX_MT5_SERVER_CLOCK_2020_2021","minimum_trades":20,"pf_central_min":1.20,"pf_conservative_min":1.10,"pf_severe_min":1.00,"net_R_central_must_be_positive":true,"net_R_conservative_must_be_positive":true,"net_R_severe_must_be_positive":true,"positive_full_years_central_required":[2020,2021],"independent_trade_parity_required_before_verdict":true,"failure":"REJECTED_NO_RESCUE_NO_RETUNING_LATER_PERIODS_REMAIN_UNREAD","pass":"ADVANCE_TO_STAGE_C_VALIDATION"},
+    {"id":"STAGE_C_VALIDATION","period":"DARWINEX_MT5_SERVER_CLOCK_2022_2024","minimum_trades":30,"pf_central_min":1.20,"pf_conservative_min":1.10,"pf_severe_min":1.00,"net_R_central_must_be_positive":true,"net_R_conservative_must_be_positive":true,"net_R_severe_must_be_positive":true,"positive_full_years_central_required":[2022,2023,2024],"independent_trade_parity_required_before_verdict":true,"failure":"REJECTED_NO_RESCUE_NO_RETUNING_2025_2026_REMAINS_UNREAD","pass":"ADVANCE_TO_STAGE_D_HOLDOUT"},
+    {"id":"STAGE_D_HOLDOUT","period":"DARWINEX_MT5_SERVER_CLOCK_2025_THROUGH_2026_07_24_PARTIAL","minimum_trades":10,"pf_central_min":1.20,"pf_conservative_min":1.10,"pf_severe_min":1.00,"net_R_central_must_be_positive":true,"net_R_conservative_must_be_positive":true,"net_R_severe_must_be_positive":true,"positive_full_years_central_required":[2025],"partial_2026_policy":"INCLUDED_IN_AGGREGATE_STAGE_METRICS_BUT_EXCLUDED_FROM_FULL_YEAR_POSITIVITY","independent_trade_parity_required_before_verdict":true,"failure":"REJECTED_NO_SUPERGATE_RESCUE_NO_RETUNING","pass":"ADVANCE_TO_SUPERGATE"}
+  ],
+  "sequential_firewall":{"open_stage_b_first_only":true,"stage_c_may_open_only_for_stage_b_passers":true,"stage_d_may_open_only_for_stage_c_passers":true,"aggregate_2020_2026_first_pass_forbidden":true,"partial_future_pnl_decisions_forbidden":true},
+  "prohibitions":["NO_THRESHOLD_CHANGES_AFTER_ANY_XAU_2020_PLUS_ECONOMIC_RESULT","NO_SINGLE_WINNER_SELECTION","NO_BUY_SELL_MERGING_FOR_GATE","NO_NQX_REOPEN","NO_MT5_BEFORE_RESEARCH_SUPERGATE","NO_BRANCH_EXHAUSTED_FROM_TEMPORAL_FAILURE_ALONE"],
+  "next_action":"OPEN ONLY XAU STAGE_B 2020-2021 FOR ALL 28 FROZEN REPRESENTATIVES AFTER EXPLICIT AUTHORIZATION ALREADY RECEIVED; REQUIRE TWO INDEPENDENT EXECUTION PATHS AND APPLY THIS GATE WITHOUT RETUNING."
+}
