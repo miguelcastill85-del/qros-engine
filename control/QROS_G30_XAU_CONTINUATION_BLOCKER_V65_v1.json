@@ -1,0 +1,72 @@
+{
+  "schema":"QROS_G30_XAU_CONTINUATION_BLOCKER_V65_v1",
+  "status":"BLOCKED_BY_INFRASTRUCTURE",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "human_name":"Campaña 30 — Continuación después de un shock de volatilidad",
+  "asset_branch":"XAUUSD",
+  "created_date":"2026-09-01",
+  "nqx_branch":{"status":"REJECTED_STAGE_D_HOLDOUT","verdict_ref":"control/QROS_G30_NQX_STAGE_D_2025_2026_VERDICT_V64_v1.json","supergate_executed":false,"mt5_executed":false,"retuning_allowed":false},
+  "xau_recovered_scientific_state":{
+    "development_period":"DARWINEX_MT5_SERVER_CLOCK_2018_2019",
+    "development_exposed":true,
+    "future_strategy_pnl_2020_plus_read":false,
+    "dev_carrier_ref":"control/XAUUSD_DEV_PACKED17_REMATERIALIZATION_v1.json",
+    "dev_carrier_records":151382388,
+    "dev_carrier_bytes":2573500596,
+    "dev_carrier_sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "m1_cache_ref":"control/XAU_DEV_M1_CACHE_RECONSTRUCTION_v2.json",
+    "m1_cache_rows":681772,
+    "independent_bar_parity_ref":"control/XAU_FULL_INDEPENDENT_M1_H1_PARITY_v1.json",
+    "independent_bar_parity":"PASS_M1_M5_M10_M15_M30_H1",
+    "causal_tick_execution_index_ref":"control/XAUUSD_DEV_CAUSAL_TICK_EXECUTION_INDEX_v1.json",
+    "historical_economic_checkpoint_ref":"control/G30_STAGE1_ECONOMIC_SCORING_PARTIAL_v3.json",
+    "historical_economic_shards_completed":["XAUUSD_H1_BID","XAUUSD_H1_MID"],
+    "historical_economic_shards_completed_count":2,
+    "historical_economic_shards_total":12,
+    "historical_last_attempt":"XAUUSD_M30_BID_TIMEOUT_NO_RECEIPT",
+    "historical_economic_disposition":"PRESERVE_AS_HISTORICAL_ONLY_SUPERSEDED_FOR_CURRENT_GATE_A_BY_FIRST_ACTUALLY_AVAILABLE_PRICE_EXECUTION_CORRECTION",
+    "old_runner_recovery_ref":"control/G30_STAGE1_RUNNER_RECOVERY_EXHAUSTIVE_SEARCH_v1.json",
+    "old_runner_source_status":"SOURCE_BYTES_UNAVAILABLE_DO_NOT_PRETEND_RECOVERED"
+  },
+  "xau_full_authority":{
+    "carrier":"XAU_PACKED17_CENT_FULL_2018_2026.bin",
+    "records":697060968,
+    "bytes":11850036456,
+    "sha256":"c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+    "multipart_zip_count":35,
+    "multipart_pattern":"QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip ... part035-of-035.zip",
+    "file_library_catalog_status":"35_OF_35_CANONICAL_PARTS_HISTORICALLY_VERIFIED",
+    "file_library_binary_mount_current_runtime":"UNAVAILABLE"
+  },
+  "recovery_search_evidence":{
+    "runtime_mnt_data":{"xau_zip_count":0,"xau_bin_count":0,"xau_cache_count":0,"only_xau_named_nondata_file":"/mnt/data/Investigación XAUUSD.txt"},
+    "dropbox_exact_searches":{"QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip":0,"QROS_XAU_FULL_HISTORY_v2_part035-of-035.zip":0,"XAU_PACKED17_CENT_FULL_2018_2026.bin":0,"XAUUSD_DEV_PACKED17_2018_2019_v1.bin":0,"XAU_DEV_M1_EXECUTABLE_QUOTE_CACHE_v2.npz":0,"XAUUSD_DEV_CAUSAL_TICK_EXECUTION_INDEX":0},
+    "github_recursive_tree":{"text_receipts_found":true,"dev_binary_carrier_found":false,"full_binary_carrier_found":false,"m1_npz_cache_found":false,"tick_execution_index_binary_found":false,"conclusion":"PERSISTENT_GITHUB_HAS_AUDIT_RECEIPTS_AND_SOURCE_CODE_BUT_NOT_THE_REQUIRED_XAU_MARKET_BINARY_BYTES"},
+    "file_library":{"canonical_zip_references_found":true,"references_are_not_executable_runtime_bytes":true}
+  },
+  "root_cause":"THE_XAU_CANONICAL_BINARY_DATA_WAS_PREVIOUSLY_DELIVERED_AND_VERIFIED, BUT THE CURRENT CHAT RUNTIME HAS NO INTERFACE THAT MATERIALIZES FILE_LIBRARY BINARY REFERENCES INTO EXECUTABLE LOCAL BYTES; NO DUPLICATE BYTE COPY WAS FOUND IN DROPBOX OR GITHUB. THIS IS AN INFRASTRUCTURE BYTE-MATERIALIZATION BLOCKER, NOT A SCIENTIFIC OR DATA-IDENTITY FAILURE.",
+  "scientific_guards":{
+    "xau_2020_plus_strategy_pnl_read":false,
+    "xau_gate_a_current_semantics_executed":false,
+    "xau_candidates_frozen_for_future":false,
+    "nqx_retuning":false,
+    "supergate":false,
+    "mt5":false,
+    "branch_exhausted":false
+  },
+  "required_continuation_when_bytes_are_materialized":[
+    "REMATERIALIZE_XAU_DEV_2018_2019_FROM_CANONICAL_ZIPS_AND_REQUIRE_SHA256_3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "REBUILD_AND_VERIFY_M1_CACHE_AND_CAUSAL_EXECUTION_INDEX",
+    "RUN_TWO_INDEPENDENT_FIRST_ACTUALLY_AVAILABLE_PRICE_EXECUTORS_ON_ALL_12_XAU_DEV_SHARDS",
+    "APPLY_CURRENT_G30_GATE_A_ON_2018_2019_ONLY_WITH_BUY_AND_SELL_SEPARATE",
+    "CLUSTER_ALL_PASSERS_USING_THE_FROZEN_NON_ECONOMIC_SIMILARITY_RULE_AND_FREEZE_REPRESENTATIVES",
+    "FREEZE_OR_REUSE_PROSPECTIVE_STAGED_TEMPORAL_GATES_BEFORE_ANY_2020_PLUS_PNL",
+    "OPEN_2020_2021_ONLY_FOR_FROZEN_REPRESENTATIVES_THEN_2022_2024_ONLY_FOR_PASSERS_THEN_2025_2026_ONLY_FOR_PASSERS",
+    "RUN_SUPERGATE_ONLY_AFTER_FINAL_HOLDOUT_PASS",
+    "RUN_MT5_ONLY_AFTER_RESEARCH_SUPERGATE_PASS"
+  ],
+  "user_action_required_now":"NONE",
+  "prohibitions":["NO_USER_REUPLOAD_REQUEST_FOR_ALREADY_DELIVERED_XAU_DATA","NO_200S_BAR_SUBSTITUTION_FOR_TICK_EXECUTION","NO_NQX_REOPTIMIZATION","NO_XAU_FUTURE_PNL_BEFORE_CORRECTED_DEV_SELECTION","NO_MT5","NO_BRANCH_EXHAUSTED"],
+  "decision":"XAU_BRANCH_BLOCKED_BY_INFRASTRUCTURE_WITH_SCIENTIFIC_STATE_PRESERVED",
+  "next_action":"WHEN AN EXISTING DATA INTERFACE MATERIALIZES THE ALREADY-DELIVERED XAU CANONICAL ZIP BYTES INTO THE RUNTIME, RESUME AUTOMATICALLY FROM CORRECTED XAU DEV 2018-2019. UNTIL THEN DO NOT REQUEST REUPLOAD, DO NOT ALTER SCIENTIFIC RULES, AND DO NOT DECLARE G30 BRANCH_EXHAUSTED."
+}
