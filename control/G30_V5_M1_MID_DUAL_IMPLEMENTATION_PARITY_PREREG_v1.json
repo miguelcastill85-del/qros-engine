@@ -1,0 +1,41 @@
+{
+  "schema": "QROS_G30_V5_M1_MID_DUAL_IMPLEMENTATION_PARITY_PREREG_v1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "DEV_2018_2019_IMPLEMENTATION_PARITY_ONLY_NO_HOLDOUT_NO_GATE_A_NO_ECONOMIC_SELECTION",
+  "parent_head": "QROS_PERSISTENT_CONTROL_HEAD_V46",
+  "migration_ref": "control/G30_V5_LEGACY_RUNNER_SOURCE_MIGRATION_PREREG_v1.json",
+  "signal_count_parity_ref": "control/G30_V5_REPLACEMENT_12SHARD_SIGNAL_COUNT_PARITY_v1.json",
+  "primary_implementation": {
+    "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+    "sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+    "bytes": 11424,
+    "cross_chat_readback": "PASS"
+  },
+  "independent_implementation_path": "control/recovery/g30_m1_mid_v5_independent_engine_v1.py",
+  "independence_requirements": [
+    "Rebuild M1 exact contemporaneous MID bars directly from canonical PACKED17 ticks using an independently written streaming implementation.",
+    "Rebuild executable-minute summaries directly from canonical ticks; do not depend on the primary engine minute-cache implementation for the oracle result.",
+    "Compute ATR14 using an independently written rolling implementation.",
+    "Compute Stage1 signal predicates using independently written explicit causal loops.",
+    "Execute BUY Ask-in/Bid-out and SELL Bid-in/Ask-out with Ask>Bid fills only, SL-first ambiguity, same-day deadline, 20-bar maximum hold, ATR multiplier 3 and RR 1.5.",
+    "Implement strict one-position selection independently with entry_ts > previous_exit_ts."
+  ],
+  "allowed_computation": "M1_MID signal masks, per-bar execution outcome arrays, and ordered selected-trade ledger hashes may be computed solely for implementation parity. Aggregate strategy PnL/PF/expectancy/winner ranking must not be inspected or used during this gate.",
+  "required_checks": [
+    "Canonical NQX DEV SHA-256 exact before execution.",
+    "Both source SHA-256 identities exact before execution.",
+    "M1_MID bars = 673097 and exact bar arrays primary vs independent.",
+    "M1_MID unique masks = 324 and exact combined signal-mask SHA keyset primary vs independent.",
+    "Per-bar BUY outcome arrays entry_ts, exit_ts and R bytes exact primary vs independent.",
+    "Per-bar SELL outcome arrays entry_ts, exit_ts and R bytes exact primary vs independent.",
+    "For all 324 unique masks × BUY/SELL = 648 ledgers, ordered selected-trade ledger SHA-256 exact with zero mismatches.",
+    "No aggregate profitability fields in the parity receipt."
+  ],
+  "pass_condition": "All required checks exact; 648/648 ordered ledger hashes match with zero mismatches. Then the implementation migration is validated and M1_MID economic output may be promoted under the durable primary implementation without changing scientific rules.",
+  "fail_condition": "Any source, bar, signal, outcome-byte, selection, or ledger-hash mismatch fails closed. No tuning from M1_MID results is allowed.",
+  "holdout_opened": false,
+  "pnl_read_authorized": false,
+  "mt5_authorized": false,
+  "head_modification_authorized": false
+}
