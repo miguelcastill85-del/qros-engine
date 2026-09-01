@@ -28,9 +28,12 @@
     "pf_conservative":1.243020649216661,
     "pf_severe":1.2025391165203532,
     "net_r_central":22.77635400671594,
+    "net_r_conservative":19.80766826593915,
+    "net_r_severe":16.83898252516236,
     "annual_net_r_central":{"2022":11.573074717954714,"2023":5.2969824431468675,"2024":5.9062968456143565},
-    "ledger_sha256":"a31d90bf7f51ab5b91bfd1d1fbb4e0a5a6f42f204da0b211f71899197a280786"
+    "ledger_sha256":"b0f6f95b66cf19e57cc4f03feeecfe3a81e8d65955e0c62b2edd0589b898700e"
   },
+  "receipt_correction":{"reason":"Initial receipt transcription carried an incorrect ledger_sha256; corrected against the exact local Stage C aggregate before any Stage D strategy PnL access.","economic_metrics_changed":false,"decision_changed":false},
   "rejected_set_definition":"EXACT COMPLEMENT OF G30V59C015 WITHIN THE 11 STAGE_C INPUTS; 10 REJECTED; NO RESCUE AND NO 2025_2026 ACCESS",
   "scientific_exposure":{"2020_2021_strategy_pnl":"EXPOSED_FOR_ORIGINAL_34","2022_2024_strategy_pnl":"EXPOSED_FOR_STAGE_C_11_ONLY","2025_2026_strategy_pnl":"SEALED_UNREAD"},
   "decision":"1_PASS_ADVANCES_TO_STAGE_D_HOLDOUT_2025_2026;10_REJECTED_NO_RESCUE_NO_RETUNING",
