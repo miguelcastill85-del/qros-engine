@@ -1,0 +1,92 @@
+{
+  "schema": "QROS_G30_NQX_M1_MID_V5_REPLACEMENT_ECONOMIC_PARITY_v1",
+  "status": "PASS_648_OF_648_EXACT_ORDERED_LEDGER_PARITY",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "NQX_DEV_2018_2019_M1_MID_IMPLEMENTATION_PARITY_ONLY_NO_HOLDOUT",
+  "authority_head_at_start": "QROS_PERSISTENT_CONTROL_HEAD_V46",
+  "preregistration_ref": "control/G30_M1_MID_REPLACEMENT_ECONOMIC_PARITY_PREREG_v1.json",
+  "canonical_input": {
+    "bytes": 1018984420,
+    "records": 59940260,
+    "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "verification": "PASS_EXACT"
+  },
+  "executable_minute_index": {
+    "source_manifest": "control/recovery/G30_M30_SECOND_ENGINE_RESUMABLE_CHECKPOINT_v1.manifest.json",
+    "parts_required": 16,
+    "parts_verified_exact": 16,
+    "total_bytes": 37698928,
+    "merged_minute_rows": 672699,
+    "purpose": "LOSSLESS_ACCELERATION_INDEX_INTO_CANONICAL_RAW_TICKS",
+    "raw_ticks_remain_execution_authority": true
+  },
+  "signal_identity": {
+    "signal_parity_ref": "control/QROS_G30_V5_REPLACEMENT_SIGNAL_IDENTITY_12_OF_12_PARITY_v1.json",
+    "bars": 673097,
+    "raw_identities": 342,
+    "unique_masks": 324,
+    "signal_identity_sequence_sha256": "693d74e4f5493bedbeadebaa207cf4f28c3039d34bcc081bd7476fe5a5038b00",
+    "unique_mask_set_sha256": "17bad4e5bb05c05396ee1d796956b34896b29348bc06f05110488015519a491a",
+    "independent_signal_agreement": "PASS_EXACT"
+  },
+  "candidate_implementation": {
+    "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+    "sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+    "bytes": 11424,
+    "cross_chat_readback": "PASS_BYTE_FOR_BYTE",
+    "execution_mode": "DETERMINISTIC_STAGED_ORCHESTRATION_OF_EXACT_FROZEN_SOURCE_FUNCTIONS",
+    "monolithic_attempt": "RUNTIME_45_SECOND_WALL_TIMEOUT_NO_OUTPUT_PROMOTED",
+    "staged_correction": "BARS_SIGNAL_ATR_EXECUTABLE_MINUTES_OUTCOMES_AND_LEDGER_FINALIZATION_CHECKPOINTED_SEPARATELY_WITHOUT_RULE_CHANGE",
+    "output_bytes": 185141,
+    "output_sha256": "1a4f50c0c0dbefbece2fe7b539c3b6bd5114870afed24627065d183477950234"
+  },
+  "independent_implementation": {
+    "source_freeze_ref": "control/G30_M1_MID_INDEPENDENT_ECONOMIC_ENGINE_SOURCE_FREEZE_v1.json",
+    "path": "control/recovery/g30_m1_mid_independent_economic_engine_v1.py",
+    "creation_commit": "bebe9ac5c6b6fc322e28f68507062c5adbf63c0a",
+    "git_blob_sha": "6a81126dd4f54e528f20d1681b0d11b1c8cade95",
+    "bytes": 7641,
+    "sha256": "21127496ddbd930d8dc8e6be2ba567fd87107bfcaa9fca8b644406b1d24e7ad6",
+    "readback_verified": true,
+    "signal_dependency_sha256": "65933b2de83051919820776ff3ae23ce5b751f2842fcaf4d6657f9e85f0dd1b8",
+    "candidate_outcome_or_selection_functions_called": false,
+    "output_bytes": 185228,
+    "output_sha256": "4443ac90c2ccabee827590d3ce9af4a287318e9c9478156b5f317d2588cb7f62"
+  },
+  "parity": {
+    "candidate_side_ledgers": 648,
+    "independent_side_ledgers": 648,
+    "signal_hash_side_keyset_equal": true,
+    "ordered_trade_ledger_sha256_exact": 648,
+    "ordered_trade_ledger_sha256_required": 648,
+    "ledger_hash_mismatches": 0,
+    "trade_count_mismatches": 0,
+    "net_r_float64_mismatches": 0,
+    "canonical_ledger_root_definition": "SHA256 over records sorted by signal_sha256+side of signal_sha256 raw32 + side UTF8+NUL + ledger_sha256 raw32 + n int64 little-endian + net_r float64 little-endian",
+    "candidate_ledger_root_sha256": "71b022b391b0abc76e1d25aabc55f9d1f4e36ef47cefecf122a3837c08ed7694",
+    "independent_ledger_root_sha256": "71b022b391b0abc76e1d25aabc55f9d1f4e36ef47cefecf122a3837c08ed7694"
+  },
+  "diagnostic_aggregate_not_for_selection": {
+    "buy_ledgers": 324,
+    "sell_ledgers": 324,
+    "buy_selected_trades_across_all_masks": 3252889,
+    "sell_selected_trades_across_all_masks": 3294543,
+    "total_selected_trades_across_all_masks": 6547432,
+    "buy_net_r_sum_across_all_masks": -636602.2593953726,
+    "sell_net_r_sum_across_all_masks": -673880.4592489834,
+    "total_net_r_sum_across_all_masks": -1310482.718644356,
+    "warning": "These are sums across hundreds of alternative configurations and are not a strategy, portfolio, Gate A result, or selection statistic."
+  },
+  "migration_decision": "PASS_IMPLEMENTATION_EQUIVALENCE_FOR_PENDING_M1_MID",
+  "scientific_promotion_authorized": "M1_MID_MAY_BE_PROMOTED_AS_THE_12TH_NQX_DEV_ECONOMIC_SHARD_AFTER_12_OF_12_INVENTORY_RECONCILIATION",
+  "guards": {
+    "holdout_opened": false,
+    "mt5_executed": false,
+    "gate_a_evaluated": false,
+    "economic_performance_used_to_tune_replacement": false,
+    "legacy_missing_hashes_relabelled": false,
+    "partial_or_timeout_output_promoted": false,
+    "branch_exhausted": false
+  },
+  "next_action": "RECONCILE_AND_PROMOTE NQX ECONOMIC SHARDS 12_OF_12; THEN RUN PREREGISTERED COST_STRESS_AND_GATE_A ON DEV ONLY. HOLDOUT REMAINS SEALED."
+}
