@@ -1,0 +1,69 @@
+{
+  "schema": "QROS_G30_NQX_12_OF_12_ECONOMIC_MANIFEST_AUDIT_V48_v1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "scope": "DEV_2018_2019_ONLY_NO_HOLDOUT",
+  "migration_ref": "control/QROS_CROSS_CHAT_RESEARCH_MIGRATION_V48_PASS_v1.json",
+  "objective": "Audit and reconcile the promoted NQX 12-of-12 economic shard manifest before cost-stress and Gate A.",
+  "expected_manifest": [
+    {"shard":"H1_BID","bars":11341,"unique_masks":314,"output_sha256":"e90111c42e7f36d2776c0ac1f134c4d0b026c7337be441e6ac79e23e0ff962e5","authority":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json"},
+    {"shard":"H1_MID","bars":11341,"unique_masks":314,"output_sha256":"4fea790499b27a6497eedb7ee337cda678dea1df76c01be116b6f72a37c91393","authority":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json"},
+    {"shard":"M30_BID","bars":22670,"unique_masks":313,"output_sha256":"14e7b0db71650ff560c391bb648e00d524f83c2b3a6087518e652c32e4d80100","authority":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json"},
+    {"shard":"M30_MID","bars":22670,"unique_masks":312,"output_sha256":"4ee96fab1f92389437c9dc4b2bdeefde88aabaa31e5a6d4fd89a4135358ef632","authority":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json"},
+    {"shard":"M15_BID","bars":45312,"unique_masks":322,"output_sha256":"0f3839b9bd0460f693850a3132e7d57dc36b2ae78281b20c21876dc35e11794e","authority":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json"},
+    {"shard":"M15_MID","bars":45312,"unique_masks":321,"output_sha256":"fdfb5c9a94738b37dd1a5051ad0cff01124fa18b26f0ac8d3eee31efe4f515c2","authority":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json"},
+    {"shard":"M10_BID","bars":67775,"unique_masks":321,"output_sha256":"468e9234f7c19537e83846985ac0a784b726d4b7f6b6dcf07b173703684021b0","authority":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json"},
+    {"shard":"M10_MID","bars":67775,"unique_masks":321,"output_sha256":"3a5e704608868c990fe099abb7349487423ef17510f19780748a9c2e71f6c9ce","authority":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json"},
+    {"shard":"M5_BID","bars":135250,"unique_masks":322,"output_sha256":"bd20096463f8e862c754739e3f11b8bc67819101faf91d960b61808d51a50688","authority":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json"},
+    {"shard":"M5_MID","bars":135250,"unique_masks":322,"output_sha256":"1214ec59bae624f26f0040501bee5f5c42189ee69cdebc99f9a6d836afc38f59","authority":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json"},
+    {"shard":"M1_BID","bars":673097,"unique_masks":323,"output_sha256":"01f4d855e4b3e3af5cb975bacff49ecaf482282a9e866d0020eccc193fbc1134","authority":"control/G30_NQX_V5_11_OF_12_CHECKPOINT_v1.json"},
+    {"shard":"M1_MID","bars":673097,"unique_masks":324,"output_sha256":"50db30146fe98dc5545a5d85e4d6f170953d621355125395efb96861146cc525","authority":"control/G30_NQX_M1_MID_V5_DURABLE_PROMOTION_v1.json"}
+  ],
+  "metadata_reconciliation": {
+    "expected_shards": 12,
+    "authority_entries": 12,
+    "duplicate_shard_ids": 0,
+    "missing_shard_ids": 0,
+    "signal_count_crosscheck_ref": "control/G30_V5_REPLACEMENT_12SHARD_SIGNAL_COUNT_PARITY_v1.json",
+    "signal_count_crosscheck": "PASS_12_OF_12",
+    "m30_ordered_ledger_crosscheck_ref": "control/G30_NQX_M30_SECOND_ENGINE_626_PARITY_v1.json",
+    "m30_ordered_ledgers": "626_OF_626_ZERO_MISMATCH",
+    "m1_mid_ordered_ledger_crosscheck_ref": "control/G30_V5_M1_MID_DUAL_IMPLEMENTATION_PARITY_PASS_v1.json",
+    "m1_mid_ordered_ledgers": "648_OF_648_ZERO_MISMATCH",
+    "status": "PASS_METADATA_ONLY"
+  },
+  "byte_reconciliation": {
+    "status": "NOT_EXECUTABLE_PHYSICAL_OUTPUT_BYTES_UNAVAILABLE",
+    "github_output_bodies_found": 0,
+    "file_library_output_bodies_found": 0,
+    "prior_recovery_audit_ref": "control/G30_NQX_V5_ECONOMIC_OUTPUT_RECOVERY_AUDIT_v1.json",
+    "prior_recovery_audit_conclusion": "DO_NOT_CLAIM_ECONOMIC_BINDING_FROM_HASH_RECEIPTS_ALONE",
+    "silent_hash_only_promotion_forbidden": true
+  },
+  "canonical_rematerialization": {
+    "required": true,
+    "canonical_dev_bytes": 1018984420,
+    "canonical_dev_records": 59940260,
+    "canonical_dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "file_library_authority_found": true,
+    "file_library_physical_zip_bytes_available": false,
+    "dropbox_exact_zip_search_results": "0_OF_3",
+    "minimum_required_zip_parts": [
+      {"name":"QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip","bytes":100816656,"sha256":"8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b"},
+      {"name":"QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip","bytes":113466374,"sha256":"88f995d9d6b22023a7a33862b6c2089e8eb9c4be9a21567956e473a2fdbb7230"},
+      {"name":"QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip","bytes":113530945,"sha256":"f93b069fe4c95b25f864abe00e6a5b96d017131e22604260786cc1d636f3f248"}
+    ],
+    "xau_required": false
+  },
+  "cost_stress": "NOT_EXECUTED_FAIL_CLOSED",
+  "gate_a": "NOT_EVALUATED_FAIL_CLOSED",
+  "root_cause": "PROMOTED_12_OF_12_SHARD_HASH_AUTHORITY_IS_INTACT_BUT_11_LEGACY_V5_ECONOMIC_OUTPUT_BODIES_AND_CANONICAL_NQX_DEV_PHYSICAL_BYTES_ARE_NOT_AVAILABLE_IN_THE_FRESH_RUNTIME_OR_PERSISTENT_SOURCES_CHECKED; HASH_RECEIPTS_ALONE_CANNOT_SUPPORT_BYTE_RECONCILIATION_OR_ECONOMIC_GATE_A.",
+  "required_user_input": "UPLOAD_ONLY_THE_THREE_LISTED_NQX_ZIP_PARTS; DO_NOT_UPLOAD_XAU",
+  "guards": {
+    "holdout_opened": false,
+    "mt5_executed": false,
+    "head_modified": false,
+    "branch_exhausted_declared": false,
+    "pnl_claimed_without_bytes": false
+  }
+}
