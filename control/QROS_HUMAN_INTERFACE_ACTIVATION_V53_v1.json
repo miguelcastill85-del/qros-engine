@@ -1,0 +1,53 @@
+{
+  "schema": "QROS_HUMAN_INTERFACE_ACTIVATION_V53_V1",
+  "status": "PASS_ACTIVATED",
+  "previous_head": {
+    "schema": "QROS_PERSISTENT_CONTROL_HEAD_V52",
+    "blob_sha": "60e11d911ef4e1cedb731c78f4967df364bdc34f"
+  },
+  "policy": {
+    "path": "governance/QROS_HUMAN_INTERFACE_v1.json",
+    "adoption_commit": "984bc02a3ab8ef1a0f763c08a08a65e85399b04c",
+    "status": "ADOPTED_MANDATORY"
+  },
+  "report_template": {
+    "path": "governance/QROS_HUMAN_REPORT_TEMPLATE_v1.md",
+    "creation_commit": "831500d068bcbb40cbab6a0995ffc981585d2a2f"
+  },
+  "current_campaign_human_mapping": {
+    "campaign_number": 30,
+    "human_name": "Continuación después de un shock de volatilidad",
+    "technical_campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+    "technical_genealogy": "G30",
+    "asset": "NQX",
+    "human_phase": "PRUEBA FINAL CON DATOS RESERVADOS — BLOQUEADA POR DATOS FÍSICOS INCOMPLETOS",
+    "technical_state": "BLOCKED_BY_INFRASTRUCTURE"
+  },
+  "mandatory_interface_behavior": {
+    "plain_language_first": true,
+    "technical_audit_second": true,
+    "explain_new_terms_first_use": true,
+    "show_what_why_possible_outcomes_decision": true,
+    "show_confirmed_pending_hypothesis_blocked": true,
+    "show_real_progress_updates_for_long_tasks": true,
+    "fake_progress_forbidden": true,
+    "background_work_claims_forbidden": true,
+    "technical_ids_preserved": true,
+    "legacy_ids_not_renamed": true,
+    "single_chat_mode_for_now": true
+  },
+  "scientific_invariants_unchanged": {
+    "g30_frozen_representatives": 34,
+    "holdout_access_authorized": true,
+    "holdout_opened": true,
+    "holdout_economic_scoring_started": false,
+    "holdout_economic_results_computed": false,
+    "retuning_forbidden": true,
+    "mt5_authorized": false,
+    "branch_exhaustion_authorized": false,
+    "required_missing_nqx_parts": "004_028",
+    "required_missing_parts_count": 25
+  },
+  "scientific_effect": "NONE_PRESENTATION_AND_SUPERVISION_LAYER_ONLY",
+  "next_action_effect": "NONE_KEEP_V52_G30_SCIENTIFIC_NEXT_ACTION_UNCHANGED"
+}
