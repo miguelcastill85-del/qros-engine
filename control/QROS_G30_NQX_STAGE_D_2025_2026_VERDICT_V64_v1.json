@@ -1,0 +1,22 @@
+{
+  "schema":"QROS_G30_NQX_STAGE_D_2025_2026_VERDICT_V64_v1",
+  "status":"REJECTED",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "human_name":"Campaña 30 — Continuación después de un shock de volatilidad",
+  "asset":"NQX",
+  "candidate":"G30V59C015",
+  "stable_id":"M10_MID:SELL:LAGGED_ONE_BAR_PRE_SHOCK|3.5|STRICT_MONOTONIC_N_CLOSE_SEQUENCE|3",
+  "stage_d_input_ref":"control/QROS_G30_NQX_STAGE_D_FROZEN_INPUT_V63_v1.json",
+  "gate_ref":"control/QROS_G30_NQX_STAGED_TEMPORAL_ACCEPTANCE_GATES_V58_v1.json",
+  "scope":"DARWINEX_MT5_SERVER_CLOCK_2025_THROUGH_2026_07_27_PARTIAL",
+  "data":{"full_nqx_authority_sha256":"6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608","materialized_context_global_records":"400000000_559817686","materialized_context_records":159817687,"materialized_context_bytes":2716900679,"materialized_context_sha256":"ce4dccbb71162f873dcb04d3c263d75576acd2037b2c876cdbb9d6eb9d0c1764","stage_start_global_record":402398414,"source_clock_2026_start_global_record":482268660,"full_carrier_last_timestamp_ms":1785143472709},
+  "executor":{"exact_executed_source_path":"control/recovery/qros_g30_stage_d_dual_v64_EXACT_EXECUTED.py","exact_executed_source_sha256":"0d480af05f0fff88e1e078203dfb554201f6bb34f4de52d0461c3cf3864d4a21","exact_executed_source_bytes":11395,"source_commit_sha":"ec28da6e436e9fe86ca2a97d14b970c77e22e0cf","dual_implementation_design":"A_NUMBA_DIRECT_BAR_AND_TICK_SCAN_VS_B_BLOCK_STREAMING_BAR_REDUCER_PLUS_INDEPENDENT_SIGNAL_AND_TICK_CONTROL_FLOW","bar_parity":true,"atr_parity":true,"signal_parity":true,"potential_trade_parity":true,"selected_trade_parity":true,"dual_parity_all":true},
+  "result_artifact":{"local_output_sha256":"50d01545bd24cf67709b4e7f90ed37b8b35f789ea616b0dbdc625891e8461930","ledger_sha256":"ebeb7c1564e3a23011f81e7eed4b51c4ccc7770895fffc11a315f668f1827137","signals":129,"trades":119},
+  "metrics":{"trades":119,"net_r_central":0.14828768692658345,"net_r_conservative":-1.602658257257992,"net_r_severe":-3.3536042014425758,"pf_central":1.0025045492265094,"pf_conservative":0.9734296340608358,"pf_severe":0.9454228039484219,"win_rate":0.3949579831932773,"expectancy_r":0.0012461150161897768,"max_dd_r":11.515323067074295,"recovery":0.012877423070359327,"max_win_streak":6,"max_loss_streak":11,"max_underwater_trades":81,"daily_sharpe_annualized":0.018518551475577565,"daily_sortino_annualized":0.04916841311818161,"annual_net_r_central":{"2025":-6.533823234719831,"2026_partial":6.682110921646414}},
+  "gate_checks":{"minimum_trades_10":true,"pf_central_gte_1_20":false,"pf_conservative_gte_1_10":false,"pf_severe_gte_1_00":false,"net_r_central_positive":true,"net_r_conservative_positive":false,"net_r_severe_positive":false,"year_2025_positive":false,"independent_trade_parity":true},
+  "decision":"REJECTED_STAGE_D_HOLDOUT_NO_SUPERGATE_RESCUE_NO_RETUNING",
+  "scientific_exposure":{"2018_2019":"EXPOSED_DEVELOPMENT","2020_2021":"EXPOSED_FOR_34","2022_2024":"EXPOSED_FOR_STAGE_C_11","2025_2026":"EXPOSED_FOR_G30V59C015_ONLY"},
+  "portfolio_impact":"NONE_NOT_APPROVED_RESEARCH_NOT_ELIGIBLE_FOR_PORTFOLIO_INTEGRATION",
+  "guards":{"supergate_executed":false,"mt5_executed":false,"retuning":false,"xau_used_for_nqx_decision":false,"branch_exhausted":false},
+  "next_action":"MARK NQX DESCENDANT REJECTED. DO NOT RUN SUPERGATE OR MT5. RESUME THE SEPARATE XAUUSD BRANCH OF THE SAME PREREGISTERED G30 CAUSAL THESIS FROM ITS LAST VERIFIABLE CHECKPOINT; BRANCH_EXHAUSTED REMAINS FORBIDDEN UNTIL XAU AND ALL ELIGIBLE ONTOLOGY COVERAGE ARE RESOLVED."
+}
