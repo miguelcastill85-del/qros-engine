@@ -1,0 +1,126 @@
+{
+  "schema": "QROS_G30_NQX_STAGED_TEMPORAL_ACCEPTANCE_GATES_V58_v1",
+  "status": "FROZEN_PROSPECTIVELY_BEFORE_ANY_2020_PLUS_STRATEGY_PNL",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "human_name": "Campaña 30 — Continuación después de un shock de volatilidad",
+  "asset": "NQX",
+  "freeze_date": "2026-09-01",
+  "scientific_firewall": {
+    "strategy_pnl_2020_2026_read_before_freeze": false,
+    "only_structural_boundary_exposure_2020": true,
+    "retuning_forbidden": true,
+    "single_winner_selection_forbidden": true,
+    "buy_sell_separate": true,
+    "all_passing_representatives_advance": true
+  },
+  "authorities": {
+    "development_gate": "control/QROS_G30_NQX_COST_STRESS_GATE_A_DEV_V48_v1.json",
+    "historical_pre_pnl_gate": "control/QROS_G30_NQX_HOLDOUT_ACCEPTANCE_GATE_V54_v1.json",
+    "temporal_governance_correction": "control/QROS_G30_TEMPORAL_VALIDATION_GOVERNANCE_AUDIT_V57_v1.json"
+  },
+  "derivation": {
+    "principle": "Preserve the economic thresholds frozen in V54 and restore staged chronology without using future strategy outcomes.",
+    "pf_thresholds": "UNCHANGED_FROM_V54",
+    "net_R_rules": "UNCHANGED_FROM_V54",
+    "annual_stability_rule": "Preserve V54 requirement of at least 5 positive central full years out of 6, equivalent to allowing at most one isolated negative full year across the complete 2020-2025 sequence; enforce sequentially with no early negative year tolerance because later stages must remain sealed. This yields 2020-2021 = 2/2 positive, 2022-2024 = 3/3 positive, 2025 = positive. Partial 2026 is aggregate-only and excluded from full-year positivity.",
+    "support_rule": "Distribute V54 minimum 60 holdout trades across the six full source-clock years 2020-2025 at 10 trades per full year. Therefore minimum stage support is 20 for 2020-2021, 30 for 2022-2024, and 10 for 2025-2026 partial. Partial 2026 may contribute to aggregate stage trades but does not increase the required minimum.",
+    "future_data_used": false,
+    "synthetic_thresholds_used": false,
+    "gate_relaxation": false
+  },
+  "execution_contract": {
+    "buy": "ASK_IN_BID_OUT",
+    "sell": "BID_IN_ASK_OUT",
+    "executable_quote": "ASK_GT_BID_ONLY",
+    "ambiguous_sl_tp": "SL_FIRST",
+    "gap": "FIRST_ACTUALLY_AVAILABLE_PRICE",
+    "same_day_exit": true,
+    "one_active_position_per_asset": true,
+    "same_timestamp_reentry": "BLOCKED_STRICT_ENTRY_TS_GT_PREV_EXIT_TS"
+  },
+  "cost_regimes": {
+    "central": "REAL_OBSERVED_BID_ASK_ALREADY_EMBEDDED",
+    "conservative": "PLUS_0.5X_OBSERVED_SPREAD_ADVERSE_AT_ENTRY_AND_EXIT",
+    "severe": "PLUS_1.0X_OBSERVED_SPREAD_ADVERSE_AT_ENTRY_AND_EXIT"
+  },
+  "stages": [
+    {
+      "id": "STAGE_B_INTERNAL_CONFIRMATION",
+      "period": "DARWINEX_MT5_SERVER_CLOCK_2020_2021",
+      "minimum_trades": 20,
+      "pf_central_min": 1.20,
+      "pf_conservative_min": 1.10,
+      "pf_severe_min": 1.00,
+      "net_R_central_must_be_positive": true,
+      "net_R_conservative_must_be_positive": true,
+      "net_R_severe_must_be_positive": true,
+      "positive_full_years_central_required": [2020, 2021],
+      "independent_trade_parity_required_before_verdict": true,
+      "failure": "REJECTED_NO_RESCUE_NO_RETUNING_LATER_PERIODS_REMAIN_UNREAD",
+      "pass": "ADVANCE_TO_STAGE_C_VALIDATION"
+    },
+    {
+      "id": "STAGE_C_VALIDATION",
+      "period": "DARWINEX_MT5_SERVER_CLOCK_2022_2024",
+      "minimum_trades": 30,
+      "pf_central_min": 1.20,
+      "pf_conservative_min": 1.10,
+      "pf_severe_min": 1.00,
+      "net_R_central_must_be_positive": true,
+      "net_R_conservative_must_be_positive": true,
+      "net_R_severe_must_be_positive": true,
+      "positive_full_years_central_required": [2022, 2023, 2024],
+      "independent_trade_parity_required_before_verdict": true,
+      "failure": "REJECTED_NO_RESCUE_NO_RETUNING_2025_2026_REMAINS_UNREAD",
+      "pass": "ADVANCE_TO_STAGE_D_HOLDOUT"
+    },
+    {
+      "id": "STAGE_D_HOLDOUT",
+      "period": "DARWINEX_MT5_SERVER_CLOCK_2025_THROUGH_2026_07_27_PARTIAL",
+      "minimum_trades": 10,
+      "pf_central_min": 1.20,
+      "pf_conservative_min": 1.10,
+      "pf_severe_min": 1.00,
+      "net_R_central_must_be_positive": true,
+      "net_R_conservative_must_be_positive": true,
+      "net_R_severe_must_be_positive": true,
+      "positive_full_years_central_required": [2025],
+      "partial_2026_policy": "INCLUDED_IN_AGGREGATE_STAGE_METRICS_BUT_EXCLUDED_FROM_FULL_YEAR_POSITIVITY",
+      "independent_trade_parity_required_before_verdict": true,
+      "failure": "REJECTED_NO_SUPERGATE_RESCUE_NO_RETUNING",
+      "pass": "ADVANCE_TO_SUPERGATE"
+    }
+  ],
+  "sequential_firewall": {
+    "open_stage_b_first_only": true,
+    "stage_c_may_open_only_for_stage_b_passers": true,
+    "stage_d_may_open_only_for_stage_c_passers": true,
+    "aggregate_2020_2026_first_pass_forbidden": true,
+    "partial_future_pnl_decisions_forbidden": true
+  },
+  "supergate": {
+    "not_replaced_by_these_stage_gates": true,
+    "required_only_after_stage_d_pass": true,
+    "walk_forward_8_folds_min_pass": 6,
+    "wfe_min": 0.50,
+    "cpcv_required": true,
+    "monte_carlo_min": 10000,
+    "bootstrap_blocks_and_years_required": true,
+    "cost_slippage_latency_failure_stress_required": true,
+    "best_trade_removal_required": true,
+    "ablation_required": true,
+    "leave_one_year_out_required": true,
+    "mae_mfe_required": true,
+    "overlap_correlation_marginal_contribution_required": true,
+    "mt5_trade_by_trade_parity_after_research_supergate": true
+  },
+  "prohibitions": [
+    "NO_THRESHOLD_CHANGES_AFTER_ANY_2020_PLUS_ECONOMIC_RESULT",
+    "NO_SINGLE_WINNER_SELECTION",
+    "NO_BUY_SELL_MERGING_FOR_GATE",
+    "NO_XAU_SUBSTITUTION",
+    "NO_MT5_BEFORE_RESEARCH_SUPERGATE",
+    "NO_BRANCH_EXHAUSTED_FROM_TEMPORAL_FAILURE_ALONE"
+  ],
+  "next_action": "CERTIFY PRIMARY AND INDEPENDENT G30 EXECUTORS ON EXPOSED 2018-2019 ONLY. IF EXACT PARITY PASSES, OPEN ONLY STAGE_B 2020-2021 FOR ALL 34 FROZEN REPRESENTATIVES AND APPLY THIS GATE WITHOUT RETUNING."
+}
