@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_G30_XAU_CORRECTED_GATE_A_PREREG_V68_v1",
+  "status":"PREREGISTERED_NO_RESULTS",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "human_name":"Campaña 30 — Continuación después de un shock de volatilidad",
+  "asset":"XAUUSD",
+  "scope":"DARWINEX_MT5_SERVER_CLOCK_2018_2019_DEVELOPMENT_ONLY_NO_2020_PLUS_STRATEGY_PNL",
+  "canonical_dev":{"records":151382388,"bytes":2573500596,"sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53","rematerialization_ref":"control/QROS_G30_XAU_DEV_REMATERIALIZATION_V67_PASS_v1.json"},
+  "signal_universe":{"timeframes":["M1","M5","M10","M15","M30","H1"],"feature_sides":["BID","MID"],"timings":["CURRENT_BAR_INCLUDED","LAGGED_ONE_BAR_PRE_SHOCK"],"thresholds":[1,1.25,1.5,1.75,2,2.5,3,3.5,4],"persistence_families":["CLOSE_EXCEEDS_PRIOR_N_CLOSES","STRICT_MONOTONIC_N_CLOSE_SEQUENCE","CLOSE_BREAKS_PRIOR_N_BAR_EXTREME","SHOCK_BAR_BODY_DIRECTION_ONLY"],"n_values":[1,2,3,4,5,8],"raw_identities_per_shard":342,"dedupe":"EXACT_COMBINED_BUY_SELL_SIGNAL_MASK_SHA256_KEEP_FIRST_IDENTITY","expected_xau_unique_mask_total_from_signal_only_reconstruction":3784,"expected_evaluated_buy_sell_configurations":7568,"signal_identity_authority_ref":"control/recovery/g30_signal_identity_independent_parity_v3.py"},
+  "execution":{"buy":"ASK_IN_BID_OUT","sell":"BID_IN_ASK_OUT","executable_quote":"ASK_GT_BID_ONLY","ambiguous_sl_tp":"SL_FIRST","gap":"FIRST_ACTUALLY_AVAILABLE_PRICE","same_day_exit":true,"max_holding_bars":20,"stop_distance":"3.0_X_ATR14","take_distance":"1.5_X_STOP_DISTANCE","one_active_position_per_asset_per_configuration":true,"central":"REAL_OBSERVED_BID_ASK_AND_FIRST_ACTUALLY_AVAILABLE_EXIT_PRICE","conservative":"CENTRAL_MINUS_0.5_X_(ENTRY_SPREAD_PLUS_EXIT_SPREAD)_DIV_STOP_DISTANCE_IN_R","severe":"CENTRAL_MINUS_1.0_X_(ENTRY_SPREAD_PLUS_EXIT_SPREAD)_DIV_STOP_DISTANCE_IN_R"},
+  "gate_a":{"min_trades":60,"pf_central_min":1.20,"pf_conservative_min":1.10,"pf_severe_min":1.00,"both_dev_years_positive_central":true,"buy_sell_separate":true,"all_passing_configurations_advance":true,"single_winner_selection_forbidden":true},
+  "parity_requirement":{"two_independent_paths":true,"bar_parity_exact":true,"raw_signal_identity_parity_exact":true,"unique_mask_set_parity_exact":true,"selected_trade_sequence_parity_exact":true,"entry_exit_tick_and_actual_r_parity_exact":true,"fail_closed":true},
+  "scientific_guards":{"xau_2020_plus_strategy_pnl_read":false,"no_retuning":true,"no_holdout":true,"no_mt5":true,"no_branch_exhausted":true},
+  "post_gate_action":"IF_ANY_PASS, CLUSTER_ALL PASSERS WITH THE ALREADY-FROZEN V49 NON-ECONOMIC SIGNAL/TRADE SIMILARITY AND PLATEAU RULES; FREEZE REPRESENTATIVES BEFORE ANY 2020_PLUS STRATEGY PNL. IF NONE PASS, RECORD XAU GATE_A REJECTION BUT DO NOT DECLARE BRANCH_EXHAUSTED UNLESS GOVERNANCE CONDITIONS ARE SATISFIED."
+}
