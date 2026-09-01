@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_G30_XAU_DEV_REMATERIALIZATION_V67_PASS_v1",
+  "status":"PASS_CANONICAL_DEV_REMATERIALIZED",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "human_name":"Campaña 30 — Continuación después de un shock de volatilidad",
+  "asset":"XAUUSD",
+  "scope":"DARWINEX_MT5_SERVER_CLOCK_2018_2019_DEVELOPMENT_ONLY_NO_2020_PLUS_STRATEGY_PNL",
+  "created_date":"2026-09-01",
+  "authority":{"full_carrier":"XAU_PACKED17_CENT_FULL_2018_2026.bin","full_records":697060968,"full_bytes":11850036456,"full_sha256":"c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4","multipart_zip_count":35,"stream_audit":"QROS_XAU_ZIP_STREAM_AUDIT_v2.json"},
+  "runtime_upload_inventory":{"physically_materialized_zip_count":29,"physically_materialized_indices":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,23,25,27,30,32,33,34,35],"runtime_not_materialized_indices":[22,24,26,28,29,31],"interpretation":"USER_REPORTED_ALL_35_UPLOADED_BUT_CURRENT_RUNTIME_MOUNT_EXPOSES_29; THIS IS A PLATFORM_MATERIALIZATION STATE, NOT A DATA_IDENTITY_FAILURE","all_29_mounted_archive_sha256_match_manifest":true,"all_29_mounted_zip_crc_pass":true},
+  "development_materialization":{"required_parts":"COMPLETE_001_THROUGH_007_PLUS_PREFIX_OF_008","required_parts_physically_present":true,"output_runtime_path":"/mnt/data/XAUUSD_DEV_PACKED17_2018_2019_v1.bin","records":151382388,"bytes":2573500596,"sha256_expected":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53","sha256_actual":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53","parity":"PASS_EXACT"},
+  "scientific_guards":{"development_exposed":true,"strategy_pnl_2020_plus_read":false,"corrected_gate_a_executed":false,"nqx_retuned":false,"mt5_executed":false,"branch_exhausted":false},
+  "decision":"XAU_DEVELOPMENT_BYTE_BLOCKER_REMOVED",
+  "next_action":"REBUILD THE CAUSAL M1/EXECUTION CACHE FROM THE EXACT CANONICAL DEV BYTES USING DURABLE SOURCE; VERIFY STRUCTURAL PARITY; THEN RUN THE CURRENT FIRST_ACTUALLY_AVAILABLE_PRICE G30 GATE_A ON XAU DEV 2018-2019 ONLY WITH TWO INDEPENDENT IMPLEMENTATIONS. DO NOT OPEN 2020 PLUS."
+}
