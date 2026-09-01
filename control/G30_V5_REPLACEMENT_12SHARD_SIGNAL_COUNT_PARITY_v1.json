@@ -1,0 +1,46 @@
+{
+  "schema": "QROS_G30_V5_REPLACEMENT_12SHARD_SIGNAL_COUNT_PARITY_v1",
+  "status": "PASS_12_OF_12_COUNT_PARITY",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "DEV_2018_2019_SIGNAL_ONLY_NO_PNL_NO_HOLDOUT",
+  "migration_prereg_ref": "control/G30_V5_LEGACY_RUNNER_SOURCE_MIGRATION_PREREG_v1.json",
+  "replacement_source": {
+    "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+    "sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+    "bytes": 11424,
+    "cross_chat_readback_ref": "control/QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_PASS_v1.json",
+    "cross_chat_byte_identity": "PASS"
+  },
+  "canonical_input": {
+    "path_runtime": "/mnt/data/NQX_DEV_PACKED17_2018_2019_v1.bin",
+    "bytes": 1018984420,
+    "records": 59940260,
+    "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "verification": "PASS_EXACT"
+  },
+  "frozen_exact_descendant_authority_ref": "control/G30_NQX_EXACT_DESCENDANT_12_OF_12_DUAL_PARITY_v1.json",
+  "comparison_method": "For each of 12 NQX TF/feature-side shards, rebuild bars and signal masks from canonical raw ticks using the durable replacement source; deduplicate side-combined signal masks by SHA-256; compare bar count and unique-mask count to the frozen exact-descendant authority. M30_BID exact signal-hash/side keyset is additionally bound by the prior 626/626 ordered-ledger parity receipt.",
+  "results": {
+    "M1_BID":  {"bars":673097,"raw_identities":342,"unique_masks":323,"expected_unique_masks":323,"count_pass":true,"sorted_signal_hashes_sha256":"a9604c8dc0365a0decb679d64aab8fee8cd190843401781d812c83c3305485ad"},
+    "M1_MID":  {"bars":673097,"raw_identities":342,"unique_masks":324,"expected_unique_masks":324,"count_pass":true,"sorted_signal_hashes_sha256":"17bad4e5bb05c05396ee1d796956b34896b29348bc06f05110488015519a491a"},
+    "M5_BID":  {"bars":135250,"raw_identities":342,"unique_masks":322,"expected_unique_masks":322,"count_pass":true,"sorted_signal_hashes_sha256":"e9f955e54c1f8dd34d6a6ec9a0071edb97c0c1e32b6717d99481c69d0dcc8d89"},
+    "M5_MID":  {"bars":135250,"raw_identities":342,"unique_masks":322,"expected_unique_masks":322,"count_pass":true,"sorted_signal_hashes_sha256":"069e842ba0c3c6411e7bdd88f0bd9691a2beaaf72dd6efc7abc7240d7f5af199"},
+    "M10_BID": {"bars":67775,"raw_identities":342,"unique_masks":321,"expected_unique_masks":321,"count_pass":true,"sorted_signal_hashes_sha256":"0abc3961731255ffc3e85b134b50c9f7b137594d6382fc799c5b6834b3c1b340"},
+    "M10_MID": {"bars":67775,"raw_identities":342,"unique_masks":321,"expected_unique_masks":321,"count_pass":true,"sorted_signal_hashes_sha256":"547b2fc298a9aa3c54128c079d228004032ddf8deb113f4566c5cec61374f9e2"},
+    "M15_BID": {"bars":45312,"raw_identities":342,"unique_masks":322,"expected_unique_masks":322,"count_pass":true,"sorted_signal_hashes_sha256":"bec7cd317356ad462221c6afc4d6cf4e235818fdd92faef2862928559d0ee727"},
+    "M15_MID": {"bars":45312,"raw_identities":342,"unique_masks":321,"expected_unique_masks":321,"count_pass":true,"sorted_signal_hashes_sha256":"6f14533ff5dd859753911e93b0a70e290b90449a4338572ba769ad0cb701683c"},
+    "M30_BID": {"bars":22670,"raw_identities":342,"unique_masks":313,"expected_unique_masks":313,"count_pass":true,"sorted_signal_hashes_sha256":"7edc1d6f5de042bbc9c9eabe573675297534ea737ffe5bbb1b0e1e8520ee6b94"},
+    "M30_MID": {"bars":22670,"raw_identities":342,"unique_masks":312,"expected_unique_masks":312,"count_pass":true,"sorted_signal_hashes_sha256":"394131c6680ffc26a98a6ec5fda3561867cc8d3b81f62eca26c2b64dc81dbe37"},
+    "H1_BID":  {"bars":11341,"raw_identities":342,"unique_masks":314,"expected_unique_masks":314,"count_pass":true,"sorted_signal_hashes_sha256":"1c0e9d3f59f7421f17a301cad38d1be6ee849f6d0f219ccfaec06b8884b74a04"},
+    "H1_MID":  {"bars":11341,"raw_identities":342,"unique_masks":314,"expected_unique_masks":314,"count_pass":true,"sorted_signal_hashes_sha256":"c589e5d55ee4f5af8f60b22b1edc819442f5b1fa60d8cb826757882179e9e754"}
+  },
+  "count_mismatches": 0,
+  "all_12_count_pass": true,
+  "local_consolidated_receipt_sha256": "4dd6d0bf0d107bca62f67d5a7deb022890f2b3dc5c2cb8e94ba28c865d41b9b6",
+  "scientific_interpretation": "The durable replacement implementation reproduces all 12 frozen exact-descendant bar counts and unique-mask counts. This closes the preregistered 12-shard count-reproduction gate. Exact M30_BID signal-keyset and trade-sequence parity was already demonstrated by 626/626 zero-mismatch evidence. This receipt does not evaluate profitability and does not authorize M1_MID promotion by itself.",
+  "remaining_migration_gate": "INDEPENDENT_SECOND_IMPLEMENTATION_M1_MID_SIGNAL_AND_ORDERED_LEDGER_PARITY_WITHOUT_READING_AGGREGATE_PNL",
+  "holdout_opened": false,
+  "pnl_read": false,
+  "gate_a": "NOT_EVALUATED",
+  "branch_exhausted": false
+}
