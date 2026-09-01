@@ -1,0 +1,17 @@
+{
+  "schema":"QROS_NQX_DEV_REMATERIALIZATION_V48_PASS_v1",
+  "status":"PASS_EXACT",
+  "scope":"NQX_DEV_2018_2019_ONLY_NO_HOLDOUT",
+  "migration_ref":"control/QROS_CROSS_CHAT_RESEARCH_MIGRATION_V48_PASS_v1.json",
+  "uploaded_parts":[
+    {"index":1,"file":"QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip","zip_bytes":100816656,"zip_sha256":"8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b","payload_bytes":340000000,"payload_sha256":"0a0f1814e51bb649aeeadc05a982b052bfaa3a6ea48c6b81c8ec7e1af096f60d"},
+    {"index":2,"file":"QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip","zip_bytes":113466374,"zip_sha256":"53f827fa0b611d9e2b00db78b1da29b1c41f0d2d7d7e912ddcec12de42984a24","payload_bytes":340000000,"payload_sha256":"371e8c4bff51ed6896101aec9212aa6fcc6677eb650c1e2b1e08739c2518da91"},
+    {"index":3,"file":"QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip","zip_bytes":111669173,"zip_sha256":"48463c8dd2b020356fd9b21caea470cec4e9340d8a8fd0e25bea8fcb0c512c8b","payload_bytes":340000000,"payload_sha256":"0a74851c86bc8e07585921da2598f5ceefdccaa7cf2a16dd48d3ebcd00267cdf","dev_consumed_bytes":338984420,"dev_consumed_sha256":"646da2cbdb608d815de73618d72aa7aacc416aeba93d8124bbb91727cf3169e1"}
+  ],
+  "zip_wrapper_correction":{"supersedes_expected_zip_identity_in":"control/QROS_G30_NQX_12_OF_12_ECONOMIC_MANIFEST_AUDIT_V48_v1.json","root_cause":"PART002_AND_PART003_ZIP_WRAPPER_SHA_AND_SIZE_WERE_NOT_PRIOR_PHYSICAL_AUTHORITY; PAYLOAD_IDENTITIES_AND_CANONICAL_DEV_HASH_ARE_AUTHORITATIVE","payload_corruption":false},
+  "dev":{"bytes":1018984420,"records":59940260,"sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf","verification":"PASS_EXACT"},
+  "executable_minute_index":{"parts":16,"all_part_sha256_match_frozen_manifest":true,"merged_minute_rows":672699,"manifest_ref":"control/recovery/G30_M30_SECOND_ENGINE_RESUMABLE_CHECKPOINT_v1.manifest.json"},
+  "holdout_opened":false,
+  "mt5_executed":false,
+  "branch_exhausted":false
+}
