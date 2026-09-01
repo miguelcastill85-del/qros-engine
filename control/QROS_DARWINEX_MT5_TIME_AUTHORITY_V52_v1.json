@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_DARWINEX_MT5_TIME_AUTHORITY_V52_v1",
+  "status": "PASS_TIMEZONE_DST_AUTHORITY_RESOLVED",
+  "scope": "NQX_AND_XAU_MT5_TICK_SOURCE_CLOCK_2018_2026",
+  "authority": {
+    "user_provenance_confirmation": "THE DATA WAS EXTRACTED FROM MT5 BROKER DARWINEX AND ITS TIMEZONE/DST IS DARWINEX SERVER TIME",
+    "broker": "Darwinex",
+    "platform": "MetaTrader_5",
+    "source_clock": "DARWINEX_METATRADER_SERVER_TIME",
+    "terminal_time_user_modifiable": false,
+    "official_documentation_verified": true,
+    "official_documentation": [
+      "https://help.darwinex.com/es/horas-de-trading-de-darwinex-en-los-terminales-de-metatrader",
+      "https://help.darwinex.com/metatrader-time"
+    ]
+  },
+  "documented_clock_rule": {
+    "convention": "NEW_YORK_CLOSE",
+    "during_us_daylight_saving_time": "GMT_PLUS_3",
+    "outside_us_daylight_saving_time": "GMT_PLUS_2",
+    "dst_reference": "UNITED_STATES_DAYLIGHT_SAVING_TIME",
+    "do_not_assume_utc": true
+  },
+  "scientific_interpretation": {
+    "previous_state": "TIMEZONE_DST_UNPROVEN",
+    "new_state": "DARWINEX_MT5_SERVER_TIME_RESOLVED",
+    "timestamp_semantics": "RAW SOURCE CLOCK MUST BE INTERPRETED AS DARWINEX MT5 SERVER TIME WITH GMT+3 DURING US DST AND GMT+2 OUTSIDE US DST",
+    "session_conversion_allowed": true,
+    "session_conversion_requires": "DETERMINISTIC_US_DST_CALENDAR_AND_PARITY_TEST_AT_TRANSITION_BOUNDARIES",
+    "raw_ticks_rewrite_forbidden": true,
+    "economic_results_changed": false,
+    "holdout_pnl_read": false,
+    "retuning_authorized": false
+  },
+  "guards": {
+    "holdout_opened_state_unchanged": true,
+    "holdout_partial_pnl_computed": false,
+    "mt5_executed": false,
+    "branch_exhausted": false,
+    "xau_data_required_for_current_g30_holdout": false
+  },
+  "next_action": "USE DARWINEX MT5 SERVER-TIME RULE FOR ALL FUTURE BAR/SESSION TIME INTERPRETATION; VALIDATE DST TRANSITION BOUNDARIES BEFORE SESSION-SENSITIVE RESEARCH. CURRENT G30 HOLDOUT REMAINS BLOCKED ONLY BY MISSING NQX PARTS 004-028 AND THE PROSPECTIVE HOLDOUT ACCEPTANCE GATE, NOT BY TIMEZONE/DST."
+}
