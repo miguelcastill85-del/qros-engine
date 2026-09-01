@@ -1,0 +1,21 @@
+{
+  "schema":"QROS_G30_FIRST_AVAILABLE_EXECUTOR_MIGRATION_PREREG_V60_v1",
+  "status":"PREREGISTERED_NO_2020_PLUS_PNL",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "reason":"The historical V5 runner assigns exact -1R/+1.5R on SL/TP crossing although project governance requires valuation at the first actually observed executable Bid/Ask. The defect was discovered and quantified exclusively on exposed 2018-2019 development data before any 2020+ strategy PnL was read.",
+  "scientific_change":"NONE_TO_SIGNAL_OR_MANAGEMENT_RULE; EXECUTION_IMPLEMENTATION_CORRECTION_TO_EXISTING_FIRST_ACTUALLY_AVAILABLE_PRICE_CONTRACT",
+  "development_evidence_ref":"control/QROS_G30_EXECUTION_PRICE_SEMANTICS_CORRECTION_V59_v1.json",
+  "corrected_candidates_ref":"control/QROS_G30_NQX_CORRECTED_FROZEN_CANDIDATES_V59_v1.json",
+  "stage_gates_ref":"control/QROS_G30_NQX_STAGED_TEMPORAL_ACCEPTANCE_GATES_V58_v1.json",
+  "required_equivalence_before_future_use":[
+    "REPLAY_LEGACY_FIXED_FILL_PATH_ON_2018_2019_AND_REPRODUCE_V48_226_OF_7658_EXACTLY",
+    "RUN_TWO_INDEPENDENT_FIRST_AVAILABLE_PRICE_IMPLEMENTATIONS_ON_2018_2019",
+    "REQUIRE_EXACT_BAR_SIGNAL_ENTRY_EXIT_AND_R_PARITY_FOR_ALL_CORRECTED_34_REPRESENTATIVES",
+    "REQUIRE_ALL_CORRECTED_34_PASS_CORRECTED_GATE_A_ON_2018_2019",
+    "FREEZE_AND_READBACK_VERIFY_ALL_CONTINUATION_CRITICAL_SOURCE_BYTES_IN_GITHUB"
+  ],
+  "development_equivalence_already_observed":{"legacy_v48_reproduction":"PASS_226_OF_7658_ALL_12_SHARD_COUNTS_EXACT","corrected_dual_parity":"PASS_34_OF_34","corrected_gate_a":"PASS_34_OF_34"},
+  "future_firewall":{"strategy_pnl_2020_2026_read":false,"stage_b_2020_2021_opened_economically":false,"stage_c_2022_2024_sealed":true,"stage_d_2025_2026_sealed":true,"retuning_forbidden":true},
+  "source_freeze_required_before_stage_b":true,
+  "next_action":"PERSIST EXACT CACHE BUILDER, DUAL EXECUTOR, AND STAGE WRAPPER SOURCE BYTES IN GITHUB; VERIFY BYTE IDENTITY AND SHA256 READBACK; THEN RUN ONLY STAGE_B_2020_2021."
+}
