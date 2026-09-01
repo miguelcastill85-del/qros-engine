@@ -1,0 +1,213 @@
+{
+  "schema": "QROS_HUMAN_INTERFACE_V1",
+  "status": "ADOPTED_MANDATORY",
+  "purpose": "Make every QROS research action understandable to a non-technical human without weakening scientific rigor or auditability.",
+  "core_rule": "HUMAN_EXPLANATION_FIRST_TECHNICAL_AUDIT_SECOND",
+  "scientific_non_degradation": {
+    "changes_scientific_rules": false,
+    "changes_gates": false,
+    "changes_holdout_policy": false,
+    "changes_causality": false,
+    "changes_bid_ask_execution": false,
+    "changes_cost_models": false,
+    "changes_candidate_freezing": false,
+    "changes_multiplicity_control": false,
+    "changes_supergate": false,
+    "changes_mt5_validation": false,
+    "changes_portfolio_rules": false,
+    "changes_exposure_policy": false,
+    "changes_hashes_or_reproducibility": false,
+    "changes_rise_or_ontology": false,
+    "changes_branch_exhaustion_conditions": false
+  },
+  "naming_model": {
+    "human_primary": "CAMPAIGN_NUMBER_AND_PLAIN_LANGUAGE_NAME",
+    "technical_secondary": "GENEALOGY_AND_TECHNICAL_IDS",
+    "seed_definition": "Original idea identifier in the seed library, e.g. PUBLIC_SEED_0181. It is not a campaign number.",
+    "campaign_definition": "Scientific investigation opened to study one causal idea.",
+    "genealogy_definition": "Technical family containing all descendants of the same causal idea.",
+    "mandatory_display_example": {
+      "campaign": "Campaña 30 — Continuación después de un shock de volatilidad",
+      "source_seed": "Semilla pública #XXXX when applicable",
+      "technical_family": "G30"
+    },
+    "forbidden": [
+      "Present G30 alone without plain-language meaning when user understanding depends on it",
+      "Present PUBLIC_SEED identifiers as if they were campaign numbers",
+      "Physically rename legacy scientific identifiers merely for presentation"
+    ]
+  },
+  "mandatory_five_questions": [
+    "¿Qué estamos investigando?",
+    "¿Por qué lo estamos investigando?",
+    "¿Qué hemos descubierto hasta ahora?",
+    "¿En qué punto exacto estamos?",
+    "¿Qué ocurrirá a continuación y por qué?"
+  ],
+  "mandatory_action_explanation": [
+    "QUE_HACEMOS",
+    "POR_QUE",
+    "QUE_PUEDE_OCURRIR",
+    "QUE_DECISION_PRODUCE"
+  ],
+  "information_layers": {
+    "level_1_human_always_visible": [
+      "what is being researched",
+      "why",
+      "current state",
+      "main result",
+      "next action"
+    ],
+    "level_2_scientific_when_relevant": [
+      "metrics",
+      "periods",
+      "trade counts",
+      "costs",
+      "gates",
+      "stability",
+      "validation results"
+    ],
+    "level_3_audit_preserved": [
+      "SHA-256",
+      "paths",
+      "JSON identifiers",
+      "commits",
+      "blobs",
+      "runner versions",
+      "manifests",
+      "ledgers"
+    ],
+    "rule": "LEVEL_3_NEVER_SUBSTITUTES_LEVEL_1"
+  },
+  "human_status_panel_required_fields": [
+    "CAMPAIGN_HUMAN_NAME",
+    "ASSET",
+    "CAUSAL_IDEA",
+    "DEVELOPMENT_PERIOD",
+    "RESERVED_TEST_PERIOD",
+    "CURRENT_PHASE",
+    "VERIFIED_COUNTS_OR_METRICS_IF_AVAILABLE",
+    "CURRENT_BLOCKER_OR_NONE",
+    "HAS_RESERVED_TEST_PNL_BEEN_SEEN",
+    "CAN_STRATEGY_RULES_STILL_CHANGE",
+    "HAS_MT5_BEEN_RUN",
+    "NEXT_ACTION_AND_REASON",
+    "TECHNICAL_REFERENCE_SECONDARY"
+  ],
+  "simple_phase_map": [
+    {"phase": 1, "human": "IDEA", "technical_meaning": "causal hypothesis exists"},
+    {"phase": 2, "human": "DEFINIR TODO LO QUE INVESTIGAREMOS", "technical_meaning": "preregister and freeze eligible universe"},
+    {"phase": 3, "human": "CONSTRUIR LA ESTRATEGIA", "technical_meaning": "development-only research"},
+    {"phase": 4, "human": "PRIMER FILTRO", "technical_meaning": "Gate A"},
+    {"phase": 5, "human": "AGRUPAR DUPLICADOS", "technical_meaning": "similarity/correlation clustering"},
+    {"phase": 6, "human": "CONGELAR CANDIDATOS", "technical_meaning": "FROZEN_CANDIDATE"},
+    {"phase": 7, "human": "PRUEBA FINAL CON DATOS RESERVADOS", "technical_meaning": "holdout opened once"},
+    {"phase": 8, "human": "PRUEBAS INTENSIVAS DE RESISTENCIA", "technical_meaning": "Supergate"},
+    {"phase": 9, "human": "VALIDACIÓN MT5", "technical_meaning": "trade-by-trade MT5 parity"},
+    {"phase": 10, "human": "PRUEBA DE PORTAFOLIO", "technical_meaning": "correlation, overlap, interference and marginal contribution"}
+  ],
+  "status_translation": {
+    "APPROVED_FINAL": "🟢 APROBADA",
+    "CAMPAIGN_ACTIVE": "🟡 EN INVESTIGACIÓN",
+    "PREREGISTERED_NO_RESULTS": "🟡 EN INVESTIGACIÓN",
+    "DEVELOPMENT_RUNNING": "🟡 EN INVESTIGACIÓN",
+    "FROZEN_CANDIDATE": "🔵 CONGELADA PARA PRUEBA",
+    "APPROVED_RESEARCH": "🟢 APROBADA EN INVESTIGACIÓN — PENDIENTE DE VALIDACIÓN FINAL",
+    "MT5_EXTERNAL_PENDING": "🟡 APROBADA EN INVESTIGACIÓN — PENDIENTE DE MT5",
+    "BLOCKED_BY_INFRASTRUCTURE": "🟠 BLOQUEADA",
+    "REJECTED": "🔴 RECHAZADA",
+    "OBSERVATIONAL_RESERVE": "🟣 RESERVA OBSERVACIONAL",
+    "BRANCH_EXHAUSTED": "⚫ RAMA AGOTADA"
+  },
+  "glossary": {
+    "DEV": "Periodo de desarrollo: datos usados para construir y seleccionar la estrategia.",
+    "HOLDOUT": "Prueba final con datos reservados que no participaron en la selección y que se abre una sola vez.",
+    "GATE_A": "Primer filtro de calidad.",
+    "SUPERGATE": "Pruebas intensivas de resistencia antes de aprobación de investigación.",
+    "FROZEN_CANDIDATE": "Estrategia congelada: sus reglas ya no pueden modificarse antes de la prueba siguiente.",
+    "CLUSTER": "Grupo de estrategias muy similares que no deben contarse como módulos independientes.",
+    "GENEALOGY": "Familia nacida de una misma idea causal.",
+    "ONTOLOGY": "Mapa completo de variantes que la investigación permite estudiar.",
+    "RISE_FIXED_POINT": "Revisión completa del universo: no se encontraron nuevas familias elegibles pendientes dentro del alcance definido.",
+    "PARITY": "Comprobación de que una segunda implementación independiente reproduce las mismas señales u operaciones.",
+    "CARRIER": "Archivo maestro que contiene los datos del mercado.",
+    "LEDGER": "Registro de operaciones o eventos.",
+    "SHA256": "Huella digital usada para demostrar que un archivo no cambió.",
+    "CHECKPOINT": "Punto seguro desde el cual la investigación puede reanudarse sin repetir trabajo válido.",
+    "EXPOSURE": "Datos que ya fueron observados y ya no pueden considerarse desconocidos para esa genealogía.",
+    "WALK_FORWARD": "Prueba que avanza por distintos periodos temporales para medir estabilidad fuera del tramo de ajuste.",
+    "MONTE_CARLO": "Simulación de muchos órdenes o escenarios posibles para medir fragilidad y riesgo.",
+    "CPCV": "Prueba que reorganiza combinaciones temporales de entrenamiento y validación para comprobar que el resultado no depende de una sola división afortunada.",
+    "ABLATION": "Prueba que elimina componentes para identificar qué parte de la estrategia aporta realmente la ventaja.",
+    "MAE": "Peor movimiento en contra durante una operación.",
+    "MFE": "Mejor movimiento a favor durante una operación.",
+    "DRAWDOWN": "Caída desde un máximo anterior de capital o rendimiento acumulado.",
+    "RECOVERY": "Capacidad de recuperar las pérdidas en relación con el drawdown.",
+    "PF": "Factor de beneficio: ganancia bruta dividida por pérdida bruta.",
+    "R": "Unidad normalizada de riesgo."
+  },
+  "new_term_rule": "Any new technical term must be explained in plain language the first time it materially affects the user's understanding.",
+  "long_running_updates": {
+    "required": true,
+    "only_real_verified_progress": true,
+    "forbid_fake_progress_bars": true,
+    "forbid_background_claims_without_active_process": true,
+    "fields": [
+      "WHAT_IS_RUNNING",
+      "WHY",
+      "VERIFIABLE_PROGRESS",
+      "PROBLEMS",
+      "VALID_PARTIAL_RESULT_IF_ANY",
+      "NEXT_ACTION"
+    ],
+    "stopped_process_message": "Proceso detenido. Mostrar el último checkpoint seguro y no afirmar que sigue trabajando en segundo plano."
+  },
+  "knowledge_labels": [
+    "CONFIRMADO",
+    "PENDIENTE",
+    "HIPOTESIS",
+    "BLOQUEADO"
+  ],
+  "decision_reporting": {
+    "required_fields": [
+      "RESULTADO_PASA_NO_PASA",
+      "RAZON_PRINCIPAL",
+      "QUE_OCURRE_CON_LA_ESTRATEGIA",
+      "PUEDE_MODIFICARSE_DESPUES",
+      "SIGUIENTE_PRUEBA"
+    ],
+    "irreversible_events_must_be_explicit": [
+      "HOLDOUT ABIERTO — ESTE PERIODO YA NO ES DESCONOCIDO",
+      "ESTRATEGIA CONGELADA — YA NO PUEDE SER REOPTIMIZADA",
+      "CAMPAÑA RECHAZADA",
+      "MT5 VALIDADO OPERACIÓN POR OPERACIÓN",
+      "MÓDULO APROBADO DEFINITIVAMENTE"
+    ]
+  },
+  "portfolio_reporting": {
+    "individual_approval_is_not_portfolio_integration": true,
+    "must_explain": [
+      "simultaneous trading overlap",
+      "daily/monthly/trade correlation",
+      "new unique trade contribution",
+      "three-new-entries-per-day interference",
+      "drawdown effect",
+      "marginal alpha contribution"
+    ]
+  },
+  "continuation_rule": {
+    "when_user_says_continue": [
+      "Recover latest verifiable checkpoint",
+      "Explain where continuation starts",
+      "Explain what is already finished",
+      "Explain what comes next",
+      "Explain why it comes next",
+      "Then execute automatically"
+    ]
+  },
+  "single_chat_operating_mode": {
+    "current_policy": "ONE_ACTIVE_RESEARCH_CHAT_FOR_NOW",
+    "parallel_multi_chat_research": "DEFERRED_FOR_FUTURE_REVIEW",
+    "scientific_effect": "NONE"
+  }
+}
