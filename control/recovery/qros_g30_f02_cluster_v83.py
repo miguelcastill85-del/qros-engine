@@ -117,7 +117,7 @@ def main():
   vals=[];corrs=[]
   for ii,x in enumerate(cc):
    for y in cc[ii+1:]:
-    k=(x,y);vals.append(pair[k]['geometric'])
+    k=(x,y);vals.append(pair[k]['geometric']);
     if pair[k]['daily_r_corr'] is not None:corrs.append(pair[k]['daily_r_corr'])
   typ='PLATEAU_SUPPORTED' if len(cc)>=2 and local else ('ISOLATED_SINGLETON' if len(cc)==1 else 'MULTI_MEMBER_NONLOCAL')
   clusters.append({'cluster_id':f'{prefix}{ci:03d}','direction':parse(rep)['side'],'size':len(cc),'type':typ,'local_neighbor_pairs':len(local),'representative':rep,'representative_mean_geometric_similarity':means[rep],'members':cc,'mean_pair_geometric_similarity':float(np.mean(vals)) if vals else 1.0,'min_pair_geometric_similarity':float(np.min(vals)) if vals else 1.0,'mean_daily_r_correlation_diagnostic':float(np.mean(corrs)) if corrs else None})
