@@ -2,7 +2,7 @@ from __future__ import annotations
 import json,hashlib,sys,time
 from pathlib import Path
 import numpy as np
-import qros_g30_dual_runner_v58 as q
+import qros_g30_dual_core_v60 as q
 
 def load_reps(path):
     d=json.load(open(path)); out=[]
@@ -49,7 +49,7 @@ def run(src,cache,candidates,start_ms,end_ms,outpath,label):
         print('group',tf,fs,len(rs),flush=True)
         ba,oa,ha,la,ca=q.aggregate_from_m1(z,tf,fs)
         bb,ob,hb,lb,cb=q.build_target_bars_direct(mm['ts'],mm['bid'],mm['ask'],q.TFM[tf]*60000,fs=='MID')
-        if not all(np.array_equal(x,y) for x,y in zip((ba,oa,ha,la,ca),(bb,ob,hb,lb,cb)): raise SystemExit('BAR_PARITY_FAIL '+tf+'_'+fs)
+        if not all(np.array_equal(x,y) for x,y in zip((ba,oa,ha,la,ca),(bb,ob,hb,lb,cb))): raise SystemExit('BAR_PARITY_FAIL '+tf+'_'+fs)
         atrA=q.atr_vec(ha,la,ca); atrB=q.atr_loop(hb,lb,cb)
         if not np.allclose(atrA,atrB,equal_nan=True,rtol=0,atol=1e-12): raise SystemExit('ATR_PARITY_FAIL '+tf+'_'+fs)
         outA={}; outB={}
