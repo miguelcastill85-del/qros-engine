@@ -1,0 +1,53 @@
+{
+  "authority_head_at_start": "QROS_PERSISTENT_CONTROL_HEAD_V46",
+  "bar_parity_all": true,
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "canonical_input_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+  "diagnostic_history": {
+    "v1": "FAIL_INFRASTRUCTURE_BUG_DROPPED_ONE_PENDING_BAR_AT_SAME_BUCKET_CHUNK_BOUNDARIES; M1_MID 673069 vs 673097 bars; not scientific drift",
+    "v2": "FAIL_DIAGNOSTIC_SEMANTICS; exact rational shock threshold intentionally differed from frozen IEEE-754 ratio at exact-equality boundaries; M1_MID 69/342 raw identities differed across 62 bars while unique count stayed 324",
+    "v3": "PASS_FROZEN_IEEE754_SEMANTICS_WITH_INDEPENDENT_STREAMING_BARS_AND_INDEPENDENT_PERSISTENCE_LOGIC"
+  },
+  "gate_a": "NOT_EVALUATED",
+  "holdout_opened": false,
+  "independent_signal_runner": {
+    "bytes": 7438,
+    "creation_commit": "8c59c8c4edf1cd8890ecffedf33e28864cfaea44",
+    "git_blob_sha": "099077a65cb61ee4baaffa159b3f9c972f8231a3",
+    "path": "control/recovery/g30_signal_identity_independent_parity_v3.py",
+    "readback_verified": true,
+    "sha256": "65933b2de83051919820776ff3ae23ce5b751f2842fcaf4d6657f9e85f0dd1b8"
+  },
+  "m1_mid_economics_executed": false,
+  "m1_mid_independent_signal_agreement": "PASS",
+  "migration_gate_signal_stage": "PASS",
+  "mt5_executed": false,
+  "next_action": "RUN M1_MID DEV ECONOMICS UNDER THE DURABLE REPLACEMENT AND AN INDEPENDENT ECONOMIC IMPLEMENTATION; REQUIRE EXACT ORDERED TRADE LEDGER PARITY BEFORE PROMOTION; THEN AUDIT 12_OF_12 AND COST_STRESS/GATE_A. HOLDOUT SEALED.",
+  "pnl_read": false,
+  "raw_identity_parity_all": true,
+  "replacement_source": {
+    "bytes": 11424,
+    "cross_chat_readback": "PASS",
+    "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+    "sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2"
+  },
+  "results": [
+    {"bar_exact":true,"bars":673097,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"1bacec7f394c9f8e4130c8f94f2ff7d64e77fde2cf3ea7ef330d00b4897e8fd6","shard":"M1_BID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"a9604c8dc0365a0decb679d64aab8fee8cd190843401781d812c83c3305485ad","unique_masks":323},
+    {"bar_exact":true,"bars":673097,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"693d74e4f5493bedbeadebaa207cf4f28c3039d34bcc081bd7476fe5a5038b00","shard":"M1_MID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"17bad4e5bb05c05396ee1d796956b34896b29348bc06f05110488015519a491a","unique_masks":324},
+    {"bar_exact":true,"bars":135250,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"d84704d9f75051147874157f092d49ddfa45bc11f8ccf164cb6b24a4c9f65dd7","shard":"M5_BID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"e9f955e54c1f8dd34d6a6ec9a0071edb97c0c1e32b6717d99481c69d0dcc8d89","unique_masks":322},
+    {"bar_exact":true,"bars":135250,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"9292f3728c5e93e8f8733899468a12847feafc27d6d020eb8775455aedc46d3d","shard":"M5_MID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"069e842ba0c3c6411e7bdd88f0bd9691a2beaaf72dd6efc7abc7240d7f5af199","unique_masks":322},
+    {"bar_exact":true,"bars":67775,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"93cd97de5c1d6ed576db578f14709953304ae13ba2cf1a6dc39dba5ce81c8cc7","shard":"M10_BID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"0abc3961731255ffc3e85b134b50c9f7b137594d6382fc799c5b6834b3c1b340","unique_masks":321},
+    {"bar_exact":true,"bars":67775,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"7e90033908560b0c8e8f984b2dac84d1e8dd3eaf6b646ecd98583991003cae9b","shard":"M10_MID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"547b2fc298a9aa3c54128c079d228004032ddf8deb113f4566c5cec61374f9e2","unique_masks":321},
+    {"bar_exact":true,"bars":45312,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"25a2845f60f23d656a2e7ecd955ac9d6d53291ab0b3bc15378429d2088e82aa4","shard":"M15_BID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"bec7cd317356ad462221c6afc4d6cf4e235818fdd92faef2862928559d0ee727","unique_masks":322},
+    {"bar_exact":true,"bars":45312,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"5a97e2d4473b1c0b78e4ea29240cbc683b06a05a6557fdb42fcac450c0c712f9","shard":"M15_MID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"6f14533ff5dd859753911e93b0a70e290b90449a4338572ba769ad0cb701683c","unique_masks":321},
+    {"bar_exact":true,"bars":22670,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"51c4a57283d774032ce875308dcbbd4be1a289ee83fa7468d25b607d16d182fb","shard":"M30_BID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"7edc1d6f5de042bbc9c9eabe573675297534ea737ffe5bbb1b0e1e8520ee6b94","unique_masks":313},
+    {"bar_exact":true,"bars":22670,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"9264ca41afaeb1737ee6734eff16159faa38e9696ea6d7dc5cd08818c80721c7","shard":"M30_MID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"394131c6680ffc26a98a6ec5fda3561867cc8d3b81f62eca26c2b64dc81dbe37","unique_masks":312},
+    {"bar_exact":true,"bars":11341,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"6b9476264d1f9544cd0a40cd01603a87d64e6fd19c6c39de4c67fb208bbbed69","shard":"H1_BID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"1c0e9d3f59f7421f17a301cad38d1be6ee849f6d0f219ccfaec06b8884b74a04","unique_masks":314},
+    {"bar_exact":true,"bars":11341,"raw_identities":342,"raw_identity_exact":true,"raw_identity_sequence_sha256":"3a6f6a46daf95d2e724de269133a60ec2de4efdfc109917c099e9fbe158e1909","shard":"H1_MID","status":"PASS","unique_mask_set_exact":true,"unique_mask_set_sha256":"c589e5d55ee4f5af8f60b22b1edc819442f5b1fa60d8cb826757882179e9e754","unique_masks":314}
+  ],
+  "schema": "QROS_G30_V5_REPLACEMENT_SIGNAL_IDENTITY_12_OF_12_PARITY_v1",
+  "scope": "DEV_2018_2019_SIGNAL_ONLY_NO_PNL_NO_HOLDOUT",
+  "shards_passed": 12,
+  "shards_total": 12,
+  "unique_mask_set_parity_all": true
+}
