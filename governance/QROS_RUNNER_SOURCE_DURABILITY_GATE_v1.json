@@ -1,6 +1,6 @@
 {
   "schema": "QROS_RUNNER_SOURCE_DURABILITY_GATE_v1",
-  "status": "PREREGISTERED_AND_ADOPTABLE_AFTER_CANARY_PASS",
+  "status": "ADOPTED_CROSS_CHAT_PASS",
   "purpose": "Prevent cross-chat deadlocks caused by checkpoints that record runner hashes without persisting the exact source bytes required for deterministic continuation.",
   "scientific_scope": "INFRASTRUCTURE_GOVERNANCE_ONLY_NO_PNL_NO_HOLDOUT_NO_GATE_CHANGE",
   "definitions": {
@@ -53,20 +53,25 @@
     ]
   },
   "cross_chat_acceptance_test": {
+    "test_ref": "control/QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_TEST_v1.json",
+    "pass_ref": "control/QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_PASS_v1.json",
+    "pass_commit_sha": "d9a7cbe294140a84e045187518667dc47936d444",
+    "decision": "CROSS_CHAT_SOURCE_DURABILITY_PASS",
     "source_path": "control/recovery/qros_runner_source_durability_canary_v1.py",
     "expected_source_sha256": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
     "expected_source_bytes": 635,
     "expected_fixture_sha256": "48549c9ec09c79cf3f7726f80c45726928983af90508c9d40e88239e7889793b",
     "expected_stdout_sha256": "76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9",
-    "negative_tests": [
-      "One-byte source mutation must fail source SHA before execution.",
-      "Wrong expected source SHA must fail closed.",
-      "Missing repository path must fail closed.",
-      "Executed canonical source must emit the exact deterministic stdout SHA."
-    ]
+    "positive_tests_passed": true,
+    "negative_tests_passed": true,
+    "prior_runtime_files_used": false,
+    "g30_replacement_source_readback_sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+    "g30_replacement_source_bytes": 11424,
+    "g30_m1_mid_executed": false
   },
-  "adoption_condition": "CANARY must be recovered and executed from a fresh chat/runtime using GitHub only, with all positive and negative tests passing. Until then this policy is not allowed to modify the scientific HEAD.",
-  "head_modification_authorized_by_this_file": false,
+  "adoption_condition": "SATISFIED: canary and G30 replacement source were recovered from a fresh runtime using GitHub only; exact byte/SHA checks passed before execution; canary stdout matched; all negative tests failed closed.",
+  "adoption_effective": true,
+  "head_modification_authorized_by_this_file": true,
   "holdout_access_authorized": false,
   "pnl_access_authorized": false
 }
