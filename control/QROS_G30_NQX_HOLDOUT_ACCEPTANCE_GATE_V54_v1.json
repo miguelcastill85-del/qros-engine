@@ -1,0 +1,76 @@
+{
+  "schema": "QROS_G30_NQX_HOLDOUT_ACCEPTANCE_GATE_V54_v1",
+  "status": "FROZEN_BEFORE_HOLDOUT_ECONOMIC_RESULTS",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "human_name": "Campaña 30 — Continuación después de un shock de volatilidad",
+  "asset": "NQX",
+  "freeze_date": "2026-09-01",
+  "scientific_timing": {
+    "holdout_access_authorized": true,
+    "holdout_structural_open_started": true,
+    "holdout_economic_scoring_started": false,
+    "holdout_economic_results_computed": false,
+    "retuning_forbidden": true,
+    "reason_gate_can_still_be_frozen_cleanly": "Only structural boundary bytes were observed; no strategy PnL or economic holdout metrics were computed before this gate freeze."
+  },
+  "scope": {
+    "development": "NQX_DARWINEX_MT5_SERVER_CLOCK_2018_2019",
+    "holdout": "NQX_DARWINEX_MT5_SERVER_CLOCK_2020_THROUGH_2026_07_27_PARTIAL",
+    "full_calendar_years_for_annual_stability": [2020, 2021, 2022, 2023, 2024, 2025],
+    "partial_year_2026_policy": "INCLUDED_IN_AGGREGATE_HOLDOUT_METRICS_BUT_EXCLUDED_FROM_FULL_YEAR_POSITIVITY_COUNT",
+    "buy_sell_separate": true,
+    "representatives_locked": 34,
+    "all_passing_representatives_advance": true,
+    "single_winner_selection_forbidden": true
+  },
+  "derivation": {
+    "primary_authority": "control/QROS_G30_NQX_COST_STRESS_GATE_A_DEV_V48_v1.json",
+    "method": "MIRROR_FROZEN_G30_GATE_A_THRESHOLDS_ON_HOLDOUT_PLUS_PROJECT_ANNUAL_STABILITY_RULE",
+    "no_holdout_economic_data_used": true,
+    "synthetic_validator_thresholds_used": false,
+    "note": "A synthetic validator benchmark was located but explicitly did not authorize production QROS gate changes, therefore it was not adopted."
+  },
+  "execution_contract": {
+    "buy": "ASK_IN_BID_OUT",
+    "sell": "BID_IN_ASK_OUT",
+    "executable_quote": "ASK_GT_BID_ONLY",
+    "ambiguous_sl_tp": "SL_FIRST",
+    "gap": "FIRST_ACTUALLY_AVAILABLE_PRICE",
+    "same_day_exit": true,
+    "one_active_position_per_asset": true,
+    "same_timestamp_reentry": "BLOCKED_STRICT_ENTRY_TS_GT_PREV_EXIT_TS"
+  },
+  "cost_regimes": {
+    "central": "REAL_OBSERVED_BID_ASK_ALREADY_EMBEDDED",
+    "conservative": "PLUS_0.5X_OBSERVED_SPREAD_ADVERSE_AT_ENTRY_AND_EXIT",
+    "severe": "PLUS_1.0X_OBSERVED_SPREAD_ADVERSE_AT_ENTRY_AND_EXIT"
+  },
+  "acceptance_gate": {
+    "minimum_holdout_trades": 60,
+    "pf_central_min": 1.20,
+    "pf_conservative_min": 1.10,
+    "pf_severe_min": 1.00,
+    "net_R_central_must_be_positive": true,
+    "net_R_conservative_must_be_positive": true,
+    "net_R_severe_must_be_positive": true,
+    "positive_full_years_central_min": 5,
+    "full_years_total": 6,
+    "maximum_negative_full_years_central": 1,
+    "negative_full_year_must_be_isolated": true,
+    "partial_2026_not_counted_as_full_year_pass_or_fail": true,
+    "independent_trade_parity_required_before_economic_verdict": true
+  },
+  "parity_failure_semantics": "BLOCKED_BY_PARITY_NOT_ECONOMIC_REJECTION_UNTIL_IMPLEMENTATION_MISMATCH_ROOT_CAUSE_IS_RESOLVED_WITHOUT_RULE_CHANGE",
+  "holdout_failure_semantics": "REJECTED_NO_SUPERGATE_RESCUE_NO_RETUNING_ON_2020_2026",
+  "holdout_pass_semantics": "ADVANCE_TO_SUPERGATE_WITH_2020_2026_PERMANENTLY_EXPOSED_FOR_THIS_GENEALOGY",
+  "prohibitions": [
+    "NO_PARTIAL_HOLDOUT_PNL_DECISIONS",
+    "NO_THRESHOLD_CHANGES_AFTER_ECONOMIC_RESULTS",
+    "NO_SINGLE_WINNER_SELECTION",
+    "NO_BUY_SELL_MERGING_FOR_GATE",
+    "NO_XAU_SUBSTITUTION",
+    "NO_MT5_BEFORE_RESEARCH_SUPERGATE",
+    "NO_BRANCH_EXHAUSTED_FROM_HOLDOUT_ALONE"
+  ],
+  "next_action": "MATERIALIZE_AND_VERIFY_NQX_ZIP_PARTS_004_028; VERIFY_FULL_CARRIER_SHA256; RUN_PRIMARY_AND_INDEPENDENT_HOLDOUT_REPLAY_FOR_ALL_34_LOCKED_REPRESENTATIVES; REQUIRE_PARITY; THEN APPLY_THIS_FROZEN_GATE_WITHOUT_RETUNING."
+}
