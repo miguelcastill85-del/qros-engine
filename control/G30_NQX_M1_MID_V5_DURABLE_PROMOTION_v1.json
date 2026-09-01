@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_G30_NQX_M1_MID_V5_DURABLE_PROMOTION_v1",
+  "status": "PASS_PROMOTED_DEV_SHARD",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "DEV_2018_2019_ONLY_NO_HOLDOUT",
+  "parent_head": "QROS_PERSISTENT_CONTROL_HEAD_V47",
+  "canonical_input": {
+    "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "bytes": 1018984420,
+    "records": 59940260,
+    "verification": "PASS_EXACT"
+  },
+  "durable_primary_source": {
+    "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+    "sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+    "bytes": 11424,
+    "cross_chat_source_durability_ref": "control/QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_PASS_v1.json"
+  },
+  "implementation_equivalence": {
+    "m30_ref": "control/G30_V5_RUNNER_SOURCE_MIGRATION_M30_EQUIVALENCE_v1.json",
+    "all_12_signal_count_ref": "control/G30_V5_REPLACEMENT_12SHARD_SIGNAL_COUNT_PARITY_v1.json",
+    "m1_mid_dual_ref": "control/G30_V5_M1_MID_DUAL_IMPLEMENTATION_PARITY_PASS_v1.json",
+    "m1_mid_ordered_ledgers": "PASS_648_OF_648_ZERO_MISMATCH"
+  },
+  "execution": {
+    "monolithic_primary_main_attempt": "RUNTIME_WALL_TIMEOUT_NO_OUTPUT_PROMOTED",
+    "fallback_route": "DETERMINISTIC_FINALIZATION_FROM_PRIMARY_BYTE_EXACT_PARITY_ARRAYS_USING_THE_DURABLE_PRIMARY_SOURCE_SIGNAL_MASK_UNIQUE_MASK_AND_LEDGER_RECORD_FUNCTIONS",
+    "fallback_is_new_scientific_logic": false,
+    "primary_outcome_arrays_byte_exact_to_independent_engine": true,
+    "parity_prep_npz_sha256": "ca4738cc1864e5a07622b150333f5ed3d61b99b186b0a7a3fa7be6f1a691b856",
+    "dual_outcomes_npz_sha256": "03eff0daa72a4d18de41fc3dcc75fafba7251bb58d001614ba0eccf41df3b458"
+  },
+  "result": {
+    "shard": "M1_MID",
+    "bars": 673097,
+    "raw_identities": 342,
+    "unique_masks": 324,
+    "side_ledgers": 648,
+    "output_bytes": 185062,
+    "output_sha256": "50db30146fe98dc5545a5d85e4d6f170953d621355125395efb96861146cc525",
+    "schema": "QROS_G30_EXACT_MID_V5_RECOVERY_ENGINE_OUTPUT_v1"
+  },
+  "promotion": {
+    "valid_promoted_nqx_economic_shards_before": 11,
+    "valid_promoted_nqx_economic_shards_after": 12,
+    "total_required_nqx_shards": 12,
+    "status": "NQX_12_OF_12_DEV_ECONOMIC_SHARDS_MATERIALIZED_AND_PROMOTED"
+  },
+  "holdout_opened": false,
+  "gate_a": "NOT_EVALUATED",
+  "mt5_executed": false,
+  "branch_exhausted": false,
+  "next_action": "AUDIT NQX 12_OF_12 PROMOTED SHARD MANIFEST AND RECONCILE ALL OUTPUT HASHES; THEN RUN PREREGISTERED COST STRESS AND GATE A ON DEV ONLY."
+}
