@@ -1,0 +1,85 @@
+{
+  "schema": "QROS_G30_V5_M1_MID_DUAL_IMPLEMENTATION_PARITY_PASS_v1",
+  "status": "PASS_648_OF_648_ZERO_MISMATCH",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "DEV_2018_2019_IMPLEMENTATION_PARITY_ONLY_NO_HOLDOUT_NO_GATE_A_NO_ECONOMIC_SELECTION",
+  "preregistration_ref": "control/G30_V5_M1_MID_DUAL_IMPLEMENTATION_PARITY_PREREG_v1.json",
+  "canonical_input": {
+    "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "bytes": 1018984420,
+    "records": 59940260,
+    "verification": "PASS_EXACT"
+  },
+  "primary_source": {
+    "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+    "sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+    "bytes": 11424,
+    "cross_chat_durability_ref": "control/QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_PASS_v1.json"
+  },
+  "independent_source": {
+    "path": "control/recovery/g30_m1_mid_v5_independent_engine_v1.py",
+    "sha256": "f05028238ec73f28317db7d0d5b705b6fc91870c6627fe472b3687674458e2a4",
+    "bytes": 11617,
+    "git_blob_sha": "d4a6fc8d816dc29f9a1cf97d9ca10f007eef071b",
+    "source_durability_ref": "control/G30_M1_MID_INDEPENDENT_SOURCE_DURABILITY_v1.json"
+  },
+  "bar_and_execution_minute_parity": {
+    "m1_mid_bars": 673097,
+    "executable_minutes": 672699,
+    "bar_arrays_exact": true,
+    "execution_minute_arrays_exact": true,
+    "atr14_float64_bytes_exact": true,
+    "bar_hashes": {
+      "bucket": "cc88b0049ae4f4401f682ffac6bcbf61f7080256f0fe6fe27115e46a91e2dd84",
+      "open": "091df33b6c087b45a2a866317498e3211e37cc6f3e1d97475c4ecc7e7c8878dd",
+      "high": "e2f0b65fb68b7d877c32ef5e139f911631afc41c6686ead05c5a21d76c7f21ca",
+      "low": "db7fabf4121c0c7ce08a390b6aa4fb73b4baef9f40380588df3cc540ce0db530",
+      "close": "0f01c87d17ae7eee6e10f279f7695d3420f6138f62f0d3e6df8934c9abb5ba6a"
+    },
+    "atr_sha256": "2e3a206378991ec58e4c414c231b92cf5af5495146a69174d4f8e428496df182"
+  },
+  "signal_parity": {
+    "primary_unique_masks": 324,
+    "independent_unique_masks": 324,
+    "identity_mismatches": 0,
+    "pair_sequence_exact": true,
+    "signal_hash_keyset_exact": true,
+    "sorted_signal_hashes_sha256": "17bad4e5bb05c05396ee1d796956b34896b29348bc06f05110488015519a491a"
+  },
+  "per_bar_execution_outcome_parity": {
+    "BUY": {
+      "entry_ts_exact": true,
+      "exit_ts_exact": true,
+      "r_float64_bytes_exact": true,
+      "entry_ts_sha256": "542f51e7c94bf4d64ce6bec640dd25f530c89f61de9d9d7bbf81d7a6d0e4a46d",
+      "exit_ts_sha256": "323a7007e3bef34400327fee2d147aebb13bd482ab0004b2fbb519369ee9aa4f",
+      "r_sha256": "3d56cd82686980e81a75c9f72591b533b2ef677090d4f50100f715f497701593"
+    },
+    "SELL": {
+      "entry_ts_exact": true,
+      "exit_ts_exact": true,
+      "r_float64_bytes_exact": true,
+      "entry_ts_sha256": "542f51e7c94bf4d64ce6bec640dd25f530c89f61de9d9d7bbf81d7a6d0e4a46d",
+      "exit_ts_sha256": "ab8caf02c4db50f65da8c6239aaa85d8723a44263deea4bbba99ee3884c1dceb",
+      "r_sha256": "8acd166f07ddc6aa8786dbae2e7e6ddd55088c7dc191b81e60a3fa7f05aee58e"
+    }
+  },
+  "ordered_ledger_parity": {
+    "unique_masks": 324,
+    "ledgers_required": 648,
+    "ledgers_compared": 648,
+    "chosen_index_mismatches": 0,
+    "ledger_hash_mismatches": 0,
+    "ledger_hash_pairs_root_sha256": "b5421073c87f800df64d1c6e4107e32c95b4db975d7b6bcb4dbab71a64a6625b",
+    "full_local_deterministic_records_root_sha256": "da814e924c94341abef180dcc1bf0267c970de4c5a90b51ceba206fb9352780b"
+  },
+  "aggregate_profitability_inspected": false,
+  "winner_ranking_performed": false,
+  "scientific_decision": "IMPLEMENTATION_MIGRATION_EQUIVALENCE_PASS. The durable replacement source may now be used for the previously pending M1_MID DEV economic shard under the unchanged frozen V5 execution contract. This software parity PASS does not itself evaluate Gate A or approve G30.",
+  "m1_mid_economic_execution_now_authorized": true,
+  "holdout_opened": false,
+  "pnl_read": false,
+  "mt5_executed": false,
+  "gate_a": "NOT_EVALUATED",
+  "branch_exhausted": false
+}
