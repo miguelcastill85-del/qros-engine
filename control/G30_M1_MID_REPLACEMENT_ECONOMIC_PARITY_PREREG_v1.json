@@ -1,0 +1,80 @@
+{
+  "schema": "QROS_G30_M1_MID_REPLACEMENT_ECONOMIC_PARITY_PREREG_v1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "authority_head": "QROS_PERSISTENT_CONTROL_HEAD_V46",
+  "scope": "NQX_DEV_2018_2019_M1_MID_IMPLEMENTATION_PARITY_ONLY_NO_HOLDOUT",
+  "purpose": "Complete the legacy V5 runner implementation migration for the remaining M1_MID economic shard without changing scientific rules.",
+  "prerequisites": {
+    "source_durability": "CROSS_CHAT_SOURCE_DURABILITY_PASS",
+    "source_durability_ref": "control/QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_PASS_v1.json",
+    "signal_migration_gate": "PASS_12_OF_12",
+    "signal_migration_ref": "control/QROS_G30_V5_REPLACEMENT_SIGNAL_IDENTITY_12_OF_12_PARITY_v1.json",
+    "m30_replacement_equivalence": "PASS_626_OF_626_ZERO_LEDGER_HASH_MISMATCH",
+    "m30_equivalence_ref": "control/G30_V5_RUNNER_SOURCE_MIGRATION_M30_EQUIVALENCE_v1.json"
+  },
+  "canonical_input": {
+    "file": "NQX_DEV_PACKED17_2018_2019_v1.bin",
+    "bytes": 1018984420,
+    "records": 59940260,
+    "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf"
+  },
+  "feature_and_signal": {
+    "tf": "M1",
+    "feature_side": "MID",
+    "mid_semantics": "EXACT_CONTEMPORANEOUS_X2_EQUALS_BID_PLUS_ASK_PER_TICK",
+    "bars_expected": 673097,
+    "raw_identities_expected": 342,
+    "unique_masks_expected": 324,
+    "signal_identity_sequence_sha256_expected": "693d74e4f5493bedbeadebaa207cf4f28c3039d34bcc081bd7476fe5a5038b00",
+    "unique_mask_set_sha256_expected": "17bad4e5bb05c05396ee1d796956b34896b29348bc06f05110488015519a491a"
+  },
+  "execution_contract": {
+    "feature_quotes": "ASK_GTE_BID_ZERO_SPREAD_PRESERVED_CROSSED_EXCLUDED",
+    "fills": "ASK_GT_BID_ONLY",
+    "entry": "FIRST_EXECUTABLE_RAW_TICK_TS_GTE_COMPLETED_SIGNAL_BAR_CLOSE",
+    "buy": "ASK_IN_BID_OUT",
+    "sell": "BID_IN_ASK_OUT",
+    "atr_period": 14,
+    "atr_mult": 3.0,
+    "rr": 1.5,
+    "hold_bars": 20,
+    "same_stored_clock_day_exit": true,
+    "ambiguous_sl_tp": "FIRST_RAW_TICK_ORDER_WITH_SL_CHECKED_BEFORE_TP_ON_SAME_QUOTE",
+    "one_active_position_per_asset_standalone": true,
+    "same_timestamp_reentry": "BLOCKED_STRICT_ENTRY_TS_GT_PREVIOUS_EXIT_TS",
+    "r_units": "DIMENSIONLESS"
+  },
+  "implementations": {
+    "candidate": {
+      "path": "control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+      "sha256": "5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+      "bytes": 11424
+    },
+    "independent": {
+      "requirement": "Must be frozen in GitHub and readback-SHA verified before execution; must not call candidate outcome or selection functions; may independently rebuild the same signal masks and use the exact verified executable-minute summaries only as a lossless acceleration index into raw ticks."
+    }
+  },
+  "ledger_hash_definition": "For each selected trade in chronological order: entry_ts int64 little-endian bytes + exit_ts int64 little-endian bytes + R float64 native little-endian bytes; SHA-256 over concatenation.",
+  "expected_side_ledgers": 648,
+  "parity_gate": {
+    "required": [
+      "candidate and independent signal-hash+side keysets exactly equal",
+      "648 of 648 ordered selected-trade ledger SHA-256 values exactly equal",
+      "0 trade-count mismatches",
+      "0 net-R byte/value mismatches beyond exact float64 equality",
+      "candidate signal identity remains equal to the preregistered M1_MID signal identity",
+      "no partial or timeout output promoted"
+    ],
+    "pass_condition": "All 648 side-ledgers exact with zero mismatches and all source/input identities verified.",
+    "fail_condition": "Any source hash, signal identity, keyset, trade sequence, R value, count, or ledger hash mismatch fails closed. No tuning against M1_MID economic performance is permitted."
+  },
+  "promotion_rule": "Parity PASS only authorizes promotion of M1_MID as the 12th DEV economic shard and subsequent 12_of_12 audit. It does not constitute Gate A, holdout, Supergate, or strategy approval.",
+  "guards": {
+    "holdout_opened": false,
+    "pnl_selection_authorized": false,
+    "mt5_authorized": false,
+    "gate_a_evaluation_authorized_by_this_prereg": false,
+    "branch_exhausted": false
+  }
+}
