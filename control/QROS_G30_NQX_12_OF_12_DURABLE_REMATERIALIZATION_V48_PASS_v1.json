@@ -1,0 +1,29 @@
+{
+  "schema":"QROS_G30_NQX_12_OF_12_DURABLE_REMATERIALIZATION_V48_PASS_v1",
+  "status":"PASS_12_OF_12",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope":"DEV_2018_2019_ONLY_NO_HOLDOUT",
+  "canonical_input_sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+  "durable_source":{"path":"control/recovery/g30_exact_mid_v5_recovery_engine_v1.py","bytes":11424,"sha256":"5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2","verification":"PASS_EXACT"},
+  "staged_finalization":{"reason":"MONOLITHIC_M1_LEDGER_FINALIZATION_EXCEEDED_RUNTIME_WINDOW_NO_PARTIAL_OUTPUT_PROMOTED","scientific_logic_changed":false,"fast_ledger_finalizer_parity":"PASS_M30_BID_626_OF_626_ZERO_MISMATCH","m1_mid_ledger_root_sha256":"71b022b391b0abc76e1d25aabc55f9d1f4e36ef47cefecf122a3837c08ed7694","m1_mid_ledger_root_expected":"71b022b391b0abc76e1d25aabc55f9d1f4e36ef47cefecf122a3837c08ed7694"},
+  "outputs":[
+    {"shard":"H1_BID","bars":11341,"unique_masks":314,"side_ledgers":628,"bytes":178234,"sha256":"550120a123b9601651c15488748e234096fc888be9d6a6bd12e8dd362010dcd1"},
+    {"shard":"H1_MID","bars":11341,"unique_masks":314,"side_ledgers":628,"bytes":178235,"sha256":"86d33fa2ddecad2f7b11c211c7850b1f2c8801f5f55f6a6672b3f55ab137fe35"},
+    {"shard":"M30_BID","bars":22670,"unique_masks":313,"side_ledgers":626,"bytes":177674,"sha256":"d547ec0b7d0e0e30c424223bd938e8c7442088b54e30197ae13582ffa63a76a7"},
+    {"shard":"M30_MID","bars":22670,"unique_masks":312,"side_ledgers":624,"bytes":177156,"sha256":"913efcb10f8d9bf969dafe1e8f58e1d29092090de0a66b65f63c54c0b1d01dad"},
+    {"shard":"M15_BID","bars":45312,"unique_masks":322,"side_ledgers":644,"bytes":182965,"sha256":"d38cad2885944b3c50480b2e2601b7b3af85b1515c7d037d74bef4fcaf5c8db0"},
+    {"shard":"M15_MID","bars":45312,"unique_masks":321,"side_ledgers":642,"bytes":182420,"sha256":"c98631d3be2a962b81e232388b8a3f3f77779eda528c47db45713174431dffdc"},
+    {"shard":"M10_BID","bars":67775,"unique_masks":321,"side_ledgers":642,"bytes":182452,"sha256":"f860e51c5f6b471a4c0e433c1f0c9ce25052bf95998e49f40bbabfd17fc16a34"},
+    {"shard":"M10_MID","bars":67775,"unique_masks":321,"side_ledgers":642,"bytes":182524,"sha256":"cf50d79e5d1cfbafb0c22c98edddb8f0113ba27ee7e7c2b02bcdcbfb05eb0b46"},
+    {"shard":"M5_BID","bars":135250,"unique_masks":322,"side_ledgers":644,"bytes":183428,"sha256":"89954817e6a1341a4d45baa91aaf7ece0af5f74ca3e91a3b50e23b90bcb6e673"},
+    {"shard":"M5_MID","bars":135250,"unique_masks":322,"side_ledgers":644,"bytes":183418,"sha256":"9960e9031ca27dbd8a4c45847e10c5a59fd2a8378a0a26163b6912ff17297083"},
+    {"shard":"M1_BID","bars":673097,"unique_masks":323,"side_ledgers":646,"bytes":184455,"sha256":"83224b4876d780092a5bda0b23ee1b4d2137be9864b5a10ea23045927747fe16","ledger_root_sha256":"f60a83721401491da0922be9a577fab36a68ef085a803c09a74f20efc07cdbcc"},
+    {"shard":"M1_MID","bars":673097,"unique_masks":324,"side_ledgers":648,"bytes":185062,"sha256":"50db30146fe98dc5545a5d85e4d6f170953d621355125395efb96861146cc525","sha_matches_v48_durable_promotion":true,"ledger_root_sha256":"71b022b391b0abc76e1d25aabc55f9d1f4e36ef47cefecf122a3837c08ed7694"}
+  ],
+  "structural_count_crosscheck":"PASS_12_OF_12_AGAINST_FROZEN_SIGNAL_COUNT_AUTHORITY",
+  "legacy_wrapper_hash_policy":"LEGACY_V5_OUTPUT_WRAPPER_SHA_NOT_RELABELED; REMATERIALIZED_OUTPUTS_HAVE_NEW_DURABLE_SOURCE_IDENTITY EXCEPT M1_MID WHICH MATCHES PROMOTED_SHA_EXACTLY",
+  "holdout_opened":false,
+  "gate_a_evaluated":false,
+  "mt5_executed":false,
+  "branch_exhausted":false
+}
