@@ -1,0 +1,23 @@
+{
+  "schema":"QROS_G30_F03_V100_FASTSCORER_EQUIVALENCE_RECEIPT_v1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F03_ATR_PERIOD",
+  "status":"PASS_EXACT_ECONOMIC_EQUIVALENCE",
+  "fast_scorer_ref":"control/recovery/qros_g30_f03_gate_a_fastscore_v100.py",
+  "fast_scorer_sha256":"179757d98ded7ba6205ebc1f3d7f9679613941090ef21e9f2e7592b49f120954",
+  "reference_runner":"control/recovery/qros_g30_f03_gate_a_v99_fast_wrapper.py",
+  "test_shard":"NQX_M10_BID",
+  "reference_summary":{"unique_masks":1575,"evaluated_configurations":3150,"passed":185,"passed_buy":64,"passed_sell":121,"signal_parity":"PASS_EXACT","trade_parity":"PASS_EXACT"},
+  "economic_equivalence":{"all_records_equal":true,"passers_equal":true,"all_scientific_summary_fields_equal":true,"bar_digest_equal":true,"raw_identity_sequence_sha256_equal":true,"unique_mask_set_sha256_equal":true},
+  "json_difference_only":{"field":"unit_binding.receipt_input_sha256","reference_v98":"76b677f95be5a1b4e65240fe6f40b29ecd16d4d0021cdc5584f0bb7a18b3fa21","v100_v99_receipt":"8f43f21877165a4c5d7ec3b11154e2ef0ddf8d1f6bcb519e4ebf36e7d1c61948","reason":"V100 is bound to newer V99 unit authority; economic/scientific content is unchanged"},
+  "optimization":"CACHE_SIGNAL_INDEX_ARRAYS_ONCE_AFTER_EXACT_MASK_DEDUPE_AND_USE_TWO_INDEPENDENT_INDEX_SELECTORS_INSTEAD_OF_RESCANNING_ALL_BARS_PER_CONFIGURATION",
+  "dedupe_before_scoring_preserved":true,
+  "two_independent_signal_paths_preserved":true,
+  "two_independent_execution_paths_preserved":true,
+  "raw_tick_fill_confirmation_preserved":true,
+  "no_strategy_rule_change":true,
+  "no_gate_change":true,
+  "no_cost_change":true,
+  "no_holdout":true,
+  "decision":"V100_FASTSCORER_AUTHORIZED_FOR_F03_DEVELOPMENT_RUNTIME_BOUND_SHARDS"
+}
