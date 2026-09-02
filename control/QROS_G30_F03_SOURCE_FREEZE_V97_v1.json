@@ -1,0 +1,55 @@
+{
+  "schema": "QROS_G30_F03_SOURCE_FREEZE_V97_v1",
+  "status": "FROZEN_BEFORE_ECONOMIC_RESULTS",
+  "created_date": "2026-09-02",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F03_ATR_PERIOD",
+  "economic_results_seen": false,
+  "prereg_ref": "control/QROS_G30_F03_ATR_PERIOD_PREREG_V97_v1.json",
+  "semantic_binding_ref": "control/QROS_G30_F03_ATR_PERIOD_SEMANTIC_BINDING_V97_v1.json",
+  "unit_contract_ref": "control/QROS_G30_EXECUTION_UNIT_CONTRACT_V96_v1.json",
+  "sources": {
+    "gate_runner": {
+      "ref": "control/recovery/qros_g30_f03_gate_a_v97.py",
+      "git_blob": "c75deb9f44b8e8180a269d52a535e31e91aae79a",
+      "sha256": "e932b651b45863bd5099169302677ccdadc71691347f73ba9b2acf13e8bb04b6"
+    },
+    "signal_primary": {
+      "ref": "control/recovery/qros_g30_f03_signal_primary_v97.py",
+      "git_blob": "d998ceccd9fea27685e35ddb3995b9c3f6b291fb",
+      "sha256": "646d54336d24cf07ee37adf45b82f0d011019af8800cd8ac331357512e6f2e8c"
+    },
+    "signal_independent": {
+      "ref": "control/recovery/qros_g30_f03_signal_independent_v97.py",
+      "git_blob": "9fb973a2f551c5cfdc1c8e9870846913cceaa678",
+      "sha256": "cb0c38175cfc12d2f0709e85a51bfbb0fc97a2080225eacc5e9d6b1884b65306"
+    },
+    "execution_primary": {
+      "ref": "control/recovery/qros_g30_f03_execution_primary_v97.py",
+      "git_blob": "0374eadc2046cb94ee988e2773d6f5f5d0c50925",
+      "sha256": "79e1b35f0f7a58c66bbc0f58225a47d9b4b2775c66c96d42060faa6d92a47a95"
+    },
+    "execution_independent": {
+      "ref": "control/recovery/qros_g30_f03_execution_independent_v97.py",
+      "git_blob": "d66d8fda90994c94e418d740ef6a40a27808ab44",
+      "sha256": "83020c9fb52145f74ef315aa96fa6e7390cd67954e7e6d21308a24e37f57cfcc"
+    }
+  },
+  "local_to_github_identity_check": "PASS_ALL_5_GIT_BLOB_IDENTITIES_EXACT",
+  "synthetic_pre_economic_tests": {
+    "signal_identities_checked": 1710,
+    "signal_parity": "PASS_EXACT",
+    "execution_sides_checked": ["BUY","SELL"],
+    "execution_parity": "PASS_EXACT",
+    "economic_market_data_used": false,
+    "initial_harness_issue": "TEST_VARIABLE_NAME_COLLISION_ONLY",
+    "initial_harness_issue_corrected_before_results": true
+  },
+  "canonical_dev_inputs_required": {
+    "NQX_source_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "NQX_cache_sha256": "8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
+    "XAUUSD_source_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "XAUUSD_cache_sha256": "f5d847a51ffbbddd29dc4089aa65c04ebe4df01336b91af35223609551923e62"
+  },
+  "decision": "F03_SOFTWARE_BYTES_FROZEN; UNIT_PREFLIGHT_REQUIRED_BEFORE_ANY_DEV_ECONOMIC_SCORING"
+}
