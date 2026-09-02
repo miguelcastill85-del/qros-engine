@@ -1,0 +1,20 @@
+{
+  "schema":"QROS_G30_F03_V101_FASTSCORER_EQUIVALENCE_RECEIPT_v1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F03_ATR_PERIOD",
+  "status":"PASS_BYTE_IDENTICAL_TO_V100",
+  "fast_scorer_ref":"control/recovery/qros_g30_f03_gate_a_fastscore_v101.py",
+  "fast_scorer_sha256":"6c901af96a545173bb3ab548894c7be1d2fbf78a6a93df48e2092ff8bf5ddbdb",
+  "reference_scorer_ref":"control/recovery/qros_g30_f03_gate_a_fastscore_v100.py",
+  "reference_scorer_sha256":"179757d98ded7ba6205ebc1f3d7f9679613941090ef21e9f2e7592b49f120954",
+  "ledger_hash_regression":{"legacy_and_vectorized_equal":true,"synthetic_sha256":"853195bbe122724243ebf7c03c86a10367b6d69f05809042bc060836554b9dd1"},
+  "nqx_m10_bid":{"v100_output_sha256":"40118438ae626c4d2cd36685203929bc77d809681dfa31b933e3de39ebe37552","v101_output_sha256":"40118438ae626c4d2cd36685203929bc77d809681dfa31b933e3de39ebe37552","byte_identical":true,"elapsed_seconds_v101":5.84,"passed":185,"passed_buy":64,"passed_sell":121,"signal_parity":"PASS_EXACT","trade_parity":"PASS_EXACT"},
+  "changes":"VECTORIZE_IDENTICAL_LEDGER_BYTE_STREAM_AND_COMPILE_SECOND_INDEX_SELECTOR_WITH_DISTINCT_WHILE_LOOP",
+  "scientific_semantics_changed":false,
+  "dedupe_changed":false,
+  "trade_selection_semantics_changed":false,
+  "costs_changed":false,
+  "gate_changed":false,
+  "holdout_opened":false,
+  "decision":"V101_AUTHORIZED_FOR_F03_DEVELOPMENT_SCORING"
+}
