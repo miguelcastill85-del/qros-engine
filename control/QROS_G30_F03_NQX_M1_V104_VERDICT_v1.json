@@ -1,0 +1,23 @@
+{
+  "schema":"QROS_G30_F03_NQX_M1_V104_VERDICT_v1",
+  "status":"PASS_EXACT_PARITY_GATE_A_COMPLETE",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F03_ATR_PERIOD",
+  "asset":"NQX",
+  "scope":"DARWINEX_MT5_SERVER_CLOCK_2018_2019_EXPOSED_DEVELOPMENT_ONLY",
+  "scorer_ref":"control/recovery/qros_g30_f03_transactional_v104.py",
+  "scorer_git_blob":"07deb2bb1e8e384d2f180eafb36eead2acf53ed1",
+  "data_sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+  "cache_sha256":"8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
+  "gate":{"min_trades":60,"pf_central_min":1.20,"pf_conservative_min":1.10,"pf_severe_min":1.00,"both_dev_years_positive_central":true,"net_positive_all_costs":true},
+  "shards":{
+    "M1_BID":{"bars":673097,"raw_identities":1710,"unique_masks":1618,"exact_alias_count":92,"evaluated_configurations":3236,"passed":0,"passed_buy":0,"passed_sell":0,"signal_parity":"PASS_EXACT","trade_parity":"PASS_EXACT","bar_digest":"d9d860c5d5aed42e9f81e728990ee88253f052877a21969bdef9a2da144f2bc9","raw_identity_sequence_sha256":"d730c042ad5d435b0ff8f83c8ccdf6b88a0a99f592d9d46ada568d8216131888","unique_mask_set_sha256":"5e9708f0982fa3d7352a22da52e02b0495ee2ca681f709f66e255860ef7848a8","result_sha256":"7fe8a5f01b46514097112ffd25b7e73b91cd4745a5a109f51c0f0466aeb40889"},
+    "M1_MID":{"bars":673097,"raw_identities":1710,"unique_masks":1618,"exact_alias_count":92,"evaluated_configurations":3236,"passed":0,"passed_buy":0,"passed_sell":0,"signal_parity":"PASS_EXACT","trade_parity":"PASS_EXACT","bar_digest":"6de95e0ef4f6b7ad4c0c92d27c9c5051062d0f5299e42e6d683f81d22e64c926","raw_identity_sequence_sha256":"6b36c6f27d3774135a040656072273e3f6854efccfdc552babc3f8f80185ed3b","unique_mask_set_sha256":"7d96cfb68d4eb86b2ebd6c38720c9439720f4f8ba3dbac6ff1425289b19b7436","result_sha256":"c27bde739d0bfe9d974ea3652dbe7b08485369a8c1ec72be38c6e9567efc1cad"}
+  },
+  "aggregate":{"evaluated_configurations":6472,"passed":0,"passed_buy":0,"passed_sell":0},
+  "future_2020_plus_pnl_read":false,
+  "historical_holdout_opened":false,
+  "retuning":false,
+  "mt5":false,
+  "decision":"NQX_F03_M1_BID_AND_MID_ZERO_GATE_A_SURVIVORS"
+}
