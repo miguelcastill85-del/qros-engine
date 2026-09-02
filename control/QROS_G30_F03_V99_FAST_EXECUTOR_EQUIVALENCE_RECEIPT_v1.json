@@ -1,0 +1,45 @@
+{
+  "schema":"QROS_G30_F03_V99_FAST_EXECUTOR_EQUIVALENCE_RECEIPT_v1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F03_ATR_PERIOD",
+  "status":"PASS_EXACT",
+  "economic_rule_changed":false,
+  "signal_rule_changed":false,
+  "management_rule_changed":false,
+  "cost_rule_changed":false,
+  "gate_changed":false,
+  "independent_fast_ref":"control/recovery/qros_g30_f03_execution_independent_fast_v99.py",
+  "independent_fast_sha256":"633c35b9e7c2e8bf7d27dddf09a948c9704deb4aeaa3cd3bd8349408bfb9b95f",
+  "wrapper_ref":"control/recovery/qros_g30_f03_gate_a_v99_fast_wrapper.py",
+  "wrapper_sha256":"eddc4ada157013858a56c9a7c004a4001ca7e37c6a78f7838ac2c47f75780134",
+  "reference_correct_executor":"control/recovery/qros_g30_f03_execution_independent_v98.py",
+  "nqx_exec_index_parity":{
+    "rows":672699,
+    "all_arrays_equal_to_canonical_cache":true,
+    "array_sha256":{
+      "eb":"2a913cc0a13c0b9b788fcfb42fecd6be0ba845ef038dd539e5c596878e32b348",
+      "ebh":"c4531d1968844ccbae5fe3fe641a59dc66dcd06ad68f5c2380b0a69d8c37fbab",
+      "ebl":"86ac336012e5178749ea50fca6203b4b5ce416eee7cf26f7e0290391b15542ec",
+      "eah":"0646c3762037afdc3c691be24f9ef62b4aadb86d079952ebf9dd24e0864655d9",
+      "eal":"fb27040b30091a094809c90715cf798ac08e7de25fb8510c2bd0cd18434fb489",
+      "first":"cac4a1c9db2d4ebccf1bd70ab0949b4cf508254b01d194544b6f9e6c3bc24dfc",
+      "last":"6a8d653ac8255affba37c156bc6d171bdc1e510188b09ae0db894d384c2f4de5"
+    }
+  },
+  "nqx_m10_bid_equivalence":{
+    "v98_output_sha256":"84b75b8c070848f8de63525d813820c498a07dc9638dc1b9269573a6d7626c3a",
+    "v99_output_sha256":"84b75b8c070848f8de63525d813820c498a07dc9638dc1b9269573a6d7626c3a",
+    "byte_identical":true,
+    "all_records_equal":true,
+    "passers_equal":true,
+    "summary_equal":true,
+    "signal_parity":"PASS_EXACT",
+    "trade_parity":"PASS_EXACT"
+  },
+  "unit_binding_ref":"control/QROS_G30_F03_UNIT_BINDING_RECEIPT_V99_v1.json",
+  "unit_binding_decision":"ECONOMIC_SCORING_UNIT_BINDING_AUTHORIZED",
+  "allowed_use":"INFRASTRUCTURE_ACCELERATOR_FOR_F03_DEVELOPMENT_SHARDS_INCLUDING_M1; RAW_TICK_FILLS_REMAIN_CONFIRMED",
+  "holdout_opened":false,
+  "future_pnl_read":false,
+  "decision":"V99_FAST_INDEPENDENT_EXECUTOR_CERTIFIED_EQUIVALENT_FOR_F03_DEV"
+}
