@@ -1,0 +1,48 @@
+{
+  "campaign_id": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "decision": "ECONOMIC_SCORING_UNIT_BINDING_AUTHORIZED",
+  "derived": {
+    "expected_atr_stop_mult": 3.0,
+    "expected_reward_r_multiple": 1.5,
+    "expected_stop_execution_units": 300.0,
+    "expected_take_execution_units": 450.0,
+    "runner_results": {
+      "independent": {
+        "effective_atr_stop_mult": 3.0,
+        "synthetic_stop_execution_units": 300.0,
+        "synthetic_take_execution_units": 450.0
+      },
+      "primary": {
+        "effective_atr_stop_mult": 3.0,
+        "synthetic_stop_execution_units": 300.0,
+        "synthetic_take_execution_units": 450.0
+      }
+    },
+    "synthetic_raw_atr_quote_units": 100.0
+  },
+  "economic_scoring_unit_binding_authorized": true,
+  "fail_closed": true,
+  "failures": [],
+  "input_sha256": "8816a27b9228dd5edf838d042f99c08814bfcc4e99f7815f81e363d744163a2c",
+  "policy_ref": "governance/QROS_EXECUTION_UNIT_BINDING_FIREWALL_v1.0.json",
+  "root_genealogy_id": "G30_VOLATILITY_SHOCK_MOMENTUM",
+  "schema": "QROS_EXECUTION_UNIT_BINDING_PREFLIGHT_RECEIPT_1.0",
+  "status": "PASS",
+  "verified_conditions": [
+    "authority_sha256:independent_runner_ref",
+    "authority_sha256:prereg_ref",
+    "authority_sha256:primary_runner_ref",
+    "authority_sha256:unit_contract_ref",
+    "effective_stop_mult:independent",
+    "effective_stop_mult:primary",
+    "primary_independent:effective_atr_stop_mult",
+    "primary_independent:synthetic_stop_execution_units",
+    "primary_independent:synthetic_take_execution_units",
+    "reward_r:independent",
+    "reward_r:primary",
+    "synthetic_stop:independent",
+    "synthetic_stop:primary",
+    "synthetic_take:independent",
+    "synthetic_take:primary"
+  ]
+}
