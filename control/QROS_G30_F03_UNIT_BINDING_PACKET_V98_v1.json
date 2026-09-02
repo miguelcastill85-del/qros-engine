@@ -1,0 +1,39 @@
+{
+  "authority_refs": {
+    "independent_runner_ref": "control/recovery/qros_g30_f03_execution_independent_v98.py",
+    "prereg_ref": "control/QROS_G30_F03_ATR_PERIOD_PREREG_V97_v1.json",
+    "primary_runner_ref": "control/recovery/qros_g30_f03_execution_primary_v97.py",
+    "unit_contract_ref": "control/QROS_G30_EXECUTION_UNIT_CONTRACT_V96_v1.json"
+  },
+  "authority_sha256": {
+    "independent_runner_ref": "e8f0109dbc1ffc44790929adac3eaed5dfdf3facea93355e6e4e35d2382610be",
+    "prereg_ref": "fd6c0054d91f957fdc68827d8d8bc9f98b1cd2c71216cac5145bbec78d729ac1",
+    "primary_runner_ref": "79e1b35f0f7a58c66bbc0f58225a47d9b4b2775c66c96d42060faa6d92a47a95",
+    "unit_contract_ref": "ed63c09ed8f634ae8334ce5795058eece259a77b02214f0b514660a092ca60e6"
+  },
+  "campaign_id": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frozen_semantics": {
+    "atr_stop_mult": 3.0,
+    "reward_r_multiple": 1.5,
+    "stop_family": "ATR_FIXED"
+  },
+  "request": "AUTHORIZE_ECONOMIC_SCORING_UNIT_BINDING",
+  "root_genealogy_id": "G30_VOLATILITY_SHOCK_MOMENTUM",
+  "runner_bindings": {
+    "independent": {
+      "atr_divisor": 2.0,
+      "atr_multiplier": 3.0,
+      "take_r_multiple": 1.5
+    },
+    "primary": {
+      "atr_divisor": 2.0,
+      "atr_multiplier": 3.0,
+      "take_r_multiple": 1.5
+    }
+  },
+  "synthetic_raw_atr_quote_units": 100.0,
+  "unit_contract": {
+    "atr_storage_units_per_raw_quote_unit": 2.0,
+    "execution_price_units_per_raw_quote_unit": 1.0
+  }
+}
