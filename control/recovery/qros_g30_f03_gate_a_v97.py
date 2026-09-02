@@ -36,16 +36,19 @@ def sha_file(p:Path):
  with p.open('rb') as f:
   for b in iter(lambda:f.read(8<<20),b''):h.update(b)
  return h.hexdigest()
+
 def digest_arrays(arrs):
  h=hashlib.sha256()
  for a in arrs:
   z=np.ascontiguousarray(a);h.update(str(z.dtype).encode()+b'\0');h.update(np.int64(z.size).tobytes());h.update(z.tobytes())
  return h.hexdigest()
+
 def safe(v):
  if isinstance(v,float) and not math.isfinite(v):return 'INF' if v>0 else ('-INF' if v<0 else 'NAN')
  if isinstance(v,list):return [safe(x) for x in v]
  if isinstance(v,dict):return {k:safe(x) for k,x in v.items()}
  return v
+
 def specs():
  for p in PERIODS:
   for timing in TIM:
@@ -53,21 +56,26 @@ def specs():
     for fam in FAMS:
      for n in NS:yield (p,timing,t,fam,n)
     yield (p,timing,t,'SHOCK_BAR_BODY_DIRECTION_ONLY',1)
+
 def spec_key(sp):
  p,timing,t,fam,n=sp
  return f'ATR{p}|{timing}|{t:g}|{fam}|{n}'
+
 def mask_digest(b,s):
  enc=np.zeros(len(b),np.int8);enc[b]=1;enc[s]=-1
  return hashlib.sha256(enc.tobytes()).hexdigest()
+
 def pf(x):
  pos=float(x[x>0].sum());neg=float(-x[x<0].sum())
  if neg==0:return float('inf') if pos>0 else 0.0
  return pos/neg
+
 def ledger_sha(ch,et,xt,rr):
  h=hashlib.sha256()
  for q in ch:
   h.update(np.int64(et[q]).tobytes());h.update(np.int64(xt[q]).tobytes());h.update(np.float64(rr[q]).tobytes())
  return h.hexdigest()
+
 def verify_unit_receipt(path:Path):
  obj=json.loads(path.read_text(encoding='utf-8'))
  if obj.get('status')!='PASS' or obj.get('decision')!='ECONOMIC_SCORING_UNIT_BINDING_AUTHORIZED' or obj.get('economic_scoring_unit_binding_authorized') is not True:
