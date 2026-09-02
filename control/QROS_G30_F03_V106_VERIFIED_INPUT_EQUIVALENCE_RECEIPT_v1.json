@@ -1,0 +1,21 @@
+{
+  "schema":"QROS_G30_F03_V106_VERIFIED_INPUT_EQUIVALENCE_RECEIPT_v1",
+  "status":"PASS_BYTE_IDENTICAL_TO_V101_CANARY",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F03_ATR_PERIOD",
+  "scorer_ref":"control/recovery/qros_g30_f03_transactional_v106_verified_inputs.py",
+  "scorer_sha256":"38549088780528bcbeab191eb2ea52c5133cd2aed2661544b8be350e94757891",
+  "input_identity_contract":{"schema":"QROS_RUNTIME_VERIFIED_INPUT_IDENTITY_1.0","scope":"CURRENT_RUNTIME_ONLY","requires_canonical_sha256_already_verified":true,"requires_exact_size":true,"requires_exact_st_dev":true,"requires_exact_st_ino":true,"requires_exact_mtime_ns":true,"any_stat_change":"FAIL_CLOSED_REQUIRE_FULL_REVERIFICATION"},
+  "reference_canary":"NQX_M10_BID",
+  "reference_output_sha256":"40118438ae626c4d2cd36685203929bc77d809681dfa31b933e3de39ebe37552",
+  "v106_output_sha256":"40118438ae626c4d2cd36685203929bc77d809681dfa31b933e3de39ebe37552",
+  "byte_identical":true,
+  "reference_metrics":{"unique_masks":1575,"evaluated_configurations":3150,"passed":185,"passed_buy":64,"passed_sell":121,"signal_parity":"PASS_EXACT","trade_parity":"PASS_EXACT"},
+  "scientific_semantics_changed":false,
+  "execution_semantics_changed":false,
+  "dedupe_changed":false,
+  "costs_changed":false,
+  "gate_changed":false,
+  "holdout_opened":false,
+  "decision":"V106_AUTHORIZED_TO_REUSE_PREVIOUSLY_VERIFIED_IMMUTABLE_RUNTIME_INPUTS_WITH_FAIL_CLOSED_STAT_BINDING"
+}
