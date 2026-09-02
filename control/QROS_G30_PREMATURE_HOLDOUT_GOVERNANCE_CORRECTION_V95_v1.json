@@ -1,0 +1,83 @@
+{
+  "schema": "QROS_G30_PREMATURE_HOLDOUT_GOVERNANCE_CORRECTION_V95_v1",
+  "status": "ACTIVE_GOVERNANCE_CORRECTION_NO_HISTORICAL_REWRITE",
+  "created_date": "2026-09-01",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "root_genealogy": "G30_VOLATILITY_SHOCK_MOMENTUM",
+  "human_name": "Campaña 30 — Continuación después de un shock de volatilidad",
+  "trigger": "USER_IDENTIFIED_HOLDOUT_OPENED_BEFORE_CAMPAIGN_CAUSAL_UNIVERSE_COMPLETION",
+  "root_cause": {
+    "classification": "GOVERNANCE_SCOPE_AUTHORITY_ERROR",
+    "description": "F02 was incorrectly treated as if a completed frontier could independently authorize a clean holdout. The existing project policy protected ontology freeze before development but lacked an explicit genealogy-level holdout firewall.",
+    "not_a_data_error": true,
+    "not_a_runner_parity_error": true,
+    "not_a_user_error": true
+  },
+  "historical_event_preserved": {
+    "frontier": "F02_SHOCK_MEASURE_ALTERNATIVES",
+    "asset": "XAUUSD",
+    "verdict_ref": "control/QROS_G30_F02_XAU_HOLDOUT_VERDICT_V86_v1.json",
+    "original_scope_label": "CLEAN_HOLDOUT_2025_THROUGH_CANONICAL_2026_PARTIAL_ONE_TIME_OPEN",
+    "observed_window": "2025_THROUGH_CANONICAL_2026_PARTIAL",
+    "candidate_count": 52,
+    "observed_result_preserved": true,
+    "metrics_or_trades_deleted": false,
+    "historical_receipt_modified": false
+  },
+  "corrected_scientific_classification": {
+    "F02_event": "FRONTIER_LOCAL_RESERVED_WINDOW_PREMATURELY_OPENED_BEFORE_ROOT_GENEALOGY_COMPLETION",
+    "clean_root_genealogy_holdout": false,
+    "economic_exposure": true,
+    "exposure_scope": "ENTIRE_G30_ROOT_GENEALOGY_AND_ALL_DESCENDANTS",
+    "exposure_irreversible": true,
+    "XAUUSD_2025_2026_clean_reuse_for_G30": false,
+    "new_G30_descendant_may_call_2025_2026_clean_holdout": false,
+    "historical_F02_research_result_may_remain_as_exposed_evidence": true,
+    "final_clean_validation_route": "TRUE_FORWARD_OR_EXTERNAL_UNTOUCHED_DATA_ONLY"
+  },
+  "campaign_state_at_time_of_correction": {
+    "F02_stage_coverage_receipt_ref": "control/QROS_G30_F02_COVERAGE_RECEIPT_V94_v1.json",
+    "F02_stage_exhausted": true,
+    "whole_G30_pre_holdout_coverage_complete": false,
+    "whole_G30_branch_exhausted": false,
+    "additional_eligible_frontiers_remain": true,
+    "next_known_scheduler_frontier": "F03_ATR_PERIOD",
+    "semantic_issue_pending": "ATR_STOP_SPEC_3_0_ATR_VS_EXECUTED_1_5_ATR_REQUIRES_RESOLUTION_BEFORE_DESCENDANT_FREEZE",
+    "root_genealogy_clean_historical_holdout_remaining_within_2018_2026": false
+  },
+  "new_project_wide_authority": {
+    "policy_ref": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.1.json",
+    "firewall_ref": "governance/QROS_HOLDOUT_GENEALOGY_FIREWALL_v1.0.json",
+    "preflight_ref": "scripts/qros_holdout_genealogy_preflight.py",
+    "required_decision_before_future_holdout": "HOLDOUT_OPEN_AUTHORIZED"
+  },
+  "G30_current_holdout_authorization": {
+    "authorized": false,
+    "state": "HOLDOUT_OPEN_FORBIDDEN",
+    "reasons": [
+      "ROOT_GENEALOGY_PRE_HOLDOUT_COVERAGE_NOT_COMPLETE",
+      "OPEN_ELIGIBLE_FRONTIERS_REMAIN",
+      "FINAL_G30_CANDIDATE_COHORT_NOT_FROZEN",
+      "HISTORICAL_2018_2026_ALREADY_EXPOSED_FOR_G30",
+      "ATR_STOP_SEMANTIC_BINDING_PENDING"
+    ]
+  },
+  "required_continuation": [
+    "DO_NOT_OPEN_ANY_ADDITIONAL_G30_HISTORICAL_HOLDOUT",
+    "RESOLVE_ATR_STOP_SEMANTIC_BINDING_WITHOUT_USING_NEW_ECONOMIC_INFORMATION",
+    "CONTINUE_ONLY_ELIGIBLE_G30_FRONTIERS_UNDER_EXPOSED_DIAGNOSTIC_OR_OBSERVATIONAL_CLASSIFICATION",
+    "COMPLETE_ROOT_GENEALOGY_PRE_HOLDOUT_COVERAGE",
+    "FREEZE_FINAL_G30_CANDIDATE_COHORT",
+    "USE_TRUE_FORWARD_OR_EXTERNAL_UNTOUCHED_DATA_FOR_FINAL_CLEAN_VALIDATION"
+  ],
+  "prohibitions": [
+    "NO_HISTORICAL_RESULT_ERASURE",
+    "NO_RETROACTIVE_CLEAN_HOLDOUT_LABEL",
+    "NO_F02_RETUNING",
+    "NO_F03_HOLDOUT",
+    "NO_DESCENDANT_2018_2026_CLEAN_HOLDOUT",
+    "NO_MT5_APPROVAL_FROM_PREMATURE_HOLDOUT_EVENT",
+    "NO_BRANCH_EXHAUSTED_UNTIL_ROOT_REQUIREMENTS_PASS"
+  ],
+  "decision": "PREMATURE_HOLDOUT_ERROR_CORRECTED_AND_PROJECT_WIDE_FIREWALL_ADOPTED"
+}
