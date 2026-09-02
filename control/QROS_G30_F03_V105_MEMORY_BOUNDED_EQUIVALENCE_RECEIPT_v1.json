@@ -1,0 +1,22 @@
+{
+  "schema":"QROS_G30_F03_V105_MEMORY_BOUNDED_EQUIVALENCE_RECEIPT_v1",
+  "status":"PASS_BYTE_IDENTICAL_TO_V101_CANARY",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F03_ATR_PERIOD",
+  "scorer_ref":"control/recovery/qros_g30_f03_transactional_v105.py",
+  "scorer_git_blob":"ee36671d927b3a5ea2bdf5cf241ec36fb5910e3c",
+  "scorer_sha256":"8756cd8763b32789cc5c473d85270f72b6ebb78bb1f1da47da169e8748dc0e3f",
+  "reference_canary":"NQX_M10_BID",
+  "reference_output_sha256":"40118438ae626c4d2cd36685203929bc77d809681dfa31b933e3de39ebe37552",
+  "v105_output_sha256":"40118438ae626c4d2cd36685203929bc77d809681dfa31b933e3de39ebe37552",
+  "byte_identical":true,
+  "reference_metrics":{"unique_masks":1575,"evaluated_configurations":3150,"passed":185,"passed_buy":64,"passed_sell":121,"signal_parity":"PASS_EXACT","trade_parity":"PASS_EXACT"},
+  "change_scope":"MEMORY_LIFETIME_ONLY_RELEASE_PRIMARY_AND_INDEPENDENT_SIGNAL_PREPARATION_STRUCTURES_BEFORE_TICK_OUTCOMES; NO SCIENTIFIC_RULE_CHANGE",
+  "signal_semantics_changed":false,
+  "execution_semantics_changed":false,
+  "dedupe_changed":false,
+  "costs_changed":false,
+  "gate_changed":false,
+  "holdout_opened":false,
+  "decision":"V105_AUTHORIZED_FOR_F03_DEVELOPMENT_SCORING"
+}
