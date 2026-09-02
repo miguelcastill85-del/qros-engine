@@ -41,6 +41,33 @@ universo o multiplicidad para ganar velocidad. Resolver ambigüedades antes de u
 Todas las configuraciones que pasen avanzan. No seleccionar sólo la mejor.
 BRANCH_EXHAUSTED exige ontología congelada, RISE fixed point y cobertura demostrada.
 
+### Firewall obligatorio de holdout por genealogía
+
+La autoridad para abrir un holdout limpio pertenece a la **genealogía causal raíz**, nunca
+a un frente, subfrente, activo, cluster, tier, seed descendiente o `STAGE_EXHAUSTED`.
+Aplica obligatoriamente:
+`governance/QROS_HOLDOUT_GENEALOGY_FIREWALL_v1.0.json` y
+`governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.1.json`.
+
+Antes de leer cualquier resultado económico reservado, ejecutar:
+`python3 scripts/qros_holdout_genealogy_preflight.py --input <packet.json> --out <receipt.json>`.
+Sólo `status=PASS` **y** `decision=HOLDOUT_OPEN_AUTHORIZED` permiten continuar.
+Falta de receipt, campo, autoridad o condición => `HOLDOUT_OPEN_FORBIDDEN` y fail-closed.
+El packet debe demostrar, a nivel de genealogía raíz, ontología congelada, RISE fixed point,
+cobertura pre-holdout completa de todos los frentes elegibles, ningún frente abierto,
+cohorte final congelada, ejecución/costes/paridad congelados, gate de holdout congelado
+y ventana no expuesta para toda la genealogía.
+
+Si cualquier descendiente lee trades/PnL/PF/Sharpe/DD u otro resultado económico antes
+de esa autorización, preservar la evidencia pero marcar inmediatamente esa ventana
+`EXPOSED` para toda la genealogía. Es irreversible: ningún descendiente puede reutilizarla
+como holdout limpio. La validación final deberá usar true forward o datos externos
+realmente no observados. Hash/CRC/timestamps/auditoría estructural sin resultados de
+estrategia no constituyen por sí mismos exposición económica.
+
+Los comandos de chat `continúa`, `comienza`, `sigue`, `adelante`, `ejecuta` o equivalentes
+nunca sustituyen este preflight ni autorizan una apertura de holdout.
+
 ## Construcción y pruebas existentes
 
 Desde la raíz, antes de editar: `python3 handoff/verify_import.py`.
