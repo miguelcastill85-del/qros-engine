@@ -1,0 +1,53 @@
+{
+  "schema": "QROS_G30_F03_ENTRY_TICK_PARITY_CORRECTION_V98_v1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F03_ATR_PERIOD",
+  "status": "IMPLEMENTATION_BUG_ROOT_CAUSE_CONFIRMED_CORRECTED_PENDING_FULL_REPARITY",
+  "economic_rule_changed": false,
+  "signal_rule_changed": false,
+  "management_rule_changed": false,
+  "gate_changed": false,
+  "cost_rule_changed": false,
+  "frozen_semantic_authority": "control/QROS_G30_F03_ATR_PERIOD_PREREG_V97_v1.json",
+  "required_semantic": "CHECK_SAME_ENTRY_TICK_SL_FIRST",
+  "failed_shard": "NQX_M10_BID",
+  "failed_configuration": "ATR7|CURRENT_BAR_INCLUDED|1|CURRENT_CLOSE_EXCEEDS_ALL_PRIOR_N_CLOSES|1 BUY",
+  "root_cause": "INDEPENDENT_EXECUTOR_V97_INCREMENTED_TO_NEXT_RAW_TICK_BEFORE_FIRST_SL_TP_CHECK; PRIMARY_EXECUTOR_CHECKED_THE_ENTRY_TICK_AS_FROZEN",
+  "first_divergent_trade": {
+    "bar_index": 38111,
+    "bucket_ms": 1551244200000,
+    "entry_ts_ms": 1551245060500,
+    "entry_raw_index": 36365503,
+    "entry_bid": 71101,
+    "entry_ask": 71159,
+    "stop": 71126.21428571429,
+    "take": 71208.17857142857,
+    "stop_hit_on_entry_tick": true,
+    "primary_exit_ts_ms": 1551245060500,
+    "independent_v97_exit_ts_ms": 1551245135346,
+    "primary_r": -1.7690631808278867,
+    "independent_v97_r": -1.6775599128540306
+  },
+  "correction": {
+    "independent_executor_v98_ref": "control/recovery/qros_g30_f03_execution_independent_v98.py",
+    "independent_executor_v98_sha256": "e8f0109dbc1ffc44790929adac3eaed5dfdf3facea93355e6e4e35d2382610be",
+    "wrapper_ref": "control/recovery/qros_g30_f03_gate_a_v98_wrapper.py",
+    "wrapper_sha256": "ae2a5c8bdb82e8c6d996dd01d9b1c2860890633924892a2b9debea0a111a7df2",
+    "change": "REMOVE_PRECHECK_j_INCREMENT_SO_ENTRY_TICK_IS_INCLUDED_IN_INDEPENDENT_SL_TP_SCAN"
+  },
+  "reproduction_after_fix": {
+    "selected_trade_count_primary": 3865,
+    "selected_trade_count_independent": 3865,
+    "selected_sequence_equal": true,
+    "all_six_trade_arrays_equal": true,
+    "problem_trade_primary": [1551245060500,1551245060500,36365503,36365503,32.785714285714285,-1.7690631808278867],
+    "problem_trade_independent_v98": [1551245060500,1551245060500,36365503,36365503,32.785714285714285,-1.7690631808278867],
+    "status": "PASS_EXACT"
+  },
+  "v97_completed_shards_classification": "PROVISIONAL_INVALIDATED_PENDING_V98_REPARITY",
+  "holdout_opened": false,
+  "future_pnl_read": false,
+  "mt5": false,
+  "branch_exhausted": false,
+  "decision": "FIX_IMPLEMENTATION_ONLY_AND_REPARITY_ALL_F03_SHARDS_BEFORE_ACCEPTING_F03_RESULTS"
+}
