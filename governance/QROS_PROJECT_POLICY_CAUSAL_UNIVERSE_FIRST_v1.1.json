@@ -1,0 +1,69 @@
+{
+  "schema": "QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_1.1",
+  "state": "ACTIVE_PROJECT_INVARIANT",
+  "adoption_date": "2026-09-01",
+  "supersedes_for_prospective_enforcement": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.0.json",
+  "preserves_historical_receipts": true,
+  "scope": "ALL_QROS_RISE_CAMPAIGNS_AND_ALL_ROOT_CAUSAL_GENEALOGIES",
+  "linked_protocol": "governance/QROS_RISE_PREDEVELOPMENT_UNIVERSE_FREEZE_PROTOCOL_v1.5.md",
+  "holdout_firewall": {
+    "ref": "governance/QROS_HOLDOUT_GENEALOGY_FIREWALL_v1.0.json",
+    "status": "MANDATORY",
+    "preflight": "scripts/qros_holdout_genealogy_preflight.py",
+    "required_preflight_decision": "HOLDOUT_OPEN_AUTHORIZED"
+  },
+  "development_invariants_preserved_from_v1_0": {
+    "enumeration_complete_implies_ontology_complete": false,
+    "unexamined_cell_count_zero_proves_ontology_frozen": false,
+    "predevelopment_coverage_receipt_proves_ontology_sufficiency": false,
+    "development_allowed_before_ontology_sufficiency_pass": false,
+    "pnl_read_allowed_before_universe_freeze_gate_pass": false
+  },
+  "new_holdout_invariants": {
+    "holdout_belongs_to_root_genealogy_not_frontier": true,
+    "stage_exhausted_is_insufficient_for_holdout": true,
+    "all_eligible_frontiers_must_finish_pre_holdout_research": true,
+    "root_genealogy_pre_holdout_coverage_receipt_required": true,
+    "no_open_eligible_frontier_required": true,
+    "final_candidate_cohort_across_genealogy_must_be_frozen": true,
+    "holdout_window_must_be_unexposed_for_entire_genealogy": true,
+    "machine_preflight_pass_required": true,
+    "missing_or_failed_preflight_means_holdout_forbidden": true,
+    "economic_exposure_propagates_to_all_descendants": true,
+    "exposure_is_irreversible": true,
+    "post_exposure_clean_validation_requires_true_forward_or_external_untouched_data": true
+  },
+  "root_genealogy_pre_holdout_gate": {
+    "required": [
+      "UNIVERSE_ONTOLOGY_FROZEN",
+      "RISE_FIXED_POINT",
+      "ONTOLOGY_SUFFICIENCY_AUDIT_RECEIPT_PASS",
+      "PREDEVELOPMENT_UNIVERSE_COVERAGE_RECEIPT_PASS",
+      "ALL_ELIGIBLE_FRONTIERS_DEVELOPMENT_COMPLETE_OR_CAUSALLY_EXCLUDED",
+      "ROOT_GENEALOGY_PRE_HOLDOUT_COVERAGE_RECEIPT_PASS",
+      "NO_OPEN_ELIGIBLE_FRONTIER",
+      "FINAL_GENEALOGY_CANDIDATE_COHORT_FROZEN",
+      "EXECUTION_SEMANTICS_FROZEN",
+      "INDEPENDENT_PARITY_PASS",
+      "COST_MODEL_FROZEN",
+      "HOLDOUT_WINDOW_UNEXPOSED_FOR_ENTIRE_GENEALOGY",
+      "HOLDOUT_ACCEPTANCE_GATE_FROZEN",
+      "HOLDOUT_GENEALOGY_PREFLIGHT_PASS"
+    ],
+    "failure_state": "HOLDOUT_OPEN_FORBIDDEN"
+  },
+  "premature_holdout_correction": {
+    "do_not_delete_or_rewrite_observed_results": true,
+    "reclassify_period_as_exposed_for_root_genealogy": true,
+    "write_exposure_receipt_immediately": true,
+    "forbid_clean_reuse_for_descendants": true,
+    "require_true_forward_or_external_untouched_data_for_final_clean_validation": true
+  },
+  "automatic_commands": ["continua", "continúa", "comienza", "sigue", "adelante", "ejecuta", "prosigue"],
+  "anti_drift": "No frontier, subfrontier, asset branch, frozen cluster, stage receipt or local candidate cohort can self-authorize a clean holdout. Authorization exists only at root-genealogy level after complete pre-holdout coverage and a PASS from the genealogy firewall preflight.",
+  "fail_closed_state": {
+    "development_authorized_without_universe_freeze": false,
+    "holdout_authorized_without_root_genealogy_completion": false,
+    "economic_holdout_read_without_preflight": false
+  }
+}
