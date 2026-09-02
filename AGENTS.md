@@ -68,6 +68,32 @@ estrategia no constituyen por sí mismos exposición económica.
 Los comandos de chat `continúa`, `comienza`, `sigue`, `adelante`, `ejecuta` o equivalentes
 nunca sustituyen este preflight ni autorizan una apertura de holdout.
 
+### Firewall obligatorio de unidades y semántica de ejecución
+
+Antes de cualquier scoring económico aplica
+`governance/QROS_EXECUTION_UNIT_BINDING_FIREWALL_v1.0.json`.
+Toda variable derivada que afecte distancias de precio, ATR, stops, targets, costes o
+fills debe declarar explícitamente su unidad lógica, escala física de almacenamiento y
+conversión a la unidad de la cotización ejecutable. Una constante numérica no puede
+interpretarse aisladamente de esa escala.
+
+Ejecutar antes del scoring:
+`python3 scripts/qros_execution_unit_binding_preflight.py --input <packet.json> --out <receipt.json>`.
+Sólo `status=PASS` y `decision=ECONOMIC_SCORING_UNIT_BINDING_AUTHORIZED` permiten scoring.
+El preflight debe ligar la regla científica congelada a las fórmulas de la implementación
+principal y de la independiente, verificar sus autoridades por SHA-256 y superar un
+canary dimensional sintético sin utilizar PnL.
+
+La paridad entre dos implementaciones NO basta para certificar unidades si ambas comparten
+la misma convención de escala no verificada. Ausencia, ambigüedad o conflicto de escala =>
+`BLOCKED_BY_UNIT_BINDING`; está permitido corregir software y ejecutar pruebas sintéticas
+no económicas, pero está prohibido consultar PnL para escoger la interpretación.
+
+Para G30, la autoridad actual es `control/QROS_G30_EXECUTION_UNIT_CONTRACT_V96_v1.json`:
+el caché de barras/ATR usa escala interna ×2 respecto de la cotización raw ejecutable.
+Por ello `3.0 * ATR_cache / 2.0` equivale dimensionalmente a un stop de `3.0 * ATR` real;
+no equivale a un stop de 1.5 ATR.
+
 ## Construcción y pruebas existentes
 
 Desde la raíz, antes de editar: `python3 handoff/verify_import.py`.
