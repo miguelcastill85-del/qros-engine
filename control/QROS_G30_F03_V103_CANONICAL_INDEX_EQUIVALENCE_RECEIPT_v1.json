@@ -1,0 +1,22 @@
+{
+  "schema":"QROS_G30_F03_V103_CANONICAL_INDEX_EQUIVALENCE_RECEIPT_v1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F03_ATR_PERIOD",
+  "status":"PASS_BYTE_IDENTICAL_TO_V101_ON_FROZEN_CANARY",
+  "scorer_ref":"control/recovery/qros_g30_f03_transactional_v103.py",
+  "scorer_sha256":"f0ec01bda4f3d1f74ae97e57d564700ef5047d27ab73abfd1b2b7ca54a35eb25",
+  "scorer_git_blob_expected":"162ab09a8e4738597024cc42f349ad31d42bf489",
+  "parent_transactional_ref":"control/recovery/qros_g30_f03_transactional_v102.py",
+  "exec_index_authority_ref":"control/QROS_G30_F03_V99_FAST_EXECUTOR_EQUIVALENCE_RECEIPT_v1.json",
+  "change":"INDEPENDENT_EXECUTOR_USES_THE_CANONICAL_EXECUTABLE_MINUTE_INDEX_ALREADY_PROVEN_BYTE_EQUIVALENT_TO_ITS_INDEPENDENT_RECONSTRUCTION; DISTINCT_EXECUTION_LOGIC_AND_RAW_TICK_FILL_CONFIRMATION_REMAIN_UNCHANGED",
+  "canary":{"asset":"NQX","shard":"M10_BID","v101_output_sha256":"40118438ae626c4d2cd36685203929bc77d809681dfa31b933e3de39ebe37552","v103_output_sha256":"40118438ae626c4d2cd36685203929bc77d809681dfa31b933e3de39ebe37552","byte_identical":true,"passed":185,"passed_buy":64,"passed_sell":121,"signal_parity":"PASS_EXACT","trade_parity":"PASS_EXACT"},
+  "scientific_semantics_changed":false,
+  "signal_formulas_changed":false,
+  "dedupe_changed":false,
+  "execution_rule_changed":false,
+  "raw_tick_fill_confirmation_changed":false,
+  "costs_changed":false,
+  "gate_changed":false,
+  "holdout_opened":false,
+  "decision":"V103_AUTHORIZED_FOR_F03_DEVELOPMENT_SCORING"
+}
