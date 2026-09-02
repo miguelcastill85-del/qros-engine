@@ -1,0 +1,22 @@
+{
+  "schema":"QROS_G30_F03_V102_TRANSACTIONAL_EQUIVALENCE_RECEIPT_v1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F03_ATR_PERIOD",
+  "status":"PASS_BYTE_IDENTICAL_TO_V101_ON_FROZEN_CANARY",
+  "transactional_scorer_ref":"control/recovery/qros_g30_f03_transactional_v102.py",
+  "transactional_scorer_sha256":"3697f4d9ddc14c594fdf88ee8ff26a91cf6bf1bd145af08b6e8138b8bd0e4a0e",
+  "transactional_scorer_git_blob_expected":"54ec5f2f380e0b4c2b7c3ff0052c75bac21833a4",
+  "reference_scorer_ref":"control/recovery/qros_g30_f03_gate_a_fastscore_v101.py",
+  "reference_receipt_ref":"control/QROS_G30_F03_V101_FASTSCORER_EQUIVALENCE_RECEIPT_v1.json",
+  "canary":{"asset":"NQX","shard":"M10_BID","v101_output_sha256":"40118438ae626c4d2cd36685203929bc77d809681dfa31b933e3de39ebe37552","v102_output_sha256":"40118438ae626c4d2cd36685203929bc77d809681dfa31b933e3de39ebe37552","byte_identical":true,"raw_identities":1710,"unique_masks":1575,"evaluated_configurations":3150,"passed":185,"passed_buy":64,"passed_sell":121,"signal_parity":"PASS_EXACT","trade_parity":"PASS_EXACT"},
+  "transactional_change":"PREPARE_ONCE_SIGNAL_PARITY_DEDUPE_AND_RAW_OUTCOME_PARITY; STORE_SIGNAL_INDICES_AND_OUTCOMES; SCORE_UNIQUE_MASKS_IN_DETERMINISTIC_RESUMABLE_RANGES; MERGE_IN_ORIGINAL_MASK_ORDER",
+  "scientific_semantics_changed":false,
+  "signal_formulas_changed":false,
+  "dedupe_changed":false,
+  "execution_changed":false,
+  "trade_selection_changed":false,
+  "costs_changed":false,
+  "gate_changed":false,
+  "holdout_opened":false,
+  "decision":"V102_AUTHORIZED_FOR_RUNTIME_BOUND_F03_DEVELOPMENT_SHARDS"
+}
