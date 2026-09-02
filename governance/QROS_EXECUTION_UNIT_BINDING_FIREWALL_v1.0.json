@@ -1,0 +1,81 @@
+{
+  "schema": "QROS_EXECUTION_UNIT_BINDING_FIREWALL_1.0",
+  "status": "ADOPTED_MANDATORY_PROJECT_INVARIANT",
+  "adoption_date": "2026-09-02",
+  "scope": "ALL_QROS_RISE_CAMPAIGNS_BEFORE_ANY_ECONOMIC_SCORING",
+  "purpose": "Prevent price-distance, volatility, cost, stop, target and execution semantics from drifting because a derived feature or cache uses a storage scale different from executable quote units.",
+  "root_rule": "PARITY_DOES_NOT_PROVE_CORRECT_UNITS_IF_BOTH_IMPLEMENTATIONS_SHARE_THE_SAME_UNVERIFIED_UNIT_CONVENTION",
+  "hard_invariants": {
+    "economic_scoring_without_unit_contract": false,
+    "economic_scoring_with_ambiguous_storage_scale": false,
+    "economic_scoring_with_semantic_to_formula_mismatch": false,
+    "primary_independent_parity_alone_authorizes_units": false,
+    "unit_validation_may_use_economic_results": false,
+    "unit_validation_must_be_structural_and_dimensional": true,
+    "synthetic_dimensional_invariant_required": true,
+    "fail_closed_on_missing_or_conflicting_unit_authority": true
+  },
+  "required_before_economic_scoring": [
+    "RAW_QUOTE_UNIT_DECLARED",
+    "EXECUTION_PRICE_UNIT_DECLARED",
+    "EACH_PRICE_DERIVED_FEATURE_STORAGE_SCALE_DECLARED",
+    "EACH_EXECUTION_DISTANCE_CONVERSION_DECLARED",
+    "FROZEN_SEMANTIC_PARAMETER_BOUND_TO_RUNNER_FORMULA",
+    "PRIMARY_IMPLEMENTATION_UNIT_BINDING_PASS",
+    "INDEPENDENT_IMPLEMENTATION_UNIT_BINDING_PASS",
+    "PRIMARY_INDEPENDENT_EFFECTIVE_SEMANTICS_MATCH",
+    "SYNTHETIC_DIMENSIONAL_INVARIANT_PASS",
+    "AUTHORITY_FILES_PRESENT_AND_SHA256_VERIFIED",
+    "EXECUTION_UNIT_BINDING_PREFLIGHT_PASS"
+  ],
+  "minimum_contract_for_atr_fixed": {
+    "frozen_fields": ["atr_stop_mult", "reward_r_multiple"],
+    "storage_fields": [
+      "atr_storage_units_per_raw_quote_unit",
+      "execution_price_units_per_raw_quote_unit"
+    ],
+    "runner_fields_per_implementation": [
+      "atr_multiplier",
+      "atr_divisor",
+      "take_r_multiple"
+    ],
+    "effective_stop_multiple_formula": "atr_multiplier * atr_storage_units_per_raw_quote_unit / (atr_divisor * execution_price_units_per_raw_quote_unit)",
+    "required_relation": "effective_stop_multiple == frozen.atr_stop_mult AND take_r_multiple == frozen.reward_r_multiple"
+  },
+  "synthetic_dimensional_invariant": {
+    "default_raw_atr_quote_units": 100.0,
+    "expected_stop_execution_units_formula": "frozen_atr_stop_mult * raw_atr_quote_units * execution_price_units_per_raw_quote_unit",
+    "runner_stop_execution_units_formula": "runner_atr_multiplier * (raw_atr_quote_units * atr_storage_units_per_raw_quote_unit) / runner_atr_divisor",
+    "expected_take_execution_units_formula": "frozen_reward_r_multiple * expected_stop_execution_units",
+    "required": "PRIMARY_AND_INDEPENDENT_EXACT_WITHIN_NUMERIC_TOLERANCE"
+  },
+  "machine_preflight": {
+    "script": "scripts/qros_execution_unit_binding_preflight.py",
+    "request": "AUTHORIZE_ECONOMIC_SCORING_UNIT_BINDING",
+    "required_status": "PASS",
+    "required_decision": "ECONOMIC_SCORING_UNIT_BINDING_AUTHORIZED",
+    "missing_or_failed_receipt_behavior": "ECONOMIC_SCORING_FORBIDDEN"
+  },
+  "failure_response": {
+    "state": "BLOCKED_BY_UNIT_BINDING",
+    "economic_scoring_authorized": false,
+    "allowed_actions": [
+      "INSPECT_PREREGISTRATION",
+      "INSPECT_SOURCE_CODE",
+      "INSPECT_CACHE_OR_FEATURE_STORAGE_CONTRACT",
+      "RUN_NON_ECONOMIC_SYNTHETIC_UNIT_TESTS",
+      "CORRECT_IMPLEMENTATION_WITHOUT_CHANGING_FROZEN_SCIENTIFIC_RULES"
+    ],
+    "forbidden_actions": [
+      "READ_NEW_PNL_TO_CHOOSE_UNIT_INTERPRETATION",
+      "CHANGE_FROZEN_PARAMETER_TO_MATCH_EXISTING_CODE",
+      "DECLARE_PASS_FROM_PRIMARY_INDEPENDENT_PARITY_ALONE"
+    ]
+  },
+  "anti_drift": "Every storage scale is part of execution semantics. A literal numeric expression such as 3*ATR/2 cannot be interpreted economically until the ATR storage scale and execution quote scale are bound. Equivalent-looking code in two engines does not establish correctness if the same unit assumption is copied into both.",
+  "automatic_commands": ["continua", "continúa", "comienza", "sigue", "adelante", "ejecuta", "prosigue"],
+  "fail_closed_state": {
+    "economic_scoring_authorized": false,
+    "state": "ECONOMIC_SCORING_FORBIDDEN"
+  }
+}
