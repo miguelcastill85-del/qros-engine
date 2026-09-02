@@ -1,0 +1,57 @@
+{
+  "schema": "QROS_G30_EXECUTION_UNIT_CONTRACT_V96_v1",
+  "status": "FROZEN_NON_ECONOMIC_UNIT_AUTHORITY",
+  "created_date": "2026-09-02",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "root_genealogy": "G30_VOLATILITY_SHOCK_MOMENTUM",
+  "economic_results_used": false,
+  "raw_quote_contract": {
+    "source": "PACKED17_INTEGER_BID_ASK",
+    "raw_quote_units_per_raw_quote_unit": 1.0,
+    "execution_price_units_per_raw_quote_unit": 1.0
+  },
+  "bar_cache_contract": {
+    "builder_ref": "control/recovery/qros_g30_cache_v58.py",
+    "builder_git_blob": "e24ffb2b9b0e0691693294827865666d4cf8758f",
+    "BID_storage": "2 * BID_RAW",
+    "MID_storage": "BID_RAW + ASK_RAW",
+    "BID_storage_units_per_raw_quote_unit": 2.0,
+    "MID_storage_units_per_mid_quote_unit": 2.0,
+    "atr_storage_units_per_raw_quote_unit": 2.0,
+    "reason": "PRESERVE_EXACT_INTEGER_REPRESENTATION_FOR_BID_AND_HALF_TICK_MID_WITHOUT_FLOAT_ROUNDING"
+  },
+  "atr_fixed_execution_binding": {
+    "frozen_stop_semantics": "STOP_DISTANCE = ATR_STOP_MULT * ATR_IN_EXECUTION_QUOTE_UNITS",
+    "historical_core_atr_stop_mult": 3.0,
+    "historical_core_reward_r_multiple": 1.5,
+    "primary_runner_ref": "control/recovery/qros_g30_xau_gate_a_v68.py",
+    "primary_runner_git_blob": "e9d5c7e9c7699a44f9e8f3953db7b195e960439b",
+    "independent_runner_ref": "control/recovery/qros_g30_xau_outcome_b_fast_v71.py",
+    "independent_runner_git_blob": "3f34fb2909b51cc71e4ab10304739701dfb9c432",
+    "runner_atr_multiplier": 3.0,
+    "runner_atr_divisor": 2.0,
+    "effective_stop_mult_formula": "3.0 * 2.0 / (2.0 * 1.0)",
+    "effective_stop_mult": 3.0,
+    "take_r_multiple": 1.5
+  },
+  "synthetic_dimensional_canary": {
+    "raw_atr_quote_units": 100.0,
+    "stored_atr_units": 200.0,
+    "expected_stop_execution_quote_units": 300.0,
+    "primary_stop_execution_quote_units": 300.0,
+    "independent_stop_execution_quote_units": 300.0,
+    "expected_take_execution_quote_units": 450.0,
+    "primary_take_execution_quote_units": 450.0,
+    "independent_take_execution_quote_units": 450.0,
+    "status": "PASS_EXACT"
+  },
+  "binding_rules": {
+    "any_new_cache_or_feature_scale_requires_new_unit_contract_or_exact_alias_receipt": true,
+    "any_runner_formula_change_requires_unit_preflight_recertification": true,
+    "primary_independent_parity_without_dimensional_canary_is_insufficient": true,
+    "unit_contract_must_be_verified_before_economic_scoring": true
+  },
+  "semantic_resolution_ref": "control/QROS_G30_ATR_STOP_SEMANTIC_BINDING_RESOLUTION_V96_v1.json",
+  "policy_ref": "governance/QROS_EXECUTION_UNIT_BINDING_FIREWALL_v1.0.json",
+  "decision": "G30_DOUBLE_SCALE_BAR_AND_ATR_STORAGE_BOUND_TO_RAW_EXECUTION_QUOTES"
+}
