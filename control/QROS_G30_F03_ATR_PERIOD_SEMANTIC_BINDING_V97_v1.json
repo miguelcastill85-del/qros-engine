@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_G30_F03_ATR_PERIOD_SEMANTIC_BINDING_V97_v1",
+  "status": "PASS_BOUND_BEFORE_F03_RESULTS",
+  "created_date": "2026-09-02",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F03_ATR_PERIOD",
+  "economic_information_used": false,
+  "authority": {
+    "scheduler_ref": "control/QROS_G30_ONTOLOGY_COVERAGE_SCHEDULER_V79_v1.json",
+    "scheduler_git_blob": "2760e1ea0ef5e3f88ea09cc4ddd235609136fe1d",
+    "ontology_ref": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
+    "ontology_git_blob": "f6825b9686b589e21a700c72eb3655634ef53e5d",
+    "f02_prereg_ref": "control/QROS_G30_F02_SHOCK_MEASURE_ALTERNATIVES_PREREG_V80_v1.json",
+    "f02_prereg_git_blob": "2667b5265b5144efcc57422e32e3c928e7c1216f",
+    "g30_unit_contract_ref": "control/QROS_G30_EXECUTION_UNIT_CONTRACT_V96_v1.json"
+  },
+  "ambiguity_examined": "WHETHER F03 atr_period MUTATES ONLY SIGNAL ATR OR ALSO ATR PERIOD USED BY MANAGEMENT STOP",
+  "binding": {
+    "frontier_dimension": "SIGNAL.atr_period",
+    "signal_values": [7,10,20,28,50],
+    "signal_base_shock_measure": "HIGH_LOW_RANGE_OVER_ATR",
+    "signal_formula": "(H_t - L_t) / ATR_SIGNAL_ref(period)",
+    "signal_atr_smoothing": "SMA_TR",
+    "signal_atr_reference_timing": ["CURRENT_BAR_INCLUDED","LAGGED_ONE_BAR_PRE_SHOCK"],
+    "management_is_not_mutated_by_F03": true,
+    "management_stop_family": "ATR_FIXED",
+    "management_atr_period": 14,
+    "management_atr_stop_mult": 3.0,
+    "management_reward_r_multiple": 1.5,
+    "management_time_stop_bars": 20
+  },
+  "reasoning_without_results": [
+    "THE FROZEN SCHEDULER DEFINES F03 AS DIMENSION atr_period INSIDE THE SIGNAL FRONTIER ORDER",
+    "THE SAME SCHEDULER RESERVES F15_MANAGEMENT_OVERLAYS TO SEPARATE SIGNAL ALPHA FROM MANAGEMENT",
+    "F02 EXPLICITLY FIXED MANAGEMENT TO CORE_ANCHOR AND THE HISTORICAL CORE STOP WAS 3.0_X_ATR14",
+    "MUTATING THE STOP ATR PERIOD IN F03 WOULD SILENTLY CHANGE BOTH SIGNAL AND MANAGEMENT AND WOULD VIOLATE THE SCHEDULER SEPARATION"
+  ],
+  "prohibitions": [
+    "NO_F03_PNL_TO_CHOOSE_BINDING",
+    "NO_MUTATION_OF_MANAGEMENT_ATR_PERIOD_IN_F03",
+    "NO_HISTORICAL_HOLDOUT",
+    "NO_RETUNING_F02",
+    "NO_MT5"
+  ],
+  "bar_price_transform_pending_unaffected": true,
+  "decision": "F03_MUTATES_SIGNAL_ATR_PERIOD_ONLY; MANAGEMENT_REMAINS_CORE_ATR14_3R_STOP_1_5R_TARGET_20_BAR_TIME_STOP"
+}
