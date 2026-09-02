@@ -104,6 +104,7 @@ def main():
    if u[side].any():
     oa=c.outcome_A(mm['ts'],mm['bid'],mm['ask'],A[0],atrA,step,*ex,u[side],code);ob=outcome_B_fast(mm['ts'],mm['bid'],mm['ask'],B[0],atrB,step,*ex,u[side],code)
     outs[side]=(oa,ob)
+    # temporal sensitivity: shift the entire execution clock by 1 or 2 signal bars, preserving ATR/signal identity.
     del1[side]=c.outcome_A(mm['ts'],mm['bid'],mm['ask'],A[0]+step,atrA,step,*ex,u[side],code)
     del2[side]=c.outcome_A(mm['ts'],mm['bid'],mm['ask'],A[0]+2*step,atrA,step,*ex,u[side],code)
    if us[side].any():osh[side]=c.outcome_A(mm['ts'],mm['bid'],mm['ask'],A[0],atrA,step,*ex,us[side],code)
