@@ -1,0 +1,113 @@
+{
+  "schema": "QROS_HOLDOUT_GENEALOGY_FIREWALL_1.0",
+  "status": "ADOPTED_MANDATORY_PROJECT_INVARIANT",
+  "adoption_date": "2026-09-01",
+  "scope": "ALL_QROS_RISE_CAMPAIGNS_GENEALOGIES_FRONTIERS_SEEDS_DESCENDANTS_AND_ASSETS",
+  "purpose": "Prevent any frontier, subfrontier, seed, cluster, asset branch, management profile or descendant from opening a clean holdout before the complete causal genealogy has finished pre-holdout research and frozen its final candidate cohort.",
+  "root_rule": "HOLDOUT_AUTHORITY_BELONGS_TO_THE_ROOT_CAUSAL_GENEALOGY_NOT_TO_A_FRONTIER_OR_DESCENDANT",
+  "hard_invariants": {
+    "frontier_stage_exhausted_authorizes_holdout": false,
+    "subfrontier_completion_authorizes_holdout": false,
+    "asset_branch_completion_authorizes_holdout": false,
+    "candidate_cluster_freeze_inside_one_frontier_authorizes_holdout": false,
+    "temporary_absence_of_other_survivors_authorizes_holdout": false,
+    "whole_genealogy_pre_holdout_coverage_required": true,
+    "single_common_clean_holdout_opening_after_genealogy_freeze": true,
+    "economic_exposure_propagates_to_entire_genealogy": true,
+    "exposure_is_irreversible": true,
+    "clean_holdout_reclassification_after_exposure_forbidden": true,
+    "structural_hash_crc_byte_access_without_strategy_outcomes_is_economic_exposure": false,
+    "strategy_trade_pnl_pf_sharpe_dd_or_outcome_read_is_economic_exposure": true,
+    "fail_closed_on_missing_or_ambiguous_authority": true
+  },
+  "required_before_clean_holdout_open": [
+    "ROOT_GENEALOGY_ID_VERIFIED",
+    "UNIVERSE_ONTOLOGY_FROZEN_TRUE",
+    "RISE_FIXED_POINT_TRUE",
+    "ONTOLOGY_SUFFICIENCY_AUDIT_RECEIPT_PASS",
+    "PREDEVELOPMENT_UNIVERSE_COVERAGE_RECEIPT_PASS",
+    "ALL_ELIGIBLE_FRONTIERS_DEVELOPMENT_COMPLETE_OR_CAUSALLY_EXCLUDED",
+    "ROOT_GENEALOGY_PRE_HOLDOUT_COVERAGE_RECEIPT_PASS",
+    "NO_OPEN_ELIGIBLE_FRONTIER",
+    "ALL_GATE_A_SELECTION_COMPLETE",
+    "ALL_SIMILARITY_CLUSTERING_COMPLETE",
+    "FINAL_GENEALOGY_CANDIDATE_COHORT_FROZEN",
+    "BUY_SELL_SEPARATION_VERIFIED",
+    "EXECUTION_SEMANTICS_FROZEN",
+    "INDEPENDENT_PARITY_PASS",
+    "COST_MODEL_FROZEN",
+    "CLEAN_HOLDOUT_WINDOW_VERIFIED_UNEXPOSED_FOR_ENTIRE_GENEALOGY",
+    "HOLDOUT_ACCEPTANCE_GATE_FROZEN_BEFORE_ECONOMIC_READ",
+    "HOLDOUT_GENEALOGY_PREFLIGHT_PASS"
+  ],
+  "machine_preflight": {
+    "script": "scripts/qros_holdout_genealogy_preflight.py",
+    "required_result": "HOLDOUT_OPEN_AUTHORIZED",
+    "required_receipt_scope": "ROOT_GENEALOGY_COMPLETE",
+    "frontier_only_receipt_is_valid": false,
+    "missing_receipt_behavior": "HOLDOUT_OPEN_FORBIDDEN",
+    "failed_receipt_behavior": "HOLDOUT_OPEN_FORBIDDEN"
+  },
+  "authorization_boundary": {
+    "only_valid_authority": "ROOT_GENEALOGY_HOLDOUT_OPEN_AUTHORIZATION_RECEIPT",
+    "forbidden_authorities": [
+      "FRONTIER_RECEIPT",
+      "STAGE_EXHAUSTED_RECEIPT",
+      "ASSET_BRANCH_RECEIPT",
+      "CLUSTER_FREEZE_RECEIPT",
+      "CHAT_NARRATIVE",
+      "USER_CONTINUA_COMMAND_BY_ITSELF"
+    ]
+  },
+  "premature_open_response": {
+    "state": "HOLDOUT_OPEN_GOVERNANCE_VIOLATION",
+    "immediate_actions": [
+      "STOP_NEW_ECONOMIC_READS",
+      "PRESERVE_ALREADY_OBSERVED_RESULTS_WITHOUT_REWRITING_HISTORY",
+      "MARK_OBSERVED_WINDOW_EXPOSED_FOR_ENTIRE_ROOT_GENEALOGY",
+      "WRITE_EXPOSURE_LEDGER_RECEIPT",
+      "FORBID_CLEAN_HOLDOUT_REUSE_FOR_ALL_DESCENDANTS",
+      "REQUIRE_TRUE_FORWARD_OR_EXTERNAL_UNTOUCHED_HOLDOUT_FOR_FINAL_CLEAN_VALIDATION"
+    ]
+  },
+  "post_exposure_rules": {
+    "historical_exposed_period_allowed_uses": [
+      "DIAGNOSTIC_EXPOSED",
+      "OBSERVATIONAL_RESERVE",
+      "ABLATION_DIAGNOSTIC_WITH_EXPOSURE_LABEL",
+      "SOFTWARE_PARITY_DIAGNOSTIC"
+    ],
+    "historical_exposed_period_forbidden_uses": [
+      "CLEAN_HOLDOUT",
+      "TRUE_FORWARD",
+      "NEW_DESCENDANT_FINAL_UNBIASED_VALIDATION"
+    ],
+    "final_clean_validation_after_premature_exposure": "TRUE_FORWARD_OR_EXTERNAL_UNTOUCHED_DATA_ONLY"
+  },
+  "anti_rescue": {
+    "retune_after_holdout": false,
+    "change_gate_after_result": false,
+    "open_another_historical_period_and_call_it_clean_if_genealogy_already_exposed": false,
+    "select_single_winner_after_holdout": false
+  },
+  "precedence": {
+    "overrides_conflicting_future_campaign_or_frontier_holdout_instructions": true,
+    "does_not_rewrite_historical_results": true,
+    "historical_conflicts_are_preserved_and_reclassified_by_exposure_receipt": true
+  },
+  "automatic_commands": [
+    "continua",
+    "continúa",
+    "comienza",
+    "sigue",
+    "adelante",
+    "ejecuta",
+    "prosigue"
+  ],
+  "human_interface_message_on_open": "HOLDOUT ABIERTO — ESTE PERIODO YA NO ES DESCONOCIDO PARA TODA LA GENEALOGIA",
+  "fail_closed_state": {
+    "holdout_open_authorized": false,
+    "economic_read_authorized": false,
+    "state": "HOLDOUT_OPEN_FORBIDDEN"
+  }
+}
