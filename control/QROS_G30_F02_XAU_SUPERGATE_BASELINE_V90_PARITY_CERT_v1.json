@@ -1,0 +1,14 @@
+{
+  "schema":"QROS_G30_F02_XAU_SUPERGATE_BASELINE_V90_PARITY_CERT_v1",
+  "status":"PASS_EXACT",
+  "purpose":"Certify the optimized baseline-only V90 extractor against completed V89 Supergate checkpoints before using V90 on remaining shards.",
+  "v90_runner":{"path":"control/recovery/qros_g30_f02_xau_supergate_baseline_v90.py","sha256":"0295b50893bc1f98586971578257089bb7b2c3ea4247ebb0081e492fd3728eda","git_blob_sha":"aea5809bb0982c5db75d85442d0b33c68cff7c3b"},
+  "v89_runner":{"path":"control/recovery/qros_g30_f02_xau_supergate_segment_v89.py","sha256":"cdb8b5d8f57c810f4be0c4d4246af352fc9d767d5d32828eeb5902e8a45a0aac"},
+  "benchmarks":[
+    {"segment":"A_2018_2021","shard":"H1_MID","v89_file_sha256":"9939b73946b2f6d6c02589c159635997819d42576b5c799be8f068ff56f0c763","v90_file_sha256":"c83d4bc0952a5a8587f1e1d91366b74e30245cc3b5effc8882de4258416e7433","canonical_baseline_sha256_v89":"5b69cc2ad98509b0a0d28a68cfec4c753d47b0eea576b43e4ecd29facb571774","canonical_baseline_sha256_v90":"5b69cc2ad98509b0a0d28a68cfec4c753d47b0eea576b43e4ecd29facb571774","baseline_exact":true},
+    {"segment":"A_2018_2021","shard":"M10_MID","v89_file_sha256":"32b891f78022773aa2e3c1601fb5f1fb73a6e5acf8cf63d033ab495a45856b39","v90_file_sha256":"c5bbf8b26fa43f9fc742a4afae4ffc0f1f0ca5704a7d0a4f6174a00138b4bb04","canonical_baseline_sha256_v89":"84472ff8b0bb1a55661c729334438fd0e8d778f7deefec7b6b67c6815d3328b1","canonical_baseline_sha256_v90":"84472ff8b0bb1a55661c729334438fd0e8d778f7deefec7b6b67c6815d3328b1","baseline_exact":true}
+  ],
+  "scientific_change":false,
+  "optimization_only":"V90 omits expensive latency/ablation/MAE-MFE extraction until a candidate survives mandatory baseline/WF hard gates.",
+  "guards":{"retuning":false,"holdout_selection":false,"mt5":false}
+}
