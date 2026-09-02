@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-"""QROS holdout genealogy preflight.
+"""QROS genealogy-level holdout authorization preflight.
 
-Fail-closed authorization check for any request to open/read a clean holdout.
-This tool does not evaluate strategy economics. It validates only governance state.
-
-Usage:
-  python3 scripts/qros_holdout_genealogy_preflight.py --input packet.json --out receipt.json
-
-The caller MUST require status=PASS and decision=HOLDOUT_OPEN_AUTHORIZED.
-Anything else forbids economic holdout access.
+Fail closed before any economic read of a clean holdout. The CLI verifies both
+scientific/governance state and the physical identity (SHA-256) of its authority
+receipts in the repository checkout.
 """
 from __future__ import annotations
 
@@ -45,6 +40,18 @@ REQUIRED_FALSE = (
     "holdout_window_already_economically_exposed_for_genealogy",
 )
 
+REQUIRED_REF_KEYS = (
+    "ontology_ref",
+    "rise_ref",
+    "ontology_sufficiency_receipt_ref",
+    "predevelopment_coverage_receipt_ref",
+    "root_pre_holdout_coverage_receipt_ref",
+    "final_candidate_cohort_ref",
+    "execution_parity_ref",
+    "holdout_gate_ref",
+    "exposure_ledger_ref",
+)
+
 
 def canonical_bytes(obj: Any) -> bytes:
     return (json.dumps(obj, sort_keys=True, separators=(",", ":"), ensure_ascii=False) + "\n").encode("utf-8")
@@ -54,7 +61,25 @@ def sha256_hex(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def validate(packet: dict[str, Any]) -> tuple[list[str], list[str]]:
+def file_sha256(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for block in iter(lambda: fh.read(1024 * 1024), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def _safe_repo_path(repo_root: Path, relative: str) -> Path | None:
+    try:
+        candidate = (repo_root / relative).resolve(strict=False)
+        root = repo_root.resolve(strict=True)
+        candidate.relative_to(root)
+        return candidate
+    except (OSError, ValueError):
+        return None
+
+
+def validate(packet: dict[str, Any], repo_root: Path | None = None) -> tuple[list[str], list[str]]:
     failures: list[str] = []
     evidence: list[str] = []
 
@@ -68,8 +93,7 @@ def validate(packet: dict[str, Any]) -> tuple[list[str], list[str]]:
     if not isinstance(campaign_id, str) or not campaign_id.strip():
         failures.append("CAMPAIGN_ID_MISSING")
 
-    scope = packet.get("coverage_receipt_scope")
-    if scope != "ROOT_GENEALOGY_COMPLETE":
+    if packet.get("coverage_receipt_scope") != "ROOT_GENEALOGY_COMPLETE":
         failures.append("COVERAGE_SCOPE_NOT_ROOT_GENEALOGY_COMPLETE")
 
     state = packet.get("state")
@@ -78,49 +102,57 @@ def validate(packet: dict[str, Any]) -> tuple[list[str], list[str]]:
         state = {}
 
     for key in REQUIRED_TRUE:
-        value = state.get(key)
-        if value is not True:
+        if state.get(key) is not True:
             failures.append(f"REQUIRED_TRUE_FAILED:{key}")
         else:
             evidence.append(key)
 
     for key in REQUIRED_FALSE:
-        value = state.get(key)
-        if value is not False:
+        if state.get(key) is not False:
             failures.append(f"REQUIRED_FALSE_FAILED:{key}")
         else:
             evidence.append(key)
 
     refs = packet.get("authority_refs")
-    if not isinstance(refs, dict) or not refs:
+    hashes = packet.get("authority_sha256")
+    if not isinstance(refs, dict):
+        refs = {}
         failures.append("AUTHORITY_REFS_MISSING")
-    else:
-        required_refs = (
-            "ontology_ref",
-            "rise_ref",
-            "ontology_sufficiency_receipt_ref",
-            "predevelopment_coverage_receipt_ref",
-            "root_pre_holdout_coverage_receipt_ref",
-            "final_candidate_cohort_ref",
-            "execution_parity_ref",
-            "holdout_gate_ref",
-            "exposure_ledger_ref",
-        )
-        for key in required_refs:
-            val = refs.get(key)
-            if not isinstance(val, str) or not val.strip():
-                failures.append(f"AUTHORITY_REF_MISSING:{key}")
+    if not isinstance(hashes, dict):
+        hashes = {}
+        failures.append("AUTHORITY_SHA256_MAP_MISSING")
 
-    frontier = packet.get("requesting_frontier")
-    if frontier and state.get("all_eligible_frontiers_development_complete_or_causally_excluded") is not True:
+    for key in REQUIRED_REF_KEYS:
+        ref = refs.get(key)
+        expected = hashes.get(key)
+        if not isinstance(ref, str) or not ref.strip():
+            failures.append(f"AUTHORITY_REF_MISSING:{key}")
+            continue
+        if not isinstance(expected, str) or len(expected) != 64 or any(c not in "0123456789abcdefABCDEF" for c in expected):
+            failures.append(f"AUTHORITY_SHA256_INVALID:{key}")
+            continue
+        if repo_root is not None:
+            path = _safe_repo_path(repo_root, ref)
+            if path is None:
+                failures.append(f"AUTHORITY_PATH_ESCAPE_OR_INVALID:{key}")
+            elif not path.is_file():
+                failures.append(f"AUTHORITY_FILE_NOT_FOUND:{key}")
+            else:
+                actual = file_sha256(path)
+                if actual.lower() != expected.lower():
+                    failures.append(f"AUTHORITY_SHA256_MISMATCH:{key}")
+                else:
+                    evidence.append(f"authority_sha256:{key}")
+
+    if packet.get("requesting_frontier") and state.get("all_eligible_frontiers_development_complete_or_causally_excluded") is not True:
         failures.append("FRONTIER_CANNOT_SELF_AUTHORIZE_HOLDOUT")
 
     return sorted(set(failures)), sorted(set(evidence))
 
 
-def build_receipt(packet: dict[str, Any]) -> dict[str, Any]:
+def build_receipt(packet: dict[str, Any], repo_root: Path | None = None) -> dict[str, Any]:
     input_sha = sha256_hex(canonical_bytes(packet))
-    failures, evidence = validate(packet)
+    failures, evidence = validate(packet, repo_root=repo_root)
     passed = not failures
     return {
         "schema": SCHEMA,
@@ -144,11 +176,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", required=True)
     parser.add_argument("--out")
+    parser.add_argument("--repo-root", default=str(Path(__file__).resolve().parents[1]))
     args = parser.parse_args()
 
-    packet_path = Path(args.input)
     try:
-        packet = json.loads(packet_path.read_text(encoding="utf-8"))
+        packet = json.loads(Path(args.input).read_text(encoding="utf-8"))
     except Exception as exc:
         receipt = {
             "schema": SCHEMA,
@@ -168,7 +200,7 @@ def main() -> int:
     if not isinstance(packet, dict):
         packet = {"_invalid_root": packet}
 
-    receipt = build_receipt(packet)
+    receipt = build_receipt(packet, repo_root=Path(args.repo_root))
     text = json.dumps(receipt, sort_keys=True, indent=2, ensure_ascii=False) + "\n"
     if args.out:
         Path(args.out).write_text(text, encoding="utf-8")
