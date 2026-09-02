@@ -1,0 +1,120 @@
+{
+  "schema": "QROS_G30_F03_ATR_PERIOD_PREREG_V97_v1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "created_date": "2026-09-02",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F03_ATR_PERIOD",
+  "scheduler_ref": "control/QROS_G30_ONTOLOGY_COVERAGE_SCHEDULER_V79_v1.json",
+  "ontology_ref": "control/G30_UNIVERSE_ONTOLOGY_v2.json",
+  "semantic_binding_ref": "control/QROS_G30_F03_ATR_PERIOD_SEMANTIC_BINDING_V97_v1.json",
+  "unit_contract_ref": "control/QROS_G30_EXECUTION_UNIT_CONTRACT_V96_v1.json",
+  "unit_firewall_ref": "governance/QROS_EXECUTION_UNIT_BINDING_FIREWALL_v1.0.json",
+  "assets": ["NQX","XAUUSD"],
+  "development": "DARWINEX_MT5_SERVER_CLOCK_2018_2019_EXPOSED_DEVELOPMENT_ONLY",
+  "future_economic_data_used_for_design": false,
+  "historical_clean_holdout_available_for_G30": false,
+  "signal_timeframes": ["M1","M5","M10","M15","M30","H1"],
+  "feature_quote_sides": ["BID","MID"],
+  "bar_price_transform": "CLOSE_CORE_ANCHOR",
+  "shock_measure": "HIGH_LOW_RANGE_OVER_ATR",
+  "signal_atr": {
+    "periods": [7,10,20,28,50],
+    "smoothing": "SMA_TR",
+    "reference_timing": ["CURRENT_BAR_INCLUDED","LAGGED_ONE_BAR_PRE_SHOCK"],
+    "current_included": "ATR_SIGNAL_ref=ATR(period) ending at t",
+    "lagged": "ATR_SIGNAL_ref=ATR(period) ending at t-1",
+    "shock_formula": "(H_t-L_t)/ATR_SIGNAL_ref"
+  },
+  "thresholds": [1.0,1.25,1.5,1.75,2.0,2.5,3.0,3.5,4.0],
+  "directional_persistence": {
+    "families": [
+      "CURRENT_CLOSE_EXCEEDS_ALL_PRIOR_N_CLOSES",
+      "STRICT_MONOTONIC_N_CLOSE_SEQUENCE",
+      "CURRENT_CLOSE_BREAKS_PRIOR_N_BAR_EXTREME",
+      "SHOCK_BAR_BODY_DIRECTION_ONLY"
+    ],
+    "n": [1,2,3,4,5,8],
+    "body_direction_n": "NOT_APPLICABLE_SINGLE_IDENTITY"
+  },
+  "contexts": {
+    "close_location": "NONE",
+    "wick": "NONE",
+    "post_shock_confirmation": "NONE",
+    "volatility_regime": "NONE",
+    "spread_context": "NONE",
+    "tick_intensity": "NONE",
+    "event_refractory_bars": 0,
+    "session": "ALL",
+    "day_of_week": "ALL",
+    "gap_policy": "CORE_CONTINUITY_POLICY"
+  },
+  "management_separation": {
+    "mutated_by_F03": false,
+    "stop_family": "ATR_FIXED",
+    "stop_atr_period": 14,
+    "atr_stop_mult": 3.0,
+    "reward_r_multiple": 1.5,
+    "time_stop_bars": 20,
+    "same_day_exit": true,
+    "reason": "F15_IS_THE_FROZEN_MANAGEMENT_OVERLAY_FRONTIER; F03_MUTATES_SIGNAL_ATR_PERIOD_ONLY"
+  },
+  "execution": {
+    "buy": "ASK_IN_BID_OUT",
+    "sell": "BID_IN_ASK_OUT",
+    "executable_quote": "ASK_GT_BID_ONLY",
+    "entry": "FIRST_EXECUTABLE_QUOTE_AFTER_CAUSAL_SIGNAL_CLOSE",
+    "ambiguous": "SL_FIRST",
+    "gap": "FIRST_ACTUALLY_AVAILABLE_PRICE",
+    "immediate_entry_tick_stop_or_target": "CHECK_SAME_ENTRY_TICK_SL_FIRST",
+    "one_active_position_per_asset": true,
+    "same_timestamp_reentry": "STRICT_ENTRY_TS_GT_PREVIOUS_EXIT_TS"
+  },
+  "costs": {
+    "central": "OBSERVED_BID_ASK",
+    "conservative": "PLUS_0.5X_OBSERVED_SPREAD_ADVERSE_ENTRY_AND_EXIT_IN_R",
+    "severe": "PLUS_1.0X_OBSERVED_SPREAD_ADVERSE_ENTRY_AND_EXIT_IN_R"
+  },
+  "gate_a": {
+    "min_trades": 60,
+    "pf_central_min": 1.20,
+    "pf_conservative_min": 1.10,
+    "pf_severe_min": 1.00,
+    "both_2018_2019_positive_central": true,
+    "net_positive_all_costs": true,
+    "buy_sell_separate": true,
+    "all_passers_advance": true,
+    "single_winner_selection": false
+  },
+  "independence": {
+    "two_signal_implementations_required": true,
+    "two_execution_implementations_required": true,
+    "exact_selected_trade_parity_required": true,
+    "unit_binding_preflight_required_before_scoring": true
+  },
+  "dedupe": "EXACT_CAUSAL_SIGNAL_MASK_WITH_ALIASES_PRESERVED_WITHIN_SHARD_BEFORE_ECONOMIC_SCORING",
+  "post_gate": "NON_ECONOMIC_SIGNAL_AND_TRADE_JACCARD_CLUSTERING_USING_FROZEN_G30_RULES; FREEZE_ONE_MEDOID_PER_CLUSTER; ALL_CLUSTERS_ADVANCE",
+  "cardinality_preregistered": {
+    "persistence_identities_per_parameter_slice": 19,
+    "signal_atr_period_values": 5,
+    "atr_reference_timings": 2,
+    "shock_thresholds": 9,
+    "raw_signal_identities_per_shard": 1710,
+    "shards_per_asset": 12,
+    "raw_signal_identities_per_asset": 20520,
+    "raw_signal_identities_total_two_assets": 41040,
+    "economic_buy_sell_configurations_before_exact_mask_dedupe": 82080,
+    "arithmetic": "5*2*9*(3*6+1)=1710_PER_SHARD; 1710*12*2=41040_SIGNALS; *2_SIDES=82080"
+  },
+  "forbidden": [
+    "NO_2020_2026_ECONOMIC_SCORING_FOR_F03",
+    "NO_HISTORICAL_HOLDOUT",
+    "NO_F03_MANAGEMENT_ATR_PERIOD_MUTATION",
+    "NO_UNIT_BINDING_BYPASS",
+    "NO_RETUNING_AFTER_RESULTS",
+    "NO_MT5",
+    "NO_BRANCH_EXHAUSTED_FROM_F03_ALONE"
+  ],
+  "branch_exhaustion": false,
+  "economic_results_present": false,
+  "next_action": "IMPLEMENT_TWO_INDEPENDENT_F03_SIGNAL_PATHS; FREEZE RUNNER IDENTITIES; PASS EXECUTION UNIT BINDING PREFLIGHT; THEN RUN 2018_2019 DEVELOPMENT ONLY."
+}
