@@ -1,0 +1,32 @@
+{
+  "schema":"QROS_G30_F02_XAU_SUPERGATE_STAT_GATE_V92_v1",
+  "status":"FROZEN_BEFORE_V92_STATISTICAL_RESULTS",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F02_SHOCK_MEASURE_ALTERNATIVES",
+  "asset":"XAUUSD",
+  "input_wf_result_ref":"control/QROS_G30_F02_XAU_SUPERGATE_WF_V91_RESULT_v1.json",
+  "candidate_count":6,
+  "candidate_ids":["F02XAUC023","F02XAUC024","F02XAUC027","F02XAUC033","F02XAUC038","F02XAUC043"],
+  "candidate_root_sha256":"e1babe1842b91c0e8c4c397851ffd96ef8c268d552c37997f744cbdf47fdc6cd",
+  "random_seed_uint64":16265522015609887758,
+  "random_seed_derivation":"first_16_hex_digits_of_candidate_root_sha256",
+  "return_basis":{"central":"observed Bid/Ask already embedded","conservative":"frozen +0.5x observed spread adverse entry+exit","severe":"frozen +1.0x observed spread adverse entry+exit"},
+  "hard_gates":{
+    "neighbor_plateau":"candidate cluster type must equal PLATEAU_SUPPORTED",
+    "cost_stress":"aggregate severe net R > 0 and severe PF > 1.0",
+    "annual_consistency":"among full years 2018-2025, at least 7 of 8 central net-R years > 0; 2026 partial is diagnostic only",
+    "cpcv":"all 28 combinations of two OOS semiannual folds from 2022H1-2025H2 must have severe net R > 0",
+    "monte_carlo_block5":"20000 moving-block bootstrap trajectories on severe R, block length 5 trades; net-R p05 > 0",
+    "bootstrap_years":"10000 bootstrap trajectories resampling the eight full source-clock years 2018-2025 with replacement using severe annual net R; net-R p05 > 0",
+    "random_execution_failures_10pct":"10000 Bernoulli missed-execution trajectories on severe R; net-R p05 > 0",
+    "random_execution_failures_20pct":"10000 Bernoulli missed-execution trajectories on severe R; net-R p05 > 0",
+    "best_2p5pct_removed":"remove ceil(2.5% of trades) ranked by severe R descending; remaining severe net R > 0",
+    "best_5pct_removed":"remove ceil(5% of trades) ranked by severe R descending; remaining severe net R > 0",
+    "leave_one_year_out":"for each full source-clock year 2018-2025, remove that year and require remaining severe net R > 0"
+  },
+  "diagnostics_not_new_hard_thresholds":["IID Monte Carlo","PF and DD distributions","central/conservative versions of stresses","trade/daily/monthly Sharpe and Sortino","VaR/CVaR","streaks and underwater","2026 partial-year result"],
+  "provenance":"Thresholds are imported prospectively from mandatory QROS Supergate invariants and prior accepted XAU/NQX Supergate conventions; they were frozen before running V92 statistics. CPCV uses the stricter prior precedent of all combinatorial paths positive rather than inventing a post-result percentile cutoff.",
+  "failure_action":"REJECT_FROZEN_CANDIDATE_NO_RESCUE_NO_RETUNING",
+  "pass_action":"ADVANCE_TO_RAW_TICK_LATENCY_SLIPPAGE_ABLATION_MAE_MFE_AND_PORTFOLIO_TESTS",
+  "guards":{"retuning":false,"economic_ranking":false,"single_winner_selection":false,"mt5":false,"branch_exhausted":false}
+}
