@@ -1,0 +1,79 @@
+{
+  "schema": "QROS_G30_ATR_STOP_SEMANTIC_BINDING_RESOLUTION_V96_v1",
+  "status": "PASS_SEMANTIC_BINDING_RESOLVED_NO_EXECUTION_DIVERGENCE",
+  "created_date": "2026-09-02",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "root_genealogy": "G30_VOLATILITY_SHOCK_MOMENTUM",
+  "issue": "ATR_STOP_SPEC_3_0_ATR_VS_APPARENT_EXECUTED_1_5_ATR",
+  "economic_information_used_to_resolve": false,
+  "resolution_basis": "FROZEN_PREREGISTRATION_PLUS_SOURCE_CODE_AND_UNIT_ALGEBRA_ONLY",
+  "authority": {
+    "f02_prereg_ref": "control/QROS_G30_F02_SHOCK_MEASURE_ALTERNATIVES_PREREG_V80_v1.json",
+    "f02_prereg_git_blob": "2667b5265b5144efcc57422e32e3c928e7c1216f",
+    "xau_prereg_ref": "control/QROS_G30_XAU_CORRECTED_GATE_A_PREREG_V68_v1.json",
+    "xau_prereg_git_blob": "81ae0c8e3371333fe4c5ca95441efbccd70f03f9",
+    "cache_builder_ref": "control/recovery/qros_g30_cache_v58.py",
+    "cache_builder_git_blob": "e24ffb2b9b0e0691693294827865666d4cf8758f",
+    "primary_executor_ref": "control/recovery/qros_g30_xau_gate_a_v68.py",
+    "primary_executor_git_blob": "e9d5c7e9c7699a44f9e8f3953db7b195e960439b",
+    "independent_executor_ref": "control/recovery/qros_g30_xau_outcome_b_fast_v71.py",
+    "independent_executor_git_blob": "3f34fb2909b51cc71e4ab10304739701dfb9c432",
+    "f02_gate_a_runner_ref": "control/recovery/qros_g30_f02_gate_a_v80.py",
+    "f02_gate_a_runner_git_blob": "abaeac8f06f97fcfb8eefb9364c168afac7094f3",
+    "f02_holdout_runner_ref": "control/recovery/qros_g30_f02_xau_holdout_v86.py",
+    "f02_holdout_runner_git_blob": "e1bcf63b1ec8f45d7ba7312ef36ba830992c7417"
+  },
+  "frozen_semantics": {
+    "stop_family": "ATR_FIXED",
+    "atr_period_for_f02_management": 14,
+    "atr_stop_mult": 3.0,
+    "reward_r_multiple": 1.5,
+    "time_stop_bars": 20,
+    "same_day_exit": true
+  },
+  "storage_unit_contract_reconstructed_from_code": {
+    "raw_bid_ask_quote_integer_scale": 1.0,
+    "bid_bar_storage_expression": "2 * BID",
+    "mid_bar_storage_expression": "BID + ASK",
+    "mid_bar_interpretation": "2 * MID",
+    "bar_price_storage_units_per_raw_quote_unit": 2.0,
+    "atr_cache_units_per_raw_quote_unit": 2.0,
+    "execution_quote_units_per_raw_quote_unit": 1.0
+  },
+  "executor_binding": {
+    "primary_stop_distance_expression": "d = 3.0 * atr[bi] / 2.0",
+    "independent_stop_distance_expression": "d = 3.0 * atr[bi] / 2.0",
+    "take_expression": "take_distance = 1.5 * d",
+    "atr_storage_to_execution_divisor": 2.0
+  },
+  "dimensional_proof": {
+    "identity_1": "ATR_CACHE = 2 * ATR_EXECUTION_UNITS",
+    "identity_2": "D_EXEC = 3.0 * ATR_CACHE / 2.0",
+    "substitution": "D_EXEC = 3.0 * (2 * ATR_EXECUTION_UNITS) / 2.0",
+    "result": "D_EXEC = 3.0 * ATR_EXECUTION_UNITS",
+    "take_result": "TAKE_DISTANCE = 1.5R = 4.5 * ATR_EXECUTION_UNITS",
+    "effective_atr_stop_mult": 3.0,
+    "effective_reward_r_multiple": 1.5
+  },
+  "verdict": {
+    "specified_stop_mult": 3.0,
+    "executed_stop_mult": 3.0,
+    "implementation_divergence": false,
+    "f02_rerun_required_for_this_issue": false,
+    "historical_f02_results_invalidated_by_this_issue": false,
+    "semantic_binding_pending_after_this_receipt": false
+  },
+  "separation_from_other_findings": {
+    "old_obsolete_unit_mismatch_ref": "control/G30_ECONOMIC_SCORING_UNIT_CORRECTION_v1.json",
+    "old_gap_price_semantics_ref": "control/QROS_G30_EXECUTION_PRICE_SEMANTICS_CORRECTION_V59_v1.json",
+    "premature_holdout_governance_correction_ref": "control/QROS_G30_PREMATURE_HOLDOUT_GOVERNANCE_CORRECTION_V95_v1.json",
+    "premature_holdout_correction_still_applies": true,
+    "f02_xau_2025_2026_remains_exposed_not_clean_root_holdout": true
+  },
+  "anti_drift": {
+    "do_not_modify_historical_prereg_or_receipts": true,
+    "do_not_reinterpret_division_by_two_as_atr_mult_1_5_without_unit_contract": true,
+    "require_explicit_execution_unit_binding_before_future_economic_scoring": true
+  },
+  "decision": "ATR_STOP_3_0_ATR_SEMANTICS_CONFIRMED; FALSE_ALARM_CLOSED; INSTALL_PROJECT_WIDE_EXECUTION_UNIT_BINDING_FIREWALL"
+}
