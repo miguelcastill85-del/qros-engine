@@ -1,0 +1,20 @@
+{
+  "schema":"QROS_G30_F03_V107_BATCH_EQUIVALENCE_RECEIPT_v1",
+  "status":"PASS_CHUNK_BYTE_IDENTICAL_TO_V106",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F03_ATR_PERIOD",
+  "scorer_ref":"control/recovery/qros_g30_f03_chunkbatch_v107.py",
+  "scorer_sha256":"afc16b26999e72e2a4e50dc8f66c63de9d208fcefc75e66fc04716d70c2fc0a9",
+  "reference_chunk":"XAUUSD_M1_BID_MASKS_400_500",
+  "reference_v106_chunk_sha256":"e610d5e21d2799a4ca5bb1f0db96a9d111b33752834f89397d5b875a73beec19",
+  "v107_chunk_sha256":"e610d5e21d2799a4ca5bb1f0db96a9d111b33752834f89397d5b875a73beec19",
+  "byte_identical":true,
+  "change_scope":"REUSE_ONE_BAR_AND_FEATURE_BUILD_ACROSS_MULTIPLE_DETERMINISTIC_MASK_CHUNKS",
+  "signal_semantics_changed":false,
+  "trade_selection_changed":false,
+  "execution_semantics_changed":false,
+  "costs_changed":false,
+  "gate_changed":false,
+  "holdout_opened":false,
+  "decision":"V107_AUTHORIZED_FOR_F03_DEVELOPMENT_CHUNK_SCORING"
+}
