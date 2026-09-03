@@ -1,0 +1,18 @@
+{
+  "schema":"QROS_G30_F04_RUNNER_SOURCE_MANIFEST_V112_v1",
+  "status":"PASS_DURABLE_SOURCES_RECOVERED_EXACT",
+  "created_date":"2026-09-03",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F04_ATR_SMOOTHING",
+  "prereg_ref":"control/QROS_G30_F04_ATR_SMOOTHING_PREREG_V112_v1.json",
+  "semantic_binding_ref":"control/QROS_G30_F04_ATR_SMOOTHING_SEMANTIC_BINDING_V112_v1.json",
+  "sources":{
+    "signal_primary":{"path":"control/recovery/qros_g30_f04_signal_primary_v112.py","git_blob":"131fff3300771799f4a33273f4ff13b3801931f3","bytes":3069,"sha256":"0feaf5caaf4167f719152bb1df5d74764eb0aa2450bb6589c3e9fc14545e748e"},
+    "signal_independent":{"path":"control/recovery/qros_g30_f04_signal_independent_v112.py","git_blob":"6aa289706c73b56d889dd85c94cbf52a24555354","bytes":3746,"sha256":"a7988a0e87f2d5c47af255c977a66fa5edef9862bc668435bd13329c69dc5ac1"},
+    "transactional_runner":{"path":"control/recovery/qros_g30_f04_transactional_v112.py","git_blob":"26bb827c95fd2cba5f22828fe18b3ac43ab4fdbb","bytes":15427,"sha256":"21f7c7bd911a6bc1c968385a3be614e9baa2851d4216ae464c01bf555b09bb48"}
+  },
+  "durability_canary":{"path":"control/recovery/qros_runner_source_durability_canary_v1.py","git_blob":"96268adee547e68215ef73cb48eeee1469c5f411","bytes":635,"sha256":"eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56","stdout_bytes":174,"stdout_sha256":"76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9","status":"PASS_EXACT"},
+  "synthetic_pre_science_tests":{"signal_mask_parity":"PASS","execution_trade_array_parity":"PASS","github_exact_runner_execution_parity":"PASS"},
+  "economic_results_used_to_modify_sources":false,
+  "decision":"F04_SOURCES_FROZEN_AND_DURABLE_BEFORE_REAL_DEV_EXECUTION"
+}
