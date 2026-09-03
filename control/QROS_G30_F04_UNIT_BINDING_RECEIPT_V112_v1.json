@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_G30_F04_UNIT_BINDING_RECEIPT_V112_v1",
+  "status":"PASS",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F04_ATR_SMOOTHING",
+  "decision":"ECONOMIC_SCORING_UNIT_BINDING_AUTHORIZED",
+  "semantic_binding_ref":"control/QROS_G30_F04_ATR_SMOOTHING_SEMANTIC_BINDING_V112_v1.json",
+  "parent_unit_receipt_ref":"control/QROS_G30_F03_UNIT_BINDING_RECEIPT_V99_v1.json",
+  "economic_scoring_unit_binding_authorized":true,
+  "verified_conditions":["F04_MUTATES_SIGNAL_ATR_SMOOTHING_ONLY","MANAGEMENT_ATR14_SMA_TR_UNCHANGED","STOP_ATR_MULT_3.0_UNCHANGED","TARGET_1.5R_UNCHANGED","TIME_STOP_20_BARS_UNCHANGED","BUY_ASK_IN_BID_OUT","SELL_BID_IN_ASK_OUT","ZERO_SPREAD_NO_FILL"],
+  "effective":{"management_stop_atr_period":14,"management_stop_atr_smoothing":"SMA_TR","management_stop_atr_mult":3.0,"reward_r_multiple":1.5,"time_stop_bars":20},
+  "future_economic_data_used":false,
+  "historical_holdout_opened":false,
+  "retuning":false
+}
