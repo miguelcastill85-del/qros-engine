@@ -1,0 +1,142 @@
+{
+  "schema":"QROS_CROSS_CHAT_RESEARCH_MIGRATION_V109_v1",
+  "status":"MIGRATION_READY_NO_SCIENCE_CHANGE",
+  "created_date":"2026-09-02",
+  "repository":"miguelcastill85-del/qros-engine",
+  "purpose":"DURABLE_CROSS_CHAT_HANDOFF_WITH_NO_DEPENDENCE_ON_PREVIOUS_CHAT_RUNTIME",
+  "source_head_observed":{
+    "schema":"QROS_PERSISTENT_CONTROL_HEAD_V106",
+    "blob_sha":"b92f5c36bca1e4bd82e5f2566c79a8c27e6b56f2",
+    "commit":"1200296877534ae4fe6d555da377041716b0c56a",
+    "execution_annotation_stale_relative_to_persisted_xau_v108_receipt":true
+  },
+  "authority_reconciliation":{
+    "scientific_state_reconciled_to_persistent_receipts":true,
+    "no_new_economic_computation_performed_for_migration":true,
+    "nqx_gate_a_receipt":"control/QROS_G30_F03_NQX_GATE_A_COMPLETE_V105_v1.json",
+    "nqx_gate_a_receipt_git_blob":"5a40b09aba05a7b2699d67ee8942bfc38942e950",
+    "xau_gate_a_receipt":"control/QROS_G30_F03_XAU_GATE_A_COMPLETE_V108_v1.json",
+    "xau_gate_a_receipt_git_blob":"bda701ca5907d81779c61b65324a685ba8bbb9ed",
+    "v107_batch_equivalence_receipt":"control/QROS_G30_F03_V107_BATCH_EQUIVALENCE_RECEIPT_v1.json",
+    "decision":"V108_PERSISTENT_RECEIPT_SUPERSEDES_STALE_XAU_10_OF_12_EXECUTION_ANNOTATION_IN_HEAD_V106"
+  },
+  "campaign":{
+    "id":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+    "human_name":"Campaña 30 — Continuación después de un shock de volatilidad",
+    "root_genealogy":"G30_VOLATILITY_SHOCK_MOMENTUM",
+    "state":"DEVELOPMENT_RUNNING",
+    "ontology_ref":"control/G30_UNIVERSE_ONTOLOGY_v2.json",
+    "rise_ref":"control/RISE_G30_v2.json",
+    "rise_status":"FIXED_POINT",
+    "scheduler_ref":"control/QROS_G30_ONTOLOGY_COVERAGE_SCHEDULER_V79_v1.json",
+    "active_frontier":"F03_ATR_PERIOD",
+    "branch_exhausted":false,
+    "mt5_authorized":false
+  },
+  "f03_scientific_definition":{
+    "development":"DARWINEX_MT5_SERVER_CLOCK_2018_2019_EXPOSED_DEVELOPMENT_ONLY",
+    "signal_atr_periods":[7,10,20,28,50],
+    "shock_measure":"HIGH_LOW_RANGE_OVER_ATR",
+    "signal_atr_reference_timings":["CURRENT_BAR_INCLUDED","LAGGED_ONE_BAR_PRE_SHOCK"],
+    "thresholds":[1.0,1.25,1.5,1.75,2.0,2.5,3.0,3.5,4.0],
+    "timeframes":["M1","M5","M10","M15","M30","H1"],
+    "feature_quote_sides":["BID","MID"],
+    "management":{"stop_atr_period":14,"atr_stop_mult":3.0,"reward_r_multiple":1.5,"time_stop_bars":20,"same_day_exit":true},
+    "execution":{"buy":"ASK_IN_BID_OUT","sell":"BID_IN_ASK_OUT","executable":"ASK_GT_BID_ONLY","entry":"FIRST_EXECUTABLE_QUOTE_AFTER_CAUSAL_SIGNAL_CLOSE","entry_tick_sl_tp_check":true,"ambiguous":"SL_FIRST","gap":"FIRST_ACTUALLY_AVAILABLE_PRICE","one_active_position_per_asset":true,"strict_reentry_timestamp":true},
+    "costs":{"central":"OBSERVED_BID_ASK","conservative":"PLUS_0.5X_OBSERVED_SPREAD_ADVERSE_ENTRY_AND_EXIT_IN_R","severe":"PLUS_1.0X_OBSERVED_SPREAD_ADVERSE_ENTRY_AND_EXIT_IN_R"},
+    "gate_a":{"min_trades":60,"pf_central_min":1.20,"pf_conservative_min":1.10,"pf_severe_min":1.00,"net_positive_all_costs":true,"both_2018_2019_positive_central":true,"buy_sell_separate":true,"all_passers_advance":true,"single_winner_selection":false},
+    "prereg_ref":"control/QROS_G30_F03_ATR_PERIOD_PREREG_V97_v1.json",
+    "semantic_binding_ref":"control/QROS_G30_F03_ATR_PERIOD_SEMANTIC_BINDING_V97_v1.json",
+    "unit_receipt_ref":"control/QROS_G30_F03_UNIT_BINDING_RECEIPT_V99_v1.json"
+  },
+  "f03_gate_a_completed_state":{
+    "NQX":{"status":"PASS_12_OF_12_SHARDS_EXACT_PARITY","raw_signal_identities":20520,"unique_masks":18818,"evaluated_configurations":37636,"passed":1069,"passed_buy":445,"passed_sell":624,"future_2020_plus_pnl_read":false},
+    "XAUUSD":{"status":"PASS_12_OF_12_SHARDS_EXACT_PARITY","raw_signal_identities":20520,"unique_masks":18667,"evaluated_configurations":37334,"passed":859,"passed_buy":718,"passed_sell":141,"future_2020_plus_pnl_read":false},
+    "TOTAL":{"raw_signal_identities":41040,"unique_masks":37485,"evaluated_configurations":74970,"passed":1928,"passed_buy":1163,"passed_sell":765},
+    "signal_parity":"PASS_EXACT_24_OF_24_SHARDS",
+    "trade_parity":"PASS_EXACT_24_OF_24_SHARDS",
+    "retuning":false,
+    "historical_holdout_opened_for_f03":false,
+    "mt5":false
+  },
+  "data_authority":{
+    "NQX_FULL":{"carrier":"NQX_PACKED17_FULL_2018_2026.bin","records":559817687,"bytes":9516900679,"sha256":"6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608","multipart":"QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip ... part028-of-028.zip"},
+    "NQX_DEV":{"records":59940260,"bytes":1018984420,"sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf","f03_cache_sha256":"8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca"},
+    "XAU_FULL":{"carrier":"XAU_PACKED17_CENT_FULL_2018_2026.bin","records":697060968,"bytes":11850036456,"sha256":"c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4","multipart":"QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip ... part035-of-035.zip"},
+    "XAU_DEV":{"records":151382388,"bytes":2573500596,"sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53","f03_cache_signal_minutes":681772,"f03_cache_executable_minutes":681745,"f03_cache_sha256":"f5d847a51ffbbddd29dc4089aa65c04ebe4df01336b91af35223609551923e62"},
+    "time_authority_ref":"control/QROS_DARWINEX_MT5_TIME_AUTHORITY_V52_v1.json",
+    "time_authority":"DARWINEX_METATRADER_SERVER_TIME_NEW_YORK_CLOSE_US_DST_GMT_PLUS_3_OTHERWISE_GMT_PLUS_2_DO_NOT_ASSUME_UTC"
+  },
+  "critical_durable_sources":{
+    "cache_builder":{"ref":"control/recovery/qros_g30_cache_v58.py","git_blob":"e24ffb2b9b0e0691693294827865666d4cf8758f"},
+    "signal_primary":{"ref":"control/recovery/qros_g30_f03_signal_primary_v97.py","git_blob":"d998ceccd9fea27685e35ddb3995b9c3f6b291fb"},
+    "signal_independent":{"ref":"control/recovery/qros_g30_f03_signal_independent_v97.py","git_blob":"9fb973a2f551c5cfdc1c8e9870846913cceaa678"},
+    "execution_primary":{"ref":"control/recovery/qros_g30_f03_execution_primary_v97.py","git_blob":"0374eadc2046cb94ee988e2773d6f5f5d0c50925"},
+    "execution_independent_fast":{"ref":"control/recovery/qros_g30_f03_execution_independent_fast_v99.py","git_blob":"3ae28864b8aa02f5342e6f1cca270abffaae87bd"},
+    "transactional_v104":{"ref":"control/recovery/qros_g30_f03_transactional_v104.py","git_blob":"07deb2bb1e8e384d2f180eafb36eead2acf53ed1"},
+    "transactional_v105":{"ref":"control/recovery/qros_g30_f03_transactional_v105.py","git_blob":"ee36671d927b3a5ea2bdf5cf241ec36fb5910e3c"},
+    "verified_input_v106":{"ref":"control/recovery/qros_g30_f03_transactional_v106_verified_inputs.py","git_blob":"53498448bac1daa34fe0ff9314d8d8bd153b8fd9"},
+    "chunk_batch_v107":{"ref":"control/recovery/qros_g30_f03_chunkbatch_v107.py","git_blob":"40e97177fa80af9162d8b5f574d80725809ccd67"},
+    "v106_equivalence_receipt":"control/QROS_G30_F03_V106_VERIFIED_INPUT_EQUIVALENCE_RECEIPT_v1.json",
+    "v107_equivalence_receipt":"control/QROS_G30_F03_V107_BATCH_EQUIVALENCE_RECEIPT_v1.json"
+  },
+  "governance":{
+    "human_interface_ref":"governance/QROS_HUMAN_INTERFACE_v1.json",
+    "causal_universe_first_ref":"governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.1.json",
+    "holdout_genealogy_firewall_ref":"governance/QROS_HOLDOUT_GENEALOGY_FIREWALL_v1.0.json",
+    "holdout_preflight_ref":"scripts/qros_holdout_genealogy_preflight.py",
+    "execution_unit_firewall_ref":"governance/QROS_EXECUTION_UNIT_BINDING_FIREWALL_v1.0.json",
+    "execution_unit_preflight_ref":"scripts/qros_execution_unit_binding_preflight.py",
+    "runner_source_durability_ref":"governance/QROS_RUNNER_SOURCE_DURABILITY_GATE_v1.json",
+    "derived_rematerialization_ref":"control/DERIVED_ARTIFACT_DETERMINISTIC_REMATERIALIZATION_POLICY_v1.json",
+    "holdout_scope":"ROOT_CAUSAL_GENEALOGY_ONLY",
+    "historical_2018_2026_clean_holdout_remaining_for_g30":false,
+    "no_additional_g30_historical_holdout":true,
+    "true_forward_or_external_untouched_required_for_clean_final_validation":true
+  },
+  "source_durability_canary":{
+    "ref":"control/recovery/qros_runner_source_durability_canary_v1.py",
+    "git_blob":"96268adee547e68215ef73cb48eeee1469c5f411",
+    "source_sha256":"eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+    "bytes":635,
+    "expected_stdout_sha256":"76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9",
+    "required_on_new_runtime":true
+  },
+  "derived_artifact_policy":{
+    "completed_gate_a_must_not_be_rerun_as_scientific_search":true,
+    "deterministic_rematerialization_allowed_when_exact_passer_rows_or_ledgers_are_not_physically_present":true,
+    "rematerialization_must_use_canonical_dev_only":true,
+    "rematerialization_must_use_frozen_sources_and_exact_shard_result_hashes":true,
+    "economic_thresholds_or_selection_rules_may_not_change":true,
+    "purpose":"RECOVER_EXACT_1928_PASSER_SIGNAL_AND_TRADE_LEDGERS_FOR_NON_ECONOMIC_CLUSTERING_ONLY"
+  },
+  "next_action":{
+    "human":"Agrupar las 1.928 supervivientes F03 por similitud real para no contar variantes casi idénticas como estrategias distintas, y congelar un representante por grupo sin usar rentabilidad para elegirlo.",
+    "technical":"RECOVER_OR_DETERMINISTICALLY_REMATERIALIZE EXACT PASSER SIGNAL/TRADE LEDGERS FOR ALL 1069 NQX AND 859 XAU F03 GATE_A PASSERS USING FROZEN DEV SOURCES. VERIFY EACH SHARD AGAINST ITS PERSISTED RESULT_SHA256. APPLY THE FROZEN G30 NON_ECONOMIC SIGNAL_AND_TRADE_SIMILARITY/JACCARD CLUSTERING WITH ASSET AND BUY/SELL SEPARATE, PLATEAU/NEIGHBOR STRUCTURE PRESERVED, NO ECONOMIC RANKING. FREEZE ONE MEDOID REPRESENTATIVE PER CLUSTER AND PRESERVE ALL ALIASES. ALL DISTINCT CLUSTERS ADVANCE. PERSIST COVERAGE AND FROZEN REPRESENTATIVE RECEIPTS. THEN CONTINUE THE NEXT SCHEDULER FRONTIER. DO NOT OPEN HOLDOUT."
+  },
+  "new_runtime_recovery_protocol":[
+    "FETCH control/HEAD.json AND THIS MIGRATION MANIFEST FROM GITHUB BEFORE ANY EXECUTION",
+    "READ QROS HUMAN INTERFACE AND GOVERNANCE FIREWALLS",
+    "RECOVER THE DURABILITY CANARY SOURCE FROM GITHUB, VERIFY EXACT SOURCE IDENTITY, RUN ONLY THE CANARY, REQUIRE EXPECTED STDOUT SHA",
+    "SEARCH FILE LIBRARY/CURRENT UPLOADS FOR CANONICAL NQX/XAU MULTIPART CARRIERS BEFORE CLAIMING BYTES MISSING; DO NOT REQUEST REUPLOAD OF ALREADY DELIVERED DATA WITHOUT EXHAUSTIVE SEARCH",
+    "NEVER TRUST OR REQUIRE /mnt/data FROM THE PREVIOUS CHAT; IT IS EPHEMERAL",
+    "IF DERIVED DEV CARRIERS/CACHES/PASSER LEDGERS ARE ABSENT, REMATERIALIZE DETERMINISTICALLY AND REQUIRE CANONICAL SHA256/SHARD RESULT SHA256",
+    "IF V106 SCORER IS INVOKED, CREATE A FRESH QROS_RUNTIME_VERIFIED_INPUT_IDENTITY_1.0 RECEIPT FOR THE NEW RUNTIME",
+    "RECOVER ALL 1928 PASSERS EXACTLY; DO NOT RE-MINE OR RE-RANK THEM",
+    "CLUSTER NON_ECONOMICALLY, FREEZE REPRESENTATIVES, PERSIST RECEIPTS, UPDATE HEAD",
+    "CONTINUE NEXT SCHEDULER FRONTIER; HOLDOUT REMAINS CLOSED FOR THE ENTIRE G30 ROOT GENEALOGY"
+  ],
+  "prohibitions":[
+    "NO_RERUN_COMPLETED_F03_GATE_A_AS_EXPLORATION",
+    "NO_ECONOMIC_SELECTION_OR_SINGLE_WINNER",
+    "NO_2020_2026_F03_ECONOMIC_READ_OR_HISTORICAL_HOLDOUT",
+    "NO_RETUNING",
+    "NO_MT5",
+    "NO_BRANCH_EXHAUSTED_FROM_F03",
+    "NO_PARTIAL_OR_TRUNCATED_DATA",
+    "NO_GLOB_OR_LATEST_FILE_GUESSING",
+    "NO_USER_REUPLOAD_REQUEST_FOR_ALREADY_DELIVERED_CANONICAL_ZIPS_BEFORE_EXHAUSTIVE_LIBRARY_SEARCH"
+  ],
+  "user_action_required_now":"NONE",
+  "migration_decision":"SAFE_TO_OPEN_NEW_CHAT_AND_RESUME_FROM_GITHUB_PLUS_FILE_LIBRARY"
+}
