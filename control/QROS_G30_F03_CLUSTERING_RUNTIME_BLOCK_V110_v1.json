@@ -1,0 +1,108 @@
+{
+  "schema": "QROS_G30_F03_CLUSTERING_RUNTIME_BLOCK_V110_v1",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "created_date": "2026-09-03",
+  "scope": "EXECUTION_ANNOTATION_ONLY_NO_SCIENCE_CHANGE",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F03_ATR_PERIOD",
+  "scientific_state_preserved": "DEVELOPMENT_RUNNING",
+  "authority": {
+    "head_ref": "control/HEAD.json",
+    "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V109",
+    "head_git_blob": "69cefce7c2b9710a632db71cee4532da4eaf6933",
+    "migration_ref": "control/QROS_CROSS_CHAT_RESEARCH_MIGRATION_V109_v1.json",
+    "migration_git_blob": "a15e6333ef882f22ceab128901f38fee40509162",
+    "clustering_binding_ref": "control/QROS_G30_F03_NON_ECONOMIC_CLUSTERING_BINDING_V110_v1.json",
+    "clustering_binding_git_blob": "bec027d892e1f7fa4369ad8ab8f6770164ebb04f"
+  },
+  "completed_science_not_repeated": {
+    "NQX_gate_a": {"shards": "12_OF_12", "passers": 1069, "BUY": 445, "SELL": 624},
+    "XAUUSD_gate_a": {"shards": "12_OF_12", "passers": 859, "BUY": 718, "SELL": 141},
+    "total_passers": 1928,
+    "gate_a_rerun_as_exploration": false
+  },
+  "durability_canary_execution": {
+    "source_ref": "control/recovery/qros_runner_source_durability_canary_v1.py",
+    "expected_source_bytes": 635,
+    "expected_source_sha256": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+    "actual_source_bytes": 635,
+    "actual_source_sha256": "eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56",
+    "expected_stdout_bytes": 252,
+    "expected_stdout_sha256": "76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9",
+    "actual_stdout_bytes": 252,
+    "actual_stdout_sha256": "76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9",
+    "decision": "PASS_EXACT"
+  },
+  "recovery_search_evidence": {
+    "github": {
+      "head_and_v109_recovered": true,
+      "f03_completion_receipts_recovered": true,
+      "frozen_scorers_v97_v104_v105_v106_v107_recovered_or_located": true,
+      "v49_clustering_rule_recovered": true,
+      "f02_reference_clustering_implementation_recovered": true,
+      "f03_shard_result_payloads_present_in_repository_tree": false,
+      "f03_completed_cluster_artifact_present": false
+    },
+    "file_library": {
+      "canonical_NQX_catalog": "28_OF_28_SAVED_CATALOG_CONFIRMED",
+      "canonical_NQX_carrier": "NQX_PACKED17_FULL_2018_2026.bin",
+      "canonical_NQX_full_sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+      "canonical_NQX_dev_prefix_bytes": 1018984420,
+      "canonical_NQX_dev_prefix_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+      "canonical_XAU_catalog": "35_OF_35_SAVED_CATALOG_CONFIRMED",
+      "canonical_XAU_carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+      "canonical_XAU_full_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+      "canonical_XAU_dev_prefix_bytes": 2573500596,
+      "canonical_XAU_dev_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+      "catalog_references_resolved": true,
+      "raw_zip_bytes_materializable_through_current_file_library_tool": false,
+      "exact_f03_shard_result_payloads_found": false
+    },
+    "dropbox": {
+      "search_QROS_G30_F03": "NO_MATCH",
+      "search_NQX_part001": "NO_MATCH",
+      "search_XAU_part001": "NO_MATCH"
+    },
+    "current_runtime_files": {
+      "mnt_data_files_before_annotation": [
+        {"path": "/mnt/data/Investigación XAUUSD.txt", "bytes": 5694},
+        {"path": "/mnt/data/qros_runner_source_durability_canary_v1.py", "bytes": 635}
+      ],
+      "canonical_dev_tick_bytes_present": false,
+      "f03_cache_bytes_present": false,
+      "f03_shard_result_payloads_present": false
+    }
+  },
+  "blocker": {
+    "code": "FILE_LIBRARY_CANONICAL_REFERENCES_NOT_EXECUTABLE_BYTE_STREAM_IN_CURRENT_RUNTIME",
+    "cause": "The canonical NQX/XAU multipart ZIPs are verified and cataloged in File Library, but the available File Library interface in this runtime exposes searchable references/metadata rather than a raw-byte materialization path into the execution filesystem. GitHub contains the durable frozen sources and completion receipts but not the multi-GB DEV tick bytes, F03 caches, or the 24 exact shard-result payloads. Dropbox does not contain the searched canonical carriers. Therefore deterministic rematerialization cannot be executed without violating exact-byte and shard-hash parity requirements.",
+    "scientific_interpretation": "INFRASTRUCTURE_ONLY_NOT_REJECTION_NOT_BRANCH_EXHAUSTION"
+  },
+  "work_completed_despite_block": {
+    "durability_gate": "PASS_EXACT",
+    "authority_identity_verified": true,
+    "frozen_population_verified_from_persistent_receipts": true,
+    "24_expected_shard_result_sha256_bound": true,
+    "non_economic_clustering_method_frozen_before_results": true,
+    "asset_and_active_side_separation_frozen": true,
+    "plateau_and_alias_preservation_frozen": true,
+    "medoid_no_economic_ranking_frozen": true
+  },
+  "prohibitions_respected": {
+    "historical_G30_holdout_opened": false,
+    "retuned": false,
+    "mt5_executed": false,
+    "branch_exhausted_declared": false,
+    "Gate_A_F03_repeated_as_scientific_search": false,
+    "economic_ranking_used_for_clustering": false
+  },
+  "portfolio_impact": {
+    "new_modules": 0,
+    "risk_added_R": 0,
+    "frequency_added_per_year": 0
+  },
+  "next_action_when_byte_materialization_is_available": "MATERIALIZE_ONLY_CANONICAL_NQX_AND_XAU_DEV_PREFIXES_FROM_FILE_LIBRARY_ZIP_V2; VERIFY ZIP/PAYLOAD/DEV_SHA256; DETERMINISTICALLY REMATERIALIZE ONLY F03 DERIVED CACHE/SHARD RESULTS AS NEEDED USING FROZEN SOURCES; REQUIRE 24_OF_24 PERSISTED RESULT_SHA256 EXACT; RECOVER EXACT 1928 PASSERS; APPLY control/QROS_G30_F03_NON_ECONOMIC_CLUSTERING_BINDING_V110_v1.json; PERSIST MEMBERSHIP/COVERAGE/FROZEN_MEDOIDS; KEEP G30 HISTORICAL HOLDOUT SEALED; THEN CONTINUE SCHEDULER.",
+  "user_reupload_requested": false,
+  "user_action_required_now": "NONE",
+  "decision": "BLOCKED_BY_INFRASTRUCTURE_AFTER_EXHAUSTIVE_PERSISTENT_RECOVERY_SEARCH"
+}
