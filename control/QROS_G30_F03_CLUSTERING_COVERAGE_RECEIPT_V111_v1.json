@@ -1,0 +1,92 @@
+{
+  "schema": "QROS_G30_F03_CLUSTERING_COVERAGE_RECEIPT_V111_v1",
+  "status": "PASS_EXACT",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F03_ATR_PERIOD",
+  "created_date": "2026-09-03",
+  "authority": {
+    "binding_ref": "control/QROS_G30_F03_NON_ECONOMIC_CLUSTERING_BINDING_V110_v1.json",
+    "binding_git_blob": "bec027d892e1f7fa4369ad8ab8f6770164ebb04f",
+    "nqx_gate_a_ref": "control/QROS_G30_F03_NQX_GATE_A_COMPLETE_V105_v1.json",
+    "xau_gate_a_ref": "control/QROS_G30_F03_XAU_GATE_A_COMPLETE_V108_v1.json"
+  },
+  "precluster_parity": {
+    "shard_results_exact": "24_OF_24",
+    "passers_exact": 1928,
+    "trade_count_parity_all_passers": true,
+    "ordered_ledger_sha256_parity_all_passers": true,
+    "nqx_dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "xau_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "nqx_cache_sha256": "8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
+    "xau_cache_sha256": "f5d847a51ffbbddd29dc4089aa65c04ebe4df01336b91af35223609551923e62"
+  },
+  "partitioning": {
+    "asset_separate": true,
+    "buy_sell_separate": true,
+    "cross_asset_edges": false,
+    "cross_buy_sell_edges": false
+  },
+  "rule": {
+    "signal_jaccard_min": 0.5,
+    "trade_entry_jaccard_min": 0.5,
+    "geometric_min": 0.7,
+    "components": "UNDIRECTED_TRANSITIVE",
+    "representative": "MEDOID_MAX_MEAN_GEOMETRIC",
+    "economic_ranking": false,
+    "daily_r_correlation": "DIAGNOSTIC_ONLY"
+  },
+  "assets": {
+    "NQX": {
+      "survivors": 1069,
+      "buy": 445,
+      "sell": 624,
+      "clusters": 106,
+      "buy_clusters": 54,
+      "sell_clusters": 52,
+      "plateau_supported": 78,
+      "isolated_singletons": 25,
+      "multi_member_nonlocal": 3,
+      "graph_edges": 12662,
+      "local_parameter_neighbor_pairs": 4376,
+      "cluster_assignment_root_sha256": "6a6720780bb45d3cdd3fdc6a7f26b87464499f052fe0d95b7d2ffe9bbbbf227c",
+      "cluster_json_sha256": "120925cab7cc5722dc397b072d2da1ec05a19d7b83b7c995769d3aa3d7f6f4d2",
+      "representatives_ref": "control/QROS_G30_F03_NQX_FROZEN_REPRESENTATIVES_V111_v1.json"
+    },
+    "XAUUSD": {
+      "survivors": 859,
+      "buy": 718,
+      "sell": 141,
+      "clusters": 123,
+      "buy_clusters": 96,
+      "sell_clusters": 27,
+      "plateau_supported": 93,
+      "isolated_singletons": 24,
+      "multi_member_nonlocal": 6,
+      "graph_edges": 5689,
+      "local_parameter_neighbor_pairs": 3004,
+      "cluster_assignment_root_sha256": "7fdf908d480670a405194132c435841515e8d362f0472a8d8a247bbe7084988d",
+      "cluster_json_sha256": "f4e9e8a3f6f981332fee334af54fd91ff0014b83ec1d76e645fe6bc071b490c4",
+      "representatives_ref": "control/QROS_G30_F03_XAUUSD_FROZEN_REPRESENTATIVES_V111_v1.json"
+    }
+  },
+  "aggregate": {
+    "survivors": 1928,
+    "clusters": 229,
+    "medoids_frozen": 229,
+    "plateau_supported_clusters": 171,
+    "isolated_singletons": 49,
+    "multi_member_nonlocal": 9,
+    "graph_edges": 18351,
+    "local_parameter_neighbor_pairs": 7380
+  },
+  "invariants": {
+    "all_distinct_clusters_advance": true,
+    "aliases_preserved_in_cluster_reconstruction": true,
+    "historical_g30_holdout_opened": false,
+    "future_2020_plus_pnl_read_for_clustering": false,
+    "retuning": false,
+    "mt5": false,
+    "branch_exhausted": false
+  },
+  "decision": "F03_NON_ECONOMIC_CLUSTERING_COMPLETE_229_MEDOIDS_FROZEN_CONTINUE_SCHEDULER"
+}
