@@ -1,0 +1,17 @@
+{
+  "schema":"QROS_G30_F04_CLUSTERING_COVERAGE_RECEIPT_V113_v1",
+  "status":"PASS_EXACT",
+  "created_date":"2026-09-03",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F04_ATR_SMOOTHING",
+  "method_ref":"control/QROS_G30_F04_NON_ECONOMIC_CLUSTERING_BINDING_V113_v1.json",
+  "method_git_blob":"b2a18889d2759a5a25ab1e76de5fbc2981180a5e",
+  "gate_a":{"NQX":{"ref":"control/QROS_G30_F04_NQX_GATE_A_COMPLETE_V113_v1.json","git_blob":"6f0eb3b3bffdd090728cd3e7eaecc6db52d6ab7d","shards":"12_OF_12","passers":559,"buy":158,"sell":401},"XAUUSD":{"ref":"control/QROS_G30_F04_XAU_GATE_A_COMPLETE_V113_v1.json","git_blob":"1d1ac9ce73afaae6702b1d62b2c4d18162496ab6","shards":"12_OF_12","passers":244,"buy":175,"sell":69}},
+  "aggregate":{"passers":803,"buy":333,"sell":470,"clusters":106,"medoids":106,"buy_clusters":62,"sell_clusters":44,"plateau_supported_clusters":74,"isolated_singletons":23,"multi_member_nonlocal":9,"graph_edges":10131,"local_parameter_neighbor_pairs":1816},
+  "assets":{"NQX":{"clusters":58,"buy_clusters":27,"sell_clusters":31,"plateau_supported":41,"isolated_singletons":13,"multi_member_nonlocal":4,"graph_edges":9305,"local_parameter_neighbor_pairs":1347,"cluster_assignment_root_sha256":"1a78f5859dc09caa93bae18c52368e2ef8e00044f9958b3a602229a3e97194a3","cluster_output_sha256":"0b29768620c36aa906de1f7911268aa1c31cc725f1b24edd4cd6894d62b88370","alias_membership_root_sha256":"334bd3cea7b2fa9e7de06e78779f9cade542c53e219497e6d55c15a7fdbe1b37"},"XAUUSD":{"clusters":48,"buy_clusters":35,"sell_clusters":13,"plateau_supported":33,"isolated_singletons":10,"multi_member_nonlocal":5,"graph_edges":826,"local_parameter_neighbor_pairs":469,"cluster_assignment_root_sha256":"bb1e94da8ab4681a84687d02c3f20fd60f4abc2ffe76e526e05959409869c945","cluster_output_sha256":"e3383cb9f4c02fba1b486fcc3df2561e1a4beb3a01658f8966bee40696a24385","alias_membership_root_sha256":"27dcf45bd15e5b4d66c52b536cbdea2bfd3bd30060ec5cb5821779947b7cd06b"}},
+  "precluster_rebuild":{"every_passer_trade_count_exact":true,"every_passer_ordered_ledger_sha256_exact":true,"signal_mask_sha256_exact":true},
+  "independent_clustering_parity":{"NQX":{"status":"PASS_EXACT","component_membership_exact":true,"medoids_exact":true,"edge_count_exact":true,"components":58,"edges":9305},"XAUUSD":{"status":"PASS_EXACT","component_membership_exact":true,"medoids_exact":true,"edge_count_exact":true,"components":48,"edges":826}},
+  "representative_selection_used_economics":false,"all_distinct_clusters_advance":true,"aliases_preserved":true,
+  "future_2020_plus_pnl_read":false,"historical_holdout_opened":false,"retuning":false,"mt5":false,"branch_exhausted":false,
+  "decision":"F04_CLUSTERING_COMPLETE_EXACT_106_CLUSTERS_ADVANCE"
+}
