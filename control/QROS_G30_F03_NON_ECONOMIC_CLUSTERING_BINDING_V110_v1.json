@@ -1,0 +1,108 @@
+{
+  "schema": "QROS_G30_F03_NON_ECONOMIC_CLUSTERING_BINDING_V110_v1",
+  "status": "PREREGISTERED_NO_CLUSTER_RESULTS",
+  "created_date": "2026-09-03",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F03_ATR_PERIOD",
+  "authority": {
+    "head_ref": "control/HEAD.json",
+    "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V109",
+    "head_git_blob_observed_before_binding": "69cefce7c2b9710a632db71cee4532da4eaf6933",
+    "migration_ref": "control/QROS_CROSS_CHAT_RESEARCH_MIGRATION_V109_v1.json",
+    "migration_git_blob": "a15e6333ef882f22ceab128901f38fee40509162",
+    "rule_ref": "control/QROS_G30_NQX_GATE_A_CLUSTERING_PREREG_V49_v1.json",
+    "rule_git_blob": "bd5d887ba3932020a9d1ab77996b5eb8deae08be"
+  },
+  "frozen_population": {
+    "total": 1928,
+    "NQX": {"total": 1069, "BUY": 445, "SELL": 624, "receipt": "control/QROS_G30_F03_NQX_GATE_A_COMPLETE_V105_v1.json", "receipt_git_blob": "5a40b09aba05a7b2699d67ee8942bfc38942e950"},
+    "XAUUSD": {"total": 859, "BUY": 718, "SELL": 141, "receipt": "control/QROS_G30_F03_XAU_GATE_A_COMPLETE_V108_v1.json", "receipt_git_blob": "bda701ca5907d81779c61b65324a685ba8bbb9ed"}
+  },
+  "mandatory_precluster_parity": {
+    "require_all_24_shard_result_sha256_exact": true,
+    "NQX": {
+      "H1_BID": "97b57fadbb6fe1a4f4f9d6b376b9edaf89c01b022a428404b2bcd01d3918ca45",
+      "H1_MID": "f18c31a6248a0fb6ae9d3a5621cae1f7460fcde9958bcf73a32159484d57d951",
+      "M30_BID": "0e0988313984916df25ac421cac7407380101229118af741fdd88829bcb368d0",
+      "M30_MID": "e7df0661f3f9cb87dfcdc2dfb4af0dfa4c99fa74e4da4e0424237ad4b8ebc66d",
+      "M15_BID": "107d7ed9d76ca5c111e87fd6b037e69f22590d31897ba04aa777d976ca6ede77",
+      "M15_MID": "924be2c8b1a1ae2549054b87024c5a6fbad3ae3faf565d14343dce730796b085",
+      "M10_BID": "40118438ae626c4d2cd36685203929bc77d809681dfa31b933e3de39ebe37552",
+      "M10_MID": "34a33fe6ac29faec3b0b556b30c94d2a743997521db3236339b03ef8ed0655e0",
+      "M5_BID": "e176f3bd7047b91390290bb91d17b8693fb9419478464da9581f58cbb88ddb73",
+      "M5_MID": "0f9eca2d8dc3dc8844c02c6331b33b790f8c37629ef602e9622582e7a23805b3",
+      "M1_BID": "7fe8a5f01b46514097112ffd25b7e73b91cd4745a5a109f51c0f0466aeb40889",
+      "M1_MID": "c27bde739d0bfe9d974ea3652dbe7b08485369a8c1ec72be38c6e9567efc1cad"
+    },
+    "XAUUSD": {
+      "H1_BID": "cc1e969a57a0c9f926ae606dbf4eda98f3f6939ad3d00e0b7f1bd43c49f40d9b",
+      "H1_MID": "70c6727474320826e117b1390a30899399c753468d3bd48d47caf308b7960266",
+      "M30_BID": "bf4c889ce3a086c01241fb5e7b1b81f8ee9968dd6e0745e484b65e2d685fb5fe",
+      "M30_MID": "c7ecf8dc0b13c47ee59d63c5f4d1666d9819d6d4faa601067dbe4f44148222b7",
+      "M15_BID": "0901950729e66a08f8fdba16be625a5fb185ed400d714e570538658a6515fe1c",
+      "M15_MID": "4ed34d51e7444b20664fb6463ef97d5d4767923b5c0b735a02b83993dbbd7c22",
+      "M10_BID": "17c1141859a9515ab293f3db1e33ed5de258301bde98c4e1b9b928ae117418ca",
+      "M10_MID": "480460341ad9d460c978b0e080f577a0e3ca1e111f327c88bca9f0b952f0b6ca",
+      "M5_BID": "8ad1c3f562b42b4b42fd223a84bb8693611372396a3f3a2710cabc0c804d54b9",
+      "M5_MID": "b90ea9cf61d56fd1f113377dff11a34a404f947d39150c9cb3f3c9e016222223",
+      "M1_BID": "dca11a9d01f8dc04bc87a5190d0ab61906b439df9e56daf44a6467325753c313",
+      "M1_MID": "bded588b1e4f513fda69b5952fdfe643aa7419f8986da476c0fdae11617108f1"
+    }
+  },
+  "population_partition": {
+    "separate_by_asset": true,
+    "separate_by_active_side": true,
+    "cross_asset_edges_forbidden": true,
+    "cross_BUY_SELL_edges_forbidden": true
+  },
+  "similarity": {
+    "signal": "JACCARD_OF_EXACT_CAUSAL_SIGNAL_CLOSE_TIMESTAMPS_WITHIN_SAME_ASSET_AND_ACTIVE_SIDE",
+    "trade": "JACCARD_OF_EXACT_SELECTED_ENTRY_TIMESTAMPS_UNDER_FROZEN_ONE_POSITION_EXECUTION_WITHIN_SAME_ASSET_AND_ACTIVE_SIDE",
+    "pair_edge_rule": "SIGNAL_JACCARD_GTE_0.50_AND_TRADE_ENTRY_JACCARD_GTE_0.50_AND_GEOMETRIC_MEAN_GTE_0.70",
+    "connected_components": "UNDIRECTED_TRANSITIVE_COMPONENTS",
+    "daily_r_correlation": "DIAGNOSTIC_ONLY_NOT_EDGE_NOT_REPRESENTATIVE_SELECTION"
+  },
+  "plateau_and_alias_policy": {
+    "preserve_all_source_aliases": true,
+    "preserve_plateau_structure": true,
+    "parameter_local_neighbor_rule": "INHERIT_V49_EXACTLY: SAME_ACTIVE_SIDE_AND_SAME_TIMEFRAME_AND_IDENTICAL_FAMILY_WITH_EXACTLY_ONE_OF_FEATURE_SIDE_TIMING_THRESHOLD_OR_N_CHANGED; THRESHOLD_OR_N_CHANGE_MUST_BE_ADJACENT_ON_FROZEN_GRID; FEATURE_SIDE_OR_TIMING_MAY_FLIP",
+    "f03_atr_period_treatment_for_local_neighbor": "NOT_AN_ADDITIONAL_V49_NEIGHBOR_DIMENSION; ATR_PERIOD_MAY_DIFFER_INSIDE_A_SIMILARITY_COMPONENT_BUT DOES_NOT_BY_ITSELF_CREATE_PARAMETER_LOCAL_NEIGHBOR_SUPPORT",
+    "singleton_policy": "FREEZE_AS_ISOLATED_CANDIDATE_NOT_REJECTED",
+    "nonlocal_multi_member_policy": "FREEZE_AS_MULTI_MEMBER_NONLOCAL_CLUSTER_NOT_REJECTED",
+    "plateau_support_rule": "CLUSTER_SIZE_GTE_2_AND_AT_LEAST_ONE_V49_PARAMETER_LOCAL_NEIGHBOR_PAIR_INSIDE_CLUSTER"
+  },
+  "representative": {
+    "rule": "MEDOID_MAXIMIZING_MEAN_GEOMETRIC_SIGNAL_TRADE_SIMILARITY_TO_OTHER_MEMBERS_IN_CLUSTER",
+    "singleton": "SELF",
+    "tie_break": "LEXICOGRAPHIC_STABLE_IDENTITY",
+    "economic_metric_used": false,
+    "aliases_and_membership_preserved": true
+  },
+  "all_distinct_clusters_advance": true,
+  "forbidden": [
+    "ECONOMIC_RANKING",
+    "RETUNING",
+    "SINGLE_WINNER_SELECTION",
+    "SILENT_ALIAS_COLLAPSE",
+    "SILENT_VARIANT_COLLAPSE",
+    "CROSS_ASSET_CLUSTERING",
+    "CROSS_BUY_SELL_CLUSTERING",
+    "HISTORICAL_G30_HOLDOUT_OPEN",
+    "MT5",
+    "BRANCH_EXHAUSTED_FROM_F03"
+  ],
+  "required_outputs": [
+    "cluster_membership_by_asset_and_side",
+    "all_alias_membership",
+    "plateau_support_type",
+    "one_medoid_per_cluster",
+    "within_cluster_signal_trade_similarity",
+    "cluster_assignment_root_sha256",
+    "24_of_24_shard_result_hash_parity_receipt",
+    "frozen_representative_receipt",
+    "coverage_receipt"
+  ],
+  "historical_holdout_opened": false,
+  "economic_results_used_for_clustering": false,
+  "decision": "F03_CLUSTERING_METHOD_FROZEN_BEFORE_CLUSTER_OUTPUTS"
+}
