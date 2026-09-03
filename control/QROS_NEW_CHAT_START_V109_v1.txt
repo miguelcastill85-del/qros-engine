@@ -1,0 +1,15 @@
+CONTINÚA QROS DESDE LA AUTORIDAD PERSISTENTE.
+
+Primero lee `control/HEAD.json` y `control/QROS_CROSS_CHAT_RESEARCH_MIGRATION_V109_v1.json` en `miguelcastill85-del/qros-engine` y verifica sus identidades antes de ejecutar.
+
+Reanuda exactamente `next_action`. No repitas Gate A F03: está cerrado 12/12 tanto en NQX como en XAUUSD, con 1.928 supervivientes totales. Sólo se permite rematerialización determinista de derivados si es necesaria para recuperar exactamente las señales/ledgers de esas 1.928 supervivientes y debe verificarse contra los hashes persistidos por shard.
+
+La siguiente ciencia autorizada es el agrupamiento NO ECONÓMICO de las 1.928 supervivientes F03, con NQX/XAU y BUY/SELL separados, usando las reglas congeladas de similitud de señal/operaciones, preservando mesetas y aliases, congelando un medoid por grupo y haciendo avanzar todos los grupos distintos. No uses rentabilidad para escoger representantes.
+
+NO abras holdout histórico G30. 2018–2026 ya no puede considerarse holdout limpio para la genealogía. NO retunes. NO ejecutes MT5. NO declares BRANCH_EXHAUSTED.
+
+Recupera sources críticos desde GitHub y datos canónicos desde File Library/carriers. `/mnt/data` del chat anterior NO es autoridad ni requisito. Antes de afirmar que faltan datos, busca profundamente la Biblioteca y uploads existentes; no pidas volver a subir ZIP ya entregados sin agotar esas rutas.
+
+Ejecuta primero el canary de durabilidad de sources y exige su stdout SHA congelado. Si debes rematerializar DEV/cachés, exige los SHA canónicos del manifiesto. Si invocas el scorer V106 en un runtime nuevo, crea primero un receipt `QROS_RUNTIME_VERIFIED_INPUT_IDENTITY_1.0` válido.
+
+Responde siempre en español y aplica `governance/QROS_HUMAN_INTERFACE_v1.json`.
