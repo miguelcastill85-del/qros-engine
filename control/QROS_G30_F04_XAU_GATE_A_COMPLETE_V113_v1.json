@@ -1,0 +1,31 @@
+{
+  "schema":"QROS_G30_F04_XAU_GATE_A_COMPLETE_V113_v1",
+  "status":"PASS_12_OF_12_SHARDS_EXACT_PARITY",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F04_ATR_SMOOTHING",
+  "asset":"XAUUSD",
+  "scope":"DARWINEX_MT5_SERVER_CLOCK_2018_2019_EXPOSED_DEVELOPMENT_ONLY",
+  "prereg_ref":"control/QROS_G30_F04_ATR_SMOOTHING_PREREG_V112_v1.json",
+  "semantic_binding_ref":"control/QROS_G30_F04_ATR_SMOOTHING_SEMANTIC_BINDING_V112_v1.json",
+  "runner_manifest_ref":"control/QROS_G30_F04_RUNNER_SOURCE_MANIFEST_V112_v1.json",
+  "data_sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "cache_sha256":"f5d847a51ffbbddd29dc4089aa65c04ebe4df01336b91af35223609551923e62",
+  "shards":[
+    {"id":"H1_BID","unique_masks":554,"evaluated":1108,"passed":36,"buy":35,"sell":1,"result_sha256":"1e0fd9d71568039bda1699ed5c86a14ade5ae85b2db18dd97bf4dfcc47aef95d"},
+    {"id":"H1_MID","unique_masks":554,"evaluated":1108,"passed":17,"buy":16,"sell":1,"result_sha256":"e8273da9a147497dd21f72732eec15dcf27a753cd74ba2c570dc5d7c4f0539f1"},
+    {"id":"M30_BID","unique_masks":583,"evaluated":1166,"passed":34,"buy":34,"sell":0,"result_sha256":"9b2f3a97208131dd6241fe3c5da19ac6dcc8ee0837bacb75c01c833df4b0adb0"},
+    {"id":"M30_MID","unique_masks":582,"evaluated":1164,"passed":36,"buy":36,"sell":0,"result_sha256":"b8a519e483a773c891b5319c6fccc3c70760b2b2ecdbdf14c1a728225530bc23"},
+    {"id":"M15_BID","unique_masks":603,"evaluated":1206,"passed":31,"buy":21,"sell":10,"result_sha256":"5a9f3c2a9affbacc2148addcff629e3b8ca539b0edc47099ee914cc0628795cf"},
+    {"id":"M15_MID","unique_masks":602,"evaluated":1204,"passed":25,"buy":11,"sell":14,"result_sha256":"c9a9a3b1a9c9bc27919257382868a9b250d0fae2ea73281c392ab6a3a68120df"},
+    {"id":"M10_BID","unique_masks":619,"evaluated":1238,"passed":15,"buy":4,"sell":11,"result_sha256":"6b1d45c4467ca769b3871df42d24df3c438e9a25cb5aab72bf4aeaff877525cc"},
+    {"id":"M10_MID","unique_masks":620,"evaluated":1240,"passed":26,"buy":14,"sell":12,"result_sha256":"e6de9e737cf20a9e29643e5a6809aae0031319ef467465b36922751354ac7a80"},
+    {"id":"M5_BID","unique_masks":619,"evaluated":1238,"passed":12,"buy":2,"sell":10,"result_sha256":"ad239bdcd13342c71b7b68681fa7c4b4e7871b0b32c9504c0411783c1a696a7d"},
+    {"id":"M5_MID","unique_masks":631,"evaluated":1262,"passed":12,"buy":2,"sell":10,"result_sha256":"2ec57b5e2ec8273658168e0af312fd68ad1242c0da03a5b35f143b3e7f2e84c8"},
+    {"id":"M1_BID","unique_masks":643,"evaluated":1286,"passed":0,"buy":0,"sell":0,"result_sha256":"d6e3e574e5cd5568261ce760ed7730110f096b49a8f40f89cd11a4929b079a98"},
+    {"id":"M1_MID","unique_masks":644,"evaluated":1288,"passed":0,"buy":0,"sell":0,"result_sha256":"a5baad70b353a03c144db2889fcbf7576d68cfb50b72e863147682b4bc17b163"}
+  ],
+  "aggregate":{"raw_signal_identities":8208,"unique_masks":7254,"evaluated_configurations":14508,"passed":244,"passed_buy":175,"passed_sell":69},
+  "signal_parity":"PASS_EXACT_12_OF_12","trade_parity":"PASS_EXACT_12_OF_12",
+  "future_2020_plus_pnl_read":false,"historical_holdout_opened":false,"retuning":false,"mt5":false,
+  "decision":"XAU_F04_GATE_A_COMPLETE_ALL_244_PASSERS_ADVANCE_TO_FROZEN_NON_ECONOMIC_CLUSTERING"
+}
