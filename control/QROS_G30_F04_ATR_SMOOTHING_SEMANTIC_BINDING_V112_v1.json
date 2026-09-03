@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_G30_F04_ATR_SMOOTHING_SEMANTIC_BINDING_V112_v1",
+  "status":"PASS_BOUND_BEFORE_F04_RESULTS",
+  "created_date":"2026-09-03",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F04_ATR_SMOOTHING",
+  "economic_information_used":false,
+  "authority":{"head_ref":"control/HEAD.json","head_schema":"QROS_PERSISTENT_CONTROL_HEAD_V111","scheduler_ref":"control/QROS_G30_ONTOLOGY_COVERAGE_SCHEDULER_V79_v1.json","scheduler_git_blob":"2760e1ea0ef5e3f88ea09cc4ddd235609136fe1d","ontology_ref":"control/G30_UNIVERSE_ONTOLOGY_v2.json","ontology_git_blob":"f6825b9686b589e21a700c72eb3655634ef53e5d","f03_semantic_binding_ref":"control/QROS_G30_F03_ATR_PERIOD_SEMANTIC_BINDING_V97_v1.json","f03_semantic_binding_git_blob":"d904fc3940d207fb3e1b8e303d88e9bbee473ac7"},
+  "binding":{"frontier_dimension":"SIGNAL.atr_smoothing","signal_values":["WILDER_RMA_TR","EMA_TR"],"signal_atr_period":14,"true_range":"TR_0=H_0-L_0; TR_t=max(H_t-L_t,abs(H_t-C_{t-1}),abs(L_t-C_{t-1})) for t>0","warmup":"ATR undefined for t<13; seed at t=13 is arithmetic mean of TR_0..TR_13 for both smoothing variants","WILDER_RMA_TR":"ATR_13=SMA(TR_0..TR_13); ATR_t=((13*ATR_{t-1})+TR_t)/14 for t>=14","EMA_TR":"ATR_13=SMA(TR_0..TR_13); alpha=2/(14+1); ATR_t=alpha*TR_t+(1-alpha)*ATR_{t-1} for t>=14","reference_timing":{"CURRENT_BAR_INCLUDED":"use ATR_t","LAGGED_ONE_BAR_PRE_SHOCK":"use ATR_{t-1}"},"shock_formula":"(H_t-L_t)/ATR_SIGNAL_ref","feature_side_scope":"ATR and numerator use the same frozen feature side BID or MID bar series","bar_price_transform":"CLOSE_CORE_ANCHOR","management_is_not_mutated_by_F04":true,"management_atr_smoothing":"SMA_TR","management_atr_period":14,"management_atr_stop_mult":3.0,"management_reward_r_multiple":1.5,"management_time_stop_bars":20},
+  "reasoning_without_results":["ONTOLOGY ENUMERATES WILDER_RMA_TR AND EMA_TR AS atr_smoothing VALUES","F04 IS A SINGLE SIGNAL DIMENSION FRONTIER AND F15 IS RESERVED FOR MANAGEMENT OVERLAYS","SMA_TR IS THE CORE ANCHOR ALREADY COVERED AND IS USED ONLY AS CONTROL/MANAGEMENT HERE","COMMON WARMUP AND SMA SEED REMOVE INITIALIZATION AMBIGUITY BEFORE RESULTS","EMA ALPHA IS FROZEN AS 2/(period+1); WILDER ALPHA IS 1/period"],
+  "independent_parity_requirement":{"primary":"vectorized/recursive implementation","independent":"separate explicit-loop implementation","require_exact_signal_masks":true,"require_exact_selected_trades":true},
+  "prohibitions":["NO_RESULT_FEEDBACK_TO_CHANGE_SEED","NO_RESULT_FEEDBACK_TO_CHANGE_ALPHA","NO_MANAGEMENT_SMOOTHING_MUTATION","NO_2020_PLUS_ECONOMIC_SCORING","NO_HISTORICAL_HOLDOUT","NO_RETUNING","NO_MT5"],
+  "bar_price_transform_pending_unaffected":true,
+  "decision":"F04_OPERATIONAL_SEMANTICS_FROZEN_BEFORE_RESULTS"
+}
