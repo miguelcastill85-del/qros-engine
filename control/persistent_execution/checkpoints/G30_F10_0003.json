@@ -1,15 +1,15 @@
 {
   "schema": "QROS_PERSISTENT_EXECUTION_CHECKPOINT_V1",
-  "dispatch_id": "QROS-F10-NQX-M30-MID-20260904T170100Z",
+  "dispatch_id": "QROS-F10-NQX-H1-BID-20260904T170400Z",
   "queue_item_id": "G30-F10-0003",
-  "parent_commit": "1dfde8e3b7bd7a18db7d43bf9c79fd7c2d7e28c7",
+  "parent_commit": "5c8b2a4fc76c27f02b0836d0cc7947cff38ae06c",
   "input_and_source_sha256": {
     "head_v127": "9be7855904157d210d23db6b9524fe30b2bc2eadb055334afa18be7edae5d5c1",
     "dev_nqx": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
     "m1_cache_nqx": "8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
     "tick_count_nqx": "04d02aa0c14efeae2ee22b5dff11b022ac97276653ece6fad50edc4e17be80ec",
     "transactional_runner": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
-    "prepare_manifest": "18ff282d1c18e78a0ed9c7873418ae3ed68a8e9d8eb4de40859e10eab6be1e34"
+    "prepare_manifest": "388dc142d4e05e89770b69fb140c33ad3e033918676ea1b143ddb379f80610e0"
   },
   "completed_ranges": [
     "NQX_M1_BID_COMPLETE",
@@ -21,14 +21,15 @@
     "NQX_M15_BID_COMPLETE",
     "NQX_M15_MID_COMPLETE",
     "NQX_M30_BID_COMPLETE",
-    "NQX_M30_MID_COMPLETE"
+    "NQX_M30_MID_COMPLETE",
+    "NQX_H1_BID_COMPLETE"
   ],
-  "output_sha256": "812c2857590112d4c1f9f63e38647427d70e61b26e081c61111f8db5acf6ae99",
-  "durable_output_gzip_sha256": "2a1251f951a37f364321747fdd1ad0d98da237c4ad40f8ce2dbf25c328937a76",
-  "durable_output_parts_manifest_ref": "control/QROS_G30_F10_NQX_M30_MID_GATE_A_RECEIPT_V139_v1.json",
+  "output_sha256": "7d74af55d61abe9d93b479e97256d3bb06b2b8e9431269035d031573c1ce43fe",
+  "durable_output_gzip_sha256": "df7ea4effdb085c2ba25d04039cb99c4e467dbed3d7ed17770231bbb49c6aa5f",
+  "durable_output_parts_manifest_ref": "control/QROS_G30_F10_NQX_H1_BID_GATE_A_RECEIPT_V140_v1.json",
   "holdout_exposure": "SEALED_NO_ACCESS",
-  "scientific_outcome": "NQX_M30_MID_GATE_A_COMPLETE_82_PASSERS_ALL_ADVANCE",
+  "scientific_outcome": "NQX_H1_BID_GATE_A_COMPLETE_197_PASSERS_ALL_ADVANCE",
   "execution_state": "PENDING_RESUMABLE",
   "stop_reason": null,
-  "exact_resume_action": "WITH OWNED LEASE VERIFY IDENTITIES; EXECUTE NQX_H1_BID TRANSACTIONALLY; MERGE AND CHECKPOINT"
+  "exact_resume_action": "WITH OWNED LEASE VERIFY IDENTITIES; EXECUTE NQX_H1_MID TRANSACTIONALLY; MERGE AND CHECKPOINT"
 }
