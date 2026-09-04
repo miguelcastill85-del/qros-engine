@@ -1,0 +1,51 @@
+{
+  "schema": "QROS_G30_F10_GATE_A_SHARD_RECEIPT_V152_v1",
+  "status": "PASS_COMPLETE_EXACT_PARITY",
+  "created_at_utc": "2026-09-04T23:15:55Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F10_TICK_INTENSITY",
+  "queue_item_id": "G30-F10-0003",
+  "asset": "XAUUSD",
+  "shard": "M30_MID",
+  "scope": "EXPOSED_DEV_2018_2019_ONLY_NO_2020_PLUS_PNL",
+  "inputs": {
+    "head_sha256": "9be7855904157d210d23db6b9524fe30b2bc2eadb055334afa18be7edae5d5c1",
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "m1_cache_sha256": "f5d847a51ffbbddd29dc4089aa65c04ebe4df01336b91af35223609551923e62",
+    "tick_count_sha256": "6afb91bf589dbaf02e995d2a5915f760ca2ae1dd88179469528c3b7f8beab2d2",
+    "transactional_runner_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
+    "prepare_manifest_sha256": "7068acd15d80af4e869161d37ea0b75c19b1307c729738bc988210f353cd60ae"
+  },
+  "coverage": {
+    "raw_identities": 2736,
+    "unique_masks": 2280,
+    "exact_alias_count": 456,
+    "evaluated_buy_sell_records": 4560,
+    "ranges": [[0,256],[256,512],[512,768],[768,1024],[1024,1280],[1280,1536],[1536,1792],[1792,2048],[2048,2280]],
+    "chunk_hash_ledger_sha256": "ca6c41a53e5d5bd33b8c96b6f15bef953efbc61216eb0b1f0e4ae60c31b84164"
+  },
+  "identities": {
+    "union_buy": 3870,
+    "union_sell": 3811,
+    "passer_identity_root_sha256": "7b70c719d201726b3a3fe05aeb0047086c5976a09515fad839a5517c797d60b0",
+    "alias_assignment_root_sha256": "730ad46f90fe57c186b55cd6a6265ffa72215a711e297121c938cdf182c3a86e"
+  },
+  "result": {
+    "passed": 471,
+    "passed_buy": 467,
+    "passed_sell": 4,
+    "merged_output_bytes": 3241595,
+    "merged_output_sha256": "c71d3ea4dde4aa54cfcbec7fc75d07965448ee91abdc1a5521615da109215d0a",
+    "deterministic_rematerialization": "ALLOWED_FROM_FROZEN_INPUTS_AND_V128_RUNNER; EXACT_MERGED_SHA_REQUIRED"
+  },
+  "signal_parity": "PASS_EXACT",
+  "trade_parity": "PASS_EXACT",
+  "all_passers_advance": true,
+  "future_2020_plus_pnl_read": false,
+  "historical_holdout_opened": false,
+  "retuning": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "decision": "XAUUSD_M30_MID_COMPLETE_471_PASSERS_ALL_ADVANCE; NEXT_XAUUSD_H1_BID"
+}
