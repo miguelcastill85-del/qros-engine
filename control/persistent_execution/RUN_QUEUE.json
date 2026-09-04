@@ -1,15 +1,15 @@
 {
   "schema": "QROS_PERSISTENT_RUN_QUEUE_V1",
-  "status": "ACTIVE_RECONCILE_BEFORE_DISPATCH",
-  "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
-  "source_head_commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
+  "status": "ACTIVE_RECONCILED_READY_FOR_F09_CLUSTERING",
+  "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V125",
+  "source_head_commit": "d3d4547f4c0e840cf1724f4a68b6f2e5d762a37e",
   "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
   "queue": [
     {
       "item_id": "G30-F09-0001",
-      "status": "READY",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
-      "source_head_commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
+      "status": "COMPLETED",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V125",
+      "source_head_commit": "d3d4547f4c0e840cf1724f4a68b6f2e5d762a37e",
       "scope": "F09_SPREAD_CONTEXT_SEMANTIC_BINDING_AND_PREREGISTRATION",
       "action": "RECOVER_ANY_EXISTING_DURABLE_F09_BINDING_FIRST; OTHERWISE PREREGISTER OPERATIONAL SEMANTICS FOR SPREAD_BELOW_ROLLING_P75, SPREAD_BELOW_ROLLING_P90, AND SPREAD_POINTS_BELOW_FROZEN_CAP WITH CAUSAL PRE_SIGNAL WINDOWS AND DEPENDENT spread_lookback; NO ECONOMIC RESULTS MAY CHOOSE DEFINITIONS OR CAPS",
       "prerequisites": [
@@ -25,41 +25,78 @@
         "NO_BRANCH_EXHAUSTED"
       ],
       "checkpoint_path": "control/persistent_execution/checkpoints/G30_F09_0001.json",
-      "success_condition": "EXACT F09 SEMANTIC BINDING AND PREREGISTRATION ARE DURABLY PERSISTED BEFORE ANY F09 RESULT"
+      "success_condition": "EXACT F09 SEMANTIC BINDING AND PREREGISTRATION ARE DURABLY PERSISTED BEFORE ANY F09 RESULT",
+      "completion_evidence": [
+        "control/QROS_G30_F09_SPREAD_CONTEXT_SEMANTIC_BINDING_V123_v1.json",
+        "control/QROS_G30_F09_SPREAD_CONTEXT_PREREG_V123_v1.json",
+        "control/QROS_G30_F09_SPREAD_CAP_CALIBRATION_V123_v1.json"
+      ]
     },
     {
       "item_id": "G30-F09-0002",
-      "status": "WAITING_PREREQUISITE",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
-      "source_head_commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
+      "status": "COMPLETED",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V125",
+      "source_head_commit": "d3d4547f4c0e840cf1724f4a68b6f2e5d762a37e",
       "scope": "F09_DURABLE_RUNNER_AND_PARITY_PREFLIGHT",
       "action": "FREEZE ALL CONTINUATION-CRITICAL SOURCES, VERIFY READBACK SHA256, AND PASS TWO INDEPENDENT SIGNAL AND EXECUTION IMPLEMENTATION PREFLIGHTS ON DEVELOPMENT-ONLY DATA",
-      "prerequisites": ["G30-F09-0001"],
-      "guards": ["NO_PNL_FOR_SEMANTIC_SELECTION", "NO_HOLDOUT", "SOURCE_DURABILITY_GATE_REQUIRED"],
+      "prerequisites": [
+        "G30-F09-0001"
+      ],
+      "guards": [
+        "NO_PNL_FOR_SEMANTIC_SELECTION",
+        "NO_HOLDOUT",
+        "SOURCE_DURABILITY_GATE_REQUIRED"
+      ],
       "checkpoint_path": "control/persistent_execution/checkpoints/G30_F09_0002.json",
-      "success_condition": "ALL REQUIRED SOURCES DURABLE AND PREFLIGHT PARITY PASSES WITHOUT ECONOMIC SELECTION"
+      "success_condition": "ALL REQUIRED SOURCES DURABLE AND PREFLIGHT PARITY PASSES WITHOUT ECONOMIC SELECTION",
+      "completion_evidence": [
+        "control/QROS_G30_F09_RUNNER_SOURCE_MANIFEST_V123_v1.json",
+        "control/QROS_G30_F09_UNIT_BINDING_RECEIPT_V123_v1.json",
+        "control/QROS_G30_F09_SYNTHETIC_PARITY_RECEIPT_V123_v1.json",
+        "control/QROS_G30_F09_REPLAYER_EQUIVALENCE_V125_v1.json"
+      ]
     },
     {
       "item_id": "G30-F09-0003",
-      "status": "WAITING_PREREQUISITE",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
-      "source_head_commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
+      "status": "READY",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V125",
+      "source_head_commit": "d3d4547f4c0e840cf1724f4a68b6f2e5d762a37e",
       "scope": "F09_NQX_AND_XAUUSD_DEVELOPMENT_EXECUTION",
       "action": "EXECUTE PREREGISTERED F09 ON NQX AND XAUUSD 2018_2019 EXPOSED DEVELOPMENT ONLY; ALL GATE_A PASSERS ADVANCE; THEN NON_ECONOMIC CLUSTERING",
-      "prerequisites": ["G30-F09-0002"],
-      "guards": ["EXECUTION_UNIT_FIREWALL_PASS", "NO_HOLDOUT", "ALL_PASSERS_ADVANCE", "BUY_SELL_SEPARATE"],
+      "prerequisites": [
+        "G30-F09-0002"
+      ],
+      "guards": [
+        "EXECUTION_UNIT_FIREWALL_PASS",
+        "NO_HOLDOUT",
+        "ALL_PASSERS_ADVANCE",
+        "BUY_SELL_SEPARATE"
+      ],
       "checkpoint_path": "control/persistent_execution/checkpoints/G30_F09_0003.json",
-      "success_condition": "ALL PREREGISTERED SHARDS HAVE EXACT COVERAGE, REQUIRED PARITY, GATE_A RECEIPTS AND NON_ECONOMIC CLUSTERING RECEIPTS"
+      "success_condition": "ALL PREREGISTERED SHARDS HAVE EXACT COVERAGE, REQUIRED PARITY, GATE_A RECEIPTS AND NON_ECONOMIC CLUSTERING RECEIPTS",
+      "completed_subscope": {
+        "nqx_gate_a": "PASS_EXACT_12_OF_12; 3400 PASSERS",
+        "xauusd_gate_a": "PASS_EXACT_12_OF_12_REPLAY_EQUIVALENCE; 1731 PASSERS",
+        "frozen_population": 5131
+      },
+      "remaining_action": "EXECUTE THE PREREGISTERED NON_ECONOMIC CLUSTERING OVER ALL 5131 PASSERS, PARTITIONED BY ASSET AND ACTIVE SIDE; VERIFY REBUILT TRADE COUNT AND LEDGER SHA FOR EVERY PASSER; PRESERVE ALL ALIASES; ALL DISTINCT CLUSTERS ADVANCE",
+      "remaining_authority_ref": "control/QROS_G30_F09_NON_ECONOMIC_CLUSTERING_BINDING_V125_v1.json"
     },
     {
       "item_id": "G30-F09-0004",
       "status": "WAITING_PREREQUISITE",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
-      "source_head_commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V125",
+      "source_head_commit": "d3d4547f4c0e840cf1724f4a68b6f2e5d762a37e",
       "scope": "F09_FREEZE_AND_ADVANCE_SCHEDULER",
       "action": "FREEZE ALL F09 CLUSTER REPRESENTATIVES AND ALIASES, PERSIST COVERAGE, RECONCILE THE ONTOLOGY SCHEDULER, AND CONTINUE THE NEXT AUTHORIZED FRONTIER",
-      "prerequisites": ["G30-F09-0003"],
-      "guards": ["NO_SINGLE_WINNER", "NO_HOLDOUT", "NO_BRANCH_EXHAUSTED_WITHOUT_FULL_RECEIPTS"],
+      "prerequisites": [
+        "G30-F09-0003"
+      ],
+      "guards": [
+        "NO_SINGLE_WINNER",
+        "NO_HOLDOUT",
+        "NO_BRANCH_EXHAUSTED_WITHOUT_FULL_RECEIPTS"
+      ],
       "checkpoint_path": "control/persistent_execution/checkpoints/G30_F09_0004.json",
       "success_condition": "F09 IS DURABLY CLOSED AT ITS AUTHORIZED STAGE AND THE NEXT READY FRONTIER IS QUEUED"
     }
@@ -72,5 +109,15 @@
     "single_winner_selection": false,
     "all_gate_passers_advance": true,
     "branch_exhaustion_authorized": false
-  }
+  },
+  "last_reconciled_at_utc": "2026-09-04T04:25:00Z",
+  "last_reconciliation_basis": [
+    "control/QROS_G30_F09_SPREAD_CONTEXT_PREREG_V123_v1.json",
+    "control/QROS_G30_F09_RUNNER_SOURCE_MANIFEST_V123_v1.json",
+    "control/QROS_G30_F09_SYNTHETIC_PARITY_RECEIPT_V123_v1.json",
+    "control/QROS_G30_F09_NQX_GATE_A_COMPLETE_V124_v1.json",
+    "control/QROS_G30_F09_REPLAYER_EQUIVALENCE_V125_v1.json",
+    "control/QROS_G30_F09_XAUUSD_GATE_A_COMPLETE_V125_v1.json",
+    "control/QROS_G30_F09_NON_ECONOMIC_CLUSTERING_BINDING_V125_v1.json"
+  ]
 }
