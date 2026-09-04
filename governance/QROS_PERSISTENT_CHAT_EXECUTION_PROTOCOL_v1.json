@@ -1,12 +1,12 @@
 {
   "schema": "QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_V1",
   "status": "ADOPTED_MANDATORY_OPERATIONAL_LAYER",
-  "purpose": "Resume QROS automatically across bounded ChatGPT executions without requiring the user to type continue, while preserving scientific authority in GitHub.",
+  "purpose": "Resume QROS automatically across bounded ChatGPT executions without requiring the user to type continue, while giving interactive user-driven research priority whenever the user is actively working in chat and preserving scientific authority in GitHub.",
   "truth_boundary": {
     "continuous_background_compute_claimed": false,
     "chat_runtime_is_persistent_storage": false,
     "persistent_authority": "miguelcastill85-del/qros-engine",
-    "automatic_wakeup": "CHATGPT_AUTOMATION_HOURLY",
+    "automatic_wakeup": "CHATGPT_AUTOMATION_HOURLY_ONLY_WHEN_FOREGROUND_IDLE",
     "each_wakeup_is_bounded": true,
     "zero_additional_paid_infrastructure": true
   },
@@ -14,13 +14,29 @@
     "RECOVER_CURRENT_MAIN_AND_CONTROL_HEAD",
     "VERIFY_AUTHORITY_AND_DURABLE_SOURCES",
     "RECONCILE_QUEUE_WITH_HEAD_AND_RECEIPTS",
+    "CHECK_INTERACTIVE_FOREGROUND_PRIORITY_AND_LEASE_HEARTBEAT",
     "ACQUIRE_SINGLE_WRITER_LEASE_BY_FAST_FORWARD_COMPARE_AND_SWAP",
     "EXECUTE_ALL_READY_SAFE_CHUNKS_WITHIN_CURRENT_RUNTIME_BUDGET",
     "VALIDATE_AND_ATOMICALLY_PERSIST_EACH_COMPLETED_CHUNK",
-    "HEARTBEAT_OR_RELEASE_LEASE",
-    "CONTINUE_WITH_NEXT_READY_CHUNK_OR_YIELD_TO_NEXT_AUTOMATIC_WAKEUP"
+    "CHECKPOINT_BEFORE_ANY_TURN_OR_WAKEUP_END",
+    "MANDATORY_RELEASE_LEASE_BEFORE_TURN_OR_WAKEUP_END",
+    "CONTINUE_WITH_NEXT_READY_CHUNK_OR_YIELD_TO_NEXT_AUTHORIZED_EXECUTION"
   ],
   "no_continue_prompt_rule": "Never ask the user whether to continue when an authorized, dependency-ready, scientifically unchanged queue item exists.",
+  "interactive_foreground": {
+    "enabled": true,
+    "control_path": "control/persistent_execution/FOREGROUND.json",
+    "guard_ref": "scripts/qros_persistent_foreground_guard.py",
+    "idle_timeout_minutes": 120,
+    "activation": "ANY_USER_INITIATED_QROS_RESEARCH_OR_CONTINUATION_TURN",
+    "refresh": "REFRESH_ON_EACH_USER_INITIATED_QROS_RESEARCH_OR_CONTINUATION_TURN",
+    "manual_surface_priority": true,
+    "automation_when_foreground_active": "NO_OP_SCIENTIFIC_WORK",
+    "automation_resume": "FIRST_HOURLY_WAKEUP_AFTER_FOREGROUND_ACTIVE_UNTIL_EXPIRES",
+    "fresh_foreign_lease": "NEVER_PREEMPT; WAIT_FOR_OWNER_TO_CHECKPOINT_AND_RELEASE",
+    "stale_heartbeat": "RECOVER_RECEIPTS_AND_QUARANTINE_AMBIGUOUS_PARTIALS_THEN_RECLAIM_WITH_NEW_FENCE",
+    "scientific_effect": "NONE_OPERATIONAL_SCHEDULING_ONLY"
+  },
   "queue_contract": {
     "canonical_path": "control/persistent_execution/RUN_QUEUE.json",
     "reconcile_before_every_dispatch": true,
@@ -45,19 +61,26 @@
     "state_path": "control/persistent_execution/STATE.json",
     "lease_ttl_minutes": 95,
     "heartbeat_max_interval_minutes": 20,
+    "lease_scope": "ACTIVE_EXECUTION_ONLY_NOT_IDLE_RESERVATION",
+    "lease_must_be_released_at_end_of_every_chat_turn_or_automation_wakeup": true,
+    "lease_may_not_intentionally_span_turn_boundaries": true,
+    "ttl_is_crash_recovery_only": true,
     "claim_requires_main_sha_match": true,
     "promotion_requires_fast_forward_compare_and_swap": true,
     "force_push_forbidden": true,
     "on_ref_conflict": "DO_NOT_OVERWRITE; FETCH_NEW_MAIN; RECONCILE; RETRY_ONLY_UNCOMMITTED_SCOPE",
-    "unexpired_foreign_lease": "NO_OP_THIS_WAKEUP",
+    "fresh_unexpired_foreign_lease": "NO_OP_THIS_EXECUTION_SURFACE",
+    "stale_unexpired_lease": "IF_HEARTBEAT_AGE_EXCEEDS_HEARTBEAT_MAX_INTERVAL_RECOVER_RECEIPTS_QUARANTINE_AMBIGUOUS_PARTIALS_AND_ALLOW_NEW_FENCE_WITH_RECOVERY_RECEIPT",
     "expired_lease": "RECOVER_RECEIPTS_AND_QUARANTINE_AMBIGUOUS_PARTIAL_OUTPUT_BEFORE_RECLAIM",
-    "state_transition_implementation": "CONTROLLER_CLAIM_HEARTBEAT_RELEASE_WITH_FENCING",
+    "turn_end_with_non_null_lease": "CONTROL_FAILURE_MUST_BE_REPAIRED_BEFORE_NEXT_SCIENTIFIC_DISPATCH",
+    "state_transition_implementation": "CONTROLLER_CLAIM_HEARTBEAT_RELEASE_WITH_FENCING_PLUS_FOREGROUND_GUARD",
     "durable_writer_implementation": "GIT_DATA_API_ATOMIC_MULTI_FILE_COMMIT_AND_FORCE_FALSE_REF_UPDATE"
   },
   "checkpoint_policy": {
     "checkpoint_after_every_valid_chunk": true,
     "checkpoint_before_expected_runtime_limit": true,
     "checkpoint_before_external_dependency_wait": true,
+    "checkpoint_before_turn_or_wakeup_end": true,
     "minimum_fields": [
       "dispatch_id",
       "queue_item_id",
@@ -79,13 +102,15 @@
     "continue_until": "NEAREST_SAFE_BOUNDARY_BEFORE_EXECUTION_LIMIT",
     "progress_units_required": true,
     "stall_after_two_unchanged_observations": "RUN_STALL_DIAGNOSTIC_AND_EQUIVALENT_FALLBACK",
-    "identical_retry_limit_after_initial_attempt": 2
+    "identical_retry_limit_after_initial_attempt": 2,
+    "foreground_behavior": "WHILE_USER_IS_ACTIVELY_DRIVING_QROS_CONTINUE_WITHIN_EACH_CHAT_TURN_TO_MAXIMUM_SAFE_BOUNDARY_AND_RELEASE_LEASE_BEFORE_REPLY_END",
+    "automation_behavior": "ONLY_FILL_IDLE_GAPS_AFTER_FOREGROUND_TIMEOUT; USE_MAXIMUM_SAFE_WORK_PER_WAKEUP"
   },
   "valid_pause_conditions": [
     "SCIENTIFIC_TERMINAL",
     "REAL_BLOCKER_AFTER_MULTI_SURFACE_RESOLUTION_AND_FALLBACKS",
     "USER_DECISION_REQUIRED_FOR_METHODOLOGY_HOLDOUT_COST_LIVE_OR_IRREVERSIBLE_SCOPE",
-    "EXECUTION_LIMIT_REACHED_AFTER_SAFE_CHECKPOINT",
+    "EXECUTION_LIMIT_REACHED_AFTER_SAFE_CHECKPOINT_AND_LEASE_RELEASE",
     "USER_STOP"
   ],
   "mandatory_guards": {
@@ -117,18 +142,22 @@
   },
   "automation_prompt_ref": "governance/QROS_PERSISTENT_CHAT_AUTOMATION_PROMPT_v1.md",
   "controller_ref": "scripts/qros_persistent_chat_controller.py",
+  "foreground_guard_ref": "scripts/qros_persistent_foreground_guard.py",
   "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY",
-  "revision": 2,
+  "revision": 3,
   "implementation": {
     "state_transition_ref": "scripts/qros_persistent_chat_controller.py",
+    "foreground_guard_ref": "scripts/qros_persistent_foreground_guard.py",
     "git_cas_ref": "scripts/qros_persistent_git_cas.py",
     "transaction_order": [
-      "READ_EXACT_MAIN_AND_HEAD_QUEUE_STATE",
+      "READ_EXACT_MAIN_AND_HEAD_QUEUE_STATE_FOREGROUND",
       "VALIDATE_FAIL_CLOSED",
+      "EVALUATE_FOREGROUND_AND_LEASE_HEARTBEAT",
       "CREATE_BLOBS_AND_TREE_ON_EXPECTED_PARENT",
       "RECHECK_MAIN_EQUALS_EXPECTED_PARENT",
       "UPDATE_REF_FORCE_FALSE",
-      "VERIFY_PROMOTED_COMMIT_AND_CONTENT"
+      "VERIFY_PROMOTED_COMMIT_AND_CONTENT",
+      "CHECKPOINT_AND_RELEASE_BEFORE_EXECUTION_SURFACE_END"
     ],
     "required_negative_tests": [
       "HOLDOUT",
@@ -140,10 +169,13 @@
       "BRANCH_EXHAUSTION",
       "HEAD_SCHEMA_DRIFT",
       "HEAD_BLOB_DRIFT",
-      "ACTIVE_LEASE",
+      "ACTIVE_FRESH_LEASE",
+      "STALE_HEARTBEAT_RECOVERY",
       "EXPIRED_LEASE_WITHOUT_RECOVERY",
       "STALE_FENCE",
-      "CAS_CONFLICT"
+      "CAS_CONFLICT",
+      "FOREGROUND_AUTOMATION_COLLISION",
+      "LEASE_LEAK_ACROSS_TURN"
     ]
   }
 }
