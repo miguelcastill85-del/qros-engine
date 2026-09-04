@@ -7,7 +7,7 @@
     "status": "ACTIVE",
     "task_id": "6a9a45a718208191b489e125e18a550e",
     "timezone": "America/Santiago",
-    "title": "Continuidad autom\u00e1tica QROS"
+    "title": "Continuidad automática QROS"
   },
   "cas_contract": {
     "atomic_multi_file_commit": true,
@@ -16,19 +16,35 @@
     "ref_update_force": false,
     "state_transition_ref": "scripts/qros_persistent_chat_controller.py"
   },
+  "continuity_canary": {
+    "checkpoint_ref": "control/persistent_execution/checkpoints/QROS_CONTINUITY_CANARY_V2.json",
+    "claim_force": false,
+    "holdout_opened": false,
+    "release_force": false,
+    "scientific_effect": "NONE",
+    "status": "PASS_CLAIM_CHECKPOINT_RELEASE_REAL_GIT_CAS"
+  },
   "enabled": true,
   "holdout_opened": false,
-  "last_checkpoint": null,
-  "last_completed_item": null,
-  "last_dispatch": null,
+  "last_checkpoint": "control/persistent_execution/checkpoints/QROS_CONTINUITY_CANARY_V2.json",
+  "last_completed_item": "CONTROL-CANARY-V2",
+  "last_dispatch": {
+    "claim_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
+    "claimed_parent_commit": "fce644c3e1ed8ea2f9982ef853570d2370779936",
+    "completed_at_utc": "2026-09-04T04:42:00Z",
+    "dispatch_id": "QROS-CONTINUITY-CANARY-V2-20260904T044000Z",
+    "scientific_effect": "NONE",
+    "status": "COMPLETED",
+    "type": "CONTROL_CANARY"
+  },
   "last_reconciliation": {
     "head_blob_sha": "b3ba56eafa9cd5290c6662150eb0886631cdb432",
     "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
     "holdout_opened": false,
-    "observed_main_sha": "b650ba7c1bad00cc1667c565cb175590355aad6b",
+    "observed_main_sha": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
     "queue_status": "ACTIVE_RECONCILED_READY_FOR_F10_DEVELOPMENT_EXECUTION"
   },
-  "lease": {
+  "last_released_lease": {
     "claimed_at": "2026-09-04T04:40:00Z",
     "entrypoint_sha256": "5456313c5dab6558502eecf3e5d4387e11392e34746e5312f0c136f34ecd3183",
     "expired_recovery_ref": null,
@@ -36,15 +52,18 @@
     "fence_token": 1,
     "heartbeat_at": "2026-09-04T04:40:00Z",
     "lease_id": "a669799f303295d3470e4d33e7bd82255ff7bb123aa3c644fff33e5e9112204e",
+    "outcome": "CONTROL_CANARY_PASS",
     "parent_main_sha": "fce644c3e1ed8ea2f9982ef853570d2370779936",
+    "released_at": "2026-09-04T04:42:00Z",
     "worker_id": "qros-continuity-canary-v2"
   },
+  "lease": null,
   "lease_epoch": 1,
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
-    "expected_main_sha": "fce644c3e1ed8ea2f9982ef853570d2370779936",
+    "expected_main_sha": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
     "force": false,
-    "operation": "LEASE_CLAIM"
+    "operation": "LEASE_RELEASE"
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
   "queue_ref": "control/persistent_execution/RUN_QUEUE.json",

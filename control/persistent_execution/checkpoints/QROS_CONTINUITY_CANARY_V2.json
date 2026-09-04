@@ -1,0 +1,30 @@
+{
+  "additional_cost_usd": 0,
+  "cas_force": false,
+  "claim_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
+  "claimed_parent_commit": "fce644c3e1ed8ea2f9982ef853570d2370779936",
+  "completed_ranges": [
+    "LEASE_CLAIM_FAST_FORWARD_CAS",
+    "CURRENT_DOCUMENT_VALIDATION_7_GUARDS",
+    "ATOMIC_CHECKPOINT_AND_LEASE_RELEASE"
+  ],
+  "created_at_utc": "2026-09-04T04:42:00Z",
+  "dispatch_id": "QROS-CONTINUITY-CANARY-V2-20260904T044000Z",
+  "exact_resume_action": "RECOVER_CURRENT_MAIN; RECONCILE_RECEIPTS; DISPATCH G30-F10-0003 ONLY IF STILL READY",
+  "execution_state": "CONTROL_CANARY",
+  "fence_token": 1,
+  "holdout_exposure": "SEALED_NO_ACCESS",
+  "input_and_source_sha256": {
+    "controller": "5456313c5dab6558502eecf3e5d4387e11392e34746e5312f0c136f34ecd3183",
+    "git_cas": "329bdfec7ad68af94472fe08c893584ad57162b6fd66e133de464ef0e4025b14",
+    "head": "cf8c955449b0da7ecc75f5d1c1731d30d53ed2299dc7f47ddbabbae8913206f2",
+    "protocol": "cab7d5641305e9217868912d2fddcdaf2b66080fca86048c1fc3e281146108f2",
+    "queue_before": "54a306a32882e81a0d764f1849ac80b1a9b31dbe7e106b6ee0c18685ff016622"
+  },
+  "lease_id": "a669799f303295d3470e4d33e7bd82255ff7bb123aa3c644fff33e5e9112204e",
+  "output_sha256": "b3e00926bcb4849fecb526d9fcbda95c1f87861528e7f25595d4c6b038adda1c",
+  "parent_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
+  "queue_item_id": "CONTROL-CANARY-V2",
+  "schema": "QROS_PERSISTENT_EXECUTION_CHECKPOINT_V1",
+  "scientific_outcome": "NONE_OPERATIONAL_CONTINUITY_ONLY"
+}
