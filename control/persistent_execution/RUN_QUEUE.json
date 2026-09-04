@@ -9,7 +9,7 @@
     "paid_infrastructure_authorized": false,
     "single_winner_selection": false
   },
-  "last_reconciled_at_utc": "2026-09-04T05:57:09Z",
+  "last_reconciled_at_utc": "2026-09-04T21:57:47Z",
   "last_reconciled_head_blob_sha": "cf25f0b2b683844c016fbb83de3d20c7a9c2ec40",
   "last_reconciliation_basis": [
     "control/QROS_G30_F09_SPREAD_CONTEXT_PREREG_V123_v1.json",
@@ -28,7 +28,8 @@
     "control/QROS_G30_F10_TICK_COUNT_CACHE_RECEIPT_V127_v1.json",
     "control/QROS_G30_F10_CONTINUATION_SOURCE_AUDIT_V128_v1.json",
     "control/QROS_G30_F10_RUNNER_SOURCE_MANIFEST_V128_v1.json",
-    "control/QROS_G30_F10_SOURCE_DURABILITY_REPAIR_RECEIPT_V128_v1.json"
+    "control/QROS_G30_F10_SOURCE_DURABILITY_REPAIR_RECEIPT_V128_v1.json",
+    "control/QROS_G30_F10_XAUUSD_M10_MID_GATE_A_RECEIPT_V147_v1.json"
   ],
   "queue": [
     {
@@ -255,11 +256,22 @@
       "source_head_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
       "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
       "status": "READY",
-      "success_condition": "ALL F10 SHARDS HAVE EXACT COVERAGE AND PARITY, BOTH ASSET GATE_A RECEIPTS EXIST, AND NON_ECONOMIC CLUSTERING IS COMPLETE"
+      "success_condition": "ALL F10 SHARDS HAVE EXACT COVERAGE AND PARITY, BOTH ASSET GATE_A RECEIPTS EXIST, AND NON_ECONOMIC CLUSTERING IS COMPLETE",
+      "completed_subscope": {
+        "nqx_gate_a": "PASS_EXACT_12_OF_12",
+        "xauusd_gate_a": "PASS_EXACT_6_OF_12",
+        "latest_completed_shard": "XAUUSD_M10_MID",
+        "latest_passers": 470,
+        "remaining_action": "XAUUSD_M15_BID"
+      },
+      "remaining_action": "EXECUTE XAUUSD_M15_BID TRANSACTIONALLY",
+      "completion_evidence": [
+        "control/QROS_G30_F10_XAUUSD_M10_MID_GATE_A_RECEIPT_V147_v1.json"
+      ]
     }
   ],
   "schema": "QROS_PERSISTENT_RUN_QUEUE_V1",
   "source_head_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
   "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
-  "status": "ACTIVE_RECONCILED_READY_FOR_F10_INPUT_REMATERIALIZATION_AND_DEVELOPMENT_EXECUTION"
+  "status": "ACTIVE_RECONCILED_F10_0003_PENDING_XAUUSD_M15_BID"
 }
