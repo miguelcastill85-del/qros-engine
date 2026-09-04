@@ -73,15 +73,15 @@
     "fence_token": 8,
     "parent_main_sha": "31c1b174d196c61eed7104ae8e7d4d5ffd5c4ee5",
     "claimed_at": "2026-09-04T13:39:57Z",
-    "heartbeat_at": "2026-09-04T13:39:57Z",
-    "expires_at": "2026-09-04T15:14:57Z",
+    "heartbeat_at": "2026-09-04T13:59:26Z",
+    "expires_at": "2026-09-04T15:34:26Z",
     "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7"
   },
   "lease_epoch": 8,
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
-    "operation": "LEASE_CLAIM",
-    "expected_main_sha": "31c1b174d196c61eed7104ae8e7d4d5ffd5c4ee5",
+    "operation": "LEASE_HEARTBEAT",
+    "expected_main_sha": "25511e66ee26e1ac34639afdb297a64440942c93",
     "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
