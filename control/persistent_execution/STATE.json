@@ -7,14 +7,16 @@
     "status": "ACTIVE",
     "task_id": "6a9a45a718208191b489e125e18a550e",
     "timezone": "America/Santiago",
-    "title": "Continuidad automática QROS"
+    "title": "Continuidad automática QROS",
+    "role": "IDLE_FILL_ONLY_WHILE_FOREGROUND_INACTIVE"
   },
   "cas_contract": {
     "atomic_multi_file_commit": true,
     "expected_parent_required": true,
     "implementation_ref": "scripts/qros_persistent_git_cas.py",
     "ref_update_force": false,
-    "state_transition_ref": "scripts/qros_persistent_chat_controller.py"
+    "state_transition_ref": "scripts/qros_persistent_chat_controller.py",
+    "foreground_guard_ref": "scripts/qros_persistent_foreground_guard.py"
   },
   "continuity_canary": {
     "checkpoint_ref": "control/persistent_execution/checkpoints/QROS_CONTINUITY_CANARY_V2.json",
@@ -26,6 +28,15 @@
   },
   "enabled": true,
   "holdout_opened": false,
+  "foreground_ref": "control/persistent_execution/FOREGROUND.json",
+  "foreground_policy": {
+    "manual_surface_priority": true,
+    "idle_timeout_minutes": 120,
+    "automation_when_active": "NO_OP_SCIENTIFIC_WORK",
+    "lease_must_be_released_at_turn_end": true,
+    "stale_heartbeat_recovery_minutes": 20,
+    "repair_receipt_ref": "control/QROS_PERSISTENT_FOREGROUND_HANDOFF_REPAIR_V149_v1.json"
+  },
   "last_checkpoint": "control/persistent_execution/checkpoints/G30_F10_0003.json",
   "last_completed_item": "G30-F10-0002R",
   "last_dispatch": {
@@ -55,18 +66,6 @@
     "queue_status": "ACTIVE_RECONCILED_F10_0003_DISPATCH_XAUUSD_M15_MID"
   },
   "last_released_lease": {
-    "lease_id": "qros-f10-xau-m10-mid-f13-20260904T215239Z",
-    "worker_id": "qros-hourly-f10-xau-m10-mid",
-    "fence_token": 13,
-    "parent_main_sha": "10671d0196c60995cf5ccb0dd58063733b779b78",
-    "claimed_at": "2026-09-04T21:52:39Z",
-    "heartbeat_at": "2026-09-04T21:52:39Z",
-    "expires_at": "2026-09-04T23:27:39Z",
-    "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
-    "released_at": "2026-09-04T21:57:47Z",
-    "outcome": "NQX_F10_COMPLETE_12_OF_12; XAUUSD_6_OF_12_COMPLETE; EXECUTION_LIMIT_NEXT_M15_BID"
-  },
-  "lease": {
     "lease_id": "qros-f10-xau-m15-bid-f14-20260904T220031Z",
     "worker_id": "qros-hourly-f10-xau-m15-series",
     "fence_token": 14,
@@ -74,16 +73,17 @@
     "claimed_at": "2026-09-04T22:00:31Z",
     "heartbeat_at": "2026-09-04T22:02:09Z",
     "expires_at": "2026-09-04T23:37:09Z",
-    "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7"
+    "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
+    "released_at": "2026-09-04T22:52:23Z",
+    "outcome": "RECOVERED_ORPHANED_AUTOMATION_LEASE_AFTER_50_MINUTES_WITHOUT_HEARTBEAT; NO_M15_MID_DURABLE_RESULT_FOUND; INTERACTIVE_FOREGROUND_ACTIVATED",
+    "expired_recovery_ref": "control/QROS_PERSISTENT_FOREGROUND_HANDOFF_REPAIR_V149_v1.json"
   },
+  "lease": null,
   "lease_epoch": 14,
-  "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
-  "pending_cas": {
-    "operation": "LEASE_HEARTBEAT",
-    "expected_main_sha": "f8b115729c54cacce1715de7b7cb5177ba807129",
-    "force": false
-  },
+  "mode": "INTERACTIVE_FOREGROUND_PRIORITY_PLUS_HOURLY_IDLE_FILL",
+  "pending_cas": null,
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
+  "protocol_revision": 3,
   "queue_ref": "control/persistent_execution/RUN_QUEUE.json",
   "schema": "QROS_PERSISTENT_EXECUTION_STATE_V1",
   "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY"
