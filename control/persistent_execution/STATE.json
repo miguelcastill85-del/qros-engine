@@ -78,10 +78,24 @@
     "outcome": "RECOVERED_ORPHANED_AUTOMATION_LEASE_AFTER_50_MINUTES_WITHOUT_HEARTBEAT; NO_M15_MID_DURABLE_RESULT_FOUND; INTERACTIVE_FOREGROUND_ACTIVATED",
     "expired_recovery_ref": "control/QROS_PERSISTENT_FOREGROUND_HANDOFF_REPAIR_V149_v1.json"
   },
-  "lease": null,
-  "lease_epoch": 14,
+  "lease": {
+    "lease_id": "e8ac20c24c1c3a7c6453388c7ecdcdec2f8498c5daa705d8f488f552f51118c8",
+    "worker_id": "qros-manual-f10-xau-m15-mid-f15-20260904T225754Z",
+    "fence_token": 15,
+    "parent_main_sha": "6ad4c9759c22ad4d750e08250f21ef20213e862c",
+    "claimed_at": "2026-09-04T22:57:54Z",
+    "heartbeat_at": "2026-09-04T22:57:54Z",
+    "expires_at": "2026-09-04T23:17:54Z",
+    "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
+    "expired_recovery_ref": null
+  },
+  "lease_epoch": 15,
   "mode": "INTERACTIVE_FOREGROUND_PRIORITY_PLUS_HOURLY_IDLE_FILL",
-  "pending_cas": null,
+  "pending_cas": {
+    "operation": "LEASE_CLAIM",
+    "expected_main_sha": "6ad4c9759c22ad4d750e08250f21ef20213e862c",
+    "force": false
+  },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
   "protocol_revision": 3,
   "queue_ref": "control/persistent_execution/RUN_QUEUE.json",
