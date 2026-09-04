@@ -1,0 +1,51 @@
+{
+  "schema": "QROS_G30_F10_GATE_A_SHARD_RECEIPT_V150_v1",
+  "status": "PASS_COMPLETE_EXACT_PARITY",
+  "created_at_utc": "2026-09-04T23:08:01Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F10_TICK_INTENSITY",
+  "queue_item_id": "G30-F10-0003",
+  "asset": "XAUUSD",
+  "shard": "M15_MID",
+  "scope": "EXPOSED_DEV_2018_2019_ONLY_NO_2020_PLUS_PNL",
+  "inputs": {
+    "head_sha256": "9be7855904157d210d23db6b9524fe30b2bc2eadb055334afa18be7edae5d5c1",
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "m1_cache_sha256": "f5d847a51ffbbddd29dc4089aa65c04ebe4df01336b91af35223609551923e62",
+    "tick_count_sha256": "6afb91bf589dbaf02e995d2a5915f760ca2ae1dd88179469528c3b7f8beab2d2",
+    "transactional_runner_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
+    "prepare_manifest_sha256": "a8dedf5da39d0e5e54f2f6087f1ca73a8f3dde95b7b8a1224e7319ca4147f845"
+  },
+  "coverage": {
+    "raw_identities": 2736,
+    "unique_masks": 2423,
+    "exact_alias_count": 313,
+    "evaluated_buy_sell_records": 4846,
+    "ranges": [[0,256],[256,512],[512,768],[768,1024],[1024,1280],[1280,1536],[1536,1792],[1792,2048],[2048,2304],[2304,2423]],
+    "chunk_hash_ledger_sha256": "9c20ce49a6da701d2bb3138fa07a6e0a4616dde278376ca1ac62e439f3bd7870"
+  },
+  "identities": {
+    "union_buy": 7656,
+    "union_sell": 7543,
+    "passer_identity_root_sha256": "e382f79f318bbdedaee7c2d456b80997c466e00f677d2caac081cd08d633b98f",
+    "alias_assignment_root_sha256": "d5d5839cc358ee458f334e8a69428882d741a7fc8dbc634ac3de15bff80cb342"
+  },
+  "result": {
+    "passed": 344,
+    "passed_buy": 321,
+    "passed_sell": 23,
+    "merged_output_bytes": 3312790,
+    "merged_output_sha256": "6a7ad7ddbfcfec9976bfad2e21926ce1d4030f377100a3f7db29724e6e272a42",
+    "deterministic_rematerialization": "ALLOWED_FROM_FROZEN_INPUTS_AND_V128_RUNNER; EXACT_MERGED_SHA_REQUIRED"
+  },
+  "signal_parity": "PASS_EXACT",
+  "trade_parity": "PASS_EXACT",
+  "all_passers_advance": true,
+  "future_2020_plus_pnl_read": false,
+  "historical_holdout_opened": false,
+  "retuning": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "decision": "XAUUSD_M15_MID_COMPLETE_344_PASSERS_ALL_ADVANCE; NEXT_XAUUSD_M30_BID"
+}
