@@ -59,12 +59,22 @@
     "released_at": "2026-09-04T05:57:09Z",
     "outcome": "F10_SOURCE_DURABILITY_REPAIR_PASS"
   },
-  "lease": null,
-  "lease_epoch": 3,
+  "lease": {
+    "lease_id": "77f3b726674cb282da776402da8ed7069dc144a1d8e90faac603b3cdb1ada3e5",
+    "worker_id": "qros-hourly-f10-nqx-rematerialization",
+    "fence_token": 4,
+    "parent_main_sha": "6ad262d3abe9afc1e86ad36496ce0fab465c2995",
+    "claimed_at": "2026-09-04T09:49:07Z",
+    "heartbeat_at": "2026-09-04T09:49:07Z",
+    "expires_at": "2026-09-04T11:24:07Z",
+    "entrypoint_sha256": "5456313c5dab6558502eecf3e5d4387e11392e34746e5312f0c136f34ecd3183",
+    "expired_recovery_ref": null
+  },
+  "lease_epoch": 4,
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
-    "operation": "LEASE_RELEASE",
-    "expected_main_sha": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
+    "operation": "LEASE_CLAIM",
+    "expected_main_sha": "6ad262d3abe9afc1e86ad36496ce0fab465c2995",
     "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
