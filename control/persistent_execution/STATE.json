@@ -69,12 +69,22 @@
     "released_at": "2026-09-04T09:58:17Z",
     "outcome": "F10_NQX_M1_BID_RANGE_0_256_CHECKPOINTED_PENDING_RESUMABLE"
   },
-  "lease": null,
-  "lease_epoch": 4,
+  "lease": {
+    "lease_id": "540bc4757feee44f04c522db7fb948b53552ed136e5c59fb4412996f432ec294",
+    "worker_id": "qros-hourly-f10-nqx-m1-bid-256-512",
+    "fence_token": 5,
+    "parent_main_sha": "a40ae66208e93598a934138883d0640eaa3819de",
+    "claimed_at": "2026-09-04T10:51:01Z",
+    "heartbeat_at": "2026-09-04T10:51:01Z",
+    "expires_at": "2026-09-04T12:26:01Z",
+    "entrypoint_sha256": "5456313c5dab6558502eecf3e5d4387e11392e34746e5312f0c136f34ecd3183",
+    "expired_recovery_ref": null
+  },
+  "lease_epoch": 5,
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
-    "operation": "LEASE_RELEASE",
-    "expected_main_sha": "0fd4c3ee8a112ec85b95ecf49ba32af57f230439",
+    "operation": "LEASE_CLAIM",
+    "expected_main_sha": "a40ae66208e93598a934138883d0640eaa3819de",
     "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
