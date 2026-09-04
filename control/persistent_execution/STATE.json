@@ -1,38 +1,53 @@
 {
-  "schema": "QROS_PERSISTENT_EXECUTION_STATE_V1",
-  "enabled": true,
-  "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
-  "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
-  "queue_ref": "control/persistent_execution/RUN_QUEUE.json",
   "automation": {
-    "status": "ACTIVE",
-    "cadence": "HOURLY",
-    "timezone": "America/Santiago",
-    "paid_infrastructure": false,
-    "creation_attempt": "PASS_AFTER_USER_AUTHORIZED_PAUSE_OF_OVERLAPPING_SEO_TASK",
     "automation_created": true,
+    "cadence": "HOURLY",
+    "creation_attempt": "PASS_AFTER_USER_AUTHORIZED_PAUSE_OF_OVERLAPPING_SEO_TASK",
+    "paid_infrastructure": false,
+    "status": "ACTIVE",
     "task_id": "6a9a45a718208191b489e125e18a550e",
-    "title": "Continuidad automática QROS"
+    "timezone": "America/Santiago",
+    "title": "Continuidad autom\u00e1tica QROS"
   },
-  "lease": null,
-  "last_dispatch": null,
+  "cas_contract": {
+    "atomic_multi_file_commit": true,
+    "expected_parent_required": true,
+    "implementation_ref": "scripts/qros_persistent_git_cas.py",
+    "ref_update_force": false,
+    "state_transition_ref": "scripts/qros_persistent_chat_controller.py"
+  },
+  "enabled": true,
+  "holdout_opened": false,
   "last_checkpoint": null,
   "last_completed_item": null,
-  "holdout_opened": false,
-  "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY",
-  "lease_epoch": 0,
-  "cas_contract": {
-    "implementation_ref": "scripts/qros_persistent_git_cas.py",
-    "state_transition_ref": "scripts/qros_persistent_chat_controller.py",
-    "expected_parent_required": true,
-    "ref_update_force": false,
-    "atomic_multi_file_commit": true
-  },
+  "last_dispatch": null,
   "last_reconciliation": {
-    "observed_main_sha": "b650ba7c1bad00cc1667c565cb175590355aad6b",
-    "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
     "head_blob_sha": "b3ba56eafa9cd5290c6662150eb0886631cdb432",
-    "queue_status": "ACTIVE_RECONCILED_READY_FOR_F10_DEVELOPMENT_EXECUTION",
-    "holdout_opened": false
-  }
+    "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
+    "holdout_opened": false,
+    "observed_main_sha": "b650ba7c1bad00cc1667c565cb175590355aad6b",
+    "queue_status": "ACTIVE_RECONCILED_READY_FOR_F10_DEVELOPMENT_EXECUTION"
+  },
+  "lease": {
+    "claimed_at": "2026-09-04T04:40:00Z",
+    "entrypoint_sha256": "5456313c5dab6558502eecf3e5d4387e11392e34746e5312f0c136f34ecd3183",
+    "expired_recovery_ref": null,
+    "expires_at": "2026-09-04T04:50:00Z",
+    "fence_token": 1,
+    "heartbeat_at": "2026-09-04T04:40:00Z",
+    "lease_id": "a669799f303295d3470e4d33e7bd82255ff7bb123aa3c644fff33e5e9112204e",
+    "parent_main_sha": "fce644c3e1ed8ea2f9982ef853570d2370779936",
+    "worker_id": "qros-continuity-canary-v2"
+  },
+  "lease_epoch": 1,
+  "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
+  "pending_cas": {
+    "expected_main_sha": "fce644c3e1ed8ea2f9982ef853570d2370779936",
+    "force": false,
+    "operation": "LEASE_CLAIM"
+  },
+  "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
+  "queue_ref": "control/persistent_execution/RUN_QUEUE.json",
+  "schema": "QROS_PERSISTENT_EXECUTION_STATE_V1",
+  "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY"
 }
