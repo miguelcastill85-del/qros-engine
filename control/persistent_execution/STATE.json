@@ -51,8 +51,8 @@
     "head_blob_sha": "cf25f0b2b683844c016fbb83de3d20c7a9c2ec40",
     "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
     "holdout_opened": false,
-    "observed_main_sha": "faa590bd38d2f39884cb009cee4fcc9ae1b7db14",
-    "queue_status": "ACTIVE_RECONCILED_F10_0003_PENDING_NEXT_SHARD"
+    "observed_main_sha": "da3a023ab2d0961d1fb97e97d48b8ef481b8dd73",
+    "queue_status": "ACTIVE_RECONCILED_F10_0003_DISPATCH_XAUUSD_M10_BID"
   },
   "last_released_lease": {
     "lease_id": "78988e3ae0b4c596d1b1ba3c2876d2c04f188c7fc20aa648ada0a74dc29c35cd",
@@ -67,12 +67,21 @@
     "released_at": "2026-09-04T21:22:53Z",
     "outcome": "NQX_F10_COMPLETE_12_OF_12; XAUUSD_4_OF_12_COMPLETE; EXECUTION_LIMIT_NEXT_M10_BID"
   },
-  "lease": null,
-  "lease_epoch": 11,
+  "lease": {
+    "lease_id": "qros-f10-xau-m10-bid-f12-20260904T212502Z",
+    "worker_id": "qros-hourly-f10-xau-m10-bid",
+    "fence_token": 12,
+    "parent_main_sha": "da3a023ab2d0961d1fb97e97d48b8ef481b8dd73",
+    "claimed_at": "2026-09-04T21:25:02Z",
+    "heartbeat_at": "2026-09-04T21:25:02Z",
+    "expires_at": "2026-09-04T23:00:02Z",
+    "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7"
+  },
+  "lease_epoch": 12,
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
-    "operation": "LEASE_RELEASE",
-    "expected_main_sha": "faa590bd38d2f39884cb009cee4fcc9ae1b7db14",
+    "operation": "LEASE_CLAIM",
+    "expected_main_sha": "da3a023ab2d0961d1fb97e97d48b8ef481b8dd73",
     "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
