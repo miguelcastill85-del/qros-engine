@@ -1,0 +1,34 @@
+{
+  "schema": "QROS_PERSISTENT_CHAT_AUTOMATION_ACTIVATION_V125_V1",
+  "status": "PASS_ACTIVE",
+  "parent_head": "QROS_PERSISTENT_CONTROL_HEAD_V124",
+  "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
+  "prompt_ref": "governance/QROS_PERSISTENT_CHAT_AUTOMATION_PROMPT_v1.md",
+  "state_ref": "control/persistent_execution/STATE.json",
+  "queue_ref": "control/persistent_execution/RUN_QUEUE.json",
+  "automation": {
+    "title": "Continuidad automática QROS",
+    "task_id": "6a9a45a718208191b489e125e18a550e",
+    "enabled": true,
+    "timezone": "America/Santiago",
+    "schedule": "HOURLY",
+    "first_dtstart_utc": "2026-09-04T04:14:31Z"
+  },
+  "slot_resolution": {
+    "initial_create_result": "REJECTED_PLAN_LIMIT_5_OF_5_ACTIVE",
+    "user_authorized_action": "PAUSE_OVERLAPPING_SEO_Y_PRIMERA_VENTA_AUTOMATION",
+    "unrelated_active_automations_modified": 0
+  },
+  "behavior": {
+    "requires_user_to_type_continue": false,
+    "recovery_source": "CURRENT_GITHUB_HEAD_AND_PERSISTED_QUEUE",
+    "single_writer": "LEASE_PLUS_FAST_FORWARD_COMPARE_AND_SWAP",
+    "checkpoint_every_valid_chunk": true,
+    "continue_across_wakeups": true,
+    "continuous_background_compute_claimed": false
+  },
+  "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY",
+  "holdout_opened": false,
+  "methodology_or_gate_changed": false,
+  "additional_paid_infrastructure": false
+}
