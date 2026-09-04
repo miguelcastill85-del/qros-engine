@@ -1,0 +1,76 @@
+{
+  "schema": "QROS_PERSISTENT_RUN_QUEUE_V1",
+  "status": "ACTIVE_RECONCILE_BEFORE_DISPATCH",
+  "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
+  "source_head_commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "queue": [
+    {
+      "item_id": "G30-F09-0001",
+      "status": "READY",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
+      "source_head_commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
+      "scope": "F09_SPREAD_CONTEXT_SEMANTIC_BINDING_AND_PREREGISTRATION",
+      "action": "RECOVER_ANY_EXISTING_DURABLE_F09_BINDING_FIRST; OTHERWISE PREREGISTER OPERATIONAL SEMANTICS FOR SPREAD_BELOW_ROLLING_P75, SPREAD_BELOW_ROLLING_P90, AND SPREAD_POINTS_BELOW_FROZEN_CAP WITH CAUSAL PRE_SIGNAL WINDOWS AND DEPENDENT spread_lookback; NO ECONOMIC RESULTS MAY CHOOSE DEFINITIONS OR CAPS",
+      "prerequisites": [
+        "HEAD_V122_OR_CAUSAL_DESCENDANT_VERIFIED",
+        "G30_ONTOLOGY_AND_RISE_FIXED_POINT_VERIFIED",
+        "HOLDOUT_OPEN_FORBIDDEN"
+      ],
+      "guards": [
+        "NO_RESULTS_BEFORE_PREREGISTRATION",
+        "NO_HOLDOUT",
+        "NO_RETUNING",
+        "NO_MT5",
+        "NO_BRANCH_EXHAUSTED"
+      ],
+      "checkpoint_path": "control/persistent_execution/checkpoints/G30_F09_0001.json",
+      "success_condition": "EXACT F09 SEMANTIC BINDING AND PREREGISTRATION ARE DURABLY PERSISTED BEFORE ANY F09 RESULT"
+    },
+    {
+      "item_id": "G30-F09-0002",
+      "status": "WAITING_PREREQUISITE",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
+      "source_head_commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
+      "scope": "F09_DURABLE_RUNNER_AND_PARITY_PREFLIGHT",
+      "action": "FREEZE ALL CONTINUATION-CRITICAL SOURCES, VERIFY READBACK SHA256, AND PASS TWO INDEPENDENT SIGNAL AND EXECUTION IMPLEMENTATION PREFLIGHTS ON DEVELOPMENT-ONLY DATA",
+      "prerequisites": ["G30-F09-0001"],
+      "guards": ["NO_PNL_FOR_SEMANTIC_SELECTION", "NO_HOLDOUT", "SOURCE_DURABILITY_GATE_REQUIRED"],
+      "checkpoint_path": "control/persistent_execution/checkpoints/G30_F09_0002.json",
+      "success_condition": "ALL REQUIRED SOURCES DURABLE AND PREFLIGHT PARITY PASSES WITHOUT ECONOMIC SELECTION"
+    },
+    {
+      "item_id": "G30-F09-0003",
+      "status": "WAITING_PREREQUISITE",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
+      "source_head_commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
+      "scope": "F09_NQX_AND_XAUUSD_DEVELOPMENT_EXECUTION",
+      "action": "EXECUTE PREREGISTERED F09 ON NQX AND XAUUSD 2018_2019 EXPOSED DEVELOPMENT ONLY; ALL GATE_A PASSERS ADVANCE; THEN NON_ECONOMIC CLUSTERING",
+      "prerequisites": ["G30-F09-0002"],
+      "guards": ["EXECUTION_UNIT_FIREWALL_PASS", "NO_HOLDOUT", "ALL_PASSERS_ADVANCE", "BUY_SELL_SEPARATE"],
+      "checkpoint_path": "control/persistent_execution/checkpoints/G30_F09_0003.json",
+      "success_condition": "ALL PREREGISTERED SHARDS HAVE EXACT COVERAGE, REQUIRED PARITY, GATE_A RECEIPTS AND NON_ECONOMIC CLUSTERING RECEIPTS"
+    },
+    {
+      "item_id": "G30-F09-0004",
+      "status": "WAITING_PREREQUISITE",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
+      "source_head_commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
+      "scope": "F09_FREEZE_AND_ADVANCE_SCHEDULER",
+      "action": "FREEZE ALL F09 CLUSTER REPRESENTATIVES AND ALIASES, PERSIST COVERAGE, RECONCILE THE ONTOLOGY SCHEDULER, AND CONTINUE THE NEXT AUTHORIZED FRONTIER",
+      "prerequisites": ["G30-F09-0003"],
+      "guards": ["NO_SINGLE_WINNER", "NO_HOLDOUT", "NO_BRANCH_EXHAUSTED_WITHOUT_FULL_RECEIPTS"],
+      "checkpoint_path": "control/persistent_execution/checkpoints/G30_F09_0004.json",
+      "success_condition": "F09 IS DURABLY CLOSED AT ITS AUTHORIZED STAGE AND THE NEXT READY FRONTIER IS QUEUED"
+    }
+  ],
+  "guards": {
+    "holdout_open_authorized": false,
+    "mt5_authorized": false,
+    "live_trading_authorized": false,
+    "paid_infrastructure_authorized": false,
+    "single_winner_selection": false,
+    "all_gate_passers_advance": true,
+    "branch_exhaustion_authorized": false
+  }
+}

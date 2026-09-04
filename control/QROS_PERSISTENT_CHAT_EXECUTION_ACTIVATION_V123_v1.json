@@ -1,0 +1,23 @@
+{
+  "schema": "QROS_PERSISTENT_CHAT_EXECUTION_ACTIVATION_V123_V1",
+  "status": "IMPLEMENTED_PENDING_AUTOMATION_RECEIPT",
+  "parent_head": {
+    "schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
+    "commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
+    "blob_sha": "c566e33acf96d164f6805c50cb2a5b09cd3d2696"
+  },
+  "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
+  "prompt_ref": "governance/QROS_PERSISTENT_CHAT_AUTOMATION_PROMPT_v1.md",
+  "queue_ref": "control/persistent_execution/RUN_QUEUE.json",
+  "state_ref": "control/persistent_execution/STATE.json",
+  "controller_ref": "scripts/qros_persistent_chat_controller.py",
+  "test_ref": "tests/test_qros_persistent_chat_controller.py",
+  "execution_model": "BOUNDED_CHAT_CYCLES_PLUS_HOURLY_AUTOMATIC_WAKEUP",
+  "requires_user_to_type_continue": false,
+  "continuous_background_compute_claimed": false,
+  "additional_paid_infrastructure": false,
+  "scientific_state_changed": false,
+  "holdout_opened": false,
+  "gate_or_methodology_changed": false,
+  "next_scientific_action_preserved_from_head_v122": true
+}

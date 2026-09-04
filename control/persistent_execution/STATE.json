@@ -1,0 +1,19 @@
+{
+  "schema": "QROS_PERSISTENT_EXECUTION_STATE_V1",
+  "enabled": true,
+  "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
+  "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
+  "queue_ref": "control/persistent_execution/RUN_QUEUE.json",
+  "automation": {
+    "status": "PENDING_CREATION_RECEIPT",
+    "cadence": "HOURLY",
+    "timezone": "America/Santiago",
+    "paid_infrastructure": false
+  },
+  "lease": null,
+  "last_dispatch": null,
+  "last_checkpoint": null,
+  "last_completed_item": null,
+  "holdout_opened": false,
+  "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY"
+}

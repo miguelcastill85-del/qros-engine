@@ -1,0 +1,107 @@
+{
+  "schema": "QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_V1",
+  "status": "ADOPTED_MANDATORY_OPERATIONAL_LAYER",
+  "purpose": "Resume QROS automatically across bounded ChatGPT executions without requiring the user to type continue, while preserving scientific authority in GitHub.",
+  "truth_boundary": {
+    "continuous_background_compute_claimed": false,
+    "chat_runtime_is_persistent_storage": false,
+    "persistent_authority": "miguelcastill85-del/qros-engine",
+    "automatic_wakeup": "CHATGPT_AUTOMATION_HOURLY",
+    "each_wakeup_is_bounded": true,
+    "zero_additional_paid_infrastructure": true
+  },
+  "cycle": [
+    "RECOVER_CURRENT_MAIN_AND_CONTROL_HEAD",
+    "VERIFY_AUTHORITY_AND_DURABLE_SOURCES",
+    "RECONCILE_QUEUE_WITH_HEAD_AND_RECEIPTS",
+    "ACQUIRE_SINGLE_WRITER_LEASE_BY_FAST_FORWARD_COMPARE_AND_SWAP",
+    "EXECUTE_ALL_READY_SAFE_CHUNKS_WITHIN_CURRENT_RUNTIME_BUDGET",
+    "VALIDATE_AND_ATOMICALLY_PERSIST_EACH_COMPLETED_CHUNK",
+    "HEARTBEAT_OR_RELEASE_LEASE",
+    "CONTINUE_WITH_NEXT_READY_CHUNK_OR_YIELD_TO_NEXT_AUTOMATIC_WAKEUP"
+  ],
+  "no_continue_prompt_rule": "Never ask the user whether to continue when an authorized, dependency-ready, scientifically unchanged queue item exists.",
+  "queue_contract": {
+    "canonical_path": "control/persistent_execution/RUN_QUEUE.json",
+    "reconcile_before_every_dispatch": true,
+    "stored_queue_is_proposal_not_authority": true,
+    "remove_completed_work": true,
+    "restore_omitted_authorized_work": true,
+    "invalidate_on_incompatible_head": true,
+    "item_required_fields": [
+      "item_id",
+      "status",
+      "source_head_schema",
+      "source_head_commit",
+      "scope",
+      "action",
+      "prerequisites",
+      "guards",
+      "checkpoint_path",
+      "success_condition"
+    ]
+  },
+  "single_writer": {
+    "state_path": "control/persistent_execution/STATE.json",
+    "lease_ttl_minutes": 95,
+    "heartbeat_max_interval_minutes": 20,
+    "claim_requires_main_sha_match": true,
+    "promotion_requires_fast_forward_compare_and_swap": true,
+    "force_push_forbidden": true,
+    "on_ref_conflict": "DO_NOT_OVERWRITE; FETCH_NEW_MAIN; RECONCILE; RETRY_ONLY_UNCOMMITTED_SCOPE",
+    "unexpired_foreign_lease": "NO_OP_THIS_WAKEUP",
+    "expired_lease": "RECOVER_RECEIPTS_AND_QUARANTINE_AMBIGUOUS_PARTIAL_OUTPUT_BEFORE_RECLAIM"
+  },
+  "checkpoint_policy": {
+    "checkpoint_after_every_valid_chunk": true,
+    "checkpoint_before_expected_runtime_limit": true,
+    "checkpoint_before_external_dependency_wait": true,
+    "minimum_fields": [
+      "dispatch_id",
+      "queue_item_id",
+      "parent_commit",
+      "input_and_source_sha256",
+      "completed_ranges",
+      "output_sha256",
+      "holdout_exposure",
+      "scientific_outcome",
+      "execution_state",
+      "exact_resume_action"
+    ],
+    "partial_outputs": "QUARANTINE_NOT_PROMOTE",
+    "runtime_reset": "REMATERIALIZE_REQUIRED_ARTIFACTS_ONLY; NEVER_DOWNGRADE_VALID_SCIENTIFIC_COMPLETION"
+  },
+  "runtime_budget": {
+    "fixed_chat_length_promised": false,
+    "continue_until": "NEAREST_SAFE_BOUNDARY_BEFORE_EXECUTION_LIMIT",
+    "progress_units_required": true,
+    "stall_after_two_unchanged_observations": "RUN_STALL_DIAGNOSTIC_AND_EQUIVALENT_FALLBACK",
+    "identical_retry_limit_after_initial_attempt": 2
+  },
+  "valid_pause_conditions": [
+    "SCIENTIFIC_TERMINAL",
+    "REAL_BLOCKER_AFTER_MULTI_SURFACE_RESOLUTION_AND_FALLBACKS",
+    "USER_DECISION_REQUIRED_FOR_METHODOLOGY_HOLDOUT_COST_LIVE_OR_IRREVERSIBLE_SCOPE",
+    "EXECUTION_LIMIT_REACHED_AFTER_SAFE_CHECKPOINT",
+    "USER_STOP"
+  ],
+  "mandatory_guards": {
+    "holdout_access_without_genealogy_preflight": false,
+    "economic_scoring_without_unit_binding_preflight": false,
+    "methodology_change_by_scheduler": false,
+    "single_winner_selection": false,
+    "drop_slow_authorized_branch": false,
+    "branch_exhaustion_without_required_receipts": false,
+    "repeat_closed_scientific_scope_because_runtime_files_disappeared": false,
+    "activate_paid_service": false,
+    "run_live_trading": false
+  },
+  "human_updates": {
+    "only_on": ["MILESTONE", "ROUTE_CHANGE", "REAL_BLOCKER", "USER_DECISION_REQUIRED", "EXECUTION_LIMIT"],
+    "ask_continue": false,
+    "required_fields": ["HECHO", "EVIDENCIA", "IMPACTO", "AHORA"]
+  },
+  "automation_prompt_ref": "governance/QROS_PERSISTENT_CHAT_AUTOMATION_PROMPT_v1.md",
+  "controller_ref": "scripts/qros_persistent_chat_controller.py",
+  "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY"
+}
