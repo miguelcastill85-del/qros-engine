@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_G30_F10_SHARDED_PROGRESS_V129_v1",
+  "status": "IN_PROGRESS_VALIDATED",
+  "created_at_utc": "2026-09-04T09:55:26Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F10_TICK_INTENSITY",
+  "queue_item_id": "G30-F10-0003",
+  "asset": "NQX",
+  "shard": "M1_BID",
+  "scope": "EXPOSED_DEV_2018_2019_ONLY_NO_2020_PLUS_PNL",
+  "inputs": {
+    "dev_records": 59940260,
+    "dev_bytes": 1018984420,
+    "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "m1_cache_rows": 673097,
+    "m1_cache_sha256": "8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
+    "tick_count_sha256": "04d02aa0c14efeae2ee22b5dff11b022ac97276653ece6fad50edc4e17be80ec"
+  },
+  "preparation": {
+    "raw_identities": 2736,
+    "unique_masks": 2571,
+    "exact_alias_count": 165,
+    "union_buy": 103331,
+    "union_sell": 103311,
+    "manifest_sha256": "f72247ef36e619eb5a8489a6e2b6cdc6c896cd325080f16b5663bdd1ed077b4f",
+    "bar_digest": "d9d860c5d5aed42e9f81e728990ee88253f052877a21969bdef9a2da144f2bc9",
+    "raw_identity_sequence_sha256": "c7e54f2ed7c7a5174aa28370e29c4830bcf622ce7cfc120ad538e231c30a77a3",
+    "unique_mask_set_sha256": "7707a148a9ebe5a9e4d4d86b416ee044cbdccd0ea4afe60b92c227bd3b86b1ef",
+    "signal_parity": "PASS_EXACT",
+    "trade_parity": "PASS_EXACT"
+  },
+  "completed_ranges": [
+    {
+      "start": 0,
+      "end": 256,
+      "unique_masks": 256,
+      "evaluated_side_records": 512,
+      "passers": 0,
+      "output_sha256": "9099baf322aec5785db3e59e50e1e18ba9364a209abf7f6ef159a7bb9f6b8b28",
+      "output_bytes": 324904,
+      "durable_gzip_ref": "results/G30/F10/NQX/M1_BID/chunk_000000_000256.json.gz",
+      "durable_gzip_sha256": "6a8612f334d9406263b2c0f802f0e4d770dac52624b604a2b8a0e1cc9f4bf7e8",
+      "validation": "PASS_SCHEMA_RANGE_COUNT_BUY_SELL"
+    }
+  ],
+  "next_range": {"start": 256, "end": 512},
+  "historical_holdout_opened": false,
+  "future_2020_plus_pnl_read": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "retuning": false,
+  "all_passers_advance": true
+}
