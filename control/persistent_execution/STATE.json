@@ -57,13 +57,23 @@
     "released_at": "2026-09-04T04:42:00Z",
     "worker_id": "qros-continuity-canary-v2"
   },
-  "lease": null,
-  "lease_epoch": 1,
+  "lease": {
+    "lease_id": "ee894ca89af45df6a04df6573413951baea10fc0b3dd63f599d433cb593a2389",
+    "worker_id": "qros-hourly-f10-v1",
+    "fence_token": 2,
+    "parent_main_sha": "e815accac1f9a97af2e62a06bf58928fbb1755fc",
+    "claimed_at": "2026-09-04T04:46:59Z",
+    "heartbeat_at": "2026-09-04T04:46:59Z",
+    "expires_at": "2026-09-04T06:21:59Z",
+    "entrypoint_sha256": "5456313c5dab6558502eecf3e5d4387e11392e34746e5312f0c136f34ecd3183",
+    "expired_recovery_ref": null
+  },
+  "lease_epoch": 2,
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
-    "expected_main_sha": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
-    "force": false,
-    "operation": "LEASE_RELEASE"
+    "operation": "LEASE_CLAIM",
+    "expected_main_sha": "e815accac1f9a97af2e62a06bf58928fbb1755fc",
+    "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
   "queue_ref": "control/persistent_execution/RUN_QUEUE.json",
