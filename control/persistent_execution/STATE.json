@@ -7,7 +7,7 @@
     "status": "ACTIVE",
     "task_id": "6a9a45a718208191b489e125e18a550e",
     "timezone": "America/Santiago",
-    "title": "Continuidad automática QROS"
+    "title": "Continuidad autom\u00e1tica QROS"
   },
   "cas_contract": {
     "atomic_multi_file_commit": true,
@@ -29,29 +29,29 @@
   "last_checkpoint": "control/persistent_execution/checkpoints/G30_F10_0003.json",
   "last_completed_item": "G30-F10-0002R",
   "last_dispatch": {
-    "dispatch_id": "QROS-F10-NQX-M10-MID-20260904T161030Z",
+    "dispatch_id": "QROS-F10-NQX-M15-BID-20260904T161300Z",
     "type": "F10_SHARDED_DEV_GATE_A",
     "queue_item_id": "G30-F10-0003",
     "claimed_parent_commit": "e94db8757972d8e5dfbc78c6be89c17584970f78",
     "claim_commit": "31ec91fd2d500d761fcc5de655d676ba7093c30a",
     "asset": "NQX",
-    "shard": "M10_MID",
+    "shard": "M15_BID",
     "raw_identities": 2736,
-    "unique_masks": 2480,
-    "evaluated_buy_sell_records": 4960,
-    "passed": 480,
-    "passed_buy": 149,
-    "passed_sell": 331,
+    "unique_masks": 2490,
+    "evaluated_buy_sell_records": 4980,
+    "passed": 244,
+    "passed_buy": 143,
+    "passed_sell": 101,
     "status": "SHARD_COMPLETED_NEXT_SHARD_PENDING",
-    "next_shard": "NQX_M15_BID",
-    "checkpointed_at_utc": "2026-09-04T16:12:00Z",
+    "next_shard": "NQX_M15_MID",
+    "checkpointed_at_utc": "2026-09-04T16:15:00Z",
     "scientific_effect": "EXPOSED_DEV_GATE_A_SHARD_COMPLETE_ALL_PASSERS_ADVANCE"
   },
   "last_reconciliation": {
     "head_blob_sha": "cf25f0b2b683844c016fbb83de3d20c7a9c2ec40",
     "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
     "holdout_opened": false,
-    "observed_main_sha": "10b2e698366e039bad5636b5447b3d1f246a5e42",
+    "observed_main_sha": "cb0599cd900bb08be9f4f915c1d0ed82bcc9e454",
     "queue_status": "ACTIVE_RECONCILED_F10_0003_PENDING_NEXT_SHARD"
   },
   "last_released_lease": {
@@ -73,8 +73,8 @@
     "fence_token": 9,
     "parent_main_sha": "e94db8757972d8e5dfbc78c6be89c17584970f78",
     "claimed_at": "2026-09-04T15:55:00Z",
-    "heartbeat_at": "2026-09-04T16:12:00Z",
-    "expires_at": "2026-09-04T17:47:00Z",
+    "heartbeat_at": "2026-09-04T16:15:00Z",
+    "expires_at": "2026-09-04T17:50:00Z",
     "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
     "expired_recovery_ref": "control/persistent_execution/recovery/G30_F10_NQX_M5_MID_LEASE_F8_EXPIRED_RECOVERY_20260904T155500Z.json"
   },
@@ -82,7 +82,7 @@
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
     "operation": "LEASE_HEARTBEAT",
-    "expected_main_sha": "10b2e698366e039bad5636b5447b3d1f246a5e42",
+    "expected_main_sha": "cb0599cd900bb08be9f4f915c1d0ed82bcc9e454",
     "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
