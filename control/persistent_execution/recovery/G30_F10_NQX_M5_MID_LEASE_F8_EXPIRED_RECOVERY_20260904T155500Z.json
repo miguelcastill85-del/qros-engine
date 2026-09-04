@@ -1,0 +1,41 @@
+{
+  "schema": "QROS_PERSISTENT_EXPIRED_LEASE_RECOVERY_V1",
+  "status": "PASS_NO_DURABLE_OR_LOCAL_PARTIAL_OUTPUT_FOUND",
+  "created_at_utc": "2026-09-04T15:55:00Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "queue_item_id": "G30-F10-0003",
+  "affected_scope": "NQX/M5_MID",
+  "expired_lease": {
+    "lease_id": "40da3e3c3f2118486301c3ccc1d3e74091e865680dec66f9f51d58518727fbba",
+    "worker_id": "qros-manual-f10-nqx-m5-mid",
+    "fence_token": 8,
+    "claim_commit": "25511e66ee26e1ac34639afdb297a64440942c93",
+    "last_heartbeat_commit": "e94db8757972d8e5dfbc78c6be89c17584970f78",
+    "expires_at": "2026-09-04T15:34:26Z"
+  },
+  "recovery_evidence": {
+    "current_main_sha": "e94db8757972d8e5dfbc78c6be89c17584970f78",
+    "main_changes_since_claim": [
+      "control/persistent_execution/STATE.json"
+    ],
+    "durable_scientific_outputs_promoted_since_claim": false,
+    "last_valid_checkpoint": "control/persistent_execution/checkpoints/G30_F10_0003.json",
+    "last_valid_checkpoint_blob_sha": "a8ee9cfa3ffa82a466656a797bc46f977b2d78c5",
+    "last_completed_shard": "NQX/M5_BID",
+    "next_shard": "NQX/M5_MID",
+    "local_partial_output_search": "NO_MATCHING_F10_M5_MID_OUTPUT_OR_DISPATCH_ARTIFACT",
+    "repository_partial_output_search": "NO_COMMIT_AFTER_CLAIM_EXCEPT_LEASE_HEARTBEAT"
+  },
+  "quarantine": {
+    "ambiguous_partial_outputs_found": false,
+    "action": "NONE_TO_QUARANTINE",
+    "prior_worker_fenced_by_next_epoch": 9
+  },
+  "holdout_exposure": "SEALED_NO_ACCESS",
+  "future_2020_plus_pnl_read": false,
+  "mt5_executed": false,
+  "live_executed": false,
+  "paid_infrastructure_used": false,
+  "scientific_effect": "NONE_OPERATIONAL_RECOVERY_ONLY",
+  "exact_resume_action": "CLAIM FENCE 9 BY FAST_FORWARD CAS; REMATERIALIZE VERIFIED NQX DEVELOPMENT INPUTS; EXECUTE NQX/M5_MID FROM PREPARE OR A DURABLY VERIFIED CHUNK BOUNDARY"
+}

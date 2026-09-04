@@ -51,7 +51,7 @@
     "head_blob_sha": "cf25f0b2b683844c016fbb83de3d20c7a9c2ec40",
     "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
     "holdout_opened": false,
-    "observed_main_sha": "31c1b174d196c61eed7104ae8e7d4d5ffd5c4ee5",
+    "observed_main_sha": "e94db8757972d8e5dfbc78c6be89c17584970f78",
     "queue_status": "ACTIVE_RECONCILED_F10_0003_PENDING_NEXT_SHARD"
   },
   "last_released_lease": {
@@ -68,24 +68,25 @@
     "outcome": "F10_NQX_M5_BID_COMPLETE_124_PASSERS_ALL_ADVANCE_NEXT_M5_MID"
   },
   "lease": {
-    "lease_id": "40da3e3c3f2118486301c3ccc1d3e74091e865680dec66f9f51d58518727fbba",
-    "worker_id": "qros-manual-f10-nqx-m5-mid",
-    "fence_token": 8,
-    "parent_main_sha": "31c1b174d196c61eed7104ae8e7d4d5ffd5c4ee5",
-    "claimed_at": "2026-09-04T13:39:57Z",
-    "heartbeat_at": "2026-09-04T13:59:26Z",
-    "expires_at": "2026-09-04T15:34:26Z",
-    "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7"
+    "lease_id": "06b9c5c15b6b7437046cedec35ca4c8bab89908b78306b160f84cbcd439e43d3",
+    "worker_id": "qros-hourly-f10-nqx-m5-mid",
+    "fence_token": 9,
+    "parent_main_sha": "e94db8757972d8e5dfbc78c6be89c17584970f78",
+    "claimed_at": "2026-09-04T15:55:00Z",
+    "heartbeat_at": "2026-09-04T15:55:00Z",
+    "expires_at": "2026-09-04T17:30:00Z",
+    "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
+    "expired_recovery_ref": "control/persistent_execution/recovery/G30_F10_NQX_M5_MID_LEASE_F8_EXPIRED_RECOVERY_20260904T155500Z.json"
   },
-  "lease_epoch": 8,
+  "lease_epoch": 9,
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
-    "operation": "LEASE_HEARTBEAT",
-    "expected_main_sha": "25511e66ee26e1ac34639afdb297a64440942c93",
+    "operation": "LEASE_CLAIM",
+    "expected_main_sha": "e94db8757972d8e5dfbc78c6be89c17584970f78",
     "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
   "queue_ref": "control/persistent_execution/RUN_QUEUE.json",
   "schema": "QROS_PERSISTENT_EXECUTION_STATE_V1",
   "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY"
-}
+}\n
