@@ -31,3 +31,16 @@ Use the `qros-rise-execution-governor` skill and execute one persistent QROS cyc
 
 The GitHub control plane is authoritative. The chat filesystem is an ephemeral execution
 cache. Never claim computation continues between automation wakeups.
+
+## Enforced implementation (revision 2)
+
+Before dispatch, execute the current controller validation including the exact HEAD blob.
+Use `scripts/qros_persistent_chat_controller.py` to derive lease/checkpoint transitions.
+Promote state, queue, checkpoint, and receipts together with the Git Data transaction in
+`scripts/qros_persistent_git_cas.py`, or reproduce that exact transaction with the GitHub
+connector: read exact main, create blobs, create a tree based on its tree, create one commit
+with that exact parent, re-read main, and update `heads/main` with `force=false`.
+A contents-file update is not sufficient for lease claim or multi-file checkpoint promotion.
+Reject MT5, live, paid infrastructure, branch exhaustion, single-winner selection, disabling
+all-passers, HEAD schema/blob drift, stale fencing tokens, and expired leases without a
+recovery/quarantine receipt. Reconcile valid receipts before selecting the next queue item.

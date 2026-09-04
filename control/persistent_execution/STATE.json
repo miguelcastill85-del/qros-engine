@@ -19,5 +19,20 @@
   "last_checkpoint": null,
   "last_completed_item": null,
   "holdout_opened": false,
-  "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY"
+  "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY",
+  "lease_epoch": 0,
+  "cas_contract": {
+    "implementation_ref": "scripts/qros_persistent_git_cas.py",
+    "state_transition_ref": "scripts/qros_persistent_chat_controller.py",
+    "expected_parent_required": true,
+    "ref_update_force": false,
+    "atomic_multi_file_commit": true
+  },
+  "last_reconciliation": {
+    "observed_main_sha": "b650ba7c1bad00cc1667c565cb175590355aad6b",
+    "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
+    "head_blob_sha": "b3ba56eafa9cd5290c6662150eb0886631cdb432",
+    "queue_status": "ACTIVE_RECONCILED_READY_FOR_F10_DEVELOPMENT_EXECUTION",
+    "holdout_opened": false
+  }
 }

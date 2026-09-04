@@ -50,7 +50,9 @@
     "force_push_forbidden": true,
     "on_ref_conflict": "DO_NOT_OVERWRITE; FETCH_NEW_MAIN; RECONCILE; RETRY_ONLY_UNCOMMITTED_SCOPE",
     "unexpired_foreign_lease": "NO_OP_THIS_WAKEUP",
-    "expired_lease": "RECOVER_RECEIPTS_AND_QUARANTINE_AMBIGUOUS_PARTIAL_OUTPUT_BEFORE_RECLAIM"
+    "expired_lease": "RECOVER_RECEIPTS_AND_QUARANTINE_AMBIGUOUS_PARTIAL_OUTPUT_BEFORE_RECLAIM",
+    "state_transition_implementation": "CONTROLLER_CLAIM_HEARTBEAT_RELEASE_WITH_FENCING",
+    "durable_writer_implementation": "GIT_DATA_API_ATOMIC_MULTI_FILE_COMMIT_AND_FORCE_FALSE_REF_UPDATE"
   },
   "checkpoint_policy": {
     "checkpoint_after_every_valid_chunk": true,
@@ -69,7 +71,8 @@
       "exact_resume_action"
     ],
     "partial_outputs": "QUARANTINE_NOT_PROMOTE",
-    "runtime_reset": "REMATERIALIZE_REQUIRED_ARTIFACTS_ONLY; NEVER_DOWNGRADE_VALID_SCIENTIFIC_COMPLETION"
+    "runtime_reset": "REMATERIALIZE_REQUIRED_ARTIFACTS_ONLY; NEVER_DOWNGRADE_VALID_SCIENTIFIC_COMPLETION",
+    "validator_implementation": "CONTROLLER_VALIDATE_CHECKPOINT_FAIL_CLOSED"
   },
   "runtime_budget": {
     "fixed_chat_length_promised": false,
@@ -97,11 +100,50 @@
     "run_live_trading": false
   },
   "human_updates": {
-    "only_on": ["MILESTONE", "ROUTE_CHANGE", "REAL_BLOCKER", "USER_DECISION_REQUIRED", "EXECUTION_LIMIT"],
+    "only_on": [
+      "MILESTONE",
+      "ROUTE_CHANGE",
+      "REAL_BLOCKER",
+      "USER_DECISION_REQUIRED",
+      "EXECUTION_LIMIT"
+    ],
     "ask_continue": false,
-    "required_fields": ["HECHO", "EVIDENCIA", "IMPACTO", "AHORA"]
+    "required_fields": [
+      "HECHO",
+      "EVIDENCIA",
+      "IMPACTO",
+      "AHORA"
+    ]
   },
   "automation_prompt_ref": "governance/QROS_PERSISTENT_CHAT_AUTOMATION_PROMPT_v1.md",
   "controller_ref": "scripts/qros_persistent_chat_controller.py",
-  "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY"
+  "scientific_effect": "NONE_OPERATIONAL_CONTINUITY_ONLY",
+  "revision": 2,
+  "implementation": {
+    "state_transition_ref": "scripts/qros_persistent_chat_controller.py",
+    "git_cas_ref": "scripts/qros_persistent_git_cas.py",
+    "transaction_order": [
+      "READ_EXACT_MAIN_AND_HEAD_QUEUE_STATE",
+      "VALIDATE_FAIL_CLOSED",
+      "CREATE_BLOBS_AND_TREE_ON_EXPECTED_PARENT",
+      "RECHECK_MAIN_EQUALS_EXPECTED_PARENT",
+      "UPDATE_REF_FORCE_FALSE",
+      "VERIFY_PROMOTED_COMMIT_AND_CONTENT"
+    ],
+    "required_negative_tests": [
+      "HOLDOUT",
+      "MT5",
+      "LIVE",
+      "PAID_INFRASTRUCTURE",
+      "SINGLE_WINNER",
+      "ALL_PASSERS",
+      "BRANCH_EXHAUSTION",
+      "HEAD_SCHEMA_DRIFT",
+      "HEAD_BLOB_DRIFT",
+      "ACTIVE_LEASE",
+      "EXPIRED_LEASE_WITHOUT_RECOVERY",
+      "STALE_FENCE",
+      "CAS_CONFLICT"
+    ]
+  }
 }
