@@ -1,0 +1,19 @@
+{
+  "schema":"QROS_G30_F05_CLUSTERING_COVERAGE_RECEIPT_V114_v1",
+  "status":"PASS_EXACT",
+  "created_date":"2026-09-03",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F05_CLOSE_LOCATION",
+  "method_ref":"control/QROS_G30_F05_NON_ECONOMIC_CLUSTERING_BINDING_V114_v1.json",
+  "method_git_blob":"10dfbf6db8dd1e6719f3864b0628045c5a289a70",
+  "gate_a":{"NQX":{"receipt_ref":"control/QROS_G30_F05_NQX_GATE_A_COMPLETE_V114_v1.json","receipt_git_blob":"050f247ba68eaedf679f3c7ed98a126d8d8b04a1","passed":719},"XAUUSD":{"receipt_ref":"control/QROS_G30_F05_XAU_GATE_A_COMPLETE_V114_v1.json","receipt_git_blob":"7b5a462dc6bdbda176310251dfac78b700f71dc1","passed":374},"total_passed":1093,"signal_parity":"PASS_EXACT_24_OF_24","trade_parity":"PASS_EXACT_24_OF_24"},
+  "clustering":{"NQX":{"survivors":719,"clusters":49,"buy_clusters":28,"sell_clusters":21,"plateau_supported_clusters":38,"isolated_singletons":7,"multi_member_nonlocal":4,"graph_edges":13171,"local_parameter_neighbor_pairs":2147,"cluster_assignment_root_sha256":"764803644850c55d49e2730db76d4e4d07e318fa40535490907db0fab4b4d2dc","full_cluster_artifact_sha256":"04b2d595ac8c698ab21a1b8ba8a00fa6a2bc26af37f8303df74b08749abdc972","full_cluster_artifact_bytes":242207},"XAUUSD":{"survivors":374,"clusters":43,"buy_clusters":33,"sell_clusters":10,"plateau_supported_clusters":30,"isolated_singletons":8,"multi_member_nonlocal":5,"graph_edges":3277,"local_parameter_neighbor_pairs":1006,"cluster_assignment_root_sha256":"3b12b37a06412d9b7e34fa100d319d4034d4cb6fa6778e0ec42dbaa2a5bf11cf","full_cluster_artifact_sha256":"927fac4acfd3478542fa6fb8235c3021faf2a8473c143998fe13d7f92cea984b","full_cluster_artifact_bytes":132950},"aggregate":{"survivors":1093,"clusters":92,"buy_clusters":61,"sell_clusters":31,"plateau_supported_clusters":68,"isolated_singletons":15,"multi_member_nonlocal":9,"graph_edges":16448,"local_parameter_neighbor_pairs":3153}},
+  "ledger_parity_all_passers":true,
+  "independent_graph_and_medoid_parity":"PASS_EXACT_BOTH_ASSETS",
+  "economic_metric_used_for_clustering":false,
+  "historical_holdout_opened":false,
+  "retuning":false,
+  "mt5":false,
+  "branch_exhausted":false,
+  "decision":"F05_CLUSTERING_COMPLETE_FREEZE_ALL_92_MEDOIDS_CONTINUE_ONTOLOGY_SCHEDULER"
+}
