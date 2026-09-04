@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json, hashlib, sys, time
+import json, hashlib, sys
 from pathlib import Path
 import numpy as np
 ROOT=Path(__file__).resolve().parent;sys.path.insert(0,str(ROOT))
@@ -39,7 +39,7 @@ EX=(eb,ebh,ebl,eah,eal,first,last)
 SPECS=list(W.specs());assert len(SPECS)==6840
 summary={'schema':'QROS_G30_F08_SYNTHETIC_PARITY_V121_v1','seed':20260903,'minutes':N,'ticks':int(N*T),'specs_per_tf':len(SPECS),'timeframes':{},'status':'PASS'}
 for tf in (1,5,10,15,30,60):
-    t0=time.time();AA=A.bars(mb,o,h,l,c,tf);BB=B.bars(mb,o,h,l,c,tf)
+    AA=A.bars(mb,o,h,l,c,tf);BB=B.bars(mb,o,h,l,c,tf)
     if base.digest_arrays(AA)!=base.digest_arrays(BB): raise SystemExit(f'BAR_PARITY_FAIL tf={tf}')
     pa=A.prepare(*AA);pb=B.prepare(*BB)
     ma=A.atr_sma(AA[2],AA[3],AA[4],14);mbb=B.atr_sma(BB[2],BB[3],BB[4],14)
@@ -63,7 +63,7 @@ for tf in (1,5,10,15,30,60):
             if not np.array_equal(OA[k][q],OB[k][q]):raise SystemExit(f'EXECUTION_PARITY_FAIL tf={tf} side={side} field={k}')
         ch1=base.select_a(q.astype(np.int64),OA[0],OA[1]);ch2=base.select_b(q.astype(np.int64),OA[0],OA[1])
         if not np.array_equal(ch1,ch2):raise SystemExit(f'SELECTION_PARITY_FAIL tf={tf} side={side}')
-    summary['timeframes'][str(tf)]={'bars':int(len(AA[0])),'identities':6840,'nonempty_identity_pairs':active_nonempty,'union_buy':int(uB.sum()),'union_sell':int(uS.sum()),'identity_sequence_sha256':seq.hexdigest(),'execution_union_buy_parity':'PASS_EXACT','execution_union_sell_parity':'PASS_EXACT','seconds':round(time.time()-t0,3)}
+    summary['timeframes'][str(tf)]={'bars':int(len(AA[0])),'identities':6840,'nonempty_identity_pairs':active_nonempty,'union_buy':int(uB.sum()),'union_sell':int(uS.sum()),'identity_sequence_sha256':seq.hexdigest(),'execution_union_buy_parity':'PASS_EXACT','execution_union_sell_parity':'PASS_EXACT'}
     print(json.dumps({'tf':tf,**summary['timeframes'][str(tf)]},sort_keys=True),flush=True)
 out=ROOT/'F08_SYNTHETIC_PARITY_V121.json';out.write_text(json.dumps(summary,separators=(',',':')),encoding='utf-8')
 print('RESULT_SHA256',hashlib.sha256(out.read_bytes()).hexdigest(),flush=True)
