@@ -1,15 +1,15 @@
 {
   "schema": "QROS_PERSISTENT_EXECUTION_CHECKPOINT_V1",
-  "dispatch_id": "QROS-F10-NQX-M15-BID-20260904T161300Z",
+  "dispatch_id": "QROS-F10-NQX-M15-MID-20260904T161700Z",
   "queue_item_id": "G30-F10-0003",
-  "parent_commit": "cb0599cd900bb08be9f4f915c1d0ed82bcc9e454",
+  "parent_commit": "488a825ef4e50d9974a765a230ab36c7a4ca276d",
   "input_and_source_sha256": {
     "head_v127": "3eda34b06f6cae5bb2edf16d2bb051edc210ee83632c38c6f34d5dc850c81898",
     "dev_nqx": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
     "m1_cache_nqx": "8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
     "tick_count_nqx": "04d02aa0c14efeae2ee22b5dff11b022ac97276653ece6fad50edc4e17be80ec",
     "transactional_runner": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
-    "prepare_manifest": "0466c46f3dce1fc7d2b8d942daf3dd58c26c04d7a5d10174f89b7439e329bc3c"
+    "prepare_manifest": "7bc97086a5f41e0ec9823c81c9d96d54691dce8c0f5b9074f81f7c0e88a4073f"
   },
   "completed_ranges": [
     "NQX_M1_BID_COMPLETE",
@@ -18,14 +18,15 @@
     "NQX_M5_MID_COMPLETE",
     "NQX_M10_BID_COMPLETE",
     "NQX_M10_MID_COMPLETE",
-    "NQX_M15_BID_COMPLETE"
+    "NQX_M15_BID_COMPLETE",
+    "NQX_M15_MID_COMPLETE"
   ],
-  "output_sha256": "66333757b105a6c043ea1d4d79d70b2df5cde2601fa66010907b2e9f5d809696",
-  "durable_output_gzip_sha256": "8f7392418dd40286d5b2ed05a3fcc55b8f988bad39ab4e95ab745e04f0f24dd4",
-  "durable_output_parts_manifest_ref": "control/QROS_G30_F10_NQX_M15_BID_GATE_A_RECEIPT_V136_v1.json",
+  "output_sha256": "8eb385dcfea1ebb6a5ba6090d6f515eed334e461c1d4b3742bc45c45ca1bd3d0",
+  "durable_output_gzip_sha256": "5a0555291a119fe59f889ebe4d9f70a1b2eb6b9aa30413a7bb38b61f2dc7f9c6",
+  "durable_output_parts_manifest_ref": "control/QROS_G30_F10_NQX_M15_MID_GATE_A_RECEIPT_V137_v1.json",
   "holdout_exposure": "SEALED_NO_ACCESS",
-  "scientific_outcome": "NQX_M15_BID_GATE_A_COMPLETE_244_PASSERS_ALL_ADVANCE",
+  "scientific_outcome": "NQX_M15_MID_GATE_A_COMPLETE_259_PASSERS_ALL_ADVANCE",
   "execution_state": "PENDING_RESUMABLE",
-  "stop_reason": "CHECKPOINT_BOUNDARY_CONTINUING",
-  "exact_resume_action": "VERIFY MAIN AND FENCE 9; EXECUTE NQX M15_MID TRANSACTIONALLY; MERGE AND CHECKPOINT"
+  "stop_reason": "EXECUTION_LIMIT_REACHED",
+  "exact_resume_action": "ACQUIRE LEASE; VERIFY NQX INPUT CACHE AND TICK COUNT HASHES; EXECUTE NQX M30_BID TRANSACTIONALLY; MERGE AND CHECKPOINT"
 }
