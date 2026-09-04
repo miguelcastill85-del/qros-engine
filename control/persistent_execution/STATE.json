@@ -51,7 +51,7 @@
     "head_blob_sha": "cf25f0b2b683844c016fbb83de3d20c7a9c2ec40",
     "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
     "holdout_opened": false,
-    "observed_main_sha": "fdf58baa3484024e17544f8cfa905ee8a4d2a11f",
+    "observed_main_sha": "31c1b174d196c61eed7104ae8e7d4d5ffd5c4ee5",
     "queue_status": "ACTIVE_RECONCILED_F10_0003_PENDING_NEXT_SHARD"
   },
   "last_released_lease": {
@@ -67,12 +67,21 @@
     "released_at": "2026-09-04T12:57:57Z",
     "outcome": "F10_NQX_M5_BID_COMPLETE_124_PASSERS_ALL_ADVANCE_NEXT_M5_MID"
   },
-  "lease": null,
-  "lease_epoch": 7,
+  "lease": {
+    "lease_id": "40da3e3c3f2118486301c3ccc1d3e74091e865680dec66f9f51d58518727fbba",
+    "worker_id": "qros-manual-f10-nqx-m5-mid",
+    "fence_token": 8,
+    "parent_main_sha": "31c1b174d196c61eed7104ae8e7d4d5ffd5c4ee5",
+    "claimed_at": "2026-09-04T13:39:57Z",
+    "heartbeat_at": "2026-09-04T13:39:57Z",
+    "expires_at": "2026-09-04T15:14:57Z",
+    "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7"
+  },
+  "lease_epoch": 8,
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
-    "operation": "LEASE_RELEASE",
-    "expected_main_sha": "fdf58baa3484024e17544f8cfa905ee8a4d2a11f",
+    "operation": "LEASE_CLAIM",
+    "expected_main_sha": "31c1b174d196c61eed7104ae8e7d4d5ffd5c4ee5",
     "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
