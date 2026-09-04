@@ -1,0 +1,11 @@
+{
+  "schema":"QROS_G30_F06_RUNNER_SOURCE_MANIFEST_V115_v1",
+  "status":"PASS_SOURCES_FROZEN_BEFORE_F06_RESULTS",
+  "created_date":"2026-09-03",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F06_WICK",
+  "sources":{"signal_primary":{"ref":"control/recovery/qros_g30_f06_signal_primary_v115.py","git_blob":"d391369d5a46669c67c40f9486539a237a9bf813","sha256":"b1d5483b8492e39995b36483a1f298299c7ffff2113268fd222687eade29c104","synthetic_parity":"PASS"},"signal_independent":{"ref":"control/recovery/qros_g30_f06_signal_independent_v115.py","git_blob":"fb75ff937aa9644e86dcfa948649ea4aac7f89b9","sha256":"40609c9f4173352c3d76a31eb2cb83104b9d068892f3673bac00b137e469dd0e","synthetic_parity":"PASS"},"transactional_wrapper":{"ref":"control/recovery/qros_g30_f06_transactional_v115.py","git_blob":"e911dbebb1efa40130368d3c59d9ae8e09498b64","sha256":"55f677f01f733977e38f5f79e3885c32ed51a5aaebe4609c2d5ab5b47a95e56a","synthetic_execution_parity":"PASS"},"frozen_execution_parent":{"ref":"control/recovery/qros_g30_f05_transactional_v114.py","git_blob":"6ad433fbe5c14cb4e07ea141137b42c56f33484d","sha256":"cf5af59e392dc05d5000b36dd5b678783d53ce76721643ebcbb4190830c0f76c","reuse_scope":"TWO_EXECUTION_PATHS_AND_COMMON_SCORING_PRIMITIVES_ONLY"}},
+  "durability_canary":{"source_sha256":"eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56","stdout_sha256":"76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9","status":"PASS_EXACT"},
+  "economic_results_present_at_freeze":false,
+  "decision":"F06_SOFTWARE_FROZEN_AUTHORIZED_FOR_DEV_EXECUTION_ONLY"
+}
