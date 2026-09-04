@@ -1,0 +1,66 @@
+{
+  "schema": "QROS_G30_F10_GATE_A_SHARD_RECEIPT_V138_v1",
+  "status": "PASS_COMPLETE_EXACT_PARITY",
+  "created_at_utc": "2026-09-04T17:00:00Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F10_TICK_INTENSITY",
+  "queue_item_id": "G30-F10-0003",
+  "asset": "NQX",
+  "shard": "M30_BID",
+  "scope": "EXPOSED_DEV_2018_2019_ONLY_NO_2020_PLUS_PNL",
+  "inputs": {
+    "head_blob_sha": "cf25f0b2b683844c016fbb83de3d20c7a9c2ec40",
+    "head_sha256": "9be7855904157d210d23db6b9524fe30b2bc2eadb055334afa18be7edae5d5c1",
+    "dev_records": 59940260,
+    "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "m1_cache_sha256": "8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
+    "tick_count_sha256": "04d02aa0c14efeae2ee22b5dff11b022ac97276653ece6fad50edc4e17be80ec",
+    "transactional_runner_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
+    "prepare_manifest_sha256": "f29279943083c38b72f7c883d426ee5cff6dc9e0cde5ec603dce9cb0281e9245"
+  },
+  "coverage": {
+    "raw_identities": 2736,
+    "unique_masks": 2335,
+    "exact_alias_count": 401,
+    "evaluated_buy_sell_records": 4670,
+    "ranges": [[0,256],[256,512],[512,768],[768,1024],[1024,1280],[1280,1536],[1536,1792],[1792,2048],[2048,2304],[2304,2335]],
+    "chunk_hash_ledger_sha256": "613be1e52c3d600bd382297639b0c2113741c8a497efde134ec959831cfc59dc"
+  },
+  "identities": {
+    "bar_digest": "8069e382097091830f83f7ab0f33eb5e625168d301ac3c5535f451880c3e3563",
+    "raw_identity_sequence_sha256": "8d34a322533ebe67b429ba707d281de0a2cbe5cd421eadf04ff5e64acebf0591",
+    "unique_mask_set_sha256": "473a4246af9c61a1405054a2d33a274b1918cef5e0b34a2ebee778f046a85e78",
+    "union_buy": 3971,
+    "union_sell": 3885
+  },
+  "result": {
+    "passed": 68,
+    "passed_buy": 67,
+    "passed_sell": 1,
+    "merged_output_bytes": 3041918,
+    "merged_output_sha256": "b61decb0feec8980ecef649a1a3eacd03cd2b9a7046e6d220123fa9a587460e2",
+    "durable_gzip_bytes": 742138,
+    "durable_gzip_sha256": "24b3a74a430096dd8ce8fec1d9abc624257d8a6b7ee835a75143e7ecbb8534e3",
+    "durable_gzip_parts": [
+      {"ref":"results/G30/F10/NQX/M30_BID/QROS_G30_F10_NQX_M30_BID_GATE_A_V138_v1.json.gz.part000","bytes":100000,"sha256":"c35b39d8615f035e086da446a5011508a9377d6e7b51c6fa06becbd5c110ce3c"},
+      {"ref":"results/G30/F10/NQX/M30_BID/QROS_G30_F10_NQX_M30_BID_GATE_A_V138_v1.json.gz.part001","bytes":100000,"sha256":"c0bb7553274600134dba6f610255bd3a0c341ec6e16f85ffffe1715efbdba6ba"},
+      {"ref":"results/G30/F10/NQX/M30_BID/QROS_G30_F10_NQX_M30_BID_GATE_A_V138_v1.json.gz.part002","bytes":100000,"sha256":"ea21bda7089554fdae9426f8cbfc0a2eff59269e1123f2ae51be657b9e32d927"},
+      {"ref":"results/G30/F10/NQX/M30_BID/QROS_G30_F10_NQX_M30_BID_GATE_A_V138_v1.json.gz.part003","bytes":100000,"sha256":"0ba6cd34a38cfbe2d7b706aab98a2eae282c723638f9a7e31bf848f4b338d39d"},
+      {"ref":"results/G30/F10/NQX/M30_BID/QROS_G30_F10_NQX_M30_BID_GATE_A_V138_v1.json.gz.part004","bytes":100000,"sha256":"1c585f5254db615e1bc4263b1b99f91fb65ed53d3b7ba889fec703292b2a145c"},
+      {"ref":"results/G30/F10/NQX/M30_BID/QROS_G30_F10_NQX_M30_BID_GATE_A_V138_v1.json.gz.part005","bytes":100000,"sha256":"d0d3607e74cac60a61514ea1339b5da705bee6718a4f0befcbc42deb8b1573c2"},
+      {"ref":"results/G30/F10/NQX/M30_BID/QROS_G30_F10_NQX_M30_BID_GATE_A_V138_v1.json.gz.part006","bytes":100000,"sha256":"9ef0ab65bed1368c4fae02c41c351589ad1a174305c0d123ac6e695c546f21f6"},
+      {"ref":"results/G30/F10/NQX/M30_BID/QROS_G30_F10_NQX_M30_BID_GATE_A_V138_v1.json.gz.part007","bytes":42138,"sha256":"ae87151d80ddad93f728d73324165f069af5ca81e583d910db73e1c7e2fd2f77"}
+    ]
+  },
+  "signal_parity": "PASS_EXACT",
+  "trade_parity": "PASS_EXACT",
+  "all_passers_advance": true,
+  "future_2020_plus_pnl_read": false,
+  "historical_holdout_opened": false,
+  "retuning": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "restore": "CONCATENATE PART000 THROUGH PART007; VERIFY GZIP AND MERGED SHA256",
+  "decision": "M30_BID_COMPLETE_68_PASSERS_ALL_ADVANCE; NEXT_NQX_M30_MID"
+}
