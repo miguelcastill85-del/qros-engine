@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_G30_F05_RUNNER_SOURCE_MANIFEST_V114_v1",
+  "status":"PASS_SOURCES_FROZEN_BEFORE_F05_RESULTS",
+  "created_date":"2026-09-03",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F05_CLOSE_LOCATION",
+  "sources":{
+    "signal_primary":{"ref":"control/recovery/qros_g30_f05_signal_primary_v114.py","git_blob":"b9e6ea24bd888f044a50c543e4d04fc6822802eb","sha256":"431f5460075885561fb35d06778f4cd3e2a9a58ed3c0a57549ae7dc88e43a4a1","synthetic_parity":"PASS"},
+    "signal_independent":{"ref":"control/recovery/qros_g30_f05_signal_independent_v114.py","git_blob":"b662636e1bc42a484641965e54c162b14c778fcb","sha256":"1435f74818e50c9ab8913cd71979a0420336b216dc1e92dfd5b77304b0c8f360","synthetic_parity":"PASS"},
+    "transactional_runner":{"ref":"control/recovery/qros_g30_f05_transactional_v114.py","git_blob":"6ad433fbe5c14cb4e07ea141137b42c56f33484d","sha256":"cf5af59e392dc05d5000b36dd5b678783d53ce76721643ebcbb4190830c0f76c","synthetic_execution_parity":"PASS"}
+  },
+  "durability_canary":{"source_sha256":"eccf6ad53651458fdcd756c7b5e0543abbeb7d3fa5b2ff8c08470ad36356ca56","stdout_sha256":"76f16930c272bbd1c4d2a3f918d5e6922cfd84472f9db8392e2301414466e2d9","status":"PASS_EXACT"},
+  "economic_results_present_at_freeze":false,
+  "decision":"F05_SOFTWARE_FROZEN_AUTHORIZED_FOR_DEV_EXECUTION_ONLY"
+}
