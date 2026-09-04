@@ -1,6 +1,6 @@
 {
   "schema": "QROS_PERSISTENT_CHAT_EXECUTION_ACTIVATION_V123_V1",
-  "status": "IMPLEMENTED_PENDING_AUTOMATION_RECEIPT",
+  "status": "IMPLEMENTED_TESTED_WAITING_AUTOMATION_SLOT",
   "parent_head": {
     "schema": "QROS_PERSISTENT_CONTROL_HEAD_V122",
     "commit": "9a0e158320dd1b070b3e90e0f34ec733c77435dd",
@@ -14,6 +14,12 @@
   "test_ref": "tests/test_qros_persistent_chat_controller.py",
   "execution_model": "BOUNDED_CHAT_CYCLES_PLUS_HOURLY_AUTOMATIC_WAKEUP",
   "requires_user_to_type_continue": false,
+  "automatic_wakeup": {
+    "requested": true,
+    "created": false,
+    "blocker": "CHATGPT_PLAN_LIMIT_5_OF_5_ACTIVE_AUTOMATIONS",
+    "resolution": "PAUSE_OR_REPURPOSE_ONE_EXISTING_ACTIVE_AUTOMATION_WITH_USER_SELECTION"
+  },
   "continuous_background_compute_claimed": false,
   "additional_paid_infrastructure": false,
   "scientific_state_changed": false,
