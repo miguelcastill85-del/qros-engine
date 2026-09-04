@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_PERSISTENT_FOREGROUND_HANDOFF_REPAIR_V149_v1",
+  "status": "PASS_OPERATIONAL_REPAIR_NO_SCIENCE_CHANGE",
+  "created_at_utc": "2026-09-04T22:52:23Z",
+  "scope": "PERSISTENT_EXECUTION_LEASE_LIFECYCLE_AND_INTERACTIVE_FOREGROUND_PRIORITY",
+  "root_cause": "AUTOMATION_LEASE_SURVIVED_WAKEUP_END_AND_BEHAVED_AS_IDLE_RESERVATION, BLOCKING USER-DRIVEN CHAT EXECUTION UNTIL TTL EXPIRY",
+  "evidence": {
+    "stale_lease_id": "qros-f10-xau-m15-bid-f14-20260904T220031Z",
+    "fence_token": 14,
+    "worker_id": "qros-hourly-f10-xau-m15-series",
+    "heartbeat_at": "2026-09-04T22:02:09Z",
+    "nominal_expires_at": "2026-09-04T23:37:09Z",
+    "heartbeat_max_interval_minutes": 20,
+    "observed_repair_time_utc": "2026-09-04T22:52:23Z",
+    "heartbeat_age_minutes_at_repair": 50,
+    "last_durable_scientific_checkpoint": "XAUUSD_M15_BID_GATE_A_COMPLETE_452_PASSERS_ALL_ADVANCE",
+    "next_authorized_shard": "XAUUSD_M15_MID",
+    "m15_mid_durable_receipt_found": false,
+    "m15_mid_search_result": "NONE"
+  },
+  "repair": {
+    "protocol_revision": 3,
+    "foreground_control_ref": "control/persistent_execution/FOREGROUND.json",
+    "foreground_guard_ref": "scripts/qros_persistent_foreground_guard.py",
+    "interactive_idle_timeout_minutes": 120,
+    "lease_scope": "ACTIVE_EXECUTION_ONLY",
+    "mandatory_turn_end_release": true,
+    "stale_heartbeat_recovery_before_ttl": true,
+    "automation_role": "IDLE_FILL_ONLY_WHILE_FOREGROUND_INACTIVE",
+    "manual_role": "PRIORITY_WHILE_USER_INITIATED_QROS_ACTIVITY_IS_ACTIVE"
+  },
+  "validation": {
+    "cases": 6,
+    "passed": 6,
+    "result": "PASS_FOREGROUND_HANDOFF_6_OF_6",
+    "guard_source_sha256": "d000ae0ad92448137ee7ae1593b66bbee98d84eabcc0436b704e30efe1eeeec7",
+    "cases_passed": [
+      "MANUAL_FOREGROUND_NO_LEASE_CLAIM_ALLOWED",
+      "AUTOMATION_FOREGROUND_ACTIVE_NO_OP",
+      "FRESH_FOREIGN_LEASE_NO_PREEMPT",
+      "STALE_HEARTBEAT_BEFORE_TTL_RECOVERY_ALLOWED_WITH_RECEIPT",
+      "EXPIRED_LEASE_RECOVERY_REQUIRED",
+      "TURN_END_NON_NULL_LEASE_DETECTED_AS_CONTROL_FAILURE"
+    ]
+  },
+  "scientific_effect": "NONE",
+  "holdout_opened": false,
+  "future_2020_plus_pnl_read": false,
+  "retuning": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "decision": "RELEASE_ORPHANED_FENCE_14; ACTIVATE_INTERACTIVE_FOREGROUND; CONTINUE_FROM_XAUUSD_M15_MID_WITH_NEW_FENCE; AUTOMATION_RESUMES_ONLY_AFTER_FOREGROUND_IDLE_TIMEOUT"
+}
