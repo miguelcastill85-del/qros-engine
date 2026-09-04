@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_G30_F10_CONTINUATION_SOURCE_AUDIT_V128_v1",
+  "status": "FAIL_CLOSED_REPAIR_REQUIRED",
+  "created_at_utc": "2026-09-04T04:49:21Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F10_TICK_INTENSITY",
+  "queue_item_id": "G30-F10-0003",
+  "observed_main_sha": "9e56c45c9e00d1dba0a0101e243a22d05ed3633c",
+  "audit_scope": "CONTINUATION_CRITICAL_SOURCE_DURABILITY_AND_RUNTIME_INPUT_RESOLUTION_NO_PNL",
+  "verified_present": [
+    "control/recovery/qros_g30_f10_signal_primary_v127.py",
+    "control/recovery/qros_g30_f10_signal_independent_v127.py",
+    "control/recovery/qros_g30_f10_exec_core_v127.py",
+    "control/recovery/qros_g30_f10_synthetic_parity_v127_1.py"
+  ],
+  "missing_continuation_critical_sources": [
+    {
+      "logical_role": "F10_TRANSACTIONAL_PREPARE_SCORE_MERGE_RUNNER",
+      "reason": "NO_DURABLE_REPOSITORY_PATH_OR_HASH_IN_F10_SOURCE_MANIFEST_AND_NO_F10_TRANSACTIONAL_RUNNER_IN_CURRENT_TREE"
+    },
+    {
+      "logical_role": "F10_CANONICAL_TICK_COUNT_CACHE_BUILDER",
+      "reason": "CACHE_RECEIPT_RECORDS_OUTPUT_IDENTITIES_BUT_NO_DURABLE_BUILDER_SOURCE_PATH_HASH_OR_ENTRYPOINT"
+    }
+  ],
+  "input_resolution": {
+    "github_control_sources": "AVAILABLE_EXACT",
+    "library_nqx_carriers": "AVAILABLE_28_PART_MULTIPART_FAMILY",
+    "library_xauusd_carriers": "AVAILABLE_35_PART_MULTIPART_FAMILY",
+    "exact_tick_count_npy_artifacts": "NOT_RESOLVED_BY_EXACT_TITLE_SEARCH",
+    "raw_carrier_rematerialization": "POSSIBLE_ONLY_AFTER_DURABLE_BUILDER_FREEZE_AND_HASHED_READBACK"
+  },
+  "scientific_effect": "NONE_OPERATIONAL_PREFLIGHT_ONLY",
+  "economic_results_read": false,
+  "future_2020_plus_pnl_read": false,
+  "historical_holdout_opened": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "decision": "DO_NOT_DISPATCH_F10_ECONOMIC_SCORING_UNTIL_MISSING_SOURCES_ARE_FROZEN_AND_SYNTHETIC_EQUIVALENCE_DURABILITY_READBACK_PASS",
+  "exact_repair_action": "FREEZE F10 TRANSACTIONAL RUNNER AND TICK_COUNT CACHE BUILDER WITH SHA256 BYTES CLI CONTRACT; VERIFY TWO_SIGNAL_TWO_EXECUTION SYNTHETIC PARITY; AMEND F10 MANIFEST AND UNIT PREFLIGHT; THEN REMATERIALIZE DEV INPUTS AND DISPATCH FIRST SHARD"
+}

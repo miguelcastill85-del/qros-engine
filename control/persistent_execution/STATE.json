@@ -26,38 +26,26 @@
   },
   "enabled": true,
   "holdout_opened": false,
-  "last_checkpoint": "control/persistent_execution/checkpoints/QROS_CONTINUITY_CANARY_V2.json",
+  "last_checkpoint": "control/persistent_execution/checkpoints/G30_F10_0003_PREFLIGHT_REPAIR_V128.json",
   "last_completed_item": "CONTROL-CANARY-V2",
   "last_dispatch": {
-    "claim_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
-    "claimed_parent_commit": "fce644c3e1ed8ea2f9982ef853570d2370779936",
-    "completed_at_utc": "2026-09-04T04:42:00Z",
-    "dispatch_id": "QROS-CONTINUITY-CANARY-V2-20260904T044000Z",
-    "scientific_effect": "NONE",
-    "status": "COMPLETED",
-    "type": "CONTROL_CANARY"
+    "dispatch_id": "QROS-F10-PREFLIGHT-REPAIR-20260904T044921Z",
+    "type": "F10_PREFLIGHT_AUDIT",
+    "queue_item_id": "G30-F10-0003",
+    "claimed_parent_commit": "e815accac1f9a97af2e62a06bf58928fbb1755fc",
+    "claim_commit": "9e56c45c9e00d1dba0a0101e243a22d05ed3633c",
+    "completed_at_utc": "2026-09-04T04:49:21Z",
+    "status": "CHECKPOINTED_PENDING_RESUMABLE",
+    "scientific_effect": "NONE"
   },
   "last_reconciliation": {
     "head_blob_sha": "b3ba56eafa9cd5290c6662150eb0886631cdb432",
     "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
     "holdout_opened": false,
-    "observed_main_sha": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
-    "queue_status": "ACTIVE_RECONCILED_READY_FOR_F10_DEVELOPMENT_EXECUTION"
+    "observed_main_sha": "9e56c45c9e00d1dba0a0101e243a22d05ed3633c",
+    "queue_status": "ACTIVE_RECONCILED_F10_PREFLIGHT_REPAIR_REQUIRED"
   },
   "last_released_lease": {
-    "claimed_at": "2026-09-04T04:40:00Z",
-    "entrypoint_sha256": "5456313c5dab6558502eecf3e5d4387e11392e34746e5312f0c136f34ecd3183",
-    "expired_recovery_ref": null,
-    "expires_at": "2026-09-04T04:50:00Z",
-    "fence_token": 1,
-    "heartbeat_at": "2026-09-04T04:40:00Z",
-    "lease_id": "a669799f303295d3470e4d33e7bd82255ff7bb123aa3c644fff33e5e9112204e",
-    "outcome": "CONTROL_CANARY_PASS",
-    "parent_main_sha": "fce644c3e1ed8ea2f9982ef853570d2370779936",
-    "released_at": "2026-09-04T04:42:00Z",
-    "worker_id": "qros-continuity-canary-v2"
-  },
-  "lease": {
     "lease_id": "ee894ca89af45df6a04df6573413951baea10fc0b3dd63f599d433cb593a2389",
     "worker_id": "qros-hourly-f10-v1",
     "fence_token": 2,
@@ -66,13 +54,16 @@
     "heartbeat_at": "2026-09-04T04:46:59Z",
     "expires_at": "2026-09-04T06:21:59Z",
     "entrypoint_sha256": "5456313c5dab6558502eecf3e5d4387e11392e34746e5312f0c136f34ecd3183",
-    "expired_recovery_ref": null
+    "expired_recovery_ref": null,
+    "released_at": "2026-09-04T04:49:21Z",
+    "outcome": "F10_PREFLIGHT_REPAIR_REQUIRED_CHECKPOINTED"
   },
+  "lease": null,
   "lease_epoch": 2,
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
-    "operation": "LEASE_CLAIM",
-    "expected_main_sha": "e815accac1f9a97af2e62a06bf58928fbb1755fc",
+    "operation": "LEASE_RELEASE",
+    "expected_main_sha": "9e56c45c9e00d1dba0a0101e243a22d05ed3633c",
     "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",

@@ -9,7 +9,7 @@
     "paid_infrastructure_authorized": false,
     "single_winner_selection": false
   },
-  "last_reconciled_at_utc": "2026-09-04T04:42:00Z",
+  "last_reconciled_at_utc": "2026-09-04T04:49:21Z",
   "last_reconciled_head_blob_sha": "b3ba56eafa9cd5290c6662150eb0886631cdb432",
   "last_reconciliation_basis": [
     "control/QROS_G30_F09_SPREAD_CONTEXT_PREREG_V123_v1.json",
@@ -25,7 +25,8 @@
     "control/QROS_G30_F10_TICK_INTENSITY_PREREG_V127_v1.json",
     "control/QROS_G30_F10_RUNNER_SOURCE_MANIFEST_V127_v1.json",
     "control/QROS_G30_F10_UNIT_BINDING_RECEIPT_V127_v1.json",
-    "control/QROS_G30_F10_TICK_COUNT_CACHE_RECEIPT_V127_v1.json"
+    "control/QROS_G30_F10_TICK_COUNT_CACHE_RECEIPT_V127_v1.json",
+    "control/QROS_G30_F10_CONTINUATION_SOURCE_AUDIT_V128_v1.json"
   ],
   "queue": [
     {
@@ -196,8 +197,32 @@
       "scope": "F10_DURABLE_RUNNER_UNIT_AND_CACHE_PREFLIGHT",
       "source_head_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
       "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
-      "status": "COMPLETED",
-      "success_condition": "F10 SOURCES, SYNTHETIC PARITY, UNIT BINDING, AND BOTH ASSET TICK COUNT CACHE IDENTITIES PASS EXACTLY"
+      "status": "INVALID",
+      "success_condition": "F10 SOURCES, SYNTHETIC PARITY, UNIT BINDING, AND BOTH ASSET TICK COUNT CACHE IDENTITIES PASS EXACTLY",
+      "invalidation_reason": "CONTINUATION_SOURCE_DURABILITY_INCOMPLETE",
+      "invalidation_receipt_ref": "control/QROS_G30_F10_CONTINUATION_SOURCE_AUDIT_V128_v1.json"
+    },
+    {
+      "item_id": "G30-F10-0002R",
+      "status": "READY",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
+      "source_head_commit": "9e56c45c9e00d1dba0a0101e243a22d05ed3633c",
+      "scope": "F10_CONTINUATION_SOURCE_DURABILITY_REPAIR",
+      "action": "FREEZE A DETERMINISTIC F10 TRANSACTIONAL PREPARE_SCORE_MERGE RUNNER AND CANONICAL TICK_COUNT CACHE BUILDER BEFORE ANY F10 ECONOMIC RESULT; RECORD EXACT BYTES SHA256 GIT BLOBS RUNTIME AND CLI CONTRACTS; REQUIRE SYNTHETIC TWO_SIGNAL_TWO_EXECUTION PARITY AND READBACK",
+      "prerequisites": [
+        "G30-F10-0001"
+      ],
+      "guards": [
+        "NO_ECONOMIC_RESULTS_BEFORE_FREEZE",
+        "NO_HOLDOUT",
+        "NO_RETUNING",
+        "NO_MT5",
+        "NO_LIVE",
+        "NO_PAID_INFRASTRUCTURE",
+        "SOURCE_DURABILITY_GATE_REQUIRED"
+      ],
+      "checkpoint_path": "control/persistent_execution/checkpoints/G30_F10_0002R.json",
+      "success_condition": "ALL F10 CONTINUATION_CRITICAL SOURCES INCLUDING CACHE BUILDER AND TRANSACTIONAL RUNNER ARE DURABLE WITH EXACT READBACK AND SYNTHETIC PARITY BEFORE SCORING"
     },
     {
       "action": "EXECUTE THE FROZEN F10 GRID ON NQX AND XAUUSD 2018_2019 EXPOSED DEVELOPMENT ONLY WITH TWO SIGNAL AND TWO EXECUTION IMPLEMENTATIONS; REQUIRE EXACT SHARD PARITY; ALL GATE_A PASSERS ADVANCE TO PREREGISTERED NON_ECONOMIC CLUSTERING",
@@ -212,17 +237,18 @@
       ],
       "item_id": "G30-F10-0003",
       "prerequisites": [
-        "G30-F10-0002"
+        "G30-F10-0002R"
       ],
       "scope": "F10_NQX_AND_XAUUSD_DEVELOPMENT_GATE_A_AND_CLUSTERING",
       "source_head_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
       "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
-      "status": "READY",
-      "success_condition": "ALL F10 SHARDS HAVE EXACT COVERAGE AND PARITY, BOTH ASSET GATE_A RECEIPTS EXIST, AND NON_ECONOMIC CLUSTERING IS COMPLETE"
+      "status": "WAITING_PREREQUISITE",
+      "success_condition": "ALL F10 SHARDS HAVE EXACT COVERAGE AND PARITY, BOTH ASSET GATE_A RECEIPTS EXIST, AND NON_ECONOMIC CLUSTERING IS COMPLETE",
+      "waiting_reason": "F10_TRANSACTIONAL_RUNNER_AND_TICK_COUNT_CACHE_BUILDER_MUST_BE_DURABLY_FROZEN_BEFORE_SCORING"
     }
   ],
   "schema": "QROS_PERSISTENT_RUN_QUEUE_V1",
-  "source_head_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
+  "source_head_commit": "9e56c45c9e00d1dba0a0101e243a22d05ed3633c",
   "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
-  "status": "ACTIVE_RECONCILED_READY_FOR_F10_DEVELOPMENT_EXECUTION"
+  "status": "ACTIVE_RECONCILED_F10_PREFLIGHT_REPAIR_REQUIRED"
 }
