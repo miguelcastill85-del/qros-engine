@@ -17,13 +17,13 @@ class PersistentChatControllerTests(unittest.TestCase):
         cls.protocol = controller.load(ROOT / "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json")
         cls.queue = controller.load(ROOT / "control/persistent_execution/RUN_QUEUE.json")
         cls.state = controller.load(ROOT / "control/persistent_execution/STATE.json")
-        cls.head = {"schema": "QROS_PERSISTENT_CONTROL_HEAD_V123", "g30": {"holdout_open_authorized": False}}
+        cls.head = {"schema": "QROS_PERSISTENT_CONTROL_HEAD_V126", "g30": {"holdout_open_authorized": False}}
 
     def test_control_documents_validate(self):
         controller.validate(self.protocol, self.queue, self.state, self.head)
 
-    def test_first_item_is_ready(self):
-        self.assertEqual(controller.next_item(self.queue)["item_id"], "G30-F09-0001")
+    def test_next_authorized_item_is_ready(self):
+        self.assertEqual(controller.next_item(self.queue)["item_id"], "G30-F10-0001")
 
     def test_holdout_guard_fails_closed(self):
         bad = dict(self.head); bad["g30"] = {"holdout_open_authorized": True}
