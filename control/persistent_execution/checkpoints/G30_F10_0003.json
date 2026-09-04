@@ -1,23 +1,34 @@
 {
   "schema": "QROS_PERSISTENT_EXECUTION_CHECKPOINT_V1",
-  "dispatch_id": "QROS-F10-NQX-M30-BID-20260904T165033Z",
+  "dispatch_id": "QROS-F10-NQX-M30-MID-20260904T170100Z",
   "queue_item_id": "G30-F10-0003",
-  "parent_commit": "47c1ed2366a892d60c750a2f66ab61020a64d08a",
+  "parent_commit": "1dfde8e3b7bd7a18db7d43bf9c79fd7c2d7e28c7",
   "input_and_source_sha256": {
     "head_v127": "9be7855904157d210d23db6b9524fe30b2bc2eadb055334afa18be7edae5d5c1",
     "dev_nqx": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
     "m1_cache_nqx": "8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
     "tick_count_nqx": "04d02aa0c14efeae2ee22b5dff11b022ac97276653ece6fad50edc4e17be80ec",
     "transactional_runner": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
-    "prepare_manifest": "f29279943083c38b72f7c883d426ee5cff6dc9e0cde5ec603dce9cb0281e9245"
+    "prepare_manifest": "18ff282d1c18e78a0ed9c7873418ae3ed68a8e9d8eb4de40859e10eab6be1e34"
   },
-  "completed_ranges": ["NQX_M1_BID_COMPLETE","NQX_M1_MID_COMPLETE","NQX_M5_BID_COMPLETE","NQX_M5_MID_COMPLETE","NQX_M10_BID_COMPLETE","NQX_M10_MID_COMPLETE","NQX_M15_BID_COMPLETE","NQX_M15_MID_COMPLETE","NQX_M30_BID_COMPLETE"],
-  "output_sha256": "b61decb0feec8980ecef649a1a3eacd03cd2b9a7046e6d220123fa9a587460e2",
-  "durable_output_gzip_sha256": "24b3a74a430096dd8ce8fec1d9abc624257d8a6b7ee835a75143e7ecbb8534e3",
-  "durable_output_parts_manifest_ref": "control/QROS_G30_F10_NQX_M30_BID_GATE_A_RECEIPT_V138_v1.json",
+  "completed_ranges": [
+    "NQX_M1_BID_COMPLETE",
+    "NQX_M1_MID_COMPLETE",
+    "NQX_M5_BID_COMPLETE",
+    "NQX_M5_MID_COMPLETE",
+    "NQX_M10_BID_COMPLETE",
+    "NQX_M10_MID_COMPLETE",
+    "NQX_M15_BID_COMPLETE",
+    "NQX_M15_MID_COMPLETE",
+    "NQX_M30_BID_COMPLETE",
+    "NQX_M30_MID_COMPLETE"
+  ],
+  "output_sha256": "812c2857590112d4c1f9f63e38647427d70e61b26e081c61111f8db5acf6ae99",
+  "durable_output_gzip_sha256": "2a1251f951a37f364321747fdd1ad0d98da237c4ad40f8ce2dbf25c328937a76",
+  "durable_output_parts_manifest_ref": "control/QROS_G30_F10_NQX_M30_MID_GATE_A_RECEIPT_V139_v1.json",
   "holdout_exposure": "SEALED_NO_ACCESS",
-  "scientific_outcome": "NQX_M30_BID_GATE_A_COMPLETE_68_PASSERS_ALL_ADVANCE",
+  "scientific_outcome": "NQX_M30_MID_GATE_A_COMPLETE_82_PASSERS_ALL_ADVANCE",
   "execution_state": "PENDING_RESUMABLE",
   "stop_reason": null,
-  "exact_resume_action": "WITH OWNED LEASE VERIFY IDENTITIES; EXECUTE NQX M30_MID TRANSACTIONALLY; MERGE AND CHECKPOINT"
+  "exact_resume_action": "WITH OWNED LEASE VERIFY IDENTITIES; EXECUTE NQX_H1_BID TRANSACTIONALLY; MERGE AND CHECKPOINT"
 }
