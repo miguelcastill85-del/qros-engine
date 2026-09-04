@@ -1,0 +1,18 @@
+{
+  "schema":"QROS_G30_F05_FROZEN_REPRESENTATIVE_RECEIPT_V114_v1",
+  "status":"PASS_FROZEN_92_MEDOIDS",
+  "created_date":"2026-09-03",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F05_CLOSE_LOCATION",
+  "method_ref":"control/QROS_G30_F05_NON_ECONOMIC_CLUSTERING_BINDING_V114_v1.json",
+  "coverage_ref":"control/QROS_G30_F05_CLUSTERING_COVERAGE_RECEIPT_V114_v1.json",
+  "coverage_git_blob":"6478aeef26b62cd810a086547896462939ae3d58",
+  "assets":{"NQX":{"count":49,"buy":28,"sell":21,"representatives_ref":"control/QROS_G30_F05_NQX_FROZEN_REPRESENTATIVES_V114_v1.json","representatives_git_blob":"6dabffe1de528e3850344d13289f05d5a5fe7c90","cluster_assignment_root_sha256":"764803644850c55d49e2730db76d4e4d07e318fa40535490907db0fab4b4d2dc"},"XAUUSD":{"count":43,"buy":33,"sell":10,"representatives_ref":"control/QROS_G30_F05_XAUUSD_FROZEN_REPRESENTATIVES_V114_v1.json","representatives_git_blob":"570e51991c4d65c6f41b7eb41f4d512061232420","cluster_assignment_root_sha256":"3b12b37a06412d9b7e34fa100d319d4034d4cb6fa6778e0ec42dbaa2a5bf11cf"}},
+  "aggregate":{"medoids":92,"buy":61,"sell":31},
+  "selection":{"economic_metric_used":false,"all_distinct_clusters_advance":true,"aliases_preserved":true,"tie_break":"LEXICOGRAPHIC_STABLE_IDENTITY","independent_graph_and_medoid_parity":"PASS_EXACT_BOTH_ASSETS"},
+  "historical_holdout_opened":false,
+  "retuning":false,
+  "mt5":false,
+  "branch_exhausted":false,
+  "decision":"F05_REPRESENTATIVE_COHORT_FROZEN_CONTINUE_ONTOLOGY_SCHEDULER"
+}
