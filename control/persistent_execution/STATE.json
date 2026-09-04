@@ -7,7 +7,7 @@
     "status": "ACTIVE",
     "task_id": "6a9a45a718208191b489e125e18a550e",
     "timezone": "America/Santiago",
-    "title": "Continuidad autom\u00e1tica QROS"
+    "title": "Continuidad automática QROS"
   },
   "cas_contract": {
     "atomic_multi_file_commit": true,
@@ -67,12 +67,22 @@
     "released_at": "2026-09-04T16:20:00Z",
     "outcome": "F10_NQX_M15_MID_COMPLETE_259_PASSERS_ALL_ADVANCE_NEXT_M30_BID"
   },
-  "lease": null,
-  "lease_epoch": 9,
+  "lease": {
+    "lease_id": "ae921c0c62648c3a33edcb1118c1d8f8bba33e28ec105bb24ffdc1d2919014fa",
+    "worker_id": "qros-hourly-f10-nqx-m30-bid",
+    "fence_token": 10,
+    "parent_main_sha": "b3428dc888b731bd601e2e72d305ab813d8e0ca2",
+    "claimed_at": "2026-09-04T16:50:33Z",
+    "heartbeat_at": "2026-09-04T16:50:33Z",
+    "expires_at": "2026-09-04T18:25:33Z",
+    "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
+    "expired_recovery_ref": null
+  },
+  "lease_epoch": 10,
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
-    "operation": "LEASE_RELEASE",
-    "expected_main_sha": "488a825ef4e50d9974a765a230ab36c7a4ca276d",
+    "operation": "LEASE_CLAIM",
+    "expected_main_sha": "b3428dc888b731bd601e2e72d305ab813d8e0ca2",
     "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
