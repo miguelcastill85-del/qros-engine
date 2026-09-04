@@ -1,0 +1,49 @@
+{
+  "schema": "QROS_G30_F10_GATE_A_SHARD_RECEIPT_V132_v1",
+  "status": "PASS_COMPLETE_EXACT_PARITY",
+  "created_at_utc": "2026-09-04T12:57:57Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F10_TICK_INTENSITY",
+  "queue_item_id": "G30-F10-0003",
+  "asset": "NQX",
+  "shard": "M5_BID",
+  "scope": "EXPOSED_DEV_2018_2019_ONLY_NO_2020_PLUS_PNL",
+  "inputs": {
+    "dev_records": 59940260,
+    "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "m1_cache_sha256": "8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
+    "tick_count_sha256": "04d02aa0c14efeae2ee22b5dff11b022ac97276653ece6fad50edc4e17be80ec",
+    "transactional_runner_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
+    "prepare_manifest_sha256": "e51b03d1dabd138851b77c6b9f5ed4ac8991300d5146b8abdd12b539acde7d5a"
+  },
+  "coverage": {
+    "raw_identities": 2736,
+    "unique_masks": 2515,
+    "exact_alias_count": 221,
+    "evaluated_buy_sell_records": 5030,
+    "ranges": [[0,256],[256,512],[512,768],[768,1024],[1024,1280],[1280,1536],[1536,1792],[1792,2048],[2048,2304],[2304,2515]],
+    "chunk_hash_ledger_sha256": "623926dd6ef4efa17979aa0c4b23d989df0f96974e7244bbd2e07e203ea501e5"
+  },
+  "result": {
+    "passed": 124,
+    "passed_buy": 34,
+    "passed_sell": 90,
+    "merged_output_sha256": "39b62ab5c2aade0cf092068ed6e4b2bcc04ea16c3a6dcd2ceacbde28fa179a10",
+    "durable_gzip_sha256": "b1d886d67fea478252457e9f0eb8b26452f4280eb650c178355b0adab8e6191a",
+    "durable_gzip_parts": [
+      {"ref":"results/G30/F10/NQX/M5_BID/QROS_G30_F10_NQX_M5_BID_GATE_A_V132_v1.json.gz.part000","bytes":500000,"sha256":"ae2f54174090b2b170918a8226bce8767a247b91c3a08804fb1fbdd5eec35e88"},
+      {"ref":"results/G30/F10/NQX/M5_BID/QROS_G30_F10_NQX_M5_BID_GATE_A_V132_v1.json.gz.part001","bytes":333192,"sha256":"be596fcdcb95eb458ae2b40c5d1cadfa803056d2400dcb55df1aef907c7ce003"}
+    ]
+  },
+  "signal_parity": "PASS_EXACT",
+  "trade_parity": "PASS_EXACT",
+  "all_passers_advance": true,
+  "future_2020_plus_pnl_read": false,
+  "historical_holdout_opened": false,
+  "retuning": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "restore": "CONCATENATE PART000 THEN PART001; VERIFY AGGREGATE GZIP SHA256; DECOMPRESS; VERIFY MERGED OUTPUT SHA256",
+  "decision": "M5_BID_SHARD_COMPLETE_124_GATE_A_PASSERS_ALL_ADVANCE; CONTINUE_NEXT_PREREGISTERED_SHARD"
+}
