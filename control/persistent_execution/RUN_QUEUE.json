@@ -9,8 +9,8 @@
     "paid_infrastructure_authorized": false,
     "single_winner_selection": false
   },
-  "last_reconciled_at_utc": "2026-09-04T04:49:21Z",
-  "last_reconciled_head_blob_sha": "b3ba56eafa9cd5290c6662150eb0886631cdb432",
+  "last_reconciled_at_utc": "2026-09-04T05:57:09Z",
+  "last_reconciled_head_blob_sha": "cf25f0b2b683844c016fbb83de3d20c7a9c2ec40",
   "last_reconciliation_basis": [
     "control/QROS_G30_F09_SPREAD_CONTEXT_PREREG_V123_v1.json",
     "control/QROS_G30_F09_RUNNER_SOURCE_MANIFEST_V123_v1.json",
@@ -26,7 +26,9 @@
     "control/QROS_G30_F10_RUNNER_SOURCE_MANIFEST_V127_v1.json",
     "control/QROS_G30_F10_UNIT_BINDING_RECEIPT_V127_v1.json",
     "control/QROS_G30_F10_TICK_COUNT_CACHE_RECEIPT_V127_v1.json",
-    "control/QROS_G30_F10_CONTINUATION_SOURCE_AUDIT_V128_v1.json"
+    "control/QROS_G30_F10_CONTINUATION_SOURCE_AUDIT_V128_v1.json",
+    "control/QROS_G30_F10_RUNNER_SOURCE_MANIFEST_V128_v1.json",
+    "control/QROS_G30_F10_SOURCE_DURABILITY_REPAIR_RECEIPT_V128_v1.json"
   ],
   "queue": [
     {
@@ -51,8 +53,8 @@
         "HOLDOUT_OPEN_FORBIDDEN"
       ],
       "scope": "F09_SPREAD_CONTEXT_SEMANTIC_BINDING_AND_PREREGISTRATION",
-      "source_head_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
+      "source_head_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
       "status": "COMPLETED",
       "success_condition": "EXACT F09 SEMANTIC BINDING AND PREREGISTRATION ARE DURABLY PERSISTED BEFORE ANY F09 RESULT"
     },
@@ -75,8 +77,8 @@
         "G30-F09-0001"
       ],
       "scope": "F09_DURABLE_RUNNER_AND_PARITY_PREFLIGHT",
-      "source_head_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
+      "source_head_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
       "status": "COMPLETED",
       "success_condition": "ALL REQUIRED SOURCES DURABLE AND PREFLIGHT PARITY PASSES WITHOUT ECONOMIC SELECTION"
     },
@@ -114,8 +116,8 @@
       "remaining_action": null,
       "remaining_authority_ref": "control/QROS_G30_F09_NON_ECONOMIC_CLUSTERING_BINDING_V125_v1.json",
       "scope": "F09_NQX_AND_XAUUSD_DEVELOPMENT_EXECUTION",
-      "source_head_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
+      "source_head_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
       "status": "COMPLETED",
       "success_condition": "ALL PREREGISTERED SHARDS HAVE EXACT COVERAGE, REQUIRED PARITY, GATE_A RECEIPTS AND NON_ECONOMIC CLUSTERING RECEIPTS"
     },
@@ -144,8 +146,8 @@
         "G30-F09-0003"
       ],
       "scope": "F09_FREEZE_AND_ADVANCE_SCHEDULER",
-      "source_head_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
+      "source_head_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
       "status": "COMPLETED",
       "success_condition": "F09 IS DURABLY CLOSED AT ITS AUTHORIZED STAGE AND THE NEXT READY FRONTIER IS QUEUED"
     },
@@ -171,8 +173,8 @@
         "HOLDOUT_OPEN_FORBIDDEN"
       ],
       "scope": "F10_TICK_INTENSITY_SEMANTIC_BINDING_AND_PREREGISTRATION",
-      "source_head_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
+      "source_head_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
       "status": "COMPLETED",
       "success_condition": "EXACT F10 OPERATIONAL SEMANTIC BINDING AND PREREGISTRATION ARE DURABLY PERSISTED BEFORE ANY F10 RESULT"
     },
@@ -195,8 +197,8 @@
         "G30-F10-0001"
       ],
       "scope": "F10_DURABLE_RUNNER_UNIT_AND_CACHE_PREFLIGHT",
-      "source_head_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
+      "source_head_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
       "status": "INVALID",
       "success_condition": "F10 SOURCES, SYNTHETIC PARITY, UNIT BINDING, AND BOTH ASSET TICK COUNT CACHE IDENTITIES PASS EXACTLY",
       "invalidation_reason": "CONTINUATION_SOURCE_DURABILITY_INCOMPLETE",
@@ -204,9 +206,9 @@
     },
     {
       "item_id": "G30-F10-0002R",
-      "status": "READY",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
-      "source_head_commit": "9e56c45c9e00d1dba0a0101e243a22d05ed3633c",
+      "status": "COMPLETED",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
+      "source_head_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
       "scope": "F10_CONTINUATION_SOURCE_DURABILITY_REPAIR",
       "action": "FREEZE A DETERMINISTIC F10 TRANSACTIONAL PREPARE_SCORE_MERGE RUNNER AND CANONICAL TICK_COUNT CACHE BUILDER BEFORE ANY F10 ECONOMIC RESULT; RECORD EXACT BYTES SHA256 GIT BLOBS RUNTIME AND CLI CONTRACTS; REQUIRE SYNTHETIC TWO_SIGNAL_TWO_EXECUTION PARITY AND READBACK",
       "prerequisites": [
@@ -222,7 +224,17 @@
         "SOURCE_DURABILITY_GATE_REQUIRED"
       ],
       "checkpoint_path": "control/persistent_execution/checkpoints/G30_F10_0002R.json",
-      "success_condition": "ALL F10 CONTINUATION_CRITICAL SOURCES INCLUDING CACHE BUILDER AND TRANSACTIONAL RUNNER ARE DURABLE WITH EXACT READBACK AND SYNTHETIC PARITY BEFORE SCORING"
+      "success_condition": "ALL F10 CONTINUATION_CRITICAL SOURCES INCLUDING CACHE BUILDER AND TRANSACTIONAL RUNNER ARE DURABLE WITH EXACT READBACK AND SYNTHETIC PARITY BEFORE SCORING",
+      "completion_evidence": [
+        "control/QROS_G30_F10_RUNNER_SOURCE_MANIFEST_V128_v1.json",
+        "control/QROS_G30_F10_SOURCE_DURABILITY_REPAIR_RECEIPT_V128_v1.json",
+        "control/recovery/qros_g30_f10_tick_count_builder_v128.py",
+        "control/recovery/qros_g30_f10_transactional_v128.py"
+      ],
+      "completion_summary": {
+        "durable_required_sources": 6,
+        "synthetic_result_sha256": "b399752b12dea94dd879e7685d6c791617a09340fdd7ccb202b16fece3ff481f"
+      }
     },
     {
       "action": "EXECUTE THE FROZEN F10 GRID ON NQX AND XAUUSD 2018_2019 EXPOSED DEVELOPMENT ONLY WITH TWO SIGNAL AND TWO EXECUTION IMPLEMENTATIONS; REQUIRE EXACT SHARD PARITY; ALL GATE_A PASSERS ADVANCE TO PREREGISTERED NON_ECONOMIC CLUSTERING",
@@ -240,15 +252,14 @@
         "G30-F10-0002R"
       ],
       "scope": "F10_NQX_AND_XAUUSD_DEVELOPMENT_GATE_A_AND_CLUSTERING",
-      "source_head_commit": "c7fbb17d9b272f6c755a43d959dab4ffbe8ed627",
-      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
-      "status": "WAITING_PREREQUISITE",
-      "success_condition": "ALL F10 SHARDS HAVE EXACT COVERAGE AND PARITY, BOTH ASSET GATE_A RECEIPTS EXIST, AND NON_ECONOMIC CLUSTERING IS COMPLETE",
-      "waiting_reason": "F10_TRANSACTIONAL_RUNNER_AND_TICK_COUNT_CACHE_BUILDER_MUST_BE_DURABLY_FROZEN_BEFORE_SCORING"
+      "source_head_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
+      "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
+      "status": "READY",
+      "success_condition": "ALL F10 SHARDS HAVE EXACT COVERAGE AND PARITY, BOTH ASSET GATE_A RECEIPTS EXIST, AND NON_ECONOMIC CLUSTERING IS COMPLETE"
     }
   ],
   "schema": "QROS_PERSISTENT_RUN_QUEUE_V1",
-  "source_head_commit": "9e56c45c9e00d1dba0a0101e243a22d05ed3633c",
-  "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V126",
-  "status": "ACTIVE_RECONCILED_F10_PREFLIGHT_REPAIR_REQUIRED"
+  "source_head_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
+  "source_head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
+  "status": "ACTIVE_RECONCILED_READY_FOR_F10_INPUT_REMATERIALIZATION_AND_DEVELOPMENT_EXECUTION"
 }

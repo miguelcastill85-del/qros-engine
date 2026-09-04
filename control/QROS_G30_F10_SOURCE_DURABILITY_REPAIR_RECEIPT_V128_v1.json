@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_G30_F10_SOURCE_DURABILITY_REPAIR_RECEIPT_V128_v1",
+  "status": "PASS",
+  "created_at_utc": "2026-09-04T05:57:09Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F10_TICK_INTENSITY",
+  "source_freeze_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
+  "manifest_ref": "control/QROS_G30_F10_RUNNER_SOURCE_MANIFEST_V128_v1.json",
+  "supersedes_fail_closed_audit_ref": "control/QROS_G30_F10_CONTINUATION_SOURCE_AUDIT_V128_v1.json",
+  "resolved_defects": [
+    "DURABLE_TRANSACTIONAL_PREPARE_SCORE_MERGE_RUNNER",
+    "DURABLE_CANONICAL_TICK_COUNT_CACHE_BUILDER",
+    "V127_SYNTHETIC_HARNESS_REPOSITORY_BYTE_IDENTITY_CORRECTED"
+  ],
+  "verification": {
+    "required_sources": 6,
+    "required_sources_exact_readback": 6,
+    "py_compile": "PASS",
+    "builder_synthetic_count": "PASS_EXACT_1800_BARS",
+    "bar_tick_context_parity": "PASS_6_TIMEFRAMES_X_2_FEATURE_SIDES",
+    "signal_parity": "PASS_6_TIMEFRAMES_X_2736_IDENTITIES",
+    "execution_parity": "PASS_BUY_SELL_ALL_6_TIMEFRAMES",
+    "deterministic_result_sha256": "b399752b12dea94dd879e7685d6c791617a09340fdd7ccb202b16fece3ff481f"
+  },
+  "runtime_note": "CURRENT_RUNTIME_LACKED_NUMBA; NON_ECONOMIC TESTS USED A TEST_ONLY NJIT IDENTITY DECORATOR. FROZEN PRODUCTION SOURCES RETAIN NUMBA DEPENDENCY AND UNCHANGED ALGORITHMS.",
+  "economic_results_read": false,
+  "future_2020_plus_pnl_read": false,
+  "historical_holdout_opened": false,
+  "retuning": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "scientific_effect": "NONE_SOFTWARE_DURABILITY_REPAIR_ONLY",
+  "decision": "G30-F10-0002R_COMPLETED; G30-F10-0003_READY_FOR_EXACT_DEV_INPUT_REMATERIALIZATION_AND_SHARDED_SCORING"
+}

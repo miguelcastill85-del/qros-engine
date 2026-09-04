@@ -1,0 +1,27 @@
+{
+  "schema": "QROS_PERSISTENT_EXECUTION_CHECKPOINT_V1",
+  "dispatch_id": "QROS-F10-SOURCE-REPAIR-20260904T055709Z",
+  "queue_item_id": "G30-F10-0002R",
+  "parent_commit": "7044ccdb30d9d30b96bdcc798bb4a1665a91951e",
+  "input_and_source_sha256": {
+    "head_v127": "9be7855904157d210d23db6b9524fe30b2bc2eadb055334afa18be7edae5d5c1",
+    "protocol": "cab7d5641305e9217868912d2fddcdaf2b66080fca86048c1fc3e281146108f2",
+    "queue_before": "8a747006a1bf7ad9d496cefb7e21f2ab003acfd00a88ea0b170e72e4de7bc4ce",
+    "state_claim": "257a7ac8891e53f1cec591a062e00117d6832d5668217cf440beb9b6963fde76",
+    "manifest_v128": "dafa03c2a28c1663ec6b5168ae22f089e72d901178c2f8949b720d2fdcbc094e",
+    "tick_count_builder": "e16d5615e877412ebc5d810160b34f45190469b661a4324a50393ec68d3de4ec",
+    "transactional_runner": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7"
+  },
+  "completed_ranges": [
+    "F10_TICK_COUNT_BUILDER_FROZEN",
+    "F10_TRANSACTIONAL_RUNNER_FROZEN",
+    "ALL_REQUIRED_SOURCE_READBACK_IDENTITIES_VERIFIED",
+    "SYNTHETIC_SIGNAL_EXECUTION_PARITY_EXACT",
+    "QUEUE_RECONCILED_TO_F10_0003"
+  ],
+  "output_sha256": "efcd23c957f63f9aaf2b9edb38b93f0a3066ce40a3f9411a51d11b0a68f1c1a0",
+  "holdout_exposure": "SEALED_NO_ACCESS",
+  "scientific_outcome": "NONE_SOFTWARE_DURABILITY_REPAIR_ONLY",
+  "execution_state": "COMPLETED",
+  "exact_resume_action": "ACQUIRE LEASE; MATERIALIZE CANONICAL NQX DEV INPUT AND BAR CACHE; BUILD OR VERIFY EXACT NQX TICK_COUNT NPY; EXECUTE FIRST F10 NQX SHARD TRANSACTIONALLY"
+}
