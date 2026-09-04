@@ -1,0 +1,17 @@
+{
+  "schema":"QROS_G30_F10_GATE_A_SHARD_RECEIPT_V153_v1",
+  "status":"PASS_COMPLETE_EXACT_PARITY",
+  "created_at_utc":"2026-09-04T23:20:31Z",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F10_TICK_INTENSITY",
+  "queue_item_id":"G30-F10-0003",
+  "asset":"XAUUSD",
+  "shard":"H1_BID",
+  "scope":"EXPOSED_DEV_2018_2019_ONLY_NO_2020_PLUS_PNL",
+  "inputs":{"head_sha256":"9be7855904157d210d23db6b9524fe30b2bc2eadb055334afa18be7edae5d5c1","dev_sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53","m1_cache_sha256":"f5d847a51ffbbddd29dc4089aa65c04ebe4df01336b91af35223609551923e62","tick_count_sha256":"6afb91bf589dbaf02e995d2a5915f760ca2ae1dd88179469528c3b7f8beab2d2","transactional_runner_sha256":"086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7","prepare_manifest_sha256":"81decaa4f6e88bccf032cc6c677070a920a9d98e8d9cf5f38bba50ca8fe62e74"},
+  "coverage":{"raw_identities":2736,"unique_masks":2050,"exact_alias_count":686,"evaluated_buy_sell_records":4100,"ranges":[[0,256],[256,512],[512,768],[768,1024],[1024,1280],[1280,1536],[1536,1792],[1792,2048],[2048,2050]],"chunk_hash_ledger_sha256":"ad58acd45ac30c645bfb46d97bc1884aa8bf9cd07cc82b0cb572c7791f3b35ba"},
+  "identities":{"union_buy":1848,"union_sell":1825,"passer_identity_root_sha256":"52230bf87e195c40581049a148e619b25e4b0688bda0a1c7f930ab2f946c0ac8","alias_assignment_root_sha256":"4b0b77c589a30d47342c54a4cd0e718427a13b93df1bc533a0f8fe536929d7c0"},
+  "result":{"passed":71,"passed_buy":26,"passed_sell":45,"merged_output_bytes":2747063,"merged_output_sha256":"202ce563dac1ce438e65108043cb9f47c256c149b27ae7cb999cd7f306d16bcb","deterministic_rematerialization":"ALLOWED_FROM_FROZEN_INPUTS_AND_V128_RUNNER; EXACT_MERGED_SHA_REQUIRED"},
+  "signal_parity":"PASS_EXACT","trade_parity":"PASS_EXACT","all_passers_advance":true,"future_2020_plus_pnl_read":false,"historical_holdout_opened":false,"retuning":false,"mt5":false,"live":false,"paid_infrastructure":false,
+  "decision":"XAUUSD_H1_BID_COMPLETE_71_PASSERS_ALL_ADVANCE; NEXT_XAUUSD_H1_MID"
+}
