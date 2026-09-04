@@ -1,0 +1,49 @@
+{
+  "schema": "QROS_G30_F10_GATE_A_SHARD_RECEIPT_V131_v1",
+  "status": "PASS_COMPLETE_EXACT_PARITY",
+  "created_at_utc": "2026-09-04T11:57:13Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F10_TICK_INTENSITY",
+  "queue_item_id": "G30-F10-0003",
+  "asset": "NQX",
+  "shard": "M1_MID",
+  "scope": "EXPOSED_DEV_2018_2019_ONLY_NO_2020_PLUS_PNL",
+  "inputs": {
+    "dev_records": 59940260,
+    "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "m1_cache_sha256": "8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
+    "tick_count_sha256": "04d02aa0c14efeae2ee22b5dff11b022ac97276653ece6fad50edc4e17be80ec",
+    "transactional_runner_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
+    "prepare_manifest_sha256": "9e272f4fa52ae046e8ba0c98f5ff213d8f5703208453bf3d39bbf43b506ed3e2"
+  },
+  "coverage": {
+    "raw_identities": 2736,
+    "unique_masks": 2586,
+    "exact_alias_count": 150,
+    "evaluated_buy_sell_records": 5172,
+    "ranges": [[0,256],[256,512],[512,768],[768,1024],[1024,1280],[1280,1536],[1536,1792],[1792,2048],[2048,2304],[2304,2560],[2560,2586]],
+    "chunk_hash_ledger_sha256": "b120e04270b1c4a956f9e985ffa4d68de1abf4b08e3328ebb0215296c3db8429"
+  },
+  "result": {
+    "passed": 0,
+    "passed_buy": 0,
+    "passed_sell": 0,
+    "merged_output_sha256": "161311bb68e48ac67861f0d83b645171672b1a959020906f5a0c5c26d3dbd35d",
+    "durable_gzip_sha256": "e14a0f9a9a935345d7951a64777676b676383e54355dd01eaf826dfedf5ec078",
+    "durable_gzip_parts": [
+      {"ref":"results/G30/F10/NQX/M1_MID/QROS_G30_F10_NQX_M1_MID_GATE_A_V131_v1.json.gz.part000","bytes":500000,"sha256":"98ee0b1679564da418fa81cfd54d395ed14a38023fd3bd2ef0129a2470593608"},
+      {"ref":"results/G30/F10/NQX/M1_MID/QROS_G30_F10_NQX_M1_MID_GATE_A_V131_v1.json.gz.part001","bytes":346684,"sha256":"5bee9bacafdbf27fb075c5f3294e90357ad5acf1296b05c8d4e7e2e5b9eda665"}
+    ]
+  },
+  "signal_parity": "PASS_EXACT",
+  "trade_parity": "PASS_EXACT",
+  "all_passers_advance": true,
+  "future_2020_plus_pnl_read": false,
+  "historical_holdout_opened": false,
+  "retuning": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "restore": "CONCATENATE PART000 THEN PART001; VERIFY AGGREGATE GZIP SHA256; DECOMPRESS; VERIFY MERGED OUTPUT SHA256",
+  "decision": "M1_MID_SHARD_COMPLETE_ZERO_GATE_A_PASSERS; CONTINUE_NEXT_PREREGISTERED_SHARD"
+}
