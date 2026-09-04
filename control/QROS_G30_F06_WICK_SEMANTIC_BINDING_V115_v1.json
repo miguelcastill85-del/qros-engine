@@ -1,0 +1,12 @@
+{
+  "schema":"QROS_G30_F06_WICK_SEMANTIC_BINDING_V115_v1",
+  "status":"PASS_BOUND_BEFORE_F06_RESULTS",
+  "created_date":"2026-09-03",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier":"F06_WICK",
+  "economic_information_used":false,
+  "authority":{"head_ref":"control/HEAD.json","head_schema":"QROS_PERSISTENT_CONTROL_HEAD_V114","ontology_ref":"control/G30_UNIVERSE_ONTOLOGY_v2.json","scheduler_ref":"control/QROS_G30_ONTOLOGY_COVERAGE_SCHEDULER_V79_v1.json"},
+  "binding":{"frontier_dimension":"SIGNAL.wick_filter","shock_bar":"THE_SAME_CAUSALLY_CLOSED_BAR_t_USED_BY_HIGH_LOW_RANGE_OVER_ATR","range":"R_t=H_t-L_t","lower_wick":"LW_t=min(O_t,C_t)-L_t","upper_wick":"UW_t=H_t-max(O_t,C_t)","opposing_wick":{"BUY":"LW_t","SELL":"UW_t"},"zero_range":"FILTER_FALSE_FOR_BOTH_SIDES_WHEN_R_t_LE_0","values":{"MAX_OPPOSING_WICK_50PCT_RANGE":{"BUY":"LW_t <= 0.50*R_t","SELL":"UW_t <= 0.50*R_t"},"MAX_OPPOSING_WICK_33PCT_RANGE":{"BUY":"LW_t <= (1/3)*R_t","SELL":"UW_t <= (1/3)*R_t"},"MAX_OPPOSING_WICK_20PCT_RANGE":{"BUY":"LW_t <= 0.20*R_t","SELL":"UW_t <= 0.20*R_t"}},"boundary_policy":"INCLUSIVE","integer_safe_equivalents":{"MAX_OPPOSING_WICK_50PCT_RANGE":{"BUY":"2*LW_t <= R_t","SELL":"2*UW_t <= R_t"},"MAX_OPPOSING_WICK_33PCT_RANGE":{"BUY":"3*LW_t <= R_t","SELL":"3*UW_t <= R_t"},"MAX_OPPOSING_WICK_20PCT_RANGE":{"BUY":"5*LW_t <= R_t","SELL":"5*UW_t <= R_t"}},"application":"INTERSECT_SIDE_SPECIFIC_WICK_FILTER_WITH_EXISTING_CORE_SIDE_SIGNAL_MASK_ON_THE_SAME_SHOCK_BAR","close_location_filter":"NONE","signal_atr":{"period":14,"smoothing":"SMA_TR","reference_timing":["CURRENT_BAR_INCLUDED","LAGGED_ONE_BAR_PRE_SHOCK"]},"shock_measure":"HIGH_LOW_RANGE_OVER_ATR","all_other_signal_dimensions":"CORE_ANCHOR","management_mutated":false,"management":{"stop_family":"ATR_FIXED","atr_period":14,"atr_smoothing":"SMA_TR","atr_stop_mult":3.0,"reward_r_multiple":1.5,"time_stop_bars":20,"same_day_exit":true},"execution":{"buy":"ASK_IN_BID_OUT","sell":"BID_IN_ASK_OUT","executable_quote":"ASK_GT_BID_ONLY","entry":"FIRST_EXECUTABLE_QUOTE_AFTER_CAUSAL_SIGNAL_CLOSE","ambiguous":"SL_FIRST","gap":"FIRST_ACTUALLY_AVAILABLE_PRICE","one_active_position_per_asset":true,"same_timestamp_reentry":"STRICT_ENTRY_TS_GT_PREVIOUS_EXIT_TS"}},
+  "prohibitions":["NO_F06_PNL_TO_CHOOSE_BINDING","NO_CLOSE_LOCATION_FILTER_IN_F06","NO_MANAGEMENT_MUTATION","NO_HISTORICAL_G30_HOLDOUT","NO_RETUNING","NO_MT5"],
+  "decision":"F06_WICK_OPERATIONALLY_BOUND_BEFORE_RESULTS"
+}
