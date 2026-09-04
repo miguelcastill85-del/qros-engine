@@ -1,0 +1,144 @@
+{
+  "schema": "QROS_G30_F10_GATE_A_SHARD_RECEIPT_V144_v1",
+  "status": "PASS_COMPLETE_EXACT_PARITY",
+  "created_at_utc": "2026-09-04T21:20:42Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F10_TICK_INTENSITY",
+  "queue_item_id": "G30-F10-0003",
+  "asset": "XAUUSD",
+  "shard": "M5_BID",
+  "scope": "EXPOSED_DEV_2018_2019_ONLY_NO_2020_PLUS_PNL",
+  "inputs": {
+    "head_blob_sha": "cf25f0b2b683844c016fbb83de3d20c7a9c2ec40",
+    "head_sha256": "9be7855904157d210d23db6b9524fe30b2bc2eadb055334afa18be7edae5d5c1",
+    "dev_records": 151382388,
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "m1_cache_sha256": "f5d847a51ffbbddd29dc4089aa65c04ebe4df01336b91af35223609551923e62",
+    "tick_count_sha256": "6afb91bf589dbaf02e995d2a5915f760ca2ae1dd88179469528c3b7f8beab2d2",
+    "transactional_runner_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
+    "prepare_manifest_sha256": "b64ab8ae38e98b17c78b2e618c6a5bc6c350799a77509ac5cfa63a50e2329d14"
+  },
+  "coverage": {
+    "raw_identities": 2736,
+    "unique_masks": 2493,
+    "exact_alias_count": 243,
+    "evaluated_buy_sell_records": 4986,
+    "ranges": [
+      [
+        0,
+        256
+      ],
+      [
+        256,
+        512
+      ],
+      [
+        512,
+        768
+      ],
+      [
+        768,
+        1024
+      ],
+      [
+        1024,
+        1280
+      ],
+      [
+        1280,
+        1536
+      ],
+      [
+        1536,
+        1792
+      ],
+      [
+        1792,
+        2048
+      ],
+      [
+        2048,
+        2304
+      ],
+      [
+        2304,
+        2493
+      ]
+    ],
+    "chunk_hash_ledger_sha256": "46aca49f0d9a2abe9e6b1e153e9aab4619a0fe39c2c172d15528684e34905d2f"
+  },
+  "identities": {
+    "bar_digest": "470c93cd307f286782c5f1f7518d6113b8d030d476f1b5d09e217fd95b96e3e1",
+    "raw_identity_sequence_sha256": "695daa5c628fd45b42abff89c8e986478165ab045ca904a2a7c7540c5b5de43b",
+    "unique_mask_set_sha256": "0d37d14a7d4bb9c539c0e14313727b757fea82f9aba0e6d8782f34061d52bf57",
+    "union_buy": 21890,
+    "union_sell": 21694
+  },
+  "result": {
+    "passed": 95,
+    "passed_buy": 91,
+    "passed_sell": 4,
+    "merged_output_bytes": 3236028,
+    "merged_output_sha256": "bc0bbc295d2e08d9fa5c44d32a59c405b441c7b96c175dafc088c63f1bbdd392",
+    "durable_gzip_bytes": 822817,
+    "durable_gzip_sha256": "b97ca7df2afb2ba049901b6eb1f8c1aafaecfffc16eb1b6a57b66d594783f249",
+    "durable_gzip_parts": [
+      {
+        "ref": "results/G30/F10/XAUUSD/M5_BID/QROS_G30_F10_XAUUSD_M5_BID_GATE_A_V144_v1.json.gz.part000",
+        "bytes": 100000,
+        "sha256": "ef18c85c208c52a168b9bbe1b6910e5b8b7e25cfcf035a7af95df85aafa346ae"
+      },
+      {
+        "ref": "results/G30/F10/XAUUSD/M5_BID/QROS_G30_F10_XAUUSD_M5_BID_GATE_A_V144_v1.json.gz.part001",
+        "bytes": 100000,
+        "sha256": "3a3b806c7da40d7efbd1ad7b3298e7f4d05fc0fe8ca236314515eefca7be6c52"
+      },
+      {
+        "ref": "results/G30/F10/XAUUSD/M5_BID/QROS_G30_F10_XAUUSD_M5_BID_GATE_A_V144_v1.json.gz.part002",
+        "bytes": 100000,
+        "sha256": "f5f4c12da431daffb32a7478786ea74910cbdc91b3a320a95565cd799841d7ba"
+      },
+      {
+        "ref": "results/G30/F10/XAUUSD/M5_BID/QROS_G30_F10_XAUUSD_M5_BID_GATE_A_V144_v1.json.gz.part003",
+        "bytes": 100000,
+        "sha256": "8cb7aef214cb3c80610f3b466aba752556a613a8b4bb4cfbc1b2368e8e5845f7"
+      },
+      {
+        "ref": "results/G30/F10/XAUUSD/M5_BID/QROS_G30_F10_XAUUSD_M5_BID_GATE_A_V144_v1.json.gz.part004",
+        "bytes": 100000,
+        "sha256": "dcaeb720fe88ab4e87313b432afa0cc27a39fd900f14216b8dedc694fa7461c0"
+      },
+      {
+        "ref": "results/G30/F10/XAUUSD/M5_BID/QROS_G30_F10_XAUUSD_M5_BID_GATE_A_V144_v1.json.gz.part005",
+        "bytes": 100000,
+        "sha256": "221ed780f8a10a24ed151b737cb74cd3ba2e9077993a63dad88b4c4066f42424"
+      },
+      {
+        "ref": "results/G30/F10/XAUUSD/M5_BID/QROS_G30_F10_XAUUSD_M5_BID_GATE_A_V144_v1.json.gz.part006",
+        "bytes": 100000,
+        "sha256": "589ef8be52e925d0b1267fb235c9b52eb457dd427c8770d9fc078538e99591fb"
+      },
+      {
+        "ref": "results/G30/F10/XAUUSD/M5_BID/QROS_G30_F10_XAUUSD_M5_BID_GATE_A_V144_v1.json.gz.part007",
+        "bytes": 100000,
+        "sha256": "ab3605c6b269bd9712f19eed3626d20ef0c46bfb5f1b8baf86d1dea9cefbd87a"
+      },
+      {
+        "ref": "results/G30/F10/XAUUSD/M5_BID/QROS_G30_F10_XAUUSD_M5_BID_GATE_A_V144_v1.json.gz.part008",
+        "bytes": 22817,
+        "sha256": "7d1108ffa7b6aab59378e6724f630591a1de06f827b74036411e5adb39a36441"
+      }
+    ]
+  },
+  "signal_parity": "PASS_EXACT",
+  "trade_parity": "PASS_EXACT",
+  "all_passers_advance": true,
+  "future_2020_plus_pnl_read": false,
+  "historical_holdout_opened": false,
+  "retuning": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "restore": "CONCATENATE PART000 THROUGH PART008; VERIFY GZIP AND MERGED SHA256",
+  "decision": "XAUUSD_M5_BID_COMPLETE_95_PASSERS_ALL_ADVANCE; NEXT_XAUUSD_M5_MID"
+}
