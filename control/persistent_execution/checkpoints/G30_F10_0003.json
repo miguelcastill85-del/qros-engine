@@ -1,8 +1,8 @@
 {
   "schema": "QROS_PERSISTENT_EXECUTION_CHECKPOINT_V1",
-  "dispatch_id": "QROS-F10-XAUUSD-M5-MID-20260904T212253Z",
+  "dispatch_id": "QROS-F10-XAUUSD-M10-BID-20260904T212826Z",
   "queue_item_id": "G30-F10-0003",
-  "parent_commit": "faa590bd38d2f39884cb009cee4fcc9ae1b7db14",
+  "parent_commit": "e90ab61524ecc4d82e9961c450d12196c2941bfb",
   "input_and_source_sha256": {
     "head_v127": "9be7855904157d210d23db6b9524fe30b2bc2eadb055334afa18be7edae5d5c1",
     "dev_nqx": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
@@ -30,14 +30,15 @@
     "XAUUSD_M1_BID_COMPLETE",
     "XAUUSD_M1_MID_COMPLETE",
     "XAUUSD_M5_BID_COMPLETE",
-    "XAUUSD_M5_MID_COMPLETE"
+    "XAUUSD_M5_MID_COMPLETE",
+    "XAUUSD_M10_BID_COMPLETE"
   ],
-  "output_sha256": "cf54a4098b9413ee826f8ebd71b1bb1cbda12630e2e253a5734d915b3573d234",
-  "durable_output_gzip_sha256": "33927bdc121356cbc3f531b981a8f4dc3523e190c0f206e0cefeecb21dca6e94",
-  "durable_output_parts_manifest_ref": "control/QROS_G30_F10_XAUUSD_M5_MID_GATE_A_RECEIPT_V145_v1.json",
+  "output_sha256": "8cfc245d857ac8da4827606078a216096540dfe19879d2ea2571c1a7f28ae332",
+  "durable_output_gzip_sha256": "1828866bb6758a590ac014df12996eeace8ef944f87e91e8f3264506db835b6d",
+  "durable_output_parts_manifest_ref": "control/QROS_G30_F10_XAUUSD_M10_BID_GATE_A_RECEIPT_V146_v1.json",
   "holdout_exposure": "SEALED_NO_ACCESS",
-  "scientific_outcome": "XAUUSD_M5_MID_GATE_A_COMPLETE_112_PASSERS_ALL_ADVANCE",
+  "scientific_outcome": "XAUUSD_M10_BID_GATE_A_COMPLETE_448_PASSERS_ALL_ADVANCE",
   "execution_state": "PENDING_RESUMABLE",
   "stop_reason": "EXECUTION_LIMIT_REACHED",
-  "exact_resume_action": "ACQUIRE NEW LEASE BY FAST_FORWARD_CAS; VERIFY IDENTITIES; EXECUTE XAUUSD_M10_BID TRANSACTIONALLY; MERGE AND CHECKPOINT"
+  "exact_resume_action": "ACQUIRE NEW LEASE BY FAST_FORWARD_CAS; VERIFY IDENTITIES; EXECUTE XAUUSD_M10_MID TRANSACTIONALLY; MERGE AND CHECKPOINT"
 }
