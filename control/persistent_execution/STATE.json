@@ -29,29 +29,29 @@
   "last_checkpoint": "control/persistent_execution/checkpoints/G30_F10_0003.json",
   "last_completed_item": "G30-F10-0002R",
   "last_dispatch": {
-    "dispatch_id": "QROS-F10-XAUUSD-M1-BID-20260904T211437Z",
+    "dispatch_id": "QROS-F10-XAUUSD-M1-MID-20260904T211736Z",
     "type": "F10_SHARDED_DEV_GATE_A",
     "queue_item_id": "G30-F10-0003",
     "claimed_parent_commit": "2fdeca4bb03e56fd07798dc6a76249686a6d6175",
     "claim_commit": "3a45dd9c9b263a64480225830510a5c2f44def6c",
     "asset": "XAUUSD",
-    "shard": "M1_BID",
+    "shard": "M1_MID",
     "raw_identities": 2736,
-    "unique_masks": 2586,
-    "evaluated_buy_sell_records": 5172,
-    "passed": 1,
+    "unique_masks": 2581,
+    "evaluated_buy_sell_records": 5162,
+    "passed": 0,
     "passed_buy": 0,
-    "passed_sell": 1,
+    "passed_sell": 0,
     "status": "SHARD_COMPLETED_NEXT_SHARD_PENDING",
-    "next_shard": "XAUUSD_M1_MID",
-    "checkpointed_at_utc": "2026-09-04T21:14:37Z",
+    "next_shard": "XAUUSD_M5_BID",
+    "checkpointed_at_utc": "2026-09-04T21:17:36Z",
     "scientific_effect": "EXPOSED_DEV_GATE_A_SHARD_COMPLETE_ALL_PASSERS_ADVANCE"
   },
   "last_reconciliation": {
     "head_blob_sha": "cf25f0b2b683844c016fbb83de3d20c7a9c2ec40",
     "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
     "holdout_opened": false,
-    "observed_main_sha": "9a414f5b5401eef60739c591a3e8a2eeff45330b",
+    "observed_main_sha": "7335638f3907fe4d4b4d7be2baa205ecf0a7a381",
     "queue_status": "ACTIVE_RECONCILED_F10_0003_PENDING_NEXT_SHARD"
   },
   "last_released_lease": {
@@ -73,8 +73,8 @@
     "fence_token": 11,
     "parent_main_sha": "2fdeca4bb03e56fd07798dc6a76249686a6d6175",
     "claimed_at": "2026-09-04T21:03:00Z",
-    "heartbeat_at": "2026-09-04T21:14:37Z",
-    "expires_at": "2026-09-04T22:49:37Z",
+    "heartbeat_at": "2026-09-04T21:17:36Z",
+    "expires_at": "2026-09-04T22:52:36Z",
     "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
     "expired_recovery_ref": "control/persistent_execution/recovery/G30_F10_NQX_H1_BID_LEASE_F10_EXPIRED_RECOVERY_20260904T210300Z.json"
   },
@@ -82,7 +82,7 @@
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
     "operation": "LEASE_HEARTBEAT",
-    "expected_main_sha": "9a414f5b5401eef60739c591a3e8a2eeff45330b",
+    "expected_main_sha": "7335638f3907fe4d4b4d7be2baa205ecf0a7a381",
     "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",

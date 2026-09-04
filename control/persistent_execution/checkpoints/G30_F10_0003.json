@@ -1,15 +1,15 @@
 {
   "schema": "QROS_PERSISTENT_EXECUTION_CHECKPOINT_V1",
-  "dispatch_id": "QROS-F10-XAUUSD-M1-BID-20260904T211437Z",
+  "dispatch_id": "QROS-F10-XAUUSD-M1-MID-20260904T211736Z",
   "queue_item_id": "G30-F10-0003",
-  "parent_commit": "9a414f5b5401eef60739c591a3e8a2eeff45330b",
+  "parent_commit": "7335638f3907fe4d4b4d7be2baa205ecf0a7a381",
   "input_and_source_sha256": {
     "head_v127": "9be7855904157d210d23db6b9524fe30b2bc2eadb055334afa18be7edae5d5c1",
     "dev_nqx": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
     "m1_cache_nqx": "8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
     "tick_count_nqx": "04d02aa0c14efeae2ee22b5dff11b022ac97276653ece6fad50edc4e17be80ec",
     "transactional_runner": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
-    "prepare_manifest": "cc9c76a5095a178d259547d67f9c05ed4ec29d5212d69e9ad7a106017e71576a",
+    "prepare_manifest": "6b51c9922e52d7c117ace56f15b5e71d5644f092e6b6501e5d24abb012b0eddc",
     "dev_xauusd": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
     "m1_cache_xauusd": "f5d847a51ffbbddd29dc4089aa65c04ebe4df01336b91af35223609551923e62",
     "tick_count_xauusd": "6afb91bf589dbaf02e995d2a5915f760ca2ae1dd88179469528c3b7f8beab2d2"
@@ -27,14 +27,15 @@
     "NQX_M30_MID_COMPLETE",
     "NQX_H1_BID_COMPLETE",
     "NQX_H1_MID_COMPLETE",
-    "XAUUSD_M1_BID_COMPLETE"
+    "XAUUSD_M1_BID_COMPLETE",
+    "XAUUSD_M1_MID_COMPLETE"
   ],
-  "output_sha256": "d03c28454f27cc766b0ea583481f1a3c53de1a7bf16ce15091807b3bde522d9a",
-  "durable_output_gzip_sha256": "d7599facd79de8627ab8ca4e371bdbfa888e2060d01969d4ec003dfb333cdb9c",
-  "durable_output_parts_manifest_ref": "control/QROS_G30_F10_XAUUSD_M1_BID_GATE_A_RECEIPT_V142_v1.json",
+  "output_sha256": "384ceb1b85a7a893a3783ee7dca1eea1972f077491d7b7b49a2346c003a2c0cc",
+  "durable_output_gzip_sha256": "9ea91b5ac04fdd1195d12841138d555c455eb4562b99d9ad225aae5826d225bc",
+  "durable_output_parts_manifest_ref": "control/QROS_G30_F10_XAUUSD_M1_MID_GATE_A_RECEIPT_V143_v1.json",
   "holdout_exposure": "SEALED_NO_ACCESS",
-  "scientific_outcome": "XAUUSD_M1_BID_GATE_A_COMPLETE_1_PASSER_ALL_ADVANCE",
+  "scientific_outcome": "XAUUSD_M1_MID_GATE_A_COMPLETE_0_PASSERS_NO_EXTRAPOLATION",
   "execution_state": "PENDING_RESUMABLE",
   "stop_reason": null,
-  "exact_resume_action": "WITH OWNED LEASE VERIFY IDENTITIES; EXECUTE XAUUSD_M1_MID TRANSACTIONALLY; MERGE AND CHECKPOINT"
+  "exact_resume_action": "WITH OWNED LEASE VERIFY IDENTITIES; EXECUTE XAUUSD_M5_BID TRANSACTIONALLY; MERGE AND CHECKPOINT"
 }
