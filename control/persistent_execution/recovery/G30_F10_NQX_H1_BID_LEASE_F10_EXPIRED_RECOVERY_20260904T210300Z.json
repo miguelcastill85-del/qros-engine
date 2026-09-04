@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_PERSISTENT_LEASE_EXPIRED_RECOVERY_V1",
+  "status": "PASS_NO_AMBIGUOUS_DURABLE_PARTIAL_OUTPUT",
+  "created_at_utc": "2026-09-04T21:03:00Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "queue_item_id": "G30-F10-0003",
+  "observed_main_sha": "2fdeca4bb03e56fd07798dc6a76249686a6d6175",
+  "expired_lease": {
+    "lease_id": "ae921c0c62648c3a33edcb1118c1d8f8bba33e28ec105bb24ffdc1d2919014fa",
+    "worker_id": "qros-hourly-f10-nqx-m30-bid",
+    "fence_token": 10,
+    "heartbeat_at": "2026-09-04T17:06:00Z",
+    "expires_at": "2026-09-04T18:41:00Z"
+  },
+  "reconciliation": {
+    "last_valid_shard_receipt": "control/QROS_G30_F10_NQX_H1_BID_GATE_A_RECEIPT_V140_v1.json",
+    "last_valid_checkpoint": "control/persistent_execution/checkpoints/G30_F10_0003.json",
+    "completed_ranges": 11,
+    "next_shard": "NQX_H1_MID",
+    "ambiguous_repository_outputs": [],
+    "quarantined_outputs": [],
+    "runtime_artifacts_reusable_only_after_hash_verification": true
+  },
+  "guards": {
+    "holdout_opened": false,
+    "future_2020_plus_pnl_read": false,
+    "retuning": false,
+    "mt5": false,
+    "live": false,
+    "paid_infrastructure": false,
+    "all_passers_advance": true
+  },
+  "scientific_effect": "NONE_LEASE_RECOVERY_ONLY",
+  "decision": "EXPIRED_FENCE_10_RECOVERED; FENCE_11_MAY_CLAIM_AND_RESUME_NQX_H1_MID"
+}

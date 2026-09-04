@@ -51,8 +51,8 @@
     "head_blob_sha": "cf25f0b2b683844c016fbb83de3d20c7a9c2ec40",
     "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V127",
     "holdout_opened": false,
-    "observed_main_sha": "5c8b2a4fc76c27f02b0836d0cc7947cff38ae06c",
-    "queue_status": "ACTIVE_RECONCILED_F10_0003_PENDING_NEXT_SHARD"
+    "observed_main_sha": "2fdeca4bb03e56fd07798dc6a76249686a6d6175",
+    "queue_status": "ACTIVE_RECONCILED_F10_0003_PENDING_NQX_H1_MID"
   },
   "last_released_lease": {
     "lease_id": "06b9c5c15b6b7437046cedec35ca4c8bab89908b78306b160f84cbcd439e43d3",
@@ -68,21 +68,21 @@
     "outcome": "F10_NQX_M15_MID_COMPLETE_259_PASSERS_ALL_ADVANCE_NEXT_M30_BID"
   },
   "lease": {
-    "lease_id": "ae921c0c62648c3a33edcb1118c1d8f8bba33e28ec105bb24ffdc1d2919014fa",
-    "worker_id": "qros-hourly-f10-nqx-m30-bid",
-    "fence_token": 10,
-    "parent_main_sha": "b3428dc888b731bd601e2e72d305ab813d8e0ca2",
-    "claimed_at": "2026-09-04T16:50:33Z",
-    "heartbeat_at": "2026-09-04T17:06:00Z",
-    "expires_at": "2026-09-04T18:41:00Z",
+    "lease_id": "78988e3ae0b4c596d1b1ba3c2876d2c04f188c7fc20aa648ada0a74dc29c35cd",
+    "worker_id": "qros-hourly-f10-nqx-h1-mid",
+    "fence_token": 11,
+    "parent_main_sha": "2fdeca4bb03e56fd07798dc6a76249686a6d6175",
+    "claimed_at": "2026-09-04T21:03:00Z",
+    "heartbeat_at": "2026-09-04T21:03:00Z",
+    "expires_at": "2026-09-04T22:38:00Z",
     "entrypoint_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
-    "expired_recovery_ref": null
+    "expired_recovery_ref": "control/persistent_execution/recovery/G30_F10_NQX_H1_BID_LEASE_F10_EXPIRED_RECOVERY_20260904T210300Z.json"
   },
-  "lease_epoch": 10,
+  "lease_epoch": 11,
   "mode": "HOURLY_AUTOMATION_PLUS_MANUAL_EXECUTION",
   "pending_cas": {
-    "operation": "LEASE_HEARTBEAT",
-    "expected_main_sha": "5c8b2a4fc76c27f02b0836d0cc7947cff38ae06c",
+    "operation": "LEASE_CLAIM",
+    "expected_main_sha": "2fdeca4bb03e56fd07798dc6a76249686a6d6175",
     "force": false
   },
   "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
