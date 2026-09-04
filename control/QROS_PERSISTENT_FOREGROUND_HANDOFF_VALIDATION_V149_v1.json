@@ -1,0 +1,65 @@
+{
+  "schema": "QROS_PERSISTENT_FOREGROUND_HANDOFF_VALIDATION_V149_v1",
+  "status": "PASS_VALIDATED_PERSISTENT",
+  "validated_at_utc": "2026-09-04T22:53:27Z",
+  "scope": "PROJECT_WIDE_CHAT_AND_AUTOMATION_CONTINUITY_HANDOFF",
+  "protocol": {
+    "ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
+    "revision": 3,
+    "git_blob_sha": "cbebbc596fb4aa0cb83d42c756cf13749294084d",
+    "readback": "PASS"
+  },
+  "foreground_guard": {
+    "ref": "scripts/qros_persistent_foreground_guard.py",
+    "git_blob_sha": "da762968b609fe3b7be40f2c7d6d5b70f0d9416a",
+    "source_sha256": "d000ae0ad92448137ee7ae1593b66bbee98d84eabcc0436b704e30efe1eeeec7",
+    "py_compile": "PASS",
+    "test_result": "PASS_FOREGROUND_HANDOFF_6_OF_6"
+  },
+  "foreground_control": {
+    "ref": "control/persistent_execution/FOREGROUND.json",
+    "git_blob_sha": "5f75dc076325c2b23d2fc980dcba88f477cb9c15",
+    "status": "ACTIVE",
+    "idle_timeout_minutes": 120,
+    "automation_when_active": "NO_OP_SCIENTIFIC_WORK",
+    "readback": "PASS"
+  },
+  "state": {
+    "ref": "control/persistent_execution/STATE.json",
+    "git_blob_sha": "bdefbb56f6ed9b33b3e68cf0a056e9bf1d6423d2",
+    "lease": null,
+    "mode": "INTERACTIVE_FOREGROUND_PRIORITY_PLUS_HOURLY_IDLE_FILL",
+    "protocol_revision": 3,
+    "readback": "PASS"
+  },
+  "automation": {
+    "task_id": "6a9a45a718208191b489e125e18a550e",
+    "status": "ACTIVE",
+    "cadence": "HOURLY",
+    "role": "IDLE_FILL_ONLY_WHILE_FOREGROUND_INACTIVE",
+    "foreground_check_required": true,
+    "mandatory_turn_end_lease_release": true,
+    "updated_at_utc": "2026-09-04T22:53:27Z"
+  },
+  "tests": [
+    {"case": "MANUAL_FOREGROUND_NO_LEASE", "expected": "CLAIM_ALLOWED", "result": "PASS"},
+    {"case": "AUTOMATION_WHILE_FOREGROUND_ACTIVE", "expected": "NO_OP_FOREGROUND_ACTIVE", "result": "PASS"},
+    {"case": "FRESH_FOREIGN_LEASE", "expected": "NO_PREEMPT", "result": "PASS"},
+    {"case": "STALE_HEARTBEAT_BEFORE_TTL", "expected": "RECOVERY_REQUIRED_THEN_CLAIM_ALLOWED", "result": "PASS"},
+    {"case": "EXPIRED_LEASE", "expected": "RECOVERY_REQUIRED_THEN_CLAIM_ALLOWED", "result": "PASS"},
+    {"case": "TURN_END_LEASE_LEAK", "expected": "CONTROL_FAILURE_DETECTED", "result": "PASS"}
+  ],
+  "operational_contract": {
+    "while_user_active": "MANUAL_CHAT_IS_PRIORITY_EXECUTION_SURFACE_AND_CONTINUES_RESEARCH_WITHIN_EACH_TURN",
+    "while_user_idle": "HOURLY_AUTOMATION_RESUMES_AFTER_120_MINUTES_WITHOUT_USER_INITIATED_QROS_ACTIVITY",
+    "lease_rule": "LEASE_EXISTS_ONLY_DURING_ACTIVE_COMPUTATION_AND_MUST_BE_NULL_AT_END_OF_EACH_TURN_OR_WAKEUP",
+    "crash_rule": "HEARTBEAT_OLDER_THAN_20_MINUTES_IS_RECOVERABLE_WITH_RECEIPT_AND_QUARANTINE_WITHOUT_WAITING_NOMINAL_TTL"
+  },
+  "scientific_effect": "NONE",
+  "holdout_opened": false,
+  "retuning": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "decision": "ADOPT_PROJECT_WIDE"
+}
