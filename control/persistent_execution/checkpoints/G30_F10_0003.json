@@ -1,8 +1,8 @@
 {
   "schema": "QROS_PERSISTENT_EXECUTION_CHECKPOINT_V1",
-  "dispatch_id": "QROS-F10-NQX-M1-BID-20260904T094907Z",
+  "dispatch_id": "QROS-F10-NQX-M1-BID-20260904T105101Z",
   "queue_item_id": "G30-F10-0003",
-  "parent_commit": "0fd4c3ee8a112ec85b95ecf49ba32af57f230439",
+  "parent_commit": "1339968aa13938a23fd2f63ddfe7504fb0fae3c9",
   "input_and_source_sha256": {
     "head_v127": "3eda34b06f6cae5bb2edf16d2bb051edc210ee83632c38c6f34d5dc850c81898",
     "dev_nqx": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
@@ -11,15 +11,13 @@
     "transactional_runner": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7",
     "m1_bid_prepare_manifest": "f72247ef36e619eb5a8489a6e2b6cdc6c896cd325080f16b5663bdd1ed077b4f"
   },
-  "completed_ranges": ["NQX_M1_BID_UNIQUE_MASKS_000000_000255"],
-  "output_sha256": "9099baf322aec5785db3e59e50e1e18ba9364a209abf7f6ef159a7bb9f6b8b28",
-  "durable_output_ref": "results/G30/F10/NQX/M1_BID/chunk_000000_000256.json.gz",
-  "durable_output_gzip_sha256": "6a8612f334d9406263b2c0f802f0e4d770dac52624b604a2b8a0e1cc9f4bf7e8",
-  "durable_prepare_manifest_ref": "results/G30/F10/NQX/M1_BID/manifest.json.gz",
-  "durable_prepare_manifest_gzip_sha256": "6c8604bde1e0d1777d62de189cdf2ab258871f76b305ef6979e110138577e3a3",
+  "completed_ranges": ["NQX_M1_BID_UNIQUE_MASKS_000000_002570", "NQX_M1_BID_MERGED_GATE_A_COMPLETE"],
+  "output_sha256": "9ffbd0ae4eb4b49d19fa6bb11d98f7b6af59354d6690bbb7d2941e6caa01c2c4",
+  "durable_output_gzip_sha256": "e94e42cb58e2fb4bbe116476b4cafe30dbe962f747ca79e8655b7c179003210a",
+  "durable_output_parts_manifest_ref": "control/QROS_G30_F10_NQX_M1_BID_GATE_A_RECEIPT_V130_v1.json",
   "holdout_exposure": "SEALED_NO_ACCESS",
-  "scientific_outcome": "PARTIAL_F10_GATE_A_SHARD_IN_PROGRESS_NO_PASSERS_IN_FIRST_RANGE",
+  "scientific_outcome": "NQX_M1_BID_GATE_A_COMPLETE_ZERO_PASSERS_THIS_SHARD",
   "execution_state": "PENDING_RESUMABLE",
   "stop_reason": "EXECUTION_LIMIT_REACHED",
-  "exact_resume_action": "ACQUIRE LEASE; VERIFY NQX INPUT CACHE TICK COUNT AND M1_BID MANIFEST HASHES; SCORE UNIQUE MASK RANGE 256_512; CONTINUE THROUGH 2571; MERGE M1_BID; THEN NEXT PREREGISTERED SHARD"
+  "exact_resume_action": "ACQUIRE LEASE; VERIFY NQX INPUT CACHE AND TICK COUNT HASHES; PREPARE NQX M1_MID; EXECUTE ITS 2571 UNIQUE MASKS TRANSACTIONALLY; MERGE AND CHECKPOINT"
 }

@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_G30_F10_GATE_A_SHARD_RECEIPT_V130_v1",
+  "status": "PASS_COMPLETE_EXACT_PARITY",
+  "created_at_utc": "2026-09-04T10:57:25Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "frontier": "F10_TICK_INTENSITY",
+  "queue_item_id": "G30-F10-0003",
+  "asset": "NQX",
+  "shard": "M1_BID",
+  "scope": "EXPOSED_DEV_2018_2019_ONLY_NO_2020_PLUS_PNL",
+  "inputs": {
+    "dev_records": 59940260,
+    "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "m1_cache_sha256": "8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca",
+    "tick_count_sha256": "04d02aa0c14efeae2ee22b5dff11b022ac97276653ece6fad50edc4e17be80ec",
+    "transactional_runner_sha256": "086be9b76df623a8ba607be53dcef083214012495820101e388adfce7484d3e7"
+  },
+  "coverage": {
+    "raw_identities": 2736,
+    "unique_masks": 2571,
+    "exact_alias_count": 165,
+    "evaluated_buy_sell_records": 5142,
+    "ranges": [[0,256],[256,512],[512,768],[768,1024],[1024,1280],[1280,1536],[1536,1792],[1792,2048],[2048,2304],[2304,2560],[2560,2571]],
+    "chunk_hash_ledger_sha256": "570bf3d8b294831f76c1666a31d4156d5108dd3b9157c03986433d160544a731"
+  },
+  "result": {
+    "passed": 0,
+    "passed_buy": 0,
+    "passed_sell": 0,
+    "merged_output_sha256": "9ffbd0ae4eb4b49d19fa6bb11d98f7b6af59354d6690bbb7d2941e6caa01c2c4",
+    "durable_gzip_sha256": "e94e42cb58e2fb4bbe116476b4cafe30dbe962f747ca79e8655b7c179003210a",
+    "durable_gzip_parts": [
+      {"ref":"results/G30/F10/NQX/M1_BID/QROS_G30_F10_NQX_M1_BID_GATE_A_V129_v1.json.gz.part000","bytes":500000,"sha256":"cb7bdf73d0c98fd2cb9f88e71d7d9fadf578d3f8ed4427e5f1ac903accf99e42"},
+      {"ref":"results/G30/F10/NQX/M1_BID/QROS_G30_F10_NQX_M1_BID_GATE_A_V129_v1.json.gz.part001","bytes":344933,"sha256":"7e6fed3b9e48bf196756da25e5444ac8b62e0387f7e1b490d042e46f0110238c"}
+    ]
+  },
+  "signal_parity": "PASS_EXACT",
+  "trade_parity": "PASS_EXACT",
+  "all_passers_advance": true,
+  "future_2020_plus_pnl_read": false,
+  "historical_holdout_opened": false,
+  "retuning": false,
+  "mt5": false,
+  "live": false,
+  "paid_infrastructure": false,
+  "restore": "CONCATENATE PART000 THEN PART001; VERIFY AGGREGATE GZIP SHA256; GZIP_DECOMPRESS; VERIFY MERGED_OUTPUT_SHA256",
+  "decision": "M1_BID_SHARD_COMPLETE_ZERO_GATE_A_PASSERS; CONTINUE_NEXT_PREREGISTERED_SHARD"
+}
