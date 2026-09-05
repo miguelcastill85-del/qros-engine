@@ -1,0 +1,61 @@
+{
+  "schema": "QROS_HUMAN_REPORTING_ENFORCEMENT_V1",
+  "status": "ADOPTED_MANDATORY_PROJECT_WIDE",
+  "purpose": "Make every user-facing QROS research update immediately understandable in plain Spanish while preserving full technical audit evidence separately.",
+  "parent_ref": "governance/QROS_HUMAN_INTERFACE_v1.json",
+  "scope": ["ALL_QROS_MANUAL_CHATS", "ALL_FUTURE_QROS_CHATS", "ALL_AUTOMATION_WAKEUPS", "ALL_STATUS_UPDATES", "ALL_CHECKPOINT_REPORTS", "ALL_DECISION_REPORTS"],
+  "mandatory_preload_before_user_facing_report": true,
+  "primary_rule": "HUMAN_EXPLANATION_FIRST_TECHNICAL_AUDIT_SECOND",
+  "required_human_order": [
+    "QUE_ESTAMOS_HACIENDO",
+    "PARA_QUE_LO_HACEMOS",
+    "QUE_ENCONTRAMOS",
+    "QUE_SIGNIFICA_EN_PALABRAS_SIMPLES",
+    "EN_QUE_PUNTO_ESTAMOS",
+    "QUE_SIGUE_Y_POR_QUE"
+  ],
+  "plain_language_rules": {
+    "language": "SPANISH",
+    "assume_non_technical_reader": true,
+    "explain_new_technical_term_on_first_material_use": true,
+    "prefer_common_words_over_internal_identifiers": true,
+    "translate_counts_into_meaning": true,
+    "technical_ids_are_secondary": true,
+    "sha_commits_paths_fences_blobs_are_audit_only_unless_user_asks": true,
+    "never_make_a_hash_or_commit_the_main_result": true,
+    "never_report_only_HECHO_EVIDENCIA_IMPACTO_AHORA_without_plain_language_explanation": true
+  },
+  "mandatory_translations": {
+    "PASSER": "variante que pasó el primer filtro",
+    "CLUSTER": "grupo de variantes muy parecidas que no deben contarse como estrategias independientes",
+    "MEDOID": "representante elegido de un grupo de variantes similares",
+    "GATE_A": "primer filtro de calidad",
+    "PARITY": "comprobación de que una segunda implementación independiente obtiene lo mismo",
+    "LEDGER": "registro exacto de señales u operaciones",
+    "FENCE_OR_LEASE": "bloqueo temporal que evita que dos procesos escriban al mismo tiempo",
+    "HOLDOUT": "periodo reservado para una prueba final que no debe verse antes de tiempo"
+  },
+  "human_status_minimum": {
+    "must_state_if_strategy_is_approved": true,
+    "must_distinguish_candidate_from_approved_module": true,
+    "must_state_if_holdout_was_opened": true,
+    "must_state_if_mt5_was_run": true,
+    "must_state_if_rules_can_still_change": true,
+    "must_state_current_blocker_or_none": true
+  },
+  "technical_audit_layer": {
+    "allowed": true,
+    "position": "AFTER_HUMAN_LAYER",
+    "default_density": "COMPACT",
+    "include_only_when_material": true,
+    "full_detail_on_user_request": true
+  },
+  "pre_send_validation": {
+    "required": true,
+    "fail_if_human_layer_missing": true,
+    "fail_if_technical_layer_substitutes_human_explanation": true,
+    "action_on_fail": "REWRITE_BEFORE_SENDING_USER_RESPONSE"
+  },
+  "scientific_effect": "NONE_PRESENTATION_AND_CONTROL_ONLY",
+  "created_reason": "A durable human-interface policy already existed but was not guaranteed to be loaded by every continuation path. This enforcement file closes that control gap."
+}
