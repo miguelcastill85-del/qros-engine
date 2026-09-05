@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_HUMAN_REPORTING_ENFORCEMENT_VALIDATION_V158_v1",
+  "status": "PASS_STATIC_CONFIGURATION_READBACK",
+  "validated_at_utc": "2026-09-05T02:11:53Z",
+  "scope": "PROJECT_WIDE_QROS_MANUAL_AND_AUTOMATED_USER_FACING_REPORTING",
+  "validation_method": "READBACK_OF_DURABLE_GITHUB_AUTHORITY_PLUS_ACTIVE_CHATGPT_AUTOMATION_CONFIGURATION",
+  "checks": [
+    {"id":"H1","check":"QROS_HUMAN_INTERFACE_v1 status is ADOPTED_MANDATORY and core rule is HUMAN_EXPLANATION_FIRST_TECHNICAL_AUDIT_SECOND","result":"PASS"},
+    {"id":"H2","check":"QROS_HUMAN_REPORTING_ENFORCEMENT_v1 applies to all manual chats, future chats, automation wakeups, checkpoints and decisions","result":"PASS"},
+    {"id":"H3","check":"Persistent protocol v1.1 mandatory bootstrap reads human interface and reporting enforcement before execute or report","result":"PASS"},
+    {"id":"H4","check":"HEAD V158 explicitly references human interface, enforcement, protocol v1.1 and automation prompt v2","result":"PASS"},
+    {"id":"H5","check":"HEAD V158 marks technical-only report without explicit user request as CONTROL_FAILURE_REWRITE_BEFORE_SEND","result":"PASS"},
+    {"id":"H6","check":"STATE uses protocol revision 4 and contains human reporting references","result":"PASS"},
+    {"id":"H7","check":"Expired F18 was recovered with no F11 economic result or preregistration promoted and STATE.lease is null","result":"PASS"},
+    {"id":"H8","check":"Active ChatGPT hourly automation prompt requires human-first reporting and the same durable governance references","result":"PASS"}
+  ],
+  "required_user_facing_order": ["QUE_ESTAMOS_HACIENDO","PARA_QUE","QUE_ENCONTRAMOS","QUE_SIGNIFICA","EN_QUE_PUNTO_ESTAMOS","QUE_SIGUE_Y_POR_QUE","AUDITORIA_TECNICA_OPCIONAL"],
+  "failure_policy": "ANY FUTURE QROS USER-FACING REPORT THAT OMITS THE HUMAN LAYER IS A GOVERNANCE VIOLATION AND MUST BE REWRITTEN BEFORE SEND",
+  "scientific_effect": "NONE",
+  "decision": "HUMAN_FIRST_REPORTING_PERSISTENCE_VALIDATED"
+}
