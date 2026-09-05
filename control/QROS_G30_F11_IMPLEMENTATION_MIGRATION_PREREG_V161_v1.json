@@ -1,0 +1,93 @@
+{
+  "after_all_gates_pass": "NQX_M10_BID_THEN_RECONCILED_F11_QUEUE",
+  "authorized_policy": "governance/QROS_RUNNER_SOURCE_DURABILITY_GATE_v1.json",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "dependencies": {
+    "llvmlite": "0.44.0",
+    "numba": "0.61.2",
+    "numpy": "2.2.6",
+    "python": "CPython_3.12"
+  },
+  "equivalence_scope": "ALREADY_EXPOSED_2018_2019_DEVELOPMENT_NQX_M5_BID_AND_MID_ONLY",
+  "frontier": "F11_REFRACTORY",
+  "historical_expected_sources": "RETAIN_V159_MANIFEST_UNMODIFIED; TWO_LEGACY_HASHES_SOURCE_BYTES_UNAVAILABLE",
+  "holdout_opened": false,
+  "live": false,
+  "mt5": false,
+  "paid_infrastructure": false,
+  "pending_shard_economic_scoring_authorized": false,
+  "preregistered_equivalence_gate": {
+    "M5_BID_all_8_passers_and_ordered_ledger_hashes": "EXACT_EXISTING_RECEIPT",
+    "M5_MID_passer_identity_root_sha256": "c9475b1783d0e274464787667b39643697aab7d75a9e4da44219629e532a4f47",
+    "NQX_M5_BID_merged_sha256": "c50f328d79d65ba82472d3a6225ffd760171fece81e31f1046f1ca56b32dcb01",
+    "NQX_M5_MID_merged_sha256": "876a487ce5e92e06f23b62d29bb42010bfe0058a7ab3ea053da32d5043e6a458",
+    "canonical_dev_and_cache_hashes": "EXACT_V159_AUTHORITY",
+    "failure": "BLOCK_MIGRATION_NO_PENDING_SHARD_SCORING_NO_RETUNING",
+    "python_compiled_signal_parity": "EXACT_ALL_SYNTHETIC_CASES_IN_DISPATCH",
+    "signal_and_execution_independent_parity": "EXACT_FULL_REPLAY",
+    "synthetic_signal_root_sha256": "2a467dddb7f5d2cc35929e527681dc1ed1723a91bbdefa6ad3b10483a014b073",
+    "unit_binding_machine_preflight": "PASS_BEFORE_REPLAY"
+  },
+  "replacement_rule": "MIGRATED_TRANSACTIONAL_BYTES_EQUAL_GIT_BLOB_DBF2640C_755FEA0C; HARNESS_ONLY_REMOVES_ABSOLUTE_RUNTIME_PATH; DISPATCH_COMPILES_EXACT_FROZEN_REFRACTORY_LOOPS_WITH_PYTHON_PARITY",
+  "schema": "QROS_G30_F11_IMPLEMENTATION_MIGRATION_PREREG_V161_v1",
+  "scientific_mutations": [],
+  "sources": [
+    {
+      "git_blob_sha": "dbf2640c69475454900da5ddd77b4d9535a69e96",
+      "repository_path": "control/recovery/qros_g30_f11_transactional_v161.py",
+      "required_for_continuation": true,
+      "source_bytes": 9708,
+      "source_sha256": "755fea0cfacb29f0badd680c40b22afd68bb7fec1e38391b985bc5f1eb3b8fd1"
+    },
+    {
+      "git_blob_sha": "5c0653472d15cce1dc86f95094d309b5a0b49bb3",
+      "repository_path": "control/recovery/qros_g30_f11_signal_parity_v161.py",
+      "required_for_continuation": true,
+      "source_bytes": 2469,
+      "source_sha256": "5012e3c71868ff952bd540ee6d2405b0f00651997d2e160ee6e859a7eea278a5"
+    },
+    {
+      "git_blob_sha": "a307887d1710b624eb27b9d5d8d8375d94150ccf",
+      "repository_path": "control/recovery/qros_g30_f11_dispatch_v161.py",
+      "required_for_continuation": true,
+      "source_bytes": 2393,
+      "source_sha256": "b361786a770759057147bb6415dafecd0edfd57cf03780d48b37e8fe64804bde"
+    },
+    {
+      "git_blob_sha": "f519828b86f901d8d5367480699d5d8822aeddb8",
+      "repository_path": "control/recovery/qros_restore_dev_prefix_v161.py",
+      "required_for_continuation": true,
+      "source_bytes": 4473,
+      "source_sha256": "92bc51e3759806c3d07cab00e7ce36cd11f6f57ede44fae32f7963243d41346e"
+    },
+    {
+      "git_blob_sha": "3c5340346c29cf110422d4eb714d6b3a866c2c0d",
+      "repository_path": "control/recovery/qros_g30_f11_signal_primary_v159.py",
+      "required_for_continuation": true,
+      "source_bytes": 2792,
+      "source_sha256": "807b46d57c7d392af76cac46c913486b63487d980b641133a109d21c78c6728e"
+    },
+    {
+      "git_blob_sha": "4864e1bc79fcc8b8b19e71ccccbb77ad167f4777",
+      "repository_path": "control/recovery/qros_g30_f11_signal_independent_v159.py",
+      "required_for_continuation": true,
+      "source_bytes": 3041,
+      "source_sha256": "9359989e2beb1e9acdb96017156a4af01a4bfc494eab454dbc2778b0f307c535"
+    },
+    {
+      "git_blob_sha": "eb6366c8e119b2a66cf7735af9a0288bb564ef49",
+      "repository_path": "control/recovery/qros_g30_f10_exec_core_v127.py",
+      "required_for_continuation": true,
+      "source_bytes": 5082,
+      "source_sha256": "13e23e132d6e87bdda5931e09278ea7c98d55ca735d46c77314c4de0df8bfafc"
+    },
+    {
+      "git_blob_sha": "e24ffb2b9b0e0691693294827865666d4cf8758f",
+      "repository_path": "control/recovery/qros_g30_cache_v58.py",
+      "required_for_continuation": true,
+      "source_bytes": 2839,
+      "source_sha256": "7dcd354bf776bc12e17a5b5c31677dc47c691be392d39dd2a7ac81fc7974b811"
+    }
+  ],
+  "status": "PREREGISTERED_IMPLEMENTATION_MIGRATION_NO_NEW_SHARD_RESULTS"
+}
