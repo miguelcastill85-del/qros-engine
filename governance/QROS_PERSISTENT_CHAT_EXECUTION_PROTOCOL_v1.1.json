@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_V1_1",
+  "status": "ADOPTED_MANDATORY_OPERATIONAL_LAYER",
+  "extends": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.json",
+  "extends_revision": 3,
+  "inheritance_rule": "ALL RULES FROM V1 REVISION 3 REMAIN MANDATORY UNLESS THIS FILE EXPLICITLY STRENGTHENS THEM",
+  "purpose": "Guarantee persistent QROS execution plus mandatory human-first communication across manual chats, future chats and automation wakeups.",
+  "mandatory_bootstrap_order": [
+    "RECOVER_CURRENT_MAIN",
+    "READ_CONTROL_HEAD",
+    "READ_governance/QROS_HUMAN_INTERFACE_v1.json",
+    "READ_governance/QROS_HUMAN_REPORTING_ENFORCEMENT_v1.json",
+    "READ_THIS_PROTOCOL",
+    "READ_RUN_QUEUE_STATE_FOREGROUND",
+    "VERIFY_HOLDOUT_AND_AUTHORITY",
+    "THEN_EXECUTE_OR_REPORT"
+  ],
+  "human_interface_gate": {
+    "human_interface_ref": "governance/QROS_HUMAN_INTERFACE_v1.json",
+    "enforcement_ref": "governance/QROS_HUMAN_REPORTING_ENFORCEMENT_v1.json",
+    "required_before_any_user_facing_QROS_message": true,
+    "applies_to": ["MANUAL_CHAT", "FUTURE_CHAT", "AUTOMATION_NOTIFICATION", "CHECKPOINT", "MILESTONE", "BLOCKER", "DECISION"],
+    "primary_layer_required": [
+      "QUE_ESTAMOS_HACIENDO",
+      "PARA_QUE",
+      "QUE_ENCONTRAMOS",
+      "QUE_SIGNIFICA",
+      "EN_QUE_PUNTO_ESTAMOS",
+      "QUE_SIGUE_Y_POR_QUE"
+    ],
+    "technical_audit_position": "SECONDARY_AFTER_PLAIN_LANGUAGE",
+    "technical_only_report": "CONTROL_FAILURE",
+    "on_failure": "REWRITE_BEFORE_SENDING",
+    "exception": "ONLY_IF_USER_EXPLICITLY_REQUESTS_TECHNICAL_ONLY_OUTPUT"
+  },
+  "continuation_behavior": {
+    "when_user_says_continue": "Recover latest verifiable checkpoint, explain the resumed point in simple language, then execute automatically without asking again.",
+    "when_user_is_active": "Interactive foreground has priority; continue research to the maximum safe boundary and report in human-first format.",
+    "when_user_is_idle": "Hourly automation may fill idle gaps and must use the same human-first format for any notification."
+  },
+  "audit_preservation": {
+    "scientific_rigor_unchanged": true,
+    "hashes_commits_ledgers_receipts_preserved": true,
+    "technical_detail_not_deleted": true,
+    "technical_detail_default_visibility": "COMPACT_SECONDARY_LAYER"
+  },
+  "turn_end": {
+    "checkpoint_required": true,
+    "owned_lease_release_required": true,
+    "verify_STATE_lease_null": true
+  },
+  "revision": 4,
+  "scientific_effect": "NONE_OPERATIONAL_AND_COMMUNICATION_CONTROL_ONLY"
+}
