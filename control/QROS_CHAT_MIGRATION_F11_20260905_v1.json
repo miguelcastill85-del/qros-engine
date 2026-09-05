@@ -1,0 +1,60 @@
+{
+  "schema": "QROS_CHAT_MIGRATION_F11_20260905_v1",
+  "status": "READY_FOR_NEW_CHAT",
+  "created_for": "PROJECT_CHAT_MIGRATION",
+  "repository": "miguelcastill85-del/qros-engine",
+  "authority_before_receipt_commit": "94e338e4460e74aa149cff231299a3a076e0ecc6",
+  "head_ref": "control/HEAD.json",
+  "head_schema_expected": "QROS_PERSISTENT_CONTROL_HEAD_V158",
+  "human_reporting": {
+    "mandatory": true,
+    "human_interface_ref": "governance/QROS_HUMAN_INTERFACE_v1.json",
+    "enforcement_ref": "governance/QROS_HUMAN_REPORTING_ENFORCEMENT_v1.json",
+    "protocol_ref": "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.1.json",
+    "rule": "HUMAN_EXPLANATION_FIRST_TECHNICAL_AUDIT_SECOND"
+  },
+  "scientific_state": {
+    "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+    "human_name": "Campaña 30 — Continuación después de un shock de volatilidad",
+    "status": "DEVELOPMENT_RUNNING",
+    "f10": {
+      "status": "STAGE_COMPLETE_CLUSTERED_FROZEN",
+      "passers": 5276,
+      "medoids": 316,
+      "do_not_reopen": true
+    },
+    "f11": {
+      "frontier": "F11_REFRACTORY",
+      "dimension": "event_refractory_bars",
+      "values": [1,2,3,5,8,13],
+      "development": "2018_2019_EXPOSED_ONLY",
+      "durable_status": "PREREGISTRATION_NOT_YET_PROMOTED",
+      "economic_results_present": false,
+      "instruction": "REBUILD_AND_PROMOTE F11 SEMANTIC BINDING, PREREGISTRATION, PARITY AND SOURCE MANIFEST FROM DURABLE ONTOLOGY/SCHEDULER BEFORE ANY ECONOMIC SCORING; DO NOT ADOPT UNPROMOTED LOCAL OR ORPHAN BLOBS AS AUTHORITY"
+    },
+    "holdout_state": "HOLDOUT_OPEN_FORBIDDEN",
+    "future_2020_plus_pnl_read": false,
+    "retuning": false,
+    "mt5": false,
+    "live": false
+  },
+  "execution_state": {
+    "state_ref": "control/persistent_execution/STATE.json",
+    "expected_lease": null,
+    "foreground_ref": "control/persistent_execution/FOREGROUND.json",
+    "new_chat_action": "REFRESH_INTERACTIVE_FOREGROUND_THEN_CLAIM_NEW_FENCE_BY_FAST_FORWARD_CAS_BEFORE WRITES"
+  },
+  "exact_resume_action": "FETCH CURRENT MAIN, HEAD, STATE, RUN_QUEUE, FOREGROUND AND HUMAN REPORTING GOVERNANCE FROM SAME COMMIT; VERIFY F10 CLOSED AND LEASE NULL; ACTIVATE/REFRESH INTERACTIVE FOREGROUND; MATERIALIZE F11 QUEUE ITEM; FREEZE F11 REFRACTORY SEMANTICS AND TWO INDEPENDENT IMPLEMENTATIONS PLUS SOURCE MANIFEST BEFORE ANY 2018_2019 ECONOMIC RESULT; THEN EXECUTE F11 GATE A WITH BUY/SELL SEPARATE AND ALL PASSERS ADVANCE.",
+  "guards": [
+    "NO_HOLDOUT",
+    "NO_2020_PLUS_PNL",
+    "NO_RETUNING",
+    "NO_MT5",
+    "NO_LIVE",
+    "NO_PAID_INFRASTRUCTURE",
+    "ALL_PASSERS_ADVANCE",
+    "BUY_SELL_SEPARATE",
+    "HUMAN_FIRST_REPORTING"
+  ],
+  "scientific_effect": "NONE_MIGRATION_ONLY"
+}
