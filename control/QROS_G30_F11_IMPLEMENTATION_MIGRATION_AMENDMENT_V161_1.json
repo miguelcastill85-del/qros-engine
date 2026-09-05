@@ -1,0 +1,18 @@
+{
+  "affected_source": "control/recovery/qros_g30_f11_dispatch_v161.py",
+  "affected_source_status": "NOT_EXECUTABLE_REPLACED_PROSPECTIVELY",
+  "classification": "NON_ECONOMIC_COMPILATION_REPAIR",
+  "equivalence_gates_unchanged": true,
+  "failure": "NUMBA_TYPING_ERROR_BUILTIN_BOOL_DTYPE",
+  "git_blob_sha": "a74977ded8815fa29bb12706c3a3bdb1d38439d2",
+  "holdout_opened": false,
+  "new_economic_results_seen": false,
+  "parent_ref": "control/QROS_G30_F11_IMPLEMENTATION_MIGRATION_PREREG_V161_v1.json",
+  "pending_shard_scoring_authorized": false,
+  "repair": "EXPLICIT_COMPILED_PRIMARY_AND_INDEPENDENT_FUNCTIONS_WITH_NUMPY_BOOL_DTYPE_IDENTICAL_CONTROL_FLOW; FROZEN_PYTHON_FUNCTIONS_UNMODIFIED",
+  "repository_path": "control/recovery/qros_g30_f11_dispatch_v161_1.py",
+  "schema": "QROS_G30_F11_IMPLEMENTATION_MIGRATION_AMENDMENT_V161_1",
+  "scientific_rule_changes": false,
+  "source_bytes": 2995,
+  "source_sha256": "ad2cb1fa949cc4c34412496fd7798809df1bca03786031f05c1a0a10efb47ce3"
+}
