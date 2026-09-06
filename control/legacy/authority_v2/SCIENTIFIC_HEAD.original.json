@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_PERSISTENT_SCIENTIFIC_HEAD_V1",
+  "status": "SCIENTIFIC_HEAD_PROMOTED_FOR_CONTINUITY",
+  "campaign": "QROS_PUBLIC_0181_BB_WINNER_PRO_v1",
+  "state": "DEVELOPMENT_RUNNING",
+  "seed": "PUBLIC_SEED_0181",
+  "source": {
+    "path": "strategies/mean-reversion/BB Winner PRO.pine",
+    "commit": "8fb3837ddcd137f1450c3e82d654ff3df24d54d5",
+    "blob_sha1": "974b59cac609528363821178948f85172e23fb09"
+  },
+  "development_period": "2018-2019",
+  "holdout": {"opened": false,"strategy_pnl_2020_2026_computed": false,"source_data_2020_2026_audited": true},
+  "management": "LOCKED",
+  "independent_market_parity": "PENDING",
+  "multiplicity": "NOT_RUN",
+  "supergate": "PROHIBITED",
+  "branch_exhausted": false,
+  "f5_l80_sell_full_range_tail": {"total_blocks":16,"closed_blocks":14,"pending_blocks":2,"total_identities":1536,"closed_identities":1344,"pending_identities":192,"pending":["OHLC4/SMA/ATR/FULL_RANGE/L80/SELL","OHLC4/EMA/ATR/FULL_RANGE/L80/SELL"]},
+  "execution_identities": {
+    "runner_v4": {"file":"run0181_generalized_hardened_v4.py","sha256":"96eaf186a15d985de935acc15fcaefc5fa08a507270d4a1e0c55b057d4ef4b65","runtime_status":"MATERIALIZED_AND_HASH_VERIFIED"},
+    "nqx_runtime_zip": {"file":"QROS_NQX_CANONICAL_DATA_RUNTIME_v16591_R1.zip","sha256":"55250e2daac61ff262c4f9898aa4373af991d816891b5289569cc1fe0bdae275","contains_exact_dev_cache":true},
+    "xau_dev_cache": {"file":"XAUUSD_200S_BIDASK_DEV_2018_2019_v1.csv","bytes":24303351,"rows":204865,"sha256":"a9324a87bb5825d15da8ae1189d42326102c9ecf37b46032fb839a6be6b97f4e","runtime_status":"EXACT_BYTES_NOT_MATERIALIZED"},
+    "authority_amendment": {"file":"QROS_PUBLIC0181_AUTHORITY_AMENDMENT_v1.json","sha256":"8a9792af8f4db55877633bc43dec6241290e3e2c8ca5a533d4819658c6b53934","runtime_status":"IDENTITY_VERIFIED_BYTES_NOT_MATERIALIZED"},
+    "baseline": {"file":"QROS_RISE_Q_AUDIT_HARDENING_BASELINE_v1.json","sha256":"8c46a8a26f06488ab120dfb101983f45f7eae82057655d897a5b8745fce62632","runtime_status":"IDENTITY_VERIFIED_BYTES_NOT_MATERIALIZED"}
+  },
+  "data_authorities": {
+    "NQX": {"carrier":"NQX_PACKED17_FULL_2018_2026.bin","bytes":9516900679,"records":559817687,"sha256":"6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608","current_runtime":"CAPABILITY_PASS"},
+    "XAU": {"carrier":"XAU_PACKED17_CENT_FULL_2018_2026.bin","bytes":11850036456,"records":697060968,"sha256":"c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4","current_runtime":"CAPABILITY_PASS"}
+  },
+  "next_action": "MATERIALIZE_EXACT_AUTH_BASELINE_XAU_DEV_THEN_EXECUTE_OHLC4_SMA_ATR_FULL_RANGE_L80_SELL",
+  "following_action": "EXECUTE_OHLC4_EMA_ATR_FULL_RANGE_L80_SELL",
+  "guards": {"scientific_execution_authorized":false,"holdout_access_authorized":false,"pnl_read_authorized":false,"branch_exhaustion_authorized":false,"rerun_closed_blocks":false},
+  "provenance": {"continuation_checkpoint":"QROS_PUBLIC0181_CONTINUATION_CHECKPOINT_20260829_v3.json","reconstructed_head":"QROS_PUBLIC0181_RECONSTRUCTED_HEAD_v1.json","control_parent_main":"b54504bf9680d8da920e9c0a6dbf191e68850256"}
+}
