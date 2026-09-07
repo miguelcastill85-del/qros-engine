@@ -1,0 +1,69 @@
+{
+  "schema": "QROS_DEMO_FORWARD_V223_FROZEN_SOURCE_RECEIPT_1.0",
+  "package": {
+    "file": "QROS_DARWINEX_DEMO_DEPLOYMENT_RUNTIME_v2_2_3.zip",
+    "bytes": 134189,
+    "sha256": "6e732d59808b768d84ad3a1f734a08a608262192c1f78b2e7143141b461fccde"
+  },
+  "mt5_build": 6182,
+  "branch": "audit/demo-forward-v2.2.3-frozen-20260907",
+  "files": [
+    {
+      "path": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "bytes": 18799,
+      "sha256": "106d6890542e71dd3a1c6b90838e87664fa1a66fe576e713ceb7b52acce20d43",
+      "git_blob_sha1": "862cc19dfc6b4d861bd76b6493912e9afe4da38c",
+      "mirrored_exact_on_branch": true
+    },
+    {
+      "path": "MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "bytes": 4795,
+      "sha256": "558eb1d91a478fc226d50d1dcf7dd69f9b5d09c750d9340bab8db5883682a63a",
+      "git_blob_sha1": "bbc34fa39fca0a583d2fc0cf0553056d2f0e15b7",
+      "mirrored_exact_on_branch": true
+    },
+    {
+      "path": "MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+      "bytes": 3995,
+      "sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+      "git_blob_sha1": "958ea4eadbb4c6d29e54cc56d426ef6f09f05eb9",
+      "mirrored_exact_on_branch": true
+    },
+    {
+      "path": "MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "bytes": 13867,
+      "sha256": "ec3c6f787abba5f4ccd307b3a49d05b61f5c6e194a45465cbb4c1275e948ac4e",
+      "git_blob_sha1": "805df35bf5c6e5ea2633555226beb1c38a5f7825",
+      "mirrored_exact_on_branch": true
+    },
+    {
+      "path": "MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2.mq5",
+      "bytes": 15091,
+      "sha256": "753fef202b1374eea17477d7609cb33a3a92516de9fa979bf691ed64ee874b35",
+      "git_blob_sha1": "d6cda10df13a62995db7440cc6b4a5e99827ed83",
+      "mirrored_exact_on_branch": false
+    },
+    {
+      "path": "MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2.mq5",
+      "bytes": 19731,
+      "sha256": "4aab8846144bbff501e241c91a4051a6c5a04b2edffb1edb53f9b9222f1081fc",
+      "git_blob_sha1": "e6dd1c50966792a237114587a671354db32ea158",
+      "mirrored_exact_on_branch": false
+    },
+    {
+      "path": "MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_1.mq5",
+      "bytes": 21172,
+      "sha256": "ff1baf7ad42ecb52a72cd2ce15d1d6089f67ba31f9a6363a229d33bebe0b4fbd",
+      "git_blob_sha1": "e0d42f1195235c746305829f5359126f2f292f96",
+      "mirrored_exact_on_branch": false
+    },
+    {
+      "path": "QROS_RESUME_FROM_V2_2_CANARY_v2_2_3.ps1",
+      "bytes": 25310,
+      "sha256": "281bd4038f21cae55a04a49caaf7e1ec4b71332e9bff7e2d3b54753ae140745d",
+      "git_blob_sha1": "733818fafbbde09ceb58950a65b7fb39af49d151",
+      "mirrored_exact_on_branch": false
+    }
+  ],
+  "final_activation_evidence": "PENDING_EXACT_ZIP_UPLOAD_TO_CHAT_OR_REPO"
+}
