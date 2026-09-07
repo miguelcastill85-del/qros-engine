@@ -1,0 +1,40 @@
+{
+  "schema": "QROS_DEPLOYMENT_RUNTIME_V2_PREREG_2.0",
+  "status": "MT5_EXTERNAL_PENDING",
+  "purpose": "Replace incremental activation chain with one integrated deployment certification runtime.",
+  "latest_observed_failure": {
+    "decision": "FAIL",
+    "reason": "PHASE_NOT_PASS_QROS_TEMPLATE_DIV3_v13_EXPERT_OR_HEARTBEAT_NOT_STABLE",
+    "build": 6182,
+    "profile_probe": "PASS expert_count=0",
+    "preload_m15": "PASS 202002 bars",
+    "preload_h1": "PASS 9901 bars",
+    "xau_template": "PASS",
+    "nqx_template": "PASS",
+    "div3_identity": "PASS",
+    "div3_heartbeat": "MISSING",
+    "forward_active": false
+  },
+  "root_causes_addressed": [
+    "DIV3 datetime values removed from runtime .set and replaced by integer Y/M/D construction inside MQL5.",
+    "INIT state separated from READY state for all three emitters.",
+    "Individual ForwardProspectiveMode=true self-test is mandatory before combined runtime.",
+    "Current installed MT5 build parity recertification is mandatory, including frozen controller 977-candidate canonical result.",
+    "Profile sanitation occurs before terminal startup and is reset before every phase.",
+    "Fresh ticks and functional current series are required before activation.",
+    "CERT latch blocks all armed entries until combined runtime certification passes."
+  ],
+  "frozen_risk": {
+    "one_R_pct_balance": 0.5,
+    "max_reserved_pct_balance": 1.0,
+    "daily_new_entry_cap": 3
+  },
+  "scientific_changes": false,
+  "alpha_rules_changed": false,
+  "holdout_changed": false,
+  "g30_mutated": false,
+  "live_authorized": false,
+  "activation_condition": "Only QROS_DEPLOYMENT_RUNTIME_V2_RECEIPT decision DEMO_FORWARD_ACTIVE.",
+  "execution_patch": "V2.1_BOOTSTRAP_COMPILE_HARDENING_ONLY",
+  "scientific_rules_changed": false
+}

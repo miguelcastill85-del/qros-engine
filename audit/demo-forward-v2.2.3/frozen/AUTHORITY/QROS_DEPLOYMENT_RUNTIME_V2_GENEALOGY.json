@@ -1,0 +1,28 @@
+{
+  "schema": "QROS_DEPLOYMENT_RUNTIME_V2_GENEALOGY_2.0",
+  "parents": {
+    "QROS_XAU_M1_PDH_200S_SHADOW_v15700.mq5": "38a6da8ebe548b080c98c63592129e89aa5ed7fcd49324802e10597d2bfa5e72",
+    "QROS_NQX_MULTISCALE_17_31_SHADOW_v15700.mq5": "d70cae24eec9154c9b0029b4d90b1515a92ab3b39f3a8541db88664270ea4f6b",
+    "QROS_DIV3_NQX_PARITY_HARNESS_v1.mq5": "035d45e4e74cc6fcfbfd5da34533fd12ffbddcb7ad657d38ac678a18b45fd20c",
+    "QROS_DIV3_PORTFOLIO_CONTROLLER_PARITY_v2.mq5": "2d6ebd5082ade0e5ec90fd0265d27d61d90c7bd384ce057c18ad9c6f1ef09035"
+  },
+  "risk_kernel_sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+  "controller_candidate_sha256": "82ff86d765c19bc621ea3d947258729d833c382c6c31d2469aedb529222523b1",
+  "controller_expected_result_sha256": "b8d28b09c6e8783a872fd1bbb59c65d7463fa62d386ebeda7f4f03282ed29e46",
+  "children": {
+    "QROS_XAU_M1_DEMO_EMITTER_v2.mq5": "753fef202b1374eea17477d7609cb33a3a92516de9fa979bf691ed64ee874b35",
+    "QROS_NQX_17_31_DEMO_EMITTER_v2.mq5": "4aab8846144bbff501e241c91a4051a6c5a04b2edffb1edb53f9b9222f1081fc",
+    "QROS_DIV3_R3_DEMO_EMITTER_v2.mq5": "dfc485867faca3b005e8da31881a17ef38317751e903c915f4f054e443ec7335",
+    "QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5": "106d6890542e71dd3a1c6b90838e87664fa1a66fe576e713ceb7b52acce20d43"
+  },
+  "authorized_changes": [
+    "runtime state/READY telemetry",
+    "DIV3 date serialization via Y/M/D with same frozen dates",
+    "prospective self-test gates",
+    "current-build parity recertification",
+    "executor recovery lock instead of INIT_FAILED when existing QROS position detected"
+  ],
+  "alpha_changed": false,
+  "execution_patch": "V2.1_BOOTSTRAP_COMPILE_HARDENING_ONLY",
+  "scientific_rules_changed": false
+}
