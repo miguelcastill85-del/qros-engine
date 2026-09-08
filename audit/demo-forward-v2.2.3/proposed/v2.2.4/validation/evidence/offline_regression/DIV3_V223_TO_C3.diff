@@ -1,0 +1,74 @@
+--- QROS_DIV3_R3_DEMO_EMITTER_v2_1.mq5
++++ QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5
+@@ -4,10 +4,11 @@
+ //| Frozen module: NQX_DIV3_R3_FAILED_BREAK_MA_CROSS_LWMA_M15        |
+ //+------------------------------------------------------------------+
+ #property strict
+-#property version   "2.10"
++#property version "2.24"
+ #property description "QROS DIV3 profile-0 prospective DEMO signal emitter; no order calls"
+ 
+-#include <QROS_DEMO_BUS_v2.mqh>
++#include <QROS_DEMO_BUS_v2_2_4.mqh>
++const long QROS_V224_EMITTER_SOURCE_TOKEN=224103;
+ 
+ input bool     InpForwardProspectiveMode = true;
+ input int      InpHistoryStartYear = 2018;
+@@ -295,8 +296,8 @@
+ 
+    if(!MQLInfoInteger(MQL_TESTER))
+      {
+-      GlobalVariableSet("QDB1.3.INIT_TOTAL",(double)got);
+-      GlobalVariableSet("QDB1.3.INIT_DONE",0.0);
++      GlobalVariableSet("Q24.3.INIT_TOTAL",(double)got);
++      GlobalVariableSet("Q24.3.INIT_DONE",0.0);
+       QrosBusHeartbeat(QROS_MOD_DIV3);
+      }
+ 
+@@ -307,7 +308,7 @@
+       if(!MQLInfoInteger(MQL_TESTER) &&
+          ((i+1)%QROS_DIV3_PROGRESS_EVERY==0 || i+1==got))
+         {
+-         GlobalVariableSet("QDB1.3.INIT_DONE",(double)(i+1));
++         GlobalVariableSet("Q24.3.INIT_DONE",(double)(i+1));
+          QrosBusHeartbeat(QROS_MOD_DIV3);
+         }
+      }
+@@ -316,7 +317,7 @@
+ 
+    if(!MQLInfoInteger(MQL_TESTER))
+      {
+-      GlobalVariableSet("QDB1.3.INIT_DONE",(double)got);
++      GlobalVariableSet("Q24.3.INIT_DONE",(double)got);
+       QrosBusHeartbeat(QROS_MOD_DIV3);
+      }
+ 
+@@ -413,8 +414,10 @@
+ 
+    if(!MQLInfoInteger(MQL_TESTER))
+      {
+-      GlobalVariableSet("QDB1.3.INIT_TOTAL",0.0);
+-      GlobalVariableSet("QDB1.3.INIT_DONE",0.0);
++      if(!QrosBusProducerInit(QROS_MOD_DIV3)){Print("[DIV3] producer fencing failed");return INIT_FAILED;}
++      if(!QrosGvSetChecked(QrosBusKey(QROS_MOD_DIV3,"SOURCE_TOKEN"),(double)QROS_V224_EMITTER_SOURCE_TOKEN)){QrosBusProducerRelease();return INIT_FAILED;}
++      GlobalVariableSet("Q24.3.INIT_TOTAL",0.0);
++      GlobalVariableSet("Q24.3.INIT_DONE",0.0);
+       QrosBusSetState(QROS_MOD_DIV3,QROS_STATE_INIT);
+       QrosBusHeartbeat(QROS_MOD_DIV3);
+      }
+@@ -486,6 +489,7 @@
+   {
+    if(!MQLInfoInteger(MQL_TESTER)) QrosBusHeartbeat(QROS_MOD_DIV3);
+    MqlTick tick;if(!SymbolInfoTick(_Symbol,tick)) return;
++   if(!MQLInfoInteger(MQL_TESTER)) QrosBusWatermark(QROS_MOD_DIV3,tick.time_msc);
+    g_ticks_total++;
+    datetime cur=iTime(_Symbol,PERIOD_M15,0);if(cur>g_last_open) AppendClosedBars(cur);
+    // research rejects zero/crossed spread for executable fills/exits
+@@ -506,6 +510,7 @@
+      {
+       EventKillTimer();
+       QrosBusSetState(QROS_MOD_DIV3,QROS_STATE_OFF);
++      QrosBusProducerRelease();
+      }
+    MqlTick tick;if(SymbolInfoTick(_Symbol,tick) && tick.ask>tick.bid)
+      {

@@ -1,0 +1,13 @@
+--- Candidate3_original_executor
++++ Candidate3_corrected_executor
+@@ -30,8 +30,8 @@
+ const long MAGIC_NQX17=560217;
+ const long MAGIC_NQX31=560231;
+ const long MAGIC_DIV3=560300;
+-const int QROS_INTENT_SLOTS=32;
+-const int QROS_MGMT_SLOTS=32;
++#define QROS_INTENT_SLOTS 32
++#define QROS_MGMT_SLOTS 32
+ const long QROS_EXACT_DOUBLE_MAX=9007199254740991LL;
+ const long QROS_EXEC_SOURCE_TOKEN=224201;
+ const long QROS_XAU_SOURCE_TOKEN=224101;

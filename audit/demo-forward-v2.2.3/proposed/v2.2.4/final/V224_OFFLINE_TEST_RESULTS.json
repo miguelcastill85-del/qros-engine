@@ -1,0 +1,486 @@
+{
+  "schema": "QROS_V224_C3_COMPILE_REPAIR_OFFLINE_RESULTS_1.0",
+  "utc": "2026-09-08T13:21:13.792055+00:00",
+  "decision": "PARTIAL_PASS_ORIGINAL_SUITE_RERUN_BLOCKED",
+  "repair_regression": {
+    "schema": "QROS_V224_C3_COMPILE_REPAIR_OFFLINE_REGRESSION_1.0",
+    "classification": "SOURCE_AND_NATIVE_COMPILE_EVIDENCE_REGRESSION_NOT_NATIVE_RUNTIME",
+    "summary": {
+      "PASS": 77,
+      "FAIL": 0,
+      "TOTAL": 77
+    },
+    "checks": [
+      {
+        "id": "frozen_v223_authority::MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "frozen_v223_authority::MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "frozen_v223_authority::MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "frozen_v223_authority::MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "frozen_v223_authority::MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "frozen_v223_authority::MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "frozen_v223_authority::MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_1.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "frozen_v223_authority::QROS_RESUME_FROM_V2_2_CANARY_v2_2_3.ps1",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "eight_source_inventory",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "original_authority::MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "final_manifest::MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "unchanged_component::MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "original_authority::MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "final_manifest::MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "unchanged_component::MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "original_authority::MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "final_manifest::MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "original_authority::MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "final_manifest::MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "unchanged_component::MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "original_authority::MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "final_manifest::MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "unchanged_component::MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "original_authority::MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "final_manifest::MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "unchanged_component::MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "original_authority::MQL5/Scripts/QROS_V224_RUNTIME_BOOTSTRAP.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "final_manifest::MQL5/Scripts/QROS_V224_RUNTIME_BOOTSTRAP.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "unchanged_component::MQL5/Scripts/QROS_V224_RUNTIME_BOOTSTRAP.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "original_authority::MQL5/Scripts/QROS_V224_MODULE_CERTIFY.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "final_manifest::MQL5/Scripts/QROS_V224_MODULE_CERTIFY.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "unchanged_component::MQL5/Scripts/QROS_V224_MODULE_CERTIFY.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "fixed_capacity_32::QROS_INTENT_SLOTS",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "fixed_capacity_32::QROS_MGMT_SLOTS",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "only_two_declarations_changed",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "all_executor_functions_preserved",
+        "status": "PASS",
+        "detail": {
+          "functions": 111
+        }
+      },
+      {
+        "id": "F01_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F02_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F03_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F04_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F05_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F06_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F07_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F08_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F09_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F10_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F11_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F12_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F13_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F14_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F15_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F16_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F17_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "F18_source_corrections_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "frozen_emitter_alpha_preserved::XAU",
+        "status": "PASS",
+        "detail": {
+          "method": "Full source equality after only the explicitly reviewed infrastructure changes.",
+          "native_trade_parity": "PENDING"
+        }
+      },
+      {
+        "id": "frozen_emitter_alpha_preserved::NQX",
+        "status": "PASS",
+        "detail": {
+          "method": "Full source equality after only the explicitly reviewed infrastructure changes.",
+          "native_trade_parity": "PENDING"
+        }
+      },
+      {
+        "id": "frozen_emitter_alpha_preserved::DIV3",
+        "status": "PASS",
+        "detail": {
+          "method": "Full source equality after only the explicitly reviewed infrastructure changes.",
+          "native_trade_parity": "PENDING"
+        }
+      },
+      {
+        "id": "Q24_isolation",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "arm_token_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "risk_limits_preserved",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "session_gate_still_fail_closed",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "exact_native_failure::original_failure",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "exact_native_failure::reproduced_failure",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "six_native_targets",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "native_0_0::QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "native_0_0::QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "native_0_0::QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "native_0_0::QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "native_0_0::QROS_V224_MODULE_CERTIFY.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "native_0_0::QROS_V224_RUNTIME_BOOTSTRAP.mq5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "six_ex5_inventory",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "compiled_ex5::QROS_XAU_M1_DEMO_EMITTER_v2_2_4.ex5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "compiled_ex5::QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.ex5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "compiled_ex5::QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.ex5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "compiled_ex5::QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.ex5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "compiled_ex5::QROS_V224_MODULE_CERTIFY.ex5",
+        "status": "PASS",
+        "detail": null
+      },
+      {
+        "id": "compiled_ex5::QROS_V224_RUNTIME_BOOTSTRAP.ex5",
+        "status": "PASS",
+        "detail": null
+      }
+    ],
+    "original_candidate3_suite_rerun": [
+      {
+        "name": "run_v224_candidate3_offline.py",
+        "expected_sha256": "27a7ccc97b42bea6f558fb043c57ebede74b8990aae648b2144ff04cd28e1790",
+        "status": "BLOCKED_MISSING_EXACT_HARNESS"
+      },
+      {
+        "name": "run_v224_candidate3_static_audit.py",
+        "expected_sha256": "8dc7357077e1d693be3192d162bf64e140e03c5831716bf41a32e725bc8ba5c6",
+        "status": "BLOCKED_MISSING_EXACT_HARNESS"
+      },
+      {
+        "name": "run_v224_safety_model.py",
+        "expected_sha256": "3cb16721a1a436bdaf5b11d785160c609eaa7e1ef845a22e6581d03ce86de61d",
+        "status": "BLOCKED_MISSING_EXACT_HARNESS"
+      }
+    ],
+    "historical_receipts_reused_as_current_pass": false
+  },
+  "native_compile": [
+    {
+      "name": "QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+      "kind": "Expert",
+      "exit_code": 1,
+      "pass": true,
+      "log_sha256": "72f8e6f2113999523b5cd212c8405d309a4a192bad33539d3fd96f31cd3c0d37"
+    },
+    {
+      "name": "QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+      "kind": "Expert",
+      "exit_code": 1,
+      "pass": true,
+      "log_sha256": "6b2c2dac6d31d48f5757e93de5704f027350c21d22a9fcd633291e9a26930ddf"
+    },
+    {
+      "name": "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+      "kind": "Expert",
+      "exit_code": 1,
+      "pass": true,
+      "log_sha256": "b058f193f9b4d692b56fcc78630795cd18b18d34cb85e7f7e6370ab98c313131"
+    },
+    {
+      "name": "QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+      "kind": "Expert",
+      "exit_code": 1,
+      "pass": true,
+      "log_sha256": "04902e373c553818bd3a32113a3f5efa7bff27237e9ac87455e653a1522ca57c"
+    },
+    {
+      "name": "QROS_V224_MODULE_CERTIFY.mq5",
+      "kind": "Script",
+      "exit_code": 1,
+      "pass": true,
+      "log_sha256": "f7d296e49952c16ea05b27476c2f7d371637e69f9ea422493942cf136dd18a10"
+    },
+    {
+      "name": "QROS_V224_RUNTIME_BOOTSTRAP.mq5",
+      "kind": "Script",
+      "exit_code": 1,
+      "pass": true,
+      "log_sha256": "425d2a70ba17780b22982415558ff78aa5c8b19370f9b0f646a5e895929c6300"
+    }
+  ],
+  "F01_F18": "PRESERVED_SOURCE_ONLY: byte-identical implementation functions; native adversarial validation remains pending.",
+  "historical_only": {
+    "candidate3_offline": "62/62, not rerun",
+    "candidate3_static": "80/80, not rerun; three emitter-parent checks were SKIP_PARENT_NOT_DISTRIBUTED",
+    "safety_model": "25/25, not rerun"
+  },
+  "handoff_import_preflight": {
+    "command": "bundled Python handoff/verify_import.py",
+    "exit_code": 1,
+    "reason": "ValueError: changed file: AGENTS.md",
+    "classification": "Initial v0.6 import checker rejected the pre-existing modified engineering tree; AGENTS.md was unchanged in this task. python/python3 aliases unavailable; bundled Python used."
+  }
+}

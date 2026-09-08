@@ -1,0 +1,134 @@
+{
+  "schema": "QROS_V224_DETERMINISTIC_SAFETY_MODEL_1.0",
+  "classification": "SYNTHETIC_MODEL_NOT_NATIVE_MT5",
+  "total": 25,
+  "pass": 25,
+  "fail": 0,
+  "results": [
+    {
+      "name": "S01",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S02",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S03",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S04",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S05",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S06",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S07",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S08",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S09",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S10",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S11",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S12",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S13",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S14",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S15",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S16",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S17",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S18",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S19",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S20",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S21",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S22",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S23",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S24",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "S25",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

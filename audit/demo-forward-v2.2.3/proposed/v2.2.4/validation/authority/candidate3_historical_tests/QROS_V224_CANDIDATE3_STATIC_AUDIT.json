@@ -1,0 +1,469 @@
+{
+  "schema": "QROS_V224_CANDIDATE3_STATIC_AUDIT_1.0",
+  "decision": "PASS",
+  "checks_total": 80,
+  "checks_pass": 80,
+  "checks_fail": 0,
+  "failures": [],
+  "files": {
+    "AUTHORITY/QROS_DIV3_NQX_PARITY_HARNESS_v1.mq5": {
+      "bytes": 17306,
+      "sha256": "035d45e4e74cc6fcfbfd5da34533fd12ffbddcb7ad657d38ac678a18b45fd20c"
+    },
+    "AUTHORITY/QROS_DIV3_PORTFOLIO_CONTROLLER_CANDIDATES_v2.csv": {
+      "bytes": 95089,
+      "sha256": "82ff86d765c19bc621ea3d947258729d833c382c6c31d2469aedb529222523b1"
+    },
+    "AUTHORITY/QROS_DIV3_PORTFOLIO_CONTROLLER_PARITY_v2.mq5": {
+      "bytes": 4892,
+      "sha256": "2d6ebd5082ade0e5ec90fd0265d27d61d90c7bd384ce057c18ad9c6f1ef09035"
+    },
+    "AUTHORITY/QROS_DIV3_PORTFOLIO_CONTROLLER_RESULT_v2.csv": {
+      "bytes": 26381,
+      "sha256": "b8d28b09c6e8783a872fd1bbb59c65d7463fa62d386ebeda7f4f03282ed29e46"
+    },
+    "AUTHORITY/QROS_NQX_MULTISCALE_17_31_SHADOW_v15700.mq5": {
+      "bytes": 16884,
+      "sha256": "d70cae24eec9154c9b0029b4d90b1515a92ab3b39f3a8541db88664270ea4f6b"
+    },
+    "AUTHORITY/QROS_V224_CANDIDATE1_IMPLEMENTATION_RECEIPT.json": {
+      "bytes": 5532,
+      "sha256": "4cc6c5776bae55cff1fadb3a0ded30a077bfc625c242c042249041758e9a5bcf"
+    },
+    "AUTHORITY/QROS_V224_CANDIDATE3_OFFLINE_TEST_RESULTS.json": {
+      "bytes": 13756,
+      "sha256": "135b5f725f49b154161dcd21e82161707366fe65023e4ab0b0f6fea7a2b3eb28"
+    },
+    "AUTHORITY/QROS_V224_CANDIDATE3_STATIC_AUDIT.json": {
+      "bytes": 13025,
+      "sha256": "4e677ac942a0d32417eb3ed0bcaf4409249ef4cfbde86a8db2e35c22657ef6ca"
+    },
+    "AUTHORITY/QROS_V224_SAFETY_MODEL_RESULT.json": {
+      "bytes": 1998,
+      "sha256": "014727687aec7755b7da641bdeb9af2e8ef2d74a3bdf35c23687581518ecdd8b"
+    },
+    "AUTHORITY/QROS_XAU_M1_PDH_200S_SHADOW_v15700.mq5": {
+      "bytes": 13994,
+      "sha256": "38a6da8ebe548b080c98c63592129e89aa5ed7fcd49324802e10597d2bfa5e72"
+    },
+    "AUTHORITY/run_v224_candidate3_offline.py": {
+      "bytes": 14907,
+      "sha256": "27a7ccc97b42bea6f558fb043c57ebede74b8990aae648b2144ff04cd28e1790"
+    },
+    "AUTHORITY/run_v224_candidate3_static_audit.py": {
+      "bytes": 10186,
+      "sha256": "8dc7357077e1d693be3192d162bf64e140e03c5831716bf41a32e725bc8ba5c6"
+    },
+    "AUTHORITY/run_v224_safety_model.py": {
+      "bytes": 6995,
+      "sha256": "3cb16721a1a436bdaf5b11d785160c609eaa7e1ef845a22e6581d03ce86de61d"
+    },
+    "AUTHORITY/run_v224_static_audit.py": {
+      "bytes": 9254,
+      "sha256": "bac7b9688f2e8fa65c39520e461df4acf785b99a555e50dac5c88742b53105ea"
+    },
+    "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5": {
+      "bytes": 85137,
+      "sha256": "e16486ff1b0972eddc36711870240b6ae975d6cb2f6c32ecd76086f2cdf0e363"
+    },
+    "MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5": {
+      "bytes": 21594,
+      "sha256": "8e285c67f2dc1a69ed84496c279bf14b394a6f597930f133bcf8badfdd0e0ffe"
+    },
+    "MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5": {
+      "bytes": 20154,
+      "sha256": "2096a36c8ca372265fb688601a82b859615d4b3507256e19cfd7b31c579aa133"
+    },
+    "MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5": {
+      "bytes": 15515,
+      "sha256": "e2ee32a59ded624fae32ea8534fcdd6ac234009dfbbd83de41e230a1747e0c61"
+    },
+    "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh": {
+      "bytes": 14384,
+      "sha256": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5"
+    },
+    "MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh": {
+      "bytes": 3995,
+      "sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f"
+    },
+    "MQL5/Presets/QROS_V224_BOOT_ARMED.set": {
+      "bytes": 273,
+      "sha256": "2b4d9763bc1f18bc30b90d9b9e84b7b6f83fdba5fb890e160e4fd633fee88210"
+    },
+    "MQL5/Presets/QROS_V224_BOOT_CANARY.set": {
+      "bytes": 276,
+      "sha256": "3955ce603d8d8eb0563352bbd3e05b0e315dd8b4edbb64c3f3e577878d8501c7"
+    },
+    "MQL5/Presets/QROS_V224_CERT_DIV3.set": {
+      "bytes": 243,
+      "sha256": "84911b51e9e4c04b2eaa8fc2e8e6dd1ec6f1e6f0417a9a77ab369ca0135d13cf"
+    },
+    "MQL5/Presets/QROS_V224_CERT_NQX.set": {
+      "bytes": 243,
+      "sha256": "a14aa390fc8c6502251dfa22f3361a4163d697c32c005c08590a6cee9854929e"
+    },
+    "MQL5/Presets/QROS_V224_CERT_XAU.set": {
+      "bytes": 240,
+      "sha256": "61fbb8f35121545d29abd7cb49d2f4cb7d002027586ad3e35a94d1a6b4bdde93"
+    },
+    "MQL5/Presets/QROS_V224_DIV3_FORWARD.set": {
+      "bytes": 331,
+      "sha256": "4d5b3544a4adf0d2a2d1fac591cf9a64c87e4e398e8352af1e24b3a91e32fb59"
+    },
+    "MQL5/Presets/QROS_V224_EXEC_ARMED.set": {
+      "bytes": 324,
+      "sha256": "e11f412e28b98f3fcccb0f4a18909f49167d6e4e50f7d6c931d2cadab5969dad"
+    },
+    "MQL5/Presets/QROS_V224_EXEC_UNARMED.set": {
+      "bytes": 292,
+      "sha256": "0716794404aa1850fd72a3ed03ed84056086b04985a2313e05f049de94852705"
+    },
+    "MQL5/Presets/QROS_V224_NQX_FORWARD.set": {
+      "bytes": 214,
+      "sha256": "eeeabee99651e142fecdb0e81bb91cd8816f435526bccb3f2c46796c65509d31"
+    },
+    "MQL5/Presets/QROS_V224_XAU_FORWARD.set": {
+      "bytes": 139,
+      "sha256": "3566a57d089350e21efcf40b980a95133fa8e7aab1859de2c255c2993554b951"
+    },
+    "MQL5/Scripts/QROS_V224_MODULE_CERTIFY.mq5": {
+      "bytes": 3804,
+      "sha256": "5dccb8a5094d024e7f81f811c65e3b1db7f8ee4f7ae66e56dbb10d2422558acf"
+    },
+    "MQL5/Scripts/QROS_V224_RUNTIME_BOOTSTRAP.mq5": {
+      "bytes": 18685,
+      "sha256": "320b42cc5a5387fed0e2cf708d4f33f5b4f380ba75121468fbbf989242c28fa4"
+    },
+    "PACKAGE_MANIFEST_SHA256_V224_C1.json": {
+      "bytes": 5060,
+      "sha256": "b62e031debd8e842665db1b64754cd163f3ce1638223ce973e49adfd2a3b20d8"
+    },
+    "README_V224_CANDIDATE1.md": {
+      "bytes": 2438,
+      "sha256": "3a61abf9f8b7216f14ce493b2599f5ae6120f19e5a466416c693953248c62f1b"
+    }
+  },
+  "checks": {
+    "brace_balance::QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5": {
+      "pass": true,
+      "detail": "320 vs 320"
+    },
+    "no_tabs_nul::QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5": {
+      "pass": true,
+      "detail": ""
+    },
+    "brace_balance::QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5": {
+      "pass": true,
+      "detail": "88 vs 88"
+    },
+    "no_tabs_nul::QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5": {
+      "pass": true,
+      "detail": ""
+    },
+    "brace_balance::QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5": {
+      "pass": true,
+      "detail": "51 vs 51"
+    },
+    "no_tabs_nul::QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5": {
+      "pass": true,
+      "detail": ""
+    },
+    "brace_balance::QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5": {
+      "pass": true,
+      "detail": "68 vs 68"
+    },
+    "no_tabs_nul::QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5": {
+      "pass": true,
+      "detail": ""
+    },
+    "brace_balance::QROS_DEMO_BUS_v2_2_4.mqh": {
+      "pass": true,
+      "detail": "38 vs 38"
+    },
+    "no_tabs_nul::QROS_DEMO_BUS_v2_2_4.mqh": {
+      "pass": true,
+      "detail": ""
+    },
+    "brace_balance::QROS_RISK_KERNEL_APPROVED_v15420.mqh": {
+      "pass": true,
+      "detail": "15 vs 15"
+    },
+    "no_tabs_nul::QROS_RISK_KERNEL_APPROVED_v15420.mqh": {
+      "pass": true,
+      "detail": ""
+    },
+    "brace_balance::QROS_V224_MODULE_CERTIFY.mq5": {
+      "pass": true,
+      "detail": "7 vs 7"
+    },
+    "no_tabs_nul::QROS_V224_MODULE_CERTIFY.mq5": {
+      "pass": true,
+      "detail": ""
+    },
+    "brace_balance::QROS_V224_RUNTIME_BOOTSTRAP.mq5": {
+      "pass": true,
+      "detail": "47 vs 47"
+    },
+    "no_tabs_nul::QROS_V224_RUNTIME_BOOTSTRAP.mq5": {
+      "pass": true,
+      "detail": ""
+    },
+    "risk_0_50_frozen": {
+      "pass": true,
+      "detail": ""
+    },
+    "reserved_cap_1pct_frozen": {
+      "pass": true,
+      "detail": ""
+    },
+    "daily_cap_3_frozen": {
+      "pass": true,
+      "detail": ""
+    },
+    "priority_frozen": {
+      "pass": true,
+      "detail": ""
+    },
+    "demo_only": {
+      "pass": true,
+      "detail": ""
+    },
+    "F01_intent_reserved_before_send": {
+      "pass": true,
+      "detail": ""
+    },
+    "F01_pending_states_exist": {
+      "pass": true,
+      "detail": ""
+    },
+    "F01_orders_scanned": {
+      "pass": true,
+      "detail": ""
+    },
+    "F01_active_intent_asset_lock": {
+      "pass": true,
+      "detail": ""
+    },
+    "F01_daily_reserved_slots": {
+      "pass": true,
+      "detail": ""
+    },
+    "F01_unknown_ack_blocks": {
+      "pass": true,
+      "detail": ""
+    },
+    "F02_modify_retcode_observed": {
+      "pass": true,
+      "detail": ""
+    },
+    "F02_close_retcode_observed": {
+      "pass": true,
+      "detail": ""
+    },
+    "F02_mgmt_persisted": {
+      "pass": true,
+      "detail": ""
+    },
+    "F03_management_runs_despite_entry_fault": {
+      "pass": true,
+      "detail": ""
+    },
+    "F03_fault_classes_separated": {
+      "pass": true,
+      "detail": ""
+    },
+    "F04_persistent_intents": {
+      "pass": true,
+      "detail": ""
+    },
+    "F04_recovery_recert": {
+      "pass": true,
+      "detail": ""
+    },
+    "F04_unprotected_recovery_close": {
+      "pass": true,
+      "detail": ""
+    },
+    "F05_history_failure_fault": {
+      "pass": true,
+      "detail": ""
+    },
+    "F05_dedupe_by_order": {
+      "pass": true,
+      "detail": ""
+    },
+    "F06_session_authority_fail_closed": {
+      "pass": true,
+      "detail": ""
+    },
+    "F06_close_intent_not_direct_bool": {
+      "pass": true,
+      "detail": ""
+    },
+    "F07_slot_invalidated_before_payload": {
+      "pass": true,
+      "detail": ""
+    },
+    "F07_version_double_check": {
+      "pass": true,
+      "detail": ""
+    },
+    "F09_checked_global_writes": {
+      "pass": true,
+      "detail": ""
+    },
+    "F09_head_rollback_detected": {
+      "pass": true,
+      "detail": ""
+    },
+    "F08_executor_file_fence": {
+      "pass": true,
+      "detail": ""
+    },
+    "F08_producer_file_fence": {
+      "pass": true,
+      "detail": ""
+    },
+    "F08_publish_lock_cas": {
+      "pass": true,
+      "detail": ""
+    },
+    "F10_watermark_cohort": {
+      "pass": true,
+      "detail": ""
+    },
+    "F10_close_cancels_pending": {
+      "pass": true,
+      "detail": ""
+    },
+    "F11_event_age": {
+      "pass": true,
+      "detail": ""
+    },
+    "F11_durable_intent_id": {
+      "pass": true,
+      "detail": ""
+    },
+    "F12_initial_risk_floor": {
+      "pass": true,
+      "detail": ""
+    },
+    "F12_post_fill_risk": {
+      "pass": true,
+      "detail": ""
+    },
+    "F12_finite_risk": {
+      "pass": true,
+      "detail": ""
+    },
+    "F13_fresh_tick": {
+      "pass": true,
+      "detail": ""
+    },
+    "F13_reconnect_invalidates_cert": {
+      "pass": true,
+      "detail": ""
+    },
+    "F14_exact_cert_double": {
+      "pass": true,
+      "detail": ""
+    },
+    "F14_cert_binding": {
+      "pass": true,
+      "detail": ""
+    },
+    "F14_receipt_before_latch": {
+      "pass": true,
+      "detail": ""
+    },
+    "F15_offset_2_3_only": {
+      "pass": true,
+      "detail": ""
+    },
+    "F15_transition_invalidates": {
+      "pass": true,
+      "detail": ""
+    },
+    "F16_append_ledger": {
+      "pass": true,
+      "detail": ""
+    },
+    "F16_write_checked": {
+      "pass": true,
+      "detail": ""
+    },
+    "F16_timer_checked": {
+      "pass": true,
+      "detail": ""
+    },
+    "F17_exact_double_guards": {
+      "pass": true,
+      "detail": ""
+    },
+    "F18_stops_freeze": {
+      "pass": true,
+      "detail": ""
+    },
+    "F18_filling_checked": {
+      "pass": true,
+      "detail": ""
+    },
+    "bootstrap_identity::QROS_XAU_M1_DEMO_EMITTER_v2_2_4": {
+      "pass": true,
+      "detail": ""
+    },
+    "bootstrap_identity::QROS_NQX_17_31_DEMO_EMITTER_v2_2_4": {
+      "pass": true,
+      "detail": ""
+    },
+    "bootstrap_identity::QROS_DIV3_R3_DEMO_EMITTER_v2_2_4": {
+      "pass": true,
+      "detail": ""
+    },
+    "bootstrap_flat_positions_orders": {
+      "pass": true,
+      "detail": ""
+    },
+    "bootstrap_fault_health_gates": {
+      "pass": true,
+      "detail": ""
+    },
+    "C3_no_legacy_exec_namespace": {
+      "pass": true,
+      "detail": ""
+    },
+    "C3_no_legacy_div3_progress": {
+      "pass": true,
+      "detail": ""
+    },
+    "C3_unique_arm_token": {
+      "pass": true,
+      "detail": ""
+    },
+    "C3_bootstrap_no_unrelated_chart_close": {
+      "pass": true,
+      "detail": ""
+    },
+    "C3_chart_provision_opt_in": {
+      "pass": true,
+      "detail": ""
+    },
+    "C3_cert_latch_isolated": {
+      "pass": true,
+      "detail": ""
+    },
+    "emitter_parent_available::QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5": {
+      "pass": true,
+      "detail": "SKIP_PARENT_NOT_DISTRIBUTED"
+    },
+    "emitter_parent_available::QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5": {
+      "pass": true,
+      "detail": "SKIP_PARENT_NOT_DISTRIBUTED"
+    },
+    "emitter_parent_available::QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5": {
+      "pass": true,
+      "detail": "SKIP_PARENT_NOT_DISTRIBUTED"
+    }
+  },
+  "scope_note": "Static/source audit only. Does not claim MetaEditor compile, native MT5 semantics, broker behavior, or parity execution."
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "QROS_V224_C3_COMPILE_ONLY_RECEIPT_1.0",
+  "decision": "PASS",
+  "utc": "2026-09-08T13:12:05.0795855Z",
+  "compile": "6/6 PASS 0 errors / 0 warnings",
+  "terminal_restarted": false,
+  "terminal_stopped": false,
+  "terminal_launched": false,
+  "orders_authorized": false,
+  "strategy_tester_executed": false,
+  "runtime_canary_executed": false,
+  "deployment_authorized": false,
+  "next_gate": "NATIVE_PARITY_AND_ISOLATED_MT5_SAFETY_GATES"
+}

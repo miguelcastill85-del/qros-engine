@@ -1,0 +1,45 @@
+{
+  "compiler": {
+    "path": "C:\\QROS_CODEX_HANDOFF_20260828\\qros-engine\\reports\\v224-c3-compile-repair-20260908\\compiler\\metaeditor64.exe",
+    "file_version": "5.0.0.6182",
+    "sha256": "7e4423849749ac118f8b07d7a53781594f4887cb56354eacbd059c6a371e7fbb"
+  },
+  "standard_include": [
+    {
+      "path": "Object.mqh",
+      "bytes": 2036,
+      "sha256": "dfad4fdb6d1bf47cf43fcbc2882e52979459f17a776f75f250a7c32d0623ab35"
+    },
+    {
+      "path": "StdLibErr.mqh",
+      "bytes": 683,
+      "sha256": "04bb2c47b1b04dceb052e6dba1f85e0330c53abc602f341e2ea95ea1498ab28b"
+    },
+    {
+      "path": "Trade/DealInfo.mqh",
+      "bytes": 16313,
+      "sha256": "9d6fb4e7d8754eaee761e43943dc49cdc3a32793ee8438119d939ea7bad71880"
+    },
+    {
+      "path": "Trade/HistoryOrderInfo.mqh",
+      "bytes": 20018,
+      "sha256": "e88f6be450462a045470315887ef751a4510da65a5115325dc88542743fc52f8"
+    },
+    {
+      "path": "Trade/OrderInfo.mqh",
+      "bytes": 22087,
+      "sha256": "d0e479578ef91d2ef1b07ae63d28ae54e15cebb914dd10e5d4510c269a9ca999"
+    },
+    {
+      "path": "Trade/PositionInfo.mqh",
+      "bytes": 15820,
+      "sha256": "dd720b755c7f23dcc109fc81bcf0772b907411d545e4a1117421737bb9ff6897"
+    },
+    {
+      "path": "Trade/Trade.mqh",
+      "bytes": 69541,
+      "sha256": "96e6781624534377fe7971cba52cca3d62d1b030bc10d5e4ebf3ed8c541399ed"
+    }
+  ],
+  "mode": "Native MetaEditor /portable /compile /include /log; no /s, no terminal, no tester"
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "QROS_V224_CANDIDATE3_DECISION_1.0",
+  "state": "DEVELOPMENT_RUNNING",
+  "decision": "OFFLINE_CANDIDATE3_PASS_NATIVE_GATES_PENDING",
+  "deployment_allowed": false,
+  "new_entries_v223_must_remain_paused": true,
+  "offline": {
+    "candidate3": "62 PASS / 0 FAIL",
+    "static": "80 PASS / 0 FAIL",
+    "safety_model": "25 PASS / 0 FAIL"
+  },
+  "critical_improvement": "Candidate 3 isolates all v2.2.4 executor/progress globals in Q24.*, uses a version-specific arm token, and bootstrap no longer closes unrelated charts by default.",
+  "native_mt5": "BLOCKED"
+}

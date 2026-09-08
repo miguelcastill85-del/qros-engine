@@ -1,0 +1,19 @@
+{
+  "schema": "QROS_V224_C3_COMPILE_REPAIR_TEST_MATRIX_1.0",
+  "current": {
+    "native_compile": {
+      "pass": 6,
+      "fail": 0,
+      "target": "0 errors / 0 warnings plus fresh EX5"
+    },
+    "repair_source_evidence_regression": {
+      "pass": 77,
+      "fail": 0
+    },
+    "original_candidate3_offline_static_model": "BLOCKED_MISSING_EXACT_HARNESS",
+    "F01_F18": "PRESERVED_SOURCE_ONLY_NATIVE_VALIDATION_PENDING"
+  },
+  "historical_receipts": "../validation/authority/candidate3_historical_tests/",
+  "later_gates": "V224_BLOCKERS.json",
+  "counts_must_not_be_added_as_unique_runtime_scenarios": true
+}

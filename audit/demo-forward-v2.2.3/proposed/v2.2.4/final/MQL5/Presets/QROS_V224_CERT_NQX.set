@@ -1,0 +1,8 @@
+InpTemplateName=QROS_V224_NQX_NATIVE
+InpReceiptFile=QROS_V224_CERT_NQX.csv
+InpExpectedExpertName=QROS_NQX_17_31_DEMO_EMITTER_v2_2_4
+InpModuleId=2
+InpTimeoutSeconds=600
+InpMaxHeartbeatAgeMs=3000
+InpStableSamples=8
+InpExpectedSourceToken=224102

@@ -1,0 +1,11 @@
+InpArmDemoOrders=false
+InpArmToken=
+InpRiskPctBalance=0.50
+InpMaxReservedRiskPct=1.00
+InpMaxNewEntriesPerServerDay=3
+InpHeartbeatMaxAgeMs=5000
+InpPriorityBufferMs=300
+InpEventMaxAgeMs=300000
+InpSessionCloseLeadSec=0
+InpExpectedCertManifestToken=224223002
+InpAuditPrefix=QROS_V224_EXEC_CANARY

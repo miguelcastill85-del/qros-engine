@@ -1,0 +1,513 @@
+[
+  {
+    "id": "F01",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "ReserveIntent",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1103,
+        "sha256": "96050666d076e0edf8795e2aa449d90a7fbc5a2729ff1da16e8c3cbfaee28549",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "ReconcileIntent",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1387,
+        "sha256": "8a9f47c9b385d1c0112cfce249f1d582cf93798256a39aa25ab5322800c763ef",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "ReservedRiskUsd",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 934,
+        "sha256": "43f6367b5a34f5e39b0d56628baad57e733eb1489bc95895083b8ab370f02865",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "ActiveIntentOnAsset",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 808,
+        "sha256": "872ec39ac7b408795a5762d86118b9238187f0bf7421fa3828df1fa303c321a4",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "ReservedEntrySlotsToday",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1091,
+        "sha256": "7450aecd72b0274c2394ea5878b8e549dd7b6cdcdabf5df21643107fd8160d90",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F02",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "TryMgmtIntent",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1203,
+        "sha256": "6700bab507c53c1366abe614b0e2765a100f08c94f29e50dc8157c6e20fedca0",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "SaveMgmt",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 633,
+        "sha256": "c022cf967b13f775a7e88e2156a8ca48e6923fbe9c90eded2b8947247e7419c8",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "CancelWorkingOrder",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1191,
+        "sha256": "879b7cb06df5b3525b86d7ba4270c01229440926f0a6e415f9dbf649ffca86c0",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F03",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "OnTimer",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 2091,
+        "sha256": "5b2e784686ab3a165cde3389c4c2bfcaae6def9aa50d7ec96bcaa7755fdaf2a1",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "OnTick",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 2111,
+        "sha256": "196dbbfbf50e3ad2afa676b09bca188d1222b3d94ae77680ed17ea979fb6f254",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "SetEntryFault",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 340,
+        "sha256": "cf69b925b0807e3e808600159b54289b5bbfe10d8ae3fa17c255199e2cd8f91b",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "SetMgmtFault",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 364,
+        "sha256": "f9276f1cbd9a9bedd0d576b10b21aa9db862cece40019d4895da95364dfcb8f0",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F04",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "LoadPersistentState",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 733,
+        "sha256": "0dc5e3393c28b79ca8e3dc2fc515452091fcbdfd80c9372ddd74e37f16c2e0cb",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "RecoverUnknownBrokerInventory",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1847,
+        "sha256": "ad9665b740e5ff32339439acb043fd1218010e67ebe18f7e22859eb8237177d7",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "UpdateRecoveryLock",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1937,
+        "sha256": "070e114f6a968a48151cc4984f705e275592654e30256673b69aa8f3a701967e",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F05",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "RebuildDailyCount",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1032,
+        "sha256": "4eea225029f32c2fb60d32e2962b85722a0eef6cc9dbfc8a477f9650d775ad65",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "CountedOrderContains",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 979,
+        "sha256": "67062ce92ebba2b7cd8f7d9bed4b9820b272cc73ee36ea8c3c7431f3f615b984",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F06",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "FinalTradeSessionEndSec",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 203,
+        "sha256": "f1d63f04c30ffefccc81948c2c533ad5cfa56f25c6f16772c210a08973044fcd",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "SessionEntrySafe",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 221,
+        "sha256": "3fc7200bcdd2fa98ba4bc7c4a2284d44709bb81a72905fbf73fb55c499cb9257",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "EnsureNoOvernightIntents",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1689,
+        "sha256": "5b090340e4f3ae31255c37d4800ee4ba7532e19435a248a068564ae52bc88af1",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F07",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "QrosBusPublish",
+        "file": "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+        "line": 319,
+        "sha256": "028581ba02126f2646ab579afac4c5947c877fd6f21ed20f76a85a7ffc19d2b9",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "QrosBusRead",
+        "file": "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+        "line": 380,
+        "sha256": "5439eeef8728845c8705309e596665e5f4a149f48c03e84be0160acb2e4eb30b",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F08",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "AcquireInstanceFence",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 517,
+        "sha256": "1ab2e7a1e5b08893487bcfd92c9cd07bb2bc965266ab4dd1ee48cd1e6450163d",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "QrosBusProducerInit",
+        "file": "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+        "line": 148,
+        "sha256": "3a2d1a739046acda4fe319ccb4e3261765cd7ff4945fa797e9de5b5acd3aff60",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "QrosBusAcquirePublishLock",
+        "file": "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+        "line": 293,
+        "sha256": "b743b94a68788b41717d5ac75ee9fb96016ca3a302dc396983d7dc2081182aae",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F09",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "GvSet",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 243,
+        "sha256": "85027c554da35be91d147015500c75beda5a806d68df3c53024ad0000544997b",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "PollBus",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1761,
+        "sha256": "ec85e9f3b3e2c51827b5ee4615486a916899c36923b7d1e4afe4e0b4ddc7dd90",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "QrosGvSetChecked",
+        "file": "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+        "line": 83,
+        "sha256": "aa77b8b09de9a99f924d95b6d73bf96537cfbcfc0a12c7380453a1676c307e81",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F10",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "CohortReady",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1526,
+        "sha256": "1beada53ae6c874aab5ed4d6094adf653f28ff0f4a9d1132b8a60da3e21bf051",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "SortPending",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1515,
+        "sha256": "92a4b584e2454a6a887a80e2a8a2f4b22928259df43b55420229feb74e5fd2e4",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "CancelPendingEntriesForModule",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1176,
+        "sha256": "01cadda6dfe560407ae0325878baf7de5a41961f11049dde984ad69313436689",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F11",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "EventAgeSafe",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1532,
+        "sha256": "8142469031a6807f3ba8505ee46af619b0cb9cee50b1005a0e7a0949abe73726",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "IntentId",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 766,
+        "sha256": "f4bd236248aeee60a25618a3eae30bf101f228878e4237e78ece1e7d4d68339d",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "FindIntentById",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 779,
+        "sha256": "359af5e8fae206b75e2605d548a13bb8233366b7b5c1bbb1ccfbeed7429d412d",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F12",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "ReservedRiskUsd",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 934,
+        "sha256": "43f6367b5a34f5e39b0d56628baad57e733eb1489bc95895083b8ab370f02865",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "IntentResidualRiskUsd",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 909,
+        "sha256": "35c7c5d6033fb2f5678ee14ad8c14365625fd047c60c55794e6e3ccb4a7536e8",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "CheckPostFillRisk",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1357,
+        "sha256": "8af65f13de9bbb4cde6d6daa06c6c0ec48e1a25e81ff3caf236fba6ccffe3876",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F13",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "FreshExecutableTick",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 453,
+        "sha256": "84b5c0588f9588b950f7bbbcf4255b60e18ac800181e930bcc1f157835dd7f66",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "ContinuousSafetyGate",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1978,
+        "sha256": "426bfb4dd6d165825d7d96f697b328c86a1d9be272343ee603d0fce2afd2d3b9",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "EntryTradeGate",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 387,
+        "sha256": "cd4ba9d0fbd98687d7a141741af00e95219dc4e1e3c6ceafaa171afbec0676b4",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F14",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "RuntimeCertified",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 409,
+        "sha256": "aeb13d83450259e53667e278b3dba30e34b0347b3a2d73e042d3ecb2d4447e6b",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "ProducersHealthyAndBound",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1958,
+        "sha256": "7be8d7d29ef1f7265a840790f31a2132b85a5af3fbedbefa946a1fb4a29d0981",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "InvalidateCert",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 321,
+        "sha256": "e337f024f33049450d2f0afd589e008e40732feb6fac36a4e5954540edf0e78b",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F15",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "CurrentOffsetSec",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 229,
+        "sha256": "785b043af04564748defc6118b11f5f901120264f071ab62c87694417371d0a5",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "ContinuousSafetyGate",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1978,
+        "sha256": "426bfb4dd6d165825d7d96f697b328c86a1d9be272343ee603d0fce2afd2d3b9",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "RequireRecert",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 327,
+        "sha256": "de011188c8caacc8d6c40ff75cf2ed3b99367751f6fede835f2e427582e4d7f3",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F16",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "OpenAppendLedger",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 548,
+        "sha256": "27f7e6626c7ba22e4095994513cac8fc99488d9676859f10a6b60a2a9c9b6210",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "LogRow",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 563,
+        "sha256": "5eb8f9d3647627dc8e51bb600ab563c3d48e8c5732a715af10c5c9684b8f671f",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "OnInit",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 2026,
+        "sha256": "4274d9923379be9044b07040979f6384db34994c4611de2abd8783d75437580d",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F17",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "ExactLongForDouble",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 177,
+        "sha256": "e69792fef501536dd318a88af1fc5f9cd2b1a038f519ca3664ad8f38f571f778",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "GvGetExactLong",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 259,
+        "sha256": "060d52379b3e280f583db317baca21aac51e468d49c0bf1d9510edc73dc97010",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "QrosBusExactInteger",
+        "file": "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+        "line": 58,
+        "sha256": "182a5c8ec7eebbefd8f8d19679e2ba0733fdadf4ab13c800a1af6858d76cd6f9",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  },
+  {
+    "id": "F18",
+    "status": "PRESERVED_SOURCE_ONLY",
+    "functions": [
+      {
+        "function": "BarriersTradableBuy",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 461,
+        "sha256": "add14c533ecc8c25f3fb8ae5575738065ba80454064e9c27b1a9a394ffee851c",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "ProtectionAtLeastRequestedBuy",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 478,
+        "sha256": "2b36841f5135f0852c9b8d9b15d37bca34b12e5173e6f42fe999bd3935891692",
+        "identical_to_original_candidate3": true
+      },
+      {
+        "function": "SendEntry",
+        "file": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "line": 1562,
+        "sha256": "733b59cfcdcb85c9b148f2aa5205d95ce2fc54eaaa328c9ce718b62bac8fda34",
+        "identical_to_original_candidate3": true
+      }
+    ],
+    "native_adversarial_validation": "PENDING"
+  }
+]

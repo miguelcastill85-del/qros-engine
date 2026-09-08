@@ -1,0 +1,8 @@
+InpTemplateName=QROS_V224_XAU_NATIVE
+InpReceiptFile=QROS_V224_CERT_XAU.csv
+InpExpectedExpertName=QROS_XAU_M1_DEMO_EMITTER_v2_2_4
+InpModuleId=1
+InpTimeoutSeconds=300
+InpMaxHeartbeatAgeMs=3000
+InpStableSamples=8
+InpExpectedSourceToken=224101

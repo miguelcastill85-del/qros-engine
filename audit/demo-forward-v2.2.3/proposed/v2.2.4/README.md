@@ -1,3 +1,17 @@
+# Checkpoint actual de Candidate 3 (2026-09-08)
+
+El executor completo reparado, los otros sources exactos y seis EX5 están en
+[final/](final/REPAIR_REPORT.md). MetaEditor 6182: **6/6 PASS 0/0**. Regresión de
+reparación: **77/77**. Estado **DEVELOPMENT_BLOCKED** por ausencia de los tres
+harnesses originales de Candidate 3, necesaria para su revalidación offline.
+Sin aprobación final ni permiso de deployment. El checkpoint de origen permanece
+intacto; la continuación está en `CANDIDATE3_COMPILE_REPAIR_CHECKPOINT.json`.
+
+La propuesta parcial descrita debajo se conserva como historia. No corresponde
+al source completo importado en `final/` ni a su resultado de compilación actual.
+
+---
+
 # Propuesta parcial v2.2.4 — NO DESPLEGABLE
 
 `INFERRED`: este directorio contiene una propuesta de contención derivada únicamente del executor congelado cuyo SHA-256 es `106d6890542e71dd3a1c6b90838e87664fa1a66fe576e713ceb7b52acce20d43`. No constituye una versión aceptada, compilada ni apta para reemplazar el MT5 operativo.

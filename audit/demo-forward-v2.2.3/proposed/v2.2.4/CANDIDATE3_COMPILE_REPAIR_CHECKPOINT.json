@@ -1,0 +1,121 @@
+{
+  "schema": "QROS_V224_C3_COMPILE_REPAIR_CHECKPOINT_1.0",
+  "utc": "2026-09-08T13:21:13.792055+00:00",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "base_commit": "e395c072832782cb7727bfbcdf56b52c013aec68",
+  "state": "DEVELOPMENT_BLOCKED",
+  "decision": "COMPILE_ONLY_PASS_OFFLINE_REVALIDATION_BLOCKED",
+  "source_sha256": {
+    "QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5": "8e285c67f2dc1a69ed84496c279bf14b394a6f597930f133bcf8badfdd0e0ffe",
+    "QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5": "2096a36c8ca372265fb688601a82b859615d4b3507256e19cfd7b31c579aa133",
+    "QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5": "e2ee32a59ded624fae32ea8534fcdd6ac234009dfbbd83de41e230a1747e0c61",
+    "QROS_DEMO_BUS_v2_2_4.mqh": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "QROS_RISK_KERNEL_APPROVED_v15420.mqh": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "QROS_V224_MODULE_CERTIFY.mq5": "5dccb8a5094d024e7f81f811c65e3b1db7f8ee4f7ae66e56dbb10d2422558acf",
+    "QROS_V224_RUNTIME_BOOTSTRAP.mq5": "320b42cc5a5387fed0e2cf708d4f33f5b4f380ba75121468fbbf989242c28fa4"
+  },
+  "ex5_sha256": {
+    "QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.ex5": "cace12ac64107af418160762ea05348d61616ff9aa0b5d9c2523c76fff4c741f",
+    "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.ex5": "43811d5e36bd86a7d4d3ac4f1c2f0b7c9843768449a59e634ca5f1b26e177f70",
+    "QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.ex5": "33a9232f7e032fae2c148fdb735e7d1518c5691529502a407800471eb109e821",
+    "QROS_XAU_M1_DEMO_EMITTER_v2_2_4.ex5": "a5652f2f3b5162bb0ded6ab592523d783c85b6535c9218f70129014469b59f79",
+    "QROS_V224_MODULE_CERTIFY.ex5": "4be24f1e89f4962268676206ffb5817057b4b49089297f528018e9eac86a785b",
+    "QROS_V224_RUNTIME_BOOTSTRAP.ex5": "a189509585d868dad8baa055dad6a9334f2475b5f1311e3671d757480b540ea6"
+  },
+  "compiler_sha256": "7e4423849749ac118f8b07d7a53781594f4887cb56354eacbd059c6a371e7fbb",
+  "compile": "6/6 PASS 0/0",
+  "offline_repair_checks": {
+    "PASS": 77,
+    "FAIL": 0,
+    "TOTAL": 77
+  },
+  "blockers": [
+    {
+      "id": "B_OFFLINE",
+      "phase": "CURRENT_OFFLINE_REVALIDATION",
+      "status": "BLOCKED_MISSING_EXACT_HARNESS",
+      "detail": "Exact Candidate3 62-case offline, 80-check static and 25-case safety-model scripts are missing from both supplied hash-bound packages; receipts cannot be rerun.",
+      "required": [
+        {
+          "name": "run_v224_candidate3_offline.py",
+          "expected_sha256": "27a7ccc97b42bea6f558fb043c57ebede74b8990aae648b2144ff04cd28e1790",
+          "status": "BLOCKED_MISSING_EXACT_HARNESS"
+        },
+        {
+          "name": "run_v224_candidate3_static_audit.py",
+          "expected_sha256": "8dc7357077e1d693be3192d162bf64e140e03c5831716bf41a32e725bc8ba5c6",
+          "status": "BLOCKED_MISSING_EXACT_HARNESS"
+        },
+        {
+          "name": "run_v224_safety_model.py",
+          "expected_sha256": "3cb16721a1a436bdaf5b11d785160c609eaa7e1ef845a22e6581d03ce86de61d",
+          "status": "BLOCKED_MISSING_EXACT_HARNESS"
+        }
+      ]
+    },
+    {
+      "id": "B_CTRADE",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Real isolated CTrade rejection/placed/partial/lost ACK, modify/close rejection, reconnect.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_RESTART",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Restart with position and working/partial order; durable reconciliation.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_FENCING",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Two-terminal fencing/ownership.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_SESSION",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Darwinex DST/session cutoff and authoritative session-close lead; InpSessionCloseLeadSec remains 0, fail-closed.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_PARITY",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Parent-child trade-by-trade parity XAU/NQX/DIV3.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_CONTROLLER",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Canonical controller 977/977 on Candidate3 runtime path.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_MODULE_CERTS",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Module certs XAU/NQX/DIV3.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_CANARY",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Combined canary with orders disabled.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_START_RECEIPT",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "START_RECEIPT materialized and verified.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_ARMED_CERT",
+      "phase": "LATER_AUTHORIZATION_GATE",
+      "detail": "Armed CERT=1 only after all preceding gates and separate authorization. Forbidden in this repair phase.",
+      "status": "PENDING_NOT_EXECUTED"
+    }
+  ],
+  "deployment_allowed": false,
+  "original_checkpoint_preserved": "CANDIDATE3_CHECKPOINT.json",
+  "final_package": "final/"
+}

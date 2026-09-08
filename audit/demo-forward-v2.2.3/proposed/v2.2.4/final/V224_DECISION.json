@@ -1,0 +1,25 @@
+{
+  "schema": "QROS_V224_C3_COMPILE_REPAIR_DECISION_1.0",
+  "utc": "2026-09-08T13:21:13.792055+00:00",
+  "state": "DEVELOPMENT_BLOCKED",
+  "decision": "COMPILE_ONLY_PASS_OFFLINE_REVALIDATION_BLOCKED",
+  "maximum_state_allowed": "FROZEN_CANDIDATE",
+  "frozen_candidate_declared": false,
+  "approved_final": false,
+  "compile": "6/6 PASS 0 errors / 0 warnings",
+  "repair_regression": {
+    "PASS": 77,
+    "FAIL": 0,
+    "TOTAL": 77
+  },
+  "historical_candidate3_offline_rerun": "BLOCKED_MISSING_EXACT_HARNESS",
+  "deployment_allowed": false,
+  "orders_authorized": false,
+  "candidate_activated": false,
+  "terminal_stopped": false,
+  "terminal_restarted": false,
+  "terminal_launched": false,
+  "v223_cert_write_performed": false,
+  "v223_new_entries": "MUST_REMAIN_PAUSED_QDB1_EXEC_CERT_0",
+  "next_action": "Recover the three exact harnesses by their recorded SHA-256, inspect them and rerun offline on these final bytes. Subsequent native/runtime gates require a separate phase."
+}

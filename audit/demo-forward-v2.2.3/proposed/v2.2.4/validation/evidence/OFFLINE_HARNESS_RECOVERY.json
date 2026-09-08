@@ -1,0 +1,122 @@
+{
+  "schema": "QROS_V224_EXACT_HARNESS_RECOVERY_1.0",
+  "packages": [
+    {
+      "path": "C:\\Users\\makk7\\Downloads\\QROS_DARWINEX_DEMO_V224_CANDIDATE3.zip",
+      "bytes": 67215,
+      "sha256": "e47b85c96fd1a91aa1f62c0d8f64538ec2baadaa56af483ae03804b571f968fa",
+      "crc": "PASS",
+      "members": [
+        "EVIDENCE/QROS_V224_CANDIDATE3_OFFLINE_TEST_RESULTS.json",
+        "EVIDENCE/QROS_V224_CANDIDATE3_STATIC_AUDIT.json",
+        "EVIDENCE/QROS_V224_SAFETY_MODEL_RESULT.json",
+        "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+        "MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+        "MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+        "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+        "MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+        "MQL5/Presets/QROS_V224_BOOT_ARMED.set",
+        "MQL5/Presets/QROS_V224_BOOT_CANARY.set",
+        "MQL5/Presets/QROS_V224_CERT_DIV3.set",
+        "MQL5/Presets/QROS_V224_CERT_NQX.set",
+        "MQL5/Presets/QROS_V224_CERT_XAU.set",
+        "MQL5/Presets/QROS_V224_DIV3_FORWARD.set",
+        "MQL5/Presets/QROS_V224_EXEC_ARMED.set",
+        "MQL5/Presets/QROS_V224_EXEC_UNARMED.set",
+        "MQL5/Presets/QROS_V224_NQX_FORWARD.set",
+        "MQL5/Presets/QROS_V224_XAU_FORWARD.set",
+        "MQL5/Scripts/QROS_V224_MODULE_CERTIFY.mq5",
+        "MQL5/Scripts/QROS_V224_RUNTIME_BOOTSTRAP.mq5",
+        "V224_BLOCKERS.json",
+        "V224_BUS_PROTOCOL.md",
+        "V224_CERT_CONTRACT.md",
+        "V224_CHANGELOG.md",
+        "V224_DECISION.json",
+        "V224_LEDGER_SCHEMA.md",
+        "V224_MANIFEST_SHA256.json",
+        "V224_OFFLINE_TEST_RESULTS.json",
+        "V224_RECOVERY_PROTOCOL.md",
+        "V224_STATE_MACHINE.md",
+        "V224_TEST_MATRIX.json"
+      ],
+      "required_harness_matches": []
+    },
+    {
+      "path": "C:\\Users\\makk7\\Downloads\\QROS_V224_C3_COMPILE_ONLY_VALIDATION.zip",
+      "bytes": 61816,
+      "sha256": "d8a902d2539fc4690a94b5f6103e4a1cd193a72ad4bd4e4ef9a5cecaa303a6f2",
+      "crc": "PASS",
+      "members": [
+        "EJECUTAR_QROS_V224_C3_COMPILE_ONLY.bat",
+        "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+        "MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+        "MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+        "MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+        "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+        "MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+        "MQL5/Presets/QROS_V224_BOOT_ARMED.set",
+        "MQL5/Presets/QROS_V224_BOOT_CANARY.set",
+        "MQL5/Presets/QROS_V224_CERT_DIV3.set",
+        "MQL5/Presets/QROS_V224_CERT_NQX.set",
+        "MQL5/Presets/QROS_V224_CERT_XAU.set",
+        "MQL5/Presets/QROS_V224_DIV3_FORWARD.set",
+        "MQL5/Presets/QROS_V224_EXEC_ARMED.set",
+        "MQL5/Presets/QROS_V224_EXEC_UNARMED.set",
+        "MQL5/Presets/QROS_V224_NQX_FORWARD.set",
+        "MQL5/Presets/QROS_V224_XAU_FORWARD.set",
+        "MQL5/Scripts/QROS_V224_MODULE_CERTIFY.mq5",
+        "MQL5/Scripts/QROS_V224_RUNTIME_BOOTSTRAP.mq5",
+        "PACKAGE_MANIFEST.json",
+        "QROS_V224_C3_COMPILE_ONLY.ps1",
+        "V224_BLOCKERS.json",
+        "V224_CHANGELOG.md",
+        "V224_DECISION.json",
+        "V224_MANIFEST_SHA256.json",
+        "V224_OFFLINE_TEST_RESULTS.json",
+        "V224_TEST_MATRIX.json"
+      ],
+      "required_harness_matches": []
+    }
+  ],
+  "attempts": [
+    {
+      "command": [
+        "C:\\Users\\makk7\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "C:\\QROS_DARWINEX_DEMO_V224_CANDIDATE3\\AUTHORITY\\run_v224_candidate3_offline.py"
+      ],
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "C:\\Users\\makk7\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe: can't open file 'C:\\\\QROS_DARWINEX_DEMO_V224_CANDIDATE3\\\\AUTHORITY\\\\run_v224_candidate3_offline.py': [Errno 2] No such file or directory\n",
+      "status": "BLOCKED_MISSING_EXACT_HARNESS"
+    },
+    {
+      "command": [
+        "C:\\Users\\makk7\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "C:\\QROS_DARWINEX_DEMO_V224_CANDIDATE3\\AUTHORITY\\run_v224_candidate3_static_audit.py"
+      ],
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "C:\\Users\\makk7\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe: can't open file 'C:\\\\QROS_DARWINEX_DEMO_V224_CANDIDATE3\\\\AUTHORITY\\\\run_v224_candidate3_static_audit.py': [Errno 2] No such file or directory\n",
+      "status": "BLOCKED_MISSING_EXACT_HARNESS"
+    },
+    {
+      "command": [
+        "C:\\Users\\makk7\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "C:\\QROS_DARWINEX_DEMO_V224_CANDIDATE3\\AUTHORITY\\run_v224_safety_model.py"
+      ],
+      "exit_code": 2,
+      "stdout": "",
+      "stderr": "C:\\Users\\makk7\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe: can't open file 'C:\\\\QROS_DARWINEX_DEMO_V224_CANDIDATE3\\\\AUTHORITY\\\\run_v224_safety_model.py': [Errno 2] No such file or directory\n",
+      "status": "BLOCKED_MISSING_EXACT_HARNESS"
+    }
+  ],
+  "searched_roots": [
+    "provided physical Candidate3 extraction",
+    "provided runtime extraction",
+    "repository including ignored files",
+    "Downloads",
+    "Documents"
+  ],
+  "not_claimed": "No assertion of whole-host absence; both hash-bound supplied archives omit the three original scripts."
+}

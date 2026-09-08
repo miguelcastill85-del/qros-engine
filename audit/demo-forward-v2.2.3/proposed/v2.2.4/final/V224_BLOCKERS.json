@@ -1,0 +1,93 @@
+{
+  "schema": "QROS_V224_C3_COMPILE_REPAIR_BLOCKERS_1.0",
+  "state": "DEVELOPMENT_BLOCKED",
+  "deployment_allowed": false,
+  "resolved_this_turn": [
+    "MetaEditor 6182 compile 6/6, 0 errors / 0 warnings"
+  ],
+  "blockers": [
+    {
+      "id": "B_OFFLINE",
+      "phase": "CURRENT_OFFLINE_REVALIDATION",
+      "status": "BLOCKED_MISSING_EXACT_HARNESS",
+      "detail": "Exact Candidate3 62-case offline, 80-check static and 25-case safety-model scripts are missing from both supplied hash-bound packages; receipts cannot be rerun.",
+      "required": [
+        {
+          "name": "run_v224_candidate3_offline.py",
+          "expected_sha256": "27a7ccc97b42bea6f558fb043c57ebede74b8990aae648b2144ff04cd28e1790",
+          "status": "BLOCKED_MISSING_EXACT_HARNESS"
+        },
+        {
+          "name": "run_v224_candidate3_static_audit.py",
+          "expected_sha256": "8dc7357077e1d693be3192d162bf64e140e03c5831716bf41a32e725bc8ba5c6",
+          "status": "BLOCKED_MISSING_EXACT_HARNESS"
+        },
+        {
+          "name": "run_v224_safety_model.py",
+          "expected_sha256": "3cb16721a1a436bdaf5b11d785160c609eaa7e1ef845a22e6581d03ce86de61d",
+          "status": "BLOCKED_MISSING_EXACT_HARNESS"
+        }
+      ]
+    },
+    {
+      "id": "B_CTRADE",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Real isolated CTrade rejection/placed/partial/lost ACK, modify/close rejection, reconnect.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_RESTART",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Restart with position and working/partial order; durable reconciliation.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_FENCING",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Two-terminal fencing/ownership.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_SESSION",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Darwinex DST/session cutoff and authoritative session-close lead; InpSessionCloseLeadSec remains 0, fail-closed.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_PARITY",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Parent-child trade-by-trade parity XAU/NQX/DIV3.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_CONTROLLER",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Canonical controller 977/977 on Candidate3 runtime path.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_MODULE_CERTS",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Module certs XAU/NQX/DIV3.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_CANARY",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "Combined canary with orders disabled.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_START_RECEIPT",
+      "phase": "LATER_NATIVE_GATE",
+      "detail": "START_RECEIPT materialized and verified.",
+      "status": "PENDING_NOT_EXECUTED"
+    },
+    {
+      "id": "B_ARMED_CERT",
+      "phase": "LATER_AUTHORIZATION_GATE",
+      "detail": "Armed CERT=1 only after all preceding gates and separate authorization. Forbidden in this repair phase.",
+      "status": "PENDING_NOT_EXECUTED"
+    }
+  ]
+}

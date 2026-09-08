@@ -1,0 +1,45 @@
+--- QROS_NQX_17_31_DEMO_EMITTER_v2.mq5
++++ QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5
+@@ -1,5 +1,5 @@
+ #property strict
+-#property version   "5.00"
++#property version "2.24"
+ #property description "QROS NQX Multiscale 17/31 production-shadow candidate. NO REAL ORDERS."
+ #property description "PnL-blind medoids 17/31; exact v6 causal mechanics + approved risk diagnostics."
+ 
+@@ -21,7 +21,8 @@
+ #define OPT_RET8   2
+ #define OPT_DISTLO 3
+ #include <QROS_RISK_KERNEL_APPROVED_v15420.mqh>
+-#include <QROS_DEMO_BUS_v2.mqh>
++#include <QROS_DEMO_BUS_v2_2_4.mqh>
++const long QROS_V224_EMITTER_SOURCE_TOKEN=224102;
+ 
+ struct ConfigDef
+ {
+@@ -356,6 +357,8 @@
+    if(!MQLInfoInteger(MQL_TESTER))
+    {
+       if(_Symbol!="NDX"){Print("QROS NQX emitter requires NDX");return INIT_PARAMETERS_INCORRECT;}
++      if(!QrosBusProducerInit(QROS_MOD_NQX)){Print("QROS NQX producer fencing failed");return INIT_FAILED;}
++      if(!QrosGvSetChecked(QrosBusKey(QROS_MOD_NQX,"SOURCE_TOKEN"),(double)QROS_V224_EMITTER_SOURCE_TOKEN)){QrosBusProducerRelease();return INIT_FAILED;}
+       QrosBusSetState(QROS_MOD_NQX,QROS_STATE_INIT);
+       QrosBusHeartbeat(QROS_MOD_NQX);
+    }
+@@ -431,7 +434,7 @@
+ void OnTick()
+ {
+    if(!MQLInfoInteger(MQL_TESTER)) QrosBusHeartbeat(QROS_MOD_NQX);
+-   MqlTick tick;if(!SymbolInfoTick(_Symbol,tick))return;g_ticks_total++;if((tick.flags&TICK_FLAG_BID)!=0)g_ticks_bidflag++;if((tick.flags&TICK_FLAG_ASK)!=0)g_ticks_askflag++;if(tick.ask==tick.bid)g_ticks_zero++;if(tick.ask<tick.bid)g_ticks_crossed++;
++   MqlTick tick;if(!SymbolInfoTick(_Symbol,tick))return;if(!MQLInfoInteger(MQL_TESTER)) QrosBusWatermark(QROS_MOD_NQX,tick.time_msc);g_ticks_total++;if((tick.flags&TICK_FLAG_BID)!=0)g_ticks_bidflag++;if((tick.flags&TICK_FLAG_ASK)!=0)g_ticks_askflag++;if(tick.ask==tick.bid)g_ticks_zero++;if(tick.ask<tick.bid)g_ticks_crossed++;
+    if(!ForwardProspectiveMode && !AtOrBeforeResearchEnd(tick)){if(!g_end_closed){CloseAllAtLastExecutable();g_end_closed=true;}return;}
+    HandleDayChange(tick);bool exec=(tick.ask>tick.bid);if(exec){g_ticks_exec++;g_last_exec_bid=tick.bid;g_last_exec_ms=tick.time_msc;}
+    datetime h1=iTime(_Symbol,PERIOD_H1,0);if(h1!=0&&h1!=g_last_h1_bar){UpdateH1ClosedBar();g_last_h1_bar=h1;}
+@@ -450,6 +453,7 @@
+    {
+       EventKillTimer();
+       QrosBusSetState(QROS_MOD_NQX,QROS_STATE_OFF);
++      QrosBusProducerRelease();
+    }
+    if(!g_end_closed) CloseAllAtLastExecutable();
+    if(g_env!=INVALID_HANDLE)

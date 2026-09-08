@@ -1,0 +1,12 @@
+ResearchYear=2026
+WarmupYear=2025
+OutputPrefix=QROS_V224_NQX_FORWARD
+RiskPctBalance=0.50
+UseCommonFolder=true
+EndMonth=7
+EndDay=27
+EndHour=9
+EndMinute=11
+EndSecond=12
+EndMillisecond=709
+ForwardProspectiveMode=true

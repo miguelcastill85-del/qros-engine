@@ -1,0 +1,22 @@
+{
+  "schema": "QROS_V224_C3_COMPILE_PACKAGE_1.0",
+  "expected_sources": {
+    "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5": "e2ee32a59ded624fae32ea8534fcdd6ac234009dfbbd83de41e230a1747e0c61",
+    "MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5": "2096a36c8ca372265fb688601a82b859615d4b3507256e19cfd7b31c579aa133",
+    "MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5": "8e285c67f2dc1a69ed84496c279bf14b394a6f597930f133bcf8badfdd0e0ffe",
+    "MQL5/Scripts/QROS_V224_RUNTIME_BOOTSTRAP.mq5": "320b42cc5a5387fed0e2cf708d4f33f5b4f380ba75121468fbbf989242c28fa4",
+    "MQL5/Scripts/QROS_V224_MODULE_CERTIFY.mq5": "5dccb8a5094d024e7f81f811c65e3b1db7f8ee4f7ae66e56dbb10d2422558acf"
+  },
+  "safety": {
+    "terminal_stop": false,
+    "terminal_restart": false,
+    "terminal_launch": false,
+    "orders": false,
+    "tester": false,
+    "runtime_canary": false
+  },
+  "repair_scope": "Only two fixed-capacity const int declarations replaced by #define, both still 32."
+}

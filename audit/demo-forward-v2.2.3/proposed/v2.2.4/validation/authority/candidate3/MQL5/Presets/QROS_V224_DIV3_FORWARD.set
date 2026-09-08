@@ -1,0 +1,13 @@
+InpForwardProspectiveMode=true
+InpHistoryStartYear=2018
+InpHistoryStartMonth=1
+InpHistoryStartDay=25
+InpValidationStartYear=2022
+InpValidationStartMonth=1
+InpValidationStartDay=1
+InpValidationEndYear=2025
+InpValidationEndMonth=1
+InpValidationEndDay=1
+InpResearchUnit=0.1
+InpWriteFullBarAudit=false
+InpPrefix=QROS_V224_DIV3_FORWARD

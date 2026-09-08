@@ -1,0 +1,44 @@
+[
+  {
+    "name": "QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+    "kind": "Expert",
+    "exit_code": 1,
+    "pass": true,
+    "log_sha256": "72f8e6f2113999523b5cd212c8405d309a4a192bad33539d3fd96f31cd3c0d37"
+  },
+  {
+    "name": "QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+    "kind": "Expert",
+    "exit_code": 1,
+    "pass": true,
+    "log_sha256": "6b2c2dac6d31d48f5757e93de5704f027350c21d22a9fcd633291e9a26930ddf"
+  },
+  {
+    "name": "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+    "kind": "Expert",
+    "exit_code": 1,
+    "pass": true,
+    "log_sha256": "b058f193f9b4d692b56fcc78630795cd18b18d34cb85e7f7e6370ab98c313131"
+  },
+  {
+    "name": "QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+    "kind": "Expert",
+    "exit_code": 1,
+    "pass": true,
+    "log_sha256": "04902e373c553818bd3a32113a3f5efa7bff27237e9ac87455e653a1522ca57c"
+  },
+  {
+    "name": "QROS_V224_MODULE_CERTIFY.mq5",
+    "kind": "Script",
+    "exit_code": 1,
+    "pass": true,
+    "log_sha256": "f7d296e49952c16ea05b27476c2f7d371637e69f9ea422493942cf136dd18a10"
+  },
+  {
+    "name": "QROS_V224_RUNTIME_BOOTSTRAP.mq5",
+    "kind": "Script",
+    "exit_code": 1,
+    "pass": true,
+    "log_sha256": "425d2a70ba17780b22982415558ff78aa5c8b19370f9b0f646a5e895929c6300"
+  }
+]

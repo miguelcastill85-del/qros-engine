@@ -1,0 +1,16 @@
+{
+  "schema": "QROS_V224_CANDIDATE3_BLOCKERS_1.0",
+  "state": "DEVELOPMENT_RUNNING",
+  "deployment_allowed": false,
+  "blockers": [
+    "MetaEditor build 6182 compile 0 errors / 0 warnings not yet executed for Candidate 3",
+    "Native CTrade placed/partial/reject/lost-ACK semantics not yet exercised",
+    "Authoritative Darwinex session-close lead InpSessionCloseLeadSec still 0 and therefore fail-closed",
+    "Native restart with open position and working/partial order pending",
+    "Two-terminal ownership/fencing native test pending",
+    "DST UTC+2/UTC+3 transition native test pending",
+    "Parent-child trade-by-trade parity XAU/NQX/DIV3 pending",
+    "Controller canonical parity 977/977 pending on Candidate 3 runtime path",
+    "Module certificates, combined canary, START_RECEIPT and armed CERT=1 pending"
+  ]
+}

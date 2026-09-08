@@ -1,0 +1,10 @@
+InpMaxWaitSeconds=1800
+InpHeartbeatMaxAgeMs=5000
+InpFreshTickMaxAgeSec=60
+InpRequiredBuild=6182
+InpExpectedArmed=0
+InpExpectedManifestToken=224223002
+InpResultFile=QROS_V224_RUNTIME_CANARY.csv
+InpCertReceiptFile=QROS_V224_CERT_RECEIPT_CANARY.csv
+
+InpAllowChartProvision=false

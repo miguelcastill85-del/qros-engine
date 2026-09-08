@@ -1,0 +1,160 @@
+{
+  "schema": "QROS_V224_CANDIDATE3_MANIFEST_SHA256_1.0",
+  "files": [
+    {
+      "path": "EVIDENCE/QROS_V224_CANDIDATE3_OFFLINE_TEST_RESULTS.json",
+      "bytes": 13756,
+      "sha256": "135b5f725f49b154161dcd21e82161707366fe65023e4ab0b0f6fea7a2b3eb28"
+    },
+    {
+      "path": "EVIDENCE/QROS_V224_CANDIDATE3_STATIC_AUDIT.json",
+      "bytes": 12984,
+      "sha256": "4d79ee7515406d79e0c01f45afb127943768f0be73d5cd065dc2d2d078471655"
+    },
+    {
+      "path": "EVIDENCE/QROS_V224_SAFETY_MODEL_RESULT.json",
+      "bytes": 1998,
+      "sha256": "014727687aec7755b7da641bdeb9af2e8ef2d74a3bdf35c23687581518ecdd8b"
+    },
+    {
+      "path": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+      "bytes": 85137,
+      "sha256": "e16486ff1b0972eddc36711870240b6ae975d6cb2f6c32ecd76086f2cdf0e363"
+    },
+    {
+      "path": "MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+      "bytes": 21594,
+      "sha256": "8e285c67f2dc1a69ed84496c279bf14b394a6f597930f133bcf8badfdd0e0ffe"
+    },
+    {
+      "path": "MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+      "bytes": 20154,
+      "sha256": "2096a36c8ca372265fb688601a82b859615d4b3507256e19cfd7b31c579aa133"
+    },
+    {
+      "path": "MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+      "bytes": 15515,
+      "sha256": "e2ee32a59ded624fae32ea8534fcdd6ac234009dfbbd83de41e230a1747e0c61"
+    },
+    {
+      "path": "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+      "bytes": 14384,
+      "sha256": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5"
+    },
+    {
+      "path": "MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+      "bytes": 3995,
+      "sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f"
+    },
+    {
+      "path": "MQL5/Presets/QROS_V224_BOOT_ARMED.set",
+      "bytes": 273,
+      "sha256": "2b4d9763bc1f18bc30b90d9b9e84b7b6f83fdba5fb890e160e4fd633fee88210"
+    },
+    {
+      "path": "MQL5/Presets/QROS_V224_BOOT_CANARY.set",
+      "bytes": 276,
+      "sha256": "3955ce603d8d8eb0563352bbd3e05b0e315dd8b4edbb64c3f3e577878d8501c7"
+    },
+    {
+      "path": "MQL5/Presets/QROS_V224_CERT_DIV3.set",
+      "bytes": 243,
+      "sha256": "84911b51e9e4c04b2eaa8fc2e8e6dd1ec6f1e6f0417a9a77ab369ca0135d13cf"
+    },
+    {
+      "path": "MQL5/Presets/QROS_V224_CERT_NQX.set",
+      "bytes": 243,
+      "sha256": "a14aa390fc8c6502251dfa22f3361a4163d697c32c005c08590a6cee9854929e"
+    },
+    {
+      "path": "MQL5/Presets/QROS_V224_CERT_XAU.set",
+      "bytes": 240,
+      "sha256": "61fbb8f35121545d29abd7cb49d2f4cb7d002027586ad3e35a94d1a6b4bdde93"
+    },
+    {
+      "path": "MQL5/Presets/QROS_V224_DIV3_FORWARD.set",
+      "bytes": 331,
+      "sha256": "4d5b3544a4adf0d2a2d1fac591cf9a64c87e4e398e8352af1e24b3a91e32fb59"
+    },
+    {
+      "path": "MQL5/Presets/QROS_V224_EXEC_ARMED.set",
+      "bytes": 324,
+      "sha256": "e11f412e28b98f3fcccb0f4a18909f49167d6e4e50f7d6c931d2cadab5969dad"
+    },
+    {
+      "path": "MQL5/Presets/QROS_V224_EXEC_UNARMED.set",
+      "bytes": 292,
+      "sha256": "0716794404aa1850fd72a3ed03ed84056086b04985a2313e05f049de94852705"
+    },
+    {
+      "path": "MQL5/Presets/QROS_V224_NQX_FORWARD.set",
+      "bytes": 214,
+      "sha256": "eeeabee99651e142fecdb0e81bb91cd8816f435526bccb3f2c46796c65509d31"
+    },
+    {
+      "path": "MQL5/Presets/QROS_V224_XAU_FORWARD.set",
+      "bytes": 139,
+      "sha256": "3566a57d089350e21efcf40b980a95133fa8e7aab1859de2c255c2993554b951"
+    },
+    {
+      "path": "MQL5/Scripts/QROS_V224_MODULE_CERTIFY.mq5",
+      "bytes": 3804,
+      "sha256": "5dccb8a5094d024e7f81f811c65e3b1db7f8ee4f7ae66e56dbb10d2422558acf"
+    },
+    {
+      "path": "MQL5/Scripts/QROS_V224_RUNTIME_BOOTSTRAP.mq5",
+      "bytes": 18685,
+      "sha256": "320b42cc5a5387fed0e2cf708d4f33f5b4f380ba75121468fbbf989242c28fa4"
+    },
+    {
+      "path": "V224_BLOCKERS.json",
+      "bytes": 827,
+      "sha256": "34bba872f5096616c0d0c56863df484eba0686fc16a1eebe9f6291728e644997"
+    },
+    {
+      "path": "V224_BUS_PROTOCOL.md",
+      "bytes": 545,
+      "sha256": "556a75b5e254d690022c6997a82ea585328560120318d6b1abffeb061d9bf56f"
+    },
+    {
+      "path": "V224_CERT_CONTRACT.md",
+      "bytes": 890,
+      "sha256": "b37285df2cabb3b695f85a9d76c5ab70ba878e7d0e83a029a617817e485811cb"
+    },
+    {
+      "path": "V224_CHANGELOG.md",
+      "bytes": 782,
+      "sha256": "b368017a6c3c60fee476191ec4cfa8f9e2397be6ab6b19d7c19a950245c05c9b"
+    },
+    {
+      "path": "V224_DECISION.json",
+      "bytes": 575,
+      "sha256": "427f8e161692d61c601663b9629b646c14be79181c09262ffb0b34ababc9aeb1"
+    },
+    {
+      "path": "V224_LEDGER_SCHEMA.md",
+      "bytes": 458,
+      "sha256": "35754ddc2a7d2184a326177f02c29cc64b5a4487ee60426225feda87af2c7172"
+    },
+    {
+      "path": "V224_OFFLINE_TEST_RESULTS.json",
+      "bytes": 17155,
+      "sha256": "d5b15f9c65ff4ae1d07e542e47140f6b8b56fc47524e1e287d8d56559496b8f6"
+    },
+    {
+      "path": "V224_RECOVERY_PROTOCOL.md",
+      "bytes": 668,
+      "sha256": "d89efab2da981c59f0901ced4873a04613586d9d6d051254fe59b4084c053869"
+    },
+    {
+      "path": "V224_STATE_MACHINE.md",
+      "bytes": 968,
+      "sha256": "a8ad269514ce2fb1b2343ae85b01cb10ed8686a7fe789d7e41351a70640a0a5d"
+    },
+    {
+      "path": "V224_TEST_MATRIX.json",
+      "bytes": 635,
+      "sha256": "70156f0465a8b165275961aca9847ce84dfa1e235db7822925539ca26b49df13"
+    }
+  ]
+}

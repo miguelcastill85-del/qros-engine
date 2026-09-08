@@ -1,0 +1,6 @@
+OutputPrefix=QROS_V224_XAU_FORWARD
+UseCommonFolder=true
+RiskPctBalance=0.50
+ExtraCostR=0.02
+ResearchClockOffsetSec=0
+ExcludeYear2025=false

@@ -1,0 +1,8 @@
+InpTemplateName=QROS_V224_DIV3_NATIVE
+InpReceiptFile=QROS_V224_CERT_DIV3.csv
+InpExpectedExpertName=QROS_DIV3_R3_DEMO_EMITTER_v2_2_4
+InpModuleId=3
+InpTimeoutSeconds=900
+InpMaxHeartbeatAgeMs=3000
+InpStableSamples=8
+InpExpectedSourceToken=224103

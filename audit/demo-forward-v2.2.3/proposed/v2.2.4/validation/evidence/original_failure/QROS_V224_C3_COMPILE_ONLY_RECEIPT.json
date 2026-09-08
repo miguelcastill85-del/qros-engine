@@ -1,0 +1,10 @@
+﻿{
+    "schema":  "QROS_V224_C3_COMPILE_ONLY_RECEIPT_1.0",
+    "decision":  "FAIL",
+    "reason":  "COMPILE_NOT_0_0_QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+    "utc":  "2026-09-08T12:52:22.2741370Z",
+    "terminal_restarted":  false,
+    "terminal_stopped":  false,
+    "terminal_launched":  false,
+    "orders_authorized":  false
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+    "kind": "Expert",
+    "exit_code": 1,
+    "pass": true,
+    "log_sha256": "16d6f5d5b40fa0e4f4265c0b87f167a31aed9502c868dd4c40240de229959607"
+  },
+  {
+    "name": "QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+    "kind": "Expert",
+    "exit_code": 1,
+    "pass": true,
+    "log_sha256": "455365ba3885d247708e17635e0f79f0f3e0f50fe377105a85cf1aaea577909e"
+  },
+  {
+    "name": "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+    "kind": "Expert",
+    "exit_code": 1,
+    "pass": true,
+    "log_sha256": "4095e653f955a1fc8cdaa0ac822f82b9df9fe6eef909a4b943069159e65cdc07"
+  },
+  {
+    "name": "QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+    "kind": "Expert",
+    "exit_code": 0,
+    "pass": false,
+    "log_sha256": "f078894e6be149bdf873a237a62b9973cd676372911da5f2451ecbedd0b92721"
+  }
+]

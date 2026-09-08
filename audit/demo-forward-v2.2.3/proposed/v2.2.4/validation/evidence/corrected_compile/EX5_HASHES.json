@@ -1,0 +1,32 @@
+[
+  {
+    "name": "QROS_XAU_M1_DEMO_EMITTER_v2_2_4.ex5",
+    "bytes": 37902,
+    "sha256": "a5652f2f3b5162bb0ded6ab592523d783c85b6535c9218f70129014469b59f79"
+  },
+  {
+    "name": "QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.ex5",
+    "bytes": 44650,
+    "sha256": "33a9232f7e032fae2c148fdb735e7d1518c5691529502a407800471eb109e821"
+  },
+  {
+    "name": "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.ex5",
+    "bytes": 45350,
+    "sha256": "43811d5e36bd86a7d4d3ac4f1c2f0b7c9843768449a59e634ca5f1b26e177f70"
+  },
+  {
+    "name": "QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.ex5",
+    "bytes": 135060,
+    "sha256": "cace12ac64107af418160762ea05348d61616ff9aa0b5d9c2523c76fff4c741f"
+  },
+  {
+    "name": "QROS_V224_MODULE_CERTIFY.ex5",
+    "bytes": 17196,
+    "sha256": "4be24f1e89f4962268676206ffb5817057b4b49089297f528018e9eac86a785b"
+  },
+  {
+    "name": "QROS_V224_RUNTIME_BOOTSTRAP.ex5",
+    "bytes": 35444,
+    "sha256": "a189509585d868dad8baa055dad6a9334f2475b5f1311e3671d757480b540ea6"
+  }
+]

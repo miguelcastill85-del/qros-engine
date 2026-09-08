@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "path": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "sha256": "106d6890542e71dd3a1c6b90838e87664fa1a66fe576e713ceb7b52acce20d43",
+      "status": "PASS"
+    },
+    {
+      "path": "MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "sha256": "558eb1d91a478fc226d50d1dcf7dd69f9b5d09c750d9340bab8db5883682a63a",
+      "status": "PASS"
+    },
+    {
+      "path": "MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+      "sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+      "status": "PASS"
+    },
+    {
+      "path": "MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "sha256": "ec3c6f787abba5f4ccd307b3a49d05b61f5c6e194a45465cbb4c1275e948ac4e",
+      "status": "PASS"
+    },
+    {
+      "path": "MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2.mq5",
+      "sha256": "753fef202b1374eea17477d7609cb33a3a92516de9fa979bf691ed64ee874b35",
+      "status": "PASS"
+    },
+    {
+      "path": "MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2.mq5",
+      "sha256": "4aab8846144bbff501e241c91a4051a6c5a04b2edffb1edb53f9b9222f1081fc",
+      "status": "PASS"
+    },
+    {
+      "path": "MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_1.mq5",
+      "sha256": "ff1baf7ad42ecb52a72cd2ce15d1d6089f67ba31f9a6363a229d33bebe0b4fbd",
+      "status": "PASS"
+    },
+    {
+      "path": "QROS_RESUME_FROM_V2_2_CANARY_v2_2_3.ps1",
+      "sha256": "281bd4038f21cae55a04a49caaf7e1ec4b71332e9bff7e2d3b54753ae140745d",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Eight exact frozen source/wrapper files verified, no MT5 account data read."
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "QROS_V224_C3_PHYSICAL_AUTHORITY_AUDIT_1.0",
+  "sources_verified": [
+    {
+      "path": "MQL5/Include/QROS_DEMO_BUS_v2_2_4.mqh",
+      "bytes": 14384,
+      "sha256": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5"
+    },
+    {
+      "path": "MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+      "bytes": 3995,
+      "sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f"
+    },
+    {
+      "path": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5",
+      "bytes": 85137,
+      "sha256": "e16486ff1b0972eddc36711870240b6ae975d6cb2f6c32ecd76086f2cdf0e363"
+    },
+    {
+      "path": "MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+      "bytes": 15515,
+      "sha256": "e2ee32a59ded624fae32ea8534fcdd6ac234009dfbbd83de41e230a1747e0c61"
+    },
+    {
+      "path": "MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+      "bytes": 20154,
+      "sha256": "2096a36c8ca372265fb688601a82b859615d4b3507256e19cfd7b31c579aa133"
+    },
+    {
+      "path": "MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+      "bytes": 21594,
+      "sha256": "8e285c67f2dc1a69ed84496c279bf14b394a6f597930f133bcf8badfdd0e0ffe"
+    },
+    {
+      "path": "MQL5/Scripts/QROS_V224_RUNTIME_BOOTSTRAP.mq5",
+      "bytes": 18685,
+      "sha256": "320b42cc5a5387fed0e2cf708d4f33f5b4f380ba75121468fbbf989242c28fa4"
+    },
+    {
+      "path": "MQL5/Scripts/QROS_V224_MODULE_CERTIFY.mq5",
+      "bytes": 3804,
+      "sha256": "5dccb8a5094d024e7f81f811c65e3b1db7f8ee4f7ae66e56dbb10d2422558acf"
+    }
+  ],
+  "zip_sha256": "8f57afa2d44961681482a51c49b05abbd33c56d8305dbd19ebd5ab7631e073d9",
+  "zip_bytes": 3526,
+  "zip_crc": "PASS",
+  "members": [
+    {
+      "path": "COMPILE_LOGS/QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5.log",
+      "bytes": 6152,
+      "sha256": "f6f247207a516726b383937954dfbb965798f9d597a497524e49a61bd7efc6c5"
+    },
+    {
+      "path": "COMPILE_LOGS/QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5.log",
+      "bytes": 3862,
+      "sha256": "40584983f819f5cd06ae0432f41db4488f8d635da6c43a4b981d5ac196394e24"
+    },
+    {
+      "path": "COMPILE_LOGS/QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5.log",
+      "bytes": 4466,
+      "sha256": "022a0d698f71d25bf06e349af69c2123e2c330ce682da5015d114df708e8ed40"
+    },
+    {
+      "path": "COMPILE_LOGS/QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5.log",
+      "bytes": 4444,
+      "sha256": "d358ecd20453ab3d4338649101a9b358987d9a6bd694200765dc9a794f0b43e7"
+    },
+    {
+      "path": "QROS_V224_C3_COMPILE_ONLY.log",
+      "bytes": 638,
+      "sha256": "4d9f3a10cac8268da501b4d9de1c11e0eb497cf46287f96a37fcdfc2ebd0435c"
+    },
+    {
+      "path": "QROS_V224_C3_COMPILE_ONLY_RECEIPT.json",
+      "bytes": 347,
+      "sha256": "98becc4d6b4efd687fd9513d1678d123269b306f307959569acc2af410ad01b3"
+    }
+  ]
+}

@@ -1,0 +1,476 @@
+{
+  "classification": "OFFLINE_STATIC_AND_DETERMINISTIC_MODEL_NOT_NATIVE_MT5",
+  "schema": "QROS_V224_CANDIDATE3_OFFLINE_TEST_1",
+  "summary": {
+    "FAIL": 0,
+    "PASS": 62,
+    "TOTAL": 62
+  },
+  "tests": [
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": [
+        0,
+        1,
+        4294967295,
+        4294967296,
+        9007199254740991,
+        9007199254740992,
+        9223372036854775807,
+        18446744073709551615
+      ],
+      "id": "C2-T01",
+      "status": "PASS",
+      "title": "ulong H/L exact roundtrip including >2^53"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T02",
+      "status": "PASS",
+      "title": "executor persists broker tickets as H/L halves"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T03",
+      "status": "PASS",
+      "title": "bus exact-global reader rejects fractional doubles"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T04",
+      "status": "PASS",
+      "title": "executor exact-global reader rejects fractional doubles"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T05",
+      "status": "PASS",
+      "title": "same-day terminal intent tombstones are retained"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T06",
+      "status": "PASS",
+      "title": "management retry uptime resets after process restart"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T07",
+      "status": "PASS",
+      "title": "daily entry count dedupes reconstructed broker order"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T08",
+      "status": "PASS",
+      "title": "HistorySelect failure is fail-closed"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T09",
+      "status": "PASS",
+      "title": "pending/partial states reserve risk"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T10",
+      "status": "PASS",
+      "title": "reserved risk includes unlinked broker working orders"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T11",
+      "status": "PASS",
+      "title": "post-fill risk overflow escalates to close"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T12",
+      "status": "PASS",
+      "title": "unresolved ACK age uses server/event time not process uptime"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T13",
+      "status": "PASS",
+      "title": "BUY barrier geometry uses Bid for observed exits and Ask for entry"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T14",
+      "status": "PASS",
+      "title": "risk sizing uses Ask"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T15",
+      "status": "PASS",
+      "title": "pre-send quote/session/risk is revalidated"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T16",
+      "status": "PASS",
+      "title": "filling-mode validation occurs before durable reservation"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T17",
+      "status": "PASS",
+      "title": "tightened BUY stop remains protected"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T18",
+      "status": "PASS",
+      "title": "modify/close require retcode plus observed broker state"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T19",
+      "status": "PASS",
+      "title": "orphan working order becomes durable recovery shell"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T20",
+      "status": "PASS",
+      "title": "orphan recovered position is fail-safe scheduled for close"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T21",
+      "status": "PASS",
+      "title": "asset multiplicity is detected and contained"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T22",
+      "status": "PASS",
+      "title": "bus integrity fault cancels pending entries"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T23",
+      "status": "PASS",
+      "title": "bus integrity fault schedules QROS orders/positions for risk-reducing exit"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T24",
+      "status": "PASS",
+      "title": "management processing survives entry/bus fault path"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T25",
+      "status": "PASS",
+      "title": "OnTradeTransaction never sends management trades recursively"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T26",
+      "status": "PASS",
+      "title": "no invented fixed 60-second cutoff remains"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T27",
+      "status": "PASS",
+      "title": "session deadline derived from SymbolInfoSessionTrade"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T28",
+      "status": "PASS",
+      "title": "unknown session with inventory triggers fail-safe management close"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T29",
+      "status": "PASS",
+      "title": "transient connectivity/offset/heartbeat problems require recert instead of sticky entry fault"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T30",
+      "status": "PASS",
+      "title": "CERT binds executor source and producer owner/epoch/source"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T31",
+      "status": "PASS",
+      "title": "bootstrap requires build 6182 and durable reopened receipt"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T32",
+      "status": "PASS",
+      "title": "ring invalidates old commit before payload and commits after payload"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T33",
+      "status": "PASS",
+      "title": "reader validates commit before and after payload"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T34",
+      "status": "PASS",
+      "title": "reader binds slot producer epoch and owner"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T35",
+      "status": "PASS",
+      "title": "producer restart resets ephemeral LOCK/watermark under exclusive file fence"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T36",
+      "status": "PASS",
+      "title": "bus HEAD rejects rollback/non-exact values"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T37",
+      "status": "PASS",
+      "title": "module 1 cert preset binds source token"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T38",
+      "status": "PASS",
+      "title": "module 2 cert preset binds source token"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T39",
+      "status": "PASS",
+      "title": "module 3 cert preset binds source token"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T40",
+      "status": "PASS",
+      "title": "module certifier validates source token"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T41",
+      "status": "PASS",
+      "title": "executor presets removed fixed midnight guard"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T42",
+      "status": "PASS",
+      "title": "executor/bootstrap manifest token consistently 224223002"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T43",
+      "status": "PASS",
+      "title": "bootstrap presets bind required build 6182"
+    },
+    {
+      "classification": "STATIC_PROVEN",
+      "detail": null,
+      "id": "C2-T44",
+      "status": "PASS",
+      "title": "brace balance QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5"
+    },
+    {
+      "classification": "STATIC_PROVEN",
+      "detail": null,
+      "id": "C2-T45",
+      "status": "PASS",
+      "title": "brace balance QROS_DEMO_BUS_v2_2_4.mqh"
+    },
+    {
+      "classification": "STATIC_PROVEN",
+      "detail": null,
+      "id": "C2-T46",
+      "status": "PASS",
+      "title": "brace balance QROS_V224_RUNTIME_BOOTSTRAP.mq5"
+    },
+    {
+      "classification": "STATIC_PROVEN",
+      "detail": [
+        {
+          "child": "QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5",
+          "child_sha256": "e2ee32a59ded624fae32ea8534fcdd6ac234009dfbbd83de41e230a1747e0c61",
+          "equal_after_infrastructure_normalization": true,
+          "parent": "MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2.mq5",
+          "parent_sha256": "753fef202b1374eea17477d7609cb33a3a92516de9fa979bf691ed64ee874b35"
+        },
+        {
+          "child": "QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5",
+          "child_sha256": "2096a36c8ca372265fb688601a82b859615d4b3507256e19cfd7b31c579aa133",
+          "equal_after_infrastructure_normalization": true,
+          "parent": "MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2.mq5",
+          "parent_sha256": "4aab8846144bbff501e241c91a4051a6c5a04b2edffb1edb53f9b9222f1081fc"
+        },
+        {
+          "child": "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5",
+          "child_sha256": "8e285c67f2dc1a69ed84496c279bf14b394a6f597930f133bcf8badfdd0e0ffe",
+          "equal_after_infrastructure_normalization": true,
+          "parent": "MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_1.mq5",
+          "parent_sha256": "ff1baf7ad42ecb52a72cd2ce15d1d6089f67ba31f9a6363a229d33bebe0b4fbd"
+        }
+      ],
+      "id": "C2-T47",
+      "status": "PASS",
+      "title": "all three emitters preserve parent alpha/economic source byte-for-byte after infrastructure-only normalization"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T48",
+      "status": "PASS",
+      "title": "model: 50 + 50 reserved risk passes 1% cap"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T49",
+      "status": "PASS",
+      "title": "model: third 50 risk intent blocked above 1% cap"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T50",
+      "status": "PASS",
+      "title": "model: tightened BUY SL accepted"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T51",
+      "status": "PASS",
+      "title": "model: loosened BUY SL rejected"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T52",
+      "status": "PASS",
+      "title": "model: fractional global sequence rejected"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T53",
+      "status": "PASS",
+      "title": "lost-ACK reconciliation searches historical orders by durable intent identity"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T54",
+      "status": "PASS",
+      "title": "bus reader rejects missing finite payload fields"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C2-T55",
+      "status": "PASS",
+      "title": "unresolved session close lead prevents RuntimeCertified from authorizing entries"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C3-T56",
+      "status": "PASS",
+      "title": "V224 executor/bootstrap contain no QDB1.EXEC globals"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C3-T57",
+      "status": "PASS",
+      "title": "DIV3 progress and certifier isolated from QDB1.3 INIT globals"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C3-T58",
+      "status": "PASS",
+      "title": "bootstrap never closes unrelated charts"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C3-T59",
+      "status": "PASS",
+      "title": "bootstrap chart provisioning explicit opt-in defaults false"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C3-T60",
+      "status": "PASS",
+      "title": "version-specific arm token"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C3-T61",
+      "status": "PASS",
+      "title": "executor certificate namespace isolated"
+    },
+    {
+      "classification": "TEST_PROVEN_OFFLINE",
+      "detail": null,
+      "id": "C3-T62",
+      "status": "PASS",
+      "title": "bootstrap certificate latch namespace isolated"
+    }
+  ]
+}

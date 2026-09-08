@@ -1,0 +1,40 @@
+--- QROS_XAU_M1_DEMO_EMITTER_v2.mq5
++++ QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5
+@@ -1,9 +1,10 @@
+ #property strict
+-#property version   "2.00"
++#property version "2.24"
+ #property description "QROS XAU M1 PDH Accepted Retest v101 production-safe shadow. NO REAL ORDERS."
+ #property description "Exact 200s causal rule; zero/crossed spread entry fail-closed; 0.50% balance risk diagnostic."
+ #include <QROS_RISK_KERNEL_APPROVED_v15420.mqh>
+-#include <QROS_DEMO_BUS_v2.mqh>
++#include <QROS_DEMO_BUS_v2_2_4.mqh>
++const long QROS_V224_EMITTER_SOURCE_TOKEN=224101;
+ 
+ input string OutputPrefix       = "QROS_XAU_M1_SHADOW";
+ input bool   UseCommonFolder    = true;
+@@ -347,6 +348,8 @@
+    if(!MQLInfoInteger(MQL_TESTER))
+      {
+       if(_Symbol!="XAUUSD"){Print("QROS XAU emitter requires XAUUSD");return INIT_PARAMETERS_INCORRECT;}
++      if(!QrosBusProducerInit(QROS_MOD_XAU)){Print("QROS XAU producer fencing failed");return INIT_FAILED;}
++      if(!QrosGvSetChecked(QrosBusKey(QROS_MOD_XAU,"SOURCE_TOKEN"),(double)QROS_V224_EMITTER_SOURCE_TOKEN)){QrosBusProducerRelease();return INIT_FAILED;}
+       QrosBusSetState(QROS_MOD_XAU,QROS_STATE_INIT);
+       QrosBusHeartbeat(QROS_MOD_XAU);
+      }
+@@ -396,6 +399,7 @@
+ {
+    if(!MQLInfoInteger(MQL_TESTER)) QrosBusHeartbeat(QROS_MOD_XAU);
+    MqlTick t;if(!SymbolInfoTick(_Symbol,t))return;
++   if(!MQLInfoInteger(MQL_TESTER)) QrosBusWatermark(QROS_MOD_XAU,t.time_msc);
+    g_ticks++;
+    if(!(t.bid>0.0) || !(t.ask>0.0))return;
+    if(t.ask<t.bid){g_invalid_crossed++;return;}
+@@ -448,6 +452,7 @@
+      {
+       EventKillTimer();
+       QrosBusSetState(QROS_MOD_XAU,QROS_STATE_OFF);
++      QrosBusProducerRelease();
+      }
+    if(g_have_bar)
+    {
