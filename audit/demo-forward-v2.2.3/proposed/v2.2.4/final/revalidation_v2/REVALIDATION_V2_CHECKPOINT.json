@@ -1,0 +1,88 @@
+{
+  "B_OFFLINE": "CLOSED_BY_NEW_LINEAGE",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "decision": "B_OFFLINE_CLOSED_BY_NEW_INDEPENDENT_REVALIDATION",
+  "deployment_allowed": false,
+  "forbidden": [
+    "do not re-enable v2.2.3 CERT",
+    "do not deploy Candidate3",
+    "do not merge to main",
+    "do not claim safety model is native MT5"
+  ],
+  "harness_sha256": {
+    "_common_v2.py": "6c66a62686ab07816cd569505e841fbd9138e9653a8a0cd6249eeef24ee6efcb",
+    "run_v224_revalidation_offline_v2.py": "4ea15f1ddcd74024981e984b33ad9655458e3739f07be2892db57ff6f8e08c29",
+    "run_v224_revalidation_safety_v2.py": "8c6eed38088d3c9e9ba4a802e275e91bae2b1bd868a6773e61be88d45cea7a90",
+    "run_v224_revalidation_static_v2.py": "1c1314047ee669e16e33ae33212ce9f8f3f6458dc7cb34f17751fa47c96b0cd2"
+  },
+  "historical_harnesses": "NOT_RECOVERED; not replayed; historical receipts used only to recover titles/check names where available",
+  "native_compile_carried_forward": {
+    "compile": "6/6 PASS 0 errors / 0 warnings",
+    "compiler": "MetaEditor build 6182",
+    "compiler_sha256": "7e4423849749ac118f8b07d7a53781594f4887cb56354eacbd059c6a371e7fbb",
+    "ex5_sha256": {
+      "QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.ex5": "cace12ac64107af418160762ea05348d61616ff9aa0b5d9c2523c76fff4c741f",
+      "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.ex5": "43811d5e36bd86a7d4d3ac4f1c2f0b7c9843768449a59e634ca5f1b26e177f70",
+      "QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.ex5": "33a9232f7e032fae2c148fdb735e7d1518c5691529502a407800471eb109e821",
+      "QROS_V224_MODULE_CERTIFY.ex5": "4be24f1e89f4962268676206ffb5817057b4b49089297f528018e9eac86a785b",
+      "QROS_V224_RUNTIME_BOOTSTRAP.ex5": "a189509585d868dad8baa055dad6a9334f2475b5f1311e3671d757480b540ea6",
+      "QROS_XAU_M1_DEMO_EMITTER_v2_2_4.ex5": "a5652f2f3b5162bb0ded6ab592523d783c85b6535c9218f70129014469b59f79"
+    },
+    "provenance": "CANDIDATE3_COMPILE_REPAIR_CHECKPOINT.json at commit cedd9c94b65361373c358a659b631c1d3b4c4aff; carried forward because revalidation_v2 changes no MQL5 source."
+  },
+  "new_independent_revalidation": {
+    "deterministic_second_run": "PASS_IDENTICAL_RESULT_HASHES",
+    "offline": {"FAIL": 0, "PASS": 62, "TOTAL": 62},
+    "safety": {"FAIL": 0, "PASS": 45, "TOTAL": 45},
+    "static": {"FAIL": 0, "PASS": 80, "TOTAL": 80}
+  },
+  "next_gate": "MT5_EXTERNAL_PENDING_NATIVE_ADVERSARIAL_AND_PARITY",
+  "operational_state": {
+    "candidate3_deployed": false,
+    "live_authorized": false,
+    "v223_new_entries": "PAUSED_USER_CONFIRMED_QDB1_EXEC_CERT_0"
+  },
+  "parent_alpha_reference": {
+    "authority": "Exact v2.2.3 package sources independently recovered before revalidation_v2",
+    "normalization_scope": "version/include/source-token/producer-fence/watermark/release and DIV3 Q24.3 namespace infrastructure only; no alpha/economic code is removed",
+    "parents": {
+      "div3": {"infrastructure_normalized_sha256": "4d7578bae9ea0130816e16dea1daf2cd30a4dbecbcd00613567f58a82636a277", "name": "QROS_DIV3_R3_DEMO_EMITTER_v2_1.mq5", "raw_sha256": "ff1baf7ad42ecb52a72cd2ce15d1d6089f67ba31f9a6363a229d33bebe0b4fbd"},
+      "nqx": {"infrastructure_normalized_sha256": "dca56457873f3747d2ff19dc8d072c1782bbb8434970e4143d940fc6f4c880d2", "name": "QROS_NQX_17_31_DEMO_EMITTER_v2.mq5", "raw_sha256": "4aab8846144bbff501e241c91a4051a6c5a04b2edffb1edb53f9b9222f1081fc"},
+      "xau": {"infrastructure_normalized_sha256": "179a9c5f81cd65653ad0f300824648811c0fc14e1f9c3cec97eda45ff9e8e66d", "name": "QROS_XAU_M1_DEMO_EMITTER_v2.mq5", "raw_sha256": "753fef202b1374eea17477d7609cb33a3a92516de9fa979bf691ed64ee874b35"}
+    },
+    "schema": "QROS_V224_PARENT_ALPHA_REFERENCE_1.0"
+  },
+  "parent_commit": "cedd9c94b65361373c358a659b631c1d3b4c4aff",
+  "remaining_blockers": [
+    {"detail": "Real isolated CTrade rejection/placed/partial/lost ACK, modify/close rejection, reconnect.", "id": "B_CTRADE", "status": "PENDING_NOT_EXECUTED"},
+    {"detail": "Restart with position and working/partial order; durable reconciliation.", "id": "B_RESTART", "status": "PENDING_NOT_EXECUTED"},
+    {"detail": "Two-terminal fencing/ownership native test.", "id": "B_FENCING", "status": "PENDING_NOT_EXECUTED"},
+    {"detail": "Darwinex DST/session cutoff and authoritative session-close lead; InpSessionCloseLeadSec remains 0 and fail-closed.", "id": "B_SESSION", "status": "PENDING_NOT_EXECUTED"},
+    {"detail": "Parent-child trade-by-trade parity XAU/NQX/DIV3.", "id": "B_PARITY", "status": "PENDING_NOT_EXECUTED"},
+    {"detail": "Canonical controller 977/977 on Candidate3 runtime path.", "id": "B_CONTROLLER", "status": "PENDING_NOT_EXECUTED"},
+    {"detail": "Module certs XAU/NQX/DIV3.", "id": "B_MODULE_CERTS", "status": "PENDING_NOT_EXECUTED"},
+    {"detail": "Combined canary with orders disabled.", "id": "B_CANARY", "status": "PENDING_NOT_EXECUTED"},
+    {"detail": "START_RECEIPT materialized and verified before any armed launch.", "id": "B_START_RECEIPT", "status": "PENDING_NOT_EXECUTED"},
+    {"detail": "Armed CERT=1 only after preceding gates and separate authorization.", "id": "B_ARMED_CERT", "status": "PENDING_NOT_AUTHORIZED"}
+  ],
+  "repair_regression_carried_forward": {"FAIL": 0, "PASS": 77, "TOTAL": 77, "classification": "PRIOR_REPAIR_GATE_NOT_RERUN_BY_REVALIDATION_V2"},
+  "result_sha256": {
+    "QROS_V224_REVALIDATION_OFFLINE_V2_MAPPING.json": "a57f1300f12999768a3cb14a46fe8f8fd1224015578238d66c4f7c1bc0e14313",
+    "QROS_V224_REVALIDATION_OFFLINE_V2_RESULTS.json": "969a5d738f3ee6347ce057fb67818d8dad70b6593835373be56aeb01ac1e667f",
+    "QROS_V224_REVALIDATION_SAFETY_V2_RESULTS.json": "c5c90f7ffbfaf815ef8a20c6d718d044127ba9a69209fb49ba95f69ea180e59d",
+    "QROS_V224_REVALIDATION_STATIC_V2_RESULTS.json": "fcfb4e69f451624cb27f7621cf2b44c1fb683dbd240f1aca3b4ec48f45da33ac"
+  },
+  "schema": "QROS_V224_REVALIDATION_V2_CHECKPOINT_1.0",
+  "source_changed": false,
+  "source_sha256": {
+    "QROS_DEMO_BUS_v2_2_4.mqh": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5": "8e285c67f2dc1a69ed84496c279bf14b394a6f597930f133bcf8badfdd0e0ffe",
+    "QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5": "2096a36c8ca372265fb688601a82b859615d4b3507256e19cfd7b31c579aa133",
+    "QROS_RISK_KERNEL_APPROVED_v15420.mqh": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "QROS_V224_MODULE_CERTIFY.mq5": "5dccb8a5094d024e7f81f811c65e3b1db7f8ee4f7ae66e56dbb10d2422558acf",
+    "QROS_V224_RUNTIME_BOOTSTRAP.mq5": "320b42cc5a5387fed0e2cf708d4f33f5b4f380ba75121468fbbf989242c28fa4",
+    "QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5": "e2ee32a59ded624fae32ea8534fcdd6ac234009dfbbd83de41e230a1747e0c61"
+  },
+  "state": "FROZEN_CANDIDATE"
+}
