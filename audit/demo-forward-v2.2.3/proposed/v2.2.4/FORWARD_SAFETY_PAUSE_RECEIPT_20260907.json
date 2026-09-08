@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_FORWARD_SAFETY_PAUSE_RECEIPT_1.0",
+  "recorded_at": "2026-09-07T21:29:00-03:00",
+  "evidence_classification": "USER_CONFIRMED_NOT_TERMINAL_INDEPENDENTLY_INSPECTED",
+  "active_runtime": "QROS Darwinex-Demo v2.2.3",
+  "action": "QDB1.EXEC.CERT manually set to 0",
+  "effect_from_exact_source": "new ENTRY requests are blocked by RuntimeCertified() while the armed executor remains running; MODIFY/CLOSE do not depend on CERT, subject to the known g_fault defect",
+  "new_entries_authorized": false,
+  "terminal_restart_authorized": false,
+  "live_authorized": false,
+  "forward_status": "PAUSED_FOR_SAFETY",
+  "scientific_accounting": "time after this pause must not be counted as uninterrupted prospective forward exposure; no retuning is authorized",
+  "parent_audit_decision": "CRITICAL_REPLACEMENT_REQUIRED",
+  "audit_commit": "abcbaaa85b6161e786347d1248119cd7cf2f5ae1",
+  "replacement_branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "notes": [
+    "Do not restart or close MT5 solely for this pause, especially if any QROS position is open.",
+    "Existing v2.2.3 remains frozen and must not be edited in place.",
+    "Replacement v2.2.4 remains DEVELOPMENT_RUNNING and is not deployable until all required gates pass."
+  ]
+}
