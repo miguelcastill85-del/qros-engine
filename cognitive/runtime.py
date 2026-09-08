@@ -19,7 +19,7 @@ from typing import Any, Mapping
 MANIFEST = "control/CONTROL_AUTHORITY_MANIFEST_v3.json"
 PATHS = {"head": "control/HEAD.json", "state": "control/persistent_execution/STATE.json",
          "run_queue": "control/persistent_execution/RUN_QUEUE.json"}
-MODEL_VERSION = "QRCEL_VERIFICATION_CANDIDATE_0.2.0"
+MODEL_VERSION = "QRCEL_VERIFICATION_CANDIDATE_0.2.1"
 JSON_INTEGER_LIMIT = 10 ** 1024
 
 
@@ -218,7 +218,22 @@ def observe_authority(snapshot: Snapshot, expected_manifest_blob: str,
     return AuthorityObservation(mb, blobs["head"], blobs["state"], blobs["run_queue"], expected_manifest_blob)
 
 
+def revalidate_observation(obs: AuthorityObservation) -> None:
+    """A public dataclass is data, not proof that validation already happened."""
+    require(type(obs) is AuthorityObservation, "INVALID_AUTHORITY_OBSERVATION")
+    data = {MANIFEST: obs.manifest_bytes, PATHS['head']: obs.head_bytes,
+            PATHS['state']: obs.state_bytes, PATHS['run_queue']: obs.queue_bytes}
+    require(all(type(value) is bytes for value in data.values()), "INVALID_OBSERVATION_BYTES")
+
+    class BoundBytes:
+        def json(self, relative):
+            return parse_json(data[relative]), data[relative]
+
+    observe_authority(BoundBytes(), obs.manifest_blob)
+
+
 def authority_receipt(obs: AuthorityObservation) -> dict:
+    revalidate_observation(obs)
     return {"schema": "QRCEL_AUTHORITY_INSPECTION_V1", "status": "PASS",
             "predicate": "PINNED_MANIFEST_AND_THREE_DELEGATED_OBJECTS_VALID",
             "manifest_blob_sha1": obs.manifest_blob,
@@ -288,6 +303,7 @@ def inspect_active_queue(obs: AuthorityObservation) -> dict:
     V189 lacks explicit per-item runtime prerequisites, so its next item is a
     preflight hint. Missing dispatch contracts are reported, never set to [].
     """
+    revalidate_observation(obs)
     require(obs.manifest["authority_epoch"] == 189, "UNSUPPORTED_QUEUE_ADAPTER_EPOCH")
     queue, state, head = obs.queue, obs.state, obs.head
     require(state.get("enabled") is True, "EXECUTION_STATE_DISABLED")

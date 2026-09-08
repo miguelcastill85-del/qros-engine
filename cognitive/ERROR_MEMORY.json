@@ -147,6 +147,19 @@
       "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
       "receipt": "cognitive/checkpoints/clean_recovery_020/suite_0.json",
       "classification": "CONTRACT_EXTENSION"
+    },
+    {
+      "ERROR_ID": "F12",
+      "SYMPTOM": "Modified AuthorityObservation can emit PASS",
+      "ROOT_CAUSE": "Consumer trusted constructible dataclass as prior validation",
+      "AFFECTED_SCOPE": "candidate authority receipt and queue inspector",
+      "FIX": "Reuse authority validator over bound immutable bytes before emitting receipt",
+      "REGRESSION_TEST": "cognitive/tests/test_release.py::ReleaseTests::test_f12_receipt_rechecks_every_observation_blob",
+      "LESSON": "Data objects are not validation proofs",
+      "FIRST_VERSION": "0.2.0",
+      "FIXED_VERSION": "0.2.1 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_021/suite_0.json"
     }
   ]
 }

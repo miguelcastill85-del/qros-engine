@@ -1,12 +1,16 @@
-# QRCEL — reparaciones verificadas, candidato 0.2.0
+# QRCEL — reparaciones verificadas, candidato 0.2.1
 
 Estado: **IMPLEMENTED_AND_TESTED_SHADOW_CANDIDATE**. Esta entrega añade inspectores deterministas y pruebas bajo `cognitive/`. No instala hooks en los runners ni reemplaza los validadores científicos congelados. No es una promoción de QRCEL ni una demostración de equivalencia Sol–Astra.
 
 ## Resultado observado
 
-La ejecución `checkpoints/clean_recovery_020` aprobó 78 métodos de prueba: 40 de la primera versión, 12 adicionales y 26 existentes. Una prueba adicionalmente recorre 200 grafos con semilla fija y contrasta ordenamiento topológico con cierre transitivo independiente. Son casos de software, no 200 observaciones estadísticas independientes. Los ocho escenarios DEVELOPMENT conocidos obtuvieron 0/8 comportamientos esperados en los componentes antiguos y 8/8 en el candidato. F05 evalúa lectura compatible, no ejecución científica equivalente. F02 adapta la representación del packet al nuevo contrato conservando la contradicción dimensional.
+La ejecución `checkpoints/clean_recovery_021` aprobó 86 métodos de prueba: 40 de la primera versión, 20 adicionales y 26 existentes. Una prueba adicionalmente recorre 200 grafos con semilla fija y contrasta ordenamiento topológico con cierre transitivo independiente. Son casos de software, no 200 observaciones estadísticas independientes. Los ocho escenarios DEVELOPMENT conocidos obtuvieron 0/8 comportamientos esperados en los componentes antiguos y 8/8 en el candidato. F05 evalúa lectura compatible, no ejecución científica equivalente. F02 adapta la representación del packet al nuevo contrato conservando la contradicción dimensional.
 
 Shadow de lectura sobre la autoridad V189: PASS para el manifest y sus tres delegados, con `PREFLIGHT_REQUIRED_NO_DISPATCH`. Se preservaron los 62 archivos de control, scripts, tests, governance y handoff presentes en la copia limpia. La copia incluyó 64 archivos del repositorio, todos contrastados por blob con el árbol remoto fijado. No se afirma haber ejecutado la batería completa del repositorio de 1.079 blobs.
+
+## Cierre de reparaciones 0.2.1
+
+F12 revalida los bytes de observaciones antes de emitir recibos. El nuevo `cognitive.verify_release` comprueba la integridad contra un blob de manifest obtenido externamente y rechaza código Python no listado. Se probaron ocho métodos adicionales y una recuperación limpia. Consultar `PHASE_CLOSURE.md` para el alcance terminado, los pasos de uso y los gates pendientes del QRCEL completo.
 
 ## Cambios posteriores validados
 
