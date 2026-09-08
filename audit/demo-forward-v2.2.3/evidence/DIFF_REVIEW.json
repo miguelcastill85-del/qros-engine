@@ -1,0 +1,9 @@
+{
+  "classification": "TEST_PROVEN",
+  "staged_change_scope": "42 additions only; no existing or frozen file modified",
+  "raw_git_diff_check": "Reports CRLF as trailing whitespace under repository -text byte preservation",
+  "crlf_aware_check_exit_code": 2,
+  "crlf_aware_diagnostic_lines": 66,
+  "notes": "Generated transcription preserves source whitespace, blank lines and raw evidence. No whitespace-only normalization of frozen sources or historical run bytes was performed.",
+  "review_phase": "INITIAL_STAGING_BEFORE_APPEND_ONLY_HASH_AND_DIFF_RECEIPTS"
+}

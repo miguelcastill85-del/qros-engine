@@ -1,0 +1,20 @@
+{
+  "status": "PARTIAL_CONTAINMENT_NOT_DEPLOYABLE",
+  "classification": "INFERRED",
+  "parent_sha256": "106d6890542e71dd3a1c6b90838e87664fa1a66fe576e713ceb7b52acce20d43",
+  "source_sha256": "99d0a9143e291d161847d0aa6765e1efed1c5b70f1446f327678dd999f6e679a",
+  "changes": [
+    "F14 exact numeric CERT",
+    "F05 history failure closes entry gate",
+    "F05 recheck fault after RefreshDay",
+    "F12 reject nonfinite reserved valuation",
+    "F02 modify retcode and observed barriers",
+    "F02 both close sites require DONE and absent ticket",
+    "F02 force-close retcode in ledger",
+    "F03 retain day-boundary management when entry path faulted",
+    "F16 require authoritative timer registration"
+  ],
+  "mt5_compile": "BLOCKED",
+  "replacement_gate_passed": false,
+  "deployment_authorized": false
+}

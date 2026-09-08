@@ -1,0 +1,64 @@
+{
+  "scope": "TEST_ONLY_MQL_SUBSET_TRANSLATION_WITH_SCRIPTED_API",
+  "mt5_executed": false,
+  "network_used": false,
+  "proposal": true,
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "node": "v24.19.0",
+  "sources": [
+    {
+      "path": "MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "bytes": 18799,
+      "sha256": "106d6890542e71dd3a1c6b90838e87664fa1a66fe576e713ceb7b52acce20d43",
+      "git_blob_sha1": "862cc19dfc6b4d861bd76b6493912e9afe4da38c",
+      "classification": "TEST_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "path": "MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "bytes": 4795,
+      "sha256": "558eb1d91a478fc226d50d1dcf7dd69f9b5d09c750d9340bab8db5883682a63a",
+      "git_blob_sha1": "bbc34fa39fca0a583d2fc0cf0553056d2f0e15b7",
+      "classification": "TEST_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "path": "MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+      "bytes": 3995,
+      "sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+      "git_blob_sha1": "958ea4eadbb4c6d29e54cc56d426ef6f09f05eb9",
+      "classification": "TEST_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "path": "MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "bytes": 13867,
+      "sha256": "ec3c6f787abba5f4ccd307b3a49d05b61f5c6e194a45465cbb4c1275e948ac4e",
+      "git_blob_sha1": "805df35bf5c6e5ea2633555226beb1c38a5f7825",
+      "classification": "TEST_PROVEN",
+      "status": "PASS"
+    },
+    {
+      "path": "MQL5/Experts/QROS_XAU_M1_DEMO_EMITTER_v2.mq5",
+      "classification": "BLOCKED",
+      "status": "BLOCKED_PENDING_EXACT_SOURCE_IMPORT"
+    },
+    {
+      "path": "MQL5/Experts/QROS_NQX_17_31_DEMO_EMITTER_v2.mq5",
+      "classification": "BLOCKED",
+      "status": "BLOCKED_PENDING_EXACT_SOURCE_IMPORT"
+    },
+    {
+      "path": "MQL5/Experts/QROS_DIV3_R3_DEMO_EMITTER_v2_1.mq5",
+      "classification": "BLOCKED",
+      "status": "BLOCKED_PENDING_EXACT_SOURCE_IMPORT"
+    },
+    {
+      "path": "QROS_RESUME_FROM_V2_2_CANARY_v2_2_3.ps1",
+      "classification": "BLOCKED",
+      "status": "BLOCKED_PENDING_EXACT_SOURCE_IMPORT"
+    }
+  ],
+  "translated_js_sha256": "3658ed1d040549b3af05e3843c408ea34ee8460e3e5f567b0de263291c65a1e6",
+  "process_exit_code": 0
+}

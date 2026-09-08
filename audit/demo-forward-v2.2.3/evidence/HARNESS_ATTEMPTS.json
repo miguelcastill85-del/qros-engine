@@ -1,0 +1,71 @@
+{
+  "attempts": [
+    {
+      "run": "run-01",
+      "exit_code": 1,
+      "result": "HARNESS_ERROR_datetime_cast_not_translated",
+      "artifact": "run-01/stderr.txt",
+      "product_tests_observed": false
+    },
+    {
+      "run": "run-02",
+      "exit_code": 0,
+      "tests": 68,
+      "PASS": 30,
+      "FAIL": 38
+    },
+    {
+      "run": "run-03",
+      "exit_code": 1,
+      "result": "HARNESS_ERROR_offset_source_slice_whitespace",
+      "product_tests_observed": false
+    },
+    {
+      "run": "run-04",
+      "exit_code": 0,
+      "tests": 80,
+      "PASS": 34,
+      "FAIL": 46
+    },
+    {
+      "run": "proposal-01",
+      "exit_code": 0,
+      "tests": 80,
+      "PASS": 44,
+      "FAIL": 36
+    },
+    {
+      "run": "frozen-final",
+      "exit_code": 0,
+      "tests": 87,
+      "PASS": 38,
+      "FAIL": 49
+    },
+    {
+      "run": "proposal-final",
+      "exit_code": 0,
+      "tests": 87,
+      "PASS": 49,
+      "FAIL": 38
+    }
+  ],
+  "historical_import_precheck": {
+    "command": "python3 handoff/verify_import.py",
+    "initial_result": "python3 not found",
+    "retry": "bundled Python executable, same script",
+    "exit_code": 1,
+    "observed": "ValueError: changed file: AGENTS.md",
+    "interpretation": "Baseline verifier rejects preexisting descendant changes; tree clean before audit. v2.2.3 exact source integrity verified separately."
+  },
+  "compiler_preflight": {
+    "g++_clang_cl_on_PATH": "NOT_FOUND",
+    "common_msys_llvm_paths": "NOT_FOUND",
+    "wsl_list_verbose": "exit 1 usage; no usable distribution established",
+    "MetaEditor": "NOT_INVOKED_ACTIVE_TERMINAL_PROTECTED",
+    "downloads_or_installs": false
+  },
+  "artifact_writer_attempt": {
+    "result": "Windows CreateProcess 206 for oversized command; no file written; split into bounded commands",
+    "product_test_effect": "NONE"
+  }
+}

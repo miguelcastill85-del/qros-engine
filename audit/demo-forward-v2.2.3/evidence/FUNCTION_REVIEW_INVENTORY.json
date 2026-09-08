@@ -1,0 +1,461 @@
+{
+  "scope": "All function bodies read; no statement/MC/DC coverage claim",
+  "functions": [
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "IsQrosMagic",
+      "line": 47,
+      "end_line": 50,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "MagicFor",
+      "line": 52,
+      "end_line": 59,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "SymbolFor",
+      "line": 61,
+      "end_line": 66,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "PriorityFor",
+      "line": 68,
+      "end_line": 74,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "ServerDayKey",
+      "line": 76,
+      "end_line": 81,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "ServerDayStart",
+      "line": 83,
+      "end_line": 89,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "LogRow",
+      "line": 91,
+      "end_line": 104,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "SetFault",
+      "line": 106,
+      "end_line": 110,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "DemoAccountGate",
+      "line": 112,
+      "end_line": 121,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "ArmGate",
+      "line": 123,
+      "end_line": 130,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "RuntimeCertified",
+      "line": 132,
+      "end_line": 136,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "HasOpenQrosPosition",
+      "line": 138,
+      "end_line": 147,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "HeartbeatsReady",
+      "line": 149,
+      "end_line": 158,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "PositiveSpread",
+      "line": 160,
+      "end_line": 165,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "GridNormalize",
+      "line": 167,
+      "end_line": 174,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "AnyPositionOnAsset",
+      "line": 176,
+      "end_line": 185,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "FindQrosPosition",
+      "line": 187,
+      "end_line": 197,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "ReservedRiskUsd",
+      "line": 199,
+      "end_line": 221,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "RebuildDailyCount",
+      "line": 223,
+      "end_line": 255,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "RefreshDay",
+      "line": 257,
+      "end_line": 267,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "AddPending",
+      "line": 269,
+      "end_line": 273,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "Before",
+      "line": 275,
+      "end_line": 281,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "SortPending",
+      "line": 283,
+      "end_line": 293,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "SendEntry",
+      "line": 295,
+      "end_line": 356,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "HandleModify",
+      "line": 358,
+      "end_line": 374,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "HandleClose",
+      "line": 376,
+      "end_line": 387,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "ForceNoOvernight",
+      "line": 389,
+      "end_line": 414,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "PollBus",
+      "line": 416,
+      "end_line": 437,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "ProcessPending",
+      "line": 439,
+      "end_line": 456,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "OnInit",
+      "line": 458,
+      "end_line": 486,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "OnTimer",
+      "line": 488,
+      "end_line": 497,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "OnTick",
+      "line": 499,
+      "end_line": 503,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "function": "OnDeinit",
+      "line": 505,
+      "end_line": 517,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "function": "QrosBusKey",
+      "line": 38,
+      "end_line": 41,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "function": "QrosBusSlotKey",
+      "line": 43,
+      "end_line": 46,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "function": "QrosBusSetState",
+      "line": 49,
+      "end_line": 52,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "function": "QrosBusState",
+      "line": 54,
+      "end_line": 59,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "function": "QrosBusClearRuntime",
+      "line": 61,
+      "end_line": 65,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "function": "QrosBusHead",
+      "line": 67,
+      "end_line": 72,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "function": "QrosBusHeartbeat",
+      "line": 74,
+      "end_line": 77,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "function": "QrosBusHeartbeatAgeMs",
+      "line": 79,
+      "end_line": 87,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "function": "QrosBusPublish",
+      "line": 89,
+      "end_line": 119,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "function": "QrosBusRead",
+      "line": 121,
+      "end_line": 144,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+      "function": "QrosVolumeDigits",
+      "line": 22,
+      "end_line": 31,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+      "function": "QrosFloorVolume",
+      "line": 33,
+      "end_line": 47,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+      "function": "QrosRiskSize",
+      "line": 49,
+      "end_line": 144,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "function": "ExecAge",
+      "line": 16,
+      "end_line": 29,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "function": "DemoGate",
+      "line": 31,
+      "end_line": 52,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "function": "ExpertName",
+      "line": 54,
+      "end_line": 59,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "function": "CountQrosPositions",
+      "line": 61,
+      "end_line": 77,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "function": "TickState",
+      "line": 79,
+      "end_line": 106,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "function": "SeriesCurrent",
+      "line": 108,
+      "end_line": 125,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "function": "CloseOtherCharts",
+      "line": 127,
+      "end_line": 139,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "STATIC_ONLY"
+    },
+    {
+      "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "function": "WriteState",
+      "line": 141,
+      "end_line": 220,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "STATIC_ONLY"
+    },
+    {
+      "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "function": "WriteEarlyFail",
+      "line": 222,
+      "end_line": 232,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "STATIC_ONLY"
+    },
+    {
+      "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "function": "RuntimeFailure",
+      "line": 234,
+      "end_line": 304,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "TRANSLATED_BODY_AVAILABLE_NOT_BRANCH_COVERAGE_CERTIFICATION"
+    },
+    {
+      "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "function": "OnStart",
+      "line": 306,
+      "end_line": 480,
+      "review": "STATIC_PROVEN",
+      "dynamic_scope": "STATIC_ONLY"
+    }
+  ]
+}

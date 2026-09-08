@@ -1,0 +1,119 @@
+{
+  "schema": "QROS_V223_AUDIT_INTEGRITY_1",
+  "classification": "TEST_PROVEN",
+  "audited_head": "3c92d2ca50fb08d3b51d19f6f042f328797460e4",
+  "branch": "audit/demo-forward-v2.2.3-frozen-20260907",
+  "original_audit_files": [
+    {
+      "path": "audit/demo-forward-v2.2.3/AUDIT_INSTRUCTIONS.md",
+      "bytes": 7160,
+      "sha256": "3598486dc73034f5df02becd6100fc1ff599d6de6c5da74d955226db2393fa6f",
+      "git_baseline_bytes_equal": true
+    },
+    {
+      "path": "audit/demo-forward-v2.2.3/FROZEN_SOURCE_RECEIPT.json",
+      "bytes": 2719,
+      "sha256": "0c5f9a4b781a2272f5285ec93c07b7b970b280268aa9d9ed8604daf6a3888b26",
+      "git_baseline_bytes_equal": true
+    },
+    {
+      "path": "audit/demo-forward-v2.2.3/PRE_CODEX_STATIC_FINDINGS.md",
+      "bytes": 7543,
+      "sha256": "3d6d9d4c99a98c94b9f47c821c29c2b3be104f8cdd46995a2f88f7aaa063909f",
+      "git_baseline_bytes_equal": true
+    },
+    {
+      "path": "audit/demo-forward-v2.2.3/frozen/AUTHORITY/QROS_DEPLOYMENT_RUNTIME_V2_GENEALOGY.json",
+      "bytes": 1722,
+      "sha256": "ad9d9b034ae8688c9e51248ffce1438c544eb24382c73a27efd0ff0bef1e5fef",
+      "git_baseline_bytes_equal": true
+    },
+    {
+      "path": "audit/demo-forward-v2.2.3/frozen/AUTHORITY/QROS_DEPLOYMENT_RUNTIME_V2_PREREG.json",
+      "bytes": 1786,
+      "sha256": "b2b604a6c6c91af06e4c75910f52bb34c94003e8513e2785fd0589bfc5ac952f",
+      "git_baseline_bytes_equal": true
+    },
+    {
+      "path": "audit/demo-forward-v2.2.3/frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+      "bytes": 18799,
+      "sha256": "106d6890542e71dd3a1c6b90838e87664fa1a66fe576e713ceb7b52acce20d43",
+      "git_baseline_bytes_equal": true
+    },
+    {
+      "path": "audit/demo-forward-v2.2.3/frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+      "bytes": 4795,
+      "sha256": "558eb1d91a478fc226d50d1dcf7dd69f9b5d09c750d9340bab8db5883682a63a",
+      "git_baseline_bytes_equal": true
+    },
+    {
+      "path": "audit/demo-forward-v2.2.3/frozen/MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+      "bytes": 3995,
+      "sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+      "git_baseline_bytes_equal": true
+    },
+    {
+      "path": "audit/demo-forward-v2.2.3/frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+      "bytes": 13867,
+      "sha256": "ec3c6f787abba5f4ccd307b3a49d05b61f5c6e194a45465cbb4c1275e948ac4e",
+      "git_baseline_bytes_equal": true
+    }
+  ],
+  "original_file_count": 9,
+  "frozen_file_count": 6,
+  "exact_source_receipt_matches": 4,
+  "git_diff_tracked_paths": [],
+  "new_artifact_paths": [
+    "audit/demo-forward-v2.2.3/CODEX_AUDIT_DECISION.json",
+    "audit/demo-forward-v2.2.3/CODEX_AUDIT_FINDINGS.json",
+    "audit/demo-forward-v2.2.3/CODEX_AUDIT_REPORT.md",
+    "audit/demo-forward-v2.2.3/CODEX_AUDIT_TEST_MATRIX.json",
+    "audit/demo-forward-v2.2.3/evidence/ARTIFACT_MANIFEST.json",
+    "audit/demo-forward-v2.2.3/evidence/FUNCTION_REVIEW_INVENTORY.json",
+    "audit/demo-forward-v2.2.3/evidence/HARNESS_ATTEMPTS.json",
+    "audit/demo-forward-v2.2.3/evidence/INTEGRITY_FINAL.json",
+    "audit/demo-forward-v2.2.3/evidence/frozen-final/RUN_RECEIPT.json",
+    "audit/demo-forward-v2.2.3/evidence/frozen-final/stderr.txt",
+    "audit/demo-forward-v2.2.3/evidence/frozen-final/stdout.json",
+    "audit/demo-forward-v2.2.3/evidence/frozen-final/translated_probe.js",
+    "audit/demo-forward-v2.2.3/evidence/proposal-01/RUN_RECEIPT.json",
+    "audit/demo-forward-v2.2.3/evidence/proposal-01/stderr.txt",
+    "audit/demo-forward-v2.2.3/evidence/proposal-01/stdout.json",
+    "audit/demo-forward-v2.2.3/evidence/proposal-01/translated_probe.js",
+    "audit/demo-forward-v2.2.3/evidence/proposal-final/RUN_RECEIPT.json",
+    "audit/demo-forward-v2.2.3/evidence/proposal-final/stderr.txt",
+    "audit/demo-forward-v2.2.3/evidence/proposal-final/stdout.json",
+    "audit/demo-forward-v2.2.3/evidence/proposal-final/translated_probe.js",
+    "audit/demo-forward-v2.2.3/evidence/run-01/RUN_RECEIPT.json",
+    "audit/demo-forward-v2.2.3/evidence/run-01/stderr.txt",
+    "audit/demo-forward-v2.2.3/evidence/run-01/stdout.txt",
+    "audit/demo-forward-v2.2.3/evidence/run-01/translated_probe.js",
+    "audit/demo-forward-v2.2.3/evidence/run-02/RUN_RECEIPT.json",
+    "audit/demo-forward-v2.2.3/evidence/run-02/stderr.txt",
+    "audit/demo-forward-v2.2.3/evidence/run-02/stdout.json",
+    "audit/demo-forward-v2.2.3/evidence/run-02/translated_probe.js",
+    "audit/demo-forward-v2.2.3/evidence/run-04/RUN_RECEIPT.json",
+    "audit/demo-forward-v2.2.3/evidence/run-04/stderr.txt",
+    "audit/demo-forward-v2.2.3/evidence/run-04/stdout.json",
+    "audit/demo-forward-v2.2.3/evidence/run-04/translated_probe.js",
+    "audit/demo-forward-v2.2.3/proposed/v2.2.4/CHANGES.diff",
+    "audit/demo-forward-v2.2.3/proposed/v2.2.4/PROPOSAL_RECEIPT.json",
+    "audit/demo-forward-v2.2.3/proposed/v2.2.4/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+    "audit/demo-forward-v2.2.3/proposed/v2.2.4/README.md",
+    "audit/demo-forward-v2.2.3/proposed/v2.2.4/REPLACEMENT_CONTRACT.md",
+    "audit/demo-forward-v2.2.3/tests/build_audit_artifacts.py",
+    "audit/demo-forward-v2.2.3/tests/run_offline_audit.py",
+    "audit/demo-forward-v2.2.3/tests/scenarios.js",
+    "audit/demo-forward-v2.2.3/tests/stubs.js",
+    "audit/demo-forward-v2.2.3/tests/validate_deliverables.py",
+    "audit/demo-forward-v2.2.3/evidence/DIFF_REVIEW.json",
+    "audit/demo-forward-v2.2.3/evidence/TRANSLATION_HASH_VERIFICATION.json"
+  ],
+  "all_original_audit_bytes_unchanged": true,
+  "all_frozen_v223_bytes_unchanged": true,
+  "all_existing_repository_tracked_paths_unchanged": true,
+  "parsed_json_count": 24,
+  "matrix_consistent": true,
+  "proposal_pass_to_fail_regressions": 0,
+  "scope": "PRECOMMIT_READ_ONLY_GIT_AND_ARTIFACT_VERIFICATION"
+}

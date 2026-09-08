@@ -1,0 +1,96 @@
+--- frozen-reference/EXPERT.mq5
++++ proposed/v2.2.4/EXPERT.mq5
+@@ -1,3 +1,5 @@
++// AUDIT PROPOSAL ONLY. Partial containment; NOT a deployment-ready v2.2.4.
++// See README.md and REPLACEMENT_CONTRACT.md. MT5 compilation/parity BLOCKED.
+ //+------------------------------------------------------------------+
+ //| QROS_DEMO_PORTFOLIO_EXECUTOR_v1.mq5                              |
+ //| DEMO-only central ordering controller for frozen 3-module cohort. |
+@@ -132,7 +134,7 @@
+ bool RuntimeCertified()
+   {
+    string k="QDB1.EXEC.CERT";
+-   return (GlobalVariableCheck(k) && (int)GlobalVariableGet(k)==1);
++   return (GlobalVariableCheck(k) && GlobalVariableGet(k)==1.0);
+   }
+ 
+ bool HasOpenQrosPosition()
+@@ -215,6 +217,7 @@
+       ENUM_ORDER_TYPE ot=(ptype==POSITION_TYPE_BUY?ORDER_TYPE_BUY:ORDER_TYPE_SELL);
+       double p=0.0;
+       if(!OrderCalcProfit(ot,sym,vol,openp,sl,p)){ok=false;return 0.0;}
++      if(!MathIsValidNumber(p)){ok=false;return 0.0;}
+       total+=MathAbs(p);
+      }
+    return total;
+@@ -225,7 +228,7 @@
+    g_day_entries=0;
+    datetime from=ServerDayStart();
+    datetime to=TimeTradeServer()+60;
+-   if(!HistorySelect(from,to)) return;
++   if(!HistorySelect(from,to)){SetFault("HISTORY_UNAVAILABLE");return;}
+    long seen[];
+    ArrayResize(seen,0);
+    int n=HistoryDealsTotal();
+@@ -306,6 +309,7 @@
+    if(!PositiveSpread(symbol,tick)){LogRow("ENTRY","BLOCKED",ev,"NON_EXECUTABLE_SPREAD",symbol,tick.bid,tick.ask,0,ev.sl,ev.tp);return false;}
+ 
+    RefreshDay();
++   if(g_fault) return false;
+    if(g_day_entries>=InpMaxNewEntriesPerServerDay){LogRow("ENTRY","BLOCKED",ev,"DAILY_CAP_3",symbol,tick.bid,tick.ask,0,ev.sl,ev.tp);return false;}
+    if(ev.event_ms==g_last_accepted_event_ms){LogRow("ENTRY","BLOCKED",ev,"SIMULTANEOUS_ENTRY",symbol,tick.bid,tick.ask,0,ev.sl,ev.tp);return false;}
+    if(AnyPositionOnAsset(symbol)){LogRow("ENTRY","BLOCKED",ev,"ASSET_POSITION_OPEN",symbol,tick.bid,tick.ask,0,ev.sl,ev.tp);return false;}
+@@ -370,6 +374,9 @@
+    if(!ArmGate()) return;
+    g_trade.SetExpertMagicNumber((ulong)magic);
+    bool ok=g_trade.PositionModify(ticket,sl,tp);
++   uint modify_rc=g_trade.ResultRetcode();
++   ok=ok && modify_rc==TRADE_RETCODE_DONE && PositionSelectByTicket(ticket)
++      && PositionGetDouble(POSITION_SL)==sl && PositionGetDouble(POSITION_TP)==tp;
+    LogRow("MODIFY",ok?"EXECUTED":"BROKER_REJECT",ev,ok?"PASS":"RETCODE_"+IntegerToString((int)g_trade.ResultRetcode()),symbol,0,0,0,sl,tp,ticket);
+   }
+ 
+@@ -383,6 +390,8 @@
+    g_trade.SetExpertMagicNumber((ulong)magic);
+    g_trade.SetTypeFillingBySymbol(symbol);
+    bool ok=g_trade.PositionClose(ticket);
++   uint close_rc=g_trade.ResultRetcode();
++   ok=ok && close_rc==TRADE_RETCODE_DONE && !PositionSelectByTicket(ticket);
+    LogRow("CLOSE",ok?"EXECUTED":"BROKER_REJECT",ev,ok?reason:"RETCODE_"+IntegerToString((int)g_trade.ResultRetcode()),symbol,0,0,0,0,0,ticket);
+   }
+ 
+@@ -408,7 +417,9 @@
+          g_trade.SetExpertMagicNumber((ulong)magic);
+          g_trade.SetTypeFillingBySymbol(PositionGetString(POSITION_SYMBOL));
+          bool ok=g_trade.PositionClose(ticket);
+-         LogRow("FORCE_CLOSE",ok?"EXECUTED":"BROKER_REJECT",ev,"SERVER_DAY_BOUNDARY",PositionGetString(POSITION_SYMBOL),0,0,0,0,0,ticket);
++   uint close_rc=g_trade.ResultRetcode();
++   ok=ok && close_rc==TRADE_RETCODE_DONE && !PositionSelectByTicket(ticket);
++         LogRow("FORCE_CLOSE",ok?"EXECUTED":"BROKER_REJECT",ev,"SERVER_DAY_BOUNDARY_RETCODE_"+IntegerToString((int)close_rc),PositionGetString(POSITION_SYMBOL),0,0,0,0,0,ticket);
+         }
+      }
+   }
+@@ -478,7 +489,7 @@
+    if(InpArmDemoOrders && !ArmGate()) return INIT_FAILED;
+    GlobalVariableSet("QDB1.EXEC.HB",(double)GetTickCount64());
+    GlobalVariableSet("QDB1.EXEC.ARMED",InpArmDemoOrders?1.0:0.0);
+-   EventSetMillisecondTimer(100);
++   if(!EventSetMillisecondTimer(100)){SetFault("TIMER_REGISTRATION_FAILED");return INIT_FAILED;}
+    QrosBusEvent iev;ZeroMemory(iev);
+    LogRow("INIT","PASS",iev,InpArmDemoOrders?"ARMED_DEMO":"UNARMED_CANARY","",0,0,0,0,0);
+    Print("QROS DEMO EXECUTOR initialized. armed=",InpArmDemoOrders?"true":"false");
+@@ -489,7 +500,13 @@
+   {
+    GlobalVariableSet("QDB1.EXEC.HB",(double)GetTickCount64());
+    GlobalVariableSet("QDB1.EXEC.ARMED",InpArmDemoOrders?1.0:0.0);
+-   if(g_fault) { GlobalVariableSet("QDB1.EXEC.CERT",0.0); return; }
++   if(g_fault)
++     {
++      GlobalVariableSet("QDB1.EXEC.CERT",0.0);
++      // Limited containment: uses broker inventory, never a corrupt bus record.
++      ForceNoOvernight();
++      return;
++     }
+    RefreshDay();
+    ForceNoOvernight();
+    PollBus();

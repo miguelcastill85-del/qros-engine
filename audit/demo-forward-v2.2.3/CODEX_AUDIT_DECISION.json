@@ -1,0 +1,45 @@
+{
+  "schema": "QROS_V223_OFFLINE_AUDIT_DECISION_1",
+  "decision": "CRITICAL_REPLACEMENT_REQUIRED",
+  "classification": "INFERRED",
+  "decision_basis": "Critical safety gaps in exact source, corroborated by deterministic transcription probes. No active incident observed.",
+  "audit_scope_status": "OFFLINE_AUDIT_COMPLETE_FOR_AVAILABLE_EXACT_SOURCES_WITH_EXPLICIT_BLOCKS",
+  "audited_branch": "audit/demo-forward-v2.2.3-frozen-20260907",
+  "audited_parent_head": "3c92d2ca50fb08d3b51d19f6f042f328797460e4",
+  "critical_findings": [
+    "F01",
+    "F03",
+    "F04"
+  ],
+  "frozen_source_identity_status": "PASS_4_OF_4_MIRRORED_SOURCES_BYTES_SHA256_GIT_BLOB",
+  "any_frozen_file_modified": false,
+  "runtime_or_terminal_touched": false,
+  "deployment_performed": false,
+  "merge_performed": false,
+  "holdout_or_real_ticks_accessed": false,
+  "economic_results_computed": false,
+  "native_mt5_executed": false,
+  "active_incident_observed": false,
+  "forward_active_at_handoff": "USER_CONFIRMED_NOT_INDEPENDENTLY_INSPECTED",
+  "test_summary": {
+    "PASS": 38,
+    "FAIL": 49,
+    "BLOCKED": 16
+  },
+  "proposal_status": "PARTIAL_CONTAINMENT_NOT_DEPLOYABLE",
+  "unresolved_source_status": "BLOCKED_PENDING_EXACT_SOURCE_IMPORT",
+  "replacement_requires": [
+    "exact source imports verified",
+    "MetaEditor compile 0 errors/0 warnings on isolated authorized host",
+    "parent-child parity",
+    "controller parity",
+    "forward module certificates",
+    "combined canary",
+    "exact START_RECEIPT",
+    "armed runtime CERT=1 after complete gate"
+  ],
+  "operational_boundary": "Engineering requirement; no automatic replacement/restart/recompile/intervention in active terminal.",
+  "report": "CODEX_AUDIT_REPORT.md",
+  "matrix": "CODEX_AUDIT_TEST_MATRIX.json",
+  "commit_identity_note": "Delivered commit SHA comes from Git after commit; not stored self-referentially."
+}

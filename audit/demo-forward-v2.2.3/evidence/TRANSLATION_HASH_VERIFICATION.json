@@ -1,0 +1,48 @@
+{
+  "classification": "TEST_PROVEN",
+  "explanation": "Original runner hashes its logical UTF-8 LF script before Python Windows text output writes CRLF. These are logical source hashes, not raw-file hashes. Original run receipts/files are preserved; this append-only verification and ARTIFACT_MANIFEST bind actual bytes.",
+  "runs": [
+    {
+      "run": "frozen-final",
+      "raw_file_sha256": "8b228889b0b75dccd44449965a91afeb7eb71ad1d9d60752205fef82af028ce0",
+      "receipt_logical_utf8_lf_sha256": "8dd367bd44a2cb3598dc548f58b5b1bd057d6dc4745dd98ca62ac1285ba3fa60",
+      "logical_hash_matches_original_receipt": true,
+      "raw_bytes_preserved": true
+    },
+    {
+      "run": "proposal-01",
+      "raw_file_sha256": "43eab3c0eca2c1d435ccbed48ac8e3169441b008f66c349c78feca9d539aa9e5",
+      "receipt_logical_utf8_lf_sha256": "3658ed1d040549b3af05e3843c408ea34ee8460e3e5f567b0de263291c65a1e6",
+      "logical_hash_matches_original_receipt": true,
+      "raw_bytes_preserved": true
+    },
+    {
+      "run": "proposal-final",
+      "raw_file_sha256": "8a4a1944546392f610b930ec80456464b5ab6a665790f6db32ab0481d954f519",
+      "receipt_logical_utf8_lf_sha256": "87dcbd856e51b8759617533de60df086ecb6a05076362bfdb3f1764e61adb0f6",
+      "logical_hash_matches_original_receipt": true,
+      "raw_bytes_preserved": true
+    },
+    {
+      "run": "run-01",
+      "raw_file_sha256": "36ad8b84ff8cba775a5599c88338f9dd1bbcd8ef0c8d6b595021f62990bc1012",
+      "receipt_logical_utf8_lf_sha256": "b1a9ff608cb70279dd455ec9e1a6e870155c1254ba7f3d557f9dd4aa9634a502",
+      "logical_hash_matches_original_receipt": true,
+      "raw_bytes_preserved": true
+    },
+    {
+      "run": "run-02",
+      "raw_file_sha256": "7031593012e457b860d0ca30790af375973b4cc5ef17d55edde955a599b26e6d",
+      "receipt_logical_utf8_lf_sha256": "ae98175fdbf48ddd29a9884dbe4c42d1e05775bf5f38fad334f21a7f2201f5c7",
+      "logical_hash_matches_original_receipt": true,
+      "raw_bytes_preserved": true
+    },
+    {
+      "run": "run-04",
+      "raw_file_sha256": "78846897e6b1f658792667c95e69b1b15843090337e6ef1e35b17e68dad7c4c1",
+      "receipt_logical_utf8_lf_sha256": "bc307105253cd7b93821685ee7c6e098e1be5721fc543993f14bb676a478782f",
+      "logical_hash_matches_original_receipt": true,
+      "raw_bytes_preserved": true
+    }
+  ]
+}

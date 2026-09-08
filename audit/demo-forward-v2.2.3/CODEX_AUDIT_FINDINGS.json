@@ -1,0 +1,971 @@
+{
+  "schema": "QROS_V223_OFFLINE_FINDINGS_1",
+  "findings": [
+    {
+      "id": "F01",
+      "severity": "Critical",
+      "title": "Solicitudes pendientes y fills no reconciliados escapan de reservas y exclusión de activo",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "ReservedRiskUsd",
+          "line": 199
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "AnyPositionOnAsset",
+          "line": 176
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "SendEntry",
+          "line": 295
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "SendEntry",
+          "line": 340
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnInit",
+          "line": 467
+        }
+      ],
+      "test_ids": [
+        "T17",
+        "T18",
+        "T19",
+        "T20",
+        "T21",
+        "T22",
+        "T76",
+        "T78"
+      ],
+      "source_conclusion": "Se cuentan posiciones visibles; no se enumeran órdenes ni existe registro de intención pendiente, reconciliación de transacciones, ResultVolume/ResultPrice o validación del SL/TP resultante. PLACED y DONE_PARTIAL avanzan contador/LASTEV y registran EXECUTED; timeout/rechazo no conserva reserva de incertidumbre.",
+      "deterministic_scenario": "Stub: balance 10000, tres intenciones de 50 USD, dos sobre NDX, con PLACED sin posición visible. Se aceptan las tres y quedan 150 USD reservados. Con medio fill visible y remanente pendiente vuelve a ocurrir. Timeout con orden viva permite otra solicitud del mismo activo.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "El contrato de 1% máximo y una posición por activo no queda garantizado. Visibilidad tardía, fill real distinto o posición sin protección pueden quedar sin detección; una cancelación deja un contador inexacto. Que Darwinex produzca cada combinación debe probarse en host aislado."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Intención durable antes de enviar, reserva de riesgo/activo/cupo hasta desenlace confirmado; reconciliar órdenes, deals, posiciones, volumen y barreras. REPLACEMENT_CONTRACT puntos 1–5. La propuesta parcial NO corrige F01.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F02",
+      "severity": "High",
+      "title": "Modify/Close confunden booleano de envío con ejecución y pierden intención de reintento",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "HandleModify",
+          "line": 358
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "HandleModify",
+          "line": 372
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "HandleClose",
+          "line": 376
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "HandleClose",
+          "line": 385
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "ForceNoOvernight",
+          "line": 410
+        }
+      ],
+      "test_ids": [
+        "T23",
+        "T24",
+        "T25",
+        "T26",
+        "T39",
+        "T77",
+        "T80"
+      ],
+      "source_conclusion": "El branch EXECUTED de modify/close depende únicamente del bool. ResultRetcode sólo informa algunos fallos booleanos; no hay verificación de estado ni cola durable de cierre/modificación. ForceNoOvernight omite el retcode incluso en el texto de fallo.",
+      "deterministic_scenario": "Inyectar bool=true, retcode=10006 y posición intacta: se registra EXECUTED. DONE_PARTIAL con remanente abierto también. Con bool=false y posterior recuperación, sin nuevo evento del módulo no se reintenta la intención durante el mismo día.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "La protección/cierre solicitado puede no aplicarse y el ledger puede afirmar éxito. El par booleano/retcode real de Trade.mqh build 6182 sigue BLOCKED; el defecto de control de flujo es verificable estáticamente."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Comprobar retcode y resultado reconciliado; persistir la intención hasta confirmación. La propuesta parcial elimina éxito falso en los casos probados; aún no añade reintento durable.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F03",
+      "severity": "Critical",
+      "title": "g_fault persistente abandona la gestión posterior de posiciones",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "SetFault",
+          "line": 106
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "ArmGate",
+          "line": 123
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnTimer",
+          "line": 488
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnTick",
+          "line": 499
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "PollBus",
+          "line": 421
+        }
+      ],
+      "test_ids": [
+        "T27",
+        "T28",
+        "T29",
+        "T64",
+        "T87"
+      ],
+      "source_conclusion": "SetFault es sticky. OnTimer publica HB/ARMED y retorna antes de ForceNoOvernight, PollBus y ProcessPending; OnTick tampoco los ejecuta con fault. El fault se activa por overflow/torn slot, riesgo desconocido o permisos temporales. Dentro del primer PollBus que falla pueden procesarse otros módulos; los ciclos posteriores quedan omitidos.",
+      "deterministic_scenario": "Posición QROS abierta del día anterior, SetFault por bus y OnTimer: cero intentos de cierre. Un evento CLOSE posterior no se consume. Deshabilitar temporalmente TERMINAL_TRADE_ALLOWED en HandleClose y restaurarlo deja la misma situación.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Pérdida determinista de la ruta central de gestión y del fallback diario mientras subsista la posición. SL/TP del broker, si existen, son la única protección remanente demostrable desde este núcleo. Esto basta para rechazar seguridad incondicional del runtime."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Separar bloqueo de entradas de gestión de inventario reconciliado. La propuesta conserva el cierre diario con fault, pero NO recupera gestión intradía ni procesa un bus de integridad dudosa.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F04",
+      "severity": "Critical",
+      "title": "Recuperación no reconstruye protección/intenciones y el lock nunca se libera",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnInit",
+          "line": 458
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnInit",
+          "line": 467
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnInit",
+          "line": 475
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "SendEntry",
+          "line": 302
+        },
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "OnStart",
+          "line": 317
+        }
+      ],
+      "test_ids": [
+        "T30",
+        "T31",
+        "T32",
+        "T33",
+        "T34",
+        "T65",
+        "T78"
+      ],
+      "source_conclusion": "OnInit detecta sólo posiciones por magic, pone g_recovery_lock=true y fija consumed=HEAD para todos los tipos de evento. No reconstruye estado del módulo ni órdenes/SL/TP; no existe asignación de liberación del lock. El bootstrap requiere cero posiciones para certificar.",
+      "deterministic_scenario": "Reiniciar con SL=0: init retorna éxito, lock=true y no hay reparación/close en timer del mismo día. Un CLOSE anterior al restart se descarta. Flat + CERT=1 tampoco libera lock. Control: un CLOSE nuevo sí se procesa aun con lock y CERT=0.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Una posición puede quedar sin protección o sin la gestión que existía antes del reinicio. No se afirma que toda posición protegida se abandone: cierre nuevo y fallback diario sano funcionan. La reconstrucción específica de emisores permanece BLOCKED_PENDING_EXACT_SOURCE_IMPORT."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Reconstruir inventario de órdenes/deals/posiciones y estado por generación/módulo; conservar manejo independiente durante recovery. Liberar sólo tras flat real, ausencia de órdenes, historial completo y recertificación. No parchear emisores aproximados.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F05",
+      "severity": "High",
+      "title": "HistorySelect fallido habilita contador diario cero",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "RebuildDailyCount",
+          "line": 223
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "RefreshDay",
+          "line": 257
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "SendEntry",
+          "line": 308
+        }
+      ],
+      "test_ids": [
+        "T12",
+        "T35",
+        "T36",
+        "T40"
+      ],
+      "source_conclusion": "g_day_entries se pone a cero antes de HistorySelect; false retorna sin fault. La reconstrucción exitosa deduplica DEAL_POSITION_ID, no intención/orden de entrada. No hay contador durable de reservas pendientes.",
+      "deterministic_scenario": "Con tres entradas históricas, HistorySelect=false y señal fresca, el stub acepta una cuarta entrada. Con historial completo y tres position IDs distintos, sí bloquea; fills divididos con un mismo ID cuentan una vez.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Máximo tres entradas por día deja de garantizarse durante indisponibilidad de historial/restart. Netting o múltiples entradas en un mismo POSITION_ID pueden subcontar; la forma real del historial depende de MT5/broker y sigue BLOCKED."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Fallo de historial bloquea nuevas entradas y exige reconstrucción autoritativa por intención. La propuesta agrega fault y relectura de fault tras RefreshDay; contabilidad durable pendiente.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F06",
+      "severity": "High",
+      "title": "No overnight actúa después de medianoche y OnTick puede adelantar entradas",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "ForceNoOvernight",
+          "line": 389
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "ForceNoOvernight",
+          "line": 401
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnTimer",
+          "line": 493
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnTick",
+          "line": 502
+        }
+      ],
+      "test_ids": [
+        "T37",
+        "T38",
+        "T39",
+        "T40",
+        "T74",
+        "T81"
+      ],
+      "source_conclusion": "ForceNoOvernight sólo cierra cuando la fecha de apertura difiere de ServerDayKey actual. OnTick procesa entradas sin ForceNoOvernight. No hay deadline previo al fin de sesión ni calendario de negociación.",
+      "deterministic_scenario": "A las 23:59:59 la posición sigue abierta; el primer timer del día siguiente sano intenta cerrar. OnTick del día nuevo puede aceptar NDX mientras queda XAU del anterior. Rechazo/desconexión prolonga la posición.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "No se garantiza el contrato literal de no cruzar el día. No se sustituye por liquidación posterior a medianoche. Un emisor podría cerrar antes: esa protección adicional queda bloqueada hasta importar sus bytes."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Vincular deadline previo a sesiones/calendario autorizado y política de contingencia; comprobarlo antes de cualquier entrada. No inventar cutoff, precio de EOF ni ejecución en mercado cerrado.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F07",
+      "severity": "High",
+      "title": "Lector acepta payload nuevo con SEQ viejo durante sobrescritura del ring",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusPublish",
+          "line": 101
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusPublish",
+          "line": 104
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusPublish",
+          "line": 115
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusRead",
+          "line": 127
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusRead",
+          "line": 143
+        }
+      ],
+      "test_ids": [
+        "T41",
+        "T42",
+        "T43",
+        "T44",
+        "T86"
+      ],
+      "source_conclusion": "El escritor no invalida SEQ antes de modificar payload. El double-check sólo detecta cambios en SEQ; un SEQ viejo estable no acredita que el payload viejo siga intacto.",
+      "deterministic_scenario": "Publicar 1..32; pausar 33 tras escribir payload del slot 1 y antes de SEQ. Leer seq=1: ambas comprobaciones ven 1, pero event_ms=33. No requiere dos productores ni HEAD que ya marque overflow.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Datos de eventos distintos pueden mezclarse o aplicarse bajo identidad/orden causal incorrectos; también afecta CLOSE/SL. La triage previa sobre coherencia garantizada con un productor debe corregirse."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Invalidar/reservar slot antes de payload y usar versión/época con publicación verificada; rechazo de escritura concurrente, propiedad de productor y recuperación durable.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F08",
+      "severity": "High",
+      "title": "Publicación y ejecución carecen de exclusión de instancia",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusPublish",
+          "line": 101
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusKey",
+          "line": 38
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnInit",
+          "line": 458
+        },
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "RuntimeFailure",
+          "line": 234
+        }
+      ],
+      "test_ids": [
+        "T46",
+        "T47",
+        "T66",
+        "T75"
+      ],
+      "source_conclusion": "HEAD+1 no usa compare-and-swap ni lease. Namespace QDB1 no incorpora cuenta/época/propietario. OnInit no verifica otro executor; bootstrap sólo verifica nombres de tres emisores en charts creados.",
+      "deterministic_scenario": "Dos publicaciones del mismo módulo intercaladas tras leer HEAD=0 completan con HEAD=1. Módulos diferentes mantienen cabezas independientes. Dos inicios flat pasan en el stub. Dos espacios de terminal aislados aceptan bajo snapshots de cuenta retrasados.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Pérdida de eventos o doble solicitud. T75 prueba sólo snapshots independientes; no ejecuta dos terminales reales ni afirma que compartan globales. El wrapper puede imponer exclusión externa: BLOCKED_PENDING_EXACT_SOURCE_IMPORT."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Propietario/fencing por cuenta y época, productor exclusivo por módulo. Verificar despliegue exacto; no suponer que un mutex local cubre otro terminal.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F09",
+      "severity": "High",
+      "title": "Persistencia del bus y commits de estado no se verifican",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusPublish",
+          "line": 104
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusRead",
+          "line": 132
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "PollBus",
+          "line": 420
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "SendEntry",
+          "line": 352
+        }
+      ],
+      "test_ids": [
+        "T33",
+        "T41",
+        "T45",
+        "T48",
+        "T55",
+        "T79"
+      ],
+      "source_conclusion": "GlobalVariableSet se ignora en payload, SEQ, HEAD, DAY y LASTEV. No hay GlobalVariablesFlush ni protocolo durable de época/recuperación. QrosBusRead sólo exige existencia de SEQ; PollBus no detecta HEAD regresivo.",
+      "deterministic_scenario": "Falla escribir HEAD después de SEQ: Publish retorna true con HEAD=0 y no se consume. HEAD baja de 10 a 2: no hay fault. Borrar SL con SEQ válido: lector acepta SL=0.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Pérdida de intención, bloqueo hasta vieja cabeza o estado diario/timestamp inconsistente tras caída. Durabilidad real de globals en Windows/MT5 permanece BLOCKED; no se simula fsync ni crash real."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Comprobar escrituras, commit atómico/versionado, flush validado, snapshot y rechazo de rollback; no usar ausencia como cero autorizado.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F10",
+      "severity": "High",
+      "title": "Buffer individual y dispatch inmediato CLOSE rompen orden causal global",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "Before",
+          "line": 275
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "PollBus",
+          "line": 431
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "ProcessPending",
+          "line": 439
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "HandleClose",
+          "line": 378
+        }
+      ],
+      "test_ids": [
+        "T13",
+        "T14",
+        "T52",
+        "T53",
+        "T85"
+      ],
+      "source_conclusion": "SortPending ordena timestamp/prioridad/perfil, pero cada entrada madura según su propio received_uptime. CLOSE/MODIFY se ejecutan durante PollBus y ENTRY se difiere. Gestión sólo se vincula por símbolo/magic.",
+      "deterministic_scenario": "NDX llega primero; XAU del mismo ms llega 100ms después. A +300ms XAU sigue inmaduro y NDX se envía. ENTRY luego CLOSE sin posición: close no hace nada y la entrada aparece después. Close viejo cierra nueva generación con mismo magic.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Prioridad y relación orden→posición→gestión no garantizadas fuera del lote ideal. Los emisores exactos podrían restringir secuencias, aún bloqueados."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Arbitraje por cohorte completa/watermark, identidad de intención/generación y cancelación de entradas pendientes ante close causal. Conservar orden confirmado close→entry que pasa T85.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F11",
+      "severity": "High",
+      "title": "Sólo se deduplica último timestamp y no hay validación de edad de evento",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "SendEntry",
+          "line": 310
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "AddPending",
+          "line": 269
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusRead",
+          "line": 134
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "RebuildDailyCount",
+          "line": 251
+        }
+      ],
+      "test_ids": [
+        "T15",
+        "T33",
+        "T41",
+        "T49"
+      ],
+      "source_conclusion": "LASTEV guarda sólo última aceptación; compara igualdad, no frontera causal ni conjunto durable. entry_ref y publish_uptime_ms se transportan pero no se validan al enviar. Skip de replay inicial se limita a HEAD existente.",
+      "deterministic_scenario": "Tras entradas A y B y quedar flat, volver a publicar A con secuencia nueva lo acepta. Evento del día anterior en nueva secuencia también se envía con tick actual.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Posible duplicación económica de timestamp, señal caducada y cupo atribuido al día de procesamiento. Monotonía completa debe probarse con emisores exactos."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Identidad/deduplicación durable, día/época y frontera causal por emisor; frescura autorizada sin umbrales científicos inventados.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F12",
+      "severity": "High",
+      "title": "Reserva usa SL actual y faltan finitud/conciliación del precio efectivo",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "ReservedRiskUsd",
+          "line": 210
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "ReservedRiskUsd",
+          "line": 218
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "SendEntry",
+          "line": 327
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+          "function": "QrosRiskSize",
+          "line": 84
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_RISK_KERNEL_APPROVED_v15420.mqh",
+          "function": "QrosRiskSize",
+          "line": 122
+        }
+      ],
+      "test_ids": [
+        "T07",
+        "T08",
+        "T09",
+        "T10",
+        "T21",
+        "T67",
+        "T68",
+        "T83",
+        "T84"
+      ],
+      "source_conclusion": "Reserva=abs(OrderCalcProfit(open, SL_actual, volumen)), sin riesgo inicial guardado. SL en BE da cero; SL por encima puede contar beneficio como riesgo. No se comprueba finitud de p/total. Ambas cotas monetarias admiten 0.01 USD de tolerancia.",
+      "deterministic_scenario": "Posición inicial de 50 USD reporta cero al mover SL a entrada. Stub de slippage +2 produce riesgo efectivo de 150 tras sizing de 50. p=NaN con bool=true deja pasar el cap. Barrido de 36 casos finitos en rejillas normales pasa.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Reserva no es riesgo inicial. La garantía previa no cubre fills distintos. NaN es prueba defensiva, no afirmación sobre OrderCalcProfit real. Un centavo tampoco equivale a límite matemático exacto."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Separar riesgo inicial durable, actual y pendiente; conciliar fill/barreras y finitud. No cambiar kernel/tolerancia sin contrato y paridad. Propuesta sólo rechaza p no finito.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F13",
+      "severity": "High",
+      "title": "Frescura puntual no protege envío tras degradación de conexión/ticks",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "PositiveSpread",
+          "line": 160
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "SendEntry",
+          "line": 303
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "ArmGate",
+          "line": 123
+        },
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "TickState",
+          "line": 99
+        }
+      ],
+      "test_ids": [
+        "T05",
+        "T06",
+        "T54",
+        "T57",
+        "T82"
+      ],
+      "source_conclusion": "Executor valida precios/spread y HB de módulos, no edad de tick ni TERMINAL_CONNECTED. Bootstrap valida frescura una vez. Cuenta demo/servidor/USD se valida en init, no directamente en SendEntry.",
+      "deterministic_scenario": "Con CERT y heartbeat fresco, tick positivo de hace una hora llega a Buy. connected=false también llega a Buy en el stub.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Solicitud con referencia obsoleta o ACK perdido. T82 no demuestra fill real desconectado, sólo ausencia de gate local. Cambio de cuenta puede provocar reinit de MT5: comportamiento exacto BLOCKED."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Validar cuenta/sesión/conexión y tick por solicitud con reloj autorizado; reconexión requiere reconciliación antes de entradas.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F14",
+      "severity": "High",
+      "title": "CERT no acredita executor saludable, identidad exacta ni evidencia durable",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "RuntimeFailure",
+          "line": 249
+        },
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "RuntimeFailure",
+          "line": 267
+        },
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "OnStart",
+          "line": 432
+        },
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "WriteState",
+          "line": 166
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "RuntimeCertified",
+          "line": 132
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnTimer",
+          "line": 490
+        }
+      ],
+      "test_ids": [
+        "T03",
+        "T04",
+        "T56",
+        "T58",
+        "T59"
+      ],
+      "source_conclusion": "RuntimeFailure valida nombres de emisores y HB/ARMED del executor, no su nombre/build/hash/fault, conexión ni permiso de trading. HB se publica con g_fault. CERT=1 precede WriteState, cuyo fallo de FileOpen no lo invalida. RuntimeCertified acepta 1.5 por cast entero.",
+      "deterministic_scenario": "Con fault y HB fresco RuntimeFailure devuelve RUNTIME_READY. También con conexión/permiso false. CERT=1.5 habilita SendEntry. Receipt no escribible no revierte latch según OnStart/WriteState.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Readiness falso o sin receipt verificable. Nombre no es hash de EX5/SET; wrapper/START_RECEIPT adicionales bloqueados."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Certificado ligado a identidad, salud, época, cuenta y binarios; receipt durable antes del latch. Propuesta sólo exige double exacto 1.0.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F15",
+      "severity": "High",
+      "title": "Offset estable no valida UTC+2/+3 ni DST después de certificar",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "OnStart",
+          "line": 365
+        },
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "RuntimeFailure",
+          "line": 279
+        },
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "OnStart",
+          "line": 445
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "ServerDayKey",
+          "line": 76
+        }
+      ],
+      "test_ids": [
+        "T69",
+        "T70",
+        "T71",
+        "T72",
+        "T73",
+        "T74"
+      ],
+      "source_conclusion": "Acepta cualquier offset a <=10 segundos de una hora integral tras diez observaciones. No restringe 7200/10800 ni calendario US DST. Después de CERT retorna; executor no reobserva offset.",
+      "deterministic_scenario": "UTC, UTC+1 y UTC-5 se estabilizan como +2/+3. Transición +2↔+3 durante precheck reinicia conteo correctamente; después de CERT no invalida latch.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Reloj certificable fuera de contrato, sin garantía central sobre DST durante operación. No se midió reloj host/broker ni se sustituyó Darwinex por America/Santiago. Calendario/sesiones y API 6182 bloqueados."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Vincular fecha/sesión al calendario Darwinex US DST autorizado, offsets permitidos y renovación tras cambio; conservar evidencia observada, no asumir UTC.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F16",
+      "severity": "High",
+      "title": "Ledger sobrescribible y errores de escritura/timer ignorados",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "LogRow",
+          "line": 91
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnInit",
+          "line": 460
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "OnInit",
+          "line": 481
+        },
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "WriteState",
+          "line": 166
+        },
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "OnStart",
+          "line": 435
+        }
+      ],
+      "test_ids": [
+        "T60",
+        "T61",
+        "T62",
+        "T63"
+      ],
+      "source_conclusion": "Ledger abre FILE_WRITE sin append/lectura previa ni nombre único. Ignora FileWrite/Flush. Bootstrap reabre FILE_WRITE y SHARE_READ/WRITE, cabecera+fila sin publicación atómica. EventSetMillisecondTimer no se comprueba.",
+      "deterministic_scenario": "Stub de apertura truncante pierde fila al reiniciar. FileWrite fallido deja envío sin fila ni fault. Timer=false retorna INIT_SUCCEEDED. FileOpen fallido sí bloquea executor.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Pérdida/lectura parcial de evidencia y ausencia del ciclo autoritativo sin fallo explícito. I/O real y parser wrapper BLOCKED; no se bloqueó CSV operativo."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Append-only o ledger por sesión, fallos I/O observables, receipt atómico y timer comprobado. Propuesta sólo resuelve timer.",
+      "semantic_class": "infrastructure-only"
+    },
+    {
+      "id": "F17",
+      "severity": "Low",
+      "title": "Globals double sin límite de precisión de secuencia",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusHead",
+          "line": 67
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusPublish",
+          "line": 101
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusPublish",
+          "line": 115
+        }
+      ],
+      "test_ids": [
+        "T50",
+        "T51"
+      ],
+      "source_conclusion": "Seq/event_ms se almacenan double y recuperan long sin rango finito/integral ni rotación de época.",
+      "deterministic_scenario": "1788782400123 ms pasa intacto. En double, 2^53+1 coincide con 2^53; publish declara éxito sin avanzar HEAD.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "No es agotamiento inminente normal; sí corrupción/persistencia sin rechazo. No se probó overflow long nativo MQL ni se certifica con JS Number."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Límites de entero exacto double y secuencia positiva/monotónica; protocolo de época.",
+      "semantic_class": "infrastructure-only"
+    },
+    {
+      "id": "F18",
+      "severity": "Medium",
+      "title": "Barra, referencia y barreras efectivas carecen de contrato completo en núcleo",
+      "classification": "STATIC_PROVEN",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "GridNormalize",
+          "line": 167
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "SendEntry",
+          "line": 313
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "HandleModify",
+          "line": 364
+        },
+        {
+          "file": "frozen/MQL5/Include/QROS_DEMO_BUS_v2.mqh",
+          "function": "QrosBusEvent",
+          "line": 23
+        }
+      ],
+      "test_ids": [
+        "T05",
+        "T07",
+        "T11",
+        "T26",
+        "T83"
+      ],
+      "source_conclusion": "Entrada normaliza SL/TP al tick más cercano (fallback point), exige SL<Ask<TP y sólo envía BUY. Evento sin barra/generación; entry_ref sin uso. Modify TP=0 conserva anterior y SL no creciente descarta evento entero. No valida stops/freeze levels ni resultado SetTypeFillingBySymbol.",
+      "deterministic_scenario": "Geometría de solicitud válida puede tener stop entre Bid/Ask o muy cercano y ser rechazada. Modify sólo de TP se descarta sin subir SL. No se afirma que emisores exactos produzcan esos mensajes.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "Una entrada por barra, puntos, primer toque/gap y SL primero dependen de emisor/broker exactos. Ausencia de SELL no es regresión sin contrato de módulo que lo requiera."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": true,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "Importar emisores exactos y probar paridad dimensional/causal/fills; no retocar unidades/señal/stops/prioridad.",
+      "semantic_class": "execution-semantic"
+    },
+    {
+      "id": "F19",
+      "severity": "High",
+      "title": "Fuentes y activación incompletas impiden certificación integral",
+      "classification": "BLOCKED",
+      "locations": [
+        {
+          "file": "frozen/MQL5/Scripts/QROS_V223_RUNTIME_BOOTSTRAP.mq5",
+          "function": "OnStart",
+          "line": 347
+        },
+        {
+          "file": "frozen/MQL5/Experts/QROS_DEMO_PORTFOLIO_EXECUTOR_v2.mq5",
+          "function": "include Trade/Trade.mqh",
+          "line": 9
+        }
+      ],
+      "test_ids": [
+        "X01",
+        "X02",
+        "X03",
+        "X04",
+        "X05",
+        "X06",
+        "X07",
+        "X08"
+      ],
+      "source_conclusion": "Recibo declara ausentes emisores/wrapper; no hay ZIP deployment, START_RECEIPT, EX5/SET/templates ni Trade.mqh exacto 6182 en el árbol. AUTHORITY es histórico: PREREG MT5_EXTERNAL_PENDING y genealogía DIV3 previo distinto no reemplazan recibo v2.2.3.",
+      "deterministic_scenario": "Cuatro espejos comparados en bytes/hash/blob coinciden. Inventario Git MQ5/MQH/ZIP no contiene faltantes; único ZIP listado es baseline v0.6.",
+      "consequence": {
+        "classification": "INFERRED",
+        "text": "No se prueba identidad del binario activo ni paridad/certificados de activación/broker. Se conserva afirmación del usuario de forward activo; no se contradice con prereg histórico."
+      },
+      "active_v223_exposure": {
+        "classification": "INFERRED",
+        "code_path_present": false,
+        "incident_observed": false,
+        "text": "Expuesto si ocurre el escenario en el ejecutable vinculado a estas fuentes; no se inspeccionó el terminal ni se demuestra un incidente del forward."
+      },
+      "proposed_correction": "BLOCKED_PENDING_EXACT_SOURCE_IMPORT. Importar append-only verificado y gate aislado; no sustituir con main ni inspeccionar terminal activo.",
+      "semantic_class": "infrastructure-only"
+    }
+  ]
+}

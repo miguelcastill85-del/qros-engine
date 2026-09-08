@@ -1,0 +1,1171 @@
+[
+  {
+    "id": "T01",
+    "title": "Demo account gate",
+    "expected_result": "Reject live mode",
+    "observed_result": {
+      "fault": true,
+      "reason": "ACCOUNT_NOT_DEMO"
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T02",
+    "title": "Server and currency gates",
+    "expected_result": "Reject wrong server and currency",
+    "observed_result": {
+      "wrong_server_blocked": true,
+      "wrong_currency_blocked": true
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T03",
+    "title": "Armed certification gate",
+    "expected_result": "No Buy with CERT=0 or arm=false",
+    "observed_result": {
+      "cert_blocks": true,
+      "unarmed_blocks": true
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T04",
+    "title": "Runtime certificate exact value",
+    "expected_result": "Reject fractional CERT value",
+    "observed_result": {
+      "cert": 1.5,
+      "sent": true
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T05",
+    "title": "Zero and crossed spread",
+    "expected_result": "Reject both before Buy",
+    "observed_result": {
+      "zero_blocked": true,
+      "crossed_blocked": true,
+      "requests": 0
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T06",
+    "title": "Fresh executable quote after certification",
+    "expected_result": "Stale positive spread must block",
+    "observed_result": {
+      "quote_age_sec": 3600,
+      "sent": true
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T07",
+    "title": "BUY Ask and floor volume",
+    "expected_result": "Risk sized at Ask <=50 USD with volume floor",
+    "observed_result": {
+      "volume": 0.48,
+      "initial_risk": 48,
+      "buy_price_argument": 0
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T08",
+    "title": "Minimum size exceeds risk",
+    "expected_result": "Reject rather than increase minimum volume",
+    "observed_result": {
+      "sent": false,
+      "decision": "BLOCKED"
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T09",
+    "title": "OrderCalcProfit failure",
+    "expected_result": "Block sizing failure",
+    "observed_result": {
+      "sent": false
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T10",
+    "title": "Risk cap visible positions",
+    "expected_result": "Reject 60 USD reserved + 50 USD proposed",
+    "observed_result": {
+      "reserved": 60,
+      "sent": false
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T11",
+    "title": "One visible position per asset",
+    "expected_result": "Block NDX entry if any NDX position exists",
+    "observed_result": {
+      "sent": false,
+      "positions": 1
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T12",
+    "title": "Three entries then fourth",
+    "expected_result": "Fourth sequential entry blocked",
+    "observed_result": {
+      "fourth": false,
+      "requests": 3,
+      "count": 3
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T13",
+    "title": "Same millisecond and cohort priority",
+    "expected_result": "XAU wins and only one entry accepted",
+    "observed_result": {
+      "requests": [
+        "XAUUSD"
+      ],
+      "accepted": 1
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T14",
+    "title": "Priority across buffer ages",
+    "expected_result": "Do not send lower priority while known same-ms XAU waits",
+    "observed_result": {
+      "requests": [
+        "NDX"
+      ],
+      "pending": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T15",
+    "title": "Nonmonotonic repeated timestamp",
+    "expected_result": "Timestamp A accepted once even after timestamp B",
+    "observed_result": {
+      "again": true,
+      "requests": 3,
+      "last": 1788782400000
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T16",
+    "title": "Broker rejection",
+    "expected_result": "No daily state committed after explicit rejection",
+    "observed_result": {
+      "sent": false,
+      "count": 0,
+      "last": -1
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T17",
+    "title": "PLACED delayed visibility risk and asset reservation",
+    "expected_result": "Outstanding orders reserve asset and risk; maximum 100 USD",
+    "observed_result": {
+      "orders": 3,
+      "positions": 0,
+      "total_initial_reserved": 150,
+      "count": 3
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T18",
+    "title": "DONE_PARTIAL and remaining volume",
+    "expected_result": "Reserve unfilled remainder, plus all other outstanding orders",
+    "observed_result": {
+      "risk": 150,
+      "position_volume": 0.25,
+      "pending_volumes": [
+        0.25,
+        0.5,
+        0.5
+      ]
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T19",
+    "title": "Disconnect after send before acknowledgement",
+    "expected_result": "Ambiguous send reserves asset until reconciliation",
+    "observed_result": {
+      "second": true,
+      "outstanding_orders": 1,
+      "positions": 1,
+      "count": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T20",
+    "title": "PLACED later cancelled",
+    "expected_result": "Reconcile accepted entry count to broker terminal outcome",
+    "observed_result": {
+      "count": 1,
+      "actual_deals": 0
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T21",
+    "title": "Actual fill price risk",
+    "expected_result": "Reconcile slippage before certifying 0.5 percent initial risk",
+    "observed_result": {
+      "sent": true,
+      "logged": "EXECUTED",
+      "actual_initial_risk": 150
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T22",
+    "title": "DONE without protection",
+    "expected_result": "Do not declare execution complete without reconciling actual SL/TP",
+    "observed_result": {
+      "positions": 1,
+      "sl": 0,
+      "fault": false,
+      "entry_executed": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T23",
+    "title": "PositionModify server rejection",
+    "expected_result": "Never log EXECUTED when retcode rejects and SL unchanged",
+    "observed_result": {
+      "decision": "EXECUTED",
+      "retcode": 10006,
+      "sl": 99
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T24",
+    "title": "PositionClose server rejection",
+    "expected_result": "Never log EXECUTED while position remains open",
+    "observed_result": {
+      "decision": "EXECUTED",
+      "retcode": 10006,
+      "positions": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T25",
+    "title": "PositionClose partial response",
+    "expected_result": "Remaining position is unresolved, not EXECUTED",
+    "observed_result": {
+      "decision": "EXECUTED",
+      "positions": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T26",
+    "title": "Acknowledged modify/close",
+    "expected_result": "Verify normal successful management",
+    "observed_result": {
+      "modified": true,
+      "positions": 0
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T27",
+    "title": "Fault with open position at day boundary",
+    "expected_result": "Emergency management still closes prior-day position",
+    "observed_result": {
+      "positions": 1,
+      "close_calls": 0,
+      "cert": 0
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T28",
+    "title": "Fault blocks module close",
+    "expected_result": "Consume close while entry path faulted",
+    "observed_result": {
+      "positions": 1,
+      "head": 1,
+      "consumed": 0
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T29",
+    "title": "Temporary terminal trade disabled then restored",
+    "expected_result": "Resume safe management after permission restoration",
+    "observed_result": {
+      "fault": true,
+      "positions": 1,
+      "close_calls": 0
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T30",
+    "title": "Restart open position remains module-manageable",
+    "expected_result": "Recovery lock blocks entry but does not itself block new close event",
+    "observed_result": {
+      "init": 0,
+      "recovery_lock": true,
+      "positions": 0,
+      "cert": 0
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T31",
+    "title": "Recovery lock release flat plus recertification",
+    "expected_result": "Flat and recertified executor has reachable unlock",
+    "observed_result": {
+      "recovery_lock": true,
+      "sent": false
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T32",
+    "title": "Restart unprotected position same day",
+    "expected_result": "Detect and reconcile missing SL before leaving position unmanaged",
+    "observed_result": {
+      "recovery_lock": true,
+      "fault": false,
+      "positions": 1,
+      "sl": 0
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T33",
+    "title": "Restart discards stale entry ring",
+    "expected_result": "No stale startup entry replay",
+    "observed_result": {
+      "head": 1,
+      "last_seq": 1,
+      "requests": 0
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T34",
+    "title": "Restart discards queued close",
+    "expected_result": "Existing position is reconciled despite startup queue discard",
+    "observed_result": {
+      "positions": 1,
+      "last_seq": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T35",
+    "title": "Successful history rebuild counts unique position IDs",
+    "expected_result": "Partial deal split counts one entry; fourth remains blocked",
+    "observed_result": {
+      "count": 3,
+      "sent": false
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T36",
+    "title": "History unavailable after restart",
+    "expected_result": "HistorySelect failure blocks entry until authoritative rebuild",
+    "observed_result": {
+      "sent": true,
+      "count": 1,
+      "actual_prior_entries": 3,
+      "fault": false
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T37",
+    "title": "No overnight before server midnight",
+    "expected_result": "Position must be flat before crossing server day",
+    "observed_result": {
+      "positions_at_235959": 1,
+      "close_calls": 0
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T38",
+    "title": "First timer after midnight",
+    "expected_result": "Healthy prior-day position closes on first next-day timer",
+    "observed_result": {
+      "positions": 0,
+      "close_calls": 1
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T39",
+    "title": "Midnight close rejection",
+    "expected_result": "No false forced-close success",
+    "observed_result": {
+      "positions": 1,
+      "decision": "EXECUTED",
+      "retcode": 10006
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T40",
+    "title": "Server day rollover",
+    "expected_result": "Count rebuilds for new server day",
+    "observed_result": {
+      "count": 0,
+      "day": 20260908
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T41",
+    "title": "Bus ordinary duplicate polling",
+    "expected_result": "Each sequence consumed once",
+    "observed_result": {
+      "pending": 1,
+      "last_seq": 1
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T42",
+    "title": "Torn or missing SEQ",
+    "expected_result": "Fault on committed-head missing slot",
+    "observed_result": {
+      "fault": true,
+      "reason": "BUS_TORN_OR_MISSING_MODULE_1"
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T43",
+    "title": "Overflow 33 records",
+    "expected_result": "Detect overflow and block entries",
+    "observed_result": {
+      "fault": true,
+      "reason": "BUS_OVERFLOW_MODULE_1",
+      "head": 33
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T44",
+    "title": "Old commit during ring overwrite",
+    "expected_result": "Reject payload overwritten before SEQ invalidation",
+    "observed_result": {
+      "accepted": true,
+      "requested_sequence": 1,
+      "returned_sequence": 1,
+      "returned_event_ms": 33,
+      "head": 32
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T45",
+    "title": "Crash after slot commit before HEAD",
+    "expected_result": "Unannounced record must not be falsely acknowledged as published",
+    "observed_result": {
+      "publisher_success": true,
+      "head": 0,
+      "pending": 0,
+      "committed_slot": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T46",
+    "title": "Same-module concurrent publishers",
+    "expected_result": "Two successful publications occupy distinct sequences",
+    "observed_result": {
+      "outer_success": true,
+      "both_invoked": true,
+      "head": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T47",
+    "title": "Different modules independent rings",
+    "expected_result": "All three modules have independent heads",
+    "observed_result": {
+      "pending": 3,
+      "heads": [
+        1,
+        1,
+        1
+      ]
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T48",
+    "title": "HEAD regression after persistence rollback",
+    "expected_result": "Detect head less than already consumed sequence",
+    "observed_result": {
+      "fault": false,
+      "last_seq": 10,
+      "head": 2
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T49",
+    "title": "Stale newly sequenced event",
+    "expected_result": "Reject old event/publish timestamp on new sequence",
+    "observed_result": {
+      "requests": 1,
+      "event_age_days": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T50",
+    "title": "Ring timestamp precision current epoch",
+    "expected_result": "Epoch milliseconds and nearby sequences retain integer precision",
+    "observed_result": {
+      "read": true,
+      "event_ms": 1788782400123
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T51",
+    "title": "Double sequence upper boundary",
+    "expected_result": "Explicitly reject unsafe integer sequence before loss of progress",
+    "observed_result": {
+      "success": true,
+      "head": 9007199254740992,
+      "double_2pow53_plus1": 9007199254740992
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T52",
+    "title": "Close after buffered entry in same bus poll",
+    "expected_result": "Close/cancellation cannot be lost while entry waits",
+    "observed_result": {
+      "positions": 1,
+      "close_calls": 0,
+      "requests": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T53",
+    "title": "Delayed close bound only to magic",
+    "expected_result": "Stale close must not close a later position generation",
+    "observed_result": {
+      "positions": 0,
+      "close_calls": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T54",
+    "title": "Heartbeat expiry and late init",
+    "expected_result": "Block entry unless all modules READY and fresh",
+    "observed_result": {
+      "init_blocked": true,
+      "expired_blocked": true
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T55",
+    "title": "Windows uptime reset with globals",
+    "expected_result": "Reject heartbeat from future uptime",
+    "observed_result": {
+      "age": 9223372036854776000,
+      "ready": false
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T56",
+    "title": "Bootstrap identities READY bars and protection",
+    "expected_result": "Ready gates pass baseline and reject each varied gate",
+    "observed_result": {
+      "ready": "RUNTIME_READY",
+      "identity": "DIV3_ID",
+      "position": "QROS_POSITION_PRESENT"
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T57",
+    "title": "Bootstrap freshness and synchronized bars",
+    "expected_result": "Reject stale ticks/unsynchronized series",
+    "observed_result": {
+      "tick": false,
+      "age": 61,
+      "series": false
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T58",
+    "title": "Bootstrap executor identity and faults",
+    "expected_result": "Executor fault must invalidate runtime readiness",
+    "observed_result": {
+      "runtime_failure": "RUNTIME_READY",
+      "fault": true,
+      "exec_heartbeat_age": 0
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T59",
+    "title": "Bootstrap disconnected/trade forbidden",
+    "expected_result": "Reject certification when disconnected or trading disabled",
+    "observed_result": {
+      "runtime_failure": "RUNTIME_READY",
+      "connected": false,
+      "trade_allowed": false
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T60",
+    "title": "CSV unavailable on init",
+    "expected_result": "Fail init if ledger cannot be opened",
+    "observed_result": {
+      "init": -1
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T61",
+    "title": "CSV write failure after init",
+    "expected_result": "Detect ledger persistence failure",
+    "observed_result": {
+      "sent": true,
+      "fault": false,
+      "rows": 0
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T62",
+    "title": "Ledger append across restart",
+    "expected_result": "Keep prior ledger rows on restart",
+    "observed_result": {
+      "old_row_retained": false
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T63",
+    "title": "Timer registration failure",
+    "expected_result": "Do not initialize authoritative-timer runtime if timer fails",
+    "observed_result": {
+      "init": 0,
+      "timer_ok": false
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T64",
+    "title": "Missing SL discovered during entry risk scan",
+    "expected_result": "Block new entry on unknown reserved risk",
+    "observed_result": {
+      "sent": false,
+      "fault": true,
+      "reason": "RESERVED_RISK_UNKNOWN",
+      "open_unprotected": 1
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T65",
+    "title": "Unprotected restart blocks new entry",
+    "expected_result": "Recovery lock and CERT=0 prevent additional exposure",
+    "observed_result": {
+      "sent": false,
+      "lock": true,
+      "cert": 0
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T66",
+    "title": "Duplicate executor instances in one terminal",
+    "expected_result": "Second executor init must be fenced even without a position",
+    "observed_result": {
+      "first": 0,
+      "second": 0,
+      "exclusive_lease": false
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T67",
+    "title": "Profit at moved SL is not initial risk",
+    "expected_result": "Retain original reservation independently of current SL",
+    "observed_result": {
+      "calculation_ok": true,
+      "original_initial_risk": 50,
+      "reported_reserved": 0
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T68",
+    "title": "Finite total reserved risk",
+    "expected_result": "Invalid numeric valuation must block new exposure",
+    "observed_result": {
+      "sent": true,
+      "profit_calls": 3
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T69",
+    "title": "UTC plus 2 and plus 3 stable offsets",
+    "expected_result": "Both contract offsets stabilize after ten observations",
+    "observed_result": {
+      "stable_counts": [
+        10,
+        10
+      ]
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T70",
+    "title": "Out-of-contract server UTC offset",
+    "expected_result": "Reject stable UTC, UTC+1 and UTC-5",
+    "observed_result": {
+      "offsets": [
+        0,
+        3600,
+        -18000
+      ],
+      "stable_counts": [
+        10,
+        10,
+        10
+      ]
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T71",
+    "title": "Offset transition before certification",
+    "expected_result": "DST offset change resets observation count",
+    "observed_result": {
+      "transition_counts": [
+        1,
+        1
+      ]
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T72",
+    "title": "Nonintegral hour offset",
+    "expected_result": "Reject offset outside ten-second tolerance",
+    "observed_result": {
+      "stable_count": 0
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T73",
+    "title": "Post-certification DST transition",
+    "expected_result": "Revalidate CERT on server offset transition",
+    "observed_result": {
+      "cert": 1,
+      "offset": 10800
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T74",
+    "title": "Server day independent of host timezone",
+    "expected_result": "Day key follows synthetic server UTC+2/+3 timestamps",
+    "observed_result": {
+      "server_day_keys": [
+        20260908,
+        20260908
+      ]
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T75",
+    "title": "Independent terminal namespaces",
+    "expected_result": "Two independently certified controllers need account-wide ownership",
+    "observed_result": {
+      "first_requests": 1,
+      "second_sent": true,
+      "scope": "Independent snapshots model delayed visibility; no actual terminal instances run"
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T76",
+    "title": "Delayed position visibility with DONE",
+    "expected_result": "Do not treat DONE as reconciled position",
+    "observed_result": {
+      "second": true,
+      "orders": 1,
+      "positions": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T77",
+    "title": "Close broker rejection without a fresh module event",
+    "expected_result": "Retry or retain unresolved close intent",
+    "observed_result": {
+      "positions": 1,
+      "close_calls": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T78",
+    "title": "Restart with an outstanding order and zero positions",
+    "expected_result": "Do not unlock entry while an unreconciled order exists",
+    "observed_result": {
+      "sent": true,
+      "recovery_lock": false,
+      "orders": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T79",
+    "title": "Missing bus payload key with matching SEQ",
+    "expected_result": "Reject incomplete payload even if SEQ and HEAD match",
+    "observed_result": {
+      "read": true,
+      "sl": 0
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T80",
+    "title": "Delayed modify is dropped after broker rejection",
+    "expected_result": "Retain desired protection until confirmed or escalated",
+    "observed_result": {
+      "sl": 99,
+      "modify_calls": 1
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T81",
+    "title": "New-day OnTick before forced close timer",
+    "expected_result": "No new entry before resolving prior-day exposure",
+    "observed_result": {
+      "requests": 1,
+      "prior_day_still_open": true,
+      "close_calls": 0
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T82",
+    "title": "Runtime freshness after disconnect",
+    "expected_result": "Block send with disconnected terminal despite fresh module heartbeats",
+    "observed_result": {
+      "sent": true,
+      "connected": false,
+      "scope": "Stub accepts request; real broker disconnect response remains external BLOCKED"
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T83",
+    "title": "Initial risk kernel BUY and SELL controls",
+    "expected_result": "Both sides size at or below 50 USD on synthetic linear symbol",
+    "observed_result": {
+      "buy_risk": 50,
+      "sell_risk": 50
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T84",
+    "title": "Risk target property sweep",
+    "expected_result": "Volume stays on step and bounded in representative finite cases",
+    "observed_result": {
+      "checked": 36,
+      "violations": []
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T85",
+    "title": "Ordinary close then new entry ordering",
+    "expected_result": "Confirmed earlier close frees visible asset before mature entry",
+    "observed_result": {
+      "close_calls": 1,
+      "requests": 1,
+      "positions": 1
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T86",
+    "title": "Double sequence commit changes during read",
+    "expected_result": "Reject changed commit in final recheck",
+    "observed_result": {
+      "read": false,
+      "commit": 33
+    },
+    "status": "PASS",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  },
+  {
+    "id": "T87",
+    "title": "Continuous faults stop every later timer",
+    "expected_result": "Every declared runtime fault reason leaves day-boundary fallback available",
+    "observed_result": {
+      "results": [
+        {
+          "reason": "BUS_OVERFLOW_MODULE_1",
+          "remaining": 1,
+          "close_calls": 0
+        },
+        {
+          "reason": "BUS_TORN_OR_MISSING_MODULE_1",
+          "remaining": 1,
+          "close_calls": 0
+        },
+        {
+          "reason": "RESERVED_RISK_UNKNOWN",
+          "remaining": 1,
+          "close_calls": 0
+        },
+        {
+          "reason": "MQL_TRADE_NOT_ALLOWED",
+          "remaining": 1,
+          "close_calls": 0
+        },
+        {
+          "reason": "TERMINAL_TRADE_NOT_ALLOWED",
+          "remaining": 1,
+          "close_calls": 0
+        },
+        {
+          "reason": "INVALID_ARM_TOKEN",
+          "remaining": 1,
+          "close_calls": 0
+        },
+        {
+          "reason": "ACCOUNT_NOT_DEMO",
+          "remaining": 1,
+          "close_calls": 0
+        },
+        {
+          "reason": "WRONG_SERVER_x",
+          "remaining": 1,
+          "close_calls": 0
+        },
+        {
+          "reason": "WRONG_CURRENCY_x",
+          "remaining": 1,
+          "close_calls": 0
+        },
+        {
+          "reason": "FROZEN_RISK_OR_CAP_MISMATCH",
+          "remaining": 1,
+          "close_calls": 0
+        }
+      ],
+      "scope": "Reasons injected after init with authorized demo arm state restored; not a claim that all are naturally reachable during forward"
+    },
+    "status": "FAIL",
+    "classification": "TEST_PROVEN",
+    "scope": "TEST_ONLY_SOURCE_TRANSLATION_SCRIPTED_API"
+  }
+]
