@@ -1,0 +1,71 @@
+{
+  "schema": "QRCEL_ARCHITECTURE_REVIEW_V2",
+  "full_rise_fixed_point": false,
+  "no_branch_exhaustion_claim": true,
+  "methods": [
+    {
+      "id": "R1",
+      "method": "ROLE_AND_INTERFACE_DECOMPOSITION",
+      "independent_llm_agent": false,
+      "findings": [
+        "Fused planner/decomposer/next-action is the default until ablation justifies separation",
+        "Evidence and hypothesis graphs can share typed nodes while preserving claim status",
+        "Continuity/error/decision storage can share one durable substrate",
+        "Solver and falsifier need methodological separation, not just role names"
+      ],
+      "zero_delta_round": false
+    },
+    {
+      "id": "R2",
+      "method": "FAILURE_PATH_AND_STATE_TRANSITION_REVIEW",
+      "independent_llm_agent": false,
+      "findings": [
+        "Completed output and its receipt must commit together in one local boundary",
+        "Output hash must be verified before reusing cached work",
+        "Changed inputs must invalidate reuse by identity, not name",
+        "Remote unknown outcome cannot be solved by local retry alone",
+        "A successful deterministic continuity experiment does not select a complete cognitive architecture"
+      ],
+      "zero_delta_round": false
+    }
+  ],
+  "rivals": [
+    {
+      "id": "A",
+      "mechanism": "Single orchestrator with modular protocols",
+      "status": "FULL_STACK_CONCEPTUAL"
+    },
+    {
+      "id": "B",
+      "mechanism": "Specialists with independent verifier and falsifier",
+      "status": "FULL_STACK_CONCEPTUAL_NO_AGENTS_DEPLOYED"
+    },
+    {
+      "id": "C",
+      "mechanism": "Transactional task/evidence graph",
+      "status": "FULL_STACK_CONCEPTUAL"
+    },
+    {
+      "id": "D",
+      "mechanism": "Existing QROS plus minimum deterministic inspectors",
+      "status": "INSPECTOR_COMPONENTS_IMPLEMENTED_NOT_FULL_STACK_SELECTED"
+    }
+  ],
+  "proposed_component_merges": [
+    [
+      "COGNITIVE_ORCHESTRATOR",
+      "TASK_DECOMPOSITION_ENGINE",
+      "NEXT_ACTION_ENGINE"
+    ],
+    [
+      "EVIDENCE_GRAPH",
+      "HYPOTHESIS_GRAPH"
+    ],
+    [
+      "CONTINUITY_ENGINE",
+      "ERROR_MEMORY",
+      "DECISION_LEDGER"
+    ]
+  ],
+  "selection": "DEFERRED_UNTIL_ONTOLOGY_FIXED_POINT_AND_COMPARABLE_MODEL_SYSTEM_EVIDENCE"
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "QRCEL_CONTINUITY_COMPONENT_PREREG_V1",
+  "state": "FROZEN_BEFORE_RESULTS",
+  "scope": "DEVELOPMENT_SYNTHETIC_MECHANISM_COMPARISON_NOT_MODEL_BENCHMARK",
+  "scientific_authority_epoch_observed": 189,
+  "variants": [
+    "REPLAY_ALL",
+    "ATOMIC_JSON_PREFIX",
+    "SQLITE_TRANSACTION_PREFIX"
+  ],
+  "shared_task": "48-node causal arithmetic chain; each node consumes previous verified output; exact independent closed-form oracle",
+  "nodes": 48,
+  "base": 7,
+  "step": 3,
+  "cases": [
+    "NORMAL",
+    "CRASH_AFTER_NODE_16",
+    "CRASH_BEFORE_NODE_COMMIT_16",
+    "CORRUPT_DURABLE_OUTPUT",
+    "INPUT_IDENTITY_CHANGED"
+  ],
+  "crash_mechanism": "Separate worker process exits via os._exit(75); new process resumes same directory",
+  "scoring": "Correct exact output and digest; fail closed on corrupt data or changed input; no scientific writes",
+  "resource_metrics": [
+    "solver_calls",
+    "commit_count",
+    "artifact_bytes",
+    "process_wall_seconds"
+  ],
+  "solver_calls_limit_per_attempt": 96,
+  "negative_control_ablation": "ATOMIC_JSON_PREFIX without intermediate commits equals REPLAY_ALL",
+  "repeat_policy": "One paired run per scenario/variant; deterministic counts primary; times diagnostic only",
+  "frozen_selection_rule": "Report Pareto tradeoffs only among zero-critical-error mechanisms. Do not choose full QRCEL or claim general superiority. No quality-cost compensation.",
+  "exposure": "DEVELOPMENT_EXPOSED_FOR_RELATED_STACK_GENEALOGY",
+  "validation_cases": 0,
+  "sealed_cases": 0,
+  "model_calls": 0,
+  "new_paid_resources": false,
+  "scientific_dispatch": false,
+  "crash_alignment": "All variants crash at node 16. After-node means after the persistence step if the variant has one; REPLAY_ALL persists only at full completion and must replay. Before-commit means computed node 16 is not durable."
+}

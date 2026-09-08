@@ -1,0 +1,14 @@
+{
+  "schema": "QRCEL_DEVELOPMENT_SCORER_TEST_RECEIPT_V1",
+  "scope": "SYNTHETIC_FIXTURES_NOT_MODEL_RUNS",
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_bool_not_equal_to_integer_and_missing_not_dropped (test_score.ScorerTests.test_bool_not_equal_to_integer_and_missing_not_dropped) ... ok\ntest_duplicate_nonfinite_unknown_ids_rejected (test_score.ScorerTests.test_duplicate_nonfinite_unknown_ids_rejected) ... ok\ntest_reference_fixture_is_not_model_execution (test_score.ScorerTests.test_reference_fixture_is_not_model_execution) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.001s\n\nOK\n",
+  "source_sha256": {
+    "CASES.json": "de139b532410f306e7438348e3dbd288eeb51feac0bc5fb7160f33394cd942cc",
+    "test_score.py": "062b9af96008300703e007a24e976ba7935a28cbad21f53499875d2a5b4581a3",
+    "score.py": "2146c3e7bfbe68d9cf3f9c7da1882ab6e5f201aa7d0b50cf3df5a9f492604f8b",
+    "EXECUTION_PROTOCOL.json": "1e9bef1de6ed4ecb7391a318639668e591ea8ad4323cf3dc8f77185f1369529d"
+  },
+  "model_calls": 0
+}
