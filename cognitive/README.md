@@ -1,12 +1,20 @@
-# QRCEL — reparaciones verificadas, candidato 0.1.0
+# QRCEL — reparaciones verificadas, candidato 0.2.0
 
 Estado: **IMPLEMENTED_AND_TESTED_SHADOW_CANDIDATE**. Esta entrega añade inspectores deterministas y pruebas bajo `cognitive/`. No instala hooks en los runners ni reemplaza los validadores científicos congelados. No es una promoción de QRCEL ni una demostración de equivalencia Sol–Astra.
 
 ## Resultado observado
 
-La ejecución `checkpoints/clean_recovery_r1` aprobó 66 métodos de prueba: 40 nuevos y 26 existentes. Una prueba adicionalmente recorre 200 grafos con semilla fija y contrasta ordenamiento topológico con cierre transitivo independiente. Son casos de software, no 200 observaciones estadísticas independientes. Los ocho escenarios DEVELOPMENT conocidos obtuvieron 0/8 comportamientos esperados en los componentes antiguos y 8/8 en el candidato. F05 evalúa lectura compatible, no ejecución científica equivalente. F02 adapta la representación del packet al nuevo contrato conservando la contradicción dimensional.
+La ejecución `checkpoints/clean_recovery_020` aprobó 78 métodos de prueba: 40 de la primera versión, 12 adicionales y 26 existentes. Una prueba adicionalmente recorre 200 grafos con semilla fija y contrasta ordenamiento topológico con cierre transitivo independiente. Son casos de software, no 200 observaciones estadísticas independientes. Los ocho escenarios DEVELOPMENT conocidos obtuvieron 0/8 comportamientos esperados en los componentes antiguos y 8/8 en el candidato. F05 evalúa lectura compatible, no ejecución científica equivalente. F02 adapta la representación del packet al nuevo contrato conservando la contradicción dimensional.
 
 Shadow de lectura sobre la autoridad V189: PASS para el manifest y sus tres delegados, con `PREFLIGHT_REQUIRED_NO_DISPATCH`. Se preservaron los 62 archivos de control, scripts, tests, governance y handoff presentes en la copia limpia. La copia incluyó 64 archivos del repositorio, todos contrastados por blob con el árbol remoto fijado. No se afirma haber ejecutado la batería completa del repositorio de 1.079 blobs.
+
+## Cambios posteriores validados
+
+F09 rechaza estados COMPLETED e IN_PROGRESS con dependencias incompletas. F10 normaliza las excepciones de los tipos malformados probados y fija límites de JSON: 1.024 dígitos por entero y profundidad de contenedores 128 (raíz = 0), preservando la reconstrucción exacta dentro del contrato. F11 añade un contrato externo de procedencia y extensión a los checkpoints. Los 12 métodos nuevos prueban controles negativos, positivos y límites. La comparación original 8/8 sigue aprobada; no se convierte en 11/11 porque F11 amplía el contrato anterior.
+
+**Cambio de API en 0.2.0:** `verify_checkpoint` requiere `expected_parent_commit` y `expected_total_count`. Deben provenir del contrato de tarea congelado del host, no copiarse del checkpoint inspeccionado. COMPLETED exige alcanzar el total, PENDING_RESUMABLE exige trabajo restante y todo rango debe estar dentro de la extensión. Esto verifica metadatos y bytes; no sustituye la validación de filas/resultados del dominio. Los consumidores opt-in deben adaptar su llamada antes de usar esta versión. No hay consumidores científicos instalados.
+
+La versión 0.1.0 permanece recuperable en el commit `ecb9139e9e568cdde1b58ba713ebddb396f13ba0`; sus receipts históricos se conservan bajo `clean_recovery_r1`. La nueva evidencia se encuentra bajo `clean_recovery_020`. El baseline observado de F09–F11 está en `followup_baseline/OBSERVED_FAILURES.json`.
 
 ## Reparaciones y alcance
 

@@ -1,0 +1,21 @@
+{
+  "schema": "QRCEL_FOLLOWUP_REPAIR_CONTRACT_V1",
+  "version": "0.2.0",
+  "parent_candidate_commit": "ecb9139e9e568cdde1b58ba713ebddb396f13ba0",
+  "scope": "F09_F11_DETERMINISTIC_DEVELOPMENT",
+  "baseline_receipt": "cognitive/checkpoints/followup_baseline/OBSERVED_FAILURES.json",
+  "acceptance": [
+    "Reject COMPLETED or IN_PROGRESS tasks whose prerequisites are incomplete",
+    "Retain valid chains and externally supplied verified prerequisites",
+    "Malformed JSON numbers, excessive nesting and tested state-field types yield ContractError",
+    "Checkpoint parent equals the separate expected parent",
+    "COMPLETED ranges equal expected extent; PENDING ranges leave work; no overflow",
+    "All existing and new regressions pass; real V189 read-only shadow passes",
+    "No scientific file mutations; no economic reads or dispatch"
+  ],
+  "api_change": "verify_checkpoint requires expected_parent_commit and expected_total_count from host task contract",
+  "exposure": "DEVELOPMENT_EXPOSED",
+  "scientific_promotion": false,
+  "full_qrcel_fixed_point": false,
+  "model_benchmark": false
+}

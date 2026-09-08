@@ -19,7 +19,8 @@ from typing import Any, Mapping
 MANIFEST = "control/CONTROL_AUTHORITY_MANIFEST_v3.json"
 PATHS = {"head": "control/HEAD.json", "state": "control/persistent_execution/STATE.json",
          "run_queue": "control/persistent_execution/RUN_QUEUE.json"}
-MODEL_VERSION = "QRCEL_VERIFICATION_CANDIDATE_0.1.0"
+MODEL_VERSION = "QRCEL_VERIFICATION_CANDIDATE_0.2.0"
+JSON_INTEGER_LIMIT = 10 ** 1024
 
 
 class ContractError(ValueError):
@@ -55,10 +56,20 @@ def nonempty(value: Any, field: str) -> str:
 
 
 def canonical(value: Any) -> bytes:
+    # Fixed contract limit; do not inherit a process-global recursion setting.
+    stack = [(value, 0)]
+    while stack:
+        node, depth = stack.pop()
+        if type(node) is int:
+            require(-JSON_INTEGER_LIMIT < node < JSON_INTEGER_LIMIT, "INVALID_JSON_INTEGER_SIZE")
+        if isinstance(node, (dict, list, tuple)):
+            require(depth <= 128, "INVALID_JSON_VALUE", "NESTING_LIMIT")
+            children = node.values() if isinstance(node, dict) else node
+            stack.extend((child, depth + 1) for child in children)
     try:
         return (json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False,
                            allow_nan=False) + "\n").encode("utf-8")
-    except (TypeError, ValueError, UnicodeError) as exc:
+    except (TypeError, ValueError, UnicodeError, RecursionError) as exc:
         raise ContractError("INVALID_JSON_VALUE", type(exc).__name__) from exc
 
 
@@ -73,9 +84,16 @@ def parse_json(data: bytes) -> dict:
     def constant(value):
         raise ContractError("NONFINITE_JSON_NUMBER", value)
 
+    def integer(value):
+        require(len(value.lstrip('-')) <= 1024, "INVALID_JSON_INTEGER_SIZE")
+        return int(value)
+
     try:
-        obj = json.loads(data.decode("utf-8"), object_pairs_hook=pairs, parse_constant=constant)
-    except (UnicodeError, json.JSONDecodeError, RecursionError) as exc:
+        obj = json.loads(data.decode("utf-8"), object_pairs_hook=pairs,
+                         parse_constant=constant, parse_int=integer)
+    except ContractError:
+        raise
+    except (UnicodeError, ValueError, RecursionError) as exc:
         raise ContractError("INVALID_JSON", type(exc).__name__) from exc
     require(isinstance(obj, dict), "JSON_ROOT_NOT_OBJECT")
     # json.loads can overflow a finite literal (1e999) to infinity.
@@ -251,8 +269,13 @@ def check_dag(tasks: list[dict], satisfied_external: frozenset[str] = frozenset(
 def next_ready(tasks: list[dict], satisfied_external: frozenset[str] = frozenset()) -> dict | None:
     check_dag(tasks, satisfied_external)
     states = {"READY", "COMPLETED", "WAITING_PREREQUISITE", "IN_PROGRESS", "BLOCKED", "INVALID"}
-    require(all(t.get("status") in states for t in tasks), "UNKNOWN_TASK_STATUS")
+    require(all(isinstance(t.get("status"), str) and t["status"] in states for t in tasks),
+            "UNKNOWN_TASK_STATUS")
     completed = {task["item_id"] for task in tasks if task["status"] == "COMPLETED"}
+    for task in tasks:
+        if task["status"] in {"COMPLETED", "IN_PROGRESS"}:
+            require(set(task["prerequisites"]) <= completed | satisfied_external,
+                    "IMPOSSIBLE_TASK_STATE", task["item_id"])
     for task in tasks:
         if task["status"] == "READY" and set(task["prerequisites"]) <= completed | satisfied_external:
             return json.loads(canonical(task))
@@ -279,7 +302,9 @@ def inspect_active_queue(obs: AuthorityObservation) -> dict:
     require(len(set(ids)) == len(ids), "DUPLICATE_TASK_ID")
     hint = nonempty(queue.get("next_item"), "next_item")
     require(hint == state.get("next_item") and hint in ids, "NEXT_ITEM_MISMATCH")
-    require(head.get("scientific_state", {}).get("current_gate") == hint, "HEAD_GATE_MISMATCH")
+    scientific_state = head.get("scientific_state")
+    require(isinstance(scientific_state, dict), "INVALID_HEAD_SCIENTIFIC_STATE")
+    require(scientific_state.get("current_gate") == hint, "HEAD_GATE_MISMATCH")
     guard = queue.get("guards")
     require(isinstance(guard, dict), "MISSING_QUEUE_GUARDS")
     for key in ("holdout_open_authorized", "live_authorized", "mt5_authorized", "retuning_authorized",
@@ -406,7 +431,13 @@ def inspect_units(snapshot: Snapshot, contract: EvidenceContract, packet: dict) 
 
 def verify_checkpoint(snapshot: Snapshot, checkpoint: dict, *, expected_inputs: dict,
                       expected_authority_blob: str, expected_dispatch_id: str,
-                      expected_holdout_exposure: str) -> dict:
+                      expected_holdout_exposure: str, expected_parent_commit: str,
+                      expected_total_count: int) -> dict:
+    """Inspect a zero-based prefix bound to host-selected provenance and extent.
+
+    Required expected values must come from the frozen host task contract, never
+    from the checkpoint being inspected. This does not validate domain output rows.
+    """
     require(isinstance(checkpoint, dict), "CHECKPOINT_NOT_OBJECT")
     require_hash(expected_authority_blob, 40)
     require(checkpoint.get("dispatch_id") == nonempty(expected_dispatch_id, "dispatch_id"),
@@ -414,9 +445,12 @@ def verify_checkpoint(snapshot: Snapshot, checkpoint: dict, *, expected_inputs: 
     require(checkpoint.get("authority_manifest_blob_sha1") == expected_authority_blob,
             "CHECKPOINT_AUTHORITY_MISMATCH")
     require_hash(checkpoint.get("parent_commit"), 40)
-    require(checkpoint.get("execution_state") in {"COMPLETED", "PENDING_RESUMABLE", "CONTROL_CANARY"},
+    require_hash(expected_parent_commit, 40)
+    require(checkpoint["parent_commit"] == expected_parent_commit, "CHECKPOINT_PARENT_MISMATCH")
+    require(type(expected_total_count) is int and expected_total_count >= 0, "INVALID_EXPECTED_TOTAL")
+    require(checkpoint.get("execution_state") in ("COMPLETED", "PENDING_RESUMABLE", "CONTROL_CANARY"),
             "CHECKPOINT_STATE_INVALID")
-    require(checkpoint.get("holdout_exposure") in {"SEALED_NO_ACCESS", "EXPOSED_OBSERVATIONAL_ONLY"},
+    require(checkpoint.get("holdout_exposure") in ("SEALED_NO_ACCESS", "EXPOSED_OBSERVATIONAL_ONLY"),
             "CHECKPOINT_EXPOSURE_UNDECLARED")
     require(checkpoint["holdout_exposure"] == expected_holdout_exposure, "CHECKPOINT_EXPOSURE_MISMATCH")
     require(isinstance(expected_inputs, dict) and expected_inputs, "CHECKPOINT_INPUTS_MISSING")
@@ -438,9 +472,15 @@ def verify_checkpoint(snapshot: Snapshot, checkpoint: dict, *, expected_inputs: 
         end = interval[1]
     require(type(checkpoint.get("completed_count")) is int and checkpoint["completed_count"] == end,
             "CHECKPOINT_COUNT_MISMATCH")
+    require(end <= expected_total_count, "CHECKPOINT_EXTENT_EXCEEDED")
+    if checkpoint["execution_state"] == "COMPLETED":
+        require(end == expected_total_count, "CHECKPOINT_INCOMPLETE_COMPLETION")
+    if checkpoint["execution_state"] == "PENDING_RESUMABLE":
+        require(end < expected_total_count, "CHECKPOINT_NOTHING_TO_RESUME")
     nonempty(checkpoint.get("exact_resume_action"), "exact_resume_action")
     return {"schema": "QRCEL_CHECKPOINT_INSPECTION_V1", "status": "PASS", "completed_count": end,
-            "output_sha256": output_hash, "scientific_effect_authorized": False}
+            "output_sha256": output_hash, "expected_total_count": expected_total_count,
+            "parent_commit": expected_parent_commit, "scientific_effect_authorized": False}
 
 
 def compress_state(state: dict) -> bytes:

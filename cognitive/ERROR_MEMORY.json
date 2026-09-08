@@ -105,6 +105,48 @@
       "FIXED_VERSION": "cognitive 0.1.0 candidate",
       "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
       "receipt": "cognitive/checkpoints/clean_recovery_r1/paired_component_comparison.json"
+    },
+    {
+      "ERROR_ID": "F09",
+      "SYMPTOM": "Downstream task selected from contradictory completed dependency",
+      "ROOT_CAUSE": "Status was not checked against prerequisites",
+      "AFFECTED_SCOPE": "candidate inspection API",
+      "FIX": "Reject completed/in-progress nodes with incomplete prerequisites",
+      "REGRESSION_TEST": "cognitive/tests/test_followup.py::FollowupTests::test_f09_impossible_completed_and_in_progress_states_block",
+      "LESSON": "Externally bind invariants and reject impossible or malformed state",
+      "FIRST_VERSION": "0.1.0",
+      "FIXED_VERSION": "0.2.0 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_020/suite_0.json",
+      "classification": "BUG_FIX"
+    },
+    {
+      "ERROR_ID": "F10",
+      "SYMPTOM": "Malformed input raises raw exceptions; nesting varies with runtime",
+      "ROOT_CAUSE": "Parser and state-field boundaries omitted certain input types and limits",
+      "AFFECTED_SCOPE": "candidate inspection API",
+      "FIX": "Structured errors, explicit 1024-digit and depth-128 limits",
+      "REGRESSION_TEST": "cognitive/tests/test_followup.py::FollowupTests::test_f10_large_integer_and_recursive_encoding_are_structured",
+      "LESSON": "Externally bind invariants and reject impossible or malformed state",
+      "FIRST_VERSION": "0.1.0",
+      "FIXED_VERSION": "0.2.0 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_020/suite_0.json",
+      "classification": "BUG_FIX"
+    },
+    {
+      "ERROR_ID": "F11",
+      "SYMPTOM": "Parent identity and total extent unbound",
+      "ROOT_CAUSE": "Prior inspection API checked format/prefix only",
+      "AFFECTED_SCOPE": "candidate inspection API",
+      "FIX": "Require external expected parent and total count; match terminal status to extent",
+      "REGRESSION_TEST": "cognitive/tests/test_followup.py::FollowupTests::test_f11_parent_commit_is_externally_bound",
+      "LESSON": "Externally bind invariants and reject impossible or malformed state",
+      "FIRST_VERSION": "0.1.0",
+      "FIXED_VERSION": "0.2.0 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_020/suite_0.json",
+      "classification": "CONTRACT_EXTENSION"
     }
   ]
 }

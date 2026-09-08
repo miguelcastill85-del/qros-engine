@@ -86,7 +86,8 @@ class RuntimeTests(unittest.TestCase):
               "holdout_exposure": "EXPOSED_OBSERVATIONAL_ONLY", "completed_ranges": [[0, 1], [1, 3]],
               "completed_count": 3, "exact_resume_action": "INSPECT_NEXT_TEST_ONLY"}
         kwargs = dict(expected_inputs=inputs, expected_authority_blob=ANCHOR,
-                      expected_dispatch_id="test-dispatch", expected_holdout_exposure="EXPOSED_OBSERVATIONAL_ONLY")
+                      expected_dispatch_id="test-dispatch", expected_holdout_exposure="EXPOSED_OBSERVATIONAL_ONLY",
+                      expected_parent_commit="b" * 40, expected_total_count=3)
         return cp, kwargs
 
     def test_f01_rejects_fail_even_with_correct_schema_scope_and_hash(self):
