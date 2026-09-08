@@ -43,6 +43,7 @@ def _merge_feature(parts):
  mb=cols[0]
  st=np.r_[0,np.flatnonzero(mb[1:]!=mb[:-1])+1]; en=np.r_[st[1:],len(mb)]
  out=[mb[st]]
+ # BID o,h,l,c cols 1..4; MID 5..8
  for base in (1,5):
   o=cols[base][st]
   h=np.maximum.reduceat(cols[base+1],st)
