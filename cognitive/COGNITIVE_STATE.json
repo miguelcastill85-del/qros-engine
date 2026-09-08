@@ -15,7 +15,7 @@
   "scientific_authority_changed": false,
   "promoted": false,
   "parity": "INSUFFICIENT_EVIDENCE",
-  "next_action": "Review candidate integration using PHASE_CLOSURE.md; recover live authority and verify release before any use; no scientific dispatch",
+  "next_action": "Close ontology sufficiency and interface audit; materialize matched model DEVELOPMENT execution with observed provider identities; do not promote from component results",
   "pending": [
     "Authoritative evidence adapters for actual historical document schemas",
     "Explicit delegation of evidence requirements by existing authority",
@@ -32,5 +32,9 @@
     "F12 observation consumers revalidate bound bytes"
   ],
   "repair_phase_complete": true,
-  "full_qrcel_complete": false
+  "full_qrcel_complete": false,
+  "research_revision": "architecture-development-v1",
+  "research_receipt": "cognitive/research/continuity_development/run_001/RESULTS.json",
+  "research_result": "15_OF_15_COMPONENT_CASES_PASS_NO_FULL_ARCHITECTURE_SELECTION",
+  "model_runs_observed": 0
 }

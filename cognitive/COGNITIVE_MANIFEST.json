@@ -5,7 +5,7 @@
   "scientific_authority": false,
   "base_commit": "c43176df7713f5833b48589a0e86d2ae63ac6700",
   "files_sha256": {
-    "cognitive/COGNITIVE_STATE.json": "9ef6e85aa4afd73d5cce193eb9fce963ff9c50fa86ade4138ec39c90e0fa5cfd",
+    "cognitive/COGNITIVE_STATE.json": "cf96cc4f325ac636a82809807d546b3cb4477f95129e0332ea016596d9525fa4",
     "cognitive/ERROR_MEMORY.json": "aa18f936b54009a10847db5e76e40ff69fd1b89df2e274368df62806b229a26b",
     "cognitive/FOLLOWUP_CONTRACT.json": "501b02279068a54045d178b30490122d11b3084c281a0fece531740ed57c0352",
     "cognitive/PHASE_CLOSURE.md": "07a5c45d1f2712aba6444dad55ae7a619ac246a6a413ffda4ac956ec5dd3d016",
@@ -39,6 +39,19 @@
     "cognitive/checkpoints/closure_baseline/OBSERVED_FAILURE.json": "3413ff8a0abdfb6fc0197b4b0fad76b8b12b88c0aed579cc06f01350e0ce231c",
     "cognitive/checkpoints/followup_baseline/OBSERVED_FAILURES.json": "3dd038933dad0f9fea5ddb0bb34ad207c69cd23f181bb63049ff77bfea9c1876",
     "cognitive/compare_repairs.py": "8d6a5761c4c98c2829855213b0f3a0245478d1be22144c0432588873bcfb58c5",
+    "cognitive/research/ARCHITECTURE_REVIEW_v2.json": "75bb1e61e285969d04af711d16c1dd62e0fa0b63bbbed2b5bf401355d383de3e",
+    "cognitive/research/CAPABILITY_ONTOLOGY_v2.json": "b26d6f1df75b9ca6ffdd68a53284487f5f4cbb15fa849bef527453539fefbec9",
+    "cognitive/research/README.md": "f08159c4f420ae716249472d876ce7dc0f2bc25e4b4cd0d2911b614920cb3ce7",
+    "cognitive/research/continuity_development/PREREGISTRATION.json": "303b41a2f7edd7760626e810d93fae0af33e46f4d13c03a1f8c020e9fc775043",
+    "cognitive/research/continuity_development/run.py": "d196cc383247a6abb9f179bb8f1293a005e762b0f721200e2bb991bd255d8943",
+    "cognitive/research/continuity_development/run_001/PARTIAL_RESULTS.json": "75d4ab50ef8db92892db8ddc788a38bf15d2127a7d7490756781d54cb43bce77",
+    "cognitive/research/continuity_development/run_001/RESULTS.json": "d37467d2e17f042d706a83c6ee5fd6ba797ce097ec560d9ccbf22ef1577ec8ae",
+    "cognitive/research/continuity_development/worker.py": "5eb92f2721925448601b85f59b96522a346418ed1dee77d9cdf480980d2e6b11",
+    "cognitive/research/model_development/CASES.json": "de139b532410f306e7438348e3dbd288eeb51feac0bc5fb7160f33394cd942cc",
+    "cognitive/research/model_development/EXECUTION_PROTOCOL.json": "1e9bef1de6ed4ecb7391a318639668e591ea8ad4323cf3dc8f77185f1369529d",
+    "cognitive/research/model_development/SCORER_TEST_RECEIPT.json": "e3aff9dbacaa1c11557a1651b51b287df5063566d22c48a8bd5de747fbab6646",
+    "cognitive/research/model_development/score.py": "2146c3e7bfbe68d9cf3f9c7da1882ab6e5f201aa7d0b50cf3df5a9f492604f8b",
+    "cognitive/research/model_development/test_score.py": "062b9af96008300703e007a24e976ba7935a28cbad21f53499875d2a5b4581a3",
     "cognitive/runtime.py": "915a30f4f474e14fd301226f12b2aff27dca362f0fd65f9f55b024edf42aae42",
     "cognitive/shadow.py": "01d9f65d6d604f4b6287ac6cec1f943f1682d43b57e5bfb56c707f857c6b6e59",
     "cognitive/tests/test_followup.py": "9631afc205b59ea932d621041169b09873eb1027e4412b40e253ab5b3e965ab7",
@@ -48,5 +61,6 @@
     "cognitive/verify_release.py": "39104b3d5bb131fbbb8e036733116ded15f2ea77dc0da06f92fa50c0ef7d5808"
   },
   "manifest_self_hash_policy": "Excluded; bind this file by immutable Git commit/blob",
-  "parent_candidate_commit": "1635b8a8fa6ffeab76d26290eefbd40611ea1a45"
+  "parent_candidate_commit": "f1d15447da05cb462ce4657e17c2b9331bcb36bd",
+  "research_revision": "architecture-development-v1"
 }
