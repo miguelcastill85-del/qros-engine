@@ -1,0 +1,37 @@
+{
+  "schema": "QROS_V224_CANDIDATE3_CHECKPOINT_1.0",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "parent_audit_commit": "abcbaaa85b6161e786347d1248119cd7cf2f5ae1",
+  "state": "DEVELOPMENT_RUNNING",
+  "decision": "OFFLINE_CANDIDATE3_PASS_NATIVE_GATES_PENDING",
+  "deployment_allowed": false,
+  "v223_new_entries": "PAUSED_BY_USER_CONFIRMED_QDB1_EXEC_CERT_0",
+  "candidate3_offline": {"pass":62,"fail":0,"total":62},
+  "candidate3_static_audit": {"pass":80,"fail":0,"total":80},
+  "safety_model": {"pass":25,"fail":0,"total":25,"classification":"SYNTHETIC_MODEL_NOT_NATIVE_MT5"},
+  "critical_candidate3_hardening": [
+    "v2.2.4 executor CERT/HB/ARMED moved from legacy QDB1.EXEC.* to isolated Q24.EXEC.*",
+    "DIV3 progress/certification globals moved from QDB1.3.INIT_* to Q24.3.INIT_*",
+    "version-specific arm token QROS_DEMO_ARM_v224_8af000_2d6ebd",
+    "bootstrap no longer closes unrelated charts; chart provisioning is explicit opt-in and defaults false"
+  ],
+  "source_sha256": {
+    "QROS_DEMO_PORTFOLIO_EXECUTOR_v2_2_4.mq5": "e16486ff1b0972eddc36711870240b6ae975d6cb2f6c32ecd76086f2cdf0e363",
+    "QROS_DEMO_BUS_v2_2_4.mqh": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5": "e2ee32a59ded624fae32ea8534fcdd6ac234009dfbbd83de41e230a1747e0c61",
+    "QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5": "2096a36c8ca372265fb688601a82b859615d4b3507256e19cfd7b31c579aa133",
+    "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5": "8e285c67f2dc1a69ed84496c279bf14b394a6f597930f133bcf8badfdd0e0ffe",
+    "QROS_V224_RUNTIME_BOOTSTRAP.mq5": "320b42cc5a5387fed0e2cf708d4f33f5b4f380ba75121468fbbf989242c28fa4",
+    "QROS_V224_MODULE_CERTIFY.mq5": "5dccb8a5094d024e7f81f811c65e3b1db7f8ee4f7ae66e56dbb10d2422558acf"
+  },
+  "runtime_package": {"name":"QROS_DARWINEX_DEMO_V224_CANDIDATE3.zip","bytes":67215,"sha256":"e47b85c96fd1a91aa1f62c0d8f64538ec2baadaa56af483ae03804b571f968fa"},
+  "compile_only_package": {"name":"QROS_V224_C3_COMPILE_ONLY_VALIDATION.zip","bytes":61816,"sha256":"d8a902d2539fc4690a94b5f6103e4a1cd193a72ad4bd4e4ef9a5cecaa303a6f2"},
+  "hard_blockers": [
+    "Candidate3 MetaEditor build 6182 compile 0/0 not yet executed",
+    "InpSessionCloseLeadSec remains 0 pending authoritative Darwinex native session/latency gate",
+    "native CTrade rejection/partial/lost-ACK/restart/fencing/DST tests pending",
+    "parent-child MT5 parity and controller 977/977 pending",
+    "module certs, combined canary, START_RECEIPT and armed CERT=1 pending"
+  ],
+  "forbidden": ["do not re-enable v2.2.3 CERT","do not deploy Candidate3 before all native gates pass","do not merge to main"]
+}
