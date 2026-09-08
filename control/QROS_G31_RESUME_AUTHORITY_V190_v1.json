@@ -1,0 +1,38 @@
+{
+  "schema": "QROS_G31_RESUME_AUTHORITY_V190_v1",
+  "created_date": "2026-09-08",
+  "campaign": "QROS_G31_PUBLIC_ICHIMOKU_CLOUD_CROSS_v1",
+  "genealogy": "G31_ICHIMOKU_STYLE_TREND_CROSS",
+  "status": "PREREGISTERED_NO_RESULTS_RESUME_DURABLE_PREDEVELOPMENT_PASSES",
+  "authority_basis": {
+    "prereg_commit": "2e4e8f7ebbeb28330935deb5bedbbc77c977047e",
+    "ontology_ref": "control/G31_UNIVERSE_ONTOLOGY_v2.json",
+    "ontology_status": "UNIVERSE_ONTOLOGY_FROZEN",
+    "rise_ref": "control/RISE_G31_v2.json",
+    "rise_fixed_point_commit": "6c376fb53d772533279a7793a6e5e5826b8173d4",
+    "rise_status": "FIXED_POINT",
+    "signal_mask_parity_ref": "control/G31_SIGNAL_MASK_PARITY_v1.json",
+    "signal_mask_parity_commit": "eb32609ffe85d85741f672213fe682a949c0476a",
+    "aggregate_parity_gate_ref": "control/SIGNAL_MASK_PARITY_GATE_G29_G30_G31_v1.json",
+    "aggregate_parity_gate_commit": "738e107aa771b2b70568ad129e5d5d2e6a042d83"
+  },
+  "predevelopment_evidence": {
+    "ontology_frozen": true,
+    "rise_fixed_point": true,
+    "bar_and_signal_mask_parity": "PASS",
+    "pnl_computed_by_parity_gate": false,
+    "holdout_opened": false,
+    "development_mining_authorized_by_existing_gate": true,
+    "candidate_specific_parity_and_exact_mask_dedupe_still_required": true
+  },
+  "scope": {
+    "assets": ["NQX", "XAUUSD"],
+    "sides": ["BUY", "SELL"],
+    "development_data": "DEV_2018_2019_ONLY_UNTIL_FROZEN_CANDIDATE",
+    "historical_holdout": "SEALED_UNTIL_G31_OWN_STAGED_PROTOCOL_AUTHORIZES_OPEN",
+    "mt5": false,
+    "live": false
+  },
+  "next_action": "RECOVER_G31_CURRENT_DURABLE_DEVELOPMENT_CHECKPOINT_AFTER_SIGNAL_MASK_PARITY; DO_NOT_REPEAT ONTOLOGY_RISE_OR_PREDEVELOPMENT_PARITY; AUDIT DEV INPUT IDENTITIES AND CONTINUE DEVELOPMENT_MINING_WITH_EXACT_MASK_DEDUPE_AND_CANDIDATE_SPECIFIC_PRIMARY_INDEPENDENT_PARITY",
+  "decision": "G31_MAY_BECOME_ACTIVE_AFTER_G30_IS_PARKED_BLOCKED_BY_INFRASTRUCTURE"
+}
