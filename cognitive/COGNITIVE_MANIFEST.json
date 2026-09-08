@@ -1,0 +1,28 @@
+{
+  "schema": "QRCEL_SOURCE_AND_ENGINEERING_EVIDENCE_MANIFEST_V1",
+  "version": "0.1.0",
+  "status": "SHADOW_CANDIDATE_ONLY",
+  "scientific_authority": false,
+  "base_commit": "c43176df7713f5833b48589a0e86d2ae63ac6700",
+  "files_sha256": {
+    "cognitive/COGNITIVE_STATE.json": "df70795f0eaf36586ff0a26b26c645d0eafc4292766e18f36d95c416a89d393f",
+    "cognitive/ERROR_MEMORY.json": "61c6f122fec24a059e9d6d4d59a1291762fb9d1640d3640746d509ea952043c3",
+    "cognitive/README.md": "3f9de33ed680f94fb9380db0a64bafabaaa954174ca5f9ce1076a371caafd523",
+    "cognitive/REPAIR_CONTRACT.json": "66940ade9c3ea151376887e22bd1772a0bbd9e8246890b4b977c355d645a2ca9",
+    "cognitive/__init__.py": "3706e2a584ea9534988672433c495118916f8a074c4916bea1c2ea70016be1a4",
+    "cognitive/checkpoints/clean_recovery_r1/MANIFEST.json": "69d3ba44463529dbc32ef4fac76bd988dc1e96d5c719765cf005b2b02f65d952",
+    "cognitive/checkpoints/clean_recovery_r1/VALIDATION_RECEIPT.json": "156744a0307820bfb510cba819b2773726c6d29add256ed974eb07ea7381af87",
+    "cognitive/checkpoints/clean_recovery_r1/paired_component_comparison.json": "03fc29b05a311f594968a652450cd9f76a613cc3ac25f167ced6c1449632f619",
+    "cognitive/checkpoints/clean_recovery_r1/shadow.json": "d916b565dc6afa6ebeb03e19db4cee7057cc91edd1e3dca3bfd1a7ada2ea1adc",
+    "cognitive/checkpoints/clean_recovery_r1/suite_0.json": "04a9d78079f2438436482b4b5e0ab7d3bad47b368a058e6181703c4848ea13df",
+    "cognitive/checkpoints/clean_recovery_r1/suite_1.json": "1696aacad94b79458fb882dd5911d74b86011d489cab35ef74bfb12a87a9ba8b",
+    "cognitive/checkpoints/clean_recovery_r1/suite_2.json": "a0529347e872e4710ecc312c41e1e4c38916855c3c53b712b0c876865c1dcaff",
+    "cognitive/checkpoints/clean_recovery_r1/suite_3.json": "df2c0fa87d45ea6bf7c77e2a033e8816a4cf1f0714ce2b7b9dc9b69a0c3d5d74",
+    "cognitive/compare_repairs.py": "8d6a5761c4c98c2829855213b0f3a0245478d1be22144c0432588873bcfb58c5",
+    "cognitive/runtime.py": "b92b33f46499372ba5f5ddf97c04072d7a9fcf69284cfad99ef7d98be6df282d",
+    "cognitive/shadow.py": "01d9f65d6d604f4b6287ac6cec1f943f1682d43b57e5bfb56c707f857c6b6e59",
+    "cognitive/tests/test_runtime.py": "b811e437c1a2939e500f0e395c89c89bb4c7942fb2ff0a30824feec11dd96615",
+    "cognitive/validate_candidate.py": "2b7e83f02f8663bcb91a1829acba74b09a76fbbab866a963de4fce448824e5d0"
+  },
+  "manifest_self_hash_policy": "Excluded; bind this file by immutable Git commit/blob"
+}

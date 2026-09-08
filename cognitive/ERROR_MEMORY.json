@@ -1,0 +1,110 @@
+{
+  "schema": "QRCEL_ERROR_MEMORY_V1",
+  "scope": "OPT_IN_CANDIDATE_ONLY_ORIGINALS_UNCHANGED",
+  "errors": [
+    {
+      "ERROR_ID": "F01",
+      "SYMPTOM": "FAIL evidence accepted",
+      "ROOT_CAUSE": "Hashes checked without semantic result binding",
+      "AFFECTED_SCOPE": "evidence inspector",
+      "FIX": "Typed content checked against trusted host contract",
+      "REGRESSION_TEST": "cognitive/tests/test_runtime.py::RuntimeTests::test_f01_rejects_fail_even_with_correct_schema_scope_and_hash",
+      "LESSON": "Integrity does not imply success",
+      "FIRST_VERSION": "audited baseline c43176d",
+      "FIXED_VERSION": "cognitive 0.1.0 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_r1/paired_component_comparison.json"
+    },
+    {
+      "ERROR_ID": "F02",
+      "SYMPTOM": "Packet numbers supersede source",
+      "ROOT_CAUSE": "Referenced source not parsed",
+      "AFFECTED_SCOPE": "unit inspector",
+      "FIX": "Compare exact source content and dimensions",
+      "REGRESSION_TEST": "cognitive/tests/test_runtime.py::RuntimeTests::test_f02_packet_dimensions_must_match_bound_source",
+      "LESSON": "Inspect the bound source",
+      "FIRST_VERSION": "audited baseline c43176d",
+      "FIXED_VERSION": "cognitive 0.1.0 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_r1/paired_component_comparison.json"
+    },
+    {
+      "ERROR_ID": "F03",
+      "SYMPTOM": "Wrong delegated path accepted",
+      "ROOT_CAUSE": "Path field not checked",
+      "AFFECTED_SCOPE": "authority inspector",
+      "FIX": "Require exact delegated paths",
+      "REGRESSION_TEST": "cognitive/tests/test_runtime.py::RuntimeTests::test_f03_rejects_wrong_delegated_path_with_reanchored_manifest",
+      "LESSON": "Identity includes location and content",
+      "FIRST_VERSION": "audited baseline c43176d",
+      "FIXED_VERSION": "cognitive 0.1.0 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_r1/paired_component_comparison.json"
+    },
+    {
+      "ERROR_ID": "F04",
+      "SYMPTOM": "Missing fields accepted",
+      "ROOT_CAUSE": "Null values compared as equal",
+      "AFFECTED_SCOPE": "authority inspector",
+      "FIX": "Require typed mandatory fields",
+      "REGRESSION_TEST": "cognitive/tests/test_runtime.py::RuntimeTests::test_f04_missing_identifiers_even_rehashed_fail_closed",
+      "LESSON": "Validate schema before equality",
+      "FIRST_VERSION": "audited baseline c43176d",
+      "FIXED_VERSION": "cognitive 0.1.0 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_r1/paired_component_comparison.json"
+    },
+    {
+      "ERROR_ID": "F05",
+      "SYMPTOM": "V189 cannot be read",
+      "ROOT_CAUSE": "Controller only knows old schema",
+      "AFFECTED_SCOPE": "queue inspection",
+      "FIX": "Explicit V189 read-only adapter",
+      "REGRESSION_TEST": "cognitive/tests/test_runtime.py::RuntimeTests::test_f05_actual_v189_positive_shadow_no_dispatch",
+      "LESSON": "Version adapters require explicit scope",
+      "FIRST_VERSION": "audited baseline c43176d",
+      "FIXED_VERSION": "cognitive 0.1.0 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_r1/paired_component_comparison.json"
+    },
+    {
+      "ERROR_ID": "F06",
+      "SYMPTOM": "Cycle accepted",
+      "ROOT_CAUSE": "No topology validation",
+      "AFFECTED_SCOPE": "task DAG",
+      "FIX": "Kahn cycle rejection",
+      "REGRESSION_TEST": "cognitive/tests/test_runtime.py::RuntimeTests::test_f06_cycles_self_cycles_rejected",
+      "LESSON": "Dependencies must be satisfiable",
+      "FIRST_VERSION": "audited baseline c43176d",
+      "FIXED_VERSION": "cognitive 0.1.0 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_r1/paired_component_comparison.json"
+    },
+    {
+      "ERROR_ID": "F07",
+      "SYMPTOM": "Unknown external dependency ignored",
+      "ROOT_CAUSE": "Prefix filter discards dependencies",
+      "AFFECTED_SCOPE": "next-task selection",
+      "FIX": "All namespaces checked",
+      "REGRESSION_TEST": "cognitive/tests/test_runtime.py::RuntimeTests::test_f07_unknown_dependency_in_any_namespace_blocks",
+      "LESSON": "Do not confuse absent evidence with completion",
+      "FIRST_VERSION": "audited baseline c43176d",
+      "FIXED_VERSION": "cognitive 0.1.0 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_r1/paired_component_comparison.json"
+    },
+    {
+      "ERROR_ID": "F08",
+      "SYMPTOM": "Invalid output hash accepted",
+      "ROOT_CAUSE": "Format and bytes unchecked",
+      "AFFECTED_SCOPE": "checkpoint inspector",
+      "FIX": "Check physical identities and exposure",
+      "REGRESSION_TEST": "cognitive/tests/test_runtime.py::RuntimeTests::test_f08_invalid_output_hash_is_rejected",
+      "LESSON": "Resume requires physical evidence",
+      "FIRST_VERSION": "audited baseline c43176d",
+      "FIXED_VERSION": "cognitive 0.1.0 candidate",
+      "STATUS": "REGRESSION_PASS_IN_CANDIDATE",
+      "receipt": "cognitive/checkpoints/clean_recovery_r1/paired_component_comparison.json"
+    }
+  ]
+}
