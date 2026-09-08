@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_PARITY_GATE_PREEXEC_1.0",
+  "utc": "2026-09-08T13:48:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "native_gate_state": "MT5_EXTERNAL_PENDING",
+  "package": {
+    "name": "QROS_V224_C3_NATIVE_PARITY_GATE_v1.zip",
+    "bytes": 90543,
+    "sha256": "1875ac856f7d916121dedf55b83972d7b1d25b9c3394c405a6448c8c70d313d4",
+    "files": 26,
+    "manifest_entries_verified": "25/25"
+  },
+  "scope": {
+    "isolated_portable_darwinex_clone": true,
+    "active_terminal_stop_restart_or_profile_change": false,
+    "active_data_write": false,
+    "strategy_tester_allow_live_trading": 0,
+    "executor_included_in_test": false,
+    "real_order_api_in_tested_emitters": false,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false
+  },
+  "exact_authority_sha256": {
+    "QROS_XAU_M1_PDH_200S_SHADOW_v15700.mq5": "38a6da8ebe548b080c98c63592129e89aa5ed7fcd49324802e10597d2bfa5e72",
+    "QROS_NQX_MULTISCALE_17_31_SHADOW_v15700.mq5": "d70cae24eec9154c9b0029b4d90b1515a92ab3b39f3a8541db88664270ea4f6b",
+    "QROS_DIV3_NQX_PARITY_HARNESS_v1.mq5": "035d45e4e74cc6fcfbfd5da34533fd12ffbddcb7ad657d38ac678a18b45fd20c",
+    "QROS_DIV3_PORTFOLIO_CONTROLLER_PARITY_v2.mq5": "2d6ebd5082ade0e5ec90fd0265d27d61d90c7bd384ce057c18ad9c6f1ef09035",
+    "QROS_DIV3_PORTFOLIO_CONTROLLER_CANDIDATES_v2.csv": "82ff86d765c19bc621ea3d947258729d833c382c6c31d2469aedb529222523b1",
+    "QROS_DIV3_PORTFOLIO_CONTROLLER_RESULT_v2.csv": "b8d28b09c6e8783a872fd1bbb59c65d7463fa62d386ebeda7f4f03282ed29e46"
+  },
+  "candidate3_emitter_sha256": {
+    "QROS_XAU_M1_DEMO_EMITTER_v2_2_4.mq5": "e2ee32a59ded624fae32ea8534fcdd6ac234009dfbbd83de41e230a1747e0c61",
+    "QROS_NQX_17_31_DEMO_EMITTER_v2_2_4.mq5": "2096a36c8ca372265fb688601a82b859615d4b3507256e19cfd7b31c579aa133",
+    "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4.mq5": "8e285c67f2dc1a69ed84496c279bf14b394a6f597930f133bcf8badfdd0e0ffe",
+    "QROS_DEMO_BUS_v2_2_4.mqh": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "QROS_RISK_KERNEL_APPROVED_v15420.mqh": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f"
+  },
+  "preexecution_audit": {
+    "manifest": "PASS_25_OF_25",
+    "emitter_input_interfaces_vs_v223": "PASS_IDENTICAL",
+    "candidate3_emitter_diffs_vs_v223": "INFRASTRUCTURE_ONLY_AND_TESTER_GUARDED",
+    "order_api_scan": "PASS_NONE_IN_TESTED_EAS",
+    "active_terminal_process_action": "NONE",
+    "native_mt5_executed_in_chat": false
+  },
+  "planned_native_comparisons": [
+    "XAU_TRADES",
+    "XAU_EVENTS",
+    "NQX_TRADES",
+    "NQX_CANDIDATES",
+    "DIV3_SIGNALS",
+    "DIV3_TRADES",
+    "DIV3_SUMMARY",
+    "LEGACY_CONTROLLER_CANONICAL_977"
+  ],
+  "important_caveat": "The canonical 977 harness is the frozen legacy controller harness. A PASS does not yet prove Candidate3 executor runtime-path arbitration/CTrade/restart/fencing/session behavior.",
+  "decision": "PACKAGE_READY_NATIVE_EXECUTION_REQUIRED",
+  "next_gate_after_pass": "CANDIDATE3_EXECUTOR_RUNTIME_NATIVE_ADVERSARIAL_GATE",
+  "deployment_allowed": false
+}
