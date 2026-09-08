@@ -1,0 +1,66 @@
+{
+  "schema": "QROS_G30_STAGE_B_INFRASTRUCTURE_BLOCK_V190_v1",
+  "created_date": "2026-09-08",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "scientific_alpha_failure": false,
+  "branch_exhausted": false,
+  "stage": "OBS_STAGE_B_PREFLIGHT",
+  "parent_authority_epoch": 189,
+  "preflight_ref": "control/QROS_G30_STAGE_B_SOURCE_AND_DATA_PREFLIGHT_V190_v1.json",
+  "completed_before_block": {
+    "gate_a_cohort": "2471_OF_2471_FROZEN_REPRODUCIBLE_IN_AUTHORITY_V187",
+    "stage_b_data_NQX": {"bytes": 2490863052, "records": 146521356, "sha256": "d2530ae084311e0b454f30a5d7a2bc0d0f4ca932bb81d9dd2252ba7295491a05", "status": "PASS_EXACT"},
+    "stage_b_data_XAUUSD": {"bytes": 5502262228, "records": 323662484, "sha256": "77da8423b07d7d33168d8b713ef691627f0698760461c7349fa5ccc5e49ceaeb", "status": "PASS_EXACT"},
+    "stage_b_cache_NQX_sha256": "2bad94f5051c41f00a5e6fd9f39efa4278488f12b0b2f6d95737386cddecf598",
+    "stage_b_cache_XAUUSD_sha256": "35abe473cfb9b02c51f525ccd3ef870bff51106005f94236e8197a9f4a2d8bfd",
+    "frontier_source_layer": "PASS_10_OF_10",
+    "F03_source_bytes": "PASS_4_OF_4_EXACT_SHA256",
+    "F03_representative_identity_count": 229
+  },
+  "blockers": [
+    {
+      "id": "G30_STAGEB_B01_EXACT_REPRESENTATIVE_PAYLOAD_TRANSPORT",
+      "scope": "F08_AND_OTHER_COMPRESSED_OR_BUNDLED_REPRESENTATIVE_PAYLOADS",
+      "evidence": "F08 exact 864 representatives are stored as compressed single-line GitHub payloads. The authenticated GitHub connector can read textual excerpts but the response is truncated and does not expose a materializable file/workspace path. Private raw.githubusercontent.com cannot be fetched by the execution container. Substituting or reconstructing IDs without exact bytes/root verification is forbidden.",
+      "required_unblock": "MATERIALIZABLE_AUTHENTICATED_GITHUB_OR_CONNECTED_STORAGE_FILE_URI_OR_EXACT_DETERMINISTIC_REMATERIALIZATION_IN_EXECUTION_RUNTIME"
+    },
+    {
+      "id": "G30_STAGEB_B02_DURABLE_STORAGE_READ_BRIDGE",
+      "scope": "DROPBOX_CAS_V2",
+      "evidence_ref": "control/QROS_CAS_V2_IMPLEMENTATION_STATE_v1.json",
+      "evidence": "Dropbox durable write and locator paths pass, but heavy read rehydration to the execution runtime is explicitly disabled because download_link does not return a materializable connector file and text fetch truncates production payloads.",
+      "required_unblock": "DROPBOX_DOWNLOAD_FILE_RETURNING_FILE_URI_OR_WORKSPACE_PATH_OR_EQUIVALENT_CONNECTED_STORAGE_RAW_DOWNLOAD"
+    },
+    {
+      "id": "G30_STAGEB_B03_F07_SOURCE_IDENTITY_CONFLICT",
+      "scope": "F07_POST_SHOCK_CONFIRMATION_PRIMARY_SIGNAL",
+      "manifest_ref": "control/QROS_G30_F07_RUNNER_SOURCE_MANIFEST_V117_v1.json",
+      "git_blob_sha1": "1e21ef2af14990fbebbe463b6d4c5bc90e429531",
+      "manifest_sha256": "4c4f71e2ea9b9a2a3289207e3b51494e81faeba4be9049bd543c63daac2b08b7",
+      "observed_git_blob_bytes_sha256": "ed23c3a1cfdeed878b3eccabea4a761859fc60b81a1487210b240cb0b889f94e",
+      "evidence": "The exact Git blob referenced by the frozen manifest does not match the SHA-256 recorded by that same manifest. No durable correction receipt was found. Choosing either identity silently would violate fail-closed source identity rules.",
+      "required_unblock": "DURABLE_PRE_RESULT_SOURCE_IDENTITY_CORRECTION_WITH_EXACT_BYTES_AND_DEV_PRIMARY_INDEPENDENT_PARITY"
+    }
+  ],
+  "exhausted_zero_cost_routes": [
+    "GITHUB_PRIVATE_RAW_TO_CONTAINER",
+    "DROPBOX_TEMP_DOWNLOAD_TO_CONTAINER",
+    "DROPBOX_TEXT_FETCH_FOR_HEAVY_BYTES",
+    "GOOGLE_DRIVE_RAW_DOWNLOAD_ACTION_NOT_EXPOSED_IN_THIS_RUNTIME",
+    "REPLIT_EXISTING_QROS_APP_SEARCH_RETURNED_NONE",
+    "GITHUB_EXISTING_WORKFLOW_ARTIFACT_FOR_V189_NONE",
+    "GITHUB_RELEASES_NONE"
+  ],
+  "cost_guard": "NO_NEW_PAID_INFRASTRUCTURE_OR_UNVERIFIED_GITHUB_ACTIONS_BILLING",
+  "economic_guards": {
+    "new_stage_b_strategy_pnl_read": false,
+    "strategy_pnl_2022_plus_read": false,
+    "aggregate_2020_2026_first_pass": false,
+    "retuning": false,
+    "supergate": false,
+    "mt5": false,
+    "live": false
+  },
+  "decision": "PARK_G30_BLOCKED_BY_INFRASTRUCTURE_WITH_ALL_SCIENTIFIC_SURVIVORS_PRESERVED; DO_NOT_REJECT_ALPHA; DO_NOT_DECLARE_BRANCH_EXHAUSTED; ALLOW_NEXT_ORTHOGONAL_CAMPAIGN_TO_PROCEED"
+}
