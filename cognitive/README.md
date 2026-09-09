@@ -4,7 +4,7 @@ Estado: **IMPLEMENTED_AND_TESTED_SHADOW_CANDIDATE**. Esta entrega añade inspect
 
 ## Infraestructura de evaluación 0.3.2
 
-142 métodos aprobados. El nuevo ledger propaga exposición del benchmark por genealogía; el análisis pareado exige dimensiones y tamaño muestral fijados. Ambos conservan la separación entre evidencia suministrada, ejecución observada y autorización. El ensayo DEVELOPMENT autorizado ya se ejecutó: dos subagentes con historial aislado, 12/12 aciertos cada uno y respuestas idénticas. Consultar `research/model_development/run_001/README.md`; el efecto techo no permite inferir paridad ni mejora de arquitectura. Consultar `research/evaluation_readiness/COMPLETION_AUDIT.json`. No se declara completado el QRCEL integral.
+142 métodos aprobados en la última batería de componentes 0.3.2. El ledger propaga exposición del benchmark por genealogía; el análisis pareado exige dimensiones y tamaño muestral fijados. Se observaron cuatro tandas de agentes: Sol y Astra obtuvieron 12/12 cada uno en el smoke test y 6/6 cada uno en DEVELOPMENT ampliado. Las respuestas coincidieron en ambas tandas. El corrector ampliado pasó además siete pruebas adversariales; no forman parte del recibo histórico de 142 métodos. Consultar `research/model_development/extended_002/README.md` y `research/evaluation_readiness/COMPLETION_AUDIT.json`. No se identifica ganancia de modelo, sistema o interacción, ni se declara completado el QRCEL integral.
 
 ## Integración V191 y corrección 0.3.1
 
@@ -45,14 +45,14 @@ La versión 0.1.0 permanece recuperable en el commit `ecb9139e9e568cdde1b58ba713
 | F07 | Dependencias ajenas a G30 ignoradas | Todos los namespaces se resuelven o fallan cerrados |
 | F08 | Hash de output inválido aceptado | Formato y bytes, inputs, identidad de autoridad, rangos y exposición |
 
-Se añaden rechazo de rutas inseguras/symlinks/FIFO, límites de lectura, pérdida de archivos, truncamiento, alteración de outputs, reconstrucción exacta en proceso nuevo y escritura atómica de receipts de ingeniería. La compresión es codificación sin pérdida; no es compresión semántica LLM. La idempotencia probada consiste en no volver a seleccionar tareas completadas y repetir inspecciones sin efectos. No existe todavía un ejecutor de efectos con WAL/exactly-once.
+Se añaden rechazo de rutas inseguras/symlinks/FIFO, límites de lectura, pérdida de archivos, truncamiento, alteración de outputs, reconstrucción exacta en proceso nuevo y escritura atómica de receipts de ingeniería. La compresión es codificación sin pérdida; no es compresión semántica LLM. Desde 0.3.0, el núcleo usa SQLite WAL y confirma juntos resultados, evidencia y ledger de operaciones locales admitidas. No garantiza exactly-once para efectos remotos; ante resultado remoto desconocido no autoriza reenvío automático.
 
 ## Reproducción local
 
 Desde un checkout de esta rama, en Linux con Python 3.12 y biblioteca estándar:
 
 ```bash
-PYTHONDONTWRITEBYTECODE=1 python3 -m cognitive.validate_candidate --run-name local_review_001
+python3 -B -m cognitive.validate_candidate --run-name local_review_001 --authority-root /ruta/al/checkout-verificado --authority-blob BLOB_OBTENIDO_DE_LA_FUENTE_AUTORIZADA
 ```
 
 El nombre debe ser nuevo. El programa escribe sólo receipts bajo `cognitive/checkpoints/<nombre>`. Los tests usan fixtures sintéticos en directorios temporales. El comparador restaura en memoria el validador baseline desde `control/recovery/qros_control_authority_validator_v2.py.gz.b64`, verificando tamaño y SHA-256 del carrier, gzip y fuente. No necesita que otro chat haya restaurado `scripts/qros_control_authority_validator_v2.py`.
@@ -60,10 +60,10 @@ El nombre debe ser nuevo. El programa escribe sólo receipts bajo `cognitive/che
 Inspección sin escribir receipts:
 
 ```bash
-PYTHONDONTWRITEBYTECODE=1 python3 -m cognitive.shadow --repo-root . --manifest-blob 8e81e70881796288f79abfa0280e73676d19a06f
+python3 -B -m cognitive.shadow --repo-root /ruta/al/checkout-verificado --manifest-blob BLOB_OBTENIDO_DE_LA_FUENTE_AUTORIZADA
 ```
 
-Ese blob corresponde exclusivamente al baseline auditado. En una sesión operacional nueva debe recuperarse primero la autoridad vigente por su fuente autorizada y recomputarse físicamente la capacidad. Nunca derivar el ancla del mismo archivo no confiable que se intenta verificar. Un cambio de epoch exige un adaptador explícito y nuevas pruebas; no seleccionar versiones por fecha o nombres.
+Los argumentos son marcadores que deben sustituirse por un checkout y un ancla verificados en la sesión actual. En una sesión operacional nueva debe recuperarse primero la autoridad vigente por su fuente autorizada y recomputarse físicamente la capacidad. Nunca derivar el ancla del mismo archivo no confiable que se intenta verificar, ni copiar un blob histórico de este README. Un cambio de epoch exige un adaptador explícito y nuevas pruebas; no seleccionar versiones por fecha o nombres.
 
 ## Límites de integración y confianza
 
@@ -71,16 +71,16 @@ Ese blob corresponde exclusivamente al baseline auditado. En una sesión operaci
 
 `inspect_units` verifica la coherencia de las declaraciones y los hashes de dos fuentes distintas. Diferentes bytes no prueban independencia metodológica ni que el código ejecute lo declarado. La paridad de runners sigue pendiente y separada. `satisfied_external` sólo acepta un conjunto congelado; corresponde al host recomputar y verificar la evidencia de cada capacidad antes de suministrarlo.
 
-El shadow certifica un predicado acotado sobre manifest/HEAD/STATE/QUEUE. No resuelve la ambigüedad histórica de redirects, ni materializa inputs de trading, ni certifica el bootstrap completo. Ningún PASS de este paquete puede promover resultados, cambiar gates o abrir periodos. Las instrucciones dentro de fixtures son datos; la prueba de injection cubre este parser, no todas las rutas posibles de un agente LLM.
+El shadow certifica un predicado acotado sobre manifest/HEAD/STATE/QUEUE. El adaptador V191 verifica además registros y siete redirects delegados; no materializa inputs de trading ni sustituye los preflights científicos de los runners. Ningún PASS de este paquete puede promover resultados, cambiar gates o abrir periodos. Las instrucciones dentro de fixtures son datos; la prueba de injection cubre este parser, no todas las rutas posibles de un agente LLM.
 
 ## Autoridad observada y continuidad
 
 Repositorio: `miguelcastill85-del/qros-engine`.
-Baseline: `c43176df7713f5833b48589a0e86d2ae63ac6700`.
-Authority Manifest: `control/CONTROL_AUTHORITY_MANIFEST_v3.json`, epoch 189, blob `8e81e70881796288f79abfa0280e73676d19a06f`.
+Autoridad observada en esta entrega: commit `c0f3de8c66e0c3b642053bdc35f56f33a96740e6`.
+Authority Manifest: `control/CONTROL_AUTHORITY_MANIFEST_v3.json`, epoch 191, blob `5afce6279994b8625bd79fb2d5d13924e3c561e7`. Es una observación histórica, no una selección automática para sesiones futuras.
 Campaña: `QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1`.
 
-`COGNITIVE_STATE.json` es un checkpoint de ingeniería subordinado. No es otro HEAD. La clasificación observada sigue siendo `EXPOSED_OBSERVATIONAL_ONLY`; 2022–2026 strategy PnL sigue bloqueado. No se leyó PnL, ejecutó MT5, modificó autoridad o activó infraestructura de pago.
+`COGNITIVE_STATE.json` es un checkpoint de ingeniería subordinado. No es otro HEAD. La clasificación observada sigue siendo `EXPOSED_OBSERVATIONAL_ONLY`; 2022–2026 strategy PnL sigue bloqueado. Esta entrega cognitiva no leyó PnL, ejecutó MT5, modificó autoridad ni activó infraestructura de pago. La reconciliación V191, autorizada por separado, está documentada en `control/reconciliation/V191/`.
 
 ## Decisión arquitectónica
 

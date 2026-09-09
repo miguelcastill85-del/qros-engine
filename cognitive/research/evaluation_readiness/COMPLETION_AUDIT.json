@@ -7,7 +7,8 @@
     "V191 read-only integration",
     "Benchmark genealogy exposure ledger",
     "Conditional paired statistics and non-authorizing gate inventory",
-    "Two explicitly authorized model-route DEVELOPMENT smoke batches executed and scored: 12/12 each"
+    "Two explicitly authorized model-route DEVELOPMENT smoke batches executed and scored: 12/12 each",
+    "Two further DEVELOPMENT model-route batches scored 6/6 each; real EXACT_SUM control correct; seven extended scorer tests PASS"
   ],
   "observed_validation": {
     "tests": 142,
@@ -16,14 +17,18 @@
   "open_gates": {
     "ONTOLOGY_FROZEN": "Definitions extended and unsupported advantage corrected; full sufficiency not established",
     "RISE_FIXED_POINT": "New findings in current audit; cannot certify zero-delta closure",
-    "BENCHMARK_DEVELOPMENT": "SMOKE_TEST_COMPLETE; full model/system benchmark not executed",
+    "BENCHMARK_DEVELOPMENT": "TWO SHORT-ANSWER BATCHES PER ROUTE COMPLETE; end-to-end model/system treatments not compared",
     "BENCHMARK_VALIDATION": "Requires frozen comparable model/system protocol and fresh cases",
     "SEALED_EVALUATION": "No sealed custodian/test corpus or corresponding model runs established",
     "SHADOW_PASS": "Read-only control shadow PASS; full operational model-system shadow not executed",
     "CANARY_PASS": "Not executed; depends on prior gates",
     "PROMOTION": "Not authorized by this layer; gates above incomplete"
   },
-  "next_action": "Resolve stack treatment definitions and model/tool observability for the larger benchmark design in model_development/run_001/NEXT_BENCHMARK_DESIGN.json.",
+  "next_action": "Freeze actual model/system treatment packages and instrument end-to-end task execution; do not repeat short-answer batches as a substitute for system comparison.",
   "full_qrcel_complete": false,
-  "parity": "INSUFFICIENT_EVIDENCE"
+  "parity": "INSUFFICIENT_EVIDENCE",
+  "extended_scorer_validation": {
+    "tests": 7,
+    "receipt": "cognitive/research/model_development/extended_002/SCORER_TEST_RECEIPT.json"
+  }
 }
