@@ -1,3 +1,5 @@
+> Final readback: main advanced to V190 and its frozen official validator returned AUTH_SOURCE_MISMATCH:head:None. Current integration is FAIL_CLOSED. The CLI example below belongs to historical engineering commit 70e7ecabe4e96eaa68dfc70430672e66feb720f9 and V189; its manifest anchor must not be reused for this updated delivery or current QROS authority. See ../checkpoints/authority_drift_v190/CHECKPOINT.json.
+
 # Núcleo local QRCEL 0.3.0 — alcance implementado
 
 Este núcleo ejecuta planes JSON explícitos con dos operaciones permitidas: `EXACT_SUM` y `CHECK_DAG`. Aporta coordinación local, verificación y continuidad a un host que ya pueda formular las tareas. No contiene un solver LLM, no opera estrategias ni selecciona la arquitectura cognitiva final.

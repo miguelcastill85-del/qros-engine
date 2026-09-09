@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "-m",
+    "cognitive.shadow",
+    "--repo-root",
+    "/workspace/scratch/432f759f1722/improvements/authority-v190-recheck",
+    "--manifest-blob",
+    "b450847844b1be1102ddad84ca7ce13f60132c4f"
+  ],
+  "exit_code": 2,
+  "stdout": "{\"detail\":\"AUTHORIZATION_SOURCE_MISMATCH:head\",\"dispatch_authorized\":false,\"economic_reads\":0,\"error\":\"AUTHORIZATION_SOURCE_MISMATCH\",\"schema\":\"QRCEL_SHADOW_INSPECTION_V1\",\"scientific_writes\":0,\"status\":\"FAIL\"}\n",
+  "stderr": "",
+  "scope": "REAL_V190_READ_ONLY_INSPECTION_NO_SCIENTIFIC_DISPATCH"
+}
