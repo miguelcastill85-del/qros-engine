@@ -1,0 +1,96 @@
+{
+  "schema": "QRCEL_SUBMITTED_DEVELOPMENT_SCORE_V1",
+  "scope": "SUBMITTED_BYTES_ONLY",
+  "case_set_sha256": "de139b532410f306e7438348e3dbd288eeb51feac0bc5fb7160f33394cd942cc",
+  "response_sha256": "b77f4c0a0f18825f96a416bf1fd41a9fa5b1856f9e822981feae78bff6a1435d",
+  "cases": [
+    {
+      "id": "DEV-01",
+      "dimension": "AUTHORITY_RECOVERY",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    },
+    {
+      "id": "DEV-02",
+      "dimension": "STATE_RECOVERY",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    },
+    {
+      "id": "DEV-03",
+      "dimension": "DEPENDENCIES",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    },
+    {
+      "id": "DEV-04",
+      "dimension": "EVIDENCE_SEMANTICS",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    },
+    {
+      "id": "DEV-05",
+      "dimension": "CAUSAL_REASONING",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    },
+    {
+      "id": "DEV-06",
+      "dimension": "QUANT_REASONING",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    },
+    {
+      "id": "DEV-07",
+      "dimension": "DEBUGGING",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    },
+    {
+      "id": "DEV-08",
+      "dimension": "TOOL_USE",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    },
+    {
+      "id": "DEV-09",
+      "dimension": "CONTINUITY",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    },
+    {
+      "id": "DEV-10",
+      "dimension": "AUTOCORRECTION",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    },
+    {
+      "id": "DEV-11",
+      "dimension": "RESOURCE_ROUTING",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    },
+    {
+      "id": "DEV-12",
+      "dimension": "CONTRADICTIONS",
+      "correct": true,
+      "missing": false,
+      "critical_failure": false
+    }
+  ],
+  "observed_model_id": null,
+  "model_execution_verified": false,
+  "sealed": false,
+  "parity": "INSUFFICIENT_EVIDENCE"
+}

@@ -4,7 +4,7 @@ Estado: **IMPLEMENTED_AND_TESTED_SHADOW_CANDIDATE**. Esta entrega añade inspect
 
 ## Infraestructura de evaluación 0.3.2
 
-142 métodos aprobados. El nuevo ledger propaga exposición del benchmark por genealogía; el análisis pareado exige dimensiones y tamaño muestral fijados. Ambos conservan la separación entre evidencia suministrada, ejecución observada y autorización. Hay un ensayo DEVELOPMENT preparado para dos subagentes con historial aislado; su ejecución requiere autorización explícita de delegación en esta sesión. Consultar `research/evaluation_readiness/COMPLETION_AUDIT.json`. No se declara completado el QRCEL integral.
+142 métodos aprobados. El nuevo ledger propaga exposición del benchmark por genealogía; el análisis pareado exige dimensiones y tamaño muestral fijados. Ambos conservan la separación entre evidencia suministrada, ejecución observada y autorización. El ensayo DEVELOPMENT autorizado ya se ejecutó: dos subagentes con historial aislado, 12/12 aciertos cada uno y respuestas idénticas. Consultar `research/model_development/run_001/README.md`; el efecto techo no permite inferir paridad ni mejora de arquitectura. Consultar `research/evaluation_readiness/COMPLETION_AUDIT.json`. No se declara completado el QRCEL integral.
 
 ## Integración V191 y corrección 0.3.1
 

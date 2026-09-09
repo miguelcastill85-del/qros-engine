@@ -1,6 +1,6 @@
 {
   "schema": "QRCEL_ENGINEERING_STATE_V1",
-  "status": "EVALUATION_INFRASTRUCTURE_VALIDATED_MODEL_TRIAL_DELEGATION_REQUIRED",
+  "status": "DUAL_ROUTE_DEVELOPMENT_SMOKE_TEST_COMPLETE",
   "version": "0.3.2-experimental",
   "scientific_authority_observed": {
     "repository": "miguelcastill85-del/qros-engine",
@@ -10,12 +10,12 @@
     "epoch": 191
   },
   "runtime_capability_inheritable": false,
-  "last_receipt": "cognitive/checkpoints/evaluation_032_final/VALIDATION_RECEIPT.json",
+  "last_receipt": "cognitive/research/model_development/run_001/RESULTS.json",
   "background_running": false,
   "scientific_authority_changed": false,
   "promoted": false,
   "parity": "INSUFFICIENT_EVIDENCE",
-  "next_action": "After explicit authorization, run the two-agent DEVELOPMENT smoke test described in DEVELOPMENT_TRIAL_PLAN.json. No extra API purchase or scientific execution.",
+  "next_action": "Resolve stack treatment definitions and model/tool observability for the larger benchmark design in model_development/run_001/NEXT_BENCHMARK_DESIGN.json.",
   "pending": [
     "Authoritative evidence adapters for actual historical document schemas",
     "Explicit delegation of evidence requirements by existing authority",
@@ -36,7 +36,7 @@
   "research_revision": "architecture-development-v1",
   "research_receipt": "cognitive/research/continuity_development/run_001/RESULTS.json",
   "research_result": "15_OF_15_COMPONENT_CASES_PASS_NO_FULL_ARCHITECTURE_SELECTION",
-  "model_runs_observed": 0,
+  "model_runs_observed": 2,
   "kernel_implementation_complete": true,
   "kernel_demo_receipt": "cognitive/checkpoints/v191_cli_031/DEMO_RECEIPT.json",
   "kernel_checkpoint": "cognitive/checkpoints/v191_cli_031/CHECKPOINT.json",
@@ -50,7 +50,8 @@
   },
   "current_authority_status": "OFFICIAL_VALIDATOR_PASS_CONTROL_IDENTITIES_AND_LEGACY_REDIRECTS_PASS",
   "current_authority_integration": "READ_ONLY_SHADOW_PASS_NO_DISPATCH",
-  "last_continuity_checkpoint": "cognitive/research/evaluation_readiness/COMPLETION_AUDIT.json",
+  "last_continuity_checkpoint": "cognitive/research/model_development/run_001/NEXT_BENCHMARK_DESIGN.json",
   "scientific_authority_changed_field_scope": "This cognitive software delivery; the separately user-authorized QROS V191 governance reconciliation is preserved on main.",
-  "stop_reason": "USER_DECISION_REQUIRED_EXPLICIT_SUBAGENT_DELEGATION"
+  "stop_reason": null,
+  "model_execution_observation_scope": "Two agent batches on requested routes; immutable internal model IDs and full tool traces not exposed"
 }

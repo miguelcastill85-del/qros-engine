@@ -6,7 +6,8 @@
     "Local transactional kernel",
     "V191 read-only integration",
     "Benchmark genealogy exposure ledger",
-    "Conditional paired statistics and non-authorizing gate inventory"
+    "Conditional paired statistics and non-authorizing gate inventory",
+    "Two explicitly authorized model-route DEVELOPMENT smoke batches executed and scored: 12/12 each"
   ],
   "observed_validation": {
     "tests": 142,
@@ -15,14 +16,14 @@
   "open_gates": {
     "ONTOLOGY_FROZEN": "Definitions extended and unsupported advantage corrected; full sufficiency not established",
     "RISE_FIXED_POINT": "New findings in current audit; cannot certify zero-delta closure",
-    "BENCHMARK_DEVELOPMENT": "Scorer and input packet ready; model execution requires explicit delegation authorization",
+    "BENCHMARK_DEVELOPMENT": "SMOKE_TEST_COMPLETE; full model/system benchmark not executed",
     "BENCHMARK_VALIDATION": "Requires frozen comparable model/system protocol and fresh cases",
     "SEALED_EVALUATION": "No sealed custodian/test corpus or corresponding model runs established",
     "SHADOW_PASS": "Read-only control shadow PASS; full operational model-system shadow not executed",
     "CANARY_PASS": "Not executed; depends on prior gates",
     "PROMOTION": "Not authorized by this layer; gates above incomplete"
   },
-  "next_action": "After explicit authorization, run the two-agent DEVELOPMENT smoke test described in DEVELOPMENT_TRIAL_PLAN.json. No extra API purchase or scientific execution.",
+  "next_action": "Resolve stack treatment definitions and model/tool observability for the larger benchmark design in model_development/run_001/NEXT_BENCHMARK_DESIGN.json.",
   "full_qrcel_complete": false,
   "parity": "INSUFFICIENT_EVIDENCE"
 }
