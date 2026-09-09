@@ -1,0 +1,40 @@
+{
+  "schema": "QRCEL_KERNEL_IMPLEMENTATION_CONTRACT_V1",
+  "status": "FROZEN_ENGINEERING_ACCEPTANCE_BEFORE_TESTS",
+  "version": "0.3.0-experimental",
+  "parent": "ae7bcaa1dbb2854a48361e97c30512c7dddbc992",
+  "scope": "DETERMINISTIC_LOCAL_TASK_KERNEL_NO_SCIENTIFIC_DISPATCH",
+  "operations": [
+    "EXACT_SUM",
+    "CHECK_DAG"
+  ],
+  "required": [
+    "Exact input/plan/code/authority identities",
+    "All dependencies satisfied",
+    "L0 minimal, L1 independent verifier, L2 bounded falsification, L3 blocked",
+    "Outputs claims and completion atomic in SQLite",
+    "Resume without repeating committed tasks",
+    "Rollback on precommit failure",
+    "Restore from externally hashed checkpoint",
+    "No scientific writes and no network/model calls"
+  ],
+  "resource_limits": {
+    "tasks": 100,
+    "numbers_per_task": 128,
+    "input_integer_digits": 64,
+    "ledger_events": 10000,
+    "plan_bytes": 1048576,
+    "checkpoint_bytes": 4194304,
+    "max_fraction_bits": 2048
+  },
+  "acceptance": "All new regressions plus existing 86 tests; cross-process crash/recovery; checkpoint reconstruction equality; shadow/example completion with physical receipts",
+  "not_claimed": [
+    "Full QRCEL selection",
+    "Ontology frozen",
+    "RISE fixed point",
+    "Scientific promotion",
+    "Native reasoning improvement",
+    "Model parity",
+    "Exactly-once remote effects"
+  ]
+}

@@ -1,8 +1,12 @@
-# QRCEL — reparaciones verificadas, candidato 0.2.1
+# QRCEL — núcleo local experimental 0.3.0
 
 Estado: **IMPLEMENTED_AND_TESTED_SHADOW_CANDIDATE**. Esta entrega añade inspectores deterministas y pruebas bajo `cognitive/`. No instala hooks en los runners ni reemplaza los validadores científicos congelados. No es una promoción de QRCEL ni una demostración de equivalencia Sol–Astra.
 
-## Resultado observado
+## Núcleo local implementado
+
+`cognitive.kernel` ejecuta planes explícitos con EXACT_SUM y CHECK_DAG, valida por nivel, conserva resultados/evidencia/ledger en transacciones locales y reanuda desde checkpoint. La batería conjunta aprobó 111 métodos (25 del núcleo y 86 previos). El ejemplo CLI completó 4 tareas y luego se repitió y restauró en una copia limpia con 0 nuevas ejecuciones y checkpoint idéntico. Ver `kernel_specs/README.md` y `kernel_specs/IMPLEMENTATION_RECEIPT.json`. No es un solver LLM ni una promoción científica.
+
+## Resultado observado de las reparaciones 0.2.1
 
 La ejecución `checkpoints/clean_recovery_021` aprobó 86 métodos de prueba: 40 de la primera versión, 20 adicionales y 26 existentes. Una prueba adicionalmente recorre 200 grafos con semilla fija y contrasta ordenamiento topológico con cierre transitivo independiente. Son casos de software, no 200 observaciones estadísticas independientes. Los ocho escenarios DEVELOPMENT conocidos obtuvieron 0/8 comportamientos esperados en los componentes antiguos y 8/8 en el candidato. F05 evalúa lectura compatible, no ejecución científica equivalente. F02 adapta la representación del packet al nuevo contrato conservando la contradicción dimensional.
 
