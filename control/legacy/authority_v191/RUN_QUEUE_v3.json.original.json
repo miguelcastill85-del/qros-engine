@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_RUN_QUEUE_V3",
+  "status": "ACTIVE_FAIL_CLOSED",
+  "scientific_head": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "queue": [
+    {
+      "priority": 1,
+      "action": "RECOVER_CANONICAL_DATA_IO",
+      "required_authorities": [
+        "NQX_PACKED17_FULL_2018_2026.bin sha256 6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+        "XAU_PACKED17_CENT_FULL_2018_2026.bin sha256 c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4"
+      ],
+      "success_condition": "At least one byte-readable canonical tick payload or deterministic carrier reconstruction path is available in the execution runtime with exact hash verification."
+    },
+    {
+      "priority": 2,
+      "action": "G30_REAL_DATA_AUDIT",
+      "prerequisites": ["RECOVER_CANONICAL_DATA_IO"],
+      "scope": ["coverage","partial years","timestamp semantics","timezone/DST without assumption","ordering","duplicates","gaps","Bid/Ask","zero spread","crossed spread","bar continuity","M1/M5/M10/M15/M30/H1 aggregation","signal-close to next-quote causality"]
+    },
+    {
+      "priority": 3,
+      "action": "G29_REAL_DATA_MTF_AUDIT",
+      "prerequisites": ["RECOVER_CANONICAL_DATA_IO"],
+      "scope": ["same base audit as G30","integer LTF/HTF aggregation","last fully closed HTF state","no partial-HTF contamination","EMA warmup"]
+    },
+    {
+      "priority": 4,
+      "action": "IMPLEMENT_PRIMARY_AND_INDEPENDENT_ENGINES",
+      "prerequisites": ["AT_LEAST_ONE_CAMPAIGN_REAL_DATA_AUDIT_PASS"],
+      "rule": "No economic mining until feature/signal parity passes on deterministic fixtures and real audited development data."
+    },
+    {
+      "priority": 5,
+      "action": "DEVELOPMENT_MINING",
+      "prerequisites": ["ONTOLOGY_FROZEN","RISE_FIXED_POINT","SOURCE_FREEZE_PASS","REAL_DATA_AUDIT_PASS","PRIMARY_INDEPENDENT_PARITY_PASS"],
+      "holdout": "SEALED"
+    }
+  ],
+  "parallel_no_stall_policy": "If canonical data IO remains blocked, continue preregistered orthogonal causal ontology research only; do not fabricate economic tests or reopen rejected genealogies.",
+  "guards": {
+    "holdout_access_authorized": false,
+    "pnl_read_authorized": false,
+    "scientific_execution_authorized": false,
+    "branch_exhaustion_authorized": false
+  }
+}
