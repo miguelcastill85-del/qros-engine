@@ -1,0 +1,60 @@
+{
+  "schema": "QRCEL_AUTHORITY_DRIFT_CHECKPOINT_V1",
+  "observed_at": "2026-09-09T04:42:01.649Z",
+  "status": "FAIL_CLOSED_FOR_CURRENT_AUTHORITY_INTEGRATION",
+  "engineering_release_commit": "70e7ecabe4e96eaa68dfc70430672e66feb720f9",
+  "engineering_release_manifest_blob": "7b1b8d3a693e2c589456180063486198ca26e80c",
+  "validated_authority_epoch": 189,
+  "current_manifest_observation": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "commit": "bf599b08f029e2f2be13a6a8fc8470716d3e8ab2",
+    "path": "control/CONTROL_AUTHORITY_MANIFEST_v3.json",
+    "blob": "b450847844b1be1102ddad84ca7ce13f60132c4f",
+    "epoch": 190
+  },
+  "delegate_checks": [
+    {
+      "blob_match": true,
+      "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+      "epoch": 190,
+      "expected_blob": "49dbac83a1e924c947fea6a095bd5960f472aacf",
+      "observed_blob": "49dbac83a1e924c947fea6a095bd5960f472aacf",
+      "path": "control/HEAD.json",
+      "role": "head"
+    },
+    {
+      "blob_match": true,
+      "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+      "epoch": 190,
+      "expected_blob": "aa4f9fae03fb65ff41f4fca0894ef0467d6a3ea2",
+      "observed_blob": "aa4f9fae03fb65ff41f4fca0894ef0467d6a3ea2",
+      "path": "control/persistent_execution/STATE.json",
+      "role": "state"
+    },
+    {
+      "blob_match": true,
+      "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+      "epoch": 190,
+      "expected_blob": "c203dff13d1949674309b698a7d6c614ced07c84",
+      "observed_blob": "c203dff13d1949674309b698a7d6c614ced07c84",
+      "path": "control/persistent_execution/RUN_QUEUE.json",
+      "role": "run_queue"
+    }
+  ],
+  "full_bootstrap_status": "FAIL_CLOSED",
+  "current_authority_shadow": "EXECUTED_FAIL_AUTHORIZATION_SOURCE_MISMATCH_HEAD",
+  "historical_tests_preserved": true,
+  "scientific_mutations_by_this_delivery": false,
+  "reason": "Final readback observed main authority changed from V189 to V190. Manifest and three exact delegates read at pinned main commit; no full delegation/legacy/validator bootstrap certified.",
+  "next_actions": [
+    "Recover active manifest again; verify whether the scientific authority owner has reconciled HEAD delegation via its existing promotion protocol. Do not edit scientific controls from QRCEL.",
+    "Require official validator PASS and complete remaining bootstrap verification before current-authority integration.",
+    "Then implement a separately versioned V190 queue adapter using the actual stage/subtask contract, with preregistered regression tests; never bypass V189 adapter guards.",
+    "Preserve historical V189 test receipts and checkpoints; complete ontology/RISE and comparable native/system benchmarks before any full QRCEL or parity claim."
+  ],
+  "runtime_note": "One exec transport failure recovered on a subsequent pwd probe. No background execution.",
+  "official_validator": "EXECUTED_FAIL_AUTH_SOURCE_MISMATCH_HEAD_NONE",
+  "stop_reason": "REAL_BLOCKER_ACTIVE_AUTHORITY_FAILS_OWN_FROZEN_VALIDATOR",
+  "shadow_receipt": "cognitive/checkpoints/authority_drift_v190/SHADOW_RECEIPT.json",
+  "official_validator_receipt": "cognitive/checkpoints/authority_drift_v190/OFFICIAL_VALIDATOR_RECEIPT.json"
+}

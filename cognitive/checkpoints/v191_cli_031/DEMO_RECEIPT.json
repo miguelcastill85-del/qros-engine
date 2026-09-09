@@ -1,0 +1,87 @@
+{
+  "scope": "LOCAL_SYNTHETIC_ONLY_V191",
+  "status": "PASS",
+  "newly_completed": [
+    4,
+    0,
+    0
+  ],
+  "clean_restore_byte_equal": true,
+  "checkpoint_sha256": "24b0f08c98e3a9250610054faba510d1d6e4e0b442b25a39924a72da994d6e15",
+  "executed_release_blob": "36936de175c3f3f309d905c7be9a088dbb63160c",
+  "receipts": [
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "cognitive.kernel",
+        "--repo-root",
+        "/workspace/scratch/432f759f1722/reconciliation/clean_cli_031",
+        "--release-blob",
+        "36936de175c3f3f309d905c7be9a088dbb63160c",
+        "--authority-blob",
+        "5afce6279994b8625bd79fb2d5d13924e3c561e7",
+        "--plan",
+        "cognitive/kernel_specs/EXAMPLE_PLAN.json",
+        "--plan-sha256",
+        "e273e50dc088d4b1b3eebe48c0e1bff97c37c2c663429b052fcd14d6d064b591",
+        "--run-id",
+        "demo_031"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"background_running\": false, \"blocked\": [], \"capability\": {\"inheritable\": false, \"local_transaction_observed\": true, \"model_calls_available\": false, \"observed_at_ns\": 1788949407589607995, \"operations\": [\"EXACT_SUM\", \"CHECK_DAG\"], \"pid\": 6, \"scientific_dispatch\": false, \"session_id\": \"b44879d3-c765-42e1-a147-ceeb78fb1de0\", \"sqlite_version\": \"3.53.1\"}, \"checkpoint_sha256\": \"24b0f08c98e3a9250610054faba510d1d6e4e0b442b25a39924a72da994d6e15\", \"completed_tasks\": 4, \"errors\": [], \"model_calls\": 0, \"newly_completed\": 4, \"schema\": \"QRCEL_KERNEL_RUN_RECEIPT_V1\", \"scientific_effect_authorized\": false, \"status\": \"COMPLETED_LOCAL_TASKS\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "cognitive.kernel",
+        "--repo-root",
+        "/workspace/scratch/432f759f1722/reconciliation/clean_cli_031",
+        "--release-blob",
+        "36936de175c3f3f309d905c7be9a088dbb63160c",
+        "--authority-blob",
+        "5afce6279994b8625bd79fb2d5d13924e3c561e7",
+        "--plan",
+        "cognitive/kernel_specs/EXAMPLE_PLAN.json",
+        "--plan-sha256",
+        "e273e50dc088d4b1b3eebe48c0e1bff97c37c2c663429b052fcd14d6d064b591",
+        "--run-id",
+        "demo_031"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"background_running\": false, \"blocked\": [], \"capability\": {\"inheritable\": false, \"local_transaction_observed\": true, \"model_calls_available\": false, \"observed_at_ns\": 1788949407797869246, \"operations\": [\"EXACT_SUM\", \"CHECK_DAG\"], \"pid\": 7, \"scientific_dispatch\": false, \"session_id\": \"887f8f6f-663e-4f4f-b03d-34b788f1ff7c\", \"sqlite_version\": \"3.53.1\"}, \"checkpoint_sha256\": \"24b0f08c98e3a9250610054faba510d1d6e4e0b442b25a39924a72da994d6e15\", \"completed_tasks\": 4, \"errors\": [], \"model_calls\": 0, \"newly_completed\": 0, \"schema\": \"QRCEL_KERNEL_RUN_RECEIPT_V1\", \"scientific_effect_authorized\": false, \"status\": \"COMPLETED_LOCAL_TASKS\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+        "-B",
+        "-m",
+        "cognitive.kernel",
+        "--repo-root",
+        "/workspace/scratch/432f759f1722/reconciliation/restore_cli_031",
+        "--release-blob",
+        "36936de175c3f3f309d905c7be9a088dbb63160c",
+        "--authority-blob",
+        "5afce6279994b8625bd79fb2d5d13924e3c561e7",
+        "--plan",
+        "cognitive/kernel_specs/EXAMPLE_PLAN.json",
+        "--plan-sha256",
+        "e273e50dc088d4b1b3eebe48c0e1bff97c37c2c663429b052fcd14d6d064b591",
+        "--run-id",
+        "demo_031",
+        "--restore",
+        "/workspace/scratch/432f759f1722/reconciliation/demo_checkpoint_031.json",
+        "--checkpoint-sha256",
+        "24b0f08c98e3a9250610054faba510d1d6e4e0b442b25a39924a72da994d6e15"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"background_running\": false, \"blocked\": [], \"capability\": {\"inheritable\": false, \"local_transaction_observed\": true, \"model_calls_available\": false, \"observed_at_ns\": 1788949407985835472, \"operations\": [\"EXACT_SUM\", \"CHECK_DAG\"], \"pid\": 8, \"scientific_dispatch\": false, \"session_id\": \"72a44376-d0dd-415a-87aa-fb7661aabdce\", \"sqlite_version\": \"3.53.1\"}, \"checkpoint_sha256\": \"24b0f08c98e3a9250610054faba510d1d6e4e0b442b25a39924a72da994d6e15\", \"completed_tasks\": 4, \"errors\": [], \"model_calls\": 0, \"newly_completed\": 0, \"schema\": \"QRCEL_KERNEL_RUN_RECEIPT_V1\", \"scientific_effect_authorized\": false, \"status\": \"COMPLETED_LOCAL_TASKS\"}\n",
+      "stderr": ""
+    }
+  ]
+}

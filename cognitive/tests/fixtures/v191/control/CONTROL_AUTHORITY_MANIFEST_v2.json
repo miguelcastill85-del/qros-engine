@@ -1,0 +1,1 @@
+{"schema":"QROS_CONTROL_AUTHORITY_MANIFEST_V2_DEPRECATED_REDIRECT","status":"DEPRECATED_REDIRECT_ONLY","active_authority":"control/CONTROL_AUTHORITY_MANIFEST_v3.json","archived_original":"control/legacy/authority_v2/CONTROL_AUTHORITY_MANIFEST_v2.original.json","must_not_bootstrap":true,"scientific_execution_authorized":false,"reason":"P0_AUTHORITY_SPLIT_BRAIN_REMEDIATION_V176"}

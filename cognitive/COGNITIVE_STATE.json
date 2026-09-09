@@ -1,0 +1,56 @@
+{
+  "schema": "QRCEL_ENGINEERING_STATE_V1",
+  "status": "V191_READ_ONLY_INTEGRATION_AND_LOCAL_KERNEL_VALIDATED_EXPERIMENTAL",
+  "version": "0.3.1-experimental",
+  "scientific_authority_observed": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "commit": "c0f3de8c66e0c3b642053bdc35f56f33a96740e6",
+    "manifest_path": "control/CONTROL_AUTHORITY_MANIFEST_v3.json",
+    "manifest_blob_sha1": "5afce6279994b8625bd79fb2d5d13924e3c561e7",
+    "epoch": 191
+  },
+  "runtime_capability_inheritable": false,
+  "last_receipt": "cognitive/checkpoints/v191_clean_031/VALIDATION_RECEIPT.json",
+  "background_running": false,
+  "scientific_authority_changed": false,
+  "promoted": false,
+  "parity": "INSUFFICIENT_EVIDENCE",
+  "next_action": "Complete the full cognitive ontology and adversarial review; preregister comparable model/system trials using observable callable models and no paid services. Do not promote QRCEL or dispatch scientific tasks.",
+  "pending": [
+    "Authoritative evidence adapters for actual historical document schemas",
+    "Explicit delegation of evidence requirements by existing authority",
+    "Full QRCEL ontology and adversarial fixed point",
+    "New validation and sealed model-system evaluation",
+    "Operational shadow, canary and promotion gates"
+  ],
+  "rollback_target": "ae7bcaa1dbb2854a48361e97c30512c7dddbc992; preserve existing kernel checkpoints as version-bound evidence",
+  "parent_candidate_commit": "ae7bcaa1dbb2854a48361e97c30512c7dddbc992",
+  "verified_followup": [
+    "F09 impossible task states",
+    "F10 structured errors and fixed JSON limits",
+    "F11 externally bound checkpoint provenance and extent",
+    "F12 observation consumers revalidate bound bytes"
+  ],
+  "repair_phase_complete": true,
+  "full_qrcel_complete": false,
+  "research_revision": "architecture-development-v1",
+  "research_receipt": "cognitive/research/continuity_development/run_001/RESULTS.json",
+  "research_result": "15_OF_15_COMPONENT_CASES_PASS_NO_FULL_ARCHITECTURE_SELECTION",
+  "model_runs_observed": 0,
+  "kernel_implementation_complete": true,
+  "kernel_demo_receipt": "cognitive/checkpoints/v191_cli_031/DEMO_RECEIPT.json",
+  "kernel_checkpoint": "cognitive/checkpoints/v191_cli_031/CHECKPOINT.json",
+  "kernel_checkpoint_sha256": "24b0f08c98e3a9250610054faba510d1d6e4e0b442b25a39924a72da994d6e15",
+  "current_authority_observation": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "commit": "c0f3de8c66e0c3b642053bdc35f56f33a96740e6",
+    "manifest_path": "control/CONTROL_AUTHORITY_MANIFEST_v3.json",
+    "manifest_blob_sha1": "5afce6279994b8625bd79fb2d5d13924e3c561e7",
+    "epoch": 191
+  },
+  "current_authority_status": "OFFICIAL_VALIDATOR_PASS_CONTROL_IDENTITIES_AND_LEGACY_REDIRECTS_PASS",
+  "current_authority_integration": "READ_ONLY_SHADOW_PASS_NO_DISPATCH",
+  "last_continuity_checkpoint": "cognitive/releases/0.3.1/IMPLEMENTATION_RECEIPT.json",
+  "scientific_authority_changed_field_scope": "This cognitive software delivery; the separately user-authorized QROS V191 governance reconciliation is preserved on main.",
+  "stop_reason": null
+}

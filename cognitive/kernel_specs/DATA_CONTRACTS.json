@@ -1,0 +1,68 @@
+{
+  "schema": "QRCEL_KERNEL_DATA_CONTRACTS_V1",
+  "scope": "ENGINEERING_INTERFACE_NOT_SCIENTIFIC_AUTHORITY",
+  "plan_required_fields": [
+    "schema",
+    "scope",
+    "tasks"
+  ],
+  "node_required_fields": [
+    "task_id",
+    "parent_ids",
+    "objective",
+    "operation",
+    "inputs",
+    "inputs_sha256",
+    "risk"
+  ],
+  "task_graph_export_required_fields": [
+    "TASK_ID",
+    "PARENT_IDS",
+    "OBJECTIVE",
+    "INPUTS",
+    "INPUT_HASHES",
+    "PRECONDITIONS",
+    "EXPECTED_OUTPUT",
+    "EVIDENCE_REQUIRED",
+    "EXECUTOR",
+    "VERIFIER",
+    "STATUS"
+  ],
+  "claim_export_required_fields": [
+    "CLAIM_ID",
+    "CLAIM",
+    "STATUS",
+    "EVIDENCE_POINTER",
+    "SOURCE_IDENTITY",
+    "SOURCE_HASH",
+    "OBSERVED_AT",
+    "VERIFIER"
+  ],
+  "authority_pointer_direction": "COGNITIVE_TO_SCIENTIFIC_ONLY",
+  "kernel_operations": [
+    "EXACT_SUM",
+    "CHECK_DAG"
+  ],
+  "prohibited_operations": [
+    "SHELL",
+    "NETWORK",
+    "MODEL_API",
+    "TRADING_DISPATCH",
+    "SCIENTIFIC_PROMOTION"
+  ],
+  "claim_states_declared": [
+    "VERIFIED",
+    "SUPPORTED",
+    "INFERENCE",
+    "HYPOTHESIS",
+    "UNKNOWN",
+    "BLOCKED"
+  ],
+  "claim_states_emitted_for_completed_kernel_tasks": [
+    "SUPPORTED",
+    "VERIFIED"
+  ],
+  "live_validator": "cognitive/kernel.py",
+  "input_hash_definition": "SHA256 of runtime.canonical(inputs), not arbitrary file formatting",
+  "plan_hash_definition": "SHA256 of runtime.canonical(plan), not arbitrary file formatting"
+}
