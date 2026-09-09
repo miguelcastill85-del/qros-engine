@@ -1,0 +1,17 @@
+{
+  "schema": "QRCEL_RUNTIME_EVALUATION_CAPABILITY_V1",
+  "observed": "CURRENT_SESSION",
+  "authority_epoch": 191,
+  "python": true,
+  "sqlite_transaction_tests": "PASS",
+  "codex_cli_present": false,
+  "openai_package_present": false,
+  "credentials_read": false,
+  "paid_services_activated": false,
+  "provider_inference_connector_exposed": false,
+  "collaboration_interface_exposed": true,
+  "subagents_started": 0,
+  "subagent_constraint": "Current session instructions prohibit delegation unless the user explicitly requests subagents, delegation or parallel agent work.",
+  "not_a_physical_absence_claim": "A collaboration route exists; it is not currently authorized for these trials.",
+  "runtime_capability_inheritable": false
+}

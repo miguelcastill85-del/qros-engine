@@ -1,7 +1,7 @@
 {
   "schema": "QRCEL_ENGINEERING_STATE_V1",
-  "status": "V191_READ_ONLY_INTEGRATION_AND_LOCAL_KERNEL_VALIDATED_EXPERIMENTAL",
-  "version": "0.3.1-experimental",
+  "status": "EVALUATION_INFRASTRUCTURE_VALIDATED_MODEL_TRIAL_DELEGATION_REQUIRED",
+  "version": "0.3.2-experimental",
   "scientific_authority_observed": {
     "repository": "miguelcastill85-del/qros-engine",
     "commit": "c0f3de8c66e0c3b642053bdc35f56f33a96740e6",
@@ -10,12 +10,12 @@
     "epoch": 191
   },
   "runtime_capability_inheritable": false,
-  "last_receipt": "cognitive/checkpoints/v191_clean_031/VALIDATION_RECEIPT.json",
+  "last_receipt": "cognitive/checkpoints/evaluation_032_final/VALIDATION_RECEIPT.json",
   "background_running": false,
   "scientific_authority_changed": false,
   "promoted": false,
   "parity": "INSUFFICIENT_EVIDENCE",
-  "next_action": "Complete the full cognitive ontology and adversarial review; preregister comparable model/system trials using observable callable models and no paid services. Do not promote QRCEL or dispatch scientific tasks.",
+  "next_action": "After explicit authorization, run the two-agent DEVELOPMENT smoke test described in DEVELOPMENT_TRIAL_PLAN.json. No extra API purchase or scientific execution.",
   "pending": [
     "Authoritative evidence adapters for actual historical document schemas",
     "Explicit delegation of evidence requirements by existing authority",
@@ -50,7 +50,7 @@
   },
   "current_authority_status": "OFFICIAL_VALIDATOR_PASS_CONTROL_IDENTITIES_AND_LEGACY_REDIRECTS_PASS",
   "current_authority_integration": "READ_ONLY_SHADOW_PASS_NO_DISPATCH",
-  "last_continuity_checkpoint": "cognitive/releases/0.3.1/IMPLEMENTATION_RECEIPT.json",
+  "last_continuity_checkpoint": "cognitive/research/evaluation_readiness/COMPLETION_AUDIT.json",
   "scientific_authority_changed_field_scope": "This cognitive software delivery; the separately user-authorized QROS V191 governance reconciliation is preserved on main.",
-  "stop_reason": null
+  "stop_reason": "USER_DECISION_REQUIRED_EXPLICIT_SUBAGENT_DELEGATION"
 }

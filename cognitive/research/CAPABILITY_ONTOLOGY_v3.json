@@ -1,0 +1,383 @@
+{
+  "schema": "QRCEL_OPERATIONAL_CAPABILITY_ONTOLOGY_V3",
+  "parent_sha256": "b26d6f1df75b9ca6ffdd68a53284487f5f4cbb15fa849bef527453539fefbec9",
+  "status": "DEFINITIONS_AUDITED_FULL_ACCEPTANCE_BLOCKED",
+  "layers": {
+    "A": "MODEL",
+    "B": "OPERATIONAL_ASSISTANCE",
+    "C": "QROS_RISE_SCIENTIFIC_METHOD",
+    "D": "EXISTING_EXECUTION_AUTHORITY"
+  },
+  "dimensions": [
+    "model",
+    "task_contract",
+    "authority_binding",
+    "runtime_capability",
+    "planning",
+    "evidence_semantics",
+    "verification_independence",
+    "scientific_firewall",
+    "benchmark_firewall",
+    "state_and_effects",
+    "continuity_and_compression",
+    "resources",
+    "trust_and_permissions",
+    "model_drift",
+    "promotion_and_rollback",
+    "human_reporting"
+  ],
+  "operators": [
+    "REMOVE",
+    "DUPLICATE",
+    "SUBSTITUTE_IDENTITY",
+    "REORDER",
+    "INTERRUPT",
+    "REPLAY",
+    "CONTRADICT",
+    "DEGRADE_CAPABILITY",
+    "CHANGE_TRUST_OR_SCOPE",
+    "EXPOSE_INFORMATION",
+    "CONCURRENT_UPDATE"
+  ],
+  "capabilities": [
+    {
+      "id": "REASONING",
+      "definition": "Exact result and valid derivation on a frozen task",
+      "layer": "A/B",
+      "primary_metric": "Exact result and valid derivation on a frozen task",
+      "known_limit": "Verifier can reject errors but cannot guarantee finding a solution",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "DECOMPOSITION",
+      "definition": "Required subtasks covered with no dependency violations",
+      "layer": "A/B",
+      "primary_metric": "Required subtasks covered with no dependency violations",
+      "known_limit": "A valid DAG may omit an essential subtask",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "PROGRAMMING",
+      "definition": "Executable change satisfies independent specification tests",
+      "layer": "A/B",
+      "primary_metric": "Executable change satisfies independent specification tests",
+      "known_limit": "Passing finite tests does not prove arbitrary code",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "DEBUGGING",
+      "definition": "Root cause reproduced and mutation rejected by regression",
+      "layer": "A/B",
+      "primary_metric": "Root cause reproduced and mutation rejected by regression",
+      "known_limit": "Patch may overfit a known symptom",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "STATISTICS",
+      "definition": "Correct estimand, exact toy calculation and justified uncertainty",
+      "layer": "A/B",
+      "primary_metric": "Correct estimand, exact toy calculation and justified uncertainty",
+      "known_limit": "Arithmetic tools cannot choose the right estimand alone",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "CAUSALITY",
+      "definition": "No unavailable observations used; identification assumptions explicit",
+      "layer": "A/B",
+      "primary_metric": "No unavailable observations used; identification assumptions explicit",
+      "known_limit": "Temporal causality is not causal identification",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "RESEARCH",
+      "definition": "Primary source coverage, provenance and contradiction accounting",
+      "layer": "A/B",
+      "primary_metric": "Primary source coverage, provenance and contradiction accounting",
+      "known_limit": "Search can miss decisive evidence",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "PLANNING",
+      "definition": "Goal constraints respected and dependencies satisfiable",
+      "layer": "A/B",
+      "primary_metric": "Goal constraints respected and dependencies satisfiable",
+      "known_limit": "Local efficiency is not globally optimal planning",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "CONTINUITY",
+      "definition": "Interrupted work reconstructs invariant state",
+      "layer": "A/B",
+      "primary_metric": "Interrupted work reconstructs invariant state",
+      "known_limit": "No execution after host runtime ends",
+      "compensability_hypothesis": "SYSTEM_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [
+        "Governor",
+        "checkpoints"
+      ],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "RECOVERY",
+      "definition": "Exact identities and completed effects preserved on restart",
+      "layer": "A/B",
+      "primary_metric": "Exact identities and completed effects preserved on restart",
+      "known_limit": "Remote exactly-once needs endpoint support",
+      "compensability_hypothesis": "SYSTEM_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [
+        "runtime.verify_checkpoint"
+      ],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "TOOL_USE",
+      "definition": "Correct tool contract and authorized call sequence",
+      "layer": "A/B",
+      "primary_metric": "Correct tool contract and authorized call sequence",
+      "known_limit": "Availability does not ensure correct selection",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "ERROR_DETECTION",
+      "definition": "Seeded defect detected without false acceptance",
+      "layer": "A/B",
+      "primary_metric": "Seeded defect detected without false acceptance",
+      "known_limit": "Common-mode errors remain possible",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "VERIFICATION",
+      "definition": "Claim supported by an independent oracle within declared scope",
+      "layer": "A/B",
+      "primary_metric": "Claim supported by an independent oracle within declared scope",
+      "known_limit": "Self-consistent checks may share a wrong specification",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [
+        "runtime inspectors"
+      ],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "AUTONOMY",
+      "definition": "Authorized next action completed without unnecessary user intervention",
+      "layer": "A/B",
+      "primary_metric": "Authorized next action completed without unnecessary user intervention",
+      "known_limit": "Does not create new permission or background execution",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "FILES",
+      "definition": "Paths and bytes match independent expected identities",
+      "layer": "A/B",
+      "primary_metric": "Paths and bytes match independent expected identities",
+      "known_limit": "A hash does not authorize reading the content",
+      "compensability_hypothesis": "SYSTEM_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [
+        "runtime.Snapshot",
+        "verify_release"
+      ],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "GOAL_PERSISTENCE",
+      "definition": "Recovered goal and pending dependencies match frozen contract",
+      "layer": "A/B",
+      "primary_metric": "Recovered goal and pending dependencies match frozen contract",
+      "known_limit": "An incomplete initial goal remains incomplete",
+      "compensability_hypothesis": "SYSTEM_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "CONTEXT_DRIFT",
+      "definition": "No lost constraints across compression and context changes",
+      "layer": "A/B",
+      "primary_metric": "No lost constraints across compression and context changes",
+      "known_limit": "Lossless storage does not guarantee relevant context selection",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "DEPENDENCIES",
+      "definition": "All namespaces checked and impossible states rejected",
+      "layer": "A/B",
+      "primary_metric": "All namespaces checked and impossible states rejected",
+      "known_limit": "Caller must establish external capability evidence",
+      "compensability_hypothesis": "SYSTEM_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [
+        "runtime.check_dag",
+        "runtime.next_ready"
+      ],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "EVIDENCE_SYNTHESIS",
+      "definition": "Every material conclusion has scoped evidence and uncertainty",
+      "layer": "A/B",
+      "primary_metric": "Every material conclusion has scoped evidence and uncertainty",
+      "known_limit": "Synthesis quality remains model-dependent",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "CONTRADICTIONS",
+      "definition": "Conflict resolved by authority/provenance or explicit abstention",
+      "layer": "A/B",
+      "primary_metric": "Conflict resolved by authority/provenance or explicit abstention",
+      "known_limit": "Averaging conflicting authority is forbidden",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [
+        "existing Authority Manifest"
+      ],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "NATIVE_REPRESENTATIONS",
+      "definition": "Matched-resource model evaluation on new task families",
+      "layer": "A",
+      "primary_metric": "Matched-resource model evaluation on new task families",
+      "known_limit": "Architecture cannot change model weights",
+      "compensability_hypothesis": "NOT_CURRENTLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "COMPLEX_END_TO_END",
+      "definition": "All end-to-end critical dimensions pass separately",
+      "layer": "A/B",
+      "primary_metric": "All end-to-end critical dimensions pass separately",
+      "known_limit": "Component tests cannot substitute end-to-end trials",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "correction": "Removed unsupported native-model-advantage classification; no matched model trials exist.",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "HARD_RUNTIME_LIMITS",
+      "definition": "Operations fit physically observed runtime limits",
+      "layer": "A/B",
+      "primary_metric": "Operations fit physically observed runtime limits",
+      "known_limit": "Architecture cannot guarantee compute beyond the host",
+      "compensability_hypothesis": "NOT_CURRENTLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    },
+    {
+      "id": "TRAINING_KNOWLEDGE",
+      "definition": "Accurate sourced answers where retrieval is available",
+      "layer": "A",
+      "primary_metric": "Accurate sourced answers where retrieval is available",
+      "known_limit": "Retrieval adds information but does not retrain model weights",
+      "compensability_hypothesis": "PARTIALLY_COMPENSABLE",
+      "empirical_astra_sol_gap": null,
+      "status": "UNMEASURED_MODEL_GAP",
+      "existing_components": [],
+      "component_witness_scope": "No native model result; see existing software receipts where applicable",
+      "gap_claim_status": "UNKNOWN"
+    }
+  ],
+  "cognitive_ontology_frozen": false,
+  "rise_fixed_point": false,
+  "freeze_blockers": [
+    "Native model trial executor and comparable observable configurations unavailable",
+    "Full-stack capability sufficiency and independent reference evaluation not demonstrated"
+  ],
+  "constraint": "This ontology organizes research; it is not execution authority.",
+  "resolved_blockers": [
+    "V191 delegation and legacy role reconciliation applied and read back on main"
+  ],
+  "freeze_semantics": "Definitions can be versioned without claiming all capabilities are implemented or model gaps measured."
+}

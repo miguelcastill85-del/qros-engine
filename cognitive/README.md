@@ -1,6 +1,10 @@
-# QRCEL — núcleo local experimental 0.3.1
+# QRCEL — núcleo local experimental 0.3.2
 
 Estado: **IMPLEMENTED_AND_TESTED_SHADOW_CANDIDATE**. Esta entrega añade inspectores deterministas y pruebas bajo `cognitive/`. No instala hooks en los runners ni reemplaza los validadores científicos congelados. No es una promoción de QRCEL ni una demostración de equivalencia Sol–Astra.
+
+## Infraestructura de evaluación 0.3.2
+
+142 métodos aprobados. El nuevo ledger propaga exposición del benchmark por genealogía; el análisis pareado exige dimensiones y tamaño muestral fijados. Ambos conservan la separación entre evidencia suministrada, ejecución observada y autorización. Hay un ensayo DEVELOPMENT preparado para dos subagentes con historial aislado; su ejecución requiere autorización explícita de delegación en esta sesión. Consultar `research/evaluation_readiness/COMPLETION_AUDIT.json`. No se declara completado el QRCEL integral.
 
 ## Integración V191 y corrección 0.3.1
 
