@@ -1,7 +1,7 @@
 {
   "schema": "QRCEL_ENGINEERING_STATE_V1",
-  "status": "REPAIR_PHASE_COMPLETE_SHADOW_CANDIDATE",
-  "version": "0.2.1",
+  "status": "LOCAL_KERNEL_VALIDATED_HISTORICALLY_ACTIVE_AUTHORITY_FAIL_CLOSED",
+  "version": "0.3.0-experimental",
   "scientific_authority_observed": {
     "repository": "miguelcastill85-del/qros-engine",
     "commit": "c43176df7713f5833b48589a0e86d2ae63ac6700",
@@ -10,12 +10,12 @@
     "epoch": 189
   },
   "runtime_capability_inheritable": false,
-  "last_receipt": "cognitive/checkpoints/clean_recovery_021/VALIDATION_RECEIPT.json",
+  "last_receipt": "cognitive/checkpoints/kernel_030_final/VALIDATION_RECEIPT.json",
   "background_running": false,
   "scientific_authority_changed": false,
   "promoted": false,
   "parity": "INSUFFICIENT_EVIDENCE",
-  "next_action": "Close ontology sufficiency and interface audit; materialize matched model DEVELOPMENT execution with observed provider identities; do not promote from component results",
+  "next_action": "Recover active manifest again; verify whether the scientific authority owner has reconciled HEAD delegation via its existing promotion protocol. Do not edit scientific controls from QRCEL.",
   "pending": [
     "Authoritative evidence adapters for actual historical document schemas",
     "Explicit delegation of evidence requirements by existing authority",
@@ -23,8 +23,8 @@
     "New validation and sealed model-system evaluation",
     "Operational shadow, canary and promotion gates"
   ],
-  "rollback_target": "1635b8a8fa6ffeab76d26290eefbd40611ea1a45 (cognitive 0.2.0); scientific baseline unchanged",
-  "parent_candidate_commit": "1635b8a8fa6ffeab76d26290eefbd40611ea1a45",
+  "rollback_target": "ae7bcaa1dbb2854a48361e97c30512c7dddbc992; preserve existing kernel checkpoints as version-bound evidence",
+  "parent_candidate_commit": "ae7bcaa1dbb2854a48361e97c30512c7dddbc992",
   "verified_followup": [
     "F09 impossible task states",
     "F10 structured errors and fixed JSON limits",
@@ -36,5 +36,21 @@
   "research_revision": "architecture-development-v1",
   "research_receipt": "cognitive/research/continuity_development/run_001/RESULTS.json",
   "research_result": "15_OF_15_COMPONENT_CASES_PASS_NO_FULL_ARCHITECTURE_SELECTION",
-  "model_runs_observed": 0
+  "model_runs_observed": 0,
+  "kernel_implementation_complete": true,
+  "kernel_demo_receipt": "cognitive/checkpoints/kernel_cli_demo/DEMO_RECEIPT.json",
+  "kernel_checkpoint": "cognitive/checkpoints/kernel_cli_demo/CHECKPOINT.json",
+  "kernel_checkpoint_sha256": "81871c71048bcdda24f1803c6e58b8ab1ace32d6ed4d0e00f3530a84bd2a065b",
+  "current_authority_observation": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "commit": "bf599b08f029e2f2be13a6a8fc8470716d3e8ab2",
+    "path": "control/CONTROL_AUTHORITY_MANIFEST_v3.json",
+    "blob": "b450847844b1be1102ddad84ca7ce13f60132c4f",
+    "epoch": 190
+  },
+  "current_authority_status": "FAIL_CLOSED_OFFICIAL_VALIDATOR",
+  "current_authority_integration": "FAIL_CLOSED",
+  "last_continuity_checkpoint": "cognitive/checkpoints/authority_drift_v190/CHECKPOINT.json",
+  "scientific_authority_changed_field_scope": "Changes made by this delivery; external main authority advanced to V190.",
+  "stop_reason": "REAL_BLOCKER_ACTIVE_AUTHORITY_FAILS_OWN_FROZEN_VALIDATOR"
 }

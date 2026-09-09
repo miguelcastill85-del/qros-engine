@@ -1,16 +1,16 @@
 {
   "schema": "QRCEL_SOURCE_AND_ENGINEERING_EVIDENCE_MANIFEST_V1",
   "version": "0.3.0-experimental",
-  "status": "ENGINEERING_CANDIDATE_CURRENT_AUTHORITY_FAIL_CLOSED",
+  "status": "SHADOW_CANDIDATE_ONLY",
   "scientific_authority": false,
   "base_commit": "c43176df7713f5833b48589a0e86d2ae63ac6700",
   "files_sha256": {
     "cognitive/.gitignore": "81e271d4422393e3d29464a347e947c574d2868f63a51389a969d69a611a01a9",
-    "cognitive/COGNITIVE_STATE.json": "e666985f95cfda69f76d67d94635c1aefcfff4b8e7cf47cb6700fb34f84e4be8",
+    "cognitive/COGNITIVE_STATE.json": "c34a2fc21d7e0c4323f123c55afeaca322d2f5fb9ab81c5c9b2ff669b3fce588",
     "cognitive/ERROR_MEMORY.json": "aa18f936b54009a10847db5e76e40ff69fd1b89df2e274368df62806b229a26b",
     "cognitive/FOLLOWUP_CONTRACT.json": "501b02279068a54045d178b30490122d11b3084c281a0fece531740ed57c0352",
     "cognitive/PHASE_CLOSURE.md": "07a5c45d1f2712aba6444dad55ae7a619ac246a6a413ffda4ac956ec5dd3d016",
-    "cognitive/README.md": "de8ea9d0d3976519c8a54225c722c4679a5d0d8db94b893361b0d3bb47f8ccc5",
+    "cognitive/README.md": "a01de13aa872d12f6150586ed0622354744c962a9b555f779fe56587eabcd9a9",
     "cognitive/REPAIR_CONTRACT.json": "66940ade9c3ea151376887e22bd1772a0bbd9e8246890b4b977c355d645a2ca9",
     "cognitive/__init__.py": "c64219d99902059c51cedf67107047760998a736374bd13bf9685113513cebb3",
     "cognitive/checkpoints/clean_recovery_020/MANIFEST.json": "1a4b574fa1bac83007accedcc3363fb663fb4f603c15ddd9fabaedb757844057",
@@ -47,16 +47,12 @@
     "cognitive/checkpoints/kernel_030_final/suite_1.json": "156930db7965a75ab149b33903f5d2b3b71a0629d8f33834c5c082706a45f5e9",
     "cognitive/checkpoints/kernel_030_final/suite_2.json": "e9ea558b20555bdc2c52b6498ad1239d0e773167dd7f6ac644e0a57ca6fa6121",
     "cognitive/checkpoints/kernel_030_final/suite_3.json": "81ec14aba1d26bca6676d9757c3bd333b463c149e2ae051e36a5bbaaa6ecf513",
-    "cognitive/checkpoints/kernel_cli_demo/CHECKPOINT.json": "81871c71048bcdda24f1803c6e58b8ab1ace32d6ed4d0e00f3530a84bd2a065b",
-    "cognitive/checkpoints/kernel_cli_demo/DEMO_RECEIPT.json": "5b8f3ffb09f37e83c607f64f2a82acce781b0fa72558c65db7c6a5c7d58e1f9a",
-    "cognitive/checkpoints/kernel_cli_demo/EXECUTED_RELEASE_MANIFEST.json": "34153b7d5eef19dfbd71b80ede06f2bfa3d55b78e4e66f719879096bd7c2cc8c",
     "cognitive/compare_repairs.py": "8d6a5761c4c98c2829855213b0f3a0245478d1be22144c0432588873bcfb58c5",
     "cognitive/kernel.py": "60a68dec92c439a6ece3ae60c66aafaabcae061a74f8153057894f9bdd6ecb06",
     "cognitive/kernel_specs/DATA_CONTRACTS.json": "7b9999540f02140e40853444bad428cbe0c666cdf7e62cb8f6bf98e7c1bd78b7",
     "cognitive/kernel_specs/EXAMPLE_PLAN.json": "e273e50dc088d4b1b3eebe48c0e1bff97c37c2c663429b052fcd14d6d064b591",
     "cognitive/kernel_specs/IMPLEMENTATION_CONTRACT.json": "3d3a9985928c02851596ca4061539e3399b9cd419eef24c316074b627501242f",
-    "cognitive/kernel_specs/IMPLEMENTATION_RECEIPT.json": "9a84e07cae2b68e00a8d0a420adf64b11c8aa490266101c24cbd169131a7919a",
-    "cognitive/kernel_specs/README.md": "e740d05ecef80ea527f7d1b71b21d44ae344285b30fdb239e9d6f48a618fd5a3",
+    "cognitive/kernel_specs/README.md": "42c4a559070d564602939dbf386aba08b646e30d2066796762d88f5b9737bc53",
     "cognitive/research/ARCHITECTURE_REVIEW_v2.json": "75bb1e61e285969d04af711d16c1dd62e0fa0b63bbbed2b5bf401355d383de3e",
     "cognitive/research/CAPABILITY_ONTOLOGY_v2.json": "b26d6f1df75b9ca6ffdd68a53284487f5f4cbb15fa849bef527453539fefbec9",
     "cognitive/research/README.md": "f08159c4f420ae716249472d876ce7dc0f2bc25e4b4cd0d2911b614920cb3ce7",
@@ -77,13 +73,9 @@
     "cognitive/tests/test_release.py": "ab34d1901f4a933138062dbfe41fbe18b725e7e94c687364bb3758c81b2f7fab",
     "cognitive/tests/test_runtime.py": "96e265a62efa8067ea999d55fc31a7e57e53cd59c76722b9da08bfe9a78615da",
     "cognitive/validate_candidate.py": "2b7e83f02f8663bcb91a1829acba74b09a76fbbab866a963de4fce448824e5d0",
-    "cognitive/verify_release.py": "39104b3d5bb131fbbb8e036733116ded15f2ea77dc0da06f92fa50c0ef7d5808",
-    "cognitive/checkpoints/authority_drift_v190/CHECKPOINT.json": "8e6abca446d53915a0122823c02f5bc9f2289372a545d5b76200873d1ea877e7",
-    "cognitive/checkpoints/authority_drift_v190/OFFICIAL_VALIDATOR_RECEIPT.json": "d1c2372600d8126307df6958edb7d6420e2eb313b402c5edf1995d0e5c314950",
-    "cognitive/checkpoints/authority_drift_v190/SHADOW_RECEIPT.json": "904b7b78e69576103d774232316f2d779022f11bde11e41a56d1bef11cf22186"
+    "cognitive/verify_release.py": "39104b3d5bb131fbbb8e036733116ded15f2ea77dc0da06f92fa50c0ef7d5808"
   },
   "manifest_self_hash_policy": "Excluded; bind this file by immutable Git commit/blob",
   "parent_candidate_commit": "ae7bcaa1dbb2854a48361e97c30512c7dddbc992",
-  "research_revision": "architecture-development-v1",
-  "continuity_checkpoint": "cognitive/checkpoints/authority_drift_v190/CHECKPOINT.json"
+  "research_revision": "architecture-development-v1"
 }
