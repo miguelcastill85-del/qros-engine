@@ -1,6 +1,6 @@
 # Astra–Sol: matriz de brechas observables
 
-No existen ensayos pareados de modelos en esta entrega. Las clasificaciones de compensación son hipótesis, no ventajas nativas verificadas.
+Existen dos tandas DEVELOPMENT por ruta solicitada: 12 casos iniciales y seis ampliados, con respuestas correctas e idénticas en ambos modelos. Son comparaciones descriptivas bajo instrucciones compartidas; no certifican una comparación nativa plenamente controlada ni una brecha general. Las clasificaciones de compensación siguientes siguen siendo hipótesis, no ventajas nativas verificadas. `UNKNOWN` significa brecha general no identificada, no ausencia de respuestas observadas.
 
 | Capacidad | Compensación propuesta | Brecha observada |
 |---|---|---|
@@ -30,3 +30,5 @@ No existen ensayos pareados de modelos en esta entrega. Las clasificaciones de c
 | TRAINING_KNOWLEDGE | PARTIALLY_COMPENSABLE | UNKNOWN |
 
 La recuperación, las identidades, los DAG y la aritmética exacta tienen evidencia de componentes locales. Esos resultados no miden razonamiento general ni equivalencia entre modelos.
+
+Evidencia acotada: `research/model_development/run_001/RESULTS.json` y `research/model_development/extended_002/RESULTS.json`. El diagnóstico de una función breve no mide reparación de un repositorio; una respuesta sobre recuperación no mide recuperación efectiva del modelo tras perder contexto. El control ejecutado EXACT_SUM tampoco representa por sí solo `SOL_QRCEL`.

@@ -33,7 +33,7 @@
   ],
   "repair_phase_complete": true,
   "full_qrcel_complete": false,
-  "research_revision": "extended-development-002",
+  "research_revision": "system-map-and-ontology-reconciliation-v4",
   "research_receipt": "cognitive/research/continuity_development/run_001/RESULTS.json",
   "research_result": "15_OF_15_COMPONENT_CASES_PASS_NO_FULL_ARCHITECTURE_SELECTION",
   "model_runs_observed": 4,
@@ -50,8 +50,10 @@
   },
   "current_authority_status": "OFFICIAL_VALIDATOR_PASS_CONTROL_IDENTITIES_AND_LEGACY_REDIRECTS_PASS",
   "current_authority_integration": "READ_ONLY_SHADOW_PASS_NO_DISPATCH",
-  "last_continuity_checkpoint": "cognitive/research/model_development/extended_002/RESUME.json",
+  "last_continuity_checkpoint": "cognitive/research/system_map/RESUME.json",
   "scientific_authority_changed_field_scope": "This cognitive software delivery; the separately user-authorized QROS V191 governance reconciliation is preserved on main.",
   "stop_reason": null,
-  "model_execution_observation_scope": "Four observed agent batches on requested routes; two per route; immutable model revisions and tool traces not exposed"
+  "model_execution_observation_scope": "Four observed agent batches on requested routes; two per route; immutable model revisions and tool traces not exposed",
+  "current_system_map": "cognitive/CURRENT_SYSTEM_MAP.md",
+  "capability_ontology": "cognitive/research/CAPABILITY_ONTOLOGY_v4.json"
 }
