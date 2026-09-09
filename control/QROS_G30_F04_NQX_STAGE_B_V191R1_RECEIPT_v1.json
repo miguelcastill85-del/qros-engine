@@ -1,0 +1,66 @@
+{
+  "asset": "NQX",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "data_authority": {
+    "cache_2018_2021_sha256": "2bad94f5051c41f00a5e6fd9f39efa4278488f12b0b2f6d95737386cddecf598",
+    "prefix_2018_2021_sha256": "d2530ae084311e0b454f30a5d7a2bc0d0f4ca932bb81d9dd2252ba7295491a05"
+  },
+  "decision": "F04_NQX_STAGE_B_COMPLETE_104_ADVANCE_ONLY_WITHIN_EXPOSED_OBSERVATIONAL_PROTOCOL",
+  "frontier": "F04_ATR_SMOOTHING",
+  "gate_a_replay": {
+    "passers_total": 559,
+    "shards": [
+      {"id":"H1_BID","passed":41,"sha256":"8c8470c610a763568bca154c1f25127a5ee1967063f278db1e803a53a08a7e87"},
+      {"id":"H1_MID","passed":40,"sha256":"77e04c71230bba5e3b0885e19620ec8e27e3d2edeec12633546f708430093fd2"},
+      {"id":"M10_BID","passed":113,"sha256":"7f04e55765bde16c807b83a162cfe1151090ab1313a13c3e4552359248ba0176"},
+      {"id":"M10_MID","passed":118,"sha256":"ea603662c692f315814731c73e7212adc0af95bb287b881da91e022910237f29"},
+      {"id":"M15_BID","passed":87,"sha256":"13fea9ac391455287e0fc0a2c9f942166c8c978a86bccba771593030010f0433"},
+      {"id":"M15_MID","passed":101,"sha256":"b8180b2b45aa90eb89d5b92c82bc6217e20706f354f2050a86e3a535c20055e0"},
+      {"id":"M1_BID","passed":0,"sha256":"81a9f88fe81c61e06dd91339309afe9b55c8f1a681d90f46fee64928dd1ac7a9"},
+      {"id":"M1_MID","passed":0,"sha256":"ac571db276ff54d245d06264b39a47b00ee9edc76f9f4b9e3878495abf711479"},
+      {"id":"M30_BID","passed":12,"sha256":"b300d3fe57f4bf37a67c5ef755813565329e3e1943f104107cab4f399bdcdd0d"},
+      {"id":"M30_MID","passed":13,"sha256":"b75a5e8d8ee1f01e72a226a66a4a9556466db721e566aa432da4c1e433a4884f"},
+      {"id":"M5_BID","passed":15,"sha256":"615ea35302e33edb10edf486289e2a651c9b12adbc7dd6c47caaa156a7c3ac1f"},
+      {"id":"M5_MID","passed":19,"sha256":"d4669fa4300254841ed342f1f299e0006ceeee8a4d238c0b9471959313c34782"}
+    ],
+    "status": "PASS_12_OF_12_BYTE_IDENTICAL"
+  },
+  "governance": {"2022_plus_strategy_pnl_read":false,"clean_historical_holdout_claim":false,"f13_route":"EXCLUDED_NO_RECOVERY","mt5":false,"retuning":false,"supergate":false},
+  "local_stage_b_runner_sha256": "e4c1c28da01d535577c0446ccaa2e0d2f170f6a3ca9131017954659fbc617531",
+  "schema": "QROS_G30_F04_NQX_STAGE_B_V191R1_RECEIPT_v1",
+  "stage": "G30-OBS-STAGE-B-2020_2021",
+  "stage_b": {
+    "2022_plus_pnl_read": false,
+    "all_decision_root_sha256": "084632583d914c6e8fbd22d05185b612eab7daff41db3e59f0af1e175796ec05",
+    "asset": "NQX",
+    "evaluated": 559,
+    "frontier": "F04_ATR_SMOOTHING",
+    "gate_a_passers_in": 559,
+    "mt5": false,
+    "parity": "PASS_EXACT_10_NONEMPTY_PLUS_2_VACUOUS",
+    "passed": 104,
+    "passed_buy": 59,
+    "passed_sell": 45,
+    "passer_root_sha256": "815905b4afea9cfc3e773e6945796c1bf1163888ea79a690fb0572a490c0c649",
+    "rejected": 455,
+    "retuning": false,
+    "schema": "QROS_G30_F04_NQX_STAGE_B_V191R1_SUMMARY_v1",
+    "shards": [
+      {"buy":22,"evaluated":41,"id":"H1_BID","passed":22,"sell":0,"stage_b_sha256":"9cb29272e66b8dec90ec18fb4b371b0a58be055043133f17176e7666a2625e83"},
+      {"buy":25,"evaluated":40,"id":"H1_MID","passed":25,"sell":0,"stage_b_sha256":"727716f940dea8cb40425530e7c8898e325189aecff1ea6a241254f0b99dfc39"},
+      {"buy":0,"evaluated":113,"id":"M10_BID","passed":5,"sell":5,"stage_b_sha256":"579a2532bbe160c82e534ef3010fc858c1ca2fa7b97afece7ccc9c4f2f400d8b"},
+      {"buy":0,"evaluated":118,"id":"M10_MID","passed":4,"sell":4,"stage_b_sha256":"5389133754404d3449ba6b8569d0a3a718bcc60b913e982c9c11e7dcf99d245f"},
+      {"buy":3,"evaluated":87,"id":"M15_BID","passed":13,"sell":10,"stage_b_sha256":"3ace709dd51472a5dee7faf43994d7823d7cbfe8fcf3c7b2cf784cf1b745f30a"},
+      {"buy":4,"evaluated":101,"id":"M15_MID","passed":17,"sell":13,"stage_b_sha256":"c38d3956c96ee4c2f562fd9387324c1b02767c2b2012b7f0dab8d482f2555648"},
+      {"buy":0,"evaluated":0,"id":"M1_BID","passed":0,"sell":0,"stage_b_sha256":"bd6997a806dae24d6aafa0aa768a529a399d8d832eea5580542aa1d67fdb90fe"},
+      {"buy":0,"evaluated":0,"id":"M1_MID","passed":0,"sell":0,"stage_b_sha256":"9d8d8ddbb8e594868f9467e634d283715be17e35bdd5668e61f7a27aebe6850a"},
+      {"buy":4,"evaluated":12,"id":"M30_BID","passed":4,"sell":0,"stage_b_sha256":"f2eedf2f1ca227fe063779374ac9435b56677e59a040c04b319eabd3038dd736"},
+      {"buy":1,"evaluated":13,"id":"M30_MID","passed":2,"sell":1,"stage_b_sha256":"07c87e4fcb03eab2b93af608fbf0755e1045b731f29e883926fb09a7de544a78"},
+      {"buy":0,"evaluated":15,"id":"M5_BID","passed":6,"sell":6,"stage_b_sha256":"0a7103c350698a4e767408b149057485e9196b6d2cdec85b0fe8883e91965d6f"},
+      {"buy":0,"evaluated":19,"id":"M5_MID","passed":6,"sell":6,"stage_b_sha256":"b2782cd577655ef69aecdb186620a56ce3aaa9161e4bdece713d3163451e8b89"}
+    ],
+    "stage": "G30-OBS-STAGE-B-2020_2021",
+    "status": "PASS"
+  },
+  "status": "STAGE_B_COMPLETE_ALL_PASSERS_EXACT_PARITY"
+}
