@@ -1,0 +1,196 @@
+{
+  "status": "PASS",
+  "phase": "REMOTE_READBACK_DISABLED",
+  "files": 14,
+  "receipt": {
+    "schema": "QROS_AUTHORITY_RECONCILIATION_VALIDATION_V191",
+    "scope": "CONTROL_METADATA_ONLY_NO_SCIENTIFIC_RUN",
+    "status": "PASS",
+    "user_authorization": "Reconciliala tu mismo y sigue adelante",
+    "before_epoch": 190,
+    "candidate_epoch": 191,
+    "official_validator_sha256": "271c23579bbf2cbf5b5e3be624ab1fcb7d3ee75d8ebca5250919c297ad01b683",
+    "cases": [
+      {
+        "case": "observed_v190_missing_head_delegation",
+        "expectation_met": true,
+        "result": {
+          "status": "FAIL",
+          "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+          "authority_epoch": 190,
+          "manifest_git_blob_sha1": "b450847844b1be1102ddad84ca7ce13f60132c4f",
+          "actual_blobs": {
+            "head": "49dbac83a1e924c947fea6a095bd5960f472aacf",
+            "state": "aa4f9fae03fb65ff41f4fca0894ef0467d6a3ea2",
+            "run_queue": "c203dff13d1949674309b698a7d6c614ced07c84"
+          },
+          "scientific_execution_authorized": true,
+          "errors": [
+            "AUTH_SOURCE_MISMATCH:head:None"
+          ]
+        }
+      },
+      {
+        "case": "valid_not_authorized",
+        "expectation_met": true,
+        "result": {
+          "status": "PASS",
+          "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+          "authority_epoch": 191,
+          "manifest_git_blob_sha1": "81169467478c1dc755db977086f37714431518e5",
+          "actual_blobs": {
+            "head": "36639ebfe19a29c736a5745cbd9846e8c6e8e835",
+            "state": "48a212b105a5cf21425c79a2bb7fb349d3c061a9",
+            "run_queue": "1fa745bb9a57d3944de2c2521bd67b0f0520a029"
+          },
+          "scientific_execution_authorized": false,
+          "errors": []
+        }
+      },
+      {
+        "case": "require_exec_rejects_false",
+        "expectation_met": true,
+        "result": {
+          "status": "FAIL",
+          "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+          "authority_epoch": 191,
+          "manifest_git_blob_sha1": "81169467478c1dc755db977086f37714431518e5",
+          "actual_blobs": {
+            "head": "36639ebfe19a29c736a5745cbd9846e8c6e8e835",
+            "state": "48a212b105a5cf21425c79a2bb7fb349d3c061a9",
+            "run_queue": "1fa745bb9a57d3944de2c2521bd67b0f0520a029"
+          },
+          "scientific_execution_authorized": false,
+          "errors": [
+            "EXECUTION_NOT_AUTHORIZED"
+          ]
+        }
+      },
+      {
+        "case": "valid_authorized",
+        "expectation_met": true,
+        "result": {
+          "status": "PASS",
+          "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+          "authority_epoch": 191,
+          "manifest_git_blob_sha1": "5afce6279994b8625bd79fb2d5d13924e3c561e7",
+          "actual_blobs": {
+            "head": "36639ebfe19a29c736a5745cbd9846e8c6e8e835",
+            "state": "48a212b105a5cf21425c79a2bb7fb349d3c061a9",
+            "run_queue": "1fa745bb9a57d3944de2c2521bd67b0f0520a029"
+          },
+          "scientific_execution_authorized": true,
+          "errors": []
+        }
+      },
+      {
+        "case": "campaign_mismatch",
+        "expectation_met": true,
+        "result": {
+          "status": "FAIL",
+          "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+          "authority_epoch": 191,
+          "manifest_git_blob_sha1": "81169467478c1dc755db977086f37714431518e5",
+          "actual_blobs": {
+            "head": "75657c5fe7c74c41ee2806d09c7db3c5d3da2e3d",
+            "state": "48a212b105a5cf21425c79a2bb7fb349d3c061a9",
+            "run_queue": "1fa745bb9a57d3944de2c2521bd67b0f0520a029"
+          },
+          "scientific_execution_authorized": false,
+          "errors": [
+            "CAMPAIGN_MISMATCH:head",
+            "BLOB_MISMATCH:head:36639ebfe19a29c736a5745cbd9846e8c6e8e835:75657c5fe7c74c41ee2806d09c7db3c5d3da2e3d"
+          ]
+        }
+      },
+      {
+        "case": "epoch_mismatch",
+        "expectation_met": true,
+        "result": {
+          "status": "FAIL",
+          "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+          "authority_epoch": 191,
+          "manifest_git_blob_sha1": "81169467478c1dc755db977086f37714431518e5",
+          "actual_blobs": {
+            "head": "36639ebfe19a29c736a5745cbd9846e8c6e8e835",
+            "state": "5b9a79265fcdfd36128d81c8f74577ec9ceffd75",
+            "run_queue": "1fa745bb9a57d3944de2c2521bd67b0f0520a029"
+          },
+          "scientific_execution_authorized": false,
+          "errors": [
+            "EPOCH_MISMATCH:state",
+            "BLOB_MISMATCH:state:48a212b105a5cf21425c79a2bb7fb349d3c061a9:5b9a79265fcdfd36128d81c8f74577ec9ceffd75"
+          ]
+        }
+      },
+      {
+        "case": "blob_mismatch",
+        "expectation_met": true,
+        "result": {
+          "status": "FAIL",
+          "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+          "authority_epoch": 191,
+          "manifest_git_blob_sha1": "81169467478c1dc755db977086f37714431518e5",
+          "actual_blobs": {
+            "head": "36639ebfe19a29c736a5745cbd9846e8c6e8e835",
+            "state": "48a212b105a5cf21425c79a2bb7fb349d3c061a9",
+            "run_queue": "b9821bf3e74e11f5d375c6e87703180a402a9231"
+          },
+          "scientific_execution_authorized": false,
+          "errors": [
+            "BLOB_MISMATCH:run_queue:1fa745bb9a57d3944de2c2521bd67b0f0520a029:b9821bf3e74e11f5d375c6e87703180a402a9231"
+          ]
+        }
+      },
+      {
+        "case": "delegation_regression",
+        "expectation_met": true,
+        "result": {
+          "status": "FAIL",
+          "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+          "authority_epoch": 191,
+          "manifest_git_blob_sha1": "81169467478c1dc755db977086f37714431518e5",
+          "actual_blobs": {
+            "head": "74bd7aa18b516359464ea97ba4aa31b22712f3bd",
+            "state": "48a212b105a5cf21425c79a2bb7fb349d3c061a9",
+            "run_queue": "1fa745bb9a57d3944de2c2521bd67b0f0520a029"
+          },
+          "scientific_execution_authorized": false,
+          "errors": [
+            "BLOB_MISMATCH:head:36639ebfe19a29c736a5745cbd9846e8c6e8e835:74bd7aa18b516359464ea97ba4aa31b22712f3bd",
+            "AUTH_SOURCE_MISMATCH:head:control/SCIENTIFIC_HEAD.json"
+          ]
+        }
+      }
+    ],
+    "all_six_historical_selftest_cases_reexecuted": true,
+    "missing_delegation_regression": true,
+    "scientific_semantic_equality": true,
+    "legacy_redirects_verified": 7,
+    "archives_byte_equal": true,
+    "runtime": {
+      "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+      "platform": "Linux",
+      "sqlite_local_transaction": "PASS",
+      "inheritable": false
+    },
+    "economic_reads": 0,
+    "scientific_dispatches": 0,
+    "mt5_executions": 0,
+    "additional_paid_services": 0,
+    "import_verifier": "UNVERIFIED_FULL_NATIVE_HANDOFF_MANIFEST_NOT_MATERIALIZED; control and validator bytes verified separately",
+    "changed_files": {
+      "control/HEAD.json": "36639ebfe19a29c736a5745cbd9846e8c6e8e835",
+      "control/persistent_execution/STATE.json": "48a212b105a5cf21425c79a2bb7fb349d3c061a9",
+      "control/persistent_execution/RUN_QUEUE.json": "1fa745bb9a57d3944de2c2521bd67b0f0520a029",
+      "control/legacy/authority_v191/CONTROL_AUTHORITY_MANIFEST_v1.json.original.json": "f42f9f9ab7da2a0e1f6e0c9a8f7763f75f456074",
+      "control/CONTROL_AUTHORITY_MANIFEST_v1.json": "db04f36430ec5d8dfe577b5b12ae8b2ea9cede0d",
+      "control/legacy/authority_v191/RUN_QUEUE.json.original.json": "3450ea066bfcafb4ed8291b8e5bb38629873d3ba",
+      "control/RUN_QUEUE.json": "6df5bb9842d66add28deb7ddd384b3bf3761e84b",
+      "control/legacy/authority_v191/RUN_QUEUE_v3.json.original.json": "9fa3f03dcbccc9a9bf0e51944fc3ad6997dbd175",
+      "control/RUN_QUEUE_v3.json": "17e626d5a2ec6a1eb60f12aceacdbeeca63eddfa",
+      "control/QROS_ACTIVE_HASH_REGISTRY_V191_v1.json": "5eab58121309218157b3fe99b430160e0f42c9d3",
+      "control/CONTROL_AUTHORITY_MANIFEST_v3.json": "81169467478c1dc755db977086f37714431518e5"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/workspace/scratch/432f759f1722/improvements/qros-engine/scripts/qros_control_authority_validator_v2.py",
+    "/workspace/scratch/432f759f1722/reconciliation/remote_disabled/control/CONTROL_AUTHORITY_MANIFEST_v3.json",
+    "/workspace/scratch/432f759f1722/reconciliation/remote_disabled/control/HEAD.json",
+    "/workspace/scratch/432f759f1722/reconciliation/remote_disabled/control/persistent_execution/STATE.json",
+    "/workspace/scratch/432f759f1722/reconciliation/remote_disabled/control/persistent_execution/RUN_QUEUE.json",
+    "--require-execution"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"actual_blobs\":{\"head\":\"36639ebfe19a29c736a5745cbd9846e8c6e8e835\",\"run_queue\":\"1fa745bb9a57d3944de2c2521bd67b0f0520a029\",\"state\":\"48a212b105a5cf21425c79a2bb7fb349d3c061a9\"},\"authority_epoch\":191,\"campaign\":\"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1\",\"errors\":[],\"manifest_git_blob_sha1\":\"5afce6279994b8625bd79fb2d5d13924e3c561e7\",\"scientific_execution_authorized\":true,\"status\":\"PASS\"}\n",
+  "stderr": "",
+  "scope": "REMOTE_MANIFEST_PLUS_PINNED_UNCHANGED_DELEGATES",
+  "scientific_dispatches": 0
+}
