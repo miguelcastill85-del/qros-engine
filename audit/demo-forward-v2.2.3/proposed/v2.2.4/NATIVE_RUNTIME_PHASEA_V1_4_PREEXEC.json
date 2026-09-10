@@ -1,0 +1,55 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V1_4_PREEXEC_1.0",
+  "utc": "2026-09-10T02:22:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "trigger_evidence": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_EVIDENCE_v1_3.zip",
+    "bytes": 18654,
+    "sha256": "d9730ceae4465cb52bd54fc470d80d0cfaae9927316fb8dfc5abbf4c848461b9",
+    "receipt_decision": "FAIL",
+    "receipt_reason": "FENCE_HOLDER_EXIT_TIMEOUT",
+    "native_compile": "0 errors / 0 warnings",
+    "runtime_native_core": "21 PASS / 0 FAIL / 2 SKIP / 2 BLOCKED",
+    "holder_acquired": true,
+    "real_broker_orders_sent": 0
+  },
+  "adjudication": {
+    "candidate_failure": false,
+    "classification": "RUNNER_FENCING_PROCESS_LIFECYCLE_ADJUDICATION_DEFECT",
+    "detail": "v1.3 waited for isolated terminal GUI-process exit after native tester fencing activity. Runtime core had already passed and holder acquisition was observed. Terminal process lifetime is not authoritative fencing state."
+  },
+  "package": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v1_4.zip",
+    "bytes": 63690,
+    "sha256": "aa27dbff716ec9a8dc44c0c4c183299accdb6fb97e1c0dae50e2ecb7b3f34bac",
+    "files": 15
+  },
+  "authority_preservation": {
+    "executor_sha256": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "harness_sha256": "840a81010c31b0c2e460e80d5e04ac6b8e26eb91f94a62b9317dfe8ffdf57f0f",
+    "bus_sha256": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "risk_kernel_sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "candidate_authority_changed": false,
+    "test_harness_changed": false
+  },
+  "v1_4_runner_fix": {
+    "fencing_adjudication": "FILE_COMMON_RESULT_DRIVEN",
+    "holder_overlap_ms": 90000,
+    "requires_probe_denial": true,
+    "requires_holder_release_evidence": true,
+    "requires_post_release_reacquire": true,
+    "lingering_process_cleanup": "ONLY_IF_EXECUTABLE_PATH_IS_INSIDE_PHASEA14_ISOLATED_ROOTS"
+  },
+  "pre_delivery_validation": "40/40 PASS",
+  "post_build_validation": "32/32 PASS",
+  "zip_crc": "PASS",
+  "manifest_hashes": "PASS_ALL",
+  "native_windows_reexecution": "REQUIRED",
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "real_broker_orders_authorized": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0",
+  "decision": "PACKAGE_PREDELIVERY_AND_POSTBUILD_VALIDATED_NATIVE_REEXECUTION_REQUIRED"
+}
