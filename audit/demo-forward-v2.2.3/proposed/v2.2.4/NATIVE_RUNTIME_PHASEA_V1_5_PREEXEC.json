@@ -1,0 +1,45 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V1_5_PREEXEC_1.0",
+  "utc": "2026-09-10T02:40:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "parent_evidence": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_EVIDENCE_v1_4.zip",
+    "bytes": 19184,
+    "sha256": "bf74d91575dd8d69a02e84343e99c8510e1b0ee26b7f4cfa3d35787ad89c261e",
+    "runtime_native_core": "21_PASS_0_FAIL_2_SKIP_2_BLOCKED",
+    "fence_probe": "SECOND_LOCK_ACQUIRED",
+    "adjudication": "HARNESS_WALLCLOCK_OVERLAP_NOT_PROVEN"
+  },
+  "package": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v1_5.zip",
+    "bytes": 65512,
+    "sha256": "5206cd5c599eef19fb73dfa7924d3aee07149f139eb4ceb3079d94b6203326da",
+    "files": 16
+  },
+  "authority": {
+    "candidate_executor_sha256": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "bus_sha256": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "risk_kernel_sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "candidate_authority_changed": false,
+    "harness_v1_5_sha256": "a482d3305336756c1bb3ef4d7fe6efd7a9e0c11bc6c8ef2ea710c0cc6237aa37"
+  },
+  "fencing_fix": {
+    "scope": "TEST_HARNESS_ONLY",
+    "detail": "Replace Strategy Tester Sleep-based holder with GetTickCount64 wall-clock hold; holder set 120000 ms. Probe still calls exact Candidate3 AcquireInstanceFence().",
+    "decision_rule": "If SECOND_LOCK_ACQUIRED repeats under wall-clock overlap, classify as real Candidate3 fencing defect and do not rescue by changing runner."
+  },
+  "validation": {
+    "predelivery": "54/54 PASS",
+    "postbuild": "28/28 PASS",
+    "zip_crc": "PASS",
+    "manifest_sha256": "PASS_ALL",
+    "native_windows_compile_in_chat": false,
+    "native_runner_requirement": "MetaEditor 6182 0 errors / 0 warnings before tester execution"
+  },
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0",
+  "decision": "PACKAGE_VALIDATED_NATIVE_REEXECUTION_REQUIRED"
+}
