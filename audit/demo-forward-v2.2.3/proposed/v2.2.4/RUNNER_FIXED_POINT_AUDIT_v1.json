@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_V224_PHASEA_RUNNER_FIXED_POINT_AUDIT_1.0",
+  "utc": "2026-09-10T02:30:00Z",
+  "scope": "Cross-version audit of Phase-A runner v1.0-v1.6 after repeated infrastructure failures",
+  "candidate_authority_sha256": {
+    "executor": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "bus": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "risk_kernel": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f"
+  },
+  "authority_preservation_across_packages": true,
+  "observed_failures": [
+    {"version":"v1.0","failure":"COMPILE_NOT_0_0","root_cause":"runner omitted standard MQL5 Include tree from active Data Folder","candidate_failure":false},
+    {"version":"v1.1","failure":"A15 false negative","root_cause":"harness accepted only PLACED while native CTrade returned DONE with working order observed","candidate_failure":false},
+    {"version":"v1.2","failure":"RUNTIME_RESULTS_MISSING","root_cause":"runner had insufficient evidence materialization diagnostics; exact cause not proven","candidate_failure":false},
+    {"version":"v1.3","failure":"FENCE_HOLDER_EXIT_TIMEOUT","root_cause":"runner used terminal GUI process exit as fencing success criterion","candidate_failure":false},
+    {"version":"v1.4","failure":"SECOND_LOCK_ACQUIRED","root_cause":"harness Sleep() in Strategy Tester did not prove physical wall-clock overlap","candidate_failure":false},
+    {"version":"v1.5","failure":"Import-Csv IOException after fencing exclusion PASS","root_cause":"runner read holder CSV while producer still held writer handle","candidate_failure":false}
+  ],
+  "scientific_native_core_evidence": {
+    "v1.3": "21 PASS / 0 FAIL / 2 SKIP / 2 BLOCKED",
+    "v1.4": "21 PASS / 0 FAIL / 2 SKIP / 2 BLOCKED",
+    "fencing_v1.5_screenshot": "second executor denied exact common lock before runner CSV read failure"
+  },
+  "v1_6_latent_defects_found_before_reexecution": [
+    {"id":"RFD01","severity":"HIGH","issue":"fixed shared FILE_COMMON namespace and broad cleanup permit stale/cross-run interference"},
+    {"id":"RFD02","severity":"HIGH","issue":"Wait-ForCommonResult proves file existence, not writer closure or complete content"},
+    {"id":"RFD03","severity":"HIGH","issue":"direct Import-Csv remains at runtime/holder/release/reacquire paths"},
+    {"id":"RFD04","severity":"HIGH","issue":"Copy-CommonPrefix copies producer files without proving quiescence"},
+    {"id":"RFD05","severity":"MEDIUM","issue":"Remove-Item on shared common files has no bounded lock-aware retry"},
+    {"id":"RFD06","severity":"MEDIUM","issue":"no global exception envelope guarantees receipt/evidence/owned-process cleanup for uncaught PowerShell exceptions"},
+    {"id":"RFD07","severity":"LOW","issue":"v1.6 receipt schema still says 1.5"}
+  ],
+  "decision": "DO_NOT_RUN_V1_6; SUPERSEDE_WITH_RUNNER_QUALIFIED_V2",
+  "required_v2_invariants": [
+    "unique run-id namespaces for every FILE_COMMON evidence stream",
+    "exclusive-open read helper: evidence accepted only when producer handle is closed",
+    "exclusive snapshot helper instead of direct Copy-Item",
+    "no broad deletion of prior-run common evidence",
+    "lock-aware bounded cleanup only for current run namespace",
+    "top-level exception envelope always emits diagnostics, receipt and evidence",
+    "owned-process registry and cleanup limited to isolated clone paths",
+    "runner self-test before MetaTrader: exclusive lock, close/read, atomic marker, copy/hash, path guard",
+    "native MQL materialization smoke before Candidate3 core",
+    "single source of version/schema metadata",
+    "candidate authority hashes frozen",
+    "QDB1.EXEC.CERT remains untouched and 0"
+  ]
+}
