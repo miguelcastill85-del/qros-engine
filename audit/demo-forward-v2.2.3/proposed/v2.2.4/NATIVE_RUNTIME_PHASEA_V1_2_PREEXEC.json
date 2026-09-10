@@ -1,0 +1,40 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V1_2_PREEXEC_1.0",
+  "utc": "2026-09-10T01:56:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "package": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v1_2.zip",
+    "bytes": 60469,
+    "sha256": "e5166a971d253f87121703672807ee4d8b4558252d513bfd6a40b577f5207341",
+    "files": 14
+  },
+  "authority": {
+    "executor_sha256": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "bus_sha256": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "risk_kernel_sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "candidate_authority_changed": false
+  },
+  "harness": {
+    "v1_1_sha256": "ba307c024ba7e372e54883324ac1883d6bd9f8410e497dfa19f6593fce266b2b",
+    "v1_2_sha256": "840a81010c31b0c2e460e80d5e04ac6b8e26eb91f94a62b9317dfe8ffdf57f0f",
+    "semantic_change": "A15 only: success retcode set becomes PLACED|DONE|DONE_PARTIAL and still requires observed pending order",
+    "other_candidate_logic_changed": false
+  },
+  "pre_delivery_validation": {
+    "zip_crc": "PASS",
+    "manifest_sha256_entries": "PASS_ALL",
+    "static_deterministic_checks": "15/15 PASS",
+    "non_tester_guard": "PASS",
+    "no_QDB1_EXEC_CERT_mutation": "PASS",
+    "active_terminal_write_or_control": "NONE",
+    "real_broker_orders_authorized": false,
+    "native_compile_reexecuted_in_chat_runtime": false,
+    "native_compile_requirement_in_runner": "MetaEditor 6182 0 errors / 0 warnings before any tester execution"
+  },
+  "decision": "PACKAGE_PREDELIVERY_VALIDATED_NATIVE_REEXECUTION_REQUIRED",
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+}
