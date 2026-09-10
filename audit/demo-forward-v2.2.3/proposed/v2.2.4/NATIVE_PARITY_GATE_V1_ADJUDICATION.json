@@ -1,0 +1,78 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_PARITY_ADJUDICATION_1.0",
+  "utc": "2026-09-10T01:12:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state_before": "FROZEN_CANDIDATE",
+  "input_evidence": {
+    "name": "QROS_V224_C3_NATIVE_PARITY_EVIDENCE_v1.zip",
+    "bytes": 89861,
+    "sha256": "d6b29c5764f75040e9228e6af37f01c46bc3bf69d82ec31d8625f6e3293bc1a9",
+    "files": 36,
+    "original_receipt_decision": "FAIL",
+    "original_receipt_reason": "NOT_STRATEGY_TESTER_QROS_V224_C3_PARITY_DIV3_CHILD_ENV.csv"
+  },
+  "root_cause": {
+    "classification": "GATE_CHECKER_SCHEMA_DEFECT",
+    "detail": "The checker coerced a missing DIV3 ENV key mql_tester to 0 and failed. Candidate3 DIV3 ENV schema does not emit mql_tester or orders_sent, while XAU/NQX do. The original FAIL receipt is preserved.",
+    "candidate_scientific_failure": false
+  },
+  "native_compile": {
+    "terminal_build": 6182,
+    "sources_passed": 7,
+    "sources_total": 7,
+    "errors": 0,
+    "warnings": 0
+  },
+  "native_parity": {
+    "XAU_TRADES": {"rows_parent": 1, "rows_child": 1, "byte_equal": true, "sha256": "498587fb8c69fa78b7c59bfc02d8b58d1ba3723a2a55e6f9ace1b38b4ad8a61b"},
+    "XAU_EVENTS": {"rows_parent": 63, "rows_child": 63, "byte_equal": true, "sha256": "5314fd1247174c8507a2fea607d78bc0150a8f1cf4e8f757bd34e92eb59de025"},
+    "NQX_TRADES": {"rows_parent": 179, "rows_child": 179, "byte_equal": true, "sha256": "bb34da447303c13e7f069280f6e460d876e2e4474e83cbff721414ec5917e2a6"},
+    "NQX_CANDIDATES": {"rows_parent": 179, "rows_child": 179, "byte_equal": true, "sha256": "63d501ebdff5cca74ab1b9b8a0f7dd2c584ef270ebc7a6f682501bd1c40c3dc4"},
+    "DIV3_SIGNALS": {"rows_parent": 347, "rows_child": 347, "byte_equal": true, "sha256": "a18d458d535131025f61f519c7d30ce23063256c5ee9429399e1e76e142a60b6"},
+    "DIV3_TRADES": {"rows_parent": 224, "rows_child": 224, "byte_equal": true, "sha256": "c110f14f2647d2d7438e048964e824c38ede3b0c275db3f66e4914125b9229f1"},
+    "DIV3_SUMMARY": {"rows_parent": 4, "rows_child": 4, "byte_equal": true, "sha256": "3a611c03b3dbd49c8a2c68181dd2c666ba3b7b00ffd9d87c5b05bfde1191b728"}
+  },
+  "legacy_controller": {
+    "candidates": 977,
+    "executed": 916,
+    "blocked": 61,
+    "blocked_asset_position_open": 53,
+    "blocked_daily_cap_3": 8,
+    "sha256": "b8d28b09c6e8783a872fd1bbb59c65d7463fa62d386ebeda7f4f03282ed29e46",
+    "decision": "PASS"
+  },
+  "environment_evidence": {
+    "XAU_CHILD": {"account_server": "Darwinex-Demo", "terminal_build": 6182, "mql_tester": 1, "orders_sent": 0},
+    "NQX_CHILD": {"account_server": "Darwinex-Demo", "terminal_build": 6182, "mql_tester": 1, "orders_sent": 0},
+    "DIV3_CHILD": {"account_server": "Darwinex-Demo", "terminal_build": 6182, "mql_tester": "NOT_EMITTED_BY_SCHEMA", "orders_sent": "NOT_EMITTED_BY_SCHEMA"},
+    "DIV3_runner_provenance": {
+      "ini_has_tester_section": true,
+      "allow_live_trading": 0,
+      "use_local": 1,
+      "use_remote": 0,
+      "use_cloud": 0,
+      "expert": "QROS_DIV3_R3_DEMO_EMITTER_v2_2_4",
+      "symbol": "NDX",
+      "period": "M15",
+      "terminal_launch": "/portable /config:<DIV3_CHILD.ini>",
+      "tester_exit_code": 0
+    },
+    "static_order_api_scan": "PASS_NONE_IN_TESTED_EAS",
+    "active_terminal_snapshot_count": 0,
+    "active_terminal_touched": false,
+    "deployment_allowed": false
+  },
+  "adjudication": {
+    "scientific_parent_child_parity": "PASS_7_OF_7_BYTE_EXACT",
+    "legacy_controller": "PASS_977",
+    "combined_comparisons": "PASS_8_OF_8",
+    "environment_attestation": "PASS_BY_EXPLICIT_XAU_NQX_AND_DIV3_TESTER_RUNNER_PROVENANCE",
+    "native_parity_gate": "PASS_WITH_PRESERVED_CHECKER_DEFECT",
+    "deployment_allowed": false,
+    "cert_arm_allowed": false
+  },
+  "next_gate": "CANDIDATE3_EXECUTOR_RUNTIME_NATIVE_ADVERSARIAL_GATE",
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0",
+  "holdout_or_g30_mutation": "NONE"
+}
