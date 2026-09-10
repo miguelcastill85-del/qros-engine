@@ -1,0 +1,24 @@
+{
+  "aggregate": {"all_decision_root":"c359c582aee50984f4a4cb639036f6df3362f867caef6ec51810824b1aa35bcd","evaluated":244,"passed":53,"passed_buy":46,"passed_sell":7,"passer_root":"831ed1c6f67a6400860b0b4dee70b604ce5e52c3e0b7315fbc92649daebda837","rejected":191,"root_algorithm":"SHA256_CANONICAL_JSON_SORT_KEYS_RECORDS_SORTED_BY_STABLE_ID"},
+  "asset":"XAUUSD","authority_epoch":191,"campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1","decision":"F04_XAU_STAGE_B_COMPLETE_ADVANCE_TO_F05","frontier":"F04_ATR_SMOOTHING",
+  "gate":{"min_trades":20,"net_positive_all_costs":true,"pf_central_min":1.2,"pf_conservative_min":1.1,"pf_severe_min":1.0,"positive_full_years_central":[2020,2021]},
+  "guards":{"f13_touched":false,"future_2022_plus_pnl_read":false,"historical_holdout_opened":false,"mt5":false,"retuning":false,"supergate":false},
+  "inputs":{"gate_a_passers":244,"prefix_cache_sha256":"35abe473cfb9b02c51f525ccd3ef870bff51106005f94236e8197a9f4a2d8bfd","prefix_records":323662484,"prefix_sha256":"77da8423b07d7d33168d8b713ef691627f0698760461c7349fa5ccc5e49ceaeb"},
+  "parity":{"execution_primary_independent":"PASS_EXACT_10_NONVACUOUS_SHARDS","m1_zero_passers":"DURABLE_GATE_A_AUTHORITY_ZERO_PASSERS_NOT_LOCAL_REPLAYED","signal_primary_independent":"PASS_EXACT_10_NONVACUOUS_SHARDS"},
+  "schema":"QROS_G30_F04_XAU_STAGE_B_V191R1_RECEIPT_v1",
+  "shards":[
+    {"evaluated":36,"gate_a_passers":36,"id":"H1_BID","parity":"PASS_EXACT","passed":0,"passed_buy":0,"passed_sell":0,"rejected":36,"result_sha256":"7f1451d8734a500d61b549a070da0455233dfdc088646d337736ecc6175002f8"},
+    {"evaluated":17,"gate_a_passers":17,"id":"H1_MID","parity":"PASS_EXACT","passed":5,"passed_buy":5,"passed_sell":0,"rejected":12,"result_sha256":"00bfcf7729b78a51240d4092c718ff15184f6a8eee6660486533d0c559a041c2"},
+    {"evaluated":34,"gate_a_passers":34,"id":"M30_BID","parity":"PASS_EXACT","passed":17,"passed_buy":17,"passed_sell":0,"rejected":17,"result_sha256":"c7087ad56d89ae3b9da55f45051b46207c6ba6efbed8dcd1b3f747be4ced817a"},
+    {"evaluated":36,"gate_a_passers":36,"id":"M30_MID","parity":"PASS_EXACT","passed":24,"passed_buy":24,"passed_sell":0,"rejected":12,"result_sha256":"268ddd860446592561e75887eebd958e5b9da4f224ffab9ed3fc6ed616899a3f"},
+    {"evaluated":31,"gate_a_passers":31,"id":"M15_BID","parity":"PASS_EXACT","passed":0,"passed_buy":0,"passed_sell":0,"rejected":31,"result_sha256":"5569a31ff401ddb5e6dd2f52858c530ef2ce227d1f2388e8ee29880eeced61d3"},
+    {"evaluated":25,"gate_a_passers":25,"id":"M15_MID","parity":"PASS_EXACT","passed":0,"passed_buy":0,"passed_sell":0,"rejected":25,"result_sha256":"11dfdc74233ba166f7c94d389424aef38aa21dd9c25b1cd91e912ad317ebcc8e"},
+    {"evaluated":15,"gate_a_passers":15,"id":"M10_BID","parity":"PASS_EXACT","passed":2,"passed_buy":0,"passed_sell":2,"rejected":13,"result_sha256":"a8896e5bc07ac2bbd9ab0bd0311e463ed4b1518b5be47144342c6f03185261ea"},
+    {"evaluated":26,"gate_a_passers":26,"id":"M10_MID","parity":"PASS_EXACT","passed":5,"passed_buy":0,"passed_sell":5,"rejected":21,"result_sha256":"671c4fa54859ac2e1f7f4ddc472f1b51187cd38daae188e7a5802785c2e6fe6b"},
+    {"evaluated":12,"gate_a_passers":12,"id":"M5_BID","parity":"PASS_EXACT","passed":0,"passed_buy":0,"passed_sell":0,"rejected":12,"result_sha256":"39f8b43951b1b85caef42afb55dfdfd112df460dbf0c2ce6eda8a0bd667dfcd7"},
+    {"evaluated":12,"gate_a_passers":12,"id":"M5_MID","parity":"PASS_EXACT","passed":0,"passed_buy":0,"passed_sell":0,"rejected":12,"result_sha256":"4f09a65a2ec4161f7968e70fe388eab90037ef81455d02ad03abd63581d0d8e5"},
+    {"evaluated":0,"gate_a_passers":0,"id":"M1_BID","parity":"PASS_VACUOUS_DURABLE_AUTHORITY_ZERO_PASSERS","passed":0,"passed_buy":0,"passed_sell":0,"rejected":0,"result_sha256":"19f1dee20212a12af0663c4835a8a2962d8b85e8cf6de4c2878e8bfb2a0a0d9a"},
+    {"evaluated":0,"gate_a_passers":0,"id":"M1_MID","parity":"PASS_VACUOUS_DURABLE_AUTHORITY_ZERO_PASSERS","passed":0,"passed_buy":0,"passed_sell":0,"rejected":0,"result_sha256":"d6e13d0456935fce1b7f7af956b840d60f40f161111755d2f8804bd2e68bb46c"}
+  ],
+  "stage":"EXPOSED_OBSERVATIONAL_STAGE_B_2020_2021_ONLY","status":"PASS_COMPLETE_ALL_GATE_A_PASSERS"
+}
