@@ -1,0 +1,64 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V1_3_PREEXEC_1.0",
+  "utc": "2026-09-10T02:20:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "trigger_evidence": {
+    "uploaded_name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_EVIDENCE_v1_1(1).zip",
+    "bytes": 16561,
+    "sha256": "0a5fe52c1aab61d668c86522bcae9b343014ceceee222b3ea5fd0eaa11a47774",
+    "internal_schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_RECEIPT_1.2",
+    "decision": "FAIL",
+    "reason": "RUNTIME_RESULTS_MISSING",
+    "native_compile": "0 errors / 0 warnings",
+    "candidate_failure": false
+  },
+  "root_cause": {
+    "classification": "RUNNER_EVIDENCE_MATERIALIZATION_NOT_FULLY_PROVEN",
+    "detail": "The v1.2 native harness compiled 0/0 and tester exited 0, but no QROS_V224_PHASEA_RUNTIME_RESULTS.csv materialized. v1.1 in the same tester family previously materialized all 25 runtime rows, so the evidence does not support a Candidate3 failure. Exact tester non-materialization cause is not proven because v1.2 did not capture enough tester diagnostics."
+  },
+  "package": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v1_3.zip",
+    "bytes": 62411,
+    "sha256": "8b5f19b76ed4677399e1cddccfdae8c1c9e0252560b9a39e782e6895525e5235",
+    "files": 14
+  },
+  "authority_preservation": {
+    "executor_sha256": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "harness_sha256": "840a81010c31b0c2e460e80d5e04ac6b8e26eb91f94a62b9317dfe8ffdf57f0f",
+    "bus_sha256": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "risk_kernel_sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "candidate_authority_changed": false,
+    "harness_changed_from_v1_2": false
+  },
+  "runner_hardening": {
+    "wait_for_file_common_seconds": 30,
+    "diagnostics_capture_on_missing": true,
+    "controlled_retry_count": 1,
+    "fallback_window": "2026.01.05..2026.03.31",
+    "fallback_provenance": "window already executed successfully by native parity gate",
+    "fail_closed_after_two_missing_attempts": true,
+    "evidence_receipt_version_names_fixed": true
+  },
+  "pre_delivery_validation": {
+    "embedded": "32/32 PASS",
+    "postbuild": "13/13 PASS",
+    "zip_crc": "PASS",
+    "manifest_coverage": "13/13 payload entries",
+    "manifest_hashes": "PASS_ALL",
+    "candidate_authority_hashes": "PASS_EXACT",
+    "no_QDB1_EXEC_CERT_mutation": "PASS",
+    "stop_process_scope": "PASS_ISOLATED_PATH_GUARDED",
+    "native_windows_reexecution": "REQUIRED_BY_RUNNER"
+  },
+  "scope": {
+    "strategy_tester_simulated_orders_only": true,
+    "real_broker_orders_authorized": false,
+    "active_terminal_control": false,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+  },
+  "decision": "PACKAGE_VALIDATED_FOR_NATIVE_REEXECUTION_NOT_DEPLOYMENT"
+}
