@@ -1,0 +1,50 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V1_1_PREEXEC_1.0",
+  "utc": "2026-09-10T01:44:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "parent_gate": {
+    "package": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v1.zip",
+    "package_sha256": "78e6ee7bf83a50e0e6720c7c1c5c71eb382cec5570bb034ae7cb45c2f14a1dbf",
+    "evidence_sha256": "f1857f9bbc6160df2c8ccc4f5a4b5ad67657e9fac17e49626329924d406098b2",
+    "decision": "FAIL_RUNNER_STANDARD_INCLUDE_PROVISIONING_DEFECT",
+    "candidate_failure": false
+  },
+  "package": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v1_1.zip",
+    "bytes": 58941,
+    "sha256": "e0e99b465e73bc0035e1ea22ab76074071360290e0b5758fa07278225e2fab8a",
+    "files": 13,
+    "manifest_entries_verified": "12/12"
+  },
+  "authority_preservation": {
+    "executor_sha256": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "harness_sha256": "ba307c024ba7e372e54883324ac1883d6bd9f8410e497dfa19f6593fce266b2b",
+    "bus_sha256": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "risk_kernel_sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "candidate_authority_changed": false,
+    "test_harness_changed": false
+  },
+  "runner_fix": {
+    "version": "1.1",
+    "detail": "Copy active terminal Data Folder MQL5/Include tree read-only into each isolated portable clone before compilation, then overwrite QROS headers with the frozen hash-bound copies.",
+    "provenance_output": "STANDARD_INCLUDE_SNAPSHOT_SHA256.csv",
+    "new_isolated_roots": [
+      "C:\\QROS_MT5_ISOLATED_V224_PHASEA11_A",
+      "C:\\QROS_MT5_ISOLATED_V224_PHASEA11_B"
+    ],
+    "new_output_root": "C:\\QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v1_1"
+  },
+  "scope": {
+    "strategy_tester_simulated_orders_only": true,
+    "active_data_read_only": true,
+    "active_terminal_stop_restart_or_profile_change": false,
+    "active_data_write": false,
+    "real_broker_orders_authorized": false,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+  },
+  "decision": "PACKAGE_READY_NATIVE_REEXECUTION_REQUIRED"
+}
