@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V1_6_PREEXEC_1.0",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "v1_5_screenshot_adjudication": {
+    "compile": "PASS_0_ERRORS_0_WARNINGS",
+    "runtime_core": "PASS",
+    "fencing_holder": "ACQUIRED",
+    "second_executor": "DENIED_EXACT_COMMON_LOCK",
+    "fencing_exclusion": "PASS",
+    "failure": "RUNNER_IMPORT_CSV_SHARING_VIOLATION_ON_HOLDER_RESULTS",
+    "candidate_failure": false,
+    "remaining": "holder release evidence + post-release reacquire + restart"
+  },
+  "v1_6_package": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v1_6.zip",
+    "bytes": 63594,
+    "sha256": "f87ca7c67be2f3625e55e0aeb16abea4d7a76ecd5d98a234973e51f5a6427b3d",
+    "files": 16,
+    "predelivery": "30/30 PASS",
+    "postbuild": "21/21 PASS"
+  },
+  "authority": {
+    "executor_sha256": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "bus_sha256": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "risk_kernel_sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "harness_v1_6_sha256": "f140a1019b4539e9df819c26f2144d26ad27b0714230a9d0fdb6739d9b50f5c3",
+    "candidate_authority_changed": false
+  },
+  "repair": {
+    "detail": "Holder closes RESULTS after ReleaseInstanceFence and HSummary, then publishes RELEASED.csv. Runner waits for RELEASED, validates released flag and same holder token, and only then reads RESULTS with bounded IOException retry.",
+    "scope": "test harness + runner evidence synchronization only"
+  },
+  "safety": {
+    "real_broker_orders_authorized": false,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0",
+    "active_terminal_control": "NONE"
+  },
+  "decision": "PACKAGE_PREDELIVERY_AND_POSTBUILD_VALIDATED_NATIVE_REEXECUTION_REQUIRED"
+}
