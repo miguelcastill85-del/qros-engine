@@ -1,0 +1,46 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V2_PREEXEC_CHECKPOINT_1.0",
+  "utc": "2026-09-10T03:32:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "previous_native_evidence": {
+    "core": "21 PASS / 0 FAIL / 2 SKIP / 2 BLOCKED",
+    "fencing_exclusion": "PASS in v1.5 screenshot before runner CSV read race"
+  },
+  "runner_fixed_point_audit": {
+    "versions": "v1.0-v1.6",
+    "v1_6_disposition": "SUPERSEDED_PREEXEC_DO_NOT_RUN",
+    "latent_defects_found": 7,
+    "audit_sha256": "eb37f31c2532428209a97e6cb5544fa0b7812172cfbe731b8f3d4577a479a1b3"
+  },
+  "v2_package": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v2_0.zip",
+    "bytes": 71358,
+    "sha256": "e1e1b4f7d731e3d1c803699967f344e5348f440d67a8794ab862e2e50060df73",
+    "pre_delivery": "72/72 PASS",
+    "post_build": "62/62 PASS",
+    "artifact_status": "PREVALIDATED_ARTIFACT",
+    "native_validated": false
+  },
+  "authority_sha256": {
+    "executor": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "bus": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "risk_kernel": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "harness": "f140a1019b4539e9df819c26f2144d26ad27b0714230a9d0fdb6739d9b50f5c3"
+  },
+  "runner_v2_invariants": [
+    "unique RunId FILE_COMMON namespace; no broad prior-run cleanup",
+    "exclusive-open evidence reads and snapshots",
+    "local 13-check runner selftest including PowerShell AST parse",
+    "native MQL materialization smoke before Candidate3 runtime tests",
+    "top-level fail-closed exception evidence envelope",
+    "path-gated isolated-process cleanup only",
+    "manifest hash/size verification before execution",
+    "single version/schema source"
+  ],
+  "decision": "READY_FOR_SINGLE_NATIVE_V2_EXECUTION",
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+}
