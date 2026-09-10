@@ -1,0 +1,23 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V1_4_ADJUDICATION_1.0",
+  "utc": "2026-09-10T02:35:00Z",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "evidence": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_EVIDENCE_v1_4.zip",
+    "bytes": 19184,
+    "sha256": "bf74d91575dd8d69a02e84343e99c8510e1b0ee26b7f4cfa3d35787ad89c261e"
+  },
+  "native_compile": "PASS_0_ERRORS_0_WARNINGS",
+  "runtime_core": {"pass": 21, "fail": 0, "skip": 2, "blocked": 2},
+  "fencing_observation": {"holder_ready_observed": true, "probe_status": "FAIL", "probe_detail": "SECOND_LOCK_ACQUIRED"},
+  "root_cause": {
+    "classification": "HARNESS_WALLCLOCK_OVERLAP_NOT_PROVEN",
+    "detail": "The v1.4 holder used Sleep(90000) inside Strategy Tester. Official MQL5 tester semantics state Sleep does not linger the test in wall-clock time; it advances simulated tester time. Therefore HOLDER_READY did not prove the FILE_COMMON lock handle remained physically open when the second tester reached AcquireInstanceFence().",
+    "candidate_failure": false
+  },
+  "decision": "RETEST_FENCING_WITH_WALLCLOCK_HOLD_REQUIRED",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+}
