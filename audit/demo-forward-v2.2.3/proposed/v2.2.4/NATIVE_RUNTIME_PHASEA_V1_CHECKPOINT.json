@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_PREEXEC_1.0",
+  "utc": "2026-09-10T01:35:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "previous_gate": "NATIVE_PARITY_PASS_8_OF_8",
+  "package": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v1.zip",
+    "bytes": 57883,
+    "sha256": "78e6ee7bf83a50e0e6720c7c1c5c71eb382cec5570bb034ae7cb45c2f14a1dbf",
+    "files": 13
+  },
+  "exact_authority": {
+    "repaired_executor_mq5_sha256": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "bus_sha256": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "risk_kernel_sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "test_harness_sha256": "ba307c024ba7e372e54883324ac1883d6bd9f8410e497dfa19f6593fce266b2b"
+  },
+  "scope": {
+    "strategy_tester_simulated_orders_only": true,
+    "two_isolated_portable_terminals_for_fencing": true,
+    "tester_process_restart_persistence_probe": true,
+    "active_terminal_stop_restart_or_profile_change": false,
+    "active_data_write": false,
+    "real_broker_orders_authorized": false,
+    "real_broker_orders_sent": 0,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+  },
+  "planned_native_checks": [
+    "MetaEditor native compile 0 errors / 0 warnings",
+    "Darwinex-Demo tester environment and native HistorySelect",
+    "Bid/Ask barrier geometry and native session schedule",
+    "CTrade market BUY accepted with observed protected position",
+    "invalid modify rejection plus observed unchanged post-state",
+    "exact Candidate3 management modify with retcode plus observed post-state",
+    "management close continues despite synthetic entry fault",
+    "CTrade invalid-volume rejection",
+    "CTrade invalid-stops rejection",
+    "pending order TRADE_RETCODE_PLACED plus confirmed deletion",
+    "ulong ticket >2^53 exact split/reassembly through durable intent state",
+    "torn intent recovery fail-closed",
+    "lost-ACK semantic remains nonterminal and risk-reserved",
+    "RESERVED restart state cancels before any broker send",
+    "recovery lock releases only when inventory is clean/history ready",
+    "conditional exact SendEntry native tester path if tester UTC offset reproduces Darwinex contract",
+    "partial residual-risk invariant using a native tester position",
+    "two-process exact AcquireInstanceFence exclusion",
+    "cross-process tester persistence and reconstruction probe"
+  ],
+  "preregistered_external_blockers": [
+    "real Darwinex partial fill cannot be forced reliably in local Strategy Tester",
+    "real network lost ACK/reconnect cannot be forced in local Strategy Tester",
+    "real Darwinex modify/close rejection behavior remains separate",
+    "real UTC+2/UTC+3 DST transition and final session-close lead authority remain separate",
+    "real terminal restart with broker inventory remains separate even if tester persistence passes"
+  ],
+  "decision": "PACKAGE_READY_NATIVE_EXECUTION_REQUIRED",
+  "next_if_pass": "CONTROLLED_DARWINEX_DEMO_BROKER_ADVERSARIAL_MICRO_GATE_REQUIRES_SEPARATE_EXPLICIT_ORDER_AUTHORIZATION"
+}
