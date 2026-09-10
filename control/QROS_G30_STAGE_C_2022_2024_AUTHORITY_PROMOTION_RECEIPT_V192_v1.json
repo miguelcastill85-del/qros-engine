@@ -1,0 +1,68 @@
+{
+  "schema": "QROS_G30_STAGE_C_2022_2024_AUTHORITY_PROMOTION_RECEIPT_V192_v1",
+  "status": "PROMOTED_NO_RESULTS",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "authority_epoch": 192,
+  "parent_authority_epoch": 191,
+  "scope": "F03_F12_ONLY_STAGE_C_2022_2024",
+  "candidate": {
+    "path": "control/QROS_G30_STAGE_C_2022_2024_AUTHORITY_CANDIDATE_V192_v1.json",
+    "commit": "df99a5cf3092d35ece0a8fcdc721f3b1c9ce4037",
+    "git_blob_sha1": "47f30f9a73519abd84c4a0dd3debd272ecb06809"
+  },
+  "validator": {
+    "path": "control/QROS_G30_STAGE_C_2022_2024_AUTHORITY_VALIDATOR_V192_v1.json",
+    "commit": "b2caf5f124a0c76d267b12bf46b82269e1d3d957",
+    "git_blob_sha1": "7973b368ea72b9643cd0e09f07de49845ff2edd4",
+    "decision": "PASS_PROMOTION_AUTHORIZED"
+  },
+  "parent_global_close": {
+    "path": "control/QROS_G30_F03_F12_STAGE_B_GLOBAL_CLOSE_V191R1_v1.json",
+    "commit": "89b6384c8a4028a18eccb0ad04f72c96ccf7ae14",
+    "global_close_root_sha256": "788d063d107fa37b3e590bd480572aeee6cce37b358aacafda5dc0c51b175d87"
+  },
+  "authorized_population": {
+    "rule": "ALL_STAGE_B_PASSERS_NO_MEDOIDS_NO_RERANKING",
+    "total": 9237,
+    "buy": 6183,
+    "sell": 3054,
+    "NQX": 6570,
+    "XAUUSD": 2667
+  },
+  "authorized_gate": {
+    "window_start_inclusive": "2022-01-01",
+    "window_end_exclusive": "2025-01-01",
+    "source_clock": "STORED_BROKER_SOURCE_CLOCK",
+    "minimum_trades": 30,
+    "pf_central_min": 1.20,
+    "pf_conservative_min": 1.10,
+    "pf_severe_min": 1.00,
+    "net_positive_all_costs": true,
+    "positive_full_years_central_required": [2022, 2023, 2024],
+    "buy_sell_separate": true,
+    "independent_trade_parity_required": true
+  },
+  "execution_contract": {
+    "entry_after_causal_signal_close": true,
+    "buy_entry": "ASK",
+    "buy_exit": "BID",
+    "sell_entry": "BID",
+    "sell_exit": "ASK",
+    "ambiguous_sl_tp": "SL_FIRST",
+    "gap_execution": "FIRST_ACTUALLY_AVAILABLE_PRICE",
+    "zero_or_crossed_spread_artificial_fill_forbidden": true,
+    "same_day_exit": true,
+    "one_position_per_asset": true,
+    "same_timestamp_reentry_forbidden": true
+  },
+  "guards": {
+    "no_f13": true,
+    "no_retuning": true,
+    "stage_d_locked": true,
+    "mt5_not_authorized_during_stage_c": true,
+    "supergate_not_authorized_during_stage_c": true
+  },
+  "promotion_decision": "STAGE_C_2022_2024_MARKET_DATA_READ_AND_EXECUTION_AUTHORIZED_FOR_EXACTLY_9237_CONFIGS",
+  "stage_c_results_at_promotion": "NONE",
+  "next_action": "AUDIT_CANONICAL_2022_2024_DATA_AND_RUN_STAGE_C_FOR_ALL_9237_CONFIGS_THEN_STOP"
+}
