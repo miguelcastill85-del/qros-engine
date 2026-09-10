@@ -1,0 +1,41 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V1_FAILURE_ADJUDICATION_1.0",
+  "utc": "2026-09-10T01:40:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "input_evidence": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_EVIDENCE_v1.zip",
+    "bytes": 1474,
+    "sha256": "f1857f9bbc6160df2c8ccc4f5a4b5ad67657e9fac17e49626329924d406098b2",
+    "files": 3,
+    "decision": "FAIL",
+    "reason": "COMPILE_NOT_0_0"
+  },
+  "compiler_evidence": {
+    "target": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_HARNESS_v1.mq5",
+    "error_count": 1,
+    "warning_count": 0,
+    "error": "106: file 'Include\\Trade\\Trade.mqh' not found",
+    "line": 10,
+    "column": 10
+  },
+  "root_cause": {
+    "classification": "RUNNER_STANDARD_INCLUDE_PROVISIONING_DEFECT",
+    "detail": "The isolated clone was built from the Darwinex installation directory and received only the two hash-bound QROS headers. The standard MQL5 headers reside in the terminal Data Folder; Trade/Trade.mqh was therefore absent from the isolated clone at compile time.",
+    "candidate_source_failure": false,
+    "candidate_scientific_failure": false,
+    "gate_tests_executed_after_compile": false
+  },
+  "safety": {
+    "active_terminal_snapshot_before": 0,
+    "active_terminal_touched": false,
+    "real_broker_orders_authorized": false,
+    "real_broker_orders_sent": 0,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+  },
+  "corrective_action": "Build Phase-A v1.1: copy MQL5/Include read-only from the configured active Data Folder into each isolated clone, overwrite QROS headers with exact frozen authority, and record a SHA-256 include snapshot before compilation.",
+  "decision": "RETRY_WITH_CORRECTED_RUNNER_V1_1"
+}
