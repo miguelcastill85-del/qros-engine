@@ -16,7 +16,7 @@
   },
   "v2_package": {
     "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v2_0.zip",
-    "bytes": 71358,
+    "bytes": 70819,
     "sha256": "e1e1b4f7d731e3d1c803699967f344e5348f440d67a8794ab862e2e50060df73",
     "pre_delivery": "72/72 PASS",
     "post_build": "62/62 PASS",
