@@ -1,0 +1,50 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V1_1_ADJUDICATION_1.0",
+  "utc": "2026-09-10T01:55:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "evidence": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_EVIDENCE_v1_1.zip",
+    "bytes": 17758,
+    "sha256": "f1857f9bbc6160df2c8ccc4f5a4b5ad67657e9fac17e49626329924d406098b2",
+    "files": 8,
+    "decision": "FAIL",
+    "reason": "RUNTIME_NATIVE_FAIL_A15_CTRADE_PENDING_PLACED"
+  },
+  "native_compile": {
+    "result": "0 errors / 0 warnings",
+    "compiler_sha256": "7e4423849749ac118f8b07d7a53781594f4887cb56354eacbd059c6a371e7fbb",
+    "harness_source_sha256": "ba307c024ba7e372e54883324ac1883d6bd9f8410e497dfa19f6593fce266b2b",
+    "harness_ex5_sha256": "84d03f8798559350583d502cf0451df91400dd458d876c8afab2892fa95cebd8"
+  },
+  "runtime_summary": {
+    "pass": 20,
+    "fail": 1,
+    "skip": 2,
+    "blocked": 2,
+    "server": "Darwinex-Demo",
+    "login": 3000103878,
+    "build": 6182,
+    "mql_tester": 1
+  },
+  "a15_observation": {
+    "trade_call": "CTrade.BuyLimit",
+    "retcode": 10009,
+    "retcode_name": "TRADE_RETCODE_DONE",
+    "order_observed": true,
+    "order_ticket": 4,
+    "subsequent_A16_delete": "PASS",
+    "a15_v1_1_checker": "required TRADE_RETCODE_PLACED (10008) only"
+  },
+  "root_cause": {
+    "classification": "TEST_HARNESS_EXPECTATION_DEFECT",
+    "candidate_runtime_failure": false,
+    "detail": "The v1.1 A15 assertion was narrower than Candidate3 executor semantics. Candidate3 accepts PLACED, DONE or DONE_PARTIAL then reconciles observed broker state; the tester returned DONE and the pending order was observable and deletable."
+  },
+  "candidate_authority_changed": false,
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0",
+  "next": "reissue Phase-A v1.2 with corrected A15 assertion and pre-delivery validation"
+}
