@@ -1,0 +1,45 @@
+{
+  "schema": "QROS_PRODUCT_BUILD_RECEIPT_V1",
+  "milestone": "M1_RISEQ_FAIL_CLOSED_STATE_MACHINE",
+  "status": "PASS",
+  "repository": "miguelcastill85-del/qros-engine",
+  "branch": "product/qros-research-studio-mvp-v1",
+  "tested_commit_sha": "9981c98621869fd182710df90752340a0b798d02",
+  "github_actions_run_id": 34562146271,
+  "runner": "ubuntu-24.04",
+  "compiler": "GNU 13.3.0",
+  "build": "PASS",
+  "link": "PASS",
+  "full_ctest": {
+    "passed": 15,
+    "failed": 0,
+    "total": 15,
+    "elapsed_seconds": 5.15
+  },
+  "state_machine_capabilities": {
+    "scientific_state_machine": "RISEQ_FAIL_CLOSED_V1",
+    "ai_scientific_authority": 0,
+    "rise_q_scientific_mutation": 0,
+    "scientific_state_mutation": 0,
+    "execution_annotation_separate": 1,
+    "source_root_sha256": "b65aa39b7a7406299139c52b020df5f5223aeb417329691300779189e20c3db8",
+    "build_contract_sha256": "7cd12ca38f4a3e80ef95d7ce28e9e0603d522f873b3015551dfe7b4a720dd432"
+  },
+  "verified_invariants": [
+    "AI cannot mutate scientific state",
+    "User request is not transition authority",
+    "RISE-Q cannot approve or mutate scientific state",
+    "RISE-Q veto blocks scientific promotion",
+    "Development completion is required before freezing",
+    "Holdout authorization, holdout PASS and Supergate PASS are required before APPROVED_RESEARCH",
+    "MT5 parity is required before APPROVED_FINAL",
+    "Execution infrastructure annotations are separate from scientific state",
+    "BRANCH_EXHAUSTED requires ontology frozen, RISE fixed point, universe coverage complete and zero open fronts"
+  ],
+  "scientific_state_mutated": false,
+  "holdout_accessed": false,
+  "broker_data_accessed": false,
+  "mt5_executed": false,
+  "codex_credits_used": 0,
+  "acceptance_scope": "ENGINEERING_M1_POLICY_ONLY_NOT_PRODUCTION_SCIENTIFIC_EVIDENCE_VALIDATION"
+}
