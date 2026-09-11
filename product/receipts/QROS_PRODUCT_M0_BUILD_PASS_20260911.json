@@ -1,0 +1,39 @@
+{
+  "schema": "QROS_PRODUCT_BUILD_RECEIPT_V1",
+  "milestone": "M0_TYPED_PRODUCT_BOUNDARY",
+  "status": "PASS",
+  "repository": "miguelcastill85-del/qros-engine",
+  "branch": "product/qros-research-studio-mvp-v1",
+  "tested_commit_sha": "c4d51225f02204f16e609947f7bfa25ea873ba66",
+  "github_actions_run_id": 34561797799,
+  "runner": "ubuntu-24.04",
+  "compiler": "GNU 13.3.0",
+  "cmake": "3.31.6",
+  "python": "3.12.3",
+  "build": "PASS",
+  "link": "PASS",
+  "product_contract_suite": {
+    "passed": 1,
+    "failed": 0
+  },
+  "full_ctest": {
+    "passed": 14,
+    "failed": 0,
+    "total": 14,
+    "elapsed_seconds": 5.26
+  },
+  "capabilities": {
+    "engine_version": "0.6.0",
+    "ai_scientific_authority": 0,
+    "scientific_state_mutation": 0,
+    "production_research_ready": 0,
+    "source_root_sha256": "13dab2b60580418c11d041064ec2b6c79b4455b5da17f18201fa49fb0c51d964",
+    "build_contract_sha256": "7cd12ca38f4a3e80ef95d7ce28e9e0603d522f873b3015551dfe7b4a720dd432"
+  },
+  "scientific_state_mutated": false,
+  "holdout_accessed": false,
+  "broker_data_accessed": false,
+  "mt5_executed": false,
+  "codex_credits_used": 0,
+  "acceptance_scope": "ENGINEERING_M0_ONLY_NOT_SCIENTIFIC_APPROVAL_NOT_PRODUCTION_RELEASE"
+}
