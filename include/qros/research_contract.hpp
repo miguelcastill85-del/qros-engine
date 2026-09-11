@@ -49,6 +49,10 @@ struct ResearchJob {
     std::string data_spec_sha256;
     std::string program_name;
     std::string program_sha256;
+    std::string execution_policy_name;
+    std::string execution_policy_sha256;
+    std::string cost_policy_name;
+    std::string cost_policy_sha256;
     std::string phase;
     std::string purpose;
     std::string result_scope;
@@ -63,6 +67,8 @@ StrategyContract read_strategy_contract(const std::filesystem::path& path,
                                         const std::string& expected_sha);
 ResearchJob read_research_job(const std::filesystem::path& path,
                               const std::string& expected_sha);
-void validate_job_binding(const ResearchJob& job, const StrategyContract& strategy);
+void validate_data_audit_binding(const DataAuditJob& job, const pipeline::DataSpec& data);
+void validate_job_binding(const ResearchJob& job, const StrategyContract& strategy,
+                          const pipeline::DataSpec& data, const pipeline::Program& program);
 
 } // namespace qros::product
