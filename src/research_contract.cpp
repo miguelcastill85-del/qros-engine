@@ -33,6 +33,12 @@ void require_purpose(const std::string& value) {
     if (!one_of(value, {"TEST_ONLY", "RESEARCH"})) pipeline::fail("INVALID_PURPOSE");
 }
 
+void require_nonempty_name(const std::string& value, const std::string& field) {
+    if (value.empty() || value.find('\0') != std::string::npos ||
+        value.find('\n') != std::string::npos || value.find('\r') != std::string::npos)
+        pipeline::fail("INVALID_INPUT_NAME:" + field);
+}
+
 } // namespace
 
 DataAuditJob read_data_audit_job(const std::filesystem::path& path,
@@ -60,7 +66,7 @@ DataAuditJob read_data_audit_job(const std::filesystem::path& path,
     require_identifier(result.source_authority_ref, "source_authority_ref");
     require_hash(result.data_spec_sha256, "data_spec_sha256");
     require_purpose(result.purpose);
-    if (result.data_spec_name.empty()) pipeline::fail("EMPTY_DATA_SPEC_NAME");
+    require_nonempty_name(result.data_spec_name, "data_spec_name");
     if (result.max_rows == 0) pipeline::fail("UNBOUNDED_DATA_AUDIT_FORBIDDEN");
 
     return result;
@@ -131,6 +137,8 @@ ResearchJob read_research_job(const std::filesystem::path& path,
     pipeline::exact_keys(fields, {
         "job_id", "strategy_contract_name", "strategy_contract_sha256",
         "data_spec_name", "data_spec_sha256", "program_name", "program_sha256",
+        "execution_policy_name", "execution_policy_sha256",
+        "cost_policy_name", "cost_policy_sha256",
         "phase", "purpose", "result_scope", "max_rows", "max_trades",
         "authority_ref"
     });
@@ -145,6 +153,10 @@ ResearchJob read_research_job(const std::filesystem::path& path,
     result.data_spec_sha256 = fields.at("data_spec_sha256");
     result.program_name = fields.at("program_name");
     result.program_sha256 = fields.at("program_sha256");
+    result.execution_policy_name = fields.at("execution_policy_name");
+    result.execution_policy_sha256 = fields.at("execution_policy_sha256");
+    result.cost_policy_name = fields.at("cost_policy_name");
+    result.cost_policy_sha256 = fields.at("cost_policy_sha256");
     result.phase = fields.at("phase");
     result.purpose = fields.at("purpose");
     result.result_scope = fields.at("result_scope");
@@ -157,25 +169,55 @@ ResearchJob read_research_job(const std::filesystem::path& path,
     require_hash(result.strategy_contract_sha256, "strategy_contract_sha256");
     require_hash(result.data_spec_sha256, "data_spec_sha256");
     require_hash(result.program_sha256, "program_sha256");
-    if (result.strategy_contract_name.empty() || result.data_spec_name.empty() || result.program_name.empty())
-        pipeline::fail("EMPTY_JOB_INPUT_NAME");
+    require_hash(result.execution_policy_sha256, "execution_policy_sha256");
+    require_hash(result.cost_policy_sha256, "cost_policy_sha256");
+    require_nonempty_name(result.strategy_contract_name, "strategy_contract_name");
+    require_nonempty_name(result.data_spec_name, "data_spec_name");
+    require_nonempty_name(result.program_name, "program_name");
+    require_nonempty_name(result.execution_policy_name, "execution_policy_name");
+    require_nonempty_name(result.cost_policy_name, "cost_policy_name");
     if (!one_of(result.phase, {"DEVELOPMENT", "GATE_A", "HOLDOUT", "SUPERGATE", "MT5_PARITY", "PORTFOLIO"}))
         pipeline::fail("INVALID_RESEARCH_PHASE");
     require_purpose(result.purpose);
     if (result.max_rows == 0 || result.max_trades == 0)
         pipeline::fail("UNBOUNDED_JOB_FORBIDDEN");
     if (result.authority_ref != "NONE") require_identifier(result.authority_ref, "authority_ref");
+    if (one_of(result.phase, {"HOLDOUT", "SUPERGATE", "MT5_PARITY", "PORTFOLIO"}) &&
+        result.authority_ref == "NONE")
+        pipeline::fail("ADVANCED_PHASE_AUTHORITY_REQUIRED");
 
     return result;
 }
 
-void validate_job_binding(const ResearchJob& job, const StrategyContract& strategy) {
+void validate_data_audit_binding(const DataAuditJob& job, const pipeline::DataSpec& data) {
+    if (job.data_spec_sha256 != data.sha256)
+        pipeline::fail("DATA_AUDIT_SPEC_HASH_MISMATCH");
+    if (job.source_authority_ref != data.authority_id)
+        pipeline::fail("DATA_AUDIT_AUTHORITY_MISMATCH");
+    if (job.purpose != data.purpose)
+        pipeline::fail("DATA_AUDIT_PURPOSE_MISMATCH");
+}
+
+void validate_job_binding(const ResearchJob& job, const StrategyContract& strategy,
+                          const pipeline::DataSpec& data, const pipeline::Program& program) {
     if (job.strategy_contract_sha256 != strategy.sha256)
         pipeline::fail("JOB_STRATEGY_HASH_MISMATCH");
-    if (job.program_sha256 != strategy.program_sha256)
+    if (job.program_sha256 != strategy.program_sha256 || job.program_sha256 != program.spec_sha)
         pipeline::fail("JOB_PROGRAM_HASH_MISMATCH");
-    if (job.purpose != strategy.purpose)
+    if (job.data_spec_sha256 != data.sha256)
+        pipeline::fail("JOB_DATA_SPEC_HASH_MISMATCH");
+    if (job.execution_policy_sha256 != strategy.execution_policy_sha256)
+        pipeline::fail("JOB_EXECUTION_POLICY_MISMATCH");
+    if (job.cost_policy_sha256 != strategy.cost_policy_sha256)
+        pipeline::fail("JOB_COST_POLICY_MISMATCH");
+    if (job.purpose != strategy.purpose || job.purpose != data.purpose || job.purpose != program.purpose)
         pipeline::fail("JOB_PURPOSE_MISMATCH");
+    if (strategy.symbol != data.symbol || strategy.symbol != program.symbol)
+        pipeline::fail("JOB_SYMBOL_MISMATCH");
+    if (strategy.data_authority_id != data.authority_id)
+        pipeline::fail("JOB_DATA_AUTHORITY_MISMATCH");
+    if (strategy.multiplicity_n_tests < program.births)
+        pipeline::fail("N_TESTS_UNDERCOUNTS_PROGRAM_BIRTHS");
 }
 
 } // namespace qros::product
