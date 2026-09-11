@@ -1,0 +1,65 @@
+{
+  "schema": "QROS_AI_AUTHORITY_FIREWALL_v1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "purpose": "Prevent any LLM, chat UI, Copilot or natural-language layer from acquiring scientific authority.",
+  "default_policy": "DENY",
+  "trusted_scientific_authority": [
+    "versioned deterministic QROS state machine",
+    "validated contracts",
+    "machine-verifiable evidence",
+    "authorized governance receipts"
+  ],
+  "ai_allowed_actions": [
+    "DRAFT_HYPOTHESIS",
+    "DRAFT_STRATEGY_CONTRACT",
+    "EXPLAIN_CONTRACT",
+    "EXPLAIN_EVIDENCE",
+    "SUGGEST_NEW_GENEALOGY",
+    "SUGGEST_DIAGNOSTIC",
+    "SUMMARIZE_RESULTS",
+    "REQUEST_DETERMINISTIC_TOOL_ACTION"
+  ],
+  "ai_forbidden_authority_actions": [
+    "OPEN_HOLDOUT",
+    "MARK_HOLDOUT_CLEAN",
+    "CHANGE_EXPOSURE_REGISTRY",
+    "CHANGE_FROZEN_STRATEGY",
+    "CHANGE_FROZEN_SEARCH_SPACE",
+    "CHANGE_FROZEN_COST_MODEL",
+    "CHANGE_EXECUTION_SEMANTICS",
+    "CHANGE_GATE_THRESHOLDS_AFTER_RESULTS",
+    "DECLARE_GATE_PASS",
+    "DECLARE_SUPERGATE_PASS",
+    "DECLARE_MT5_PARITY_PASS",
+    "DECLARE_APPROVED_RESEARCH",
+    "DECLARE_APPROVED_FINAL",
+    "DECLARE_BRANCH_EXHAUSTED",
+    "INCLUDE_IN_PORTFOLIO_WITHOUT_PORTFOLIO_GATE",
+    "GENERATE_OR_MODIFY_EVIDENCE_TO_MATCH_EXPECTED_RESULT"
+  ],
+  "required_boundary": {
+    "natural_language_input": "UNTRUSTED",
+    "ai_output": "UNTRUSTED_DRAFT",
+    "typed_contract": "MUST_VALIDATE_BEFORE_USE",
+    "frozen_contract": "IMMUTABLE_EXCEPT_NEW_GENEALOGY",
+    "scientific_state_transition": "DETERMINISTIC_ENGINE_ONLY"
+  },
+  "fail_closed_conditions": [
+    "missing contract field",
+    "unknown schema version",
+    "evidence semantic mismatch",
+    "evidence hash mismatch",
+    "authority mismatch",
+    "attempt to mutate frozen research contract",
+    "attempt to reuse exposed period as clean holdout",
+    "AI-originated PASS without deterministic receipt"
+  ],
+  "audit_requirements": [
+    "Log every requested state transition",
+    "Record requesting actor type",
+    "Record authority source",
+    "Record input/output hashes",
+    "Preserve rejected transition attempts",
+    "Make AI-originated state mutation impossible through the public API"
+  ]
+}
