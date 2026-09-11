@@ -1,0 +1,58 @@
+name: qros-product-m0-build
+
+on:
+  push:
+    branches:
+      - product/qros-research-studio-mvp-v1
+    paths:
+      - 'CMakeLists.txt'
+      - 'include/qros/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'product/**'
+      - '.github/workflows/qros-product-m0-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact branch commit
+        uses: actions/checkout@v4
+      - name: Toolchain identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          cmake --version
+          g++ --version
+          python3 --version
+          git rev-parse HEAD
+      - name: Configure
+        shell: bash
+        run: |
+          set -euo pipefail
+          cmake -S . -B build-product-m0 -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        shell: bash
+        run: |
+          set -euo pipefail
+          cmake --build build-product-m0 --parallel 2
+      - name: Product contract test
+        shell: bash
+        run: |
+          set -euo pipefail
+          ctest --test-dir build-product-m0 --output-on-failure -R qros_product_contract_tests
+      - name: Full CTest
+        shell: bash
+        run: |
+          set -euo pipefail
+          ctest --test-dir build-product-m0 --output-on-failure --timeout 120
+      - name: Product capabilities
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./build-product-m0/qros_product capabilities
