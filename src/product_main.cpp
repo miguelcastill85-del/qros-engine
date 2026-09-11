@@ -1,5 +1,7 @@
 #include "qros/research_contract.hpp"
 #include "qros/build_identity.hpp"
+#include "qros/sha256.hpp"
+#include <filesystem>
 #include <iostream>
 #include <string>
 
@@ -12,9 +14,9 @@ void print_usage() {
     std::cerr
         << "usage:\n"
         << "  qros_product capabilities\n"
-        << "  qros_product data-audit-check <job> <sha256>\n"
+        << "  qros_product data-audit-check <job> <job_sha256> <data_spec> <data_spec_sha256>\n"
         << "  qros_product strategy-check <contract> <sha256>\n"
-        << "  qros_product job-check <job> <job_sha256> <strategy> <strategy_sha256>\n";
+        << "  qros_product job-check <job> <job_sha256> <strategy> <strategy_sha256> <data_spec> <data_spec_sha256> <program> <program_sha256>\n";
 }
 
 qros::pipeline::Fields identity_fields() {
@@ -28,6 +30,15 @@ qros::pipeline::Fields identity_fields() {
 void append_identity(qros::pipeline::Fields& fields) {
     const auto identity = identity_fields();
     fields.insert(identity.begin(), identity.end());
+}
+
+void verify_named_policy(const std::filesystem::path& job_path,
+                         const std::string& name, const std::string& expected_sha) {
+    const auto root = std::filesystem::absolute(job_path).parent_path();
+    const auto path = qros::pipeline::safe_relative(root, name);
+    const auto raw = qros::pipeline::bounded_text(path);
+    if (qros::sha256_text(raw) != expected_sha)
+        qros::pipeline::fail("POLICY_FILE_HASH_MISMATCH:" + name);
 }
 }
 
@@ -57,19 +68,23 @@ int main(int argc, char** argv) {
         }
 
         if (command == "data-audit-check") {
-            if (argc != 4)
-                qros::pipeline::fail("usage: qros_product data-audit-check <job> <sha256>");
+            if (argc != 6)
+                qros::pipeline::fail("usage: qros_product data-audit-check <job> <job_sha256> <data_spec> <data_spec_sha256>");
             const DataAuditJob job = qros::product::read_data_audit_job(argv[2], argv[3]);
+            const auto data = qros::pipeline::read_data_spec(argv[4], argv[5]);
+            qros::product::validate_data_audit_binding(job, data);
             auto fields = qros::pipeline::Fields{
                 {"job_id", job.job_id},
                 {"job_sha256", job.sha256},
-                {"data_spec_sha256", job.data_spec_sha256},
+                {"data_spec_sha256", data.sha256},
+                {"data_authority_id", data.authority_id},
+                {"symbol", data.symbol},
                 {"purpose", job.purpose},
                 {"max_rows", std::to_string(job.max_rows)},
                 {"source_authority_ref", job.source_authority_ref},
                 {"scientific_gate_pass", "0"},
                 {"scientific_state_mutation", "0"},
-                {"status", "CONTRACT_VALIDATION_PASS"}
+                {"status", "CONTRACT_BINDING_PASS"}
             };
             append_identity(fields);
             std::cout << qros::pipeline::fields_text("QROS_DATA_AUDIT_JOB_VALIDATION_V1", fields);
@@ -100,18 +115,26 @@ int main(int argc, char** argv) {
         }
 
         if (command == "job-check") {
-            if (argc != 6)
-                qros::pipeline::fail("usage: qros_product job-check <job> <job_sha256> <strategy> <strategy_sha256>");
-            const ResearchJob job = qros::product::read_research_job(argv[2], argv[3]);
+            if (argc != 10)
+                qros::pipeline::fail("usage: qros_product job-check <job> <job_sha256> <strategy> <strategy_sha256> <data_spec> <data_spec_sha256> <program> <program_sha256>");
+            const std::filesystem::path job_path = argv[2];
+            const ResearchJob job = qros::product::read_research_job(job_path, argv[3]);
             const StrategyContract strategy = qros::product::read_strategy_contract(argv[4], argv[5]);
-            qros::product::validate_job_binding(job, strategy);
+            const auto data = qros::pipeline::read_data_spec(argv[6], argv[7]);
+            const auto program = qros::pipeline::read_program(argv[8], argv[9]);
+            qros::product::validate_job_binding(job, strategy, data, program);
+            verify_named_policy(job_path, job.execution_policy_name, job.execution_policy_sha256);
+            verify_named_policy(job_path, job.cost_policy_name, job.cost_policy_sha256);
             auto fields = qros::pipeline::Fields{
                 {"job_id", job.job_id},
                 {"job_sha256", job.sha256},
                 {"strategy_contract_id", strategy.contract_id},
                 {"strategy_contract_sha256", strategy.sha256},
-                {"program_sha256", job.program_sha256},
-                {"data_spec_sha256", job.data_spec_sha256},
+                {"data_authority_id", data.authority_id},
+                {"data_spec_sha256", data.sha256},
+                {"program_sha256", program.spec_sha},
+                {"execution_policy_sha256", job.execution_policy_sha256},
+                {"cost_policy_sha256", job.cost_policy_sha256},
                 {"phase", job.phase},
                 {"purpose", job.purpose},
                 {"result_scope", job.result_scope},
