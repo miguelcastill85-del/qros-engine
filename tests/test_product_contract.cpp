@@ -56,6 +56,10 @@ Fields job_fields(const std::string& contract_sha, const std::string& program_sh
         {"data_spec_sha256", sha256_text("data spec")},
         {"program_name", "program.spec"},
         {"program_sha256", program_sha},
+        {"execution_policy_name", "execution.policy"},
+        {"execution_policy_sha256", sha256_text("execution")},
+        {"cost_policy_name", "cost.policy"},
+        {"cost_policy_sha256", sha256_text("cost")},
         {"phase", "DEVELOPMENT"},
         {"purpose", "TEST_ONLY"},
         {"result_scope", "JOB_TEST_001"},
@@ -75,6 +79,23 @@ Fields data_audit_fields() {
         {"source_authority_ref", "DATA_TEST_001"}
     };
 }
+DataSpec bound_data() {
+    DataSpec data;
+    data.sha256 = sha256_text("data spec");
+    data.authority_id = "DATA_TEST_001";
+    data.symbol = "XAUUSD";
+    data.purpose = "TEST_ONLY";
+    data.rows = 100;
+    return data;
+}
+Program bound_program() {
+    Program program;
+    program.spec_sha = sha256_text("program");
+    program.symbol = "XAUUSD";
+    program.purpose = "TEST_ONLY";
+    program.births = 64;
+    return program;
+}
 }
 
 int main() {
@@ -88,6 +109,13 @@ int main() {
         put(root / "data-audit.contract", dat);
         const auto data_audit = read_data_audit_job(root / "data-audit.contract", sha256_text(dat));
         check(data_audit.max_rows == 10000, "bounded data audit accepted");
+        const auto data = bound_data();
+        validate_data_audit_binding(data_audit, data);
+
+        auto wrong_data = data;
+        wrong_data.authority_id = "OTHER_AUTHORITY";
+        rejects([&]{ validate_data_audit_binding(data_audit, wrong_data); },
+                "data audit authority mismatch rejected");
 
         daf["max_rows"] = "0";
         dat = fields_text("QROS_DATA_AUDIT_JOB_V1", daf);
@@ -132,7 +160,8 @@ int main() {
         auto jt = fields_text("QROS_RESEARCH_JOB_V1", jf);
         put(root / "job.contract", jt);
         const auto job = read_research_job(root / "job.contract", sha256_text(jt));
-        validate_job_binding(job, valid_strategy);
+        const auto program = bound_program();
+        validate_job_binding(job, valid_strategy, data, program);
         check(job.phase == "DEVELOPMENT", "development job accepted");
 
         jf["phase"] = "DATA_AUDIT";
@@ -146,7 +175,16 @@ int main() {
         jt = fields_text("QROS_RESEARCH_JOB_V1", jf);
         put(root / "job-program-mismatch.contract", jt);
         const auto mismatch = read_research_job(root / "job-program-mismatch.contract", sha256_text(jt));
-        rejects([&]{ validate_job_binding(mismatch, valid_strategy); }, "program binding mismatch rejected");
+        rejects([&]{ validate_job_binding(mismatch, valid_strategy, data, program); },
+                "program binding mismatch rejected");
+
+        jf = job_fields(valid_strategy.sha256, valid_strategy.program_sha256);
+        jf["execution_policy_sha256"] = sha256_text("different execution");
+        jt = fields_text("QROS_RESEARCH_JOB_V1", jf);
+        put(root / "job-execution-mismatch.contract", jt);
+        const auto execution_mismatch = read_research_job(root / "job-execution-mismatch.contract", sha256_text(jt));
+        rejects([&]{ validate_job_binding(execution_mismatch, valid_strategy, data, program); },
+                "execution policy mismatch rejected");
 
         jf = job_fields(valid_strategy.sha256, valid_strategy.program_sha256);
         jf["max_rows"] = "0";
@@ -154,6 +192,26 @@ int main() {
         put(root / "unbounded-job.contract", jt);
         rejects([&]{ (void)read_research_job(root / "unbounded-job.contract", sha256_text(jt)); },
                 "unbounded job rejected");
+
+        auto undercount_fields = strategy_fields();
+        undercount_fields["multiplicity_n_tests"] = "63";
+        const auto undercount_text = fields_text("QROS_STRATEGY_CONTRACT_V1", undercount_fields);
+        put(root / "undercount.contract", undercount_text);
+        const auto undercount_strategy = read_strategy_contract(root / "undercount.contract", sha256_text(undercount_text));
+        auto undercount_job_fields = job_fields(undercount_strategy.sha256, undercount_strategy.program_sha256);
+        const auto undercount_job_text = fields_text("QROS_RESEARCH_JOB_V1", undercount_job_fields);
+        put(root / "undercount-job.contract", undercount_job_text);
+        const auto undercount_job = read_research_job(root / "undercount-job.contract", sha256_text(undercount_job_text));
+        rejects([&]{ validate_job_binding(undercount_job, undercount_strategy, data, program); },
+                "N_TESTS undercount rejected");
+
+        jf = job_fields(valid_strategy.sha256, valid_strategy.program_sha256);
+        jf["phase"] = "HOLDOUT";
+        jf["authority_ref"] = "NONE";
+        jt = fields_text("QROS_RESEARCH_JOB_V1", jf);
+        put(root / "holdout-no-authority.contract", jt);
+        rejects([&]{ (void)read_research_job(root / "holdout-no-authority.contract", sha256_text(jt)); },
+                "advanced phase without authority rejected");
 
         std::cout << "PRODUCT_CONTRACT_TESTS_PASS checks=" << checks << "\n";
         std::filesystem::remove_all(root);
