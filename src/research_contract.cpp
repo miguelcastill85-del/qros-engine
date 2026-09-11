@@ -29,7 +29,42 @@ std::string verified_raw(const std::filesystem::path& path, const std::string& e
     return raw;
 }
 
+void require_purpose(const std::string& value) {
+    if (!one_of(value, {"TEST_ONLY", "RESEARCH"})) pipeline::fail("INVALID_PURPOSE");
+}
+
 } // namespace
+
+DataAuditJob read_data_audit_job(const std::filesystem::path& path,
+                                 const std::string& expected_sha) {
+    const auto raw = verified_raw(path, expected_sha);
+    const auto fields = pipeline::parse_fields(raw, "QROS_DATA_AUDIT_JOB_V1");
+    pipeline::exact_keys(fields, {
+        "job_id", "data_spec_name", "data_spec_sha256", "purpose",
+        "result_scope", "max_rows", "source_authority_ref"
+    });
+
+    DataAuditJob result;
+    result.fields = fields;
+    result.sha256 = expected_sha;
+    result.job_id = fields.at("job_id");
+    result.data_spec_name = fields.at("data_spec_name");
+    result.data_spec_sha256 = fields.at("data_spec_sha256");
+    result.purpose = fields.at("purpose");
+    result.result_scope = fields.at("result_scope");
+    result.max_rows = pipeline::natural(fields.at("max_rows"));
+    result.source_authority_ref = fields.at("source_authority_ref");
+
+    require_identifier(result.job_id, "job_id");
+    require_identifier(result.result_scope, "result_scope");
+    require_identifier(result.source_authority_ref, "source_authority_ref");
+    require_hash(result.data_spec_sha256, "data_spec_sha256");
+    require_purpose(result.purpose);
+    if (result.data_spec_name.empty()) pipeline::fail("EMPTY_DATA_SPEC_NAME");
+    if (result.max_rows == 0) pipeline::fail("UNBOUNDED_DATA_AUDIT_FORBIDDEN");
+
+    return result;
+}
 
 StrategyContract read_strategy_contract(const std::filesystem::path& path,
                                         const std::string& expected_sha) {
@@ -73,9 +108,8 @@ StrategyContract read_strategy_contract(const std::filesystem::path& path,
     require_hash(result.execution_policy_sha256, "execution_policy_sha256");
     require_hash(result.cost_policy_sha256, "cost_policy_sha256");
     require_hash(result.search_space_sha256, "search_space_sha256");
+    require_purpose(result.purpose);
 
-    if (!one_of(result.purpose, {"TEST_ONLY", "RESEARCH"}))
-        pipeline::fail("INVALID_PURPOSE");
     if (!one_of(result.side_policy, {"BUY_ONLY", "SELL_ONLY", "BUY_SELL_SEPARATE"}))
         pipeline::fail("INVALID_SIDE_POLICY");
     if (!one_of(result.holdout_state, {"SEALED", "EXPOSED"}))
@@ -125,10 +159,9 @@ ResearchJob read_research_job(const std::filesystem::path& path,
     require_hash(result.program_sha256, "program_sha256");
     if (result.strategy_contract_name.empty() || result.data_spec_name.empty() || result.program_name.empty())
         pipeline::fail("EMPTY_JOB_INPUT_NAME");
-    if (!one_of(result.phase, {"DATA_AUDIT", "DEVELOPMENT", "GATE_A", "HOLDOUT", "SUPERGATE", "MT5_PARITY", "PORTFOLIO"}))
+    if (!one_of(result.phase, {"DEVELOPMENT", "GATE_A", "HOLDOUT", "SUPERGATE", "MT5_PARITY", "PORTFOLIO"}))
         pipeline::fail("INVALID_RESEARCH_PHASE");
-    if (!one_of(result.purpose, {"TEST_ONLY", "RESEARCH"}))
-        pipeline::fail("INVALID_PURPOSE");
+    require_purpose(result.purpose);
     if (result.max_rows == 0 || result.max_trades == 0)
         pipeline::fail("UNBOUNDED_JOB_FORBIDDEN");
     if (result.authority_ref != "NONE") require_identifier(result.authority_ref, "authority_ref");
