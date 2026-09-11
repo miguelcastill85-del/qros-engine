@@ -1,0 +1,80 @@
+{
+  "schema": "QROS_G30_CROSS_CHAT_CHECKPOINT_V193_v1",
+  "created_date": "2026-09-10",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "F03_F12_ONLY",
+  "authority_epoch": 193,
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "parent": {
+    "path": "control/QROS_G30_CROSS_CHAT_CHECKPOINT_V192_20260910_v1.json",
+    "commit": "e82457abcc60e2391157adcc07709b63b333d0bd",
+    "stage_c_authority_status": "PASS_PROMOTION_AUTHORIZED",
+    "global_close_root_sha256": "788d596ac5f7d416275d912870cb3d6aa49ac73628ac1e795f0b4eb045605d87",
+    "survivor_root_sha256": "a8105d82e04f3e1882e412feee22bf9412be095b13a8e41b63cada3bcfa0dda4"
+  },
+  "scientific_state": {
+    "stage_b": "GLOBALLY_CLOSED",
+    "stage_b_survivors_total": 9237,
+    "nqx_survivors": 6570,
+    "xau_survivors": 2667,
+    "stage_c_window": "2022-01-01/2024-12-31",
+    "stage_c_execution": "NOT_EXECUTED",
+    "stage_c_strategy_pnl_observed": false,
+    "stage_d_authorized": false,
+    "supergate_authorized": false,
+    "mt5_authorized": false,
+    "f13_scope": "EXCLUDED"
+  },
+  "canonical_data_authority": {
+    "NQX": {
+      "carrier": "NQX_PACKED17_FULL_2018_2026.bin",
+      "bytes": 9516900679,
+      "records": 559817687,
+      "sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+      "preferred_saved_route": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip..part028-of-028.zip",
+      "saved_parts": 28
+    },
+    "XAU": {
+      "carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+      "bytes": 11850036456,
+      "records": 697060968,
+      "sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+      "preferred_saved_route": "QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip..part035-of-035.zip",
+      "saved_parts": 35
+    }
+  },
+  "runtime_audit": {
+    "local_runtime_data_dir": "/mnt/data",
+    "local_runtime_total_observed": "12K",
+    "local_runtime_files_observed": [
+      {
+        "path": "/mnt/data/Investigación XAUUSD.txt",
+        "bytes": 5694
+      }
+    ],
+    "canonical_carriers_mounted": false,
+    "canonical_zip_parts_mounted": false,
+    "dropbox_exact_nqx_part_probe": "NOT_FOUND",
+    "dropbox_exact_xau_part_probe": "NOT_FOUND",
+    "file_library_catalog_state": "CANONICAL_V2_PARTS_PRESERVED_AS_LIBRARY_REFERENCES",
+    "file_library_byte_materialization_in_this_runtime": "NO_AVAILABLE_PRIMITIVE",
+    "pre_metric_data_audit_complete": false
+  },
+  "blocker": {
+    "code": "STAGE_C_CANONICAL_TICK_BYTES_NOT_MATERIALIZABLE_IN_CURRENT_RUNTIME",
+    "root_cause": "The exact V192 Stage C carrier identities and saved multipart routes are recoverable and hash-pinned, but the current runtime has neither carriers nor ZIP bytes mounted. File Library exposes searchable/inspectable references rather than executable byte paths, Dropbox exact-part probes are empty, and GitHub content access does not serve the multi-GB binary carriers. Therefore the mandatory pre-metric byte/hash/timestamp audit and the 9237-candidate Stage C execution cannot be performed without fabricating data or metrics.",
+    "scientific_consequence": "FAIL_CLOSED_BEFORE_ANY_STAGE_C_ECONOMIC_METRIC",
+    "holdout_contamination": false
+  },
+  "required_resume_action": "MATERIALIZE_THE_HASH_PINNED_CANONICAL_V2_ZIP_PARTS_OR_CARRIERS_IN_AN_EXECUTABLE_RUNTIME; VERIFY_PART_PAYLOAD_AND_FINAL_CARRIER_SHA256; AUDIT_2022_2024_TIMESTAMP_TIMEZONE_DST_BID_ASK_SPREAD_ORDER_DUPLICATES_GAPS_AND_CONTINUITY; THEN RUN_STAGE_C_ON_ALL_9237_F03_F12_SURVIVORS_WITHOUT_MEDOIDS_RERANKING_OR_F13",
+  "guards": [
+    "ALL_9237_PASSERS_ADVANCE",
+    "NO_MEDOIDS",
+    "NO_RERANKING",
+    "NO_F13",
+    "NO_STAGE_D_BEFORE_DURABLE_STAGE_C_CLOSE",
+    "NO_SUPERGATE_BEFORE_STAGE_C_PASS",
+    "NO_MT5_BEFORE_AUTHORIZATION",
+    "NO_STAGE_C_METRICS_WITHOUT_CANONICAL_BYTES"
+  ]
+}
