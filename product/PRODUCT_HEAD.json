@@ -1,0 +1,60 @@
+{
+  "schema": "QROS_RESEARCH_STUDIO_PRODUCT_HEAD_v1",
+  "status": "PRODUCTIZATION_PREREGISTERED_NO_RESULTS",
+  "product": "QROS Research Studio",
+  "product_line": "Windows-first local quantitative research and adversarial validation workstation",
+  "source_repository": "miguelcastill85-del/qros-engine",
+  "source_main_sha_at_branch_creation": "ab6d53673e6a6f17be2e6c393dde1e45856467d6",
+  "product_branch": "product/qros-research-studio-mvp-v1",
+  "scientific_head_policy": "DO_NOT_MODIFY_control_HEAD_json_FROM_PRODUCTIZATION",
+  "scientific_head_at_start": {
+    "schema": "QROS_PERSISTENT_CONTROL_HEAD_V191",
+    "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+    "holdout_opened": false,
+    "f13_route": "EXCLUDED_NO_RECOVERY"
+  },
+  "authoritative_product_contracts": [
+    "product/QROS_RESEARCH_STUDIO_MVP_CONTRACT_v1.md",
+    "product/contracts/QROS_AI_AUTHORITY_FIREWALL_v1.json"
+  ],
+  "reuse_targets_confirmed_from_repository": [
+    "src/backtest.cpp",
+    "src/core.cpp",
+    "src/custody.cpp",
+    "src/feature_graph.cpp",
+    "src/gates.cpp",
+    "src/mt5_bridge.cpp",
+    "src/pipeline_cli.cpp",
+    "src/pipeline_common.cpp",
+    "src/pipeline_data.cpp",
+    "src/portfolio.cpp",
+    "src/qdata.cpp",
+    "src/result_store.cpp",
+    "include/qros/core.hpp",
+    "include/qros/custody.hpp",
+    "include/qros/pipeline.hpp",
+    "include/qros/qdata.hpp",
+    "include/qros/time_authority.hpp"
+  ],
+  "known_engineering_blockers_inherited": [
+    "P0_A01_execution_units_and_fills",
+    "P0_A02_holdout_physical_access_control",
+    "P0_A03_single_use_authorization_consumption",
+    "P0_A06_MT5_provenance_and_ledger_reconstruction",
+    "P0_A07_semantic_evidence_validation",
+    "P1_A08_gates_to_supergate_contract",
+    "P1_A05_self_contained_versioned_IR",
+    "P1_A04_alias_cohort_zero_replay"
+  ],
+  "mvp_phase": "PHASE_0_PRODUCT_BOUNDARY_AND_CONTRACTS",
+  "completed": [
+    "Recovered scientific HEAD V191 without modifying it",
+    "Confirmed repository contains deterministic C++20 core reusable for productization",
+    "Created isolated product branch",
+    "Preregistered MVP product contract",
+    "Preregistered AI authority firewall"
+  ],
+  "next_action": "CREATE_TYPED_STRATEGY_CONTRACT_AND_RESEARCH_JOB_SCHEMA_THEN_MAP_EXISTING_CORE_APIS_TO_THEM_WITHOUT_UI_OR_AI_DEPENDENCY",
+  "cost_policy": "NO_PAID_API_NO_CLOUD_REQUIRED_NO_CODEX_UNTIL_HIGH_LEVERAGE_IMPLEMENTATION",
+  "decision": "CAMPAIGN_ACTIVE"
+}
