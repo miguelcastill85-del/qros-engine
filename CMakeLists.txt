@@ -36,6 +36,7 @@ set(QROS_IDENTITY_FILES
     src/portfolio.cpp
     src/pipeline_cli.cpp
     src/mt5_bridge.cpp
+    src/product_main.cpp
     scripts/build_native.py
     src/main.cpp)
 set(QROS_CONFIGURE_DEPENDS_FILES "")
@@ -52,7 +53,7 @@ endforeach()
 string(SHA256 QROS_SOURCE_ROOT_SHA256 "${QROS_SOURCE_ROOT_INPUT}")
 
 # Build contract is separate from source identity: same sources compiled with different
-# profiles/flags remain distinguishable even before examining the executable SHA-256.
+# profiles/flags remain distinguishishable even before examining the executable SHA-256.
 string(TOUPPER "${CMAKE_BUILD_TYPE}" QROS_BUILD_TYPE_UPPER)
 set(QROS_BUILD_TYPE_FLAGS "${CMAKE_CXX_FLAGS_${QROS_BUILD_TYPE_UPPER}}")
 set(QROS_BUILD_CONTRACT_INPUT "QROS_BUILD_CONTRACT_V1\n")
