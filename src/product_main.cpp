@@ -1,4 +1,5 @@
 #include "qros/research_contract.hpp"
+#include "qros/research_state.hpp"
 #include "qros/build_identity.hpp"
 #include "qros/sha256.hpp"
 #include <filesystem>
@@ -56,7 +57,10 @@ int main(int argc, char** argv) {
                 {"product", "QROS_RESEARCH_STUDIO"},
                 {"interface", "LOCAL_CONTRACT_VALIDATION_CLI"},
                 {"ai_scientific_authority", "0"},
+                {"rise_q_scientific_mutation", "0"},
                 {"scientific_state_mutation", "0"},
+                {"scientific_state_machine", "RISEQ_FAIL_CLOSED_V1"},
+                {"execution_annotation_separate", "1"},
                 {"data_audit_job", "QROS_DATA_AUDIT_JOB_V1"},
                 {"strategy_contract", "QROS_STRATEGY_CONTRACT_V1"},
                 {"research_job", "QROS_RESEARCH_JOB_V1"},
