@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_RESEARCH_STUDIO_PRODUCT_HEAD_v3",
+  "schema": "QROS_RESEARCH_STUDIO_PRODUCT_HEAD_v4",
   "status": "DEVELOPMENT_RUNNING",
   "product": "QROS Research Studio",
   "product_line": "Windows-first local quantitative research and adversarial validation workstation",
@@ -17,46 +17,44 @@
     "product/QROS_RESEARCH_STUDIO_MVP_CONTRACT_v1.md",
     "product/contracts/QROS_AI_AUTHORITY_FIREWALL_v1.json"
   ],
-  "implemented_product_slice": [
-    "include/qros/research_contract.hpp",
-    "src/research_contract.cpp",
-    "src/product_main.cpp",
-    "tests/test_product_contract.cpp",
-    "CMakeLists.txt"
-  ],
-  "m0_receipt": "product/receipts/QROS_PRODUCT_M0_BUILD_PASS_20260911.json",
-  "m0_acceptance": {
-    "status": "PASS_ENGINEERING_M0",
-    "tested_commit_sha": "c4d51225f02204f16e609947f7bfa25ea873ba66",
-    "github_actions_run_id": 34561797799,
-    "compiler": "GNU_13.3.0",
-    "build": "PASS",
-    "link": "PASS",
-    "product_contract_suite": "1_OF_1_PASS",
-    "full_ctest": "14_OF_14_PASS",
-    "source_root_sha256": "13dab2b60580418c11d041064ec2b6c79b4455b5da17f18201fa49fb0c51d964",
-    "build_contract_sha256": "7cd12ca38f4a3e80ef95d7ce28e9e0603d522f873b3015551dfe7b4a720dd432"
+  "receipts": {
+    "M0": "product/receipts/QROS_PRODUCT_M0_BUILD_PASS_20260911.json",
+    "M1": "product/receipts/QROS_PRODUCT_M1_RISEQ_STATE_MACHINE_PASS_20260911.json"
+  },
+  "verified_milestones": {
+    "M0_TYPED_PRODUCT_BOUNDARY": {
+      "status": "PASS_ENGINEERING",
+      "tested_commit_sha": "c4d51225f02204f16e609947f7bfa25ea873ba66",
+      "github_actions_run_id": 34561797799,
+      "ctest": "14_OF_14_PASS"
+    },
+    "M1_RISEQ_FAIL_CLOSED_STATE_MACHINE": {
+      "status": "PASS_ENGINEERING",
+      "tested_commit_sha": "9981c98621869fd182710df90752340a0b798d02",
+      "github_actions_run_id": 34562146271,
+      "ctest": "15_OF_15_PASS",
+      "source_root_sha256": "b65aa39b7a7406299139c52b020df5f5223aeb417329691300779189e20c3db8"
+    }
   },
   "implemented_invariants": [
     "AI has zero scientific state authority",
+    "User request is not scientific transition authority",
+    "RISE-Q may veto but cannot approve or mutate scientific state",
+    "Execution infrastructure annotation is separate from scientific state",
     "DataAuditJob is separated from strategy ResearchJob",
     "Strategy Contract must be frozen and hash-bound",
     "Genealogy and data authority are explicit",
-    "N_TESTS is mandatory and cannot be zero",
-    "N_TESTS cannot undercount Program births at semantic binding",
+    "N_TESTS is mandatory and cannot be zero or undercount Program births",
     "Development and holdout partition identifiers cannot collide",
     "ResearchJob binds Strategy Contract, DataSpec, Program, execution policy and cost policy",
-    "Symbol, purpose and data authority must agree across bound scientific objects",
     "Advanced phases require an authority reference",
-    "Policy files are resolved through safe relative paths and checked by SHA-256",
-    "Product validation receipts cannot claim scientific gate PASS or mutate scientific state",
-    "qros_product frontend is included in deterministic source identity"
+    "APPROVED_RESEARCH requires holdout authorization, holdout PASS and Supergate PASS at the transition policy layer",
+    "APPROVED_FINAL requires MT5 parity at the transition policy layer",
+    "BRANCH_EXHAUSTED requires ontology frozen, RISE fixed point, complete universe coverage and zero open fronts"
   ],
   "verification": {
-    "full_repository_build": "PASS",
-    "full_link": "PASS",
-    "ctest": "14_OF_14_PASS",
-    "github_actions_run_id": 34561797799,
+    "M0_build_link_ctest": "PASS",
+    "M1_build_link_ctest": "PASS",
     "scientific_state_mutated": false,
     "holdout_accessed": false,
     "broker_data_accessed": false,
@@ -73,22 +71,9 @@
     "P1_A05_self_contained_versioned_IR",
     "P1_A04_alias_cohort_zero_replay"
   ],
-  "mvp_phase": "M1_RISEQ_FAIL_CLOSED_STATE_MACHINE",
-  "completed": [
-    "Recovered scientific HEAD V191 without modifying it",
-    "Confirmed reusable deterministic C++20 core",
-    "Created isolated product branch",
-    "Preregistered MVP contract and AI authority firewall",
-    "Implemented typed DataAuditJob, StrategyContract and ResearchJob",
-    "Implemented semantic cross-binding across data, program, policies and multiplicity",
-    "Added qros_product local contract-validation frontend",
-    "Added dedicated product contract regression suite",
-    "Executed external zero-Codex-credit GitHub Actions build",
-    "Verified full compile, link and 14/14 CTest PASS",
-    "Persisted M0 acceptance receipt"
-  ],
-  "current_blocker": "NONE_FOR_M1_ENGINEERING",
-  "next_action": "IMPLEMENT_RISEQ_FAIL_CLOSED_RESEARCH_STATE_MACHINE_WITH_TYPED_TRANSITIONS_AND_ADVERSARIAL_TESTS",
+  "mvp_phase": "M2_DURABLE_TRANSITION_LEDGER_HASH_CHAIN_CAS",
+  "current_blocker": "NONE_FOR_M2_ENGINEERING",
+  "next_action": "IMPLEMENT_APPEND_ONLY_RESEARCH_TRANSITION_LEDGER_WITH_HASH_CHAIN_CAS_TAMPER_DETECTION_AND_TEST_ONLY_APPLICATION_PATH",
   "cost_policy": "NO_CODEX_REQUIRED_USE_BOUNDED_GITHUB_ACTIONS_FOR_BUILD_TEST_ONLY",
   "decision": "CAMPAIGN_ACTIVE"
 }
