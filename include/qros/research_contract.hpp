@@ -6,6 +6,18 @@
 
 namespace qros::product {
 
+struct DataAuditJob {
+    pipeline::Fields fields;
+    std::string sha256;
+    std::string job_id;
+    std::string data_spec_name;
+    std::string data_spec_sha256;
+    std::string purpose;
+    std::string result_scope;
+    u64 max_rows{};
+    std::string source_authority_ref;
+};
+
 struct StrategyContract {
     pipeline::Fields fields;
     std::string sha256;
@@ -45,6 +57,8 @@ struct ResearchJob {
     std::string authority_ref;
 };
 
+DataAuditJob read_data_audit_job(const std::filesystem::path& path,
+                                 const std::string& expected_sha);
 StrategyContract read_strategy_contract(const std::filesystem::path& path,
                                         const std::string& expected_sha);
 ResearchJob read_research_job(const std::filesystem::path& path,
