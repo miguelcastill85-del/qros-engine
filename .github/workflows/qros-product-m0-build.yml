@@ -9,7 +9,8 @@ on:
       - 'include/qros/**'
       - 'src/**'
       - 'tests/**'
-      - 'product/**'
+      - 'product/contracts/**'
+      - 'product/QROS_RESEARCH_STUDIO_MVP_CONTRACT_v1.md'
       - '.github/workflows/qros-product-m0-build.yml'
   workflow_dispatch:
 
