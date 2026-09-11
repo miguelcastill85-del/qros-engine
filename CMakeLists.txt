@@ -78,6 +78,13 @@ target_link_libraries(qros PRIVATE qros_core)
 target_compile_options(qros PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
 target_compile_definitions(qros PRIVATE _GLIBCXX_ASSERTIONS)
 
+# Product-facing contract boundary. It deliberately validates only contracts/bindings;
+# it cannot grant scientific PASS or mutate campaign state.
+add_executable(qros_product src/product_main.cpp)
+target_link_libraries(qros_product PRIVATE qros_core)
+target_compile_options(qros_product PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
+target_compile_definitions(qros_product PRIVATE _GLIBCXX_ASSERTIONS)
+
 add_executable(qros_tests tests/test_core.cpp)
 target_link_libraries(qros_tests PRIVATE qros_core)
 target_compile_options(qros_tests PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
@@ -91,6 +98,7 @@ target_link_libraries(qros_product_contract_tests PRIVATE qros_core)
 target_compile_options(qros_product_contract_tests PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
 target_compile_definitions(qros_product_contract_tests PRIVATE _GLIBCXX_ASSERTIONS)
 add_test(NAME qros_product_contract_tests COMMAND qros_product_contract_tests)
+add_test(NAME qros_product_capabilities COMMAND qros_product capabilities)
 
 # Metadata-governance test only; the runtime itself has no Python dependency.
 find_package(Python3 COMPONENTS Interpreter QUIET)
