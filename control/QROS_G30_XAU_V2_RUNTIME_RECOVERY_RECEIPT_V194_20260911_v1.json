@@ -1,0 +1,94 @@
+{
+  "schema": "QROS_G30_XAU_V2_RUNTIME_RECOVERY_RECEIPT_V194_v1",
+  "created_date": "2026-09-11",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "F03_F12_ONLY",
+  "authority_epoch": 194,
+  "branch": "g30-stage-b-preflight-f03-f12-v191r1",
+  "status": "XAU_CANONICAL_BYTES_RECOVERED_PASS",
+  "parent_checkpoint": {
+    "path": "control/QROS_G30_CROSS_CHAT_CHECKPOINT_V193_20260910_v1.json",
+    "blob_sha": "c580a3d5970a088197aaa29fe76efc7422df657c"
+  },
+  "source_authority": {
+    "file_index": "QROS_FULL_HISTORY_FILE_INDEX_v2.json",
+    "zip_manifest": "QROS_XAU_FULL_HISTORY_ZIP_MANIFEST_v2.json",
+    "route": "QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip..part035-of-035.zip",
+    "zip_parts_expected": 35,
+    "zip_parts_mounted": 35,
+    "outer_zip_total_bytes": 3988985549
+  },
+  "carrier": {
+    "logical_file": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+    "bytes_expected": 11850036456,
+    "bytes_observed": 11850036456,
+    "records_expected": 697060968,
+    "records_observed": 697060968,
+    "first_timestamp_ms": 1516885566846,
+    "last_timestamp_ms": 1784937296372,
+    "sha256_expected": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+    "sha256_observed": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+    "sha256_match": true
+  },
+  "integrity": {
+    "outer_zip_sha256_match_manifest": "35/35",
+    "payload_sha256_match_part_meta": "35/35",
+    "zip_crc": "35/35_PASS",
+    "record_ranges": "CONTIGUOUS_001_035",
+    "part_boundaries_timestamp_order": "PASS",
+    "global_carrier_sha256": "PASS"
+  },
+  "tick_audit": {
+    "out_of_order_adjacent": 0,
+    "equal_timestamp_adjacent": 47177965,
+    "exact_duplicate_adjacent_records": 23,
+    "zero_spread": 1691627,
+    "crossed_spread": 2218,
+    "bid_scaled_min": 116015,
+    "bid_scaled_max": 559681,
+    "ask_scaled_min": 116035,
+    "ask_scaled_max": 559972,
+    "spread_scaled_min": -395,
+    "spread_scaled_max": 4341,
+    "spread_scaled_quantiles": {
+      "p001": 0,
+      "p01": 3,
+      "p05": 6,
+      "p50": 18,
+      "p95": 70,
+      "p99": 123,
+      "p999": 271
+    },
+    "max_intertick_gap_ms": 275581962,
+    "max_gap_after_timestamp_ms": 1608841678091,
+    "canonical_crosscheck": {
+      "zero_spread_match": true,
+      "crossed_spread_match": true,
+      "out_of_order_match": true
+    }
+  },
+  "clock_authority": {
+    "broker_provenance": "DARWINEX_USER_CONFIRMED",
+    "source_clock": "DARWINEX_CLOCK_USER_CONFIRMED",
+    "published_server_policy": "GMT+2_OUTSIDE_US_DST_GMT+3_DURING_US_DST",
+    "csv_to_bin_timestamp_preservation": "PENDING_TECHNICAL_CHECK",
+    "utc_relabel": "FORBIDDEN_UNTIL_PRESERVATION_IS_PROVEN"
+  },
+  "execution_guards": {
+    "stage_c_strategy_pnl_observed": false,
+    "stage_c_economic_metrics_computed": false,
+    "zero_spread_artificial_fills": "FORBIDDEN",
+    "crossed_quote_fills": "FORBIDDEN",
+    "f13": "EXCLUDED"
+  },
+  "runtime_receipt": {
+    "local_path": "/mnt/data/QROS_XAU_V2_RUNTIME_STREAM_AUDIT_20260911_v1.json",
+    "sha256": "790b30a732ac2533491bfc48fc343b7aba4da16a02e574621834ebbbb5ac3212"
+  },
+  "remaining_global_blocker": {
+    "nqx_v2_parts_mounted": 0,
+    "nqx_v2_parts_required": 28,
+    "full_stage_c_pre_metric_audit_complete": false,
+    "reason": "XAU physical integrity is now PASS, but the full 9237-config Stage C requires the canonical NQX bytes too, and clock/DST preservation must remain explicit rather than inferred."
+  }
+}
