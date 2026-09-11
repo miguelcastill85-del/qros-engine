@@ -64,6 +64,17 @@ Fields job_fields(const std::string& contract_sha, const std::string& program_sh
         {"authority_ref", "NONE"}
     };
 }
+Fields data_audit_fields() {
+    return {
+        {"job_id", "DATA_AUDIT_TEST_001"},
+        {"data_spec_name", "data.spec"},
+        {"data_spec_sha256", sha256_text("data spec")},
+        {"purpose", "TEST_ONLY"},
+        {"result_scope", "DATA_AUDIT_TEST_001"},
+        {"max_rows", "10000"},
+        {"source_authority_ref", "DATA_TEST_001"}
+    };
+}
 }
 
 int main() {
@@ -72,6 +83,18 @@ int main() {
     if (temp == nullptr) return 1;
     const std::filesystem::path root(temp);
     try {
+        auto daf = data_audit_fields();
+        auto dat = fields_text("QROS_DATA_AUDIT_JOB_V1", daf);
+        put(root / "data-audit.contract", dat);
+        const auto data_audit = read_data_audit_job(root / "data-audit.contract", sha256_text(dat));
+        check(data_audit.max_rows == 10000, "bounded data audit accepted");
+
+        daf["max_rows"] = "0";
+        dat = fields_text("QROS_DATA_AUDIT_JOB_V1", daf);
+        put(root / "unbounded-data-audit.contract", dat);
+        rejects([&]{ (void)read_data_audit_job(root / "unbounded-data-audit.contract", sha256_text(dat)); },
+                "unbounded data audit rejected");
+
         auto fields = strategy_fields();
         auto text = fields_text("QROS_STRATEGY_CONTRACT_V1", fields);
         put(root / "strategy.contract", text);
@@ -112,6 +135,13 @@ int main() {
         validate_job_binding(job, valid_strategy);
         check(job.phase == "DEVELOPMENT", "development job accepted");
 
+        jf["phase"] = "DATA_AUDIT";
+        jt = fields_text("QROS_RESEARCH_JOB_V1", jf);
+        put(root / "wrong-data-audit.contract", jt);
+        rejects([&]{ (void)read_research_job(root / "wrong-data-audit.contract", sha256_text(jt)); },
+                "data audit cannot masquerade as strategy job");
+
+        jf = job_fields(valid_strategy.sha256, valid_strategy.program_sha256);
         jf["program_sha256"] = sha256_text("different program");
         jt = fields_text("QROS_RESEARCH_JOB_V1", jf);
         put(root / "job-program-mismatch.contract", jt);
