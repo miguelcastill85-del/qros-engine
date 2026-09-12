@@ -1,0 +1,16 @@
+{
+  "schema": "QROS_RUNNER_DEFECT_LEDGER_1.0",
+  "defects": [
+    {"id":"D01","class":"STANDARD_INCLUDE_PROVISIONING","symptom":"Trade/Trade.mqh missing in isolated compile","required_regression":"native include snapshot + compile smoke"},
+    {"id":"D02","class":"RETCODE_DOMAIN_ASSUMPTION","symptom":"pending test accepted only PLACED although DONE/DONE_PARTIAL can be valid with observed state","required_regression":"retcode set + observed broker state"},
+    {"id":"D03","class":"RESULT_MATERIALIZATION","symptom":"tester exits 0 but runtime result missing","required_regression":"write-close-exclusive-read-snapshot smoke"},
+    {"id":"D04","class":"PROCESS_LIFETIME_PROXY","symptom":"GUI process exit used as fencing proof","required_regression":"durable lock ownership token, not GUI lifetime"},
+    {"id":"D05","class":"TESTER_TIME_SEMANTICS","symptom":"Sleep() used as wall-clock hold in Strategy Tester","required_regression":"GetTickCount64 real elapsed-time hold"},
+    {"id":"D06","class":"FILE_LOCK_READ_RACE","symptom":"Import-Csv attempted while holder still owned CSV","required_regression":"FileShare.None exclusive read + released marker"},
+    {"id":"D07","class":"SHARED_NAMESPACE_COLLISION","symptom":"shared FILE_COMMON names / broad cleanup could collide across runs","required_regression":"RunId namespace + no broad wildcard delete"},
+    {"id":"D08","class":"STRICTMODE_COLLECTION_SEMANTICS","symptom":"PSObject.Properties.Count fails under target Windows PowerShell","required_regression":"explicit enumeration counter + mutation test"},
+    {"id":"D09","class":"SCALAR_ARRAY_CARDINALITY","symptom":"single-row pipeline/scalar .Count can fail or change semantics","required_regression":"explicit @() arrayization + mutation test"},
+    {"id":"D10","class":"PROCESS_KILL_SCOPE","symptom":"runner process cleanup must never reach active MT5","required_regression":"SafeIsoPath + process.Path dual gate"}
+  ],
+  "rule": "Every new root cause must be appended and turned into an automated negative-control mutation before another runner release."
+}
