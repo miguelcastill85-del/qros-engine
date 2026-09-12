@@ -1,0 +1,31 @@
+{
+  "schema": "QROS_RUNNER_QUALIFICATION_AMENDMENT_1.0",
+  "purpose": "Prevent Candidate3 from being used to discover runner/platform defects.",
+  "mandatory_order": ["R0_INTEGRITY", "R1_STATIC_PLUS_MUTATIONS", "R2_NATIVE_ENV_WITHOUT_CANDIDATE", "R3_ENV_FINGERPRINT_BINDING", "R4_CANDIDATE_NATIVE_GATE"],
+  "label_semantics": {
+    "PREVALIDATED_ARTIFACT": "R0/R1 only; never native-validated",
+    "NATIVE_ENV_QUALIFIED": "R2/R3 passed on target Windows/MT5",
+    "NATIVE_VALIDATED": "R4 candidate gate passed after matching R2/R3"
+  },
+  "new_validator_regressions": [
+    {"id":"D11","class":"STATIC_GATE_MUTATION_ALIAS_COLLISION","rule":"mutation uses unique synthetic variable names"},
+    {"id":"D12","class":"STATIC_GATE_CANONICAL_PATH_GUARD","rule":"Stop-Process helper must contain SafeIsoPath plus direct process.Path isolated-root gate"},
+    {"id":"D13","class":"VALIDATOR_SEMANTIC_STRING_FALSE_POSITIVE","rule":"CERT checks detect mutation/write semantics, not benign safety text"}
+  ],
+  "runner_v2_2_r1": {
+    "source_sha256":"17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+    "static_rules":"13/13 PASS",
+    "mutation_tests":"10/10 PASS",
+    "state":"STATIC_QUALIFIED"
+  },
+  "r2_package": {
+    "sha256":"a4dd75c13432ac0f423301e645a9acf3f1d07a4be7c95e9a0a6aa182e0b89bdd",
+    "static_rules":"15/15 PASS",
+    "mutation_tests":"11/11 PASS",
+    "predelivery":"19/19 PASS",
+    "executes_candidate3":false,
+    "allows_real_broker_orders":false,
+    "state":"NATIVE_EXECUTION_REQUIRED"
+  },
+  "hard_rules": ["QDB1.EXEC.CERT remains 0", "no deployment", "no Candidate3 Phase-A before matching R2 PASS"]
+}
