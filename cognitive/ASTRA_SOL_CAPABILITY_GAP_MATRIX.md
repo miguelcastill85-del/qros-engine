@@ -31,4 +31,6 @@ Existen dos tandas DEVELOPMENT por ruta solicitada: 12 casos iniciales y seis am
 
 La recuperación, las identidades, los DAG y la aritmética exacta tienen evidencia de componentes locales. Esos resultados no miden razonamiento general ni equivalencia entre modelos.
 
+También se observaron dos programas declarativos nuevos, uno por ruta, y 30 replays operacionales conformes bajo tres políticas de persistencia. `research/system_development/RESULTS.json` identifica una reducción de recomputación acotada a esos fallos; no identifica una brecha nativa entre modelos ni comparación integral con CURRENT_QROS.
+
 Evidencia acotada: `research/model_development/run_001/RESULTS.json` y `research/model_development/extended_002/RESULTS.json`. El diagnóstico de una función breve no mide reparación de un repositorio; una respuesta sobre recuperación no mide recuperación efectiva del modelo tras perder contexto. El control ejecutado EXACT_SUM tampoco representa por sí solo `SOL_QRCEL`.

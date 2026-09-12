@@ -4,6 +4,8 @@ Estado: **IMPLEMENTED_AND_TESTED_SHADOW_CANDIDATE**. Esta entrega añade inspect
 
 ## Infraestructura de evaluación 0.3.2
 
+El ensayo operacional posterior ejecutó dos programas declarativos generados por Sol y Astra mediante tres políticas de persistencia: 30/30 replays de escenarios conformes, con trazas del intérprete e interrupciones reales de procesos. En los fallos probados, persistir por tarea y el núcleo transaccional requirieron 7 o 6 intentos frente a 11 del snapshot final. Se añadió recuperación verificable de recibos cerrados y se corrigió el corrector para no confundir cualquier fallo con detección del fallo esperado. Ver `research/system_development/README.md`. Esto no es una comparación integral con CURRENT_QROS ni una prueba de recuperación de contexto del modelo.
+
 142 métodos aprobados en la última batería de componentes 0.3.2. El ledger propaga exposición del benchmark por genealogía; el análisis pareado exige dimensiones y tamaño muestral fijados. Se observaron cuatro tandas de agentes: Sol y Astra obtuvieron 12/12 cada uno en el smoke test y 6/6 cada uno en DEVELOPMENT ampliado. Las respuestas coincidieron en ambas tandas. El corrector ampliado pasó además siete pruebas adversariales; no forman parte del recibo histórico de 142 métodos. Consultar `research/model_development/extended_002/README.md` y `research/evaluation_readiness/COMPLETION_AUDIT.json`. No se identifica ganancia de modelo, sistema o interacción, ni se declara completado el QRCEL integral.
 
 ## Integración V191 y corrección 0.3.1

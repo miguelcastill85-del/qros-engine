@@ -9,7 +9,8 @@
     "Conditional paired statistics and non-authorizing gate inventory",
     "Two explicitly authorized model-route DEVELOPMENT smoke batches executed and scored: 12/12 each",
     "Two further DEVELOPMENT model-route batches scored 6/6 each; real EXACT_SUM control correct; seven extended scorer tests PASS",
-    "CURRENT_SYSTEM_MAP created from 34 verified source identities; active authority objects rechecked; stale matrix/ontology claims reconciled in V4"
+    "CURRENT_SYSTEM_MAP created from 34 verified source identities; active authority objects rechecked; stale matrix/ontology claims reconciled in V4",
+    "Two observed declarative model programs, 30/30 restricted persistence-policy replay scenarios, exact fault grading and completed-receipt recovery; 15 targeted tests PASS"
   ],
   "observed_validation": {
     "tests": 142,
@@ -18,18 +19,19 @@
   "open_gates": {
     "ONTOLOGY_FROZEN": "Definitions extended and unsupported advantage corrected; full sufficiency not established",
     "RISE_FIXED_POINT": "New source-map and documentation findings recorded; no zero-delta full-stack claim",
-    "BENCHMARK_DEVELOPMENT": "TWO SHORT-ANSWER BATCHES PER ROUTE COMPLETE; end-to-end model/system treatments not compared",
+    "BENCHMARK_DEVELOPMENT": "Short-answer and restricted interpreter episodes complete; actual CURRENT_QROS full-model treatment and complete system comparison still missing",
     "BENCHMARK_VALIDATION": "Requires frozen comparable model/system protocol and fresh cases",
     "SEALED_EVALUATION": "No sealed custodian/test corpus or corresponding model runs established",
     "SHADOW_PASS": "Read-only control shadow PASS; full operational model-system shadow not executed",
     "CANARY_PASS": "Not executed; depends on prior gates",
     "PROMOTION": "Not authorized by this layer; gates above incomplete"
   },
-  "next_action": "Freeze actual model/system treatment packages and instrument end-to-end task execution; do not repeat short-answer batches as a substitute for system comparison.",
+  "next_action": "Define and bind an actual CURRENT_QROS model treatment and evaluate task families beyond the restricted interpreter; retain simple per-task checkpointing as a rival until concurrency and end-to-end evidence distinguish it from the existing kernel.",
   "full_qrcel_complete": false,
   "parity": "INSUFFICIENT_EVIDENCE",
   "extended_scorer_validation": {
     "tests": 7,
     "receipt": "cognitive/research/model_development/extended_002/SCORER_TEST_RECEIPT.json"
-  }
+  },
+  "restricted_system_receipt": "cognitive/research/system_development/RESULTS.json"
 }

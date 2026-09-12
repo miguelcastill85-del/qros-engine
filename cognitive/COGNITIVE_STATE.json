@@ -1,6 +1,6 @@
 {
   "schema": "QRCEL_ENGINEERING_STATE_V1",
-  "status": "DUAL_ROUTE_EXTENDED_DEVELOPMENT_COMPLETE",
+  "status": "RESTRICTED_MODEL_PROGRAM_EPISODES_COMPLETE",
   "version": "0.3.2-experimental",
   "scientific_authority_observed": {
     "repository": "miguelcastill85-del/qros-engine",
@@ -10,12 +10,12 @@
     "epoch": 191
   },
   "runtime_capability_inheritable": false,
-  "last_receipt": "cognitive/research/model_development/extended_002/RESULTS.json",
+  "last_receipt": "cognitive/research/system_development/RESULTS.json",
   "background_running": false,
   "scientific_authority_changed": false,
   "promoted": false,
   "parity": "INSUFFICIENT_EVIDENCE",
-  "next_action": "Freeze actual model/system treatment packages and instrument end-to-end task execution; do not repeat short-answer batches as a substitute for system comparison.",
+  "next_action": "Define and bind an actual CURRENT_QROS model treatment and evaluate task families beyond the restricted interpreter; retain simple per-task checkpointing as a rival until concurrency and end-to-end evidence distinguish it from the existing kernel.",
   "pending": [
     "Authoritative evidence adapters for actual historical document schemas",
     "Explicit delegation of evidence requirements by existing authority",
@@ -33,10 +33,10 @@
   ],
   "repair_phase_complete": true,
   "full_qrcel_complete": false,
-  "research_revision": "system-map-and-ontology-reconciliation-v4",
+  "research_revision": "restricted-system-development-v2",
   "research_receipt": "cognitive/research/continuity_development/run_001/RESULTS.json",
   "research_result": "15_OF_15_COMPONENT_CASES_PASS_NO_FULL_ARCHITECTURE_SELECTION",
-  "model_runs_observed": 4,
+  "model_runs_observed": 6,
   "kernel_implementation_complete": true,
   "kernel_demo_receipt": "cognitive/checkpoints/v191_cli_031/DEMO_RECEIPT.json",
   "kernel_checkpoint": "cognitive/checkpoints/v191_cli_031/CHECKPOINT.json",
@@ -50,10 +50,10 @@
   },
   "current_authority_status": "OFFICIAL_VALIDATOR_PASS_CONTROL_IDENTITIES_AND_LEGACY_REDIRECTS_PASS",
   "current_authority_integration": "READ_ONLY_SHADOW_PASS_NO_DISPATCH",
-  "last_continuity_checkpoint": "cognitive/research/system_map/RESUME.json",
+  "last_continuity_checkpoint": "cognitive/research/system_development/RESUME.json",
   "scientific_authority_changed_field_scope": "This cognitive software delivery; the separately user-authorized QROS V191 governance reconciliation is preserved on main.",
   "stop_reason": null,
-  "model_execution_observation_scope": "Four observed agent batches on requested routes; two per route; immutable model revisions and tool traces not exposed",
+  "model_execution_observation_scope": "Six observed agent batches: two short-answer batches and one restricted declarative program per route; replays are not additional model calls.",
   "current_system_map": "cognitive/CURRENT_SYSTEM_MAP.md",
   "capability_ontology": "cognitive/research/CAPABILITY_ONTOLOGY_v4.json"
 }
