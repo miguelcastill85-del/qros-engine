@@ -1,0 +1,18 @@
+{
+  "schema": "QSLE_CHECKPOINT_DURABLE_READBACK_RECEIPT_v1",
+  "status": "PERSISTED_PENDING_CONNECTOR_READBACK",
+  "raw_checkpoint": {
+    "bytes": 90112,
+    "sha256": "fc508ab137e0a9b9a3cb4d482d5a45cee071cc48290fcd1451e8ce111780b0c3",
+    "logical_root": "cc743e580afc8d89707963416eacf9df6202ca393a61bdf4eafc2ba630138f83",
+    "schema_version": 1
+  },
+  "gzip_carrier": {
+    "bytes": 2607,
+    "sha256": "6d902cf38753274f4dbbf95795fd1af33ebdc66df4e065ab1268e76dd3ca6983",
+    "base64_bytes": 3476,
+    "path": "cognitive/strategy_lifecycle_v2_1/validation/checkpoint/QSLE_CHECKPOINT_SAMPLE_v1.sqlite.gz.b64"
+  },
+  "scientific_authority_changed": false,
+  "scientific_dispatches": 0
+}
