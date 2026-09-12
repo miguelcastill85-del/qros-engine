@@ -1,15 +1,20 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V196",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V197",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
-  "authority_epoch": 196,
+  "authority_epoch": 197,
   "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
-  "scientific_change_class": "DURABILITY_AND_RECOVERY_STATE_ONLY_NO_SCIENTIFIC_RERUN",
+  "scientific_change_class": "DURABILITY_RECONCILIATION_ONLY_NO_SCIENTIFIC_RERUN",
   "checkpoint_ref": "control/QROS_G30_RECOVERY_CHECKPOINT_V196_20260911_v1.json",
+  "historical_reconciliation_ref": "control/QROS_G30_V192_V196_HISTORICAL_RECONCILIATION_V197_20260911_v1.json",
   "durability_policy_ref": "control/QROS_DURABLE_SCIENTIFIC_ARTIFACT_POLICY_v1.json",
-  "historical_parent": {
-    "epoch": 195,
-    "migration_ref": "control/QROS_G30_CROSS_CHAT_MIGRATION_V195_20260911_v1.json",
-    "stage_b_global_close_commit": "89b6384c8a4028a18eccb0ad04f72c96ccf7ae14"
+  "historical_chain": {
+    "stage_b_global_close_commit": "89b6384c8a4028a18eccb0ad04f72c96ccf7ae14",
+    "stage_b_global_close_root_sha256": "788d063d107fa37b3e590bd480572aeee6cce37b358aacafda5dc0c51b175d87",
+    "v192_candidate_commit": "df99a5cf3092d35ece0a8fcdc721f3b1c9ce4037",
+    "v192_validator_commit": "b2caf5f124a0c76d267b12bf46b82269e1d3d957",
+    "v192_promotion_commit": "7414f80e0b576faffe691ed273738a1fc3b560a2",
+    "v192_promotion_status": "PROMOTED_NO_RESULTS",
+    "v195_migration_ref": "control/QROS_G30_CROSS_CHAT_MIGRATION_V195_20260911_v1.json"
   },
   "scientific_state": {
     "scope": "F03_F12_ONLY",
@@ -18,16 +23,31 @@
     "frozen_population_total": 9237,
     "frozen_population_NQX": 6570,
     "frozen_population_XAUUSD": 2667,
+    "frozen_population_BUY": 6183,
+    "frozen_population_SELL": 3054,
     "population_rule": "ALL_PASSERS_ADVANCE_NO_MEDOIDS_NO_RERANKING_NO_RETUNING",
+    "v192_stage_c_authority": "VALIDATED_AND_PROMOTED_NO_RESULTS",
+    "v192_stage_c_gate": {
+      "window_start_inclusive": "2022-01-01",
+      "window_end_exclusive": "2025-01-01",
+      "minimum_trades": 30,
+      "pf_central_min": 1.20,
+      "pf_conservative_min": 1.10,
+      "pf_severe_min": 1.00,
+      "net_positive_all_costs": true,
+      "positive_full_years_central_required": [2022, 2023, 2024],
+      "independent_trade_parity_required": true
+    },
+    "stage_c_results": "NOT_EXECUTED",
     "all_years_2018_2026_run": "NOT_EXECUTED",
     "supergate": false,
     "mt5_for_this_stage": false,
     "state": "BLOCKED_BY_INFRASTRUCTURE"
   },
   "data_state": {
-    "NQX": "PHYSICAL_PASS_28_OF_28_CURRENT_RUNTIME",
+    "NQX": "PHYSICAL_PASS_28_OF_28_IN_2026_09_11_RECOVERY_RUNTIME",
     "NQX_carrier_sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
-    "XAUUSD": "AUTHORITY_PASS_35_OF_35_NOT_PHYSICALLY_MOUNTED_CURRENT_RUNTIME",
+    "XAUUSD": "AUTHORITY_PASS_35_OF_35_NOT_PHYSICALLY_MOUNTED_IN_2026_09_11_RECOVERY_RUNTIME",
     "XAUUSD_carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4"
   },
   "execution_blockers": {
@@ -42,17 +62,19 @@
     "NO_MEDOIDS",
     "NO_RERANKING",
     "NO_RETUNING_AFTER_RESULTS",
+    "NO_INVENTED_STAGE_C_RESULTS",
     "NO_APPROXIMATE_FROZEN_ROW_RECONSTRUCTION",
     "NO_APPROXIMATE_RUNNER_REIMPLEMENTATION_AS_PARITY_EVIDENCE",
     "NO_MT5_BEFORE_RESEARCH_SUPERGATE_PASS"
   ],
   "new_chat_recovery_order": [
     "READ control/HEAD.json",
-    "READ control/QROS_G30_RECOVERY_CHECKPOINT_V196_20260911_v1.json",
-    "READ control/QROS_DURABLE_SCIENTIFIC_ARTIFACT_POLICY_v1.json",
+    "READ historical_reconciliation_ref",
+    "READ checkpoint_ref",
+    "READ durability_policy_ref",
     "VERIFY referenced identities before execution",
     "DO NOT rely on chat memory as sole authority"
   ],
-  "next_action": "RECOVER_ONLY_PREEXISTING_EXACT_FROZEN_ROW_PAYLOADS_AND_EXACT_RUNNER_SOURCE_BYTES_FROM_DURABLE_STORAGE_IF_AVAILABLE; HASH_VERIFY; THEN_EXECUTE_DETERMINISTIC_SHARDED_ALL_YEARS_2018_2026_DIAGNOSTICS_WITH_EXPOSURE_SEMANTICS. DO_NOT_RERUN_STAGE_B.",
-  "supersedes": "QROS_PERSISTENT_CONTROL_HEAD_V191"
+  "next_action": "RECOVER_ONLY_PREEXISTING_EXACT_FROZEN_ROW_PAYLOADS_AND_EXACT_RUNNER_SOURCE_BYTES_FROM_DURABLE_STORAGE_IF AVAILABLE; HASH_VERIFY; THEN EXECUTE ONLY THE CURRENTLY AUTHORIZED DIAGNOSTIC/RESEARCH ROUTE WITHOUT RERUNNING STAGE B. PRESERVE V192 AS HISTORICAL PROMOTION EVIDENCE, NOT AS PROOF OF STAGE C RESULTS.",
+  "supersedes": "QROS_PERSISTENT_CONTROL_HEAD_V196"
 }
