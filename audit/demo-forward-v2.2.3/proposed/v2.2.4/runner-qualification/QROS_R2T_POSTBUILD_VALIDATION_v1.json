@@ -1,0 +1,31 @@
+{
+  "schema": "QROS_R2T_POSTBUILD_VALIDATION_1.0",
+  "artifact": "QROS_RUNNER_ACTUAL_TERMINAL_FENCE_QUALIFIER_v1.zip",
+  "bytes": 9806,
+  "sha256": "f65ca9bc2d362ac0ba193e304f2552537b880d5699a3e648e03b7c9c6054fc1b",
+  "summary": {"pass": 20, "total": 20, "fail": 0},
+  "status": "PREVALIDATED_ARTIFACT",
+  "native_validated": false,
+  "checks": [
+    "ZIP CRC PASS",
+    "expected file set exact",
+    "manifest hash/size PASS_ALL",
+    "static gate 15/15 PASS",
+    "mutation tests 14/14 caught",
+    "no trade API",
+    "normal runtime only; refuses Strategy Tester",
+    "AllowLiveTrading=0",
+    "exact FILE_COMMON|FILE_READ|FILE_WRITE|FILE_BIN fence",
+    "no FILE_SHARE flags",
+    "TERMINAL_COMMONDATA_PATH bound across both terminals",
+    "GetTickCount64 wall-clock hold; no Sleep",
+    "single Stop-Process dual-gated by SafeIso + process.Path",
+    "no taskkill",
+    "no legacy CERT mutation token",
+    "no Candidate3 in qualifier MQL",
+    "fail-closed receipt path",
+    "restart writer/reader present",
+    "RunId-isolated terminal roots",
+    "package SHA verified"
+  ]
+}
