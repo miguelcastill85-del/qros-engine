@@ -1,0 +1,59 @@
+{
+  "schema": "QROS_RUNNER_R2_NATIVE_ENV_ADJUDICATION_1.0",
+  "utc": "2026-09-12T02:50:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "evidence": {
+    "file": "QROS_RUNNER_NATIVE_ENV_EVIDENCE_r2_20260911_234345_12b72981.zip",
+    "bytes": 18009,
+    "sha256": "43984d02d002a43fd7cc3a89bf45baf00d09fb473f07328c8376bb967d335927",
+    "files": 13
+  },
+  "verified": {
+    "runner_selftest": "13/13 PASS",
+    "powershell": "5.1.22621.6133",
+    "metaeditor": "6182 compile 0 errors / 0 warnings",
+    "mql_smoke": "PASS NO_TRADING_MATERIALIZATION",
+    "strategy_tester_mql_tester": 1,
+    "real_broker_orders_authorized": false,
+    "real_broker_orders_sent": 0,
+    "candidate3_executed": false,
+    "active_terminals_before": 0,
+    "active_terminals_after_fail": 0
+  },
+  "failure": {
+    "state": "RUNNER_REJECTED_NATIVE_ENV",
+    "reason": "FENCE_SECOND_EXECUTOR_NOT_DENIED",
+    "code": 52,
+    "timing": {
+      "smoke_end": "2026-09-11 23:45:56",
+      "probe_start": "2026-09-11 23:46:17",
+      "probe_end": "2026-09-11 23:47:09"
+    }
+  },
+  "scientific_adjudication": {
+    "candidate3_failure": false,
+    "runner_environment_qualified": false,
+    "f08_status": "UNRESOLVED",
+    "rationale": "The exact FILE_COMMON fence primitive was not exclusive between two Strategy Tester executions. This is a real empirical contradiction with the intended exclusivity contract, but Strategy Tester is not the deployment runtime. Candidate3 remains untouched until the same primitive is tested in two actual isolated terminal processes outside Strategy Tester."
+  },
+  "next_gate": {
+    "name": "QROS_RUNNER_ACTUAL_TERMINAL_FENCE_QUALIFIER_v1",
+    "candidate3_included": false,
+    "trade_api_present": false,
+    "allow_live_trading": false,
+    "required": [
+      "normal terminal MQL_TESTER=0",
+      "same TERMINAL_COMMONDATA_PATH",
+      "second lock denied",
+      "release/reacquire",
+      "restart persistence"
+    ],
+    "decision_rule": {
+      "pass": "ACTUAL_TERMINAL_FENCE_QUALIFIED",
+      "second_lock_acquired": "REAL_RUNTIME_FENCE_DEFECT_CANDIDATE3_F08_UNRESOLVED_REQUIRES_CODE_CHANGE"
+    }
+  },
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+}
