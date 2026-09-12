@@ -1,0 +1,14 @@
+{
+  "schema": "QROS_RUNNER_RELEASE_STATE_1.0",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "runner_under_review": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v2_1.zip",
+  "runner_sha256": "820d779e1bcde36dc384cdf778ce3ed802d2ae41730d2bc3621264a0c703ad12",
+  "current_state": "RUNNER_REJECTED_STATIC",
+  "reason": "New release-governor static gate detected Stop-Process in Run-Tester without the required dual SafeIsoPath + process.Path isolated-root gate.",
+  "candidate_failure": false,
+  "candidate_state": "FROZEN_CANDIDATE",
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0",
+  "next_action": "Repair runner only; rerun static gate + mutation corpus. Then run a separate native runner/environment qualifier before any Candidate3 Phase-A execution."
+}
