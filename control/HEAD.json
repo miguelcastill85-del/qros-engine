@@ -1,15 +1,19 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V197",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V198",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
-  "authority_epoch": 197,
+  "authority_epoch": 198,
   "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
-  "scientific_change_class": "DURABILITY_RECONCILIATION_ONLY_NO_SCIENTIFIC_RERUN",
+  "scientific_change_class": "FORENSIC_EXECUTABLE_REPRESENTATION_RECOVERY_NO_SCIENTIFIC_RESELECTION",
+  "transverse_audit_ref": "control/QROS_G30_TRANSVERSE_EXECUTABLE_REPRESENTATION_AUDIT_V198_20260911_v1.json",
+  "nqx_executable_manifest_ref": "control/QROS_G30_NQX_6570_EXECUTABLE_REPRESENTATION_MANIFEST_V198_v1.json",
   "checkpoint_ref": "control/QROS_G30_RECOVERY_CHECKPOINT_V196_20260911_v1.json",
   "historical_reconciliation_ref": "control/QROS_G30_V192_V196_HISTORICAL_RECONCILIATION_V197_20260911_v1.json",
   "durability_policy_ref": "control/QROS_DURABLE_SCIENTIFIC_ARTIFACT_POLICY_v1.json",
   "historical_chain": {
     "stage_b_global_close_commit": "89b6384c8a4028a18eccb0ad04f72c96ccf7ae14",
     "stage_b_global_close_root_sha256": "788d063d107fa37b3e590bd480572aeee6cce37b358aacafda5dc0c51b175d87",
+    "nqx_stage_b_master_commit": "f590912400a5c198b9a2febfb4710dff33e9190c",
+    "nqx_stage_b_master_root_sha256": "8b8cdd3579bec171ef531d764ad7bf45cb57622732ec63f367359786b530ad37",
     "v192_candidate_commit": "df99a5cf3092d35ece0a8fcdc721f3b1c9ce4037",
     "v192_validator_commit": "b2caf5f124a0c76d267b12bf46b82269e1d3d957",
     "v192_promotion_commit": "7414f80e0b576faffe691ed273738a1fc3b560a2",
@@ -27,22 +31,22 @@
     "frozen_population_SELL": 3054,
     "population_rule": "ALL_PASSERS_ADVANCE_NO_MEDOIDS_NO_RERANKING_NO_RETUNING",
     "v192_stage_c_authority": "VALIDATED_AND_PROMOTED_NO_RESULTS",
-    "v192_stage_c_gate": {
-      "window_start_inclusive": "2022-01-01",
-      "window_end_exclusive": "2025-01-01",
-      "minimum_trades": 30,
-      "pf_central_min": 1.20,
-      "pf_conservative_min": 1.10,
-      "pf_severe_min": 1.00,
-      "net_positive_all_costs": true,
-      "positive_full_years_central_required": [2022, 2023, 2024],
-      "independent_trade_parity_required": true
-    },
     "stage_c_results": "NOT_EXECUTED",
     "all_years_2018_2026_run": "NOT_EXECUTED",
     "supergate": false,
     "mt5_for_this_stage": false,
-    "state": "BLOCKED_BY_INFRASTRUCTURE"
+    "state": "DEVELOPMENT_RUNNING"
+  },
+  "forensic_recovery_state": {
+    "NQX_6570_recovery_protocol": "IDENTIFIED_AND_DURABLY_MANIFESTED",
+    "method": "FORENSIC_CRYPTOGRAPHIC_REMATERIALIZATION_NO_SCIENTIFIC_RESELECTION_v1",
+    "NQX_6570_materialized": false,
+    "NQX_source_corpus": "PRESENT_ON_RECOVERY_BRANCH",
+    "NQX_cryptographic_oracles": "PRESENT_IN_STAGE_B_RECEIPTS",
+    "F03_stage_b_source_identity": "SOURCE_IDENTICAL_ROUTE_PROVEN",
+    "F04_F12": "FAMILY_SOURCE_AND_ORACLE_RECOVERY_PRESENT_ROLE_INPUT_RECONCILIATION_AND_MATERIALIZATION_PENDING",
+    "correction_to_v196_v197": "The blanket statement that NQX frozen rows/source were not recoverable was too broad. Source blobs, family pipelines, receipts, cryptographic oracles and prior-stage artifacts survive. Exact 6570-row materialization is pending and must pass all frozen hashes/roots before being called recovered.",
+    "git_object_type_correction": "40-hex Git blob SHA1 identities are not commit SHAs; failure at a commit endpoint is not evidence of missing source bytes."
   },
   "data_state": {
     "NQX": "PHYSICAL_PASS_28_OF_28_IN_2026_09_11_RECOVERY_RUNTIME",
@@ -50,11 +54,15 @@
     "XAUUSD": "AUTHORITY_PASS_35_OF_35_NOT_PHYSICALLY_MOUNTED_IN_2026_09_11_RECOVERY_RUNTIME",
     "XAUUSD_carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4"
   },
-  "execution_blockers": {
-    "exact_frozen_final_rows": "NOT_RECOVERABLE_FROM_DURABLE_STORES_CHECKED_2026_09_11",
-    "exact_runner_source_bytes": "NOT_RECOVERABLE_FROM_DURABLE_STORES_CHECKED_2026_09_11",
-    "runner_name": "qros_g30_econ_numba_v4.py",
-    "runner_sha256": "ef671e449eb7e2fbed42704c7bd9dec01de0768310f6eb48fb2265409767abe4"
+  "remaining_execution_constraints": {
+    "NQX_6570_final_rows": "MUST_BE_MATERIALIZED_AND_REVERIFIED_6570_OF_6570_BEFORE_ECONOMIC_EXECUTION",
+    "stage_c_economic_runner": {
+      "name": "qros_g30_econ_numba_v4.py",
+      "sha256": "ef671e449eb7e2fbed42704c7bd9dec01de0768310f6eb48fb2265409767abe4",
+      "exact_source_bytes": "STILL_NOT_RECOVERED_AS_OF_V198",
+      "rule": "Do not substitute Stage-B family recovery code for the missing Stage-C economic runner unless a separately governed parity/rematerialization authority proves equivalence."
+    },
+    "XAU_current_runtime": "PHYSICAL_CARRIER_NOT_MOUNTED"
   },
   "guards": [
     "DO_NOT_RESTART_STAGE_B",
@@ -65,16 +73,18 @@
     "NO_INVENTED_STAGE_C_RESULTS",
     "NO_APPROXIMATE_FROZEN_ROW_RECONSTRUCTION",
     "NO_APPROXIMATE_RUNNER_REIMPLEMENTATION_AS_PARITY_EVIDENCE",
+    "ACCEPT_REMATERIALIZATION_ONLY_IF_FROZEN_CRYPTOGRAPHIC_ORACLES_PASS",
     "NO_MT5_BEFORE_RESEARCH_SUPERGATE_PASS"
   ],
   "new_chat_recovery_order": [
     "READ control/HEAD.json",
+    "READ transverse_audit_ref",
+    "READ nqx_executable_manifest_ref",
     "READ historical_reconciliation_ref",
-    "READ checkpoint_ref",
     "READ durability_policy_ref",
     "VERIFY referenced identities before execution",
     "DO NOT rely on chat memory as sole authority"
   ],
-  "next_action": "RECOVER_ONLY_PREEXISTING_EXACT_FROZEN_ROW_PAYLOADS_AND_EXACT_RUNNER_SOURCE_BYTES_FROM_DURABLE_STORAGE_IF AVAILABLE; HASH_VERIFY; THEN EXECUTE ONLY THE CURRENTLY AUTHORIZED DIAGNOSTIC/RESEARCH ROUTE WITHOUT RERUNNING STAGE B. PRESERVE V192 AS HISTORICAL PROMOTION EVIDENCE, NOT AS PROOF OF STAGE C RESULTS.",
-  "supersedes": "QROS_PERSISTENT_CONTROL_HEAD_V196"
+  "next_action": "CONTINUE NQX FORENSIC MATERIALIZATION F03-F12 WITHOUT SCIENTIFIC RESELECTION: recover exact family Gate-A inputs, execute preserved recovery/source lineage, require original per-shard hashes, decision roots, passer roots, BUY/SELL counts, independent parity and NQX master root; promote only after 6570_OF_6570. Separately recover or prove governed exact equivalence for qros_g30_econ_numba_v4.py before Stage-C economic execution. Do not touch F13.",
+  "supersedes": "QROS_PERSISTENT_CONTROL_HEAD_V197"
 }
