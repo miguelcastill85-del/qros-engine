@@ -9,6 +9,7 @@ from pathlib import Path
 from . import runtime as v
 from .verify_release import verify
 from .validate_candidate import atomic_write
+from .qros_controller_adapter import inspect as inspect_controller
 
 CONFIG='cognitive/ACTIVATION.json'
 MODULES={'L0':['CORE_CONSTITUTION','AUTHORITY_BOOTSTRAP','TOOL_POLICY'],
@@ -33,6 +34,7 @@ def start(root,release_blob,objective,level='L1',mode='REFERENCE_ONLY',active_ro
     v.require(observation.manifest['authority_epoch']==191,'REFERENCE_EPOCH')
     bootstrap=v.inspect_control_bootstrap(v.Snapshot(reference),ref['manifest_blob_sha1'])
     v.require(bootstrap['status']=='PASS','REFERENCE_BOOTSTRAP_FAILED')
+    controller=inspect_controller(reference,ref['manifest_blob_sha1'],'next')
     active={'status':'NOT_REQUESTED','scientific_authority_selected':False}
     if mode=='ACTIVE_INSPECTION':
         v.require(active_root is not None,'ACTIVE_AUTHORITY_REQUIRED')
@@ -53,7 +55,7 @@ def start(root,release_blob,objective,level='L1',mode='REFERENCE_ONLY',active_ro
         finally:db.close()
     return {'schema':'QRCEL_SESSION_V1','status':'ACTIVE_NON_SCIENTIFIC_ASSISTANCE','session_id':str(uuid.uuid4()),
         'observed_at_ns':time.time_ns(),'pid':os.getpid(),'release_manifest_blob_sha1':release_blob,
-        'release_integrity':integrity,'reference':ref,'reference_bootstrap':bootstrap,'active_control':active,
+        'release_integrity':integrity,'reference':ref,'reference_bootstrap':bootstrap,'reference_controller':controller,'active_control':active,
         'mode':mode,'depth':level,'routing_reason':'Host-selected risk class; L3 requires existing scientific gates before any scientific action',
         'task_spec':{'objective':objective,'trust_zone':'USER_DATA','sha256':v.sha256(objective.encode())},
         'modules':modules,'capability':{'inheritable':False,'sqlite_transaction_observed':True,'journal_mode':journal,

@@ -1,0 +1,16 @@
+test_bootstrap_includes_compatible_reference_controller (cognitive.tests.test_session.SessionTests.test_bootstrap_includes_compatible_reference_controller) ... ok
+test_conflicting_live_head_does_not_become_authorized (cognitive.tests.test_session.SessionTests.test_conflicting_live_head_does_not_become_authorized) ... ok
+test_depth_loads_only_required_modules (cognitive.tests.test_session.SessionTests.test_depth_loads_only_required_modules) ... ok
+test_each_runtime_observation_is_new (cognitive.tests.test_session.SessionTests.test_each_runtime_observation_is_new) ... ok
+test_live_inspection_requires_explicit_identity (cognitive.tests.test_session.SessionTests.test_live_inspection_requires_explicit_identity) ... ok
+test_modified_module_rejected_by_release_anchor (cognitive.tests.test_session.SessionTests.test_modified_module_rejected_by_release_anchor) ... ok
+test_reference_cannot_be_silently_changed (cognitive.tests.test_session.SessionTests.test_reference_cannot_be_silently_changed) ... ok
+test_reference_does_not_need_or_select_live_authority (cognitive.tests.test_session.SessionTests.test_reference_does_not_need_or_select_live_authority) ... ok
+test_session_checkpoint_is_hash_bound_and_not_overwritten (cognitive.tests.test_session.SessionTests.test_session_checkpoint_is_hash_bound_and_not_overwritten) ... ok
+test_unknown_level_rejected (cognitive.tests.test_session.SessionTests.test_unknown_level_rejected) ... ok
+test_user_objective_remains_data (cognitive.tests.test_session.SessionTests.test_user_objective_remains_data) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.069s
+
+OK

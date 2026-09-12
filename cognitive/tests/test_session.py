@@ -21,6 +21,8 @@ class SessionTests(unittest.TestCase):
     def run_session(self,**kw):return start(self.root,self.anchor,'Continue authorized software work',**kw)
     def test_reference_does_not_need_or_select_live_authority(self):
         r=self.run_session();self.assertEqual(r['status'],'ACTIVE_NON_SCIENTIFIC_ASSISTANCE');self.assertEqual(r['active_control']['status'],'NOT_REQUESTED');self.assertFalse(r['scientific_dispatch_authorized'])
+    def test_bootstrap_includes_compatible_reference_controller(self):
+        r=self.run_session();self.assertEqual(r['reference_controller']['next_item']['item_id'],'G30-OBS-STAGE-B-F03-RECONFIRM');self.assertFalse(r['reference_controller']['scientific_dispatch_authorized'])
     def test_each_runtime_observation_is_new(self):
         a=self.run_session();b=self.run_session();self.assertNotEqual(a['session_id'],b['session_id']);self.assertTrue(a['capability']['sqlite_transaction_observed']);self.assertFalse(a['capability']['inheritable'])
     def test_depth_loads_only_required_modules(self):
