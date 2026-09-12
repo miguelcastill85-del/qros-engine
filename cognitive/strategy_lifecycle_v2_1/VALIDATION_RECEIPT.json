@@ -1,0 +1,31 @@
+{
+  "schema": "QSLE_DURABLE_REFERENCE_VALIDATION_RECEIPT_v1",
+  "version": "2.1-reference",
+  "status": "PASS_REFERENCE_NOT_PROMOTED",
+  "pytest": {"pass": 45, "fail": 0},
+  "rise_q_blackbox": {"pass": 15, "fail": 0},
+  "stress": {
+    "campaigns": 80,
+    "attempted": 640,
+    "committed": 640,
+    "precommit_crashes_recovered": 188,
+    "postcommit_crashes_recovered_exactly_once": 108,
+    "stale_worker_rejections": 16,
+    "exposures": 160,
+    "checkpoint_pass": true
+  },
+  "compileall": "PASS",
+  "faults_found_and_corrected": [
+    "BOOTSTRAP_EXECUTESCRIPT_TRANSACTION_BOUNDARY",
+    "EVENT_STATE_BYTES_MISSING_FOR_PROJECTION_REPLAY",
+    "EVENT_EXPOSURE_NOT_HASH_BOUND",
+    "AUTHORITY_PROJECTION_DRIFT_NOT_VALIDATED",
+    "SCHEMA_TRIGGER_DRIFT_NOT_VALIDATED",
+    "EVENT_INSERT_COLUMN_VALUE_COUNT_MISMATCH_DURING_HARDENING"
+  ],
+  "authority_changed": false,
+  "scientific_dispatches": 0,
+  "holdout_opened": false,
+  "f13_touched": false,
+  "promotion": false
+}
