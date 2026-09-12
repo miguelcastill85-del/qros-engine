@@ -1,0 +1,160 @@
+{
+  "schema": "QROS_G30_TRANSVERSE_EXECUTABLE_REPRESENTATION_AUDIT_V198_20260911_v1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "authority_epoch": 198,
+  "created_date": "2026-09-11",
+  "status": "AUDIT_PASS_RECOVERY_PROTOCOL_IDENTIFIED_MATERIALIZATION_PENDING",
+  "scientific_change_class": "FORENSIC_DURABILITY_RECOVERY_ONLY_NO_SCIENTIFIC_RESELECTION",
+  "scope": {
+    "included": ["F03","F04","F05","F06","F07","F08","F09","F10","F11","F12"],
+    "excluded": ["F13"],
+    "f13_rule": "DO_NOT_SEARCH_DO_NOT_RECOVER_DO_NOT_EXECUTE"
+  },
+  "authoritative_population": {
+    "NQX_total": 6570,
+    "NQX_BUY": 4065,
+    "NQX_SELL": 2505,
+    "gate_a_evaluated": 20010,
+    "family_counts": {"F03":246,"F04":104,"F05":277,"F06":257,"F07":1637,"F08":1545,"F09":1187,"F10":832,"F11":312,"F12":173},
+    "master_commit": "f590912400a5c198b9a2febfb4710dff33e9190c",
+    "master_root_sha256": "8b8cdd3579bec171ef531d764ad7bf45cb57622732ec63f367359786b530ad37",
+    "global_stage_b_close_commit": "89b6384c8a4028a18eccb0ad04f72c96ccf7ae14",
+    "global_stage_b_close_root_sha256": "788d063d107fa37b3e590bd480572aeee6cce37b358aacafda5dc0c51b175d87"
+  },
+  "transverse_findings": [
+    {
+      "id": "T01",
+      "decision": "PASS",
+      "finding": "The NQX Stage-B master independently reconciles 20010 Gate-A inputs to exactly 6570 survivorship instances and preserves the ten family receipt commits."
+    },
+    {
+      "id": "T02",
+      "decision": "PASS",
+      "finding": "The recovery branch g30-stage-b-preflight-f03-f12-v191r1 still contains immutable Git source blobs for the family pipelines, parity implementations and recovery utilities."
+    },
+    {
+      "id": "T03",
+      "decision": "PASS_SOURCE_IDENTICAL_F03",
+      "finding": "F03 retains the exact Stage-B all-passers source control/recovery/qros_g30_f03_stage_b_all_passers_v191r1.py, Git blob SHA1 ee707a17a61fbf3b299c943e3ea515495f8021af. Its canonical stable_id and canonical JSONL serialization logic make exact row rematerialization testable against the original receipt hashes and roots."
+    },
+    {
+      "id": "T04",
+      "decision": "PASS_CRYPTOGRAPHIC_ORACLES",
+      "finding": "Stage-B receipts preserve byte-identical Gate-A replay evidence, per-shard Stage-B output SHA256 values, decision roots/passer roots and primary-independent parity. These are cryptographic acceptance oracles; a rematerialized population is accepted only if every applicable oracle reconciles exactly."
+    },
+    {
+      "id": "T05",
+      "decision": "PASS_PRIOR_STAGE_DURABILITY_EVIDENCE",
+      "finding": "Dropbox preserves prior-stage Campaign-30 artifacts including F12 Gate-A 24-shard authority, Gate-A passer replay and cluster membership artifacts. This disproves the earlier blanket assumption that all executable pre-Stage-B material was lost."
+    },
+    {
+      "id": "T06",
+      "decision": "PRESENT_NOT_INSPECTED",
+      "finding": "Dropbox contains /QROS/artifacts/faa75e645cf72e68447ed82ea5018d67ea1d8a6e373bbc24de6d8f0780d27cbb.tar.gz, size 70666933 bytes. Its contents have not yet been inspected through the available connector path and must not be assumed."
+    },
+    {
+      "id": "T07",
+      "decision": "CORRECTION",
+      "finding": "Several 40-hex identifiers previously treated as unresolved commit SHAs are Git blob SHA-1 object identities. Failure to resolve them with a commit endpoint was a type error, not evidence that the source bytes were absent."
+    },
+    {
+      "id": "T08",
+      "decision": "PASS_DATA_AUTHORITY",
+      "finding": "NQX market authority is available independently of final-row recovery: canonical carrier SHA256 6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608, 559817687 records, 9516900679 bytes; 28/28 ZIP parts were physically available in the 2026-09-11 recovery runtime."
+    },
+    {
+      "id": "T09",
+      "decision": "NO_SCIENTIFIC_REOPEN",
+      "finding": "Forensic rematerialization is not a rerun of selection. Stage B remains scientifically closed. Membership is immutable and may only be materialized if the original cryptographic outputs/roots are reproduced exactly."
+    }
+  ],
+  "recovery_method": {
+    "id": "FORENSIC_CRYPTOGRAPHIC_REMATERIALIZATION_NO_SCIENTIFIC_RESELECTION_v1",
+    "principle": "Recreate missing bytes from preserved deterministic inputs/source lineage and accept only byte-identical or cryptographically equivalent outputs against frozen pre-existing oracles; never choose a new population.",
+    "acceptance_tiers": {
+      "TIER_A_SOURCE_IDENTICAL": "Exact historical source bytes plus exact inputs reproduce original output hashes, decision roots, passer roots and counts.",
+      "TIER_B_CRYPTOGRAPHICALLY_EXECUTION_EQUIVALENT": "A recovery wrapper may differ from historical orchestration only if canonical outputs reproduce every preserved original hash/root/count exactly and independent parity remains exact. This tier proves the executable representation, not source identity of the wrapper.",
+      "REJECT": "Any mismatch in input identity, canonical row bytes, Stage-B shard SHA256, decision root, passer root, family count, BUY/SELL count, master root or independent parity."
+    },
+    "forbidden": [
+      "rerun Stage B as a new scientific selection",
+      "retune thresholds or parameters",
+      "infer missing survivors from aggregate counts",
+      "accept approximate runner behavior without cryptographic reconciliation",
+      "touch F13"
+    ]
+  },
+  "exact_executable_representation_definition": {
+    "name": "QROS_G30_NQX_6570_EXECUTABLE_FROZEN_POPULATION_v1",
+    "population_unit": {
+      "required_fields": [
+        "stable_id",
+        "asset",
+        "family",
+        "side",
+        "canonical_parameter_payload",
+        "gate_a_source_shard",
+        "gate_a_source_index_or_stable_origin",
+        "source_code_identity",
+        "stage_b_input_identity",
+        "stage_b_output_identity",
+        "stage_b_decision",
+        "family_passer_root",
+        "nqx_master_root",
+        "market_carrier_identity",
+        "execution_contract_identity",
+        "cost_contract_identity"
+      ],
+      "canonicality_rule": "Parameter payload and stable_id must be serialized using the preserved family canonicalization. No regenerated row is authoritative until its family-level cryptographic oracle passes."
+    },
+    "population_level_required_roots": [
+      "all ten family passer/count authorities",
+      "NQX frontier master root 8b8cdd3579bec171ef531d764ad7bf45cb57622732ec63f367359786b530ad37",
+      "global Stage-B close root 788d063d107fa37b3e590bd480572aeee6cce37b358aacafda5dc0c51b175d87"
+    ]
+  },
+  "verified_source_objects": {
+    "branch": "g30-stage-b-preflight-f03-f12-v191r1",
+    "common": {
+      "qros_g30_f03_stage_b_all_passers_v191r1.py": "ee707a17a61fbf3b299c943e3ea515495f8021af",
+      "qros_g30_stage_b_prefix_preflight_v191r1.py": "5b3e752e9e57ca8771609cf03caa70104086b5e2"
+    },
+    "family_pipeline_blobs": {
+      "F03_transactional_v104": "07deb2bb1e8e384d2f180eafb36eead2acf53ed1",
+      "F04_transactional_v112": "26bb827c95fd2cba5f22828fe18b3ac43ab4fdbb",
+      "F05_transactional_v114": "6ad433fbe5c14cb4e07ea141137b42c56f33484d",
+      "F06_transactional": "e911dbebb1efa40130368d3c59d9ae8e09498b64",
+      "F07_transactional": "8da34906e53bbd1e7fc45f9612ec99a7a0f8ca8c",
+      "F08_transactional": "132568e5c1594c11b3c784c679879d22fb6e7457",
+      "F09_primary": "21fe633d4cc91930d0920c3f86cf3b7307abdd69",
+      "F10_transactional": "f99dce58af5c66480365de73f36de79a74f05d3a",
+      "F11_transactional_v159_v161": "dbf2640c69475454900da5ddd77b4d9535a69e96",
+      "F12_transactional": "b2279ed55f3597feffa367a49febb2c41749e6d6"
+    },
+    "note": "These Git blob identities prove immutable source objects exist. Except where explicitly proven (F03 all-passers Stage-B source), a transactional/source blob must not be equated with a receipt's historical local_stage_b_runner_sha256 until content hashing and role mapping reconcile."
+  },
+  "receipt_commits": {
+    "F03": "b997bff3478fef90e4c359f1af288d7d7a81afb6",
+    "F04": "cb86f05780608b01b56d4f8873a0b42a6f637a99",
+    "F05": "a4719a1dfdcc15ef3d5d8b9d373650ae8df32821",
+    "F06": "b250ea8c293ae0370894e4fc4e10bc5deb7000f9",
+    "F07": "b52222fe86e0b0001396ff9fdc6ed3d944000277",
+    "F08": "a2e0374ea699e11044001cbac20f9ae79938fd24",
+    "F09": "ab6d53673e6a6f17be2e6c393dde1e45856467d6",
+    "F10": "f974958cecdacf87c71b27f6a52102d70568c1cc",
+    "F11": "4038d184a5f8e78d98a9aca3e0e0d7251b274172",
+    "F12": "90482fa225c8680b1dc4f4c3d9444dadbeea7427"
+  },
+  "current_recovery_state": {
+    "protocol_identified": true,
+    "nqx_market_bytes_available": true,
+    "source_corpus_present": true,
+    "cryptographic_oracles_present": true,
+    "final_6570_rows_materialized_and_reverified": false,
+    "all_family_exact_input_payloads_recovered": false,
+    "cas_archive_inspected": false,
+    "stage_c_executed": false
+  },
+  "decision": "CAMPAIGN_ACTIVE_FORENSIC_RECOVERY_ROUTE_VALIDATED",
+  "next_action": "Materialize the recovery package family by family F03-F12 using preserved exact inputs/source objects. For each family require Gate-A input identity, Stage-B per-shard SHA256, decision/passer roots, BUY/SELL/count reconciliation and independent parity before adding rows to QROS_G30_NQX_6570_EXECUTABLE_FROZEN_POPULATION_v1. Then require 6570/6570 plus NQX master-root reconciliation. Do not open new Stage-B selection and do not touch F13."
+}
