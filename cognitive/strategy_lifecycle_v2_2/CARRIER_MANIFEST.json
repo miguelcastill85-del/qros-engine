@@ -1,0 +1,21 @@
+{
+  "schema": "QSLE_V2_2_CANONICAL_CARRIER_MANIFEST_v2",
+  "status": "COMPLETE_9_OF_9_BYTES_PREREGISTERED",
+  "archive_name": "QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip",
+  "archive_bytes": 54529,
+  "archive_sha256": "c50616de24a4c994f82837f670791f114c648737e5f048f77a7c126531ae2b1d",
+  "encoding": "concatenate ordered UTF-8 Base64 parts then base64-decode",
+  "ordered_parts": [
+    {"name":"QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip.b64.part000","bytes":12000,"git_blob_sha1":"7806c6d25ee813a9b6c780741735a1b0bfdbe3a5","sha256":"925a26a56feafabed009c6b938f58d618129925e9afa7031eb3d91bd8f5e0f6a"},
+    {"name":"QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip.b64.part001","bytes":12000,"git_blob_sha1":"2939e9927d70022a0ebc9c248932cbfe6d442097","sha256":"465d7d19aeedf52cdf2009334d30258316e06379af7f5cf417452f82ec3c88e7"},
+    {"name":"QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip.b64.part002","bytes":12000,"git_blob_sha1":"1fa6372252d61cf6e5bba3234f8fb4cf401f2b2c","sha256":"6f0d388f4864422f4c740278d98d6046bceae5c2f2d7ae2b223d05e9c273ec20"},
+    {"name":"QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip.b64.part003","bytes":12000,"git_blob_sha1":"633317674c8fb4db62bb4b1ec00ce5a19fd85397","sha256":"c835c486d8cf440760f1ae78309854fcef766f6071924891ea4f8d4b6eff64e9"},
+    {"name":"QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip.b64.part004a1","bytes":3000,"git_blob_sha1":"dbba479f8cdc1bacf9339a1f41b236da9aeca526","sha256":"3993807f026cafebfcf2d56fe850e8ab1961c544d983a6c33a2657cc3f652417"},
+    {"name":"QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip.b64.part004a2","bytes":3000,"git_blob_sha1":"d3f694d7a5eb6246f8b5ba271f0593054ae9ecb3","sha256":"7292eab9685ac5786b481b6c48399ccd518b0750c91564d416a62bf63b1f90a7"},
+    {"name":"QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip.b64.part004b","bytes":6000,"git_blob_sha1":"9c20923aba0bba1383f831289f0e79a3daf0b4b8","sha256":"0bb295b1acd271a2eb997a50f27ea28421b3bbb8d495cf9cb2dab09627503786"},
+    {"name":"QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip.b64.part005","bytes":12000,"git_blob_sha1":"d6c912ba88dfe98b80a19cf9ef628bc53097291a","sha256":"6a1dfe3c743f754d67484a19a8077814562d22abcab6fc733f2edecdfaac01cf"},
+    {"name":"QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip.b64.part006","bytes":708,"git_blob_sha1":"07ad8f28e00abf790bb8a24afdfad46df9b866ec","sha256":"e40a5ad21b443935bf07a72eca35766014e14cab88ef458974aa3626f5bcb6ff"}
+  ],
+  "scientific_dispatch_authorized": false,
+  "promotion": false
+}
