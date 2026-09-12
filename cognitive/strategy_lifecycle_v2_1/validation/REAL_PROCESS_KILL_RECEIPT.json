@@ -1,0 +1,15 @@
+{
+  "schema": "QSLE_REAL_PROCESS_KILL_RECEIPT_v1",
+  "status": "PASS",
+  "execution": "separate_child_processes_real_SIGKILL",
+  "precommit_sigkill_rollback": "PASS",
+  "postcommit_sigkill_exactly_once": "PASS",
+  "final_events": 2,
+  "final_campaign_version": 2,
+  "logical_root": "0ed240a4585b61ef6118e4783467a704c094d3af4e908cdd29c363192e6b20d2",
+  "scientific_authority_changed": false,
+  "scientific_dispatches": 0,
+  "holdout_opened": false,
+  "harness_sha256": "90d8da80349d25076db307fd3872ba3e11c3a947ddf657c45861850409ec28dd",
+  "note": "Validates abrupt process death on this host/filesystem. It does not substitute for an independent host/runtime validation."
+}
