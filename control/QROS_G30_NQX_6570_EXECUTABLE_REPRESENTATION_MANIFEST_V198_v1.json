@@ -1,0 +1,70 @@
+{
+  "schema": "QROS_G30_NQX_6570_EXECUTABLE_REPRESENTATION_MANIFEST_V198_v1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "authority_epoch": 198,
+  "status": "RECOVERY_MANIFEST_ACTIVE_MATERIALIZATION_PENDING",
+  "asset": "NQX",
+  "frozen_population": {
+    "total": 6570,
+    "BUY": 4065,
+    "SELL": 2505,
+    "master_commit": "f590912400a5c198b9a2febfb4710dff33e9190c",
+    "master_root_sha256": "8b8cdd3579bec171ef531d764ad7bf45cb57622732ec63f367359786b530ad37"
+  },
+  "data_authority": {
+    "carrier": "NQX_PACKED17_FULL_2018_2026.bin",
+    "bytes": 9516900679,
+    "records": 559817687,
+    "sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+    "source_clock": "Darwinex server/source clock as exported from MT5; not relabeled UTC",
+    "stage_b_prefix_2018_2021_sha256": "d2530ae084311e0b454f30a5d7a2bc0d0f4ca932bb81d9dd2252ba7295491a05",
+    "stage_b_prefix_cache_sha256": "2bad94f5051c41f00a5e6fd9f39efa4278488f12b0b2f6d95737386cddecf598"
+  },
+  "representation_contract": {
+    "population_name": "QROS_G30_NQX_6570_EXECUTABLE_FROZEN_POPULATION_v1",
+    "format": "canonical row set plus executable provenance and cryptographic membership proof",
+    "required_row_fields": ["stable_id","asset","family","side","canonical_parameter_payload","gate_a_origin","source_code_identity","stage_b_input_identity","stage_b_output_identity","family_passer_root","market_carrier_sha256","execution_contract_id","cost_contract_id"],
+    "canonical_sort": ["family","stable_id"],
+    "scientific_membership_rule": "Membership is inherited exclusively from the already-closed Stage-B authorities. Rematerialization may reproduce membership but may not recompute or change scientific selection."
+  },
+  "families": [
+    {"id":"F03","gate_a_in":1069,"pass":246,"BUY":170,"SELL":76,"receipt_commit":"b997bff3478fef90e4c359f1af288d7d7a81afb6","passer_root_sha256":"8cbca6946518c0a47072dafa83988b79f515a44d81b2125d39bbcde3c39da0e2","source_identical_stage_b":"control/recovery/qros_g30_f03_stage_b_all_passers_v191r1.py","source_blob_sha1":"ee707a17a61fbf3b299c943e3ea515495f8021af","recovery_level":"TIER_A_SOURCE_IDENTICAL_ROUTE_PROVEN"},
+    {"id":"F04","gate_a_in":559,"pass":104,"BUY":59,"SELL":45,"receipt_commit":"cb86f05780608b01b56d4f8873a0b42a6f637a99","passer_root_sha256":"815905b4afea9cfc3e773e6945796c1bf1163888ea79a690fb0572a490c0c649","historical_local_runner_sha256":"e4c1c28da01d535577c0446ccaa2e0d2f170f6a3ca9131017954659fbc617531","pipeline_blob_sha1":"26bb827c95fd2cba5f22828fe18b3ac43ab4fdbb","recovery_level":"CRYPTOGRAPHIC_ORACLE_PRESENT_SOURCE_ROLE_RECONCILIATION_PENDING"},
+    {"id":"F05","gate_a_in":719,"pass":277,"BUY":246,"SELL":31,"receipt_commit":"a4719a1dfdcc15ef3d5d8b9d373650ae8df32821","pipeline_blob_sha1":"6ad433fbe5c14cb4e07ea141137b42c56f33484d","recovery_level":"CRYPTOGRAPHIC_ORACLE_PRESENT_MATERIALIZATION_PENDING"},
+    {"id":"F06","gate_a_in":807,"pass":257,"BUY":34,"SELL":223,"receipt_commit":"b250ea8c293ae0370894e4fc4e10bc5deb7000f9","pipeline_blob_sha1":"e911dbebb1efa40130368d3c59d9ae8e09498b64","recovery_level":"CRYPTOGRAPHIC_ORACLE_PRESENT_MATERIALIZATION_PENDING"},
+    {"id":"F07","gate_a_in":3436,"pass":1637,"BUY":1463,"SELL":174,"receipt_commit":"b52222fe86e0b0001396ff9fdc6ed3d944000277","pipeline_blob_sha1":"8da34906e53bbd1e7fc45f9612ec99a7a0f8ca8c","recovery_level":"CRYPTOGRAPHIC_ORACLE_PRESENT_MATERIALIZATION_PENDING"},
+    {"id":"F08","gate_a_in":5220,"pass":1545,"BUY":942,"SELL":603,"receipt_commit":"a2e0374ea699e11044001cbac20f9ae79938fd24","pipeline_blob_sha1":"132568e5c1594c11b3c784c679879d22fb6e7457","recovery_level":"CRYPTOGRAPHIC_ORACLE_PRESENT_MATERIALIZATION_PENDING"},
+    {"id":"F09","gate_a_in":3400,"pass":1187,"BUY":333,"SELL":854,"receipt_commit":"ab6d53673e6a6f17be2e6c393dde1e45856467d6","primary_blob_sha1":"21fe633d4cc91930d0920c3f86cf3b7307abdd69","source_bundle_blob_sha1_parts":["2cd9f8ddd94bb81b3647ae2a5b955b01b5b202f7","1750008cacadb0173181b1982434af303f85510d","2a29ac068075b2675620ec5d359c999b3f1419c5"],"recovery_level":"CRYPTOGRAPHIC_ORACLE_PRESENT_SOURCE_BUNDLE_PRESENT_MATERIALIZATION_PENDING"},
+    {"id":"F10","gate_a_in":2242,"pass":832,"BUY":579,"SELL":253,"receipt_commit":"f974958cecdacf87c71b27f6a52102d70568c1cc","pipeline_blob_sha1":"f99dce58af5c66480365de73f36de79a74f05d3a","exec_core_blob_sha1":"eb6366c8e119b2a66cf7735af9a0288bb564ef49","recovery_level":"CRYPTOGRAPHIC_ORACLE_PRESENT_MATERIALIZATION_PENDING"},
+    {"id":"F11","gate_a_in":1422,"pass":312,"BUY":114,"SELL":198,"receipt_commit":"4038d184a5f8e78d98a9aca3e0e0d7251b274172","pipeline_blob_sha1":"dbf2640c69475454900da5ddd77b4d9535a69e96","recovery_level":"CRYPTOGRAPHIC_ORACLE_PRESENT_MATERIALIZATION_PENDING"},
+    {"id":"F12","gate_a_in":1136,"pass":173,"BUY":125,"SELL":48,"receipt_commit":"90482fa225c8680b1dc4f4c3d9444dadbeea7427","pipeline_blob_sha1":"b2279ed55f3597feffa367a49febb2c41749e6d6","primary_source_sha256":"861d87052c10f98c05990779657c8e63e7b69f44425311c4c757e676f02034cd","independent_source_sha256":"c48b1aa131906a1121d0c7dbd79e22535158884282d47bae5cc04e2e72764e72","dropbox_gate_a_checkpoint":"/QROS/checkpoints/QROS_G30_F12_DOW_GATE_A_24_SHARDS_V169_v1.json","recovery_level":"PRIOR_STAGE_INPUT_AUTHORITY_PRESENT_MATERIALIZATION_PENDING"}
+  ],
+  "durable_artifact_candidates": {
+    "dropbox_cas": {
+      "path": "/QROS/artifacts/faa75e645cf72e68447ed82ea5018d67ea1d8a6e373bbc24de6d8f0780d27cbb.tar.gz",
+      "bytes": 70666933,
+      "status": "PRESENT_CONTENTS_NOT_YET_INSPECTED"
+    },
+    "recovery_branch": "g30-stage-b-preflight-f03-f12-v191r1"
+  },
+  "acceptance_gate": {
+    "name": "NQX_6570_EXECUTABLE_REPRESENTATION_GATE",
+    "must_pass": [
+      "family counts 10/10 exact",
+      "family BUY/SELL counts exact",
+      "Gate-A input identities exact",
+      "Stage-B per-shard output SHA256 exact where preserved",
+      "decision roots exact",
+      "passer roots exact",
+      "primary-independent parity exact",
+      "NQX master root exact",
+      "6570/6570 stable frozen rows materialized"
+    ],
+    "failure_rule": "Reject rematerialized artifact and diagnose; never modify frozen selection to make hashes pass."
+  },
+  "current_state": "DEVELOPMENT_RUNNING_FORENSIC_REMATERIALIZATION",
+  "stage_b_scientific_state": "GLOBALLY_CLOSED_DO_NOT_RERUN",
+  "stage_c_results": "NOT_EXECUTED",
+  "f13": "EXCLUDED",
+  "next_action": "Recover and hash-verify exact Gate-A input payloads family-by-family, execute preserved family recovery code without scientific reselection, materialize canonical PASS rows, and require all original cryptographic oracles before promotion to RECOVERED_6570_OF_6570."
+}
