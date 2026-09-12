@@ -1,0 +1,38 @@
+{
+  "schema": "QROS_RUNNER_R2_NATIVE_ENV_ADJUDICATION_1.0",
+  "utc": "2026-09-12T13:20:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "evidence": {
+    "file": "QROS_RUNNER_NATIVE_ENV_EVIDENCE_r2_20260911_234345_12b72981.zip",
+    "bytes": 18009,
+    "sha256": "43984d02d002a43fd7cc3a89bf45baf00d09fb473f07328c8376bb967d335927",
+    "files": 13
+  },
+  "result": {
+    "decision": "RUNNER_REJECTED_NATIVE_ENV",
+    "reason": "FENCE_SECOND_EXECUTOR_NOT_DENIED",
+    "code": 52,
+    "runner_selftest": "13/13 PASS",
+    "metaeditor": "0 errors / 0 warnings, build 6182",
+    "strategy_tester_smoke": "PASS_NO_TRADING_MATERIALIZATION",
+    "candidate3_executed": false,
+    "real_broker_orders_sent": 0
+  },
+  "diagnosis": {
+    "candidate_failure": false,
+    "qualifier_failure": true,
+    "observed": "R2 holder reported ready, but R2 probe subsequently acquired the same MQL5 FILE_COMMON fence.",
+    "source_design_issue": "The holder itself runs inside Strategy Tester. Its fence handle exists only while that tester process/run remains alive. Strategy Tester may complete the historical test and invoke OnDeinit, which releases the fence, before the separately launched probe attempts acquisition. Therefore HOLDER_READY alone does not prove real process overlap at probe time.",
+    "evidence_limit": "The failure archive contains no durable holder-alive-at-probe marker proving simultaneous ownership. The result cannot be interpreted as a defect in Candidate3 AcquireInstanceFence semantics.",
+    "required_fix": "R2 fencing must be moved out of accelerated Strategy Tester lifecycle. Use two isolated portable terminal processes with an attached no-trading EA/service, or an equivalent native process-overlap harness that proves holder PID/process alive, exact FILE_COMMON lock ownership, probe denial, release, and reacquire. The corrected R2 must remain Candidate3-free and order-free."
+  },
+  "state": {
+    "runner_under_qualification": "STATIC_QUALIFIED_NATIVE_ENV_REJECTED",
+    "candidate3": "FROZEN_CANDIDATE",
+    "candidate_execution_allowed": false,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+  },
+  "next_action": "Build and qualify R2 v2 with non-accelerated native fencing before any Candidate3 Phase-A execution."
+}
