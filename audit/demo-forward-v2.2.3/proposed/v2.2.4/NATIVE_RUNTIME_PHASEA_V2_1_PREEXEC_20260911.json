@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V2_1_PREEXEC_1.0",
+  "utc": "2026-09-12T01:15:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "parent_failure": "V2_0_RUNNER_POWERSHELL_STRICTMODE_COUNT_DEFECT",
+  "package": {
+    "name": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v2_1.zip",
+    "bytes": 69447,
+    "sha256": "820d779e1bcde36dc384cdf778ce3ed802d2ae41730d2bc3621264a0c703ad12",
+    "artifact_status": "PREVALIDATED_ARTIFACT",
+    "native_validated": false
+  },
+  "authority_preservation": {
+    "executor_sha256": "721b63b96a297c5a0752a34f3439ff5babc7882e624df7c1ceb1d46fcdf99608",
+    "bus_sha256": "db389efd44f02af7ad437a2a49f8b50c88b5e344fa32c964c70812b930324ae5",
+    "risk_kernel_sha256": "8af000aac09747b896cef4e8c9263aaf675dab4fefa07b3d9d4b7c1c170ab49f",
+    "harness_sha256": "f140a1019b4539e9df819c26f2144d26ad27b0714230a9d0fdb6739d9b50f5c3",
+    "candidate_authority_changed": false,
+    "harness_changed": false
+  },
+  "runner_changes": [
+    "freeze Set-StrictMode to deterministic version 3.0 instead of Latest",
+    "replace PSObject.Properties.Count with explicit manifest enumeration counter",
+    "arrayize Read-CsvRows runtime output before all cardinality checks",
+    "remove direct Count access on rows, failRows, missingMandatory, ActiveBefore and snapshot item outputs",
+    "add Windows PowerShell compatibility preflight before manifest verification"
+  ],
+  "validation": {
+    "predelivery": "16/16 PASS",
+    "postbuild": "58/58 PASS",
+    "zip_crc": "PASS",
+    "manifest_hash_and_size": "PASS_ALL",
+    "banned_direct_count_patterns": 0,
+    "root_v2_0_count_expression_present": false,
+    "native_windows_execution_in_current_runtime": false
+  },
+  "decision": "READY_FOR_SINGLE_NATIVE_V2_1_EXECUTION",
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+}
