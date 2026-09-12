@@ -1,0 +1,19 @@
+{
+  "schema": "QROS_RUNNER_STATIC_RELEASE_GATE_REPORT_1.0",
+  "artifact": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v2_1.zip",
+  "artifact_sha256": "820d779e1bcde36dc384cdf778ce3ed802d2ae41730d2bc3621264a0c703ad12",
+  "runner_sha256": "df48503eac9a0bba23d1ceb13aacde25db2906d2be0a0a366e919a67a2988ce9",
+  "harness_sha256": "f140a1019b4539e9df819c26f2144d26ad27b0714230a9d0fdb6739d9b50f5c3",
+  "zip_crc": "PASS",
+  "mutation_tests": "8/8 CAUGHT",
+  "decision": "FAIL",
+  "blocking_rule": {
+    "id": "PS007",
+    "detail": "Run-Tester contains Stop-Process guarded by process.Path prefix but does not itself require SafeIsoPath before kill. New governor requires both guards in the same function."
+  },
+  "meaning": "RUNNER_REJECTED_STATIC_NOT_NATIVE_VALIDATED",
+  "candidate_failure": false,
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+}
