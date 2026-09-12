@@ -1,0 +1,37 @@
+{
+  "schema": "QSLE_V2_2_PARTIAL_CANONICAL_CARRIER_STATUS_v1",
+  "status": "PARTIAL_DO_NOT_USE_FOR_RECONSTRUCTION_OR_PROMOTION",
+  "expected_parts": 7,
+  "verified_parts_present": 2,
+  "parts": [
+    {
+      "name": "QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip.b64.part000",
+      "bytes": 12000,
+      "git_blob_sha1_expected": "7806c6d25ee813a9b6c780741735a1b0bfdbe3a5",
+      "git_blob_sha1_observed": "7806c6d25ee813a9b6c780741735a1b0bfdbe3a5",
+      "status": "PASS"
+    },
+    {
+      "name": "QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip.b64.part001",
+      "bytes": 12000,
+      "git_blob_sha1_expected": "2939e9927d70022a0ebc9c248932cbfe6d442097",
+      "git_blob_sha1_observed": "2939e9927d70022a0ebc9c248932cbfe6d442097",
+      "status": "PASS"
+    }
+  ],
+  "missing_parts": ["part002", "part003", "part004", "part005", "part006"],
+  "full_archive": {
+    "name": "QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip",
+    "bytes": 54529,
+    "sha256": "c50616de24a4c994f82837f670791f114c648737e5f048f77a7c126531ae2b1d"
+  },
+  "secondary_complete_copy": {
+    "store": "Dropbox",
+    "path": "/QROS/QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip",
+    "content_hash_match": true,
+    "receipt": "cognitive/strategy_lifecycle_v2_2/SECONDARY_DURABILITY_RECEIPT.json"
+  },
+  "scientific_dispatch_authorized": false,
+  "promotion": false,
+  "decision": "CANONICAL_DURABILITY_GATE_OPEN__PARTIAL_CARRIER_MUST_NOT_BE_TREATED_AS_EXECUTABLE_PACKAGE"
+}
