@@ -1,0 +1,62 @@
+{
+  "schema":"QROS_G30_V4_INVALIDATION_V5_EXECUTION_RECONCILIATION_V199_20260912_v1",
+  "campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "authority_epoch":199,
+  "status":"PASS_CORRECT_EXECUTION_LINEAGE_RECOVERED",
+  "scientific_change_class":"FORENSIC_AUTHORITY_CORRECTION_NO_NEW_SELECTION_NO_NEW_RESULTS",
+  "finding":{
+    "v4_runner_sha256":"ef671e449eb7e2fbed42704c7bd9dec01de0768310f6eb48fb2265409767abe4",
+    "v4_disposition":"SUPERSEDED_INVALID_FOR_GATE_A_OR_ECONOMIC_PROMOTION",
+    "v4_invalidation_commit":"a8bf236c804d32dda59ea3704b0d6606bc11f4d1",
+    "v4_root_cause":"V4 counted every signal independently and violated the governing one-active-position-per-asset standalone BUY/SELL contract.",
+    "authority_correction":"V198 incorrectly treated recovery of qros_g30_econ_numba_v4.py as a prerequisite for Stage-C continuation. The invalid V4 source must not be restored as canonical economic authority."
+  },
+  "valid_successor_lineage":{
+    "historical_v5_runner":"g30_nqx_v5_onepos.py",
+    "historical_v5_sha256":"7119e88fd964ecfc7e1525b2bd2fb99e7022ac707ed201000842d6b4db36061f",
+    "execution_contract_ref":"control/G30_NQX_H1_M30_V5_ONEPOS_TRADE_SEQUENCE_PARITY_v1.json",
+    "v5_trade_sequence_parity":"PASS_FULL_MASK_AND_ORDERED_TRADE_SEQUENCE_FOR_H1_M30_BID",
+    "durable_replacement_prereg":"control/G30_V5_LEGACY_RUNNER_SOURCE_MIGRATION_PREREG_v1.json",
+    "durable_replacement_source":"control/recovery/g30_exact_mid_v5_recovery_engine_v1.py",
+    "durable_replacement_source_sha256":"5f45d5267694ed31140b7ba2a9d8913c86eda7797cd1725d0267ee09f4a060e2",
+    "durable_replacement_source_bytes":11424,
+    "cross_chat_source_durability_ref":"control/QROS_RUNNER_SOURCE_DURABILITY_CROSS_CHAT_PASS_v1.json",
+    "source_readback":"PASS_BYTE_FOR_BYTE",
+    "signal_identity_12_of_12_ref":"control/QROS_G30_V5_REPLACEMENT_SIGNAL_IDENTITY_12_OF_12_PARITY_v1.json",
+    "signal_identity_12_of_12":"PASS",
+    "m30_equivalence_ref":"control/G30_V5_RUNNER_SOURCE_MIGRATION_M30_EQUIVALENCE_v1.json",
+    "m30_ordered_ledgers":"PASS_626_OF_626_ZERO_MISMATCH",
+    "m1_mid_equivalence_ref":"control/G30_NQX_M1_MID_V5_REPLACEMENT_ECONOMIC_PARITY_v1.json",
+    "m1_mid_ordered_ledgers":"PASS_648_OF_648_ZERO_MISMATCH",
+    "durable_12_of_12_ref":"control/QROS_G30_NQX_12_OF_12_DURABLE_REMATERIALIZATION_V48_PASS_v1.json",
+    "durable_12_of_12":"PASS_12_OF_12",
+    "gate_a_diagnostic_ref":"control/QROS_G30_NQX_COST_STRESS_GATE_A_DEV_V48_v1.json",
+    "gate_a_execution_parity":"PASS_EXACT_BUY_AND_SELL_ALL_12_SHARDS"
+  },
+  "frozen_execution_semantics":{
+    "buy":"ASK_IN_BID_OUT",
+    "sell":"BID_IN_ASK_OUT",
+    "fills":"ASK_GT_BID_ONLY",
+    "feature_quotes":"ASK_GTE_BID_ZERO_SPREAD_PRESERVED_CROSSED_EXCLUDED",
+    "ambiguous_sl_tp":"SL_FIRST",
+    "same_day_exit":true,
+    "one_active_position_per_asset_standalone":true,
+    "same_timestamp_reentry":"BLOCKED_STRICT_ENTRY_TS_GT_PREVIOUS_EXIT_TS",
+    "r_units":"DIMENSIONLESS"
+  },
+  "descendant_f03_f12_binding":{
+    "status":"PARTIALLY_PROVEN_CONTINUE_FORENSIC_BINDING",
+    "f03":"SOURCE_IDENTICAL_STAGE_B_RUNNER_RECOVERED; uses primary+independent signal and execution implementations, one-position selection parity and frozen cost stress on exact Gate-A passers.",
+    "f04_f12":"source corpus and Stage-B cryptographic oracles survive; exact family input/source-role reconciliation and 6570-row materialization remain required.",
+    "rule":"Do not use the base V5 fixed-parameter runner as a silent substitute for descendant family parameterization. Bind each F03-F12 frozen row to its preserved family implementation while retaining the valid V5 one-position execution contract."
+  },
+  "current_blockers":{
+    "invalid_v4_source":"REMOVED_NOT_A_VALID_REQUIREMENT",
+    "nqx_6570_materialization":"PENDING_6570_OF_6570_CRYPTOGRAPHIC_REVERIFICATION",
+    "f03_f12_descendant_execution_binding":"PENDING_FULL_10_FAMILY_RECONCILIATION",
+    "xau_physical_carrier_current_runtime":"NOT_MOUNTED"
+  },
+  "guards":["DO_NOT_RESTART_STAGE_B","DO_NOT_OPEN_F13","NO_MEDOIDS","NO_RERANKING","NO_RETUNING_AFTER_RESULTS","DO_NOT_REINTRODUCE_INVALID_V4_AS_CANONICAL","NO_STAGE_C_RESULTS_UNTIL_6570_ROWS_AND_DESCENDANT_BINDING_PASS","NO_MT5_BEFORE_RESEARCH_SUPERGATE_PASS"],
+  "decision":"V4_BLOCKER_REMOVED_V5_DURABLE_EXECUTION_LINEAGE_ACCEPTED_AS_BASE_CONTRACT_DESCENDANT_BINDING_CONTINUES",
+  "next_action":"Materialize NQX F03-F12 exact frozen rows family-by-family and bind each row to preserved descendant source plus V5-valid execution semantics; require all Stage-B hashes/roots/counts/parity and 6570/6570 before Stage-C economic execution."
+}
