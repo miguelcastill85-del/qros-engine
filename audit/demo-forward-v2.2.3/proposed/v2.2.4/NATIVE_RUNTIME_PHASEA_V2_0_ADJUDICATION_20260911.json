@@ -1,0 +1,31 @@
+{
+  "schema": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_V2_0_ADJUDICATION_1.0",
+  "utc": "2026-09-12T01:10:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "native_execution": {
+    "observed_local_time": "2026-09-11T22:05:09-03:00",
+    "decision": "FAIL",
+    "code": 99,
+    "reason": "No se encuentra la propiedad 'Count' en este objeto. Compruebe que existe.",
+    "native_candidate_tests_started": false,
+    "real_broker_orders_authorized": false,
+    "active_terminal_touched": false
+  },
+  "root_cause": {
+    "classification": "RUNNER_POWERSHELL_STRICTMODE_COMPATIBILITY_DEFECT",
+    "exact_source_expression": "$Pm.files.PSObject.Properties.Count",
+    "detail": "PSObject.Properties is enumerable but direct Count is not a stable property under the Windows PowerShell strict runtime used by the user. The runner failed before package-manifest completion and before native Candidate3 runtime tests.",
+    "candidate_failure": false
+  },
+  "additional_audit": {
+    "direct_rows_count_scalar_hazard_found": true,
+    "strictmode_latest_nondeterminism_removed_in_successor": true,
+    "successor_rule": "No direct Count on PSObject member collections or function outputs; explicit enumeration counters and arrayization required."
+  },
+  "v2_0_disposition": "SUPERSEDED_DO_NOT_RERUN",
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+}
