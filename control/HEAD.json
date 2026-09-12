@@ -1,1 +1,58 @@
-{"audit":{"historical_nqx_gate_ref":"control/QROS_G30_NQX_STAGED_TEMPORAL_ACCEPTANCE_GATES_V58_v1.json","historical_xau_gate_ref":"control/QROS_G30_XAU_STAGED_TEMPORAL_ACCEPTANCE_GATES_V75_v1.json","population_correction_ref":"control/QROS_G30_ALL_PASSERS_ADVANCE_CORRECTION_V190_v1.json","stage_protocol_ref":"control/QROS_G30_EXPOSED_OBSERVATIONAL_STAGE_GATE_PROTOCOL_V190_v1.json","status":"ALL_PASSERS_ADVANCE_CORRECTION_PREREGISTERED_STAGE_B_ONLY"},"authority_epoch":191,"authority_manifest":"control/CONTROL_AUTHORITY_MANIFEST_v3.json","campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1","guards":["F03_F12_ONLY_PRE_F13","ALL_33094_GATE_A_PASSERS_ADVANCE_TO_STAGE_B","2471_MEDOIDS_ADMINISTRATIVE_NOT_ELIMINATORY","F13_EXCLUDED_FROM_CURRENT_ROUTE_NOT_DEPENDENCY","ONLY_STAGE_B_SOURCE_CLOCK_2020_2021_ECONOMICALLY_AUTHORIZED","STAGE_C_2022_2024_LOCKED","STAGE_D_2025_2026_PARTIAL_LOCKED","AGGREGATE_2020_2026_FIRST_PASS_FORBIDDEN","NO_CLEAN_HISTORICAL_HOLDOUT_CLAIM","NO_MT5","NO_LIVE","NO_RETUNING","NO_SUPERGATE_BEFORE_STAGE_D_PASS"],"next_action":"RECONFIRM_F03_F04_STAGE_B_UNDER_V190_THEN_EXECUTE_F05_THROUGH_F12_ALL_GATE_A_PASSERS_BY_CHECKPOINTED_SHARDS; DO_NOT_READ_2022_PLUS_STRATEGY_PNL","schema":"QROS_PERSISTENT_CONTROL_HEAD_V191","scientific_execution_authorization_source":"control/CONTROL_AUTHORITY_MANIFEST_v3.json","scientific_state":{"F03_F04_pre_v190_results":"PROVISIONAL_DIAGNOSTIC_MUST_RECONFIRM","F05_F12_stage_b_results_read":false,"authorized_economic_source_clock_years":[2020,2021],"backtest_stage":"OBS_STAGE_B_ALL_PASSERS_READY","cluster_representative_role":"ADMINISTRATIVE_ONLY","cluster_representatives":2471,"cohort":"F03_F12_33094_GATE_A_PASSERS_ALL_ADVANCE","current_gate":"G30-OBS-STAGE-B-2020_2021","f13_route":"EXCLUDED_NO_RECOVERY","historical_validation_class":"EXPOSED_OBSERVATIONAL_ONLY","holdout_opened":false,"locked_economic_source_clock_years":[2022,2023,2024,2025,2026],"mt5":false,"retuning":false,"state":"FROZEN_CANDIDATE","supergate":false},"status":"CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY","supersedes":"QROS_PERSISTENT_CONTROL_HEAD_V189"}
+{
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V196",
+  "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
+  "authority_epoch": 196,
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scientific_change_class": "DURABILITY_AND_RECOVERY_STATE_ONLY_NO_SCIENTIFIC_RERUN",
+  "checkpoint_ref": "control/QROS_G30_RECOVERY_CHECKPOINT_V196_20260911_v1.json",
+  "durability_policy_ref": "control/QROS_DURABLE_SCIENTIFIC_ARTIFACT_POLICY_v1.json",
+  "historical_parent": {
+    "epoch": 195,
+    "migration_ref": "control/QROS_G30_CROSS_CHAT_MIGRATION_V195_20260911_v1.json",
+    "stage_b_global_close_commit": "89b6384c8a4028a18eccb0ad04f72c96ccf7ae14"
+  },
+  "scientific_state": {
+    "scope": "F03_F12_ONLY",
+    "f13_route": "EXCLUDED_DO_NOT_SEARCH_DO_NOT_RECOVER_DO_NOT_EXECUTE",
+    "stage_b": "GLOBALLY_CLOSED_DO_NOT_RERUN",
+    "frozen_population_total": 9237,
+    "frozen_population_NQX": 6570,
+    "frozen_population_XAUUSD": 2667,
+    "population_rule": "ALL_PASSERS_ADVANCE_NO_MEDOIDS_NO_RERANKING_NO_RETUNING",
+    "all_years_2018_2026_run": "NOT_EXECUTED",
+    "supergate": false,
+    "mt5_for_this_stage": false,
+    "state": "BLOCKED_BY_INFRASTRUCTURE"
+  },
+  "data_state": {
+    "NQX": "PHYSICAL_PASS_28_OF_28_CURRENT_RUNTIME",
+    "NQX_carrier_sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+    "XAUUSD": "AUTHORITY_PASS_35_OF_35_NOT_PHYSICALLY_MOUNTED_CURRENT_RUNTIME",
+    "XAUUSD_carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4"
+  },
+  "execution_blockers": {
+    "exact_frozen_final_rows": "NOT_RECOVERABLE_FROM_DURABLE_STORES_CHECKED_2026_09_11",
+    "exact_runner_source_bytes": "NOT_RECOVERABLE_FROM_DURABLE_STORES_CHECKED_2026_09_11",
+    "runner_name": "qros_g30_econ_numba_v4.py",
+    "runner_sha256": "ef671e449eb7e2fbed42704c7bd9dec01de0768310f6eb48fb2265409767abe4"
+  },
+  "guards": [
+    "DO_NOT_RESTART_STAGE_B",
+    "DO_NOT_OPEN_F13",
+    "NO_MEDOIDS",
+    "NO_RERANKING",
+    "NO_RETUNING_AFTER_RESULTS",
+    "NO_APPROXIMATE_FROZEN_ROW_RECONSTRUCTION",
+    "NO_APPROXIMATE_RUNNER_REIMPLEMENTATION_AS_PARITY_EVIDENCE",
+    "NO_MT5_BEFORE_RESEARCH_SUPERGATE_PASS"
+  ],
+  "new_chat_recovery_order": [
+    "READ control/HEAD.json",
+    "READ control/QROS_G30_RECOVERY_CHECKPOINT_V196_20260911_v1.json",
+    "READ control/QROS_DURABLE_SCIENTIFIC_ARTIFACT_POLICY_v1.json",
+    "VERIFY referenced identities before execution",
+    "DO NOT rely on chat memory as sole authority"
+  ],
+  "next_action": "RECOVER_ONLY_PREEXISTING_EXACT_FROZEN_ROW_PAYLOADS_AND_EXACT_RUNNER_SOURCE_BYTES_FROM_DURABLE_STORAGE_IF_AVAILABLE; HASH_VERIFY; THEN_EXECUTE_DETERMINISTIC_SHARDED_ALL_YEARS_2018_2026_DIAGNOSTICS_WITH_EXPOSURE_SEMANTICS. DO_NOT_RERUN_STAGE_B.",
+  "supersedes": "QROS_PERSISTENT_CONTROL_HEAD_V191"
+}
