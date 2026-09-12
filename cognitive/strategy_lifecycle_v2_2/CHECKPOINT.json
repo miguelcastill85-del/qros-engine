@@ -1,0 +1,47 @@
+{
+  "schema": "QSLE_V2_2_CHECKPOINT_v1",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "scientific_role": "REFERENCE_KERNEL_VALIDATED_NOT_SCIENTIFIC_AUTHORITY",
+  "objective": "Implement and adversarially validate a deterministic persistent end-to-end strategy lifecycle kernel without changing current QROS scientific authority.",
+  "executed": {
+    "local_pytest": "60/60 PASS",
+    "rise_q_persistence_blackbox": "15/15 PASS",
+    "rise_q_local_fixed_point": "1200 operations; persistent tamper 6/6 detected; not full R14",
+    "stress": "80 campaigns / 640 committed transitions PASS",
+    "real_sigkill": "precommit rollback PASS; postcommit exactly-once PASS",
+    "v191_qrcel_contract_shadow": "PASS exact 5/5 source blobs; 33094 population; zero writes; no dispatch",
+    "canonical_github_carrier": "PASS 9/9 exact text blobs; reconstructed archive 54529 bytes SHA256 c50616de24a4c994f82837f670791f114c648737e5f048f77a7c126531ae2b1d",
+    "secondary_dropbox_copy": "PASS cryptographic Dropbox content-hash reconciliation",
+    "v21_to_v22_reference_continuity": "PASS; same durable_store bytes; no schema migration"
+  },
+  "authority": {
+    "scientific_head": "V199 forensic authority correction, no reselection/no new results",
+    "engineering_reference": "V191 only",
+    "execution_runtime": "V191 stale relative to scientific head",
+    "dispatch": false
+  },
+  "problems_found_and_corrected": [
+    "bootstrap executescript transaction boundary",
+    "event state bytes absent from replay",
+    "event exposure not hash-bound",
+    "authority projection drift not validated",
+    "schema/trigger drift not validated",
+    "SQLite initialized-store structural auto-healing could hide trigger deletion",
+    "binary GitHub transport changed bytes; rejected",
+    "long text carrier part004 changed/truncated; rejected, removed and deterministically re-sharded"
+  ],
+  "open_gates": [
+    "AUTHORIZED_V199_RUNTIME_STATE_AND_RUN_QUEUE_RECONCILIATION",
+    "SECOND_INDEPENDENT_ZERO_ADDITIONAL_COST_EXECUTION_HOST",
+    "FULL_EXTERNAL_RISE_R14_FIXED_POINT",
+    "EXPLICIT_PROMOTION_RECEIPT_AFTER_ALL_GATES"
+  ],
+  "non_blocking_future_gate": "Genuine schema migration test becomes applicable only when a prior promoted SQLite schema actually exists.",
+  "portfolio_impact": "NONE; no strategy PnL, holdout, MT5, risk allocation or portfolio controller was changed.",
+  "holdout_opened": false,
+  "f13_touched": false,
+  "promotion": false,
+  "pr": 21,
+  "branch": "codex/qsle-v2-1-durable-reference",
+  "next_authorized_action": "Do not repeat completed local tests. Resume only when an authorized V199 runtime reconciliation contract, an independent zero-cost execution host, or a full external RISE R14 executor becomes physically available. Keep PR #21 draft until all promotion gates pass."
+}
