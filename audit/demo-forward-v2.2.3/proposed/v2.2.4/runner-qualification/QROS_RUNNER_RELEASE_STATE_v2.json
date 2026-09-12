@@ -1,0 +1,36 @@
+{
+  "schema": "QROS_RUNNER_RELEASE_STATE_2.0",
+  "utc": "2026-09-12T01:30:00Z",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "runner": {
+    "version": "v2.2_R1CANDIDATE",
+    "source_sha256": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+    "package_sha256": "5de2707f7f730ac229a919e8bf909beb8c4311897b60788a321d664295acfe7b",
+    "r1_static_gate": "PASS",
+    "rules": "13/13",
+    "mutations": "10/10",
+    "state": "STATIC_QUALIFIED",
+    "candidate_execution_allowed": false
+  },
+  "native_environment_qualifier": {
+    "package": "QROS_RUNNER_NATIVE_ENV_QUALIFIER_v1_FINAL.zip",
+    "package_sha256": "a4dd75c13432ac0f423301e645a9acf3f1d07a4be7c95e9a0a6aa182e0b89bdd",
+    "qualifier_ps1_sha256": "a58de18704ad76c3dce4e09950170462d4bc82442660203b4b8741a840b96f96",
+    "qualifier_mq5_sha256": "45cad9f9a3fb7a13b032fde417f7cdaa9abf342cb8706545f9c6354a18831347",
+    "r1_static_gate": "PASS 15/15 rules + 11/11 mutations",
+    "predelivery": "PASS 19/19",
+    "state": "R2_NATIVE_EXECUTION_REQUIRED",
+    "candidate3_executed": false,
+    "real_broker_orders_authorized": false
+  },
+  "validator_defects_added": [
+    "D11_STATIC_GATE_MUTATION_ALIAS_COLLISION",
+    "D12_STATIC_GATE_CANONICAL_PATH_GUARD",
+    "D13_VALIDATOR_SEMANTIC_STRING_FALSE_POSITIVE"
+  ],
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0",
+  "next_action": "Run only EJECUTAR_QROS_RUNNER_NATIVE_ENV_QUALIFIER_v1.bat. Candidate3 Phase-A remains forbidden until R2 PASS receipt binds exact runner SHA and environment fingerprint."
+}
