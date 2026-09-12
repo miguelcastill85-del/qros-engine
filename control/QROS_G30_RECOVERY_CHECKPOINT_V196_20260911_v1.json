@@ -1,0 +1,115 @@
+{
+  "schema": "QROS_G30_RECOVERY_CHECKPOINT_V196_20260911_v1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "authority_epoch": 196,
+  "created_date": "2026-09-11",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "scientific_change_class": "DURABILITY_AND_RECOVERY_STATE_ONLY_NO_SCIENTIFIC_RERUN",
+  "historical_parent": {
+    "authority_epoch": 195,
+    "migration_ref": "control/QROS_G30_CROSS_CHAT_MIGRATION_V195_20260911_v1.json",
+    "migration_commit": "813ef8229b783999cb461aa9592156b3b6639e64",
+    "stage_c_authority_promotion_commit": "7414f80e0b576faffe691ed273738a1fc3b560a2",
+    "stage_b_global_close_commit": "89b6384c8a4028a18eccb0ad04f72c96ccf7ae14",
+    "stage_b_global_close_root_sha256": "788d063d107fa37b3e590bd480572aeee6cce37b358aacafda5dc0c51b175d87"
+  },
+  "scope": {
+    "families": ["F03","F04","F05","F06","F07","F08","F09","F10","F11","F12"],
+    "f13": "EXCLUDED_DO_NOT_SEARCH_DO_NOT_RECOVER_DO_NOT_EXECUTE",
+    "stage_b": "GLOBALLY_CLOSED_DO_NOT_RERUN_SCIENTIFIC_SELECTION",
+    "population_rule": "ALL_PASSERS_ADVANCE_NO_MEDOIDS_NO_RERANKING_NO_RETUNING"
+  },
+  "frozen_population": {
+    "total": 9237,
+    "NQX": 6570,
+    "XAUUSD": 2667,
+    "BUY": 6183,
+    "SELL": 3054,
+    "by_family": {
+      "NQX": {"F03":246,"F04":104,"F05":277,"F06":257,"F07":1637,"F08":1545,"F09":1187,"F10":832,"F11":312,"F12":173},
+      "XAUUSD": {"F03":229,"F04":53,"F05":29,"F06":104,"F07":151,"F08":684,"F09":229,"F10":1027,"F11":127,"F12":34}
+    }
+  },
+  "data_authority": {
+    "NQX": {
+      "state": "PHYSICAL_PASS_28_OF_28_CURRENT_RUNTIME",
+      "carrier": "NQX_PACKED17_FULL_2018_2026.bin",
+      "bytes": 9516900679,
+      "records": 559817687,
+      "sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+      "first_timestamp_ms": 1516885570165,
+      "last_timestamp_ms": 1785143472709,
+      "source_clock": "Darwinex server/source clock as exported from MT5; not relabeled UTC",
+      "internal_out_of_order": 0,
+      "part_boundary_out_of_order": 0,
+      "zero_spread": 48325,
+      "crossed_spread": 162,
+      "exact_consecutive_duplicate_records": 1,
+      "runtime_receipt": "/mnt/data/QROS_NQX_RUNTIME_FULL_RESTORE_AUDIT_20260911.json"
+    },
+    "XAUUSD": {
+      "state": "AUTHORITY_PASS_35_OF_35_BUT_NOT_PHYSICALLY_MOUNTED_CURRENT_RUNTIME",
+      "carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+      "bytes": 11850036456,
+      "records": 697060968,
+      "sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+      "first_timestamp_ms": 1516885566846,
+      "last_timestamp_ms": 1784937296372,
+      "source_clock": "Darwinex server/source clock as exported from MT5; not relabeled UTC"
+    }
+  },
+  "runner_authority": {
+    "name": "qros_g30_econ_numba_v4.py",
+    "sha256": "ef671e449eb7e2fbed42704c7bd9dec01de0768310f6eb48fb2265409767abe4",
+    "contract_recovered": true,
+    "exact_source_bytes_recoverable_from_checked_durable_stores": false,
+    "execution_semantics": {
+      "BUY": "ASK_IN_BID_OUT",
+      "SELL": "BID_IN_ASK_OUT",
+      "ambiguous_sl_tp": "SL_FIRST",
+      "gaps": "FIRST_ACTUALLY_AVAILABLE_PRICE",
+      "artificial_zero_or_cross_spread_fill": false,
+      "same_day_exit": true,
+      "one_position_per_asset": true,
+      "same_timestamp_reentry": "FORBIDDEN_STRICTLY_AFTER_PRIOR_EXIT"
+    },
+    "cost_regimes": {
+      "XAUUSD_points": {"central":6.2,"conservative":8.0,"severe":12.0},
+      "NQX_points": {"central":2.0,"conservative":3.0,"severe":5.0}
+    }
+  },
+  "artifact_recovery": {
+    "stage_b_receipts": "RECOVERED",
+    "population_counts_and_genealogy": "RECOVERED",
+    "frozen_final_row_payloads": "NOT_RECOVERABLE_FROM_AVAILABLE_GITHUB_ACTIONS_RELEASES_FILE_LIBRARY_OR_DROPBOX_SEARCHES",
+    "exact_runner_source": "NOT_RECOVERABLE_FROM_AVAILABLE_GITHUB_ACTIONS_RELEASES_FILE_LIBRARY_OR_DROPBOX_SEARCHES",
+    "important_rule": "Do not reconstruct frozen survivors by rerunning Stage B or approximate the missing runner. Hashes/receipts prove identity but are not executable substitutes for missing bytes."
+  },
+  "current_scientific_state": {
+    "all_years_economic_run_2018_2026": "NOT_EXECUTED",
+    "new_holdout_exposure_created_by_this_recovery": false,
+    "supergate": "NOT_EXECUTED",
+    "mt5": "NOT_EXECUTED_FOR_THIS_STAGE",
+    "decision_on_frozen_seeds": "UNDECIDED_BLOCKED_BEFORE_ECONOMIC_EVALUATION"
+  },
+  "blockers": [
+    "Exact frozen Stage-B final configuration rows for 9237 survivors are not physically recoverable from the durable stores inspected.",
+    "Exact source bytes of qros_g30_econ_numba_v4.py are not physically recoverable from the durable stores inspected.",
+    "XAU 35-part carrier authority is preserved but its physical bytes are not mounted in the current runtime."
+  ],
+  "guards": [
+    "DO_NOT_RESTART_STAGE_B",
+    "DO_NOT_REPLAY_F03_AS_NEW_SCIENTIFIC_SELECTION",
+    "DO_NOT_OPEN_F13",
+    "NO_MEDOIDS",
+    "NO_RERANKING",
+    "NO_RETUNING_AFTER_RESULTS",
+    "NO_APPROXIMATE_FROZEN_ROW_RECONSTRUCTION",
+    "NO_APPROXIMATE_RUNNER_REIMPLEMENTATION_AS_PARITY_EVIDENCE",
+    "NO_SUPERGATE_RESCUE_FOR_STAGE_C_OR_STAGE_D_FAILURES",
+    "NO_MT5_BEFORE_RESEARCH_SUPERGATE_PASS"
+  ],
+  "durability_policy_ref": "control/QROS_DURABLE_SCIENTIFIC_ARTIFACT_POLICY_v1.json",
+  "next_authorized_action": "Recover exact frozen-row payload bytes and exact runner source bytes only from a pre-existing durable source if they become available; hash-verify them before execution. Do not rerun Stage B. If recovered, execute deterministic sharded all-years diagnostics over 2018-2026 with explicit exposure semantics and then continue through the frozen research gates.",
+  "new_chat_bootstrap": "Read control/HEAD.json first, then this checkpoint, then the durability policy. Never infer campaign state from chat memory alone."
+}
