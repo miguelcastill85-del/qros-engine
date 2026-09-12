@@ -1,0 +1,41 @@
+{
+  "schema": "QSLE_OBSERVED_CONTROL_BINDING_v1",
+  "observed_date": "2026-09-12",
+  "repository": "miguelcastill85-del/qros-engine",
+  "status": "REFERENCE_ONLY_BLOCKED_SPLIT_AUTHORITY",
+  "engineering_reference": {
+    "epoch": 191,
+    "role": "ENGINEERING_REFERENCE_ONLY",
+    "promoted_scientific_authority": false
+  },
+  "observed": {
+    "head": {
+      "path": "control/HEAD.json",
+      "git_blob_sha1": "dc7f7f68f127b279ffff36f0ec8f80d23d2e41c1",
+      "authority_epoch": 199
+    },
+    "state": {
+      "path": "control/persistent_execution/STATE.json",
+      "git_blob_sha1": "48a212b105a5cf21425c79a2bb7fb349d3c061a9",
+      "authority_epoch": 191
+    },
+    "run_queue": {
+      "path": "control/persistent_execution/RUN_QUEUE.json",
+      "git_blob_sha1": "1fa745bb9a57d3944de2c2521bd67b0f0520a029",
+      "authority_epoch": 191
+    },
+    "manifest_v3": {
+      "path": "control/CONTROL_AUTHORITY_MANIFEST_v3.json",
+      "git_blob_sha1": "5afce6279994b8625bd79fb2d5d13924e3c561e7",
+      "authority_epoch": 191
+    }
+  },
+  "inspection_result": {
+    "status": "BLOCKED_SPLIT_AUTHORITY",
+    "scientific_dispatch_authorized": false,
+    "select_by_recency": false,
+    "select_by_numeric_epoch": false,
+    "f13_touched": false
+  },
+  "scientific_change": false
+}
