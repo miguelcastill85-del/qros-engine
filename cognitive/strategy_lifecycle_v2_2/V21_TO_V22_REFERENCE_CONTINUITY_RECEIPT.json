@@ -1,0 +1,22 @@
+{
+  "schema": "QSLE_V21_TO_V22_REFERENCE_CONTINUITY_RECEIPT_v1",
+  "status": "PASS_REFERENCE_CONTINUITY_NO_SCHEMA_MIGRATION",
+  "v21_store_sha256": "e5aa2e00b4d9820de6883b1b81990c18eaf414def811c51ea26d332b7057250d",
+  "v22_store_sha256": "e5aa2e00b4d9820de6883b1b81990c18eaf414def811c51ea26d332b7057250d",
+  "store_bytes_identical": true,
+  "test": {
+    "v21_created_version": 1,
+    "v21_logical_root": "0901cc4ffdd1c0f4abdc254f6ed30124e69b465ac62b501e110a7efb11b10e71",
+    "closed_v21_connection": true,
+    "opened_same_physical_sqlite_with_v22_fresh_connection": true,
+    "v22_preappend_chain_projection_exposure_authority_validation": "PASS",
+    "v22_continued_to_version": 2,
+    "v22_logical_root": "52ce5fe9105c0a743c3fa8d312b298dffd253f8f94dd2b614212c23b6396f3ce",
+    "checkpoint_sha256": "30554f11a101fad4233871c3b30b227f6513e3ac60879368746044781b2009da",
+    "checkpoint_readback": "PASS"
+  },
+  "interpretation": "This proves reference continuity because v2.1 and v2.2 durable_store.py are byte-identical. It does not claim a released-schema migration and cannot substitute for a genuine future schema migration test.",
+  "scientific_dispatch_authorized": false,
+  "promotion": false,
+  "decision": "REFERENCE_CONTINUITY_PASS__RELEASED_SCHEMA_MIGRATION_GATE_NOT_APPLICABLE_UNTIL_A_GENUINE_OLDER_SCHEMA_EXISTS"
+}
