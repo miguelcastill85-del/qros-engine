@@ -26,3 +26,9 @@ python3 -B -m cognitive.research.system_development.recover --directory cognitiv
 ```
 
 Este hash identifica el resultado cerrado de Sol y debe contrastarse con el release verificado. La recuperación comprueba bytes, programa, cobertura de escenarios, errores esperados, salidas, interrupciones y trazas. No convierte la autoridad histórica V191 en autoridad vigente. Toda ejecución nueva exige bootstrap y capacidad física nuevos. El recuperador admite recibos completos; no certifica una tanda parcial como terminada.
+
+## Revalidación histórica tras 0.3.3
+
+Para los resultados V2, `recover` requiere ahora `--source-archive cognitive/research/system_development/FROZEN_V2_SOURCE_ARCHIVE.json`, además del hash externo de RESULTS y la preregistración original. El archivo histórico sólo se lee como datos. La ejecución de fuentes actuales con la preregistración V2 falla deliberadamente: se requiere una nueva preregistración DEVELOPMENT, sin volver a considerar sellados los casos observados.
+
+`run` acepta `--stop-after`, `--resume` y `--resume-sha` para el nuevo formato de episodios cerrados. Una reanudación exige autoridad fresca coherente y hashes de código actuales. El formato histórico records-only no se convierte automáticamente en evidencia reanudable.

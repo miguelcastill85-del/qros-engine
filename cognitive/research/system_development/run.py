@@ -24,29 +24,62 @@ def authority_sources(root,anchor):
     paths=[name,registry,reg['inherited_registry']['path']]+[x['path'] for x in manifest['single_active_authority'].values()]+[x['path'] for x in manifest['legacy_redirects']]
     return {path:(root/path).read_bytes() for path in paths}
 
-def verify_prereg(path):
+def verify_prereg(path,source_archive=None):
     protocol=v.parse_json(path.read_bytes())
+    archived=None
+    if source_archive is not None:
+        archive,_=v.Snapshot(source_archive.parent).json(source_archive.name)
+        v.require(archive.get('schema')=='QRCEL_FROZEN_SOURCE_ARCHIVE_V1','ARCHIVE_SCHEMA')
+        archived=archive.get('sources')
+        v.require(isinstance(archived,dict) and set(archived)==set(protocol['source_sha256']),'ARCHIVE_SOURCE_SET')
     for name,h in protocol['source_sha256'].items():
-        v.require(v.sha256((PROJECT/name).read_bytes())==h,'FROZEN_SOURCE_CHANGED',name)
+        if archived is None:
+            raw=v.Snapshot(PROJECT).read(name)
+        else:
+            v.require(isinstance(archived[name],str),'ARCHIVE_SOURCE_TYPE')
+            raw=archived[name].encode()
+        v.require(v.sha256(raw)==h,'FROZEN_SOURCE_CHANGED',name)
     v.require(protocol['variants']==list(VARIANTS) and protocol['scenarios']==list(SCENARIOS),'FROZEN_DESIGN_CHANGED')
     return protocol
 
-def run(raw,authority_root,anchor,prereg,out,route):
+def run(raw,authority_root,anchor,prereg,out,route,resume=None,resume_sha=None,stop_after=None):
     protocol=verify_prereg(prereg)
     v.require(anchor==protocol['authority_manifest_blob_sha1'],'AUTHORITY_ANCHOR_CHANGED')
     sources=authority_sources(authority_root,anchor)
+    v.require((resume is None)==(resume_sha is None),'RESUME_ANCHOR_REQUIRED')
+    v.require(stop_after is None or type(stop_after) is int and 1<=stop_after<15,'STOP_AFTER_RANGE')
+    prior=[]
+    if resume is not None:
+        from .recover import recover
+        recover(resume,resume_sha,prereg,partial=True)
+        prior_raw=v.Snapshot(resume).read('PARTIAL_RESULTS.json')
+        v.require(v.sha256(prior_raw)==resume_sha,'RESUME_CHANGED_DURING_READ')
+        previous=v.parse_json(prior_raw)
+        v.require(previous['response_sha256']==v.sha256(raw),'RESUME_RESPONSE_CHANGED')
+        prior=previous['records']
     out.mkdir(parents=True,exist_ok=False)
-    def write(name,obj):(out/name).write_bytes(v.canonical(obj))
+    def write(name,obj):
+        from cognitive.validate_candidate import atomic_write
+        atomic_write(out/name,v.canonical(obj))
     (out/'RAW_RESPONSE.json').write_bytes(raw)
     try:plan=adapt(raw)
     except v.ContractError as error:
         result={'status':'MODEL_PROGRAM_REJECTED','error':error.code,'route':route,'response_sha256':v.sha256(raw),'model_claim_status':'NO_EXECUTION_INFERRED'}
         write('RESULTS.json',result);return result
     write('PLAN.json',plan);plan_sha=v.sha256(v.canonical(plan))
-    records=[]
+    records=list(prior)
+    def partial_receipt():
+        return {'schema':'QRCEL_BOUND_PARTIAL_EPISODES_V1','status':'PARTIAL_EPISODES','route':route,
+            'records':records,'correct':sum(r['correct'] for r in records),'total':len(records),
+            'response_sha256':v.sha256(raw),'plan_sha256':plan_sha,'preregistration_sha256':v.sha256(prereg.read_bytes()),
+            'authority_manifest_blob_sha1':anchor,'sealed':False,'scientific_dispatches':0,
+            'resume_unit':'CLOSED_EPISODE','model_calls_during_replay':0}
+    write('PARTIAL_RESULTS.json',partial_receipt())
+    identities=[(s,p) for s in SCENARIOS for p in VARIANTS]
     env={'PATH':'/usr/bin:/bin','PYTHONDONTWRITEBYTECODE':'1','LANG':'C.UTF-8'}
     for scenario in SCENARIOS:
         for variant in VARIANTS:
+            if identities.index((scenario,variant))<len(prior):continue
             with tempfile.TemporaryDirectory(prefix='qrcel-system-dev-') as tmp:
                 root=Path(tmp);(root/'cognitive').mkdir()
                 for path,contents in sources.items():
@@ -90,7 +123,9 @@ def run(raw,authority_root,anchor,prereg,out,route):
                     'host_operation_attempts':len(events),'forbidden_marker_calls':forbidden_calls,'repeat_after_completion_zero_calls':idempotent,
                     'artifact_bytes':sum(p.stat().st_size for p in root.rglob('*') if p.is_file()),
                     'final_answer':answer,'wall_seconds':sum(a['wall_seconds'] for a in attempts)})
-                write('PARTIAL_RESULTS.json',{'records':records})
+                write('PARTIAL_RESULTS.json',partial_receipt())
+                if stop_after is not None and len(records)-len(prior)>=stop_after and len(records)<15:
+                    return partial_receipt()
     result={'schema':'QRCEL_OBSERVED_SYSTEM_SLICE_V1','status':'PASS_RESTRICTED_EPISODES' if all(r['correct'] for r in records) else 'FAIL_RESTRICTED_EPISODES',
         'route':route,'records':records,'correct':sum(r['correct'] for r in records),'total':len(records),'response_sha256':v.sha256(raw),
         'plan_sha256':plan_sha,'preregistration_sha256':v.sha256(prereg.read_bytes()),'authority_manifest_blob_sha1':anchor,
@@ -104,7 +139,8 @@ def run(raw,authority_root,anchor,prereg,out,route):
 def main():
     p=argparse.ArgumentParser();p.add_argument('--response',type=Path,required=True);p.add_argument('--authority-root',type=Path,required=True)
     p.add_argument('--authority-blob',required=True);p.add_argument('--prereg',type=Path,required=True);p.add_argument('--out',type=Path,required=True);p.add_argument('--route',required=True)
-    a=p.parse_args();r=run(a.response.read_bytes(),a.authority_root,a.authority_blob,a.prereg,a.out,a.route)
-    print(json.dumps({k:r[k] for k in ('status','correct','total') if k in r}));return 0 if r['status']=='PASS_RESTRICTED_EPISODES' else 1
+    p.add_argument('--resume',type=Path);p.add_argument('--resume-sha');p.add_argument('--stop-after',type=int)
+    a=p.parse_args();r=run(a.response.read_bytes(),a.authority_root,a.authority_blob,a.prereg,a.out,a.route,a.resume,a.resume_sha,a.stop_after)
+    print(json.dumps({k:r[k] for k in ('status','correct','total') if k in r}));return 0 if r['status'] in ('PASS_RESTRICTED_EPISODES','PARTIAL_EPISODES') else 1
 
 if __name__=='__main__':raise SystemExit(main())

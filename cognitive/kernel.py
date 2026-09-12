@@ -199,6 +199,7 @@ class Kernel:
     def observe(self):
         snapshot=v.Snapshot(self.repo)
         observation=v.observe_authority(snapshot,self.authority)
+        v.require(observation.manifest['authority_epoch'] in (189,191), 'UNSUPPORTED_KERNEL_AUTHORITY_EPOCH')
         if observation.manifest['authority_epoch']==191:
             v.inspect_control_bootstrap(snapshot,self.authority)
         return observation

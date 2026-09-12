@@ -89,3 +89,7 @@ Campaña: `QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1`.
 Se implementó únicamente el subconjunto determinista que responde a fallos reproducidos, reutilizando baseline y fixtures existentes. No se ha certificado `COGNITIVE_ONTOLOGY_FROZEN`, `RISE_FIXED_POINT`, superiority, paridad o ganador entre arquitecturas. DEVELOPMENT usa errores conocidos ya expuestos. Faltan validación nueva, evaluación sellada, comparación pareada entre modelos, shadow operacional y canary antes de cualquier promoción completa.
 
 Rollback: el baseline sigue activo y no se añadió ningún consumidor automático. No importar el paquete o retirar la rama candidata revierte su uso experimental sin migrar estado científico. No modificar ni destruir los artefactos congelados.
+
+## Correcciones experimentales 0.3.3
+
+Autoridad desconocida, trazas incoherentes y intentos malformados se rechazan. Los lotes del intérprete restringido admiten reanudación por episodios cerrados con hash externo. Validación: `checkpoints/audit_033/VALIDATION_RECEIPT.json` y `TARGETED_TEST_RECEIPT.json`. Migración y rollback: `migrations/0.3.3.md`. La autoridad de main presenta una discrepancia manifest191/HEAD199: no ejecutar integración científica.

@@ -46,6 +46,21 @@ class KernelTests(unittest.TestCase):
 
     def env(self):return {'PATH':'/usr/local/bin:/usr/bin:/bin','PYTHONPATH':str(fixtures.ROOT),'PYTHONDONTWRITEBYTECODE':'1'}
 
+    def test_unknown_epoch_with_coherent_role_hashes_is_rejected_before_store(self):
+        mf=self.root/v.MANIFEST;manifest=json.loads(mf.read_bytes())
+        manifest['authority_epoch']=999
+        manifest['active_hash_registry']='control/MISSING_SYNTHETIC_REGISTRY.json'
+        for role,path in v.PATHS.items():
+            target=self.root/path;obj=json.loads(target.read_bytes())
+            obj['authority_epoch']=999;obj['schema']=obj['schema'].rsplit('_V',1)[0]+'_V999'
+            raw=v.canonical(obj);target.write_bytes(raw)
+            manifest['single_active_authority'][role]['git_blob_sha1']=v.git_blob(raw)
+        raw=v.canonical(manifest);mf.write_bytes(raw);anchor=v.git_blob(raw)
+        v.observe_authority(v.Snapshot(self.root),anchor)
+        with self.assertRaisesRegex(v.ContractError,'UNSUPPORTED_KERNEL_AUTHORITY_EPOCH'):
+            k.Kernel(self.root,self.plan,v.sha256(v.canonical(self.plan)),anchor,'unknown')
+        self.assertFalse((self.root/'cognitive/runs').exists())
+
     def test_end_to_end_depths_and_no_scientific_effects(self):
         before={p:(self.root/p).read_bytes() for p in [v.MANIFEST,*v.PATHS.values()]}
         obj=self.open();r=obj.run();self.assertEqual(r['completed_tasks'],4)

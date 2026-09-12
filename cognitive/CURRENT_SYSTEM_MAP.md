@@ -47,3 +47,7 @@ La fuente recuperada fue `control/CONTROL_AUTHORITY_MANIFEST_v3.json` en el repo
 El cuello de botella observado de esta evaluación es la discriminación y atribución: faltan tratamientos de sistema operacionales, trazas instrumentadas y casos de ejecución completa. La segunda limitación es integrar contratos históricos reales sin crear otra autoridad. La tercera es demostrar continuidad del agente; hoy hay evidencia más fuerte de continuidad del núcleo local.
 
 Se preservan las cuatro alternativas A/B/C/D descritas en `research/ARCHITECTURE_REVIEW_v2.json`. D — QROS existente más inspectores mínimos — tiene implementación de componentes; no es ganador del stack completo. No se justifican agentes especializados adicionales por estas puntuaciones. Se conserva el núcleo mínimo existente, sin promoción ni afirmación de agotamiento de las demás ramas.
+
+## Observación posterior: autoridad contradictoria
+
+En main `a6f76f5fd1039f10f18ad3d10c0b00ddea9a181e`, el manifest observado sigue en epoch191 pero HEAD contiene epoch199 y no coincide con el hash delegado. El mapa anterior describe la instantánea histórica verificada; no certifica main actual. Evidencia: `checkpoints/authority_drift_v199/FAIL_CLOSED_RECEIPT.json`. Integración activa: `FAIL_CLOSED`.
