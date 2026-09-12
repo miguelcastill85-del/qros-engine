@@ -1,0 +1,13 @@
+test_boolean_resource_cap_rejected (cognitive.research.treatments.test_preflight.PreflightTests.test_boolean_resource_cap_rejected) ... ok
+test_development_cannot_be_promoted_by_flag (cognitive.research.treatments.test_preflight.PreflightTests.test_development_cannot_be_promoted_by_flag) ... ok
+test_duplicate_arm_rejected (cognitive.research.treatments.test_preflight.PreflightTests.test_duplicate_arm_rejected) ... ok
+test_each_resource_or_access_mismatch_rejected (cognitive.research.treatments.test_preflight.PreflightTests.test_each_resource_or_access_mismatch_rejected) ... ok
+test_forged_expected_hash_rejected (cognitive.research.treatments.test_preflight.PreflightTests.test_forged_expected_hash_rejected) ... ok
+test_matched_protocol_not_a_parity_result (cognitive.research.treatments.test_preflight.PreflightTests.test_matched_protocol_not_a_parity_result) ... ok
+test_provider_context_mismatch_rejected (cognitive.research.treatments.test_preflight.PreflightTests.test_provider_context_mismatch_rejected) ... ok
+test_sealed_label_not_available_for_exposed_cases (cognitive.research.treatments.test_preflight.PreflightTests.test_sealed_label_not_available_for_exposed_cases) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK
