@@ -1,0 +1,86 @@
+{
+  "schema": "QROS_DURABLE_SCIENTIFIC_ARTIFACT_POLICY_v1",
+  "status": "ACTIVE_MANDATORY",
+  "effective_date": "2026-09-11",
+  "scope": "ALL_QROS_RISE_RESEARCH_CAMPAIGNS",
+  "purpose": "Prevent a scientifically identified campaign from becoming non-executable after chat/runtime migration.",
+  "hard_rule": "NO_SCIENTIFIC_STAGE_MAY_BE_DECLARED_DURABLY_CLOSED_UNLESS_THE_COMPLETE_EXECUTABLE_EVIDENCE_PACKAGE_IS_PERSISTED_AND_HASH_VERIFIED",
+  "mandatory_package": {
+    "runner_source": {
+      "required": true,
+      "require_exact_bytes": true,
+      "require_sha256": true
+    },
+    "independent_parity_implementation": {
+      "required": true,
+      "require_exact_bytes": true,
+      "require_sha256": true
+    },
+    "frozen_configuration_table": {
+      "required": true,
+      "require_all_rows": true,
+      "require_stable_id_per_row": true,
+      "require_sha256": true,
+      "summary_counts_are_not_a_substitute": true
+    },
+    "parameter_and_execution_contract": {
+      "required": true,
+      "include_cost_regimes": true,
+      "include_bid_ask_semantics": true,
+      "include_gap_and_sl_tp_ambiguity_rules": true,
+      "include_intraday_and_position_constraints": true
+    },
+    "environment_lock": {
+      "required": true,
+      "include_language_runtime": true,
+      "include_dependency_versions": true,
+      "include_deterministic_seeds": true
+    },
+    "data_contract": {
+      "required": true,
+      "include_carrier_identity": true,
+      "include_sha256": true,
+      "include_bytes_records_coverage_and_source_clock": true,
+      "include_zero_and_crossed_spread_policy": true
+    },
+    "receipts_and_roots": {
+      "required": true,
+      "include_stage_receipts": true,
+      "include_population_counts": true,
+      "include_order_or_population_roots_where_defined": true
+    },
+    "checkpoint": {
+      "required": true,
+      "include_scientific_state": true,
+      "include_exposure_state": true,
+      "include_next_authorized_action": true,
+      "include_blockers": true
+    }
+  },
+  "durability_requirement": {
+    "canonical_store": "GitHub qros-engine repository",
+    "secondary_copy_recommended": "Dropbox or another project-controlled durable store",
+    "runtime_sandbox_is_never_authority": true,
+    "chat_memory_is_never_the_only_authority": true,
+    "hash_verify_before_execution_after_migration": true
+  },
+  "closure_gate": {
+    "name": "DURABLE_EXECUTABILITY_GATE",
+    "pass_condition": "All mandatory package elements are physically recoverable from durable storage and their hashes/identities reconcile.",
+    "failure_state": "BLOCKED_BY_INFRASTRUCTURE",
+    "forbidden_on_failure": [
+      "claim_reproducibility",
+      "rerun_selection_to_reconstruct_missing_frozen_rows",
+      "approximate_missing_runner_source",
+      "invent_metrics",
+      "silently_change_frozen_rules"
+    ]
+  },
+  "lesson_source": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1 recovery on 2026-09-11: Stage-B receipts and hashes survived, but exact frozen final-row payloads and exact runner source bytes were not recoverable from available durable stores.",
+  "guards": [
+    "NO_RETUNING_AFTER_RESULTS",
+    "NO_APPROXIMATE_RECONSTRUCTION_OF_FROZEN_POPULATION",
+    "NO_HASH_ONLY_RUNNER_SUBSTITUTION",
+    "NO_RUNTIME_ONLY_CRITICAL_ARTIFACTS"
+  ]
+}
