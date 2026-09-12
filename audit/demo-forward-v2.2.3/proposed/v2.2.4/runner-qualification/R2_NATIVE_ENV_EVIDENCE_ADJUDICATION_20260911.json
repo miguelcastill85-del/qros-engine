@@ -1,0 +1,58 @@
+{
+  "schema": "QROS_RUNNER_R2_NATIVE_ENV_ADJUDICATION_1.0",
+  "utc": "2026-09-12T23:36:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "evidence": {
+    "file": "QROS_RUNNER_NATIVE_ENV_EVIDENCE_r2_20260911_234345_12b72981.zip",
+    "bytes": 18009,
+    "sha256": "43984d02d002a43fd7cc3a89bf45baf00d09fb473f07328c8376bb967d335927",
+    "members": 13,
+    "run_id": "r2_20260911_234345_12b72981"
+  },
+  "observed_passes": {
+    "package_manifest": "PASS entries=8",
+    "bound_runner_sha": "PASS 17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+    "runner_selftest": "13/13 PASS",
+    "standard_include_snapshot": "PASS files=267",
+    "trade_mqh_sha256": "96e6781624534377fe7971cba52cca3d62d1b030bc10d5e4ebf3ed8c541399ed",
+    "metaeditor_compile": "PASS 0 errors / 0 warnings",
+    "metaeditor_build": 6182,
+    "native_mql_smoke": "PASS",
+    "strategy_tester": 1,
+    "server": "Darwinex-Demo",
+    "real_broker_orders_authorized": false,
+    "real_broker_orders_sent": 0,
+    "candidate3_executed": false
+  },
+  "receipt": {
+    "decision": "FAIL",
+    "state": "RUNNER_REJECTED_NATIVE_ENV",
+    "reason": "FENCE_SECOND_EXECUTOR_NOT_DENIED",
+    "code": 52
+  },
+  "adjudication": {
+    "r2_gate": "FAIL_INCONCLUSIVE_FENCING",
+    "candidate3_failure": false,
+    "candidate3_execution_allowed": false,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0",
+    "root_cause_status": "QUALIFIER_FENCING_OVERLAP_NOT_PROVEN",
+    "reasoning": [
+      "The holder writes HOLDER_READY after acquiring the FILE_COMMON fence, but the runner does not prove that the holder tester process or fence handle is still alive at the exact moment the probe attempts FileOpen.",
+      "R2_HOLDER and R2_PROBE use a one-day Strategy Tester interval. The tester can finish that interval faster than the requested 180000 ms wall-clock hold, which triggers OnDeinit and ReleaseFence before the probe starts.",
+      "The runner checks only the persistent HOLDER_READY marker before launching the probe; it has no holder heartbeat, process-liveness assertion, or lock-token observation immediately before and during probe execution.",
+      "Failure code 52 conflates an explicit probe FAIL with missing/unreadable probe evidence because the fail path does not snapshot the probe result or holder lifecycle artifacts. The uploaded ZIP contains neither HOLDER_READY, probe result, holder release result nor tester runtime logs, so exact concurrent state is not recoverable from evidence.",
+      "Therefore the evidence does not establish that two simultaneously live MQL processes could acquire the same no-share FILE_COMMON file. It only establishes that the R2 qualifier did not observe a PASS from its fencing probe."
+    ]
+  },
+  "required_r2_repair": [
+    "Do not run Candidate3.",
+    "Make the holder prove real overlap: publish a monotonically refreshed heartbeat/token while the lock handle remains open, or use a bounded real-wall-clock busy hold that cannot finish the tester interval before the probe.",
+    "Before probe launch require holder process alive AND fresh heartbeat AND expected lock token; after probe require holder still alive/fresh until probe evidence is snapshotted.",
+    "Use separate result files for HOLDER, PROBE and REACQUIRE; never reuse one RESULTS.csv for multiple modes.",
+    "On every failure snapshot all available holder/probe/reacquire CSVs plus isolated terminal/tester logs before cleanup.",
+    "Only classify FENCE_SECOND_EXECUTOR_NOT_DENIED when explicit probe evidence says SECOND_LOCK_ACQUIRED while a fresh holder heartbeat proves the first handle was still owned. Missing evidence must receive a separate fail code."
+  ],
+  "next_state": "R2_NATIVE_ENV_REPAIR_REQUIRED"
+}
