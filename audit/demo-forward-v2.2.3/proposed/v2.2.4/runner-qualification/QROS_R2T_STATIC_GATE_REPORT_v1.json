@@ -1,0 +1,23 @@
+{
+  "schema": "QROS_R2T_STATIC_GATE_1.0",
+  "decision": "PASS",
+  "rules": {
+    "RT001": {"pass": true, "description": "Actual-terminal qualifier must not use Strategy Tester."},
+    "RT002": {"pass": true, "description": "Live trading must be disabled."},
+    "RT003": {"pass": true, "description": "Qualifier MQL must contain no trade API."},
+    "RT004": {"pass": true, "description": "Fence flags must exactly mirror Candidate3 primitive."},
+    "RT005": {"pass": true, "description": "Fence must not opt into file sharing."},
+    "RT006": {"pass": true, "description": "Wall-clock overlap must use GetTickCount64, not Sleep."},
+    "RT007": {"pass": true, "description": "Both terminals must report and compare common data path."},
+    "RT008": {"pass": true, "description": "Stop-Process must be unique and dual path-gated."},
+    "RT009": {"pass": true, "description": "taskkill is forbidden."},
+    "RT010": {"pass": true, "description": "Legacy CERT must not be touched or named by executable code."},
+    "RT011": {"pass": true, "description": "Qualifier MQL must not contain Candidate3."},
+    "RT012": {"pass": true, "description": "Qualifier must fail if accidentally run under Strategy Tester."},
+    "RT013": {"pass": true, "description": "Package manifest must be hash verified."},
+    "RT014": {"pass": true, "description": "No active-data or broad common deletion."},
+    "RT015": {"pass": true, "description": "Actual process restart persistence must be tested."}
+  },
+  "summary": {"rules_pass": 15, "rules_total": 15, "mutations_caught": 14, "mutations_total": 14},
+  "mutation_tests_all_caught": true
+}
