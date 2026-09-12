@@ -1,0 +1,79 @@
+{
+  "schema": "QROS_G30_V192_V196_HISTORICAL_RECONCILIATION_V197_20260911_v1",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "authority_epoch": 197,
+  "created_date": "2026-09-11",
+  "status": "HISTORICAL_RECONCILIATION_PASS_NO_NEW_RESULTS",
+  "scientific_change_class": "DURABILITY_RECONCILIATION_ONLY_NO_SCIENTIFIC_RERUN",
+  "purpose": "Preserve the exact distinction between Stage C authorization at V192 and the later V195/V196 recovery state. V192 promotion authorized Stage C but did not execute it.",
+  "v192_candidate": {
+    "path": "control/QROS_G30_STAGE_C_2022_2024_AUTHORITY_CANDIDATE_V192_v1.json",
+    "commit": "df99a5cf3092d35ece0a8fcdc721f3b1c9ce4037",
+    "status_at_candidate": "PREREGISTERED_NO_RESULTS"
+  },
+  "v192_validator": {
+    "path": "control/QROS_G30_STAGE_C_2022_2024_AUTHORITY_VALIDATOR_V192_v1.json",
+    "commit": "b2caf5f124a0c76d267b12bf46b82269e1d3d957",
+    "git_blob_sha1": "7973b368ea72b9643cd0e09f07de49845ff2edd4",
+    "status": "PASS",
+    "decision": "PASS_PROMOTION_AUTHORIZED",
+    "market_data_2022_plus_read_during_validation": false
+  },
+  "v192_promotion": {
+    "path": "control/QROS_G30_STAGE_C_2022_2024_AUTHORITY_PROMOTION_RECEIPT_V192_v1.json",
+    "commit": "7414f80e0b576faffe691ed273738a1fc3b560a2",
+    "status": "PROMOTED_NO_RESULTS",
+    "stage_c_results_at_promotion": "NONE",
+    "authorized_population": {
+      "total": 9237,
+      "NQX": 6570,
+      "XAUUSD": 2667,
+      "BUY": 6183,
+      "SELL": 3054
+    },
+    "authorized_gate": {
+      "window_start_inclusive": "2022-01-01",
+      "window_end_exclusive": "2025-01-01",
+      "minimum_trades": 30,
+      "pf_central_min": 1.20,
+      "pf_conservative_min": 1.10,
+      "pf_severe_min": 1.00,
+      "net_positive_all_costs": true,
+      "positive_full_years_central_required": [2022, 2023, 2024],
+      "independent_trade_parity_required": true
+    },
+    "guards": {
+      "no_f13": true,
+      "no_retuning": true,
+      "mt5_not_authorized_during_stage_c": true,
+      "supergate_not_authorized_during_stage_c": true
+    }
+  },
+  "historical_interpretation": {
+    "stage_b": "GLOBALLY_CLOSED_BEFORE_V192",
+    "stage_c_authority": "VALIDATED_AND_PROMOTED",
+    "stage_c_economic_results": "NEVER_EXECUTED_BEFORE_LATER_RECOVERY_STATE",
+    "2022_plus_strategy_pnl_read_by_v192_validation_or_promotion": false,
+    "f13": "UNTOUCHED_AND_EXCLUDED"
+  },
+  "later_authority": {
+    "v195_migration_ref": "control/QROS_G30_CROSS_CHAT_MIGRATION_V195_20260911_v1.json",
+    "v196_checkpoint_ref": "control/QROS_G30_RECOVERY_CHECKPOINT_V196_20260911_v1.json",
+    "v196_status": "BLOCKED_BY_INFRASTRUCTURE",
+    "reason": "Exact frozen Stage-B final-row payload bytes and exact qros_g30_econ_numba_v4.py source bytes were not recoverable from durable stores inspected; XAU authority survived but physical carrier bytes were not mounted in that runtime.",
+    "all_years_2018_2026_run": "NOT_EXECUTED",
+    "new_holdout_exposure_created_by_recovery": false
+  },
+  "authority_rule": "V192 remains a valid historical authorization event but is not the current HEAD. V197/V196 recovery authority governs continuation. Never infer that Stage C results exist merely because V192 was promoted.",
+  "guards": [
+    "DO_NOT_RESTART_STAGE_B",
+    "DO_NOT_OPEN_F13",
+    "NO_MEDOIDS",
+    "NO_RERANKING",
+    "NO_RETUNING_AFTER_RESULTS",
+    "NO_INVENTED_STAGE_C_RESULTS",
+    "NO_APPROXIMATE_FROZEN_ROW_RECONSTRUCTION",
+    "NO_APPROXIMATE_RUNNER_REIMPLEMENTATION_AS_PARITY_EVIDENCE"
+  ],
+  "next_action": "Recover only pre-existing exact frozen-row payload bytes and exact runner source bytes from durable storage if found; hash-verify before any economic execution. Preserve V192 as historical promotion evidence, not as proof of Stage C execution."
+}
