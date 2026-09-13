@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_CROSS_CHAT_MIGRATION_R2_REPAIRED_STATIC_HOLD_20260913_v2",
+  "utc": "2026-09-13T21:21:15.493255+00:00",
+  "source_checkpoint_commit": "e75aca7e1a3588022926b464726b0d97a4a82824",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate3": "FROZEN",
+  "active_mt5": "UNTOUCHED",
+  "runner_sha256": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+  "qualifier_ps1_sha256": "841b2ba9b8441c06b59af61456111421d042b2024c270d084199288e9c9dd1f9",
+  "qualifier_mq5_sha256": "29dbc3495076a6ee53b878ada16ef3cb24279ae9ac3373a520f7a1f991d38873",
+  "root_cause_classification": "QUALIFIER_DEFECT_D14_D15; LEGACY_R2_CODE_52_INCONCLUSIVE",
+  "r0_source_integrity": "PASS",
+  "r1_independent_reexecution": "PASS",
+  "r2_overlap_static_gate": "PASS",
+  "r2_native_windows": "NOT_EXECUTED_IN_THIS_RUNTIME",
+  "real_env_gate": "HOLD",
+  "candidate_gate_eligible": false,
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "next_action": "Execute v2 native qualifier only in isolated Windows/Darwinex environment; require overlap_proven=true and native receipt PASS before Candidate3 eligibility."
+}
