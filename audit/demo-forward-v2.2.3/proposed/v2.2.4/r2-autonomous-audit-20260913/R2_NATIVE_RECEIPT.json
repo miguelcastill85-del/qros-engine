@@ -1,0 +1,34 @@
+{
+  "schema": "QROS_R2_AUDIT_NONEXECUTION_RECEIPT_1",
+  "native_execution_status": "NOT_RUN_BLOCKED",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "r2_native_qualified": false,
+  "certificate_issued": false,
+  "historical_native_result": {
+    "provenance": "user message + verified repository adjudication text; raw ZIP not available",
+    "decision": "FAIL",
+    "state": "RUNNER_REJECTED_NATIVE_ENV",
+    "reason": "FENCE_SECOND_EXECUTOR_NOT_DENIED",
+    "code": 52
+  },
+  "root_cause_status": "PHYSICAL_CAUSE_UNDETERMINED",
+  "demonstrated_findings": [
+    "repository adjudications conflict on what code 52 proves",
+    "original evidence/qualifier bytes inaccessible",
+    "no native Windows execution capability",
+    "two historical static-gate false acceptances reproduced with inert strings"
+  ],
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "candidate_executed_this_session": false,
+  "candidate_execution_allowed": false,
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "required_cert_value": 0,
+  "actual_pc_cert_value_observed": false,
+  "orders_sent_this_session": 0,
+  "active_terminal_touched": false,
+  "next_gate": "RECOVER_EXACT_SOURCES_AND_R2_NATIVE_DISCRIMINATION_WITHOUT_CANDIDATE3",
+  "r3_allowed": false,
+  "r4_allowed": false
+}

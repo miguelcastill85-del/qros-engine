@@ -1,0 +1,11 @@
+{
+  "scope": "audit supplement; not R1 qualification of v2.2 or R2 qualifier",
+  "historical_gate": "qros_runner_static_release_gate_v1_1.py",
+  "historical_false_acceptances_reproduced": 2,
+  "latest_r1_gate_execution": "BLOCKED_SOURCE_UNAVAILABLE",
+  "qualifier_static_gate": "NOT_RUN_SOURCE_UNAVAILABLE",
+  "whole_qualifier_adversarial_fixed_point": "NOT_REACHED",
+  "candidate_changed": false,
+  "runner_changed": false,
+  "qualifier_release_created": false
+}

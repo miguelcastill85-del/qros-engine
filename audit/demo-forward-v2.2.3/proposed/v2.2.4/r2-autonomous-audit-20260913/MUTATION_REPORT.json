@@ -1,0 +1,147 @@
+{
+  "scope": "TEST_ONLY offline contract, not original R1/R2 mutation score",
+  "positive_control": "coherent fabricated transcript remains NATIVE_UNVERIFIED",
+  "mutations": [
+    {
+      "mutation": "physical_namespace_distinct",
+      "expected_rule": "PHYSICAL_NAMESPACE",
+      "caught": true
+    },
+    {
+      "mutation": "holder_early_release",
+      "expected_rule": "HOLDER_OVERLAP",
+      "caught": true
+    },
+    {
+      "mutation": "probe_other_filename",
+      "expected_rule": "LOCK_FILENAME",
+      "caught": true
+    },
+    {
+      "mutation": "incorrect_runid",
+      "expected_rule": "RUN_ID",
+      "caught": true
+    },
+    {
+      "mutation": "stale_evidence",
+      "expected_rule": "FRESHNESS",
+      "caught": true
+    },
+    {
+      "mutation": "impossible_timestamp",
+      "expected_rule": "TIMESTAMP",
+      "caught": true
+    },
+    {
+      "mutation": "incorrect_pid",
+      "expected_rule": "PROCESS_IDENTITY",
+      "caught": true
+    },
+    {
+      "mutation": "incorrect_data_path",
+      "expected_rule": "DATA_PATH",
+      "caught": true
+    },
+    {
+      "mutation": "incorrect_common_path",
+      "expected_rule": "COMMON_PATH",
+      "caught": true
+    },
+    {
+      "mutation": "fake_pass_without_lock",
+      "expected_rule": "CROSS_RESULT",
+      "caught": true
+    },
+    {
+      "mutation": "release_without_ownership",
+      "expected_rule": "RELEASE_OWNERSHIP",
+      "caught": true
+    },
+    {
+      "mutation": "reacquire_before_release",
+      "expected_rule": "TIMESTAMP",
+      "caught": true
+    },
+    {
+      "mutation": "file_id_distinct",
+      "expected_rule": "PHYSICAL_IDENTITY",
+      "caught": true
+    },
+    {
+      "mutation": "external_other_file",
+      "expected_rule": "EXTERNAL_PHYSICAL_IDENTITY",
+      "caught": true
+    },
+    {
+      "mutation": "interrupted_handle",
+      "expected_rule": "HANDLE_CONTINUITY",
+      "caught": true
+    },
+    {
+      "mutation": "pid_reused",
+      "expected_rule": "EXTERNAL_PROCESS",
+      "caught": true
+    },
+    {
+      "mutation": "access_denied_not_sharing",
+      "expected_rule": "DENIAL_REASON",
+      "caught": true
+    },
+    {
+      "mutation": "runner_byte_change",
+      "expected_rule": "RUNNER_BINDING",
+      "caught": true
+    },
+    {
+      "mutation": "cert_enabled",
+      "expected_rule": "SAFETY",
+      "caught": true
+    },
+    {
+      "mutation": "candidate_executed",
+      "expected_rule": "SAFETY",
+      "caught": true
+    },
+    {
+      "mutation": "boolean_release_epoch",
+      "expected_rule": "RELEASE_OWNERSHIP",
+      "caught": true
+    },
+    {
+      "mutation": "array_trace_hash",
+      "expected_rule": "RAW_TRACE_BINDING",
+      "caught": true
+    },
+    {
+      "mutation": "coherent_reacquire_before_release",
+      "expected_rule": "REACQUIRE_ORDER",
+      "caught": true
+    },
+    {
+      "mutation": "repeated_generation_in_plan_and_evidence",
+      "expected_rule": "ABA",
+      "caught": true
+    },
+    {
+      "mutation": "missing_evidence",
+      "expected_rule": "MALFORMED_OR_MISSING_EVIDENCE",
+      "caught": true
+    },
+    {
+      "mutation": "wrong_schema_type",
+      "expected_rule": "MALFORMED_OR_MISSING_EVIDENCE",
+      "caught": true
+    },
+    {
+      "mutation": "duplicate_json_keys",
+      "expected_rule": "DUPLICATE_JSON_KEY",
+      "caught": true
+    }
+  ],
+  "caught": 27,
+  "total": 27,
+  "score": 1.0,
+  "native_tests_run": false,
+  "r2_native_qualified": false,
+  "validator_sha256": "c99112b2af2ce0f832f4b46dde33cef54b0818078c2517f45c4b5ca0d3673cb5"
+}

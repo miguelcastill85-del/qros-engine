@@ -1,0 +1,18 @@
+{
+  "os": "Linux",
+  "kernel": "6.18.35",
+  "machine": "x86_64",
+  "python": "3.12.14",
+  "executables": {
+    "pwsh": null,
+    "powershell": null,
+    "wine": null,
+    "wine64": null,
+    "terminal64.exe": null,
+    "metaeditor64.exe": null,
+    "metatester64.exe": null
+  },
+  "remote_windows_bridge_exposed": false,
+  "native_execution_attempted": false,
+  "terminal_active_accessed": false
+}

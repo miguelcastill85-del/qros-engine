@@ -1,0 +1,87 @@
+{
+  "schema": "QROS_AUDIT_SUPPLEMENT_MANIFEST_1",
+  "base_commit": "eede23ec274abf27a667e1f9cad1ad226cf05444",
+  "files": [
+    {
+      "path": "AUDITORIA_RAIZ.md",
+      "bytes": 16865,
+      "sha256": "928d6f67e77dbf57061582b6451d94e0e13ece12e9985d22788cc231a38398e9"
+    },
+    {
+      "path": "CAPABILITY_RECEIPT.json",
+      "bytes": 398,
+      "sha256": "21befc17f35572d852de3b05f0dd2f38871d7a1e85559ca7d053d7c4a48720e1"
+    },
+    {
+      "path": "DECISION.json",
+      "bytes": 1057,
+      "sha256": "5262d32275b87b0f3a1abec55c4aca7709a260e6e89bdf7e6f769eee4206fe47"
+    },
+    {
+      "path": "DEFECT_LEDGER.json",
+      "bytes": 7073,
+      "sha256": "7703dc3b92daccf82e76aa423c331e13f38e7114a85ff5267d75ca353e7f45b2"
+    },
+    {
+      "path": "ENVIRONMENT_FINGERPRINT.json",
+      "bytes": 925,
+      "sha256": "61e454dafbf36565d2111392153e83f6907f70eac3a52babb30b9a6e9fb7105f"
+    },
+    {
+      "path": "LEGACY_GATE_REPRODUCTION.json",
+      "bytes": 320,
+      "sha256": "852cb6c15c8e0b116892947f808d32e9ef6464d3e0e4405aafbb2f0f3cab6fa4"
+    },
+    {
+      "path": "MUTATION_REPORT.json",
+      "bytes": 3545,
+      "sha256": "120305e253b58a86138b7165936590df40183cd2f0578767caca36a1abde64c8"
+    },
+    {
+      "path": "PRE_DELIVERY.json",
+      "bytes": 981,
+      "sha256": "783d41ede76055aa8993bb3d93da83d01a8dc954c1088e753fdce9eac45cbe9e"
+    },
+    {
+      "path": "R2_NATIVE_RECEIPT.json",
+      "bytes": 1316,
+      "sha256": "7163a39b3b0386d9abd52283350dfae6f7a31ddd0e7a9e34cb410abf7327df3b"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1807,
+      "sha256": "c4b05766958c1f2d49a4b43c76c1684d88e670aefd4f174558f98e2c54dc8ca2"
+    },
+    {
+      "path": "SOURCE_INTEGRITY.json",
+      "bytes": 6213,
+      "sha256": "6f76b0998fbc9f5718c6d99f93bd944104bb8c8a8374e8231d10706baadb3adb"
+    },
+    {
+      "path": "SOURCE_SCOPE.json",
+      "bytes": 3526,
+      "sha256": "ccd91272085be8f329525d0c2ad7a7df34c461d7ac79e5224240cad0d5e59fd9"
+    },
+    {
+      "path": "STATIC_GATE_REPORT.json",
+      "bytes": 464,
+      "sha256": "431854f20477c01fae83da919959f69664c385c3b7c5b5294d1294adc092f1d0"
+    },
+    {
+      "path": "evidence_contract.py",
+      "bytes": 7888,
+      "sha256": "c99112b2af2ce0f832f4b46dde33cef54b0818078c2517f45c4b5ca0d3673cb5"
+    },
+    {
+      "path": "reproduce_legacy_gate.py",
+      "bytes": 1535,
+      "sha256": "97c6856567b6b72836e284e32650ee5295a86bb488d9a9359c5de0d26f936949"
+    },
+    {
+      "path": "test_evidence_contract.py",
+      "bytes": 7438,
+      "sha256": "7f8d5b4ec3f44ae4a165c83e7bfdb093f7c09917bcafd9f4cbc548f8d3dd0a4c"
+    }
+  ],
+  "scope": "audit supplement; no native qualifier certification"
+}

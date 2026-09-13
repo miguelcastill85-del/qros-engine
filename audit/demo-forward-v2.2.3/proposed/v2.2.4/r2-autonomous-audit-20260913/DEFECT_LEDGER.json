@@ -1,0 +1,127 @@
+{
+  "schema": "QROS_R2_AUDIT_SUPPLEMENT_1",
+  "historical_D01_D13_preserved": true,
+  "scope": "separates proven defects, documented gaps and required contracts",
+  "defects": [
+    {
+      "DEFECT_ID": "R2A01",
+      "CLASS": "CONFLICTING_ADJUDICATION",
+      "STATUS": "PROVEN_DOCUMENTARY",
+      "ROOT_CAUSE": "Code 52 was interpreted as physical exclusivity failure despite a later explicit missing-evidence limitation.",
+      "DETECTION_RULE": "Do not adjudicate A without same-object, same-interval, same-access evidence.",
+      "NEGATIVE_TEST": "fake_pass_without_lock",
+      "REGRESSION_TEST": "positive fixture remains uncertified",
+      "FIX": "Add conservative adjudication; preserve historical receipts.",
+      "EVIDENCE": "AUDITORIA_RAIZ.md; SOURCE_INTEGRITY.json"
+    },
+    {
+      "DEFECT_ID": "R2A02",
+      "CLASS": "PHYSICAL_NAMESPACE_NOT_PROVEN",
+      "STATUS": "DOCUMENTED_GAP_NOT_NATIVE_REPRODUCED",
+      "ROOT_CAUSE": "Logical filename / common path can be confused with opened object identity.",
+      "DETECTION_RULE": "Require expected path plus volume/file ID cross-source and process binding.",
+      "NEGATIVE_TEST": "physical_namespace_distinct;file_id_distinct;external_other_file",
+      "REGRESSION_TEST": "coherent TEST_ONLY transcript",
+      "FIX": "Offline contract added; native collector/source repair BLOCKED.",
+      "EVIDENCE": "MUTATION_REPORT.json"
+    },
+    {
+      "DEFECT_ID": "R2A03",
+      "CLASS": "HANDLE_OVERLAP_NOT_PROVEN",
+      "STATUS": "DOCUMENTED_GAP_NOT_NATIVE_REPRODUCED",
+      "ROOT_CAUSE": "Persistent READY and GUI liveness do not prove uninterrupted handle ownership at attempt.",
+      "DETECTION_RULE": "Require acquisition < attempt < release and external continuous-handle witness.",
+      "NEGATIVE_TEST": "holder_early_release;interrupted_handle;coherent_reacquire_before_release",
+      "REGRESSION_TEST": "coherent TEST_ONLY transcript",
+      "FIX": "Offline contract added; native timing/collector verification BLOCKED.",
+      "EVIDENCE": "MUTATION_REPORT.json"
+    },
+    {
+      "DEFECT_ID": "R2A04",
+      "CLASS": "EVIDENCE_BINDING_GAPS",
+      "STATUS": "REQUIRED_CONTRACT",
+      "ROOT_CAUSE": "RunId, role, process creation, time and path need independent expected plan.",
+      "DETECTION_RULE": "Bind plan and MQL/external observations; reject missing evidence and duplicate keys.",
+      "NEGATIVE_TEST": "incorrect_runid;stale_evidence;impossible_timestamp;incorrect_pid;incorrect_data_path;incorrect_common_path;pid_reused",
+      "REGRESSION_TEST": "coherent TEST_ONLY transcript",
+      "FIX": "Offline contract and negative controls added.",
+      "EVIDENCE": "MUTATION_REPORT.json"
+    },
+    {
+      "DEFECT_ID": "R2A05",
+      "CLASS": "OWNERSHIP_AND_GENERATION",
+      "STATUS": "REQUIRED_CONTRACT",
+      "ROOT_CAUSE": "Release/reacquire without token/epoch permits wrong-owner or ABA interpretation.",
+      "DETECTION_RULE": "Release token and epoch match acquired owner; next owner differs and epoch increases.",
+      "NEGATIVE_TEST": "release_without_ownership;coherent_reacquire_before_release",
+      "REGRESSION_TEST": "coherent TEST_ONLY transcript",
+      "FIX": "Offline contract; production protocol only evaluated, no Candidate3 changes.",
+      "EVIDENCE": "MUTATION_REPORT.json; AUDITORIA_RAIZ.md"
+    },
+    {
+      "DEFECT_ID": "R2A06",
+      "CLASS": "HISTORICAL_STATIC_TOP_LEVEL_KILL",
+      "STATUS": "REPRODUCED_HISTORICAL_SOURCE",
+      "ROOT_CAUSE": "PS007 visits function blocks only; Stop-Process at top level escapes the rule.",
+      "DETECTION_RULE": "AST-based traversal of all executable command nodes and guarded call sites required.",
+      "NEGATIVE_TEST": "top_level_unguarded_stop",
+      "REGRESSION_TEST": "reproduce_legacy_gate.py with pinned source hash",
+      "FIX": "Detection/reproducer added; original immutable gate preserved. Latest R1 source unavailable, repair not claimed.",
+      "EVIDENCE": "LEGACY_GATE_REPRODUCTION.json"
+    },
+    {
+      "DEFECT_ID": "R2A07",
+      "CLASS": "HISTORICAL_STATIC_COMMENT_ENVELOPE",
+      "STATUS": "REPRODUCED_HISTORICAL_SOURCE",
+      "ROOT_CAUSE": "PS009 searches try{ and catch{ substrings, including comments; it does not establish a top-level exception envelope.",
+      "DETECTION_RULE": "Parse Windows PowerShell AST and prove required entrypoint covered by TryStatementAst/catch/finally.",
+      "NEGATIVE_TEST": "comment_only_envelope",
+      "REGRESSION_TEST": "reproduce_legacy_gate.py with pinned source hash",
+      "FIX": "Detection/reproducer added; AST implementation/native testing BLOCKED.",
+      "EVIDENCE": "LEGACY_GATE_REPRODUCTION.json"
+    },
+    {
+      "DEFECT_ID": "R2A08",
+      "CLASS": "SOURCE_DURABILITY_GAP",
+      "STATUS": "PROVEN_AVAILABLE_SCOPE",
+      "ROOT_CAUSE": "Branch stores qualifier package hashes/reports without qualifier/runner exact source or carrier. Library cannot be queried in this session.",
+      "DETECTION_RULE": "Before release require source blobs/package carrier materialization and SHA checks, not a receipt alone.",
+      "NEGATIVE_TEST": "runner_byte_change; missing_evidence",
+      "REGRESSION_TEST": "24 exact source Git blob verifications",
+      "FIX": "Record missing identities; no invented replacement or release.",
+      "EVIDENCE": "SOURCE_SCOPE.json"
+    },
+    {
+      "DEFECT_ID": "R2A09",
+      "CLASS": "NATIVE_CAPABILITY_UNAVAILABLE",
+      "STATUS": "PROVEN_CURRENT_RUNTIME",
+      "ROOT_CAUSE": "Current runtime is Linux, native tools absent and no callable Windows bridge.",
+      "DETECTION_RULE": "Fresh target capability receipt before R2 execution.",
+      "NEGATIVE_TEST": "cannot elevate coherent fabricated transcript",
+      "REGRESSION_TEST": "all contract returns keep r2_native_qualified=false",
+      "FIX": "Fail closed; persist nonexecution receipt and unobserved fingerprint.",
+      "EVIDENCE": "CAPABILITY_RECEIPT.json; R2_NATIVE_RECEIPT.json"
+    },
+    {
+      "DEFECT_ID": "R2A10",
+      "STATUS": "FIXED_OFFLINE_CONTRACT_ONLY",
+      "ROOT_CAUSE": "Python bool compares equal to integer 1; release epoch needed strict type check.",
+      "DETECTION_RULE": "Require type(release.epoch) is int.",
+      "NEGATIVE_TEST": "boolean_release_epoch",
+      "REGRESSION_TEST": "test_evidence_contract.py",
+      "FIX": "Strict type check added to release ownership validation.",
+      "EVIDENCE": "MUTATION_REPORT.json; native collector remains unimplemented"
+    },
+    {
+      "DEFECT_ID": "R2A11",
+      "STATUS": "FIXED_OFFLINE_CONTRACT_ONLY",
+      "ROOT_CAUSE": "An array of 64 hexadecimal characters could satisfy len/all checks without being a hash string.",
+      "DETECTION_RULE": "Require str before length and alphabet checks.",
+      "NEGATIVE_TEST": "array_trace_hash",
+      "REGRESSION_TEST": "test_evidence_contract.py",
+      "FIX": "Strict string check added to raw trace hash validation.",
+      "EVIDENCE": "MUTATION_REPORT.json; native collector remains unimplemented"
+    }
+  ],
+  "whole_qualifier_fixed_point": "NOT_REACHED_MISSING_EXACT_SOURCES_AND_NATIVE_HOST"
+}

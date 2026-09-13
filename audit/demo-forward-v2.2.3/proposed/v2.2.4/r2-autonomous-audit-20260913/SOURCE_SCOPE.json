@@ -1,0 +1,74 @@
+{
+  "base_commit": "eede23ec274abf27a667e1f9cad1ad226cf05444",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "tree_entries": 1391,
+  "tree_truncated": false,
+  "verified_text_sources": 24,
+  "archives_in_branch": [
+    "handoff/baseline/QROS_ENGINE_v0_6_SOFTWARE_20260828_R1.zip",
+    "audit/demo-forward-v2.2.3/proposed/v2.2.4/validation/evidence/QROS_V224_C3_COMPILE_ONLY_EVIDENCE_original.zip"
+  ],
+  "archive_scope": "Unrelated legacy engine and earlier compile-only evidence; not treated as R2 carriers; not extracted.",
+  "surfaces": {
+    "current_message": "identities and narrative; no attached raw bytes exposed",
+    "library": "skill loaded; no Library callable tools exposed in ALL_TOOLS; catalog NOT searched, availability unknown",
+    "local": "rg filename searches in /workspace and /mnt/data found no R2/qualifier/RQS sources; exact executable search in /opt,/usr/local/bin,/workspace,/mnt/data found no native MT5/PowerShell",
+    "github": "recursive exact-commit tree + 38 path-scoped historical commit records + 24 text sources; no releases/assets returned",
+    "dropbox": "3 title searches, zero results, has_more=false each",
+    "personal_context": "queried precise R2 genealogy; did not return relevant raw evidence",
+    "native_host": "Linux; no Windows remote command/MT5 bridge tool exposed",
+    "git_shell": "ls-remote could not read Username; authorized GitHub connector successfully reads branch"
+  },
+  "missing_bytes": [
+    {
+      "role": "runner",
+      "sha256": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+      "identity_status": "DOCUMENTED_BYTES_UNVERIFIED",
+      "materialized": false
+    },
+    {
+      "role": "qualifier_zip",
+      "name": "QROS_RUNNER_NATIVE_ENV_QUALIFIER_v1_FINAL.zip",
+      "sha256": "a4dd75c13432ac0f423301e645a9acf3f1d07a4be7c95e9a0a6aa182e0b89bdd",
+      "identity_status": "DOCUMENTED_BYTES_UNVERIFIED",
+      "materialized": false
+    },
+    {
+      "role": "qualifier_ps1",
+      "sha256": "a58de18704ad76c3dce4e09950170462d4bc82442660203b4b8741a840b96f96",
+      "identity_status": "DOCUMENTED_BYTES_UNVERIFIED",
+      "materialized": false
+    },
+    {
+      "role": "qualifier_mql5",
+      "sha256": "45cad9f9a3fb7a13b032fde417f7cdaa9abf342cb8706545f9c6354a18831347",
+      "identity_status": "DOCUMENTED_BYTES_UNVERIFIED",
+      "materialized": false
+    },
+    {
+      "role": "native_evidence",
+      "name": "QROS_RUNNER_NATIVE_ENV_EVIDENCE_r2_20260911_234345_12b72981.zip",
+      "sha256": "43984d02d002a43fd7cc3a89bf45baf00d09fb473f07328c8376bb967d335927",
+      "identity_status": "DOCUMENTED_BYTES_UNVERIFIED",
+      "materialized": false
+    }
+  ],
+  "import_preflight": {
+    "executed": true,
+    "exit_code": 1,
+    "reason": "missing regular file: HANDOFF_MANIFEST.sha256",
+    "interpretation": "partial materialization; NOT repository corruption",
+    "existing_source_changes": false
+  },
+  "genealogy_commits": {
+    "v1_4_preexec": "aed0340dbcdefad9b79a352b02c19bfc9f69441d",
+    "v1_4_adjudication": "39f2a6a57a21da64053b6d6775704e577a20b6a6",
+    "v1_5": "65c911c4014a1b0443a728cc77576806429c5bed",
+    "v1_6": "235b00c1dbe12bde0f43698229f0eccce98de46c",
+    "fixed_point": "333caf5fe7b4dec55f0ca3ba18bb7a828e6258c6",
+    "rqs": "53a3df0048cb4a18c9d4c54ca78cf95e1a51022d",
+    "r1_record": "4e433ab27d4563c8a44847ac3dbc3f775250ac82",
+    "r2_initial_adjudication": "0eb7679fcefc69e60b75e580103d7c0f70c01692",
+    "r2_latest_adjudication": "eede23ec274abf27a667e1f9cad1ad226cf05444"
+  }
+}

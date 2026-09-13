@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_R2_FINGERPRINT_UNOBSERVED_1",
+  "usable_for_R3": false,
+  "certificate_issued": false,
+  "runner_sha256_expected": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+  "runner_sha256_observed": null,
+  "observed_target": {
+    "mt5_build": null,
+    "metaeditor_build": null,
+    "powershell": null,
+    "trade_mqh_sha256": null,
+    "terminal_sha256": null,
+    "metaeditor_sha256": null,
+    "terminal_path": null,
+    "terminal_data_path": null,
+    "common_path": null,
+    "server": null,
+    "host_boot_id": null
+  },
+  "historical_documentary_values_only": {
+    "mt5_build": 6182,
+    "metaeditor_build": 6182,
+    "powershell": "5.1.22621.6133",
+    "trade_mqh_sha256": "96e6781624534377fe7971cba52cca3d62d1b030bc10d5e4ebf3ed8c541399ed",
+    "server": "Darwinex-Demo"
+  },
+  "invalidate_on_any_runner_byte_change": true,
+  "invalidate_on_qualifier_or_environment_change": true
+}

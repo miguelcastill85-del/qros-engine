@@ -1,0 +1,14 @@
+[
+  {
+    "case": "top_level_unguarded_stop",
+    "all_10_rules_pass": true,
+    "rule_count": 10,
+    "scope": "synthetic strings; PowerShell NOT executed"
+  },
+  {
+    "case": "comment_only_envelope",
+    "all_10_rules_pass": true,
+    "rule_count": 10,
+    "scope": "synthetic strings; PowerShell NOT executed"
+  }
+]

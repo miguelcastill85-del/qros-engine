@@ -1,0 +1,47 @@
+{
+  "scope": "audit supplement only; NOT qualifier release pre-delivery",
+  "checks": [
+    {
+      "check": "PYTHON_PARSE:evidence_contract.py",
+      "pass": true
+    },
+    {
+      "check": "PYTHON_PARSE:test_evidence_contract.py",
+      "pass": true
+    },
+    {
+      "check": "PYTHON_PARSE:reproduce_legacy_gate.py",
+      "pass": true
+    },
+    {
+      "check": "CLI:coherent_uncertified",
+      "pass": true,
+      "exit_code": 3,
+      "certificate_issued": false
+    },
+    {
+      "check": "CLI:runner_mutated",
+      "pass": true,
+      "exit_code": 2,
+      "certificate_issued": false
+    },
+    {
+      "check": "CLI:malformed_json",
+      "pass": true,
+      "exit_code": 2,
+      "certificate_issued": false
+    },
+    {
+      "check": "MUTATIONS_27_OF_27",
+      "pass": true
+    },
+    {
+      "check": "HISTORICAL_DEFECTS_REPRODUCED_2",
+      "pass": true
+    }
+  ],
+  "pass": 8,
+  "total": 8,
+  "native_execution": false,
+  "qualifier_release_ready": false
+}

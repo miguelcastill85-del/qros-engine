@@ -1,0 +1,22 @@
+{
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "outcome_scope": "R2_NATIVE_ENV_QUALIFICATION",
+  "r2": "NOT_QUALIFIED",
+  "root_cause_exact": "UNDETERMINED_NATIVE_PHYSICAL_CAUSE",
+  "engineering_result": "audit supplement + executable offline contract and mutations",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "candidate_defect": "NOT_DEMONSTRATED",
+  "candidate_execution_allowed": false,
+  "cert_arm_allowed": false,
+  "deployment_allowed": false,
+  "main_modified": false,
+  "next_authorized_gate": "RECOVER_HASH_EXACT_R2_SOURCES_THEN_NATIVE_R2_WITHOUT_CANDIDATE3",
+  "next_action_requirements": [
+    "Accessible original qualifier, runner and raw evidence carrier",
+    "Windows PowerShell + isolated MetaEditor/MT5 6182 host accessible through authorized execution capability",
+    "Complete source audit and static mutations before release",
+    "Cross-observed file identity and continuous ownership traces for A-G"
+  ],
+  "no_background_process": true,
+  "runner_sha256_expected": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375"
+}

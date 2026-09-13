@@ -1,0 +1,146 @@
+[
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/NATIVE_RUNTIME_PHASEA_V1_4_ADJUDICATION.json",
+    "bytes": 1255,
+    "git_blob": "b25923bcfe1a067c6bda5aa5153ee44ce7fb9c8a",
+    "sha256": "f82f63a1eb8b7656e4ef3b830e162f0d7c4e5846617ac4bb757c6d36b2c9e7e4"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/NATIVE_RUNTIME_PHASEA_V1_4_PREEXEC.json",
+    "bytes": 2508,
+    "git_blob": "995279c43fb8dbb94bdd2d6abe93c593d4ab467d",
+    "sha256": "b5a01a84bb9370d5c24d1c00cfcc1902271905b5cd4518e95b54d95599e6f1f9"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/NATIVE_RUNTIME_PHASEA_V1_5_PREEXEC.json",
+    "bytes": 2106,
+    "git_blob": "a8cc10619d9a7b10531334a5b023ea609ebecec7",
+    "sha256": "fbae9e61d7e39a4bf1df47c268b5f884e0961ef7e3574e393e11c4e396fd0d73"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/NATIVE_RUNTIME_PHASEA_V1_6_PREEXEC.json",
+    "bytes": 1959,
+    "git_blob": "c40e1f49a11976505d043ff9ea95de10755ec3ac",
+    "sha256": "169d16d74278424dd624c42286b58e820ad5e3e56537a7750aa5a6f6bbcc076e"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/RUNNER_FIXED_POINT_AUDIT_v1.json",
+    "bytes": 3711,
+    "git_blob": "25499e25960326081d0893cde894dd1f014d8cd3",
+    "sha256": "f6104ce9aed5924fc6e54bbeb88031c7d5e775a7283d9470ae6d1cc533a60257"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/runner-qualification/QROS_R2T_ACTUAL_TERMINAL_FENCE_SPEC_v1.json",
+    "bytes": 1001,
+    "git_blob": "e3c386b9af1710bf78877b18ab549c5f3dfc7e45",
+    "sha256": "b11bba6e7b0741a026a0c3e63566f6d7ce2ee5ca46186b627644b2fa628282d9"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/runner-qualification/QROS_R2T_POSTBUILD_VALIDATION_v1.json",
+    "bytes": 1088,
+    "git_blob": "cf468cb9c1ea8d498fa818b7fcc8a721b20a8f16",
+    "sha256": "93e182e90b5f7719e50460799f9b2319304efde01a3d0cb9acf8e5ee310becab"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/runner-qualification/QROS_R2T_STATIC_GATE_REPORT_v1.json",
+    "bytes": 1625,
+    "git_blob": "94a7581413efb9c6e6c4603fc6ba8b07b69596eb",
+    "sha256": "78063cfececbfd04257f7ccc24986857f4364acfc5ed2a95853423ce48f4979e"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/runner-qualification/QROS_RUNNER_R2_NATIVE_ENV_ADJUDICATION_v1.json",
+    "bytes": 2245,
+    "git_blob": "c81efa32393575d7610f7634bc24df7ed57e33c9",
+    "sha256": "60dfa3e0e142678eac5f82755cd908a4d83bf86f9ce5b5cce274c6966d55a200"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/runner-qualification/QROS_RUNNER_RELEASE_STATE_v2.json",
+    "bytes": 1635,
+    "git_blob": "2d6701591770e97d8cd2b5d54276893ea0851e8e",
+    "sha256": "2edba0a9236a8c11cfb15595aeb9f7f5ba4ed852c0c4e51ab957f93ce1fbf823"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/runner-qualification/R2_NATIVE_ENV_ADJUDICATION_20260911.json",
+    "bytes": 2325,
+    "git_blob": "1f39bf0056bb22357609437fecddfc6fbbc0fc25",
+    "sha256": "5dcccb5173e74a9345e5cf0ec53c0d2777b1f8bc00ae79a771a4dea9da59ea95"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/runner-qualification/R2_NATIVE_ENV_EVIDENCE_ADJUDICATION_20260911.json",
+    "bytes": 3799,
+    "git_blob": "e173c8a240e8ae5f3b4b4b603640f233cd13a44f",
+    "sha256": "39923b956562aa99062f698462dfea08527238abcdd260673f09a4d62238bf16"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/runner-qualification/RUNNER_QUALIFICATION_AMENDMENT_v1.json",
+    "bytes": 1642,
+    "git_blob": "a1d526fec077955f3fc9025663be7139b9eb72d4",
+    "sha256": "e71a3d7b89fed5d5adddd85d221a72d94791c7a11010b5e6d16357a769ac9300"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/runner_qualification_system_v1/QROS_RUNNER_DEFECT_LEDGER_v1.json",
+    "bytes": 2073,
+    "git_blob": "14fb98081ccd0ccdec6b2e3a436fb8ca67cc5a09",
+    "sha256": "1d3384cddf68b95b266e634adf38069b6eaf26ca95692d12b78d73052cb7db5f"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/runner_qualification_system_v1/QROS_RUNNER_QUALIFICATION_SYSTEM_v1.md",
+    "bytes": 4505,
+    "git_blob": "1c9f83b026cb30fa6e71d14bff8da155fa624b7d",
+    "sha256": "6e215b2f1073e048ff07f34479c4529f22163fca0618b02592b24b5b44ab01c2"
+  },
+  {
+    "path": "audit/demo-forward-v2.2.3/proposed/v2.2.4/runner_qualification_system_v1/qros_runner_static_release_gate_v1_1.py",
+    "bytes": 7231,
+    "git_blob": "8d22a04f2fd48b73d9f74ce589190142d811bcd6",
+    "sha256": "d978b301757b420c2428189f573b73e01350a694c64cc3e7bc188cde642275b6"
+  },
+  {
+    "path": "handoff/BASELINE_SCOPE.json",
+    "bytes": 4182,
+    "git_blob": "768e55b988e65b29747147642c816d4c64c2a227",
+    "sha256": "615c5bed27892cf89acaa5ebd43d6766edf0d466fd391600d892a00eed329bda"
+  },
+  {
+    "path": "handoff/CHAT_RUNTIME_RELEASE_CONTRACT.md",
+    "bytes": 5956,
+    "git_blob": "aab366bc936fc460cb1d7371ca92bb11d2b616de",
+    "sha256": "0f68f62406014fd9ad1a6854bdbf1b22bade6f2555b3ec4e7b96182e232fa4f0"
+  },
+  {
+    "path": "handoff/CODEX_TASK.md",
+    "bytes": 2671,
+    "git_blob": "044c6f69e674f2f8a851f8e19f3043a5a975e0bc",
+    "sha256": "7e05148c649207712e3ea99e178024407c822d635e3ce79e6d09368b0783bfb3"
+  },
+  {
+    "path": "handoff/ENGINEERING_BACKLOG.md",
+    "bytes": 4811,
+    "git_blob": "41947ffd3d9849c4cc4472c7b2a4f13731735c38",
+    "sha256": "cf07a51276efcb65469f78233ed78816cd279b07c0516324a7cb5fd2b2f7917a"
+  },
+  {
+    "path": "handoff/RUNTIME_SCOPE.md",
+    "bytes": 4027,
+    "git_blob": "25ded6687936d656e9d2b92154b9da59517ae6c9",
+    "sha256": "ea78ace48aa1223a9879dbf4f0eb1e745747bd5f0c97a91f5cffffa1c5b05d14"
+  },
+  {
+    "path": "handoff/START_HERE.md",
+    "bytes": 9078,
+    "git_blob": "8013739a730f32b74ef2762955fc604b21213059",
+    "sha256": "140e2614925ac0aabd2054c4783b64185b593aba7738016b6c27b61d81d79e64"
+  },
+  {
+    "path": "handoff/audit/AUDITORIA.md",
+    "bytes": 33881,
+    "git_blob": "39b58fe9581e9aced8e3b9327cec6ea139ab25d1",
+    "sha256": "9d67be0c644ab0958a266ac3118247ca465fd7493da4fba885467375b40158a8"
+  },
+  {
+    "path": "handoff/verify_import.py",
+    "bytes": 1749,
+    "git_blob": "b91928eb53b48b9b5cd7b1a2a63d654fd6d0cde3",
+    "sha256": "e7610b0cb6a55eff4da9961880f243615d98cff056fc9a65859b42795050b21a"
+  }
+]
