@@ -1,0 +1,13 @@
+{
+  "schema": "QROS_ARTIFACT_DURABILITY_CLOSURE_GATE_V2",
+  "status": "MANDATORY_FAIL_CLOSED_ENGINEERING_CONTROL",
+  "invariants": ["NO_DURABLE_PAYLOAD_NO_GATE_CLOSURE", "NO_VERIFIED_RESTORE_NO_SCIENTIFIC_COMMIT", "HASH_IS_VERIFIER_NOT_BACKUP"],
+  "closure_protocol": ["COMPUTATION_COMPLETE", "MANIFEST_CANONICALIZED", "TWO_INDEPENDENT_COPIES_VERIFIED", "REMOTE_READBACK_VERIFIED", "EPHEMERAL_COPY_REMOVED", "RESTORE_CANARY_PASS", "NEXT_STAGE_DRY_RUN_PASS", "ATOMIC_HEAD_PROMOTION"],
+  "mandatory_roles": ["PAYLOAD", "SOURCE", "INPUT_MANIFEST", "OUTPUT_MANIFEST", "DEPENDENCY_DAG", "NEXT_STAGE_PACKET"],
+  "store_rule": "At least two independent durable stores; runtime sandbox and chat memory never count.",
+  "promotion_rule": "Only a receipt with decision GATE_CLOSE_AUTHORIZED and RESTORE_PASS may be referenced by a successor HEAD.",
+  "concurrency": "Single writer with expected-parent compare-and-swap; stale parent, duplicate promotion or changed bytes fail closed.",
+  "recovery": "Resolve exact identities across attachments, persistent catalog and repository; rematerialize without scientific reselection; preserve exposure.",
+  "scope_separation": "Engineering control only; never changes membership, thresholds, PnL, holdout, costs, fills or scientific decisions.",
+  "retroactive_application": {"campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1","scope":"F03_F12_ONLY","state":"REPAIR_REQUIRED_BEFORE_STAGE_C","f13":"EXCLUDED"}
+}
