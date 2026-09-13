@@ -3,6 +3,7 @@
     "authority_non_inheritance": "PASS",
     "engineering_ontology_freeze": "PASS",
     "qsle_integrated_stack": "PASS",
+    "v189_historical_schema_adapter": "PASS",
     "v191_schema_adapter": "PASS",
     "v199_forensic_adapter": "PASS"
   },
@@ -13,6 +14,11 @@
     "SEALED_EVALUATION": "BLOCKED_NO_INDEPENDENT_CUSTODIAN_FRESH_CASE_CORPUS_AND_PROVIDER_CONFIG_IDENTITY",
     "SECOND_HOST_CANARY": "BLOCKED_NO_ZERO_ADDITIONAL_COST_INDEPENDENT_RUNNER_VERIFIED"
   },
+  "historical_schema_adapters": [
+    "V189_HISTORICAL_EVIDENCE",
+    "V191_ENGINEERING_REFERENCE",
+    "V199_FORENSIC_HEAD"
+  ],
   "promotion": false,
   "qrcel_source_identities": {
     "benchmark_design": {"git_blob_sha1": "5a50973bb98d086712270a10ef4d813d233b869f", "sha256": "2315aa2a8fc54210d15fedb470b52725808af22263cf8f448053e3293e99d779"},
@@ -21,16 +27,7 @@
     "next_benchmark_design": {"git_blob_sha1": "c54ff401c8790d2c5888c3bcc2373deea48d15f9", "sha256": "7bba2a0166a08f4dab7272e0169782918d759ec84d5ffb66c026c7679bf8a450"},
     "treatment_manifest": {"git_blob_sha1": "194d39b627a1e38040a08652cf8d27af81052390", "sha256": "7b20504684cc5ad9213799682ac61b788e6c550a185eee7c75b1063fbe24b083"}
   },
-  "qsle_validation_receipts": [
-    "MIGRATION_V22_V23_RECEIPT.json",
-    "PYTEST_RECEIPT.json",
-    "RISE_Q_FIXED_POINT_LOCAL_RECEIPT.json",
-    "RISE_Q_INTEGRATED_RECEIPT.json",
-    "RISE_Q_PERSISTENCE_RECEIPT.json",
-    "SIGKILL_RECEIPT.json",
-    "STRESS_DETERMINISM_RECEIPT.json"
-  ],
-  "receipt_sha256": "b30d5da00244bf2a6f9d84e4a75ae63af379206f09736f087239d6887afe61d7",
+  "receipt_sha256": "89c845ffa6a2fdda7c0600f96f484bfaafb98cebb36623c0d33f082293419b09",
   "rule": "External model/authority capabilities are not emulated or inferred from local tests.",
   "schema": "QRCEL_ASTRA_WORK_COMPLETION_RECEIPT_V1",
   "scientific_authority": false,
