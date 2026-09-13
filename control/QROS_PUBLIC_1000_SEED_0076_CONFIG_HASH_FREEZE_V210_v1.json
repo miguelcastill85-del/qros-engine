@@ -1,0 +1,21 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_CONFIG_HASH_FREEZE_1.0",
+  "state":"FROZEN_CANDIDATE",
+  "seed":"WEB_SEED_0076",
+  "genealogy":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "machine_spec":{"path":"research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json","git_blob_sha1":"c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf"},
+  "semantics_contract":{"path":"control/QROS_PUBLIC_1000_SEED_0076_SIGNAL_SEMANTICS_CONTRACT_V210_v1.json","git_blob_sha1":"d636b3db4d06488d36f7b14eb9e853872f55a764"},
+  "execution_stress_contract":{"path":"control/QROS_PUBLIC_1000_SEED_0076_EXECUTION_STRESS_CONTRACT_V210_v1.json","git_blob_sha1":"f4bf98021bc28aa5f99a94de4df4cc2ab3282064"},
+  "rise_fixed_point":"control/QROS_PUBLIC_1000_SEED_0076_RISE_POST_EXPANSION_FIXED_POINT_V210_v1.json",
+  "enumerator_parity":"control/QROS_PUBLIC_1000_SEED_0076_FACTORIZED_ENUMERATOR_PARITY_V209_v1.json",
+  "signal_universe":{"count":48280320,"factorized_root_sha256":"34af7a222acd7c1a2da642802a22489d0692f8d2f88916c9185d2dee1276a04e","base_tuple_count":4320,"filter_package_count":11176},
+  "management_universe":{"count":3710,"root_sha256":"2ca72abbd712917769528720422c2399adb8939d2585ca83c519d839afb46b1d","independent_alpha":false},
+  "execution_universe":{"count":3,"root_sha256":"d7fd831d71e1a86769db58353a15567f833a54727fe2ad99f4c32814aed6a6e6"},
+  "stress_universe":{"count":7,"root_sha256":"ef9f869105103f9a65811180aaa5f0efd5a1dab58c964a9a147d9921295916b4"},
+  "full_freeze_descriptor_root_sha256":"00b7f14657358fb2ca8349988a5201c7107d4516504f892d35a0dfb3eebf0de3",
+  "economic_pnl_open":false,
+  "holdout_open":false,
+  "gate_a_status":"CLOSED_PENDING_EXECUTABLE_DATA_CLOCK_AND_CANONICAL_COST_BINDING",
+  "immutable_after_pnl":"Any change to dimensions, domains, semantics, constraints, roots or mapping after economic results are observed creates a new descendant campaign and may not rewrite this freeze.",
+  "next_action":"Recover/materialize exact DEV data bytes, bind source clock to session calendar, bind canonical Darwinex explicit commission/fee cost, run execution-unit preflight, then stream all frozen Gate A configurations in deterministic shards."
+}
