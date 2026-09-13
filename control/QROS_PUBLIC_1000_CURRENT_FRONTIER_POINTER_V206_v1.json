@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "state": "CAMPAIGN_ACTIVE",
+  "phase": "SEED_0763_REJECTED_PRE_PNL_QUEUE_ADVANCE",
+  "canonical_pool_sha256": "e94a294f59a58785c7b0d3651022693cb770022b6dfb9d1e6fa5ec580f1bbef0",
+  "queue_receipt": "control/QROS_PUBLIC_1000_PNL_BLIND_PRIORITY_QUEUE_FREEZE_V203_v1.json",
+  "terminal_or_frozen_rank_1_3": [
+    {"rank":1,"id":"WEB_SEED_0076","state":"FROZEN_RESUMABLE_INFRA_BLOCKER_NOT_REJECTED_NOT_APPROVED"},
+    {"rank":2,"id":"WEB_SEED_0512","state":"FROZEN_RESUMABLE_INFRA_BLOCKER_NOT_REJECTED_NOT_APPROVED"},
+    {"rank":3,"id":"WEB_SEED_0763","state":"REJECTED","receipt":"control/QROS_PUBLIC_1000_SEED_0763_COLLISION_REJECTION_V206_v1.json","development_pnl_open":false,"holdout_open":false}
+  ],
+  "serial_queue": {
+    "active_detailed_seed_genealogy": null,
+    "next_queue_rank": 4,
+    "next_seed": "WEB_SEED_0929",
+    "next_source_id": "FMZ:449810",
+    "next_name": "Hurst Future Lines of Demarcation Strategy"
+  },
+  "next_action": "Recover/pin exact rank4 source, perform PnL-blind causal collision gate, and only if eligible open its single detailed genealogy."
+}
