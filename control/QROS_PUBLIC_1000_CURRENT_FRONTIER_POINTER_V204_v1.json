@@ -1,0 +1,51 @@
+{
+  "schema": "QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "phase": "SEED_0076_FROZEN_INFRA_BLOCKER_QUEUE_RELEASED",
+  "canonical_pool_authority": {
+    "receipt": "control/QROS_PUBLIC_1000_CANONICAL_AUTHORITY_RECEIPT_V203_v1.json",
+    "correction": "control/QROS_PUBLIC_1000_CANONICAL_AUTHORITY_CORRECTION_V204_v1.json",
+    "zip_sha256": "e94a294f59a58785c7b0d3651022693cb770022b6dfb9d1e6fa5ec580f1bbef0",
+    "exact_bytes_durable_in_dropbox": true,
+    "github_binary_copy_verified": false
+  },
+  "priority_queue": {
+    "receipt": "control/QROS_PUBLIC_1000_PNL_BLIND_PRIORITY_QUEUE_FREEZE_V203_v1.json",
+    "frozen": true,
+    "materialized_sha256": "14b9b76103724fa61bcf72f8fb80cb6cb1cb56749678e4ed9cd54116e8d15a21"
+  },
+  "completed_seed_checkpoint": {
+    "id": "WEB_SEED_0076",
+    "source_id": "FMZ:365059",
+    "name": "TrendScalp FractalBox 3EMA",
+    "queue_rank": 1,
+    "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "ontology": "control/QROS_PUBLIC_1000_SEED_0076_CAUSAL_SCOPE_ONTOLOGY_V204_v1.json",
+    "ontology_sha256": "ffee0087d4f16bf728cab0a55f79ea69595f1dc4e48780ec4d79f9d58a92719f",
+    "rise_receipt": "control/QROS_PUBLIC_1000_SEED_0076_RISE_FIXED_POINT_V204_v1.json",
+    "rise_state": "RISE_FIXED_POINT",
+    "data_binding": "control/QROS_PUBLIC_1000_SEED_0076_DATA_BINDING_V204_v1.json",
+    "logical_enumerator_parity": "control/QROS_PUBLIC_1000_SEED_0076_ENUMERATOR_PARITY_V204_v1.json",
+    "signals": 280,
+    "signal_management_configs": 840,
+    "signal_set_sha256": "481d655c16f66881c3bbb40af3dd37fdf9e1daffea50b7394159e8a7338df723",
+    "signal_management_set_sha256": "9fea4aa1e1cf73012735cfd29a0993943d967c9ee31f6c84e5f3cb43468eea1f",
+    "blocker": "control/QROS_PUBLIC_1000_SEED_0076_RUNTIME_BLOCKER_V204_v1.json",
+    "development_pnl_open": false,
+    "holdout_open": false,
+    "scientific_disposition": "FROZEN_RESUMABLE_INFRA_BLOCKER_NOT_REJECTED_NOT_APPROVED"
+  },
+  "serial_queue_release": {
+    "authorized_by_policy": true,
+    "reason": "Real infrastructure blocker evidenced and frozen resumably; no development PnL or holdout was opened; active detailed genealogy is released before opening another seed.",
+    "active_detailed_seed_genealogy": null,
+    "next_queue_rank": 2,
+    "next_seed": "WEB_SEED_0512",
+    "next_source_id": "FMZ:363749",
+    "next_name": "Fibonacci Progression With Breaks"
+  },
+  "g30_inheritance": false,
+  "historical_mama_v201_selection_authority": false,
+  "next_action": "Recover exact source for WEB_SEED_0512; run researched-genealogy collision gate; if novel, preregister exactly this one seed and build its causal ontology. Do not read PnL."
+}
