@@ -1,0 +1,26 @@
+{
+  "schema":"QROS_SEED_UNIVERSE_COMPILER_ADOPTION_RECEIPT_1.0",
+  "state":"PASS",
+  "adoption_date":"2026-09-13",
+  "authority":[
+    "governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.1.json",
+    "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.4.json",
+    "AGENTS.md"
+  ],
+  "machine_enforcement":{"path":"scripts/qros_seed_gate_a_preflight.py","git_blob_sha1":"8c66db8269b959f2d5e4587b0846cd04f559c9c2"},
+  "synthetic_regression_tests":[
+    {"id":"ALL_REQUIREMENTS_PRESENT","expected":"GATE_A_AUTHORIZED","observed":"GATE_A_AUTHORIZED","result":"PASS"},
+    {"id":"CURRENT_SEED0076_MISSING_EXECUTION_DEPENDENCIES","set_false":["execution_unit_binding_pass","cost_model_frozen","data_execution_ready"],"expected":"GATE_A_FORBIDDEN","observed":"GATE_A_FORBIDDEN","observed_errors":["REQUIRED_TRUE_MISSING:execution_unit_binding_pass","REQUIRED_TRUE_MISSING:cost_model_frozen","REQUIRED_TRUE_MISSING:data_execution_ready"],"result":"PASS"}
+  ],
+  "anti_fragmentation_assertions":[
+    "BRANCH_COUNT_NEVER_AUTHORIZES_GATE_A",
+    "ONTOLOGY_SKELETON_NEVER_AUTHORIZES_GATE_A",
+    "FIXED_POINT_BEFORE_FULL_DIMENSION_PROJECTION_INVALID",
+    "EXACT_FINITE_UNIVERSE_ENUMERATION_REQUIRED",
+    "INDEPENDENT_PARITY_REQUIRED",
+    "MISSING_MARKET_BYTES_DO_NOT_SKIP_LOGICAL_UNIVERSE_COMPILATION",
+    "NO_QUEUE_ADVANCE_WHILE_ACTIVE_SEED_LOGICAL_COMPILATION_REMAINS_POSSIBLE"
+  ],
+  "current_seed0076":{"signal_configs":48280320,"management_profiles":3710,"execution_profiles":3,"stress_profiles":7,"development_pnl_open":false,"holdout_open":false,"gate_a":"FORBIDDEN_UNTIL_PREFLIGHT_DEPENDENCIES_PASS"},
+  "scientific_effect":"Prospective persistent correction. Historical V204/V205-V207 receipts are preserved, but cannot override V211 current execution authority."
+}
