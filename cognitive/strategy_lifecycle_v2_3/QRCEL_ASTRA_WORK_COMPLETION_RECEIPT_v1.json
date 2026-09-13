@@ -1,0 +1,39 @@
+{
+  "deterministic_gates": {
+    "authority_non_inheritance": "PASS",
+    "engineering_ontology_freeze": "PASS",
+    "qsle_integrated_stack": "PASS",
+    "v191_schema_adapter": "PASS",
+    "v199_forensic_adapter": "PASS"
+  },
+  "external_non_compensable_gates": {
+    "ASTRA_NATIVE_MODEL_COMPARISON": "BLOCKED_NO_CURRENT_ASTRA_ROUTE_OR_CREDITS",
+    "FULL_RISE_R14": "BLOCKED_EXTERNAL_HARNESS_NOT_AVAILABLE",
+    "SCIENTIFIC_PROMOTION": "BLOCKED_DEPENDS_ON_ALL_EXTERNAL_GATES_AND_EXPLICIT_AUTHORITY_RECEIPT",
+    "SEALED_EVALUATION": "BLOCKED_NO_INDEPENDENT_CUSTODIAN_FRESH_CASE_CORPUS_AND_PROVIDER_CONFIG_IDENTITY",
+    "SECOND_HOST_CANARY": "BLOCKED_NO_ZERO_ADDITIONAL_COST_INDEPENDENT_RUNNER_VERIFIED"
+  },
+  "promotion": false,
+  "qrcel_source_identities": {
+    "benchmark_design": {"git_blob_sha1": "5a50973bb98d086712270a10ef4d813d233b869f", "sha256": "2315aa2a8fc54210d15fedb470b52725808af22263cf8f448053e3293e99d779"},
+    "capability_ontology_v4": {"git_blob_sha1": "a13c62f324aa04ff19ec81abe76f515fd0e9fbbd", "sha256": "f646685a6b004ac4d8a072e6831dfb3f9edc723dd0be5356c9640a7721879974"},
+    "completion_audit": {"git_blob_sha1": "f98af3e88ea4844ccfe34fc9e9fb1b5ad61f8084", "sha256": "7cee4a820e319fa5cbd201bcf534445d3bbae799bf5e7acf480a8708d709ed90"},
+    "next_benchmark_design": {"git_blob_sha1": "c54ff401c8790d2c5888c3bcc2373deea48d15f9", "sha256": "7bba2a0166a08f4dab7272e0169782918d759ec84d5ffb66c026c7679bf8a450"},
+    "treatment_manifest": {"git_blob_sha1": "194d39b627a1e38040a08652cf8d27af81052390", "sha256": "7b20504684cc5ad9213799682ac61b788e6c550a185eee7c75b1063fbe24b083"}
+  },
+  "qsle_validation_receipts": [
+    "MIGRATION_V22_V23_RECEIPT.json",
+    "PYTEST_RECEIPT.json",
+    "RISE_Q_FIXED_POINT_LOCAL_RECEIPT.json",
+    "RISE_Q_INTEGRATED_RECEIPT.json",
+    "RISE_Q_PERSISTENCE_RECEIPT.json",
+    "SIGKILL_RECEIPT.json",
+    "STRESS_DETERMINISM_RECEIPT.json"
+  ],
+  "receipt_sha256": "b30d5da00244bf2a6f9d84e4a75ae63af379206f09736f087239d6887afe61d7",
+  "rule": "External model/authority capabilities are not emulated or inferred from local tests.",
+  "schema": "QRCEL_ASTRA_WORK_COMPLETION_RECEIPT_V1",
+  "scientific_authority": false,
+  "scientific_dispatch_authorized": false,
+  "status": "ENGINEERING_CLOSURE_PASS_EXTERNAL_VALIDATION_BLOCKED"
+}
