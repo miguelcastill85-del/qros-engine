@@ -1,0 +1,73 @@
+{
+  "schema": "QROS_PUBLIC_1000_SOURCE_RESOLUTION_V202_1.0",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "adoption_date": "2026-09-13",
+  "program": "QROS_PUBLIC_1000_HYPOTHESIS_SEEDS",
+  "gate": "IMMUTABLE_POOL_AUTHORITY_AND_FROZEN_PRIORITY_QUEUE_RECOVERY",
+  "required_exact_authorities": [
+    "QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.zip",
+    "QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.csv",
+    "QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_MANIFEST_v1.json",
+    "QROS_1000_ESTRATEGIAS_SUMMARY_v1.json",
+    "QROS_1000_ESTRATEGIAS_README_v1.md",
+    "QROS_1000_ESTRATEGIAS_DESCARTADAS_AUDIT_v1.csv"
+  ],
+  "available_scope_searches": [
+    {
+      "surface": "CHAT_FILE_LIBRARY",
+      "queries": [
+        "QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX",
+        "1000 estrategias XAU NQX audit",
+        "999 fuentes 1000 estrategias",
+        "estrategias XAU NQX"
+      ],
+      "result": "EXACT_1000_AUTHORITY_NOT_FOUND_WITHIN_AVAILABLE_SCOPE",
+      "nearby_material": [
+        "QROS_100_ESTRATEGIAS_PUBLICAS_SEMILLAS.md",
+        "QROS_100_ESTRATEGIAS_PUBLICAS_COHORTE_2_PRIOR_ALFA_ALTO.md"
+      ]
+    },
+    {
+      "surface": "DROPBOX_CONNECTED_SCOPE",
+      "queries": [
+        "QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX",
+        "1000"
+      ],
+      "result": "EXACT_1000_AUTHORITY_NOT_FOUND_WITHIN_AVAILABLE_SCOPE"
+    },
+    {
+      "surface": "GITHUB_miguelcastill85-del/qros-engine_main",
+      "queries": [
+        "QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX",
+        "999 source 1000 public strategies audit",
+        "public seed audit",
+        "recursive tree inspection"
+      ],
+      "result": "EXACT_1000_AUTHORITY_NOT_FOUND_WITHIN_AVAILABLE_SCOPE",
+      "related_historical_material": "G32 MAMA/FAMA V201 no-results artifacts exist but do not substitute for the immutable 1000-hypothesis pool."
+    },
+    {
+      "surface": "CURRENT_CONTAINER",
+      "result": "EXACT_1000_AUTHORITY_NOT_MATERIALIZED"
+    }
+  ],
+  "prior_chat_history_evidence": {
+    "classification": "REPORTED_AND_RECOVERED_FROM_PROJECT_CONTINUITY_BUT_NOT_BYTE_VERIFIED_IN_CURRENT_RUNTIME",
+    "reported_inventory_count": 1000,
+    "reported_byte_linked_sources": 999,
+    "reported_unlocated_sources": 1,
+    "reported_work": "mechanical audit and causal review against prior 200 seeds and researched families",
+    "authority_use": "CONTEXT_ONLY_NOT_SUFFICIENT_TO_RECREATE_EXACT_DEDUPE_COUNTS_PRIORITY_ORDER_OR_SEED_SELECTION"
+  },
+  "scientific_fail_closed_rules": {
+    "do_not_reconstruct_missing_pool_from_web": true,
+    "do_not_substitute_old_100_or_200_seed_catalogs": true,
+    "do_not_infer_exact_priority_queue_from_chat_narrative": true,
+    "do_not_select_mama_fama_from_historical_premature_selection": true,
+    "do_not_open_development_pnl": true,
+    "do_not_open_holdout": true,
+    "do_not_recreate_g30_payload_or_inherit_g30_configs": true
+  },
+  "resumable_next_action": "Recover any exact immutable carrier or persisted dedupe/priority artifact for the 1000-hypothesis pool; verify identity and hashes; reconcile the reported 1000/999/1 audit; freeze a PnL-blind priority queue; select exactly one seed; then execute that seed under QROS_SEED_SERIAL_EXECUTION_POLICY_v1.0.",
+  "decision": "SOURCE_RESOLUTION_BLOCKED_FAIL_CLOSED_NO_SEED_SELECTED"
+}
