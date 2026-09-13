@@ -1,0 +1,60 @@
+{
+  "schema": "QROS_G32_CAUSAL_SOURCE_AUDIT_V1",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "source_sha256": "4a75681abd5e35002e53b5cdf779578cde630d10259eff3af8f2f625d93fb90c",
+  "status": "PUBLIC_THESIS_ACCEPTED_WITH_MANDATORY_QROS_HARDENING",
+  "results_seen": false,
+  "holdout_opened": false,
+  "findings": [
+    {
+      "id": "G32_C1",
+      "severity": "SOURCE_DESCRIPTION_MISMATCH",
+      "finding": "The published title/catalog says EMA and MAMA, while the executable source trades MAMA/FAMA crosses and does not compute a separate EMA.",
+      "decision": "Freeze MAMA/FAMA as the root. Do not invent an EMA condition."
+    },
+    {
+      "id": "G32_C2",
+      "severity": "INCOMPLETE_EXECUTION",
+      "finding": "The public source reverses through strategy.entry and has no explicit exit, same-day liquidation or Bid/Ask model.",
+      "decision": "Reject public PnL and execution. Separate signal identity from QROS management and execution profiles."
+    },
+    {
+      "id": "G32_C3",
+      "severity": "NUMERICAL_AMBIGUITY",
+      "finding": "atan(q1/i1) and atan(im/re) have zero-denominator and quadrant ambiguity; degree/radian interpretation is not explicitly bound by the source artifact.",
+      "decision": "Preserve a literal-source interpreter branch and create a separately tagged quadrant-aware Ehlers descendant. No silent substitution."
+    },
+    {
+      "id": "G32_C4",
+      "severity": "RECURSIVE_BOOTSTRAP",
+      "finding": "Recursive p, MAMA and FAMA state depends on implicit nz initialization and lacks a convergence/warm-up eligibility contract.",
+      "decision": "Freeze exact zero bootstrap, per-configuration convergence warm-up and gap-reset/carry semantics."
+    },
+    {
+      "id": "G32_C5",
+      "severity": "CAUSAL_CLOCK",
+      "finding": "The public strategy can execute on the signal close.",
+      "decision": "Signal is known only after the completed bar; execution begins at the first eligible quote strictly later than that close."
+    },
+    {
+      "id": "G32_C6",
+      "severity": "PORTABILITY",
+      "finding": "Floating-point recurrence, equality at a cross and rolling quantiles can diverge across implementations unless serialized and computed explicitly.",
+      "decision": "Freeze integer-scaled parameters, IEEE-754 binary64 rules, strict cross ties and nearest-rank prior-only quantiles; require exact signal-mask parity."
+    }
+  ],
+  "causal_contract": {
+    "signal_known": "AFTER_SIGNAL_BAR_CLOSE",
+    "entry": "FIRST_EXECUTABLE_QUOTE_STRICTLY_AFTER_SIGNAL_CLOSE",
+    "buy_entry": "ASK",
+    "sell_entry": "BID",
+    "buy_exit": "BID",
+    "sell_exit": "ASK",
+    "ambiguous_sl_tp": "SL_FIRST",
+    "gap_fill": "FIRST_ACTUALLY_AVAILABLE_EXECUTABLE_QUOTE",
+    "same_day_exit": true,
+    "no_future_indexing": true
+  },
+  "decision": "HYPOTHESIS_ACCEPTED_PUBLIC_RUNNER_REJECTED_QROS_UNIVERSE_REQUIRED",
+  "next_action": "RISE_ITERATION_1_ON_G32_ONTOLOGY"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_G32_SECOND_STORE_READBACK_RECEIPT_V1",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "date": "2026-09-13",
+  "status": "SECOND_DURABLE_COPY_REMOTE_READBACK_PASS",
+  "object": {
+    "name": "QROS_G32_RECOVERY_PACKET_V1.zip",
+    "bytes": 288117,
+    "sha256": "0b97b25264d17f29c0aaf31b43ec73aed4d3a2145ee3312952ea4dc7355e66dd",
+    "persistent_object_id": "libfile_114045b0f4b88191b070fe0ab9568921",
+    "persistent_version": 0
+  },
+  "remote_readback": {
+    "bytes_materialized": 288117,
+    "sha256": "0b97b25264d17f29c0aaf31b43ec73aed4d3a2145ee3312952ea4dc7355e66dd",
+    "byte_compare_to_local_source": "PASS",
+    "zip_crc": "PASS",
+    "safe_paths": "PASS",
+    "manifest_membership": "PASS",
+    "payload_hashes": "PASS_22_OF_22",
+    "restored_regression_tests": {
+      "executed": 15,
+      "passed": 15,
+      "failed": 0
+    }
+  },
+  "guards": {
+    "runtime_sandbox_counts_as_durable_store": false,
+    "chat_memory_counts_as_durable_store": false,
+    "market_data_read": false,
+    "pnl_read": false,
+    "holdout_opened": false
+  },
+  "decision": "SECOND_COPY_VERIFIED_FIRST_COPY_GITHUB_COMMIT_AND_READBACK_STILL_REQUIRED"
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "QROS_RISE_ADVERSARIAL_AUDIT_V1",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "iteration": 1,
+  "input_ontology": "control/G32_UNIVERSE_ONTOLOGY_V1.json",
+  "audit_order": "NUMERICS_THEN_BOUNDARIES_THEN_GENEALOGY_THEN_EXECUTION",
+  "results_seen": false,
+  "holdout_opened": false,
+  "status": "CHANGES_REQUIRED",
+  "findings": [
+    {
+      "id": "G32_R1_01",
+      "class": "SERIALIZATION",
+      "finding": "Decimal parameters are not canonically portable as raw JSON floating-point values.",
+      "required_change": "Represent all bounded ratios as scaled integers and freeze canonical JSON and CONFIG_ID construction."
+    },
+    {
+      "id": "G32_R1_02",
+      "class": "RECURSIVE_STATE",
+      "finding": "Bootstrap, warm-up, recurrence precision and behavior after a proven gap are underspecified.",
+      "required_change": "Freeze zero bootstrap, a convergence-derived warm-up, strict IEEE-754 semantics and two explicitly tagged gap policies."
+    },
+    {
+      "id": "G32_R1_03",
+      "class": "SOURCE_AMBIGUITY",
+      "finding": "PUBLIC_RATIO_ATAN does not bind zero-denominator, quadrant or radian/degree semantics.",
+      "required_change": "Define a literal-source branch and a separate Ehlers atan2-degree descendant with no aliasing."
+    },
+    {
+      "id": "G32_R1_04",
+      "class": "EVENT_BOUNDARY",
+      "finding": "Fresh-cross equality, confirmation timing, quantile windows and same-bar re-entry are not explicit.",
+      "required_change": "Freeze strict cross ties, prior-only nearest-rank quantiles, one event per cross regime and one entry per completed signal bar."
+    },
+    {
+      "id": "G32_R1_05",
+      "class": "ONTOLOGY_SCOPE",
+      "finding": "Family names alone do not define a finite universe or maximum interaction depth.",
+      "required_change": "Enumerate every family variant, prohibit cross-family stacking at this genealogy depth and publish exact cardinality."
+    },
+    {
+      "id": "G32_R1_06",
+      "class": "UNIVERSE_SEPARATION",
+      "finding": "Signal, management, execution and stress identities are not independently defined.",
+      "required_change": "Create separate ID namespaces and a conditional trial-expansion rule."
+    },
+    {
+      "id": "G32_R1_07",
+      "class": "DATA_CLOCK",
+      "finding": "Named-session and day-of-week mutations would be invalid while broker timezone/DST remains unproven.",
+      "required_change": "Freeze ALL-session only and exclude clock-sensitive families with UNIT_OR_CLOCK_UNRESOLVED."
+    },
+    {
+      "id": "G32_R1_08",
+      "class": "MULTIPLICITY_AND_COVERAGE",
+      "finding": "No exact dual-enumerator parity, semantic alias treatment, test-count unit or all-passers rule is bound.",
+      "required_change": "Implement two independent enumerators, exact set parity, pre-result exact-mask dedupe and append-only trial accounting."
+    }
+  ],
+  "next_action": "AMEND_G32_ONTOLOGY_AND_RERUN_RISE_WITH_DIFFERENT_DECOMPOSITION"
+}

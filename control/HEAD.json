@@ -1,9 +1,9 @@
 {
-  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V200",
+  "schema": "QROS_PERSISTENT_CONTROL_HEAD_V201",
   "status": "CONTROL_AND_SCIENTIFIC_CONTINUITY_AUTHORITY",
-  "authority_epoch": 200,
+  "authority_epoch": 201,
   "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
-  "scientific_change_class": "ENGINEERING_DURABILITY_CLOSURE_HARDENING_NO_SCIENTIFIC_CHANGE",
+  "scientific_change_class": "PARALLEL_G32_PREDEVELOPMENT_REGISTRATION_NO_G30_SCIENTIFIC_CHANGE",
   "transverse_audit_ref": "control/QROS_G30_TRANSVERSE_EXECUTABLE_REPRESENTATION_AUDIT_V198_20260911_v1.json",
   "nqx_executable_manifest_ref": "control/QROS_G30_NQX_6570_EXECUTABLE_REPRESENTATION_MANIFEST_V198_v1.json",
   "execution_lineage_reconciliation_ref": "control/QROS_G30_V4_INVALIDATION_V5_EXECUTION_RECONCILIATION_V199_20260912_v1.json",
@@ -89,6 +89,7 @@
   ],
   "new_chat_recovery_order": [
     "READ control/HEAD.json",
+    "READ parallel_research_registry_ref and resume only the explicitly requested campaign",
     "ENFORCE artifact_durability_closure before any stage closure",
     "READ execution_lineage_reconciliation_ref",
     "READ transverse_audit_ref",
@@ -99,7 +100,7 @@
     "DO NOT rely on chat memory as sole authority"
   ],
   "next_action": "CONTINUE NQX F03-F12 FORENSIC MATERIALIZATION. V4 IS INVALID AND IS NOT A BLOCKER. RECOVER EXACT FAMILY GATE-A INPUTS AND DESCENDANT SOURCE BINDINGS; REQUIRE ORIGINAL PER-SHARD HASHES, DECISION/PASSER ROOTS, BUY/SELL COUNTS, INDEPENDENT PARITY AND 6570/6570 MASTER RECONCILIATION BEFORE STAGE-C ECONOMIC EXECUTION. DO NOT TOUCH F13.",
-  "supersedes": "QROS_PERSISTENT_CONTROL_HEAD_V199",
+  "supersedes": "QROS_PERSISTENT_CONTROL_HEAD_V200",
   "artifact_durability_closure": {
     "status": "MANDATORY_FOR_ALL_FUTURE_STAGE_CLOSURES",
     "policy_ref": "control/QROS_ARTIFACT_DURABILITY_CLOSURE_GATE_V2.json",
@@ -112,5 +113,18 @@
       "HASH_IS_VERIFIER_NOT_BACKUP"
     ],
     "g30_retroactive_state": "REQUIRED_BEFORE_STAGE_C_NQX_6570_REMAINS_UNMATERIALIZED"
+  },
+  "parallel_research_registry_ref": "control/QROS_PARALLEL_RESEARCH_REGISTRY_V201.json",
+  "parallel_research": {
+    "status": "REGISTERED_NO_ECONOMIC_EXECUTION",
+    "G32": {
+      "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+      "state_ref": "control/G32_PREDEVELOPMENT_STATE_V2.json",
+      "durability_ref": "control/G32_DURABILITY_CLOSURE_RECEIPT_V1.json",
+      "execution_state": "READY_FOR_NON_ECONOMIC_SIGNAL_ENGINE_IMPLEMENTATION",
+      "economic_execution_authorized": false,
+      "holdout": "SEALED"
+    },
+    "active_global_campaign_unchanged": true
   }
 }

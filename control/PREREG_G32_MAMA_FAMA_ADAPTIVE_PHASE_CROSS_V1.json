@@ -1,0 +1,68 @@
+{
+  "schema": "QROS_CAMPAIGN_PREREGISTRATION_V1",
+  "campaign_id": "G32",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "seed": "WEB_SEED_0937",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "root_genealogy": "G32_MAMA_FAMA_ADAPTIVE_PHASE_CROSS",
+  "genealogy_class": "ROOT_ANCHOR",
+  "prior_ex_ante": "A",
+  "causal_thesis": "A fresh cross between MAMA and its slower following adaptive average may identify a causal transition in local phase-adjusted trend state. Any edge, if present, must survive exact Bid/Ask execution, same-day liquidation, costs, independent implementation and multiplicity controls.",
+  "public_authority": {
+    "repository": "fmzquant/strategies",
+    "commit": "7853bb2bf262c4567ac238d3552d97f0e50cb801",
+    "source_file": "基于EMA和MAMA指标的交易策略EMA-and-MAMA-Indicators-Based-Trading-Strategy.md",
+    "source_file_sha256": "4a75681abd5e35002e53b5cdf779578cde630d10259eff3af8f2f625d93fb90c",
+    "fmz_strategy_id": 430662,
+    "url": "https://www.fmz.com/strategy/430662",
+    "observed_semantics": {
+      "source_transform_default": "HL2",
+      "fast_limit_default": "0.5",
+      "slow_limit_default": "0.05",
+      "buy": "fresh MAMA-above-FAMA cross",
+      "sell": "fresh MAMA-below-FAMA cross",
+      "recursive_filter": true,
+      "explicit_exit": false
+    }
+  },
+  "source_role": "HYPOTHESIS_AND_PROVENANCE_ONLY_PUBLIC_EXECUTION_AND_RESULTS_REJECTED",
+  "qros_adaptation_boundary": {
+    "qros_owns_configuration_universe": true,
+    "qros_may_harden_undefined_numeric_boundary_semantics": true,
+    "any semantic repair_is_separate_genealogical_descendant": true,
+    "published_ranges_do_not_bound_qros_universe": true,
+    "results_may_not_rewrite_signal_or_domains": true
+  },
+  "assets": ["NQX", "XAUUSD"],
+  "sides": ["BUY", "SELL"],
+  "campaign_time_contract": {
+    "development": "2018-01-01_INCLUSIVE_TO_2020-01-01_EXCLUSIVE",
+    "oos_or_holdout": "SEALED_UNTIL_SEPARATE_AUTHORIZATION",
+    "forward": "SEALED",
+    "timezone_sensitive_sessions": "DISABLED_UNTIL_CLOCK_MAPPING_PROOF"
+  },
+  "project_constraints": {
+    "bid_ask_execution": true,
+    "same_day_exit": true,
+    "one_active_position_per_asset": true,
+    "one_new_entry_per_signal_bar": true,
+    "max_new_entries_per_day_portfolio": 3,
+    "all_passers_advance": true,
+    "medoids_or_result_reranking": false
+  },
+  "required_before_economic_results": [
+    "CAUSAL_SOURCE_AUDIT",
+    "DATA_AUTHORITY_BINDING",
+    "FREEZE_G32_CAUSAL_SCOPE_AND_PARAMETER_UNIVERSE",
+    "TWO_INDEPENDENT_EXACT_ENUMERATORS",
+    "SEMANTIC_CANONICALIZATION_PARITY",
+    "RISE_FIXED_POINT_TWO_ZERO_DELTA_ROUNDS",
+    "PRIMARY_AND_INDEPENDENT_SIGNAL_MASK_PARITY",
+    "DURABILITY_RESTORE_PASS"
+  ],
+  "branch_exhaustion_authorized": false,
+  "economic_execution_authorized": false,
+  "results_present": false,
+  "holdout_opened": false,
+  "next_action": "G32_CAUSAL_SOURCE_AUDIT_AND_UNIVERSE_FREEZE"
+}

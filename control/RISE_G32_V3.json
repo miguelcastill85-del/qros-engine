@@ -1,0 +1,45 @@
+{
+  "schema": "QROS_RISE_ADVERSARIAL_AUDIT_V3",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "iteration": 3,
+  "input_ontology": "control/G32_UNIVERSE_ONTOLOGY_V2.json",
+  "audit_order": "RECONSTRUCT_FROM_SOURCE_BOUNDARY_THEN_ATTACK_EACH_MUTATION_OPERATOR_THEN_IDENTITY_SEPARATION_THEN_FAIL_CLOSED_GATES",
+  "results_seen": false,
+  "market_data_read": false,
+  "holdout_opened": false,
+  "status": "FIXED_POINT_FOR_PREDEVELOPMENT_ONTOLOGY",
+  "adversarial_attacks": [
+    {"attack": "Treat EMA text in title as an executable condition", "result": "REJECTED_OUT_OF_SCOPE_SOURCE_MISMATCH"},
+    {"attack": "Silently replace atan ratio with atan2", "result": "REJECTED_DISTINCT_GENEALOGICAL_BRANCHES"},
+    {"attack": "Use floating JSON literals in identity", "result": "REJECTED_PPM_INTEGER_CANONICALIZATION"},
+    {"attack": "Emit signals before recursive convergence", "result": "REJECTED_CONFIGURATION_SPECIFIC_WARMUP"},
+    {"attack": "Bridge a proven gap without identity change", "result": "REJECTED_EXPLICIT_GAP_POLICY_REQUIRED"},
+    {"attack": "Use current bar in rolling quantile", "result": "REJECTED_PRIOR_COMPLETED_BARS_ONLY"},
+    {"attack": "Combine two extension families", "result": "REJECTED_MAX_INTERACTION_DEPTH_ONE"},
+    {"attack": "Mine weekday or named session", "result": "REJECTED_UNIT_OR_CLOCK_UNRESOLVED"},
+    {"attack": "Count management variants as independent alpha modules", "result": "REJECTED_SEPARATE_ID_NAMESPACES"},
+    {"attack": "Collapse configs after observing losing results", "result": "REJECTED_PRE_RESULT_EXACT_MASK_DEDUPE_ONLY"},
+    {"attack": "Execute public branch without interpreter parity", "result": "REJECTED_FAIL_CLOSED_PENDING_RESUMABLE"},
+    {"attack": "Open holdout to resolve design", "result": "REJECTED_HOLDOUT_SEALED"}
+  ],
+  "coverage_basis_check": {
+    "allowed_mutation_operators": 7,
+    "projected_operators": 7,
+    "unprojected_operators": 0,
+    "eligible_family_variants": 48,
+    "unexamined_cells": 0,
+    "self_limited_ontology_attack": "PASS_ROOT_IDENTITY_AND_NEW_SEED_BOUNDARY_EXPLICIT"
+  },
+  "deltas": {
+    "new_eligible_family_delta": 0,
+    "new_causal_dimension_delta": 0,
+    "new_mutation_operator_delta": 0,
+    "new_unresolved_ambiguity_delta": 0
+  },
+  "consecutive_zero_delta_rounds": [2, 3],
+  "ontology_sufficiency_audit": "PASS_WITHIN_FROZEN_SCOPE_NOT_A_GLOBAL_COMPLETENESS_CLAIM",
+  "exact_enumerator_parity": "PASS",
+  "decision": "RISE_FIXED_POINT_REACHED_FOR_PREDEVELOPMENT_ONTOLOGY_ONLY",
+  "does_not_authorize": ["ECONOMIC_MINING", "HOLDOUT_OPEN", "BRANCH_EXHAUSTION", "ALPHA_CLAIM"],
+  "next_action": "FREEZE_REQUIRED_EXECUTION_SELECTION_AND_MULTIPLICITY_SPECS_THEN_BUILD_DUAL_SIGNAL_ENGINES"
+}

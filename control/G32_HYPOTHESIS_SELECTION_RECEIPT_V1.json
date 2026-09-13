@@ -1,0 +1,114 @@
+{
+  "schema": "QROS_G32_HYPOTHESIS_SELECTION_RECEIPT_V1",
+  "date": "2026-09-13",
+  "status": "ROOT_HYPOTHESIS_SELECTED_NO_RESULTS",
+  "campaign_id": "G32",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "input_catalog": {
+    "path": "research/public_hypotheses/QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.csv",
+    "rows": 1000,
+    "sha256": "e020b1c41aeb971c633658882a98ff479c6d28d32f671514f28be20e793fbaea",
+    "role": "HYPOTHESIS_PROVENANCE_ONLY_NOT_CONFIGURATION_UNIVERSE"
+  },
+  "triage": {
+    "path": "research/public_hypotheses/QROS_1000_HYPOTHESIS_CAUSAL_TRIAGE_V1.jsonl",
+    "coverage": "1000_OF_1000",
+    "source_snapshots_mapped": 999,
+    "source_snapshots_unmapped": 1,
+    "score_semantics": "NON_ECONOMIC_DISPATCH_ORDER_ONLY"
+  },
+  "user_correction_bound": {
+    "public_catalog_role": "HYPOTHESES",
+    "configuration_universe_owner": "QROS_RISE_Q",
+    "public_parameter_ranges_are_authority": false,
+    "source_results_are_admissible": false
+  },
+  "selection_policy": [
+    "No market data, PnL, holdout or public performance may influence root selection",
+    "Prefer an exact recoverable source snapshot",
+    "Require a causal mechanism fingerprint not already represented as a root",
+    "Require compatibility with XAUUSD and NQX using only currently authorized feature classes",
+    "Treat source bugs and missing execution rules as hardening requirements, not automatic hypothesis rejection",
+    "Configuration domains are created and frozen by QROS before any economic observation"
+  ],
+  "selected_hypothesis": {
+    "catalog_id": "WEB_SEED_0937",
+    "source_id": "FMZ:430662",
+    "published_name": "EMA and MAMA Indicator Strategy",
+    "accepted_mechanism": "FRESH_MAMA_FAMA_ADAPTIVE_PHASE_CROSS",
+    "mechanism_fingerprint": "ADAPTIVE_PHASE_ESTIMATOR__BOUNDED_ALPHA__MAMA_FAMA_CROSS",
+    "assets": ["NQX", "XAUUSD"],
+    "sides": ["BUY", "SELL"],
+    "data_class": "PRICE_TICKS_ONLY",
+    "catalog_priority_ex_ante": "A"
+  },
+  "collision_gate": {
+    "decision": "NOVEL_GENEALOGY",
+    "comparisons": [
+      {
+        "reference": "PRIOR_SEED_18_AMA_PRICE_CROSS",
+        "result": "DISTINCT_ROOT",
+        "reason": "Prior seed crosses price against one adaptive average; G32 crosses two phase-adaptive filters with different effective alpha."
+      },
+      {
+        "reference": "QROS_PUBLIC_0184_MULTI_TF_EMA_PULLBACK_v1",
+        "result": "DISTINCT_ROOT_POTENTIAL_PORTFOLIO_CORRELATION",
+        "reason": "G29 uses fixed-decay EMA pullback structure; G32 derives its decay from causal phase change."
+      },
+      {
+        "reference": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+        "result": "DISTINCT_ROOT",
+        "reason": "G30 starts from a volatility shock; G32 starts from adaptive-filter state transition."
+      },
+      {
+        "reference": "QROS_G31_PUBLIC_ICHIMOKU_CLOUD_CROSS_v1",
+        "result": "DISTINCT_ROOT_POTENTIAL_TREND_OVERLAP",
+        "reason": "G31 crosses rolling-range equilibria and cloud location; G32 crosses recursive phase-adaptive filters."
+      }
+    ],
+    "portfolio_orthogonality_claimed": false,
+    "required_later": "EVENT_OVERLAP_CORRELATION_AND_MARGINAL_CONTRIBUTION_TEST"
+  },
+  "audited_alternatives": [
+    {
+      "source_id": "FMZ:458067",
+      "decision": "ALIAS_EXISTING_GENEALOGY",
+      "reference": "G31",
+      "reason": "Code is an Ichimoku-style rolling-range cloud/equilibrium cross despite its Magic Channel title."
+    },
+    {
+      "source_id": "FMZ:482888",
+      "decision": "SAME_MODULE_DIFFERENT_PROFILE",
+      "reason": "EMA plus rolling deviation and Stochastic RSI recombines already represented components."
+    },
+    {
+      "source_id": "FMZ:482919",
+      "decision": "SAME_MODULE_DIFFERENT_PROFILE",
+      "reason": "TEMA price cross plus Fisher confirmation recombines prior causal components."
+    },
+    {
+      "source_id": "FMZ:473148",
+      "decision": "DUPLICATE_WITH_REFERENCE",
+      "reference": "PRIOR_SEED_16_MA_FAILED_BREAKOUT"
+    },
+    {
+      "source_id": "FMZ:483087",
+      "decision": "DUPLICATE_WITH_REFERENCE",
+      "reference": "PRIOR_SEED_12_BOLLINGER_OUTER_BAND_MEAN_REVERSION"
+    },
+    {
+      "source_id": "FMZ:483125",
+      "decision": "DUPLICATE_WITH_REFERENCE",
+      "reference": "PRIOR_SEED_10_PDH_PDL_CONTRARIAN_BREAK"
+    }
+  ],
+  "guards": {
+    "market_data_read": false,
+    "pnl_read": false,
+    "holdout_opened": false,
+    "g30_state_changed": false,
+    "f13_searched_or_used": false,
+    "alpha_claim": false
+  },
+  "decision": "PREREGISTER_G32_AND_BUILD_QROS_OWNED_FINITE_UNIVERSE"
+}
