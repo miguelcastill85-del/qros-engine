@@ -1,0 +1,48 @@
+{
+  "schema":"QROS_MACHINE_UNIVERSE_SPEC_1.1",
+  "seed":"WEB_SEED_0076",
+  "genealogy":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "compiler_policy":"governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.1.json",
+  "canonical_serialization":"UTF8_JSON_SORTED_KEYS_COMPACT_ENSURE_ASCII_FALSE",
+  "config_id":"SHA256(canonical_json_bytes)",
+  "base_axis_order":["asset","side","timeframe","fractal_window","tie_policy","rearm_mode","trigger"],
+  "base_axes":{
+    "asset":["XAUUSD","NQX"],
+    "side":["BUY","SELL"],
+    "timeframe":["M1","M2","M3","M4","M5","M6","M10","M12","M15","M20","M30","H1","H2","H3","H4"],
+    "fractal_window":[3,5,7,9,11,13],
+    "tie_policy":["SOURCE_ASYMMETRIC","STRICT_ALL_NEIGHBORS"],
+    "rearm_mode":["RETURN_INSIDE_OR_LEVEL_REPLACED","LEVEL_REPLACED_ONLY","ONE_SIGNAL_PER_LEVEL"],
+    "trigger":["TICK_BREAK","CLOSE_BREAK"]
+  },
+  "ema_triples":[[18,35,53],[26,53,79],[35,70,105],[44,88,131],[53,105,158],[70,140,210],[5,10,20],[8,21,55],[9,20,50],[9,50,200],[13,34,89],[20,50,100],[20,50,200],[21,55,144],[50,100,200]],
+  "filter_families":{
+    "BREAKOUT_BUFFER":{"kind":"variants","variants":[{"buffer_atr":"0.05"},{"buffer_atr":"0.10"},{"buffer_atr":"0.25"}]},
+    "TREND":{"kind":"product_with_ema_triples","modes":["EMA_ORDER","PRICE_EMA_ORDER","EMA_ORDER_SLOPE","PRICE_EMA_ORDER_SLOPE"]},
+    "GEOMETRY":{"kind":"product","axes":{"contraction_n":["OFF","2","3","4"],"max_box_atr":["OFF","0.50","1.00","1.50","2.00"],"max_midpoint_to_fast_ema_atr":["OFF","0.50","1.00","2.00"]},"exclude_all_off":true},
+    "VOLATILITY":{"kind":"variants","variants":[{"rule":"ATR_FAST_SLOW_GT","threshold":"1.00","atr_fast":14,"atr_slow":50},{"rule":"ATR_FAST_SLOW_GT","threshold":"1.25","atr_fast":14,"atr_slow":50},{"rule":"ATR_FAST_SLOW_GT","threshold":"1.50","atr_fast":14,"atr_slow":50},{"rule":"ATR_FAST_SLOW_LT","threshold":"1.00","atr_fast":14,"atr_slow":50},{"rule":"ATR_FAST_SLOW_LT","threshold":"0.75","atr_fast":14,"atr_slow":50}]},
+    "MOMENTUM":{"kind":"variants","variants":[{"rule":"RSI14_DIRECTIONAL","buy_min":"50","sell_max":"50"},{"rule":"RSI14_DIRECTIONAL","buy_min":"55","sell_max":"45"},{"rule":"ROC5_SIGN_ALIGNED"},{"rule":"CCI20_SIGN_ALIGNED"},{"rule":"STOCH14_3_DIRECTIONAL_50"}]},
+    "SESSION":{"kind":"variants","variants":[{"rule":"NY_RTH"},{"rule":"NY_OPEN_120"},{"rule":"NY_MIDDAY"},{"rule":"NY_CLOSE_120"},{"rule":"LONDON"},{"rule":"LONDON_NY_OVERLAP"}]},
+    "MULTI_TF":{"kind":"variants","variants":[{"rule":"NEXT_HIGHER_TF_TREND_ALIGN"},{"rule":"TWO_STEPS_HIGHER_TF_TREND_ALIGN"},{"rule":"NEXT_HIGHER_RSI_DIRECTIONAL_50"},{"rule":"TWO_STEPS_HIGHER_RSI_DIRECTIONAL_50"},{"rule":"NEXT_HIGHER_CCI_SIGN_ALIGNED"},{"rule":"TWO_STEPS_HIGHER_CCI_SIGN_ALIGNED"}]},
+    "RETEST_ENTRY":{"kind":"product","axes":{"window_bars":["1","3","5"],"confirmation":["TOUCH_RECLAIM","CLOSE_RECLAIM"]}},
+    "TREND_STRENGTH":{"kind":"variants","variants":[{"rule":"ADX14_GE","threshold":"20"},{"rule":"ADX14_GE","threshold":"25"},{"rule":"ADX14_GE","threshold":"30"},{"rule":"EMA20_SLOPE_ATR14_SIGN_ALIGNED_GE","threshold":"0.05"},{"rule":"EMA20_SLOPE_ATR14_SIGN_ALIGNED_GE","threshold":"0.10"}]},
+    "EMA_CROSS_RECENCY":{"kind":"variants","variants":[{"lookback_bars":"1","rule":"EMA_FAST_MID_CROSS_ALIGNED_WITHIN"},{"lookback_bars":"3","rule":"EMA_FAST_MID_CROSS_ALIGNED_WITHIN"},{"lookback_bars":"5","rule":"EMA_FAST_MID_CROSS_ALIGNED_WITHIN"},{"lookback_bars":"10","rule":"EMA_FAST_MID_CROSS_ALIGNED_WITHIN"}]}
+  },
+  "max_active_filter_families":2,
+  "genealogy_radius":{
+    "included":"root fractal structure; source 3EMA ribbon/trend-marker/trend-strength concepts; source-documented CCI/Stochastic/RSI cycle filters; causal volatility/session/MTF/retest/geometry normalizations; management overlays",
+    "excluded":[{"dimension":"volume/order-flow","code":"CANONICAL_DATA_DOES_NOT_CONTAIN_REQUIRED_INFORMATION"},{"dimension":"news/fundamental events","code":"OUTSIDE_FROZEN_GENEALOGY_RADIUS"},{"dimension":"cross-asset predictors","code":"OUTSIDE_FROZEN_GENEALOGY_RADIUS"},{"dimension":"arbitrary additional indicators not source-declared or canonical context operators","code":"OUTSIDE_FROZEN_GENEALOGY_RADIUS"}]
+  },
+  "management_axes":{
+    "stop":["OPPOSITE_FRACTAL","ATR0.5","ATR1.0","ATR1.5","ATR2.0","ATR3.0","TIGHTER_STRUCT_OR_ATR0.5","TIGHTER_STRUCT_OR_ATR1.0","TIGHTER_STRUCT_OR_ATR1.5","TIGHTER_STRUCT_OR_ATR2.0","WIDER_STRUCT_OR_ATR0.5","WIDER_STRUCT_OR_ATR1.0","WIDER_STRUCT_OR_ATR1.5","WIDER_STRUCT_OR_ATR2.0"],
+    "target":["NONE","R0.5","R1.0","R1.5","R2.0","R3.0","R4.0"],
+    "breakeven":["OFF","AT0.5R_TO_ENTRY","AT1.0R_TO_ENTRY","AT1.5R_TO_ENTRY"],
+    "trailing":["OFF","OPPOSITE_FRACTAL","FAST_EMA","ATR1.0","ATR2.0"],
+    "partial":["OFF","HALF_AT_1R_REMAINDER_MANAGED","HALF_AT_2R_REMAINDER_MANAGED"]
+  },
+  "management_constraint_version":"TARGET_STRICTLY_AFTER_PARTIAL_AND_BE_IF_BOTH_EXIST_v1",
+  "execution_profiles":["CENTRAL","CONSERVATIVE","SEVERE"],
+  "stress_profiles":["BASE","SLIPPAGE_UP","LATENCY_UP","RANDOM_EXECUTION_FAILURES","REMOVE_BEST_TRADES_DIAGNOSTIC","COST_X1_5","COST_X2"],
+  "expected_counts":{"base_cells":4320,"filter_package_count":11176,"raw_signal_configs":48280320,"management_raw_cartesian":5880,"management_valid":3710,"execution_profiles":3,"stress_profiles":7},
+  "gate_a_open":false
+}
