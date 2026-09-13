@@ -1,0 +1,20 @@
+{
+  "schema":"QROS_PUBLIC_1000_PNL_BLIND_PRIORITY_QUEUE_FREEZE_1.0",
+  "state":"PASS_QUEUE_FROZEN_DETERMINISTIC_REMATERIALIZATION",
+  "input_authority":{
+    "zip_sha256":"e94a294f59a58785c7b0d3651022693cb770022b6dfb9d1e6fa5ec580f1bbef0",
+    "csv_sha256":"e020b1c41aeb971c633658882a98ff479c6d28d32f671514f28be20e793fbaea",
+    "rows":1000
+  },
+  "ranking_policy":"Stable ascending sort: Prioridad_QROS_ex_ante A<B<C; Confianza_reglas MEDIA_ALTA<MEDIA<BAJA_AMBIGUA; Similitud_max_con_previas_200 ascending; Alias_semanticos_colapsados ascending; ID lexical ascending. No PnL, backtest, holdout or MT5 result is an input.",
+  "materialized_queue_sha256":"14b9b76103724fa61bcf72f8fb80cb6cb1cb56749678e4ed9cd54116e8d15a21",
+  "materialized_queue_encoding":"UTF-8 CSV with columns QUEUE_RANK,ID,Source_ID,Nombre_publicado,Categoria,Confianza_reglas,Prioridad_QROS_ex_ante,Similitud_max_con_previas_200,Alias_semanticos_colapsados,URL and LF line endings",
+  "top5":[
+    {"rank":1,"id":"WEB_SEED_0076","source_id":"FMZ:365059","name":"TrendScalp FractalBox 3EMA"},
+    {"rank":2,"id":"WEB_SEED_0512","source_id":"FMZ:363749","name":"Fibonacci Progression With Breaks"},
+    {"rank":3,"id":"WEB_SEED_0763","source_id":"FMZ:441077","name":"Future Lines of Demarcation Backtest Strategy"},
+    {"rank":4,"id":"WEB_SEED_0929","source_id":"FMZ:449810","name":"Hurst Future Lines of Demarcation Strategy"},
+    {"rank":5,"id":"WEB_SEED_0486","source_id":"FMZ:478711","name":"Dynamic WaveTrend and Fibonacci Integrated Trading Strategy"}
+  ],
+  "selection_rule":"Open exactly the first queue seed that passes exact-source recovery and researched-genealogy collision gate. Do not skip based on expected profitability."
+}
