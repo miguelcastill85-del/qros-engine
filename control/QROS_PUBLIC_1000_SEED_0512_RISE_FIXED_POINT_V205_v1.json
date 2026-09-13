@@ -1,0 +1,63 @@
+{
+  "schema": "QROS_RISE_FIXED_POINT_RECEIPT_1.0",
+  "seed": "WEB_SEED_0512",
+  "state": "RISE_FIXED_POINT",
+  "ontology": "control/QROS_PUBLIC_1000_SEED_0512_CAUSAL_SCOPE_ONTOLOGY_V205_v1.json",
+  "ontology_canonical_sha256": "b0ff6fb467c776d6551e08b557ade00de37e86d8f1ac350a1b66f3d973b19f1a",
+  "ontology_sufficiency_audit_receipt": "PASS",
+  "development_pnl_open": false,
+  "holdout_open": false,
+  "rounds": [
+    {
+      "id": "R1_SOURCE_TEMPORAL_STATE_MACHINE_ADVERSARY",
+      "method": "independent source-order and causality checklist",
+      "challenges": [
+        "dist is computed before fib_n increment",
+        "source permits at most one stage increment per completed bar",
+        "source stage persists on nonbreach",
+        "strict greater-than means threshold equality is not a breach",
+        "absolute deviation permits alternating-sign progression",
+        "default max=3 terminates only after the source-defined max+1 stage boundary is exceeded",
+        "ATR200 must be finite before any signal",
+        "anchor changes only on terminal progression reset",
+        "signal direction is anchor-reset direction",
+        "indicator() plus strategy.entry is not accepted as a complete strategy implementation",
+        "displayed tp/sl bands are not executable exits",
+        "decision is after closed bar and fill is next executable quote"
+      ],
+      "new_eligible_family_delta": 0,
+      "new_causal_dimension_delta": 0,
+      "new_mutation_operator_delta": 0,
+      "new_unresolved_ambiguity_delta": 0,
+      "result": "PASS"
+    },
+    {
+      "id": "R2_CAUSAL_SCOPE_MUTATION_ADVERSARY",
+      "method": "independent mechanism/parameter/management boundary checklist",
+      "challenges": [
+        "current-bar ATR versus sequence-start ATR explicitly represented",
+        "persistent versus consecutive versus instant multilevel progression explicitly represented",
+        "absolute versus same-side path polarity explicitly represented",
+        "manual distance excluded as dimensionful nonportable branch",
+        "catalog CCI interpretation rejected because exact source has no CCI",
+        "ATR length changes are robustness-only rather than independent alpha",
+        "size and sequence-max are bounded PnL-blind parameter axes rather than new genealogies",
+        "no arbitrary session or HTF confirmation filters admitted before PnL",
+        "standardized stop/TP profiles separated from signal alpha",
+        "BUY and SELL remain separate signal sides",
+        "native timeframe set frozen prospectively"
+      ],
+      "new_eligible_family_delta": 0,
+      "new_causal_dimension_delta": 0,
+      "new_mutation_operator_delta": 0,
+      "new_unresolved_ambiguity_delta": 0,
+      "result": "PASS"
+    }
+  ],
+  "semantic_corrections": [
+    "Catalog wording mentioning CCI is not source authority; CCI is absent from the pinned source.",
+    "The source Fibonacci multiplier sequence actually consumed from fib_n=1 is 1,2,3,5,..., not two consecutive leading ones.",
+    "The source's plotted target/stop bands are descriptive only and do not define strategy exits."
+  ],
+  "next_gate": "LOGICAL_ENUMERATOR_PARITY_THEN_EXECUTABLE_DATA_MATERIALIZATION"
+}
