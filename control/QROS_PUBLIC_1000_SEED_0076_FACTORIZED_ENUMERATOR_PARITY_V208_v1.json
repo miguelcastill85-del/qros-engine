@@ -1,0 +1,58 @@
+{
+  "schema": "QROS_FACTORIZED_EXACT_ENUMERATOR_PARITY_RECEIPT_1.0",
+  "state": "PASS_FACTORIZED_EXACT_PARITY",
+  "seed": "WEB_SEED_0076",
+  "machine_spec": {
+    "path": "research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V208_v1.json",
+    "git_blob_sha1": "4b5c2da6c544f79e13b6ed3d68d9dc8ca3d7bdcc"
+  },
+  "compiler_policy": "governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.1.json",
+  "enumerator_a": {
+    "path": "scripts/qros_seed_universe_enumerator_a.py",
+    "git_blob_sha1": "ddeb26e1b2f40fb0227d346949f261357b9dde41",
+    "construction": "manual recursion and nested loops"
+  },
+  "enumerator_b": {
+    "path": "scripts/qros_seed_universe_enumerator_b.py",
+    "git_blob_sha1": "0c6b6ec59ab4ef6e86c3726b243ff5f27cae3faa",
+    "construction": "itertools product/combinations declarative expansion"
+  },
+  "verified_execution": {
+    "economic_pnl_read": false,
+    "holdout_read": false,
+    "base_tuple_count_a": 720,
+    "base_tuple_count_b": 720,
+    "base_tuple_symmetric_difference_count": 0,
+    "base_tuple_root_sha256_a": "ec2c32fd3aeab446e224e13704f99f01e2fb44026a62039389648d34a455928a",
+    "base_tuple_root_sha256_b": "ec2c32fd3aeab446e224e13704f99f01e2fb44026a62039389648d34a455928a",
+    "filter_package_count_a": 8633,
+    "filter_package_count_b": 8633,
+    "filter_package_symmetric_difference_count": 0,
+    "filter_package_root_sha256_a": "b677212d5e908bfce561dcca7828e7d6842050251132f58cbd706a2d0807705f",
+    "filter_package_root_sha256_b": "b677212d5e908bfce561dcca7828e7d6842050251132f58cbd706a2d0807705f",
+    "raw_signal_configuration_count": 6215760,
+    "cartesian_set_equality_proof": "BASE_A=BASE_B exactly; FILTER_A=FILTER_B exactly; frozen mapping CONFIG=MERGE(BASE,{filters:FILTER}) is pure and injective because base keys and filters key are disjoint. Therefore full Cartesian configuration sets are exactly equal.",
+    "factorized_signal_universe_root_sha256": "223275530887a5d96c86fda90923707170feb17cc33714ff3b6ec04168583a62",
+    "management_valid_count_a": 3710,
+    "management_valid_count_b": 3710,
+    "management_symmetric_difference_count": 0,
+    "management_root_sha256_a": "2ca72abbd712917769528720422c2399adb8939d2585ca83c519d839afb46b1d",
+    "management_root_sha256_b": "2ca72abbd712917769528720422c2399adb8939d2585ca83c519d839afb46b1d",
+    "execution_profile_count": 3,
+    "stress_profile_count": 7
+  },
+  "semantic_dedupe": {
+    "status": "PASS_WITH_CURRENT_CANONICAL_SPEC",
+    "exact_duplicate_count": 0,
+    "semantic_alias_count": 0,
+    "semantic_signal_config_count": 6215760,
+    "note": "No two frozen base/filter canonical cells serialize identically. Economic equivalence is deliberately not inferred before PnL."
+  },
+  "storage_model": {
+    "materialize_all_rows_simultaneously": false,
+    "stream_every_config_deterministically": true,
+    "reason": "Exact factorization preserves all 6,215,760 cells without memory-dependent batch materialization. This is not sampling or pruning."
+  },
+  "next_gate": "RISE_Q_POST_EXPANSION_SUFFICIENCY_AUDIT_THEN_CONFIG_HASH_FREEZE",
+  "gate_a_open": false
+}
