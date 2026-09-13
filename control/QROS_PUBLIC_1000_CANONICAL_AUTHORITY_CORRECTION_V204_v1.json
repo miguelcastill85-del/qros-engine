@@ -1,0 +1,39 @@
+{
+  "schema": "QROS_PUBLIC_1000_CANONICAL_AUTHORITY_CORRECTION_1.0",
+  "state": "CORRECTED_NO_FALSE_GITHUB_BINARY_CLAIM",
+  "catalog": {
+    "filename": "QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.zip",
+    "bytes": 93608,
+    "sha256": "e94a294f59a58785c7b0d3651022693cb770022b6dfb9d1e6fa5ec580f1bbef0"
+  },
+  "durable_exact_byte_store": {
+    "provider": "Dropbox",
+    "path": "/QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.zip",
+    "file_id": "id:3hcdcMy0pHAAAAAAAAAANg",
+    "upload_status": "COMPLETED"
+  },
+  "github_authority": {
+    "identity_receipt": "control/QROS_PUBLIC_1000_CANONICAL_AUTHORITY_RECEIPT_V203_v1.json",
+    "role": "CONTROL_VERSION_AND_RECOVERY_IDENTITY",
+    "binary_zip_physically_versioned_in_git": false
+  },
+  "correction": {
+    "issue": "A literal GitHub binary copy was attempted through a text/base64 fragmentation route after the user requested repository persistence.",
+    "failed_partial_commits": [
+      "07ffa26c5b16de1596acc168628e3a1a84b03502",
+      "eaef2961e734ef0ccf78886744050a8b438f1882"
+    ],
+    "detected_failure": "part002 size was 12417 characters while the deterministic source slice required 12000; therefore the reconstructed payload could not be certified byte-exact.",
+    "cleanup_commits": [
+      "65149f51f9cc28a6df83bdbad1b589d29b5004b0",
+      "6431c16d0d442560b9c17cd9fb5475e21849edc4"
+    ],
+    "invalid_partial_payload_left_in_main": false,
+    "scientific_state_affected": false
+  },
+  "recovery_contract": "Future chats must recover the Dropbox object through the GitHub V203/V204 authority receipt and require the exact SHA-256 before use. The user does not need to upload the catalog again while that durable object remains accessible.",
+  "prohibitions": [
+    "Do not state that the ZIP binary itself is committed to GitHub unless a later receipt proves it byte-for-byte.",
+    "Do not accept a reconstructed catalog whose SHA-256 differs from the canonical value."
+  ]
+}
