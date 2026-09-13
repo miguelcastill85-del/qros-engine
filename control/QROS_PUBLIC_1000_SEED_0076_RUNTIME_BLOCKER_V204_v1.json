@@ -1,0 +1,74 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_RUNTIME_BLOCKER_1.0",
+  "seed": "WEB_SEED_0076",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "phase": "POST_RISE_FIXED_POINT_PRE_CONFIG_HASH_FREEZE",
+  "blocked_operation": "REAL_DATA_SIGNAL_MASK_MATERIALIZATION_AND_DEVELOPMENT_BACKTEST",
+  "scientific_work_completed_before_blocker": {
+    "causal_scope": "PASS",
+    "rise_fixed_point": "PASS_TWO_CONSECUTIVE_ZERO_DELTA_ROUNDS",
+    "universe_ontology_frozen": true,
+    "logical_signal_count": 280,
+    "logical_signal_management_count": 840,
+    "independent_logical_enumerator_parity": "PASS",
+    "development_pnl_open": false,
+    "holdout_open": false
+  },
+  "required_exact_data": {
+    "NQX": {
+      "full_carrier": "NQX_PACKED17_FULL_2018_2026.bin",
+      "records": 559817687,
+      "bytes": 9516900679,
+      "sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+      "development_bar_cache": {
+        "file": "NQX_200S_DEV_2018_2019_v16591.tsv",
+        "rows": 202471,
+        "bytes": 19818290,
+        "sha256": "f6d476ac3540cf05f7a7583bb37c20c2371bc81c3a036d9c0907b6de3d6a5f88"
+      }
+    },
+    "XAUUSD": {
+      "full_carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+      "records": 697060968,
+      "bytes": 11850036456,
+      "sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+      "development_bar_cache": {
+        "file": "XAUUSD_200S_BIDASK_DEV_2018_2019_v1.csv",
+        "rows": 204865,
+        "bytes": 24303351,
+        "sha256": "a9324a87bb5825d15da8ae1189d42326102c9ecf37b46032fb839a6be6b97f4e"
+      }
+    }
+  },
+  "why_full_tick_bytes_are_indispensable": [
+    "TICK_BREAK requires the first causal quote transition across the confirmed fractal boundary.",
+    "Native M1/M5/M15/M30/H1 bars must be deterministically rebuilt/aligned from the canonical source clock; the 200-second cache alone cannot exactly derive all native timeframes.",
+    "Bid/Ask fills, gap semantics, zero/crossed-spread rejection, session-day handling and execution stresses require executable quote chronology."
+  ],
+  "recovery_searches": [
+    {"surface":"CURRENT_CONTAINER_/mnt/data","result":"catalog ZIP and unpacked catalog only; no canonical XAU/NQX carriers or DEV caches"},
+    {"surface":"DROPBOX_/QROS/datasets","result":"empty"},
+    {"surface":"DROPBOX_/QROS/canonical","result":"empty"},
+    {"surface":"DROPBOX_exact_filename_search","result":"no NQX runtime ZIP, NQX DEV cache, XAU DEV cache, or full-history parts returned"},
+    {"surface":"FILE_LIBRARY","result":"canonical manifests/indexes and SHA sidecars recovered; NQX 28-part and XAU 35-part identities are catalogued as present, but file-library references are not executable byte mounts in this runtime"},
+    {"surface":"FILE_LIBRARY_runtime_identity","result":"QROS_NQX_CANONICAL_DATA_RUNTIME_v16591_R1.zip identity 5082010 bytes / SHA256 55250e2d...e275 recovered through registry/sidecars, but ZIP bytes not mounted for execution"}
+  ],
+  "alternatives_attempted": [
+    "Use exact DEV cache names in Dropbox search",
+    "Inspect Dropbox canonical/datasets roots",
+    "Recover full-history manifests and file indexes from File Library",
+    "Recover compact canonical runtime identities from File Library",
+    "Complete ontology, RISE fixed point and logical enumerator parity without economic data"
+  ],
+  "not_missing_scientific_identity": true,
+  "root_cause": "Cross-chat storage references prove data identity/presence but the current execution runtime cannot mount/download those File Library carrier bytes into an executable filesystem; Dropbox does not currently contain the canonical carrier shards or DEV caches.",
+  "fail_closed_rules": [
+    "Do not substitute similar data.",
+    "Do not derive TICK_BREAK from OHLC bars.",
+    "Do not open development PnL from incomplete data.",
+    "Do not open 2020+ holdout/forward data to compensate for missing DEV materialization.",
+    "Do not select another seed merely because the active seed is infrastructure-blocked unless serial governance explicitly releases the queue under a frozen resumable blocker."
+  ],
+  "resume_when": "Exact canonical development tick bytes become physically executable. Verify hashes first, then freeze bar alignment, server-day/EOD execution contract and numeric cost layers, perform final config/hash freeze and independent real-data event-mask parity before development PnL.",
+  "portfolio_impact": "0 new modules; 0R added risk; 0 annual frequency claimed"
+}
