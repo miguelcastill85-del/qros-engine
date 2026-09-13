@@ -1,0 +1,39 @@
+{
+  "schema": "QROS_SEED_SERIAL_EXECUTION_ADOPTION_RECEIPT_1.0",
+  "status": "PASS",
+  "adoption_date": "2026-09-13",
+  "repository": "miguelcastill85-del/qros-engine",
+  "default_branch": "main",
+  "purpose": "Record durable project adoption of serial per-seed causal-universe research for prospective QROS/RISE campaigns.",
+  "verified_artifacts": [
+    {
+      "path": "governance/QROS_SEED_SERIAL_EXECUTION_POLICY_v1.0.json",
+      "git_blob_sha1": "0f98f6a7ca70408b36348ec26728625594f2e369",
+      "state": "ACTIVE_PROJECT_INVARIANT"
+    },
+    {
+      "path": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.2.json",
+      "git_blob_sha1": "a533a4016683b133fde4552ce5ce2c3b4c4b521a",
+      "state": "ACTIVE_PROJECT_INVARIANT"
+    },
+    {
+      "path": "AGENTS.md",
+      "git_blob_sha1": "adb26d3dc4c8a7a9ba6457aeee4e8c79c6edbbda",
+      "binding": "SERIAL_SEED_WORKFLOW_AND_V1_2_PROJECT_POLICY"
+    }
+  ],
+  "adopted_invariant": "Global hypothesis-pool ingestion, dedupe, causal fingerprinting and non-PnL prioritization are allowed. Detailed causal-universe construction, RISE-Q fixed-point audit, deterministic configuration freeze, economic backtest and gates are executed for one seed genealogy at a time. The next seed cannot enter detailed universe construction until the current seed reaches APPROVED_FINAL, REJECTED or BRANCH_EXHAUSTED, except a verified BLOCKED_BY_INFRASTRUCTURE checkpoint may release the queue without rejecting the blocked seed.",
+  "public_1000_hypothesis_program": {
+    "batch_dedupe_allowed": true,
+    "batch_prioritization_allowed": true,
+    "batch_causal_universe_build_forbidden": true,
+    "batch_unfinished_seed_backtest_forbidden": true,
+    "execution_mode": "SERIAL_PER_SEED"
+  },
+  "historical_non_rewrite": {
+    "g30_unchanged": true,
+    "g30_payload_recreation_authorized": false,
+    "g30_configurations_inherited_by_new_campaign": false
+  },
+  "decision": "SERIAL_SEED_EXECUTION_GOVERNANCE_DURABLY_ADOPTED"
+}
