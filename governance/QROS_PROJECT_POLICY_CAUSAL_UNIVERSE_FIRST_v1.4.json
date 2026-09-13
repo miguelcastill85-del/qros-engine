@@ -1,0 +1,32 @@
+{
+  "schema":"QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_1.4",
+  "state":"ACTIVE_PROJECT_INVARIANT",
+  "adoption_date":"2026-09-13",
+  "supersedes_for_prospective_enforcement":"governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.3.json",
+  "preserves_historical_receipts":true,
+  "inherits_unmodified_rules_from":"governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.3.json",
+  "mandatory_universe_compiler":"governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.1.json",
+  "canonical_seed_lifecycle":[
+    "SELECT_ONE_SEED",
+    "SOURCE_AND_COLLISION_GATE",
+    "ROOT_MECHANISM_FREEZE",
+    "MANDATORY_DIMENSION_AUDIT",
+    "FINITE_DOMAIN_FREEZE",
+    "MUTATION_OPERATOR_PROJECTION",
+    "CONSTRAINT_GRAPH_FREEZE",
+    "COMPLETE_FACTORIZED_OR_MATERIALIZED_ENUMERATION",
+    "SEMANTIC_DEDUPE",
+    "POST_EXPANSION_RISE_Q_FIXED_POINT",
+    "CONFIG_AND_HASH_FREEZE",
+    "INDEPENDENT_ENUMERATOR_EXACT_PARITY",
+    "EXECUTION_UNIT_CLOCK_COST_PREFLIGHT",
+    "GATE_A",
+    "LATER_GATES_IF_ELIGIBLE",
+    "FINAL_DISPOSITION",
+    "ONLY_THEN_NEXT_SEED"
+  ],
+  "anti_fragmentation_invariant":"A branch, family, ontology sketch, representative sample or partial parameter grid is never a completed universe. A seed can reach Gate A only after every valid cell of its frozen finite grammar is enumerated exactly, directly or by exact factorization, deduplicated, hashed and independently reproduced.",
+  "infrastructure_rule":"Missing executable market-data bytes may block economic backtesting, but must not release the queue while logically independent universe compilation, semantic freeze, enumerator parity or hash freeze for the active seed can still be completed.",
+  "finite_completeness":"Complete means exhaustive within an explicit finite genealogy radius and frozen domains. It does not mean arbitrary unbounded integers or every unrelated indicator in existence.",
+  "public1000_binding":{"active_seed":"WEB_SEED_0076","current_machine_spec":"research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json","current_config_freeze":"control/QROS_PUBLIC_1000_SEED_0076_CONFIG_HASH_FREEZE_V210_v1.json","development_pnl_open":false,"holdout_open":false}
+}
