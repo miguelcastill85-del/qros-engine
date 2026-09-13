@@ -1,0 +1,47 @@
+{
+  "schema":"QROS_RISE_POST_EXPANSION_FIXED_POINT_RECEIPT_1.0",
+  "state":"RISE_FIXED_POINT",
+  "seed":"WEB_SEED_0076",
+  "prior_premature_fixed_point":"control/QROS_PUBLIC_1000_SEED_0076_RISE_FIXED_POINT_V204_v1.json",
+  "correction_receipt":"control/QROS_PUBLIC_1000_SEED_0076_PREMATURE_UNIVERSE_FREEZE_CORRECTION_V208_v1.json",
+  "machine_spec":"research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json",
+  "semantics_contract":"control/QROS_PUBLIC_1000_SEED_0076_SIGNAL_SEMANTICS_CONTRACT_V210_v1.json",
+  "enumerator_parity":"control/QROS_PUBLIC_1000_SEED_0076_FACTORIZED_ENUMERATOR_PARITY_V209_v1.json",
+  "pre_zero_round_delta_resolution":[
+    "Added source-documented CCI and Stochastic momentum branches.",
+    "Added source trend-marker EMA cross recency family.",
+    "Replaced chart-angle ambiguity with preregistered ATR-normalized EMA20 slope descendants plus ADX trend-strength controls.",
+    "Added multi-TF momentum branches.",
+    "Added fractal tie and rearm policies.",
+    "Froze price-stream, indicator-formula, retest, context-timeframe and session semantics."
+  ],
+  "zero_delta_rounds":[
+    {
+      "id":"R2_TEMPORAL_EXECUTION_DECOMPOSITION",
+      "independent_order":"event-time first: data availability -> pivot confirmation -> filters -> trigger -> retest -> fill -> management -> EOD",
+      "challenges":["plot-offset lookahead","generalized fractal confirmation lag","tie handling","repeat-entry/rearm","tick versus close trigger","buffer ATR availability","retest cancellation","higher-TF incomplete-bar leakage","session DST semantics","Bid/Ask signal/fill separation","same-day termination","SL/TP ambiguity","gap execution"],
+      "NEW_ELIGIBLE_FAMILY_DELTA":0,
+      "NEW_CAUSAL_DIMENSION_DELTA":0,
+      "NEW_MUTATION_OPERATOR_DELTA":0,
+      "NEW_UNRESOLVED_AMBIGUITY_DELTA":0,
+      "result":"PASS"
+    },
+    {
+      "id":"R3_CAUSAL_TAXONOMY_DECOMPOSITION",
+      "independent_order":"mechanism first: structure -> trend -> geometry -> volatility -> momentum -> session -> MTF -> entry -> management -> execution/stress",
+      "challenges":["fractal structural neighborhoods","EMA parameter neighborhoods","EMA cross marker","trend strength","box contraction and size","distance to ribbon","ATR regime","RSI/CCI/Stochastic/ROC","higher-TF trend and momentum","session/time filters","direct versus retest entries","stops/targets/BE/trailing/partials","volume/order-flow","news/fundamentals","cross-asset predictors","arbitrary indicator creep"],
+      "exclusions_confirmed":[{"dimension":"volume/order-flow","reason":"canonical packed tick authority does not contain required volume/order-book information"},{"dimension":"news/fundamentals","reason":"outside frozen genealogy radius"},{"dimension":"cross-asset predictors","reason":"outside frozen genealogy radius"},{"dimension":"arbitrary indicator creep","reason":"outside finite source-plus-canonical mutation grammar"}],
+      "NEW_ELIGIBLE_FAMILY_DELTA":0,
+      "NEW_CAUSAL_DIMENSION_DELTA":0,
+      "NEW_MUTATION_OPERATOR_DELTA":0,
+      "NEW_UNRESOLVED_AMBIGUITY_DELTA":0,
+      "result":"PASS"
+    }
+  ],
+  "ontology_sufficiency_audit_receipt":"PASS",
+  "raw_signal_config_count":48280320,
+  "management_valid_count":3710,
+  "economic_pnl_open":false,
+  "holdout_open":false,
+  "next_gate":"CONFIG_HASH_FREEZE_AND_EXECUTION_COST_DATA_BINDING_BEFORE_GATE_A"
+}
