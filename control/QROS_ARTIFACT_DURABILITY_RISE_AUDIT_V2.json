@@ -7,7 +7,8 @@
     {"round":2,"repairs":["Executable fail-closed gate","Two independent byte copies","Delete-local restore canary","Mandatory next-stage packet","Expected-parent single-writer promotion contract"]},
     {"round":3,"attacks":["missing copy","corrupt copy","path traversal","missing mandatory role","runtime-as-authority","holdout ambiguity","duplicate object id","undeclared store"],"expected":"ALL_REJECTED"},
     {"round":4,"finding":"Receipt hash was computed before restore state was appended","repair":"Compute receipt hash only over the final receipt after restore decision and any fail-closed demotion"},
-    {"round":5,"residuals":["Remote APIs must independently implement authenticated readback and CAS","Current G30 6570 bytes remain unrecovered"],"classification":"EXTERNAL_CAPABILITY_NOT_SILENTLY_SIMULATED"}
+    {"round":5,"finding":"Restore phase could dereference an undeclared store after preflight rejection","repair":"Restore is prohibited unless preflight authorized; defensive store/path resolution retained"},
+    {"round":6,"residuals":["Remote APIs must independently implement authenticated readback and CAS","Current G30 6570 bytes remain unrecovered"],"classification":"EXTERNAL_CAPABILITY_NOT_SILENTLY_SIMULATED"}
   ],
   "fixed_point_definition":"No newly identified in-scope bypass remains after regression suite; external capabilities remain explicit prerequisites.",
   "decision":"CONTROL_APPROVED_FOR_INTEGRATION_NOT_A_SCIENTIFIC_GATE_PASS"
