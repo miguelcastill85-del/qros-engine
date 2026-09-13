@@ -1,0 +1,38 @@
+{
+  "schema": "QROS_G32_PREMATURE_SELECTION_WITHDRAWAL_V202_1.0",
+  "state": "HISTORICAL_NO_RESULTS_SELECTION_WITHDRAWN",
+  "adoption_date": "2026-09-13",
+  "scope": "PROSPECTIVE_SCIENTIFIC_ROUTING_ONLY",
+  "historical_campaign_id": "QROS_G32_PUBLIC_MAMA_FAMA_v1",
+  "historical_artifacts_preserved": true,
+  "historical_no_results_evidence": {
+    "preregistration": "control/G32_PUBLIC_SEED_MAMA_FAMA_V201_v1.json",
+    "causal_scope": "control/G32_CAUSAL_SCOPE_CONTRACT_V201_v1.json",
+    "rise_fixed_point": "control/G32_RISE_FIXED_POINT_AUDIT_V201_v1.json",
+    "universe_freeze": "control/G32_UNIVERSE_FREEZE_V201_v1.json",
+    "economic_results_observed_in_historical_package": false,
+    "development_pnl_authorized_by_this_receipt": false,
+    "holdout_authorized_by_this_receipt": false
+  },
+  "withdrawal_reason": "The public-1000 program methodology was corrected: the 1000 entries are hypothesis seeds, and definitive seed selection must follow pool-level PnL-blind causal dedupe and prioritization against prior seeds and researched genealogies. MAMA/FAMA was selected before that prerequisite was durably reconciled.",
+  "scientific_interpretation": {
+    "mama_fama_rejected": false,
+    "mama_fama_approved": false,
+    "mama_fama_candidate_pool_eligibility": "REQUIRES_GLOBAL_DEDUPE_AND_PRIORITY_REEVALUATION",
+    "historical_ontology_may_be_reused_if_seed_is_later_legitimately_selected": "ONLY_AFTER_HASHED_AUTHORITY_RECONCILIATION_AND_WITHOUT_TREATING_PRIOR_SELECTION_AS_PRIORITY_EVIDENCE",
+    "prior_no_results_work_must_not_be_deleted": true,
+    "prior_no_results_work_must_not_authorize_backtest": true
+  },
+  "serial_seed_governance": {
+    "policy": "governance/QROS_SEED_SERIAL_EXECUTION_POLICY_v1.0.json",
+    "project_policy": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.2.json",
+    "next_detailed_seed_universe_authorized": false,
+    "reason": "Frozen priority queue for the exact 1000-hypothesis authority has not yet been recovered and verified in the currently available source scope."
+  },
+  "g30_non_interference": {
+    "g30_unchanged": true,
+    "g30_payload_recreation_authorized": false,
+    "g30_configurations_inherited": false
+  },
+  "decision": "MAMA_FAMA_PREMATURE_SELECTION_WITHDRAWN_PRESERVE_NO_RESULTS_EVIDENCE"
+}
