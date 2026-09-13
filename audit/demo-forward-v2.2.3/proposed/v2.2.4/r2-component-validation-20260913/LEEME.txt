@@ -1,0 +1,21 @@
+QROS - PRUEBA DE COMPONENTES, NO CALIFICACION R2
+
+1. Extrae TODO este ZIP en una carpeta de tu PC Windows.
+2. Haz doble clic en PROBAR_COMPONENTES.bat. No necesita administrador.
+3. Adjunta solamente el ZIP QROS_COMPONENT_EVIDENCE_... creado en el Escritorio.
+
+No ejecuta, cierra, reinicia ni modifica MT5. No lee cuentas ni credenciales.
+No cambia CERT. No ejecuta Candidate3. No instala programas ni usa internet.
+Escribe archivos de prueba en una carpeta temporal nueva y un ZIP en el Escritorio.
+Si la compresion falla, muestra el error y conserva la evidencia.
+
+Pruebas: lector PowerShell (9 casos) y exclusividad entre dos procesos PowerShell,
+identidad NTFS del archivo, token, liberacion y readquisicion (1 caso compuesto).
+Requiere Windows PowerShell 5.1 y carpeta temporal en NTFS.
+La API nativa se limita a consultar informacion del archivo mediante kernel32 de
+Windows desde PowerShell; no se incorpora ninguna DLL a MQL5.
+
+ESTADO DE ENTREGA: revisado estaticamente; ejecucion Windows aun pendiente.
+Un resultado COMPONENT_TESTS_PASS NO es R2_NATIVE_ENV_QUALIFIED.
+No prueba el namespace del Tester, MQL5, dos terminales MT5 ni la estrategia.
+Si el diagnostico falla, su ZIP permitira depurar el componente sin tocar MT5.

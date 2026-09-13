@@ -1,0 +1,35 @@
+{
+  "scope": "COMPONENT_DIAGNOSTIC_NOT_QUALIFIER_RELEASE",
+  "files": [
+    {
+      "name": "PROBAR_COMPONENTES.bat",
+      "bytes": 405,
+      "sha256": "e198d211f3993cf60698530a9f1631fa671773e696b9279af9deaf822eac5bd3"
+    },
+    {
+      "name": "Test-Components.ps1",
+      "bytes": 12206,
+      "sha256": "facbc5740172aa99fda4ca6909680b0962b4490bbd963031d47e2dd40647f3a7"
+    },
+    {
+      "name": "Lock-Child.ps1",
+      "bytes": 3030,
+      "sha256": "1a04bfcfc8bb520496ed46671a4eeacd58210f5fff4ddf7be47f5d429c5b2bb0"
+    },
+    {
+      "name": "Wait-QrosStageRow.ps1",
+      "bytes": 3435,
+      "sha256": "1f22699be0652f0d9a14f741405da44fd5c05f4a9ad6e050e84b9450daa1150b"
+    },
+    {
+      "name": "NativeFileIdentity.cs",
+      "bytes": 1234,
+      "sha256": "5cc7992dd3a007ed83ff961f2ed8146f142643c848de036806940cda92c29e6f"
+    },
+    {
+      "name": "LEEME.txt",
+      "bytes": 1234,
+      "sha256": "09a48617f242fad018ae210ccbe4f1314b30579a53cac7303b3362e078a8c04f"
+    }
+  ]
+}

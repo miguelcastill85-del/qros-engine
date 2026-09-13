@@ -1,0 +1,10 @@
+{
+  "system": "Linux",
+  "powershell": null,
+  "pwsh": null,
+  "wine": null,
+  "windows_target_access": "NOT_AVAILABLE",
+  "native_tests": "NOT_EXECUTED",
+  "runner_sha256_verified": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+  "global_handoff_gate": "NOT_RUN_TO_COMPLETION_MISSING_HANDOFF_MANIFEST_IN_PARTIAL_CHECKOUT"
+}

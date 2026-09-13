@@ -1,0 +1,90 @@
+{
+  "scope": "engineering artifacts excludes self; no native qualification",
+  "files": [
+    {
+      "path": "AUDITORIA_COMPONENTES.md",
+      "bytes": 5098,
+      "sha256": "4123d815989bb5688f0bfe903d5c15a7808bdf8fe41fa2f41050a4a465eaa3bf"
+    },
+    {
+      "path": "CAPABILITY_RECEIPT.json",
+      "bytes": 347,
+      "sha256": "59b4f3ce5c1e7b2ee231e39b80deba914ce4054a42fc7a03096c705bf6b459d3"
+    },
+    {
+      "path": "CHECKPOINT.json",
+      "bytes": 2575,
+      "sha256": "1d3035fbeffadbbd44ed5c05fe024c238ebee494c159553ed0a0dbddb6176249"
+    },
+    {
+      "path": "DEFECT_LEDGER.json",
+      "bytes": 10485,
+      "sha256": "1f122ef594995cb85798382253921d5bee1e9b7bbcd44fa035785d76b5983258"
+    },
+    {
+      "path": "LEEME.txt",
+      "bytes": 1234,
+      "sha256": "09a48617f242fad018ae210ccbe4f1314b30579a53cac7303b3362e078a8c04f"
+    },
+    {
+      "path": "Lock-Child.ps1",
+      "bytes": 3030,
+      "sha256": "1a04bfcfc8bb520496ed46671a4eeacd58210f5fff4ddf7be47f5d429c5b2bb0"
+    },
+    {
+      "path": "MUTATION_REPORT.json",
+      "bytes": 2796,
+      "sha256": "2e179e837ff4d3c51592a0f714ed4244197c5ec9aa4263e59de79ceb72a61e15"
+    },
+    {
+      "path": "NativeFileIdentity.cs",
+      "bytes": 1234,
+      "sha256": "5cc7992dd3a007ed83ff961f2ed8146f142643c848de036806940cda92c29e6f"
+    },
+    {
+      "path": "PACKAGE_MANIFEST.json",
+      "bytes": 993,
+      "sha256": "52600d370001375e3099897b7f143c5389a63100705925cf3cf8d022bc8e65ba"
+    },
+    {
+      "path": "PRE_DELIVERY.json",
+      "bytes": 492,
+      "sha256": "d6b7460769e3a75d9c98a4974442e3948def9bd9ed502aab00e49d08a561dde5"
+    },
+    {
+      "path": "PROBAR_COMPONENTES.bat",
+      "bytes": 405,
+      "sha256": "e198d211f3993cf60698530a9f1631fa671773e696b9279af9deaf822eac5bd3"
+    },
+    {
+      "path": "RECOVERY_VERIFICATION.json",
+      "bytes": 261,
+      "sha256": "b286bfc40c3993486d65dd318800f001394b20df8553d72cfcc1c3c59e94142c"
+    },
+    {
+      "path": "Test-Components.ps1",
+      "bytes": 12206,
+      "sha256": "facbc5740172aa99fda4ca6909680b0962b4490bbd963031d47e2dd40647f3a7"
+    },
+    {
+      "path": "Wait-QrosStageRow.ps1",
+      "bytes": 3435,
+      "sha256": "1f22699be0652f0d9a14f741405da44fd5c05f4a9ad6e050e84b9450daa1150b"
+    },
+    {
+      "path": "evidence_contract.py",
+      "bytes": 5474,
+      "sha256": "39e7622eaf428db46c0f039657e4be618e3e62e1c90c25325cba25fbdab7d645"
+    },
+    {
+      "path": "legacy_evidence_contract.py",
+      "bytes": 7888,
+      "sha256": "c99112b2af2ce0f832f4b46dde33cef54b0818078c2517f45c4b5ca0d3673cb5"
+    },
+    {
+      "path": "test_contract_hardening.py",
+      "bytes": 4495,
+      "sha256": "8134e2432bdc43226e8b943bfc9e597dc7fd0f73933ceca99e9074badab58f95"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "scope": "Static package and offline Python, not Windows native",
+  "python_sources_parse": 3,
+  "diagnostic_scripts_no_terminal_or_stop_commands": 3,
+  "reader_unchanged": true,
+  "zip_entries_verified": 7,
+  "zip_bytes": 9526,
+  "zip_sha256": "38fd18d33d66f5061fa990c4263c00c6deae3748f2da029de72e3a026ffcca85",
+  "powershell_ast_gate": "PENDING_NATIVE_SCRIPT_INCLUDES_PARSE_GATE",
+  "windows_tests": "NOT_EXECUTED",
+  "r2_qualified": false,
+  "consolidated_qualifier_released": false
+}

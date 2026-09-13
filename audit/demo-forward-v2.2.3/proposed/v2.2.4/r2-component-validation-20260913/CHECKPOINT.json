@@ -1,0 +1,59 @@
+{
+  "OBJETIVO": "Repair and qualify R2 laboratory without Candidate3",
+  "AUTORIDAD": {
+    "parent_commit": "680d5752ba08eb18232de77d786c2642ecff98c3",
+    "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+    "parent_checkpoint": "audit/demo-forward-v2.2.3/proposed/v2.2.4/r2-recovery-audit-20260913/CHECKPOINT.json"
+  },
+  "DATOS": {
+    "recovery_library_file_id": "libfile_e878912b739481919af0eb4249684837",
+    "sha256": "c7cc89e75276fedaf565cdae16a13538cab52046774e02b9904e654162b8502c",
+    "inventory_verified": 2739,
+    "economic_data_interpreted": false
+  },
+  "TRABAJO_EJECUTADO": [
+    "Recovery rematerialization and integrity",
+    "Offline contract hardening",
+    "Windows component diagnostic sources and one ZIP"
+  ],
+  "RESULTADOS_VERIFICADOS": {
+    "inherited_mutations_rejected": 27,
+    "new_mutations_rejected": 17,
+    "total_mutations": 44,
+    "native_tests_executed": false
+  },
+  "GATES": {
+    "R2": "NOT_QUALIFIED",
+    "R3": "BLOCKED_BY_R2",
+    "R4": "BLOCKED_BY_R2",
+    "qualifier_fixed_point": "NOT_ESTABLISHED",
+    "diagnostic_release": "COMPONENT_ONLY_NATIVE_PENDING"
+  },
+  "PROBLEMAS": [
+    "Windows 5.1/MetaEditor/MT5 target unavailable",
+    "R2REC native defects remain open",
+    "Global handoff verification unavailable in partial checkout; targeted blobs verified"
+  ],
+  "CAUSA_RAIZ": {
+    "reader": "Premature acceptance of readable stale stage file, previously verified",
+    "offline_contract": "Equality without valid identity schema",
+    "native_fence": "NOT_DETERMINED"
+  },
+  "CORRECCIONES": [
+    "Separate schema validation and exact derivation; preserves no-certificate invariant",
+    "Ready file atomic publication in component diagnostic; single output ZIP with reopen/hash checks"
+  ],
+  "ESTADO_CIENTIFICO": "FROZEN_CANDIDATE",
+  "IMPACTO_PORTAFOLIO": "NONE",
+  "SIGUIENTE_ACCION_AUTOMATICA": "Verify returned QROS_COMPONENT_EVIDENCE ZIP against this diagnostic SHA; evaluate real PS reader and Win32 checks; fix failures before consolidated qualifier integration; then native MT5 physical witness and R2 full gate. No Candidate3 execution.",
+  "execution_annotation": "BLOCKED_NATIVE_WITH_EXECUTABLE_COMPONENT_DIAGNOSTIC",
+  "pause_reason": "No callable Windows target; do not infer native qualification from offline tests",
+  "do_not_repeat": [
+    "44 offline mutation cases unless validator changes",
+    "2739 inventory unless bytes rematerialized",
+    "historical model regressions as new evidence"
+  ],
+  "candidate3_executed": false,
+  "cert_modified": false,
+  "deployment_allowed": false
+}

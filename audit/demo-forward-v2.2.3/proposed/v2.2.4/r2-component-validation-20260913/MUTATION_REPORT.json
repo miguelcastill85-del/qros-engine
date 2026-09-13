@@ -1,0 +1,115 @@
+{
+  "scope": "TEST_ONLY offline validator; not MT5 or PowerShell",
+  "inherited_cases_caught": 27,
+  "inherited_cases_total": 27,
+  "additional_cases": [
+    {
+      "mutation": "null_physical_identity",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "FILE_IDENTITY_SCHEMA"
+    },
+    {
+      "mutation": "empty_physical_identity",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "FILE_IDENTITY_SCHEMA"
+    },
+    {
+      "mutation": "blank_file_id",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "FILE_IDENTITY_SCHEMA"
+    },
+    {
+      "mutation": "blank_volume",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "FILE_IDENTITY_SCHEMA"
+    },
+    {
+      "mutation": "null_run",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "RUN_BOOT_SCHEMA"
+    },
+    {
+      "mutation": "blank_boot",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "RUN_BOOT_SCHEMA"
+    },
+    {
+      "mutation": "empty_process_identity",
+      "legacy_accepted": false,
+      "caught": true,
+      "reason": "TWO_PROCESSES"
+    },
+    {
+      "mutation": "invalid_runtime_mode",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "MODE_SCHEMA"
+    },
+    {
+      "mutation": "ambiguous_local_path",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "AMBIGUOUS_PATH"
+    },
+    {
+      "mutation": "negative_pid",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "PID_SCHEMA"
+    },
+    {
+      "mutation": "zero_pid",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "PID_SCHEMA"
+    },
+    {
+      "mutation": "null_owner_token",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "TOKEN_SCHEMA"
+    },
+    {
+      "mutation": "coherent_wrong_lock_derivation",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "LOCK_PATH_DERIVATION"
+    },
+    {
+      "mutation": "acquired_with_access_denied_error",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "WIN32_OUTCOME_SCHEMA"
+    },
+    {
+      "mutation": "float_win32_error",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "WIN32_OUTCOME_SCHEMA"
+    },
+    {
+      "mutation": "probe_wrong_generation",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "PROBE_EPOCH"
+    },
+    {
+      "mutation": "probe_reuses_owner_nonce",
+      "legacy_accepted": true,
+      "caught": true,
+      "reason": "ROLE_TOKEN_REUSE"
+    }
+  ],
+  "additional_caught": 17,
+  "additional_total": 17,
+  "legacy_false_acceptances": 16,
+  "r2_native_qualified": false,
+  "native_tests_run": false,
+  "validator_sha256": "39e7622eaf428db46c0f039657e4be618e3e62e1c90c25325cba25fbdab7d645"
+}
