@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_CROSS_CHAT_MIGRATION_R2_NATIVE_FAIL_1.0",
+  "date": "2026-09-13",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "runner_qualification_system": "QROS_RUNNER_QUALIFICATION_SYSTEM_v1",
+  "runner": {
+    "version": "v2.2_R1CANDIDATE",
+    "source_sha256": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+    "r1_static_gate": "PASS",
+    "rules": "13/13",
+    "mutations": "10/10",
+    "state": "STATIC_QUALIFIED",
+    "candidate_execution_allowed": false
+  },
+  "r2_qualifier": {
+    "package": "QROS_RUNNER_NATIVE_ENV_QUALIFIER_v1_FINAL.zip",
+    "package_sha256": "a4dd75c13432ac0f423301e645a9acf3f1d07a4be7c95e9a0a6aa182e0b89bdd",
+    "evidence": "QROS_RUNNER_NATIVE_ENV_EVIDENCE_r2_20260911_234345_12b72981.zip",
+    "evidence_bytes": 18009,
+    "evidence_sha256": "43984d02d002a43fd7cc3a89bf45baf00d09fb473f07328c8376bb967d335927",
+    "run_id": "r2_20260911_234345_12b72981",
+    "decision": "FAIL",
+    "state": "RUNNER_REJECTED_NATIVE_ENV",
+    "reason": "FENCE_SECOND_EXECUTOR_NOT_DENIED",
+    "code": 52,
+    "candidate_execution_performed": false,
+    "real_broker_orders_sent": 0,
+    "pre_failure_verified": [
+      "PACKAGE MANIFEST PASS entries=8",
+      "R1 BOUND RUNNER SHA PASS 17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+      "STANDARD INCLUDE SNAPSHOT PASS files=267 Trade.mqh=96e6781624534377fe7971cba52cca3d62d1b030bc10d5e4ebf3ed8c541399ed",
+      "METAEDITOR COMPILE PASS 0/0 ex5=ec6e942aeba67c2b658a5703343e66e5c7c129a70d91e185dc0644c84b81e272",
+      "NATIVE MQL MATERIALIZATION PASS build=6182",
+      "RUNNER SELFTEST PASS 13/13"
+    ]
+  },
+  "safety": {
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0",
+    "do_not_execute_candidate3_until_r2_pass": true,
+    "do_not_merge_main": true,
+    "live_unauthorized": true
+  },
+  "next_action": "In a new chat/Work Astra, recover this exact checkpoint and independently audit the R2 fencing failure. Determine whether FENCE_SECOND_EXECUTOR_NOT_DENIED is a real cross-process locking defect, a MetaTrader FILE_COMMON semantics issue, a test-isolation issue, or a qualifier defect. Do not patch Candidate3. Repair only runner/qualifier if evidence supports it, rerun R0/R1 and mutation suite, then produce a new R2 native qualifier. Candidate3 Phase-A remains forbidden until R2 PASS binds the exact runner SHA and environment fingerprint."
+}
