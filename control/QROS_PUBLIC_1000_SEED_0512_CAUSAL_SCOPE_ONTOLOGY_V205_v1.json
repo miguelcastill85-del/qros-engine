@@ -1,0 +1,113 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0512_ONTOLOGY_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "seed": {
+    "id": "WEB_SEED_0512",
+    "source_id": "FMZ:363749",
+    "genealogy": "PUBLIC1000_WEB_SEED_0512_FIBONACCI_PROGRESSION_BREAKS",
+    "source_repo": "fmzquant/strategies",
+    "source_commit": "7853bb2bf262c4567ac238d3552d97f0e50cb801",
+    "source_path": "Fibonacci-Progression-With-Breaks.md",
+    "source_blob_sha1": "5180211c8e36fa2e545fed780e84ff84032272a0"
+  },
+  "state": "UNIVERSE_ONTOLOGY_FROZEN",
+  "assets": ["XAUUSD", "NQX/NDX"],
+  "sides": ["BUY", "SELL"],
+  "selection_timeframes": ["M1", "M5", "M15", "M30", "H1"],
+  "price_contract": {
+    "signal_source": "CANONICAL_BID_BAR_CLOSE",
+    "decision_time": "AFTER_BAR_CLOSE",
+    "entry": "FIRST_EXECUTABLE_QUOTE_AFTER_SIGNAL_CLOSE",
+    "buy_entry": "ASK",
+    "buy_exit": "BID",
+    "sell_entry": "BID",
+    "sell_exit": "ASK",
+    "zero_or_crossed_spread_fill": "FORBIDDEN"
+  },
+  "source_state_machine": {
+    "anchor": "avg; initialized causally to first valid close",
+    "delta": "close-anchor",
+    "fibonacci_multipliers": "stage 1.. = [1,2,3,5,8,...] following source indexing of array [1,1,...] with fib_n starting at 1",
+    "source_sequence_length_default": 3,
+    "source_threshold": "ATR200_current_bar * size * fib_multiplier(stage)",
+    "strict_breach": "abs(delta) > threshold; equality is NOT breach",
+    "source_update_order": [
+      "compute threshold from pre-increment stage and current closed-bar ATR",
+      "if strict breach, increment stage once only",
+      "if incremented stage > max+1, reset anchor to current close and reset stage to 1",
+      "signal BUY if new anchor > previous anchor; SELL if new anchor < previous anchor"
+    ],
+    "nonbreach": "stage persists unchanged in source",
+    "alternating_signs": "allowed in source because breach predicate uses absolute deviation",
+    "event": "ANCHOR_RESET_ONLY"
+  },
+  "atr": {
+    "length": 200,
+    "true_range": "max(H-L, abs(H-prev_close), abs(L-prev_close)) on completed BID bars",
+    "smoother": "Wilder RMA; seed SMA of first 200 valid TR values, then ATR_t=((199*ATR_prev)+TR_t)/200",
+    "warmup": "no signal before ATR200 is finite",
+    "current_vs_sequence_reference": ["CURRENT_BAR_ATR", "SEQUENCE_START_ATR"],
+    "sequence_start_definition": "capture ATR when a stage-1 breach first advances the sequence; retain until anchor reset; clear on reset"
+  },
+  "parameter_grid": {
+    "size_multiplier_selection": [0.75, 1.0, 1.25, 1.5],
+    "sequence_max_selection": [2, 3, 4],
+    "size_stress_only": [0.5, 2.0],
+    "sequence_max_stress_only": [1, 5],
+    "atr_length_stress_only": [150, 250]
+  },
+  "mechanism_dimensions": {
+    "progression_memory": ["PERSIST_SINGLE_STEP", "CONSECUTIVE_SINGLE_STEP", "INSTANT_MULTILEVEL"],
+    "polarity": ["ABSOLUTE", "SAME_SIDE"],
+    "volatility_reference": ["CURRENT_BAR_ATR", "SEQUENCE_START_ATR"]
+  },
+  "mechanism_semantics": {
+    "PERSIST_SINGLE_STEP": "source-faithful stage persistence; at most one stage increment per completed bar",
+    "CONSECUTIVE_SINGLE_STEP": "at most one increment per completed bar; any bar failing its active threshold resets stage to 1 and clears sequence-start volatility/polarity state",
+    "INSTANT_MULTILEVEL": "on one completed bar, repeatedly test the same causal close against successive Fibonacci thresholds and advance multiple stages if warranted; finite loop capped by max+1; reset anchor if terminal stage is exceeded",
+    "ABSOLUTE": "stage progression uses absolute deviation exactly as source; opposite-sign qualifying deviations may contribute to one sequence",
+    "SAME_SIDE": "first qualifying stage sets polarity; before evaluating each later bar, an opposite-sign delta resets stage to 1, refreshes polarity to the current sign, and the same bar may qualify as a new first stage",
+    "CURRENT_BAR_ATR": "threshold uses ATR200 of each evaluated completed bar",
+    "SEQUENCE_START_ATR": "ATR reference captured at first qualifying stage breach and held constant until reset"
+  },
+  "excluded": {
+    "CCI": "not present in exact source; catalog approximation rejected",
+    "MANUAL_DISTANCE": "dimensionful and nonportable across XAUUSD/NQX; may be studied only as separately preregistered asset-specific descendant",
+    "SOURCE_DISPLAYED_TP_SL": "informational plots only; no strategy.exit contract",
+    "SESSION_FILTERS": "new microstructure hypothesis; forbidden before PnL",
+    "HTF_CONFIRMATIONS": "new context family; forbidden before PnL"
+  },
+  "management_ontology": {
+    "independent_alpha": false,
+    "profiles": ["M0_STRUCTURAL_SL_EOD", "M1_STRUCTURAL_SL_TP1R_EOD", "M2_STRUCTURAL_SL_TP2R_EOD"],
+    "standardized_stop": "on reset signal, stop = reset_anchor - base_distance for BUY; reset_anchor + base_distance for SELL, where base_distance=ATR200(signal_bar)*size; reject if stop is not beyond executable entry after spread/gap",
+    "R_BUY": "entry_ask-stop",
+    "R_SELL": "stop-entry_bid",
+    "exact_session_exit_clock": "PENDING_DATA_EXECUTION_CONTRACT_BEFORE_CONFIG_HASH_FREEZE"
+  },
+  "logical_counts": {
+    "mechanism_combinations": 12,
+    "signal_profiles": 2880,
+    "signal_management_profiles": 8640
+  },
+  "nonselection_robustness_only": [
+    "ATR length 150/250",
+    "size multiplier 0.5/2.0",
+    "sequence max 1/5",
+    "alternative signal price source if separately proven by data contract",
+    "derived M45",
+    "latency/slippage/cost stress"
+  ],
+  "evidence_state": {
+    "development_pnl_open": false,
+    "holdout_open": false,
+    "g30_inheritance": false
+  },
+  "prerequisites_before_config_hash_freeze": [
+    "physically materialize and hash exact canonical DEV tick bytes",
+    "freeze native timeframe bar alignment from source-clock ticks",
+    "freeze exact server-day/EOD close contract",
+    "freeze central/conservative/severe numeric cost layers",
+    "perform independent real-data event-mask parity"
+  ]
+}
