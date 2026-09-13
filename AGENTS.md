@@ -44,8 +44,9 @@ BRANCH_EXHAUSTED exige ontología congelada, RISE fixed point y cobertura demost
 ### Ejecución serial obligatoria por semilla
 
 Aplica obligatoriamente:
-`governance/QROS_SEED_SERIAL_EXECUTION_POLICY_v1.0.json` y
-`governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.2.json`.
+`governance/QROS_SEED_SERIAL_EXECUTION_POLICY_v1.0.json`,
+`governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.4.json` y
+`governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.1.json`.
 
 Las bibliotecas de hipótesis pueden ingerirse, congelarse, deduplicarse, fingerprintarse y
 priorizarse globalmente sin usar PnL. Eso NO autoriza construir por adelantado los universos
@@ -54,7 +55,15 @@ detallados de múltiples semillas ni ejecutar backtests por lotes sobre semillas
 Debe existir como máximo **una genealogía de semilla activa** dentro de construcción de
 universo causal, auditoría RISE-Q, freeze de configuraciones o investigación económica.
 La secuencia obligatoria es:
-`SEMILLA -> COLLISION/DEDUPE -> UNIVERSO CAUSAL -> RISE-Q FIXED_POINT -> FREEZE/HASHES -> BACKTEST -> GATES -> DECISION -> SIGUIENTE SEMILLA`.
+`SEMILLA -> COLLISION/DEDUPE -> MECANISMO RAÍZ -> AUDITORÍA DE DIMENSIONES -> DOMINIOS FINITOS -> PROYECCIÓN DE MUTACIONES -> CONSTRAINT GRAPH -> ENUMERACIÓN COMPLETA -> DEDUPE SEMÁNTICO -> RISE-Q POST-EXPANSIÓN -> FREEZE/HASHES -> PARIDAD INDEPENDIENTE -> PREFLIGHT UNIDADES/RELOJ/COSTES -> BACKTEST -> GATES -> DECISION -> SIGUIENTE SEMILLA`.
+
+Una rama, familia, ontología resumida, configuración representativa o muestra NO es un
+universo terminado. Para Gate A deben enumerarse todas las celdas válidas de la gramática
+causal finita congelada, directamente o mediante factorización exacta demostrable. Está
+prohibido excluir timeframes, EMAs, filtros, tendencia, geometría, volatilidad, momentum,
+sesión, multi-TF, entradas o gestión sólo para reducir cardinalidad. La ausencia de bytes
+de mercado puede bloquear el backtest, pero NO autoriza avanzar la cola mientras aún pueda
+continuar la compilación lógica, dedupe, paridad o freeze de la semilla activa sin esos bytes.
 
 No abrir la ontología detallada de la siguiente semilla hasta que la actual termine en
 `APPROVED_FINAL`, `REJECTED` o `BRANCH_EXHAUSTED`. Un `BLOCKED_BY_INFRASTRUCTURE` puede
@@ -71,7 +80,7 @@ La autoridad para abrir un holdout limpio pertenece a la **genealogía causal ra
 a un frente, subfrente, activo, cluster, tier, seed descendiente o `STAGE_EXHAUSTED`.
 Aplica obligatoriamente:
 `governance/QROS_HOLDOUT_GENEALOGY_FIREWALL_v1.0.json` y
-`governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.2.json`.
+`governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.4.json`.
 
 Antes de leer cualquier resultado económico reservado, ejecutar:
 `python3 scripts/qros_holdout_genealogy_preflight.py --input <packet.json> --out <receipt.json>`.
