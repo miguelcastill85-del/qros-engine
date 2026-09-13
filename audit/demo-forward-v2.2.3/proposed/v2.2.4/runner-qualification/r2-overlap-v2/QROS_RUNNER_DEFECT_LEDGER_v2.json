@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_RUNNER_DEFECT_LEDGER_1.3",
+  "defects": [
+    {"id":"D01","class":"STANDARD_INCLUDE_PROVISIONING","symptom":"Trade/Trade.mqh missing in isolated compile","required_regression":"native include snapshot + compile smoke"},
+    {"id":"D02","class":"RETCODE_DOMAIN_ASSUMPTION","symptom":"pending test accepted only PLACED although DONE/DONE_PARTIAL can be valid with observed state","required_regression":"retcode set + observed broker state"},
+    {"id":"D03","class":"RESULT_MATERIALIZATION","symptom":"tester exits 0 but runtime result missing","required_regression":"write-close-exclusive-read-snapshot smoke"},
+    {"id":"D04","class":"PROCESS_LIFETIME_PROXY","symptom":"GUI process exit used as fencing proof","required_regression":"durable lock ownership token, not GUI lifetime"},
+    {"id":"D05","class":"TESTER_TIME_SEMANTICS","symptom":"Sleep() used as wall-clock hold in Strategy Tester","required_regression":"GetTickCount64 real elapsed-time hold"},
+    {"id":"D06","class":"FILE_LOCK_READ_RACE","symptom":"Import-Csv attempted while holder still owned CSV","required_regression":"FileShare.None exclusive read + released marker"},
+    {"id":"D07","class":"SHARED_NAMESPACE_COLLISION","symptom":"shared FILE_COMMON names / broad cleanup could collide across runs","required_regression":"RunId namespace + no broad wildcard delete"},
+    {"id":"D08","class":"STRICTMODE_COLLECTION_SEMANTICS","symptom":"PSObject.Properties.Count fails under target Windows PowerShell","required_regression":"explicit enumeration counter + mutation test"},
+    {"id":"D09","class":"SCALAR_ARRAY_CARDINALITY","symptom":"single-row pipeline/scalar .Count can fail or change semantics","required_regression":"explicit @() arrayization + mutation test"},
+    {"id":"D10","class":"PROCESS_KILL_SCOPE","symptom":"runner process cleanup must never reach active MT5","required_regression":"SafeIsoPath + process.Path dual gate"},
+    {"id":"D11","class":"STATIC_GATE_MUTATION_ALIAS_COLLISION","symptom":"mutation used a variable name already proven as generic List in the target script, so unsafe scalar .Count mutation was not detected","required_regression":"mutation variables must use unique synthetic names not present in the target"},
+    {"id":"D12","class":"STATIC_GATE_CANONICAL_PATH_GUARD","symptom":"safe Stop-Process helper used an alias of process.Path that the release gate could not prove","required_regression":"canonical SafeIsoPath + direct process.Path -like isolated-root expression in every Stop-Process helper"},
+    {"id":"D13","class":"VALIDATOR_SEMANTIC_STRING_FALSE_POSITIVE","symptom":"predelivery validator treated a safety message containing QDB1.EXEC.CERT=0 as if any mention were a mutation","required_regression":"detect write/mutation syntax, not benign textual references or KEEP=0 safety statements"},
+    {"id":"D14","class":"R2_TEMPORAL_OVERLAP_PROOF_MISSING","symptom":"legacy R2 could classify code 52 after HOLDER_READY without proving the holder remained alive and owned the fence during the PROBE attempt","required_regression":"advancing holder heartbeat + process/path liveness before/during/after asynchronous probe; overlap failure must be distinct code 57 and must never indict fence"},
+    {"id":"D15","class":"R2_SHARED_RESULT_OVERWRITE_RACE","symptom":"legacy R2 holder/probe/reacquire wrote the same RESULTS.csv path, allowing one role to overwrite another role's evidence","required_regression":"role-disjoint result files and static mutation that reintroduces a shared result path"}
+  ],
+  "rule": "Every new root cause must be appended and turned into an automated negative-control mutation before another runner/qualifier release."
+}
