@@ -1,0 +1,51 @@
+{
+  "schema":"QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_1.1",
+  "program":"QROS_PUBLIC_1000_XAU_NQX",
+  "state":"FROZEN_CANDIDATE",
+  "phase":"GATE_A_PREFLIGHT_DATA_CLOCK_COST_BINDING",
+  "supersedes_for_current_public1000_execution":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V207_v1.json",
+  "preserve_v207_history":true,
+  "methodology_authority":[
+    "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.4.json",
+    "governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.1.json",
+    "governance/QROS_SEED_SERIAL_EXECUTION_POLICY_v1.0.json"
+  ],
+  "active_seed":{
+    "queue_rank":1,
+    "id":"WEB_SEED_0076",
+    "source_id":"FMZ:365059",
+    "name":"TrendScalp FractalBox 3EMA",
+    "genealogy":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA"
+  },
+  "correction_receipt":"control/QROS_PUBLIC_1000_SEED_0076_PREMATURE_UNIVERSE_FREEZE_CORRECTION_V208_v1.json",
+  "universe":{
+    "machine_spec":"research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json",
+    "signal_config_count":48280320,
+    "signal_factorized_root_sha256":"34af7a222acd7c1a2da642802a22489d0692f8d2f88916c9185d2dee1276a04e",
+    "management_profile_count":3710,
+    "management_root_sha256":"2ca72abbd712917769528720422c2399adb8939d2585ca83c519d839afb46b1d",
+    "execution_profile_count":3,
+    "stress_profile_count":7,
+    "config_freeze":"control/QROS_PUBLIC_1000_SEED_0076_CONFIG_HASH_FREEZE_V210_v1.json",
+    "enumerator_parity":"control/QROS_PUBLIC_1000_SEED_0076_FACTORIZED_ENUMERATOR_PARITY_V209_v1.json",
+    "rise_fixed_point":"control/QROS_PUBLIC_1000_SEED_0076_RISE_POST_EXPANSION_FIXED_POINT_V210_v1.json",
+    "semantics":"control/QROS_PUBLIC_1000_SEED_0076_SIGNAL_SEMANTICS_CONTRACT_V210_v1.json",
+    "execution_stress":"control/QROS_PUBLIC_1000_SEED_0076_EXECUTION_STRESS_CONTRACT_V210_v1.json"
+  },
+  "historical_queue_status_preserved":[
+    {"rank":2,"id":"WEB_SEED_0512","historical_v207_state":"FROZEN_RESUMABLE_INFRA_BLOCKER_NOT_REJECTED_NOT_APPROVED"},
+    {"rank":3,"id":"WEB_SEED_0763","historical_v207_state":"REJECTED"},
+    {"rank":4,"id":"WEB_SEED_0929","historical_v207_state":"REJECTED"}
+  ],
+  "queue_gate":{"rank5_may_enter_detailed_universe":false,"reason":"seed0076 is again the active detailed genealogy under the exhaustive-universe compiler correction"},
+  "development_pnl_open":false,
+  "holdout_open":false,
+  "gate_a_open":false,
+  "remaining_pre_gate_a_dependencies":[
+    "MATERIALIZE_AND_VERIFY_EXACT_DEV_DATA_BYTES",
+    "SOURCE_CLOCK_TO_SESSION_CALENDAR_BINDING",
+    "CANONICAL_DARWINEX_EXPLICIT_COST_COMMISSION_BINDING",
+    "EXECUTION_UNIT_BINDING_PREFLIGHT_PASS"
+  ],
+  "next_action":"Resolve Gate A preflight dependencies without changing the frozen universe; then stream the entire frozen universe in deterministic shards over DEV only."
+}
