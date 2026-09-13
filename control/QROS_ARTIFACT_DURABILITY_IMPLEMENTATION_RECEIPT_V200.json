@@ -1,0 +1,13 @@
+{
+  "schema":"QROS_ARTIFACT_DURABILITY_IMPLEMENTATION_RECEIPT_V200",
+  "authority_epoch":200,
+  "date":"2026-09-13",
+  "change_class":"ENGINEERING_GOVERNANCE_HARDENING_NO_SCIENTIFIC_CHANGE",
+  "implementation":{"path":"durability/qros_artifact_closure_gate.py","sha256":"ac9b8ed6bca515a31999313a38956041b7fbe55405e3ce538f057929719565bc"},
+  "tests":{"path":"durability/test_artifact_closure_gate.py","sha256":"7b7b81169de0c87ce6ce7e802e9033e4d1730b27920bc6952dfa6b2bd5b86292","executed":7,"passed":7,"failed":0},
+  "policy":{"path":"control/QROS_ARTIFACT_DURABILITY_CLOSURE_GATE_V2.json","sha256":"4ea8f19e6b0b48c0ae24ae13158958466050b7df16f7155e8d134b6a8095371f"},
+  "rise_audit":{"path":"control/QROS_ARTIFACT_DURABILITY_RISE_AUDIT_V2.json","sha256":"baba8bd50342c9d5c531e5025d241e6f7e7dc1448206d626c2679925d5a34ee9","decision":"FIXED_POINT_REACHED_FOR_ENGINEERING_CONTROL_SCOPE"},
+  "verified_attacks":["missing durable copy","hash mismatch","hash without bytes","runtime claimed as authority","ambiguous holdout state","duplicate object id","undeclared store"],
+  "decision":"IMPLEMENTATION_TEST_PASS_PENDING_REMOTE_READBACK_AND_MERGE",
+  "scientific_state_unchanged":{"campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1","scope":"F03_F12_ONLY","stage_b":"GLOBALLY_CLOSED","stage_c":"NOT_EXECUTED","f13":"EXCLUDED","nqx_6570":"MATERIALIZATION_PENDING"}
+}
