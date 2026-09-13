@@ -1,0 +1,126 @@
+{
+  "schema": "QROS_SEED_UNIVERSE_COMPILER_POLICY_1.0",
+  "state": "ACTIVE_PROJECT_INVARIANT",
+  "adoption_date": "2026-09-13",
+  "scope": "ALL_PROSPECTIVE_PUBLIC_OR_HUMAN_SEED_GENEALOGIES",
+  "purpose": "For one selected seed, compile the complete finite preregistered causal universe before any economic Gate A. Branch discovery is an intermediate representation, never a stopping condition.",
+  "core_rule": "SELECT_ONE_SEED -> FREEZE_ROOT_MECHANISM -> DISCOVER_ALL_APPLICABLE_DIMENSIONS -> FREEZE_FINITE_DOMAINS -> PROJECT_ALLOWED_MUTATION_OPERATORS -> BUILD_CONSTRAINT_GRAPH -> ENUMERATE_ALL_VALID_CONFIGS -> SEMANTIC_DEDUPE -> RISE_Q_SUFFICIENCY_TO_FIXED_POINT -> FREEZE_CONFIG_IDS_AND_HASH_ROOTS -> INDEPENDENT_ENUMERATOR_EXACT_PARITY -> ONLY_THEN_GATE_A",
+  "anti_fragmentation": {
+    "branch_is_not_completion": true,
+    "family_is_not_completion": true,
+    "ontology_skeleton_is_not_completion": true,
+    "fixed_point_on_unexpanded_skeleton_is_invalid": true,
+    "infrastructure_data_absence_does_not_authorize_skipping_configuration_compilation": true,
+    "queue_may_not_advance_merely_because_backtest_bytes_are_unavailable_if_universe_compilation_can_continue_without_them": true
+  },
+  "mandatory_dimension_audit": [
+    "ASSET",
+    "SIDE",
+    "SIGNAL_TIMEFRAME",
+    "CONTEXT_TIMEFRAME",
+    "ROOT_STRUCTURE_PARAMETERS",
+    "TRIGGER_AND_ENTRY_SEMANTICS",
+    "TREND_FILTERS",
+    "GEOMETRY_FILTERS",
+    "VOLATILITY_FILTERS",
+    "MOMENTUM_FILTERS",
+    "SESSION_TIME_FILTERS",
+    "MULTI_TIMEFRAME_FILTERS",
+    "INVALIDATION_AND_STOP",
+    "TARGETS",
+    "BREAKEVEN",
+    "TRAILING",
+    "PARTIALS_WHEN_CAUSALLY_APPLICABLE",
+    "EXECUTION_PROFILE",
+    "COST_STRESS_PROFILE",
+    "NO_FILTER_CONTROLS"
+  ],
+  "finite_domain_rule": {
+    "all_domains_must_be_explicit_before_pnl": true,
+    "arbitrary_unbounded_integer_search_forbidden": true,
+    "domain_origins_allowed": ["SOURCE_VALUE", "SOURCE_DERIVED_NEIGHBORHOOD", "PROJECT_CANONICAL_LIBRARY", "CAUSALLY_JUSTIFIED_DISCRETE_GRID"],
+    "every_value_requires_origin_and_unit": true,
+    "every_exclusion_requires_closed_reason_code": true,
+    "all_valid_cartesian_cells_within_constraints_must_be_enumerated": true
+  },
+  "allowed_exclusion_codes": [
+    "LOGICALLY_IMPOSSIBLE",
+    "TEMPORAL_LOOKAHEAD",
+    "DUPLICATE_WITH_REFERENCE",
+    "CANONICAL_DATA_DOES_NOT_CONTAIN_REQUIRED_INFORMATION",
+    "PARAMETER_DEPENDENCY_INVALID",
+    "OUTSIDE_FROZEN_GENEALOGY_RADIUS",
+    "UNIT_OR_CLOCK_UNRESOLVED_FOR_EXECUTION_ONLY"
+  ],
+  "context_combination_rule": {
+    "default_max_simultaneous_optional_filter_families": 2,
+    "reason": "Bound combinatorial growth deterministically while testing all singles and all pairwise optional-context interactions. A campaign may preregister a different depth before PnL.",
+    "all_single_filters_required": true,
+    "all_pairwise_filter_combinations_required_when_dependency_valid": true,
+    "no_filter_control_required": true
+  },
+  "separate_universes": [
+    "SIGNAL_UNIVERSE",
+    "MANAGEMENT_OVERLAY_UNIVERSE",
+    "EXECUTION_PROFILE_UNIVERSE",
+    "STRESS_PROFILE_UNIVERSE"
+  ],
+  "identity": {
+    "canonical_serialization": "UTF8_JSON_SORTED_KEYS_COMPACT_NO_NAN_FIXED_ENUMS",
+    "signal_config_id": "SHA256(canonical_signal_config_bytes)",
+    "management_profile_id": "SHA256(canonical_management_bytes)",
+    "execution_profile_id": "SHA256(canonical_execution_bytes)",
+    "stress_profile_id": "SHA256(canonical_stress_bytes)",
+    "trial_config_id": "SHA256(signal_config_id|management_profile_id|execution_profile_id|stress_profile_id)",
+    "ids_must_not_depend_on": ["worker", "chunk", "filesystem_path", "enumeration_order", "timestamp"]
+  },
+  "enumeration_gate": {
+    "two_independent_enumerators_required": true,
+    "same_generator_called_twice_is_not_independent": true,
+    "required_parity": [
+      "RAW_COUNT",
+      "VALID_COUNT",
+      "SEMANTIC_COUNT",
+      "FAMILY_COUNTS",
+      "SYMMETRIC_DIFFERENCE_COUNT=0",
+      "ORDERED_CONFIG_ID_ROOT_SHA256_EQUAL",
+      "ALIAS_MAP_ROOT_EQUAL"
+    ],
+    "sharded_parity_allowed": true,
+    "all_shards_must_be_contiguous_and_reconciled": true
+  },
+  "rise_q_rule": {
+    "fixed_point_must_be_after_domain_projection_and_enumeration_design": true,
+    "two_consecutive_independent_rounds_required": true,
+    "all_required_deltas_zero": [
+      "NEW_ELIGIBLE_FAMILY_DELTA",
+      "NEW_CAUSAL_DIMENSION_DELTA",
+      "NEW_MUTATION_OPERATOR_DELTA",
+      "NEW_UNRESOLVED_AMBIGUITY_DELTA"
+    ],
+    "fixed_point_before_full_dimension_projection": "INVALID_PREMATURE_FIXED_POINT"
+  },
+  "gate_a_firewall": {
+    "gate_a_forbidden_until": [
+      "CAUSAL_SCOPE_FROZEN",
+      "ALL_APPLICABLE_DIMENSIONS_AUDITED",
+      "FINITE_DOMAINS_FROZEN",
+      "CONSTRAINT_GRAPH_FROZEN",
+      "UNIVERSE_ENUMERATION_COMPLETE",
+      "SEMANTIC_DEDUPE_COMPLETE",
+      "RISE_FIXED_POINT",
+      "CONFIG_HASH_FREEZE",
+      "INDEPENDENT_ENUMERATOR_PARITY_PASS",
+      "EXECUTION_UNIT_BINDING_PASS",
+      "COST_MODEL_FROZEN"
+    ],
+    "development_pnl_before_gate": "METHODOLOGICAL_BREACH"
+  },
+  "serial_execution": {
+    "one_seed_only": true,
+    "do_not_build_multiple_seed_universes_in_parallel": true,
+    "do_not_advance_queue_while_current_seed_universe_is_logically_compilable": true,
+    "verified_infrastructure_block_can_pause_economic_execution_but_not_unrelated_logical_universe_compilation": true
+  },
+  "reporting_invariant": "Always distinguish DIMENSIONS_DISCOVERED, CONFIGS_ENUMERATED, CONFIGS_FROZEN, and CONFIGS_BACKTESTED. Never report an ontology branch count as a configuration-universe count."
+}
