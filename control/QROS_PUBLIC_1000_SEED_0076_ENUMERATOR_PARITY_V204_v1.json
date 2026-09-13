@@ -1,0 +1,38 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_ENUMERATOR_PARITY_1.0",
+  "seed": "WEB_SEED_0076",
+  "state": "PASS_LOGICAL_ENUMERATOR_PARITY",
+  "pnl_read": false,
+  "holdout_opened": false,
+  "ontology_sha256": "ffee0087d4f16bf728cab0a55f79ea69595f1dc4e48780ec4d79f9d58a92719f",
+  "enumerator_a": {
+    "path": "research/public1000/seed0076/qros_seed0076_enumerator_a_v204.py",
+    "local_executed_source_sha256": "d10240a05b60c613b817bca567d1030f8385fe29c9d30fb0e33b18e8756c0377",
+    "commit": "558d132f888ded01ed78d3837d017d465772bfc8"
+  },
+  "enumerator_b": {
+    "path": "research/public1000/seed0076/qros_seed0076_enumerator_b_v204.py",
+    "local_executed_source_sha256": "de91490d2dd882407ee096414ff8c110df9d730252ce26a43f49ac8e613bb56a",
+    "commit": "d9477bf8d22b856aaec0ec99c82193000d71ad50"
+  },
+  "signal_set": {
+    "count_a": 280,
+    "count_b": 280,
+    "unique_a": 280,
+    "unique_b": 280,
+    "exact_set_equal": true,
+    "canonical_sorted_newline_sha256": "481d655c16f66881c3bbb40af3dd37fdf9e1daffea50b7394159e8a7338df723",
+    "branch_counts": {"B0":40,"B1":80,"B2":160}
+  },
+  "signal_management_set": {
+    "management_profiles": 3,
+    "count_a": 840,
+    "count_b": 840,
+    "unique_a": 840,
+    "unique_b": 840,
+    "exact_set_equal": true,
+    "canonical_sorted_newline_sha256": "9fea4aa1e1cf73012735cfd29a0993943d967c9ee31f6c84e5f3cb43468eea1f"
+  },
+  "interpretation": "Logical grammar parity only. Cost-layer numerics, exact EOD execution clock, real-data event masks, config/hash freeze, development outcomes and holdout remain unopened/pending.",
+  "result": "PASS"
+}
