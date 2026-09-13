@@ -1,0 +1,30 @@
+{
+  "schema":"QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_1.0",
+  "state":"PREREGISTERED_NO_RESULTS",
+  "program":"QROS_PUBLIC_1000_XAU_NQX",
+  "phase":"CAUSAL_SCOPE_AND_RISE_ONTOLOGY",
+  "canonical_pool_authority":{
+    "receipt":"control/QROS_PUBLIC_1000_CANONICAL_AUTHORITY_RECEIPT_V203_v1.json",
+    "zip_sha256":"e94a294f59a58785c7b0d3651022693cb770022b6dfb9d1e6fa5ec580f1bbef0",
+    "exact_pool_verified":true
+  },
+  "priority_queue":{
+    "receipt":"control/QROS_PUBLIC_1000_PNL_BLIND_PRIORITY_QUEUE_FREEZE_V203_v1.json",
+    "frozen":true,
+    "materialized_sha256":"14b9b76103724fa61bcf72f8fb80cb6cb1cb56749678e4ed9cd54116e8d15a21"
+  },
+  "selected_seed":{
+    "id":"WEB_SEED_0076",
+    "source_id":"FMZ:365059",
+    "name":"TrendScalp FractalBox 3EMA",
+    "queue_rank":1,
+    "prereg":"control/QROS_PUBLIC_1000_SEED_0076_SELECTION_PREREG_V203_v1.json"
+  },
+  "active_detailed_seed_genealogy":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "development_pnl_open":false,
+  "holdout_open":false,
+  "g30_inheritance":false,
+  "historical_mama_v201_selection_authority":false,
+  "closed_previous_blocker":"IMMUTABLE_POOL_AUTHORITY_AND_FROZEN_PRIORITY_QUEUE_RECOVERY",
+  "next_action":"Complete causal scope and RISE-Q ontology for WEB_SEED_0076 only; prove confirmation-time semantics for 5-bar fractals; freeze eligible signal branches before any economic backtest."
+}
