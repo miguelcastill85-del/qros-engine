@@ -1,0 +1,115 @@
+{
+  "schema": "QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_1.2",
+  "state": "ACTIVE_PROJECT_INVARIANT",
+  "adoption_date": "2026-09-13",
+  "supersedes_for_prospective_enforcement": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.1.json",
+  "preserves_historical_receipts": true,
+  "scope": "ALL_PROSPECTIVE_QROS_RISE_CAMPAIGNS_AND_ROOT_CAUSAL_GENEALOGIES",
+  "linked_protocol": "governance/QROS_RISE_PREDEVELOPMENT_UNIVERSE_FREEZE_PROTOCOL_v1.5.md",
+  "seed_serial_execution_policy": {
+    "ref": "governance/QROS_SEED_SERIAL_EXECUTION_POLICY_v1.0.json",
+    "status": "MANDATORY",
+    "one_active_seed_genealogy_at_a_time": true,
+    "batch_dedupe_and_non_pnl_prioritization_allowed": true,
+    "batch_detailed_universe_construction_forbidden": true,
+    "batch_economic_backtest_for_unfinished_seeds_forbidden": true
+  },
+  "holdout_firewall": {
+    "ref": "governance/QROS_HOLDOUT_GENEALOGY_FIREWALL_v1.0.json",
+    "status": "MANDATORY",
+    "preflight": "scripts/qros_holdout_genealogy_preflight.py",
+    "required_preflight_decision": "HOLDOUT_OPEN_AUTHORIZED"
+  },
+  "development_invariants_preserved_from_v1_1": {
+    "enumeration_complete_implies_ontology_complete": false,
+    "unexamined_cell_count_zero_proves_ontology_frozen": false,
+    "predevelopment_coverage_receipt_proves_ontology_sufficiency": false,
+    "development_allowed_before_ontology_sufficiency_pass": false,
+    "pnl_read_allowed_before_universe_freeze_gate_pass": false,
+    "holdout_belongs_to_root_genealogy_not_frontier": true,
+    "stage_exhausted_is_insufficient_for_holdout": true,
+    "all_eligible_frontiers_must_finish_pre_holdout_research": true,
+    "root_genealogy_pre_holdout_coverage_receipt_required": true,
+    "no_open_eligible_frontier_required": true,
+    "final_candidate_cohort_across_genealogy_must_be_frozen": true,
+    "holdout_window_must_be_unexposed_for_entire_genealogy": true,
+    "machine_preflight_pass_required": true,
+    "missing_or_failed_preflight_means_holdout_forbidden": true,
+    "economic_exposure_propagates_to_all_descendants": true,
+    "exposure_is_irreversible": true,
+    "post_exposure_clean_validation_requires_true_forward_or_external_untouched_data": true
+  },
+  "seed_lifecycle_invariant": {
+    "required_sequence": [
+      "SELECT_ONE_SEED",
+      "DEDUPE_AND_COLLISION_GATE",
+      "BUILD_CURRENT_SEED_CAUSAL_UNIVERSE",
+      "RISE_Q_AUDIT_TO_FIXED_POINT",
+      "FREEZE_CURRENT_SEED_ONTOLOGY_CONFIGS_AND_HASHES",
+      "BACKTEST_CURRENT_SEED",
+      "COMPLETE_REQUIRED_GATES_FOR_CURRENT_SEED",
+      "WRITE_FINAL_OR_RESUMABLE_BLOCKED_DISPOSITION",
+      "ONLY_THEN_SELECT_NEXT_SEED"
+    ],
+    "current_seed_results_may_not_rewrite_its_frozen_universe": true,
+    "next_seed_may_not_enter_detailed_ontology_while_current_seed_active": true,
+    "global_pool_dedupe_and_priority_queue_may_exist_before_seed_execution": true
+  },
+  "root_genealogy_pre_holdout_gate": {
+    "required": [
+      "UNIVERSE_ONTOLOGY_FROZEN",
+      "RISE_FIXED_POINT",
+      "ONTOLOGY_SUFFICIENCY_AUDIT_RECEIPT_PASS",
+      "PREDEVELOPMENT_UNIVERSE_COVERAGE_RECEIPT_PASS",
+      "ALL_ELIGIBLE_FRONTIERS_DEVELOPMENT_COMPLETE_OR_CAUSALLY_EXCLUDED",
+      "ROOT_GENEALOGY_PRE_HOLDOUT_COVERAGE_RECEIPT_PASS",
+      "NO_OPEN_ELIGIBLE_FRONTIER",
+      "FINAL_GENEALOGY_CANDIDATE_COHORT_FROZEN",
+      "EXECUTION_SEMANTICS_FROZEN",
+      "INDEPENDENT_PARITY_PASS",
+      "COST_MODEL_FROZEN",
+      "HOLDOUT_WINDOW_UNEXPOSED_FOR_ENTIRE_GENEALOGY",
+      "HOLDOUT_ACCEPTANCE_GATE_FROZEN",
+      "HOLDOUT_GENEALOGY_PREFLIGHT_PASS"
+    ],
+    "failure_state": "HOLDOUT_OPEN_FORBIDDEN"
+  },
+  "premature_holdout_correction": {
+    "do_not_delete_or_rewrite_observed_results": true,
+    "reclassify_period_as_exposed_for_root_genealogy": true,
+    "write_exposure_receipt_immediately": true,
+    "forbid_clean_reuse_for_descendants": true,
+    "require_true_forward_or_external_untouched_data_for_final_clean_validation": true
+  },
+  "public_seed_program_rule": {
+    "hypothesis_pool_can_be_deduped_and_prioritized_globally": true,
+    "causal_universe_is_constructed_per_seed_not_for_entire_pool": true,
+    "rise_q_fixed_point_is_per_seed": true,
+    "configuration_freeze_is_per_seed": true,
+    "backtest_starts_immediately_after_that_seed_freezes": true,
+    "next_seed_waits_for_current_seed_disposition_or_verified_infrastructure_block": true
+  },
+  "automatic_commands": [
+    "continua",
+    "continúa",
+    "comienza",
+    "sigue",
+    "adelante",
+    "ejecuta",
+    "prosigue"
+  ],
+  "anti_drift": "Do not transform the 1000-hypothesis program into a batch universe-enumeration project. Global dedupe/fingerprinting/prioritization is permitted, but detailed causal ontology, RISE-Q fixed point, deterministic configuration freeze and economic research are serial per seed. No frontier, subfrontier, asset branch, frozen cluster, stage receipt or local candidate cohort can self-authorize a clean holdout.",
+  "historical_non_rewrite": {
+    "prospective_only": true,
+    "g30_unchanged": true,
+    "g30_configurations_not_inherited": true,
+    "g30_payload_not_recreated_by_this_policy": true
+  },
+  "fail_closed_state": {
+    "development_authorized_without_universe_freeze": false,
+    "holdout_authorized_without_root_genealogy_completion": false,
+    "economic_holdout_read_without_preflight": false,
+    "second_seed_detailed_universe_authorized_while_first_active": false,
+    "batch_backtest_authorized_for_unfinished_seed_pool": false
+  }
+}
