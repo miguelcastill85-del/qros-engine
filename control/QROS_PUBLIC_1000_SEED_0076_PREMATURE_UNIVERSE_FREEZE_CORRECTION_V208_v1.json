@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_PREMATURE_UNIVERSE_FREEZE_CORRECTION_1.0",
+  "state": "CAMPAIGN_ACTIVE",
+  "seed": "WEB_SEED_0076",
+  "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "error_class": "PREMATURE_ONTOLOGY_FREEZE_AND_RISE_FIXED_POINT",
+  "cause_root": "The V204 process described only three branch families and 280 signal profiles, then excluded several applicable causal dimensions as robustness or outside-core instead of systematically projecting finite preregistered domains across the selected seed. This allowed ontology skeleton completion to masquerade as full universe completion.",
+  "invalidated_for_authorization_only": [
+    "control/QROS_PUBLIC_1000_SEED_0076_CAUSAL_SCOPE_ONTOLOGY_V204_v1.json::state=UNIVERSE_ONTOLOGY_FROZEN",
+    "control/QROS_PUBLIC_1000_SEED_0076_RISE_FIXED_POINT_V204_v1.json::state=RISE_FIXED_POINT"
+  ],
+  "preserved_as_historical_evidence": true,
+  "economic_contamination": false,
+  "development_pnl_was_open": false,
+  "holdout_was_open": false,
+  "last_clean_point": "SOURCE_FREEZE_AND_SEED_SELECTION_PREREG_V203",
+  "correction_authority": [
+    "governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.0.json",
+    "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.3.json"
+  ],
+  "queue_correction": {
+    "preserve_V205_to_V207_history": true,
+    "rank2_rank3_rank4_receipts_are_not_deleted": true,
+    "active_detailed_seed_genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "rank5_open_for_detailed_universe": false,
+    "reason": "The user clarified the intended methodology before any economic result: finish one selected seed's complete causal configuration universe first."
+  },
+  "mandatory_repair": [
+    "AUDIT_ALL_APPLICABLE_DIMENSIONS",
+    "FREEZE_FINITE_DOMAINS",
+    "PROJECT_MUTATION_OPERATORS",
+    "BUILD_CONSTRAINT_GRAPH",
+    "ENUMERATE_ALL_VALID_SIGNAL_CONFIGS",
+    "FREEZE_MANAGEMENT_EXECUTION_AND_STRESS_UNIVERSES",
+    "SEMANTIC_DEDUPE",
+    "RERUN_RISE_Q_SUFFICIENCY_AFTER_EXPANSION",
+    "FREEZE_HASHES",
+    "INDEPENDENT_ENUMERATOR_EXACT_PARITY",
+    "ONLY_THEN_GATE_A"
+  ],
+  "next_action": "Compile WEB_SEED_0076 full finite universe under V208 without PnL."
+}
