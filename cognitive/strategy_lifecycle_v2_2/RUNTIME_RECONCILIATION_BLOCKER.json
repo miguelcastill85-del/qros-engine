@@ -1,0 +1,29 @@
+{
+  "schema": "QSLE_V2_2_RUNTIME_RECONCILIATION_BLOCKER_v1",
+  "status": "BLOCKED_BY_MISSING_AUTHORIZED_V199_RUNTIME_OBJECTS",
+  "observed_scientific_head": {
+    "epoch": 199,
+    "status": "FORENSIC_AUTHORITY_CORRECTION_NO_NEW_SELECTION_NO_NEW_RESULTS",
+    "head_blob_sha1": "dc7f7f68f127b279ffff36f0ec8f80d23d2e41c1",
+    "reconciliation_receipt": "control/QROS_G30_V4_INVALIDATION_V5_EXECUTION_RECONCILIATION_V199_20260912_v1.json",
+    "receipt_blob_sha1": "b6ddd9c4a474035e31104cfa07104845f91c6a90"
+  },
+  "observed_execution_runtime": {
+    "state_epoch": 191,
+    "state_blob_sha1": "48a212b105a5cf21425c79a2bb7fb349d3c061a9",
+    "run_queue_epoch": 191,
+    "run_queue_blob_sha1": "1fa745bb9a57d3944de2c2521bd67b0f0520a029"
+  },
+  "repository_search": {
+    "QROS_PERSISTENT_EXECUTION_STATE_V199": "NO_RESULTS",
+    "QROS_PERSISTENT_RUN_QUEUE_V199": "NO_RESULTS",
+    "V199_runtime_reconciliation_persistent_execution": "NO_RESULTS"
+  },
+  "forbidden_shortcut": "DO_NOT_CLONE_V191_STATE_QUEUE_AND_ONLY_CHANGE_EPOCH_TO_199",
+  "reason": "A V199 runtime state/queue requires an explicit authorized transition contract and durable receipt. None was found. Deriving one by numeric epoch substitution would invent scientific/control authority.",
+  "scientific_dispatch_authorized": false,
+  "holdout_opened": false,
+  "f13_touched": false,
+  "decision": "SCIENTIFIC_HEAD_VERIFIED_RUNTIME_STALE_FAIL_CLOSED",
+  "next_legitimate_requirement": "CREATE_OR_RECOVER_EXPLICIT_AUTHORIZED_RUNTIME_RECONCILIATION_CONTRACT_FROM_QROS_SCIENTIFIC_AUTHORITY_BEFORE_ANY_STATE_OR_QUEUE_WRITE"
+}

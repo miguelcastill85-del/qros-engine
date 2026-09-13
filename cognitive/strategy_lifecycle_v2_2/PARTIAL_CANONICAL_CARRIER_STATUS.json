@@ -1,0 +1,16 @@
+{
+  "schema": "QSLE_V2_2_CANONICAL_CARRIER_STATUS_v2",
+  "status": "SUPERSEDED_BY_COMPLETE_CANONICAL_DURABILITY_RECEIPT",
+  "previous_status": "PARTIAL_DO_NOT_USE_FOR_RECONSTRUCTION_OR_PROMOTION",
+  "complete_receipt": "cognitive/strategy_lifecycle_v2_2/CANONICAL_DURABILITY_RECEIPT.json",
+  "manifest": "cognitive/strategy_lifecycle_v2_2/CARRIER_MANIFEST.json",
+  "reconstructor": "cognitive/strategy_lifecycle_v2_2/RECONSTRUCT_AND_VERIFY.py",
+  "verified_parts": 9,
+  "verified_parts_expected": 9,
+  "archive_bytes": 54529,
+  "archive_sha256": "c50616de24a4c994f82837f670791f114c648737e5f048f77a7c126531ae2b1d",
+  "canonical_durability_gate": "PASS",
+  "scientific_dispatch_authorized": false,
+  "promotion": false,
+  "decision": "PARTIAL_STATUS_CLOSED__CANONICAL_CARRIER_COMPLETE__DO_NOT_PROMOTE"
+}

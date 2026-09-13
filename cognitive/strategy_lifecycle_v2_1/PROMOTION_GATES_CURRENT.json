@@ -1,0 +1,25 @@
+{
+  "schema": "QSLE_PROMOTION_GATES_v2_1",
+  "observed_date": "2026-09-12",
+  "status": "REFERENCE_KERNEL_VALIDATED_NOT_SCIENTIFIC_AUTHORITY",
+  "scientific_dispatch_authorized": false,
+  "promotion_authorized": false,
+  "f13_touched": false,
+  "holdout_opened": false,
+  "gates": {
+    "DURABLE_SQLITE_TRANSACTION_KERNEL": {"status": "PASS", "evidence": "45/45 pytest PASS; append-only journals, idempotency, fencing, replay, schema/trigger drift guards"},
+    "RISE_Q_PERSISTENCE_BLACKBOX": {"status": "PASS", "evidence": "15/15 isolated persistence attacks PASS"},
+    "DETERMINISTIC_STRESS": {"status": "PASS", "evidence": "80 campaigns; 640/640 transitions; 188 precommit crashes; 108 postcommit crashes exactly-once; 16 stale workers rejected; 160 exposures"},
+    "REAL_PROCESS_SIGKILL_SAME_HOST": {"status": "PASS", "evidence": "precommit rollback PASS; postcommit exactly-once PASS"},
+    "EXTERNAL_CHECKPOINT_DURABLE_READBACK": {"status": "PASS", "evidence": "GitHub byte-identical carrier readback; git blob SHA-1 63ba7dec0f99bcb93099df15a56264a6a6604499; raw checkpoint SHA-256 fc508ab137e0a9b9a3cb4d482d5a45cee071cc48290fcd1451e8ce111780b0c3"},
+    "SCIENTIFIC_HEAD_RECEIPT_VERIFICATION": {"status": "PASS_DIAGNOSTIC", "evidence": "epoch 199 HEAD reconciles to V199 forensic no-reselection/no-new-results receipt"},
+    "ENGINEERING_REFERENCE_SEPARATION": {"status": "PASS", "evidence": "V191 retained as ENGINEERING_REFERENCE_ONLY; never selected as scientific authority by recency"},
+    "EXECUTION_RUNTIME_RECONCILIATION": {"status": "PENDING_FAIL_CLOSED", "evidence": "STATE and RUN_QUEUE remain epoch 191 while scientific HEAD is epoch 199; scientific dispatch disabled"},
+    "INDEPENDENT_EXTERNAL_HOST_RUNTIME": {"status": "PENDING_EXTERNAL_INFRASTRUCTURE", "evidence": "No second independent host/filesystem execution has been observed"},
+    "RELEASED_SCHEMA_MIGRATION": {"status": "PENDING_NO_PRIOR_DURABLE_RELEASE", "evidence": "v2.1 is the first durable SQLite schema release candidate; no genuine older released database exists to migrate without fabricating evidence"},
+    "COMBINED_EXISTING_CONTROLLER_SHADOW": {"status": "PENDING", "evidence": "QRCEL V191 validate/next facade exists separately; no combined QSLE+controller shadow run has yet been observed"},
+    "FULL_RISE_FIXED_POINT_INTEGRATED_STACK": {"status": "PENDING", "evidence": "local RISE-Q harness is not a substitute for full RISE R14 fixed-point on the integrated stack"},
+    "EXPLICIT_PROMOTION_RECEIPT": {"status": "PENDING", "evidence": "Promotion intentionally not issued"}
+  },
+  "decision": "DO_NOT_PROMOTE; CONTINUE_REFERENCE_HARDENING; DO_NOT_TOUCH_F13; DO_NOT_OPEN_HOLDOUT; DO_NOT_DISPATCH_STALE_RUNTIME"
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "QSLE_V2_2_SECONDARY_DURABILITY_RECEIPT_v1",
+  "status": "PASS_SECONDARY_DURABLE_COPY_CRYPTOGRAPHICALLY_RECONCILED",
+  "version": "2.2-reference",
+  "artifact": {
+    "name": "QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip",
+    "bytes": 54529,
+    "sha256": "c50616de24a4c994f82837f670791f114c648737e5f048f77a7c126531ae2b1d",
+    "local_dropbox_content_hash": "5f0c2e7a8ba3a477d4e1df0d7518022d568f1bcb2853708d4b7618fbc11cfa35"
+  },
+  "dropbox": {
+    "path": "/QROS/QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip",
+    "file_id": "id:3hcdcMy0pHAAAAAAAAAAMw",
+    "bytes_observed": 54529,
+    "content_hash_observed": "5f0c2e7a8ba3a477d4e1df0d7518022d568f1bcb2853708d4b7618fbc11cfa35",
+    "content_hash_match": true
+  },
+  "canonical_git_repository": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "full_v2_2_carrier_status": "PENDING_BYTE_EXACT_GITHUB_MATERIALIZATION",
+    "reason": "Available GitHub connector binary/blob transport attempts did not preserve expected Git blob identity; unverified blobs were not committed/referenced. Small text receipts may be persisted, but policy requires byte-complete executable package for canonical closure."
+  },
+  "scientific_dispatch_authorized": false,
+  "promotion": false,
+  "holdout_opened": false,
+  "f13_touched": false,
+  "decision": "SECONDARY_DURABILITY_PASS__CANONICAL_GITHUB_DURABILITY_GATE_REMAINS_OPEN__DO_NOT_PROMOTE"
+}

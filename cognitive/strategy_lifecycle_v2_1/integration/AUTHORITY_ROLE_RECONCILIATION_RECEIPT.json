@@ -1,0 +1,14 @@
+{
+  "schema":"QSLE_AUTHORITY_ROLE_RECONCILIATION_RECEIPT_v1",
+  "observed_date":"2026-09-12",
+  "status":"SCIENTIFIC_HEAD_VERIFIED_RUNTIME_STALE_FAIL_CLOSED",
+  "scientific_head":{"epoch":199,"path":"control/HEAD.json","blob_sha1":"dc7f7f68f127b279ffff36f0ec8f80d23d2e41c1","change_class":"FORENSIC_EXECUTION_LINEAGE_CORRECTION_NO_SCIENTIFIC_RESELECTION"},
+  "scientific_head_receipt":{"path":"control/QROS_G30_V4_INVALIDATION_V5_EXECUTION_RECONCILIATION_V199_20260912_v1.json","blob_sha1":"b6ddd9c4a474035e31104cfa07104845f91c6a90","authority_epoch":199,"status":"PASS_CORRECT_EXECUTION_LINEAGE_RECOVERED","change_class":"FORENSIC_AUTHORITY_CORRECTION_NO_NEW_SELECTION_NO_NEW_RESULTS"},
+  "execution_runtime":{"state_epoch":191,"run_queue_epoch":191,"status":"STALE_RELATIVE_TO_SCIENTIFIC_HEAD"},
+  "engineering_reference":{"epoch":191,"role":"ENGINEERING_REFERENCE_ONLY"},
+  "scientific_dispatch_authorized":false,
+  "promotion":false,
+  "f13_touched":false,
+  "tests":{"pass":6,"fail":0},
+  "decision":"DO_NOT_SELECT_BY_RECENCY; DO_NOT_ROLL_BACK_SCIENCE; DO_NOT_DISPATCH_STALE_RUNTIME; KEEP_V191_REFERENCE_SEPARATE; REQUIRE_EXPLICIT_RUNTIME_RECONCILIATION"
+}

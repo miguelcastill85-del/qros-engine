@@ -1,0 +1,52 @@
+{
+  "schema": "QSLE_V2_2_CANONICAL_DURABILITY_RECEIPT_v1",
+  "status": "PASS_CANONICAL_GITHUB_CARRIER_COMPLETE_AND_BYTE_IDENTITY_VERIFIED",
+  "repository": "miguelcastill85-del/qros-engine",
+  "branch": "codex/qsle-v2-1-durable-reference",
+  "artifact": {
+    "name": "QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip",
+    "bytes": 54529,
+    "sha256": "c50616de24a4c994f82837f670791f114c648737e5f048f77a7c126531ae2b1d"
+  },
+  "carrier": {
+    "encoding": "ordered UTF-8 Base64 multipart",
+    "manifest": "cognitive/strategy_lifecycle_v2_2/CARRIER_MANIFEST.json",
+    "reconstructor": "cognitive/strategy_lifecycle_v2_2/RECONSTRUCT_AND_VERIFY.py",
+    "verified_parts": 9,
+    "verified_parts_expected": 9,
+    "part_git_blob_sha1": [
+      "7806c6d25ee813a9b6c780741735a1b0bfdbe3a5",
+      "2939e9927d70022a0ebc9c248932cbfe6d442097",
+      "1fa6372252d61cf6e5bba3234f8fb4cf401f2b2c",
+      "633317674c8fb4db62bb4b1ec00ce5a19fd85397",
+      "dbba479f8cdc1bacf9339a1f41b236da9aeca526",
+      "d3f694d7a5eb6246f8b5ba271f0593054ae9ecb3",
+      "9c20923aba0bba1383f831289f0e79a3daf0b4b8",
+      "d6c912ba88dfe98b80a19cf9ef628bc53097291a",
+      "07ad8f28e00abf790bb8a24afdfad46df9b866ec"
+    ],
+    "local_ordered_reconstruction": "PASS_54529_BYTES_SHA256_MATCH",
+    "transport_faults_detected_and_not_accepted": [
+      "original_part004_12004_BYTES_SHA_MISMATCH_REMOVED",
+      "subpart004a_5476_OF_6000_TRUNCATED_REMOVED"
+    ]
+  },
+  "secondary_copy": {
+    "store": "Dropbox",
+    "path": "/QROS/QROS_STRATEGY_LIFECYCLE_ENGINE_v2_2_HARDENED_REFERENCE.zip",
+    "dropbox_content_hash_match": true
+  },
+  "canonical_durability_gate": "PASS",
+  "scientific_dispatch_authorized": false,
+  "promotion": false,
+  "holdout_opened": false,
+  "f13_touched": false,
+  "remaining_promotion_blockers": [
+    "SECOND_INDEPENDENT_EXTERNAL_HOST_EXECUTION",
+    "EXECUTION_RUNTIME_RECONCILIATION_WITH_SCIENTIFIC_AUTHORITY",
+    "FULL_RISE_R14_FIXED_POINT_INTEGRATED_STACK",
+    "GENUINE_PRIOR_SQLITE_RELEASE_MIGRATION_WHEN_AVAILABLE",
+    "EXPLICIT_PROMOTION_RECEIPT"
+  ],
+  "decision": "CANONICAL_DURABILITY_PASS__DO_NOT_PROMOTE"
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "QSLE_DURABLE_CARRIER_MANIFEST_v1",
+  "archive": {
+    "name": "QROS_STRATEGY_LIFECYCLE_ENGINE_v2_1_DURABLE_REFERENCE.zip",
+    "bytes": 29423,
+    "sha256": "accc29e249145ce98b918efde91fec96c3a1be4c1ea8f4ebad9488afd398d087",
+    "encoding": "base64_multipart",
+    "parts": 6
+  },
+  "parts": [
+    {"name":"part000","bytes":7000,"sha256":"a4fa18431d311c637b924bebf368ccb83a3b34be452ea7284b9c318554e16461"},
+    {"name":"part001","bytes":7000,"sha256":"d437f360d53127b54d35d7220b53be9f97f85ae1b6ffb65df87d03a425312a93"},
+    {"name":"part002","bytes":7000,"sha256":"4061f9a7a54b487a304833157a5a35b7b53d6c0a0e2a209188206a861064c150"},
+    {"name":"part003","bytes":7000,"sha256":"70078c26a277866cdf8be098bd4ce015adecc8a730debd4ce87beeeabd3660a0"},
+    {"name":"part004","bytes":7000,"sha256":"ec0c109ecce67a33ec38ef4aea1c108d0f62f0c8ec6dde01bfcd3ad27657cd8e"},
+    {"name":"part005","bytes":4232,"sha256":"71b9c7de3dc22e1b6e0aa5e2fc86247295ef83b8b09d4cfa8d1449cbb2b11d22"}
+  ],
+  "reconstruction": "RECONSTRUCT_AND_VERIFY.py",
+  "scientific_authority": false,
+  "promotion": false
+}
