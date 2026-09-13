@@ -67,12 +67,19 @@ def evaluate(manifest: dict, roots: dict[str, pathlib.Path]) -> dict:
 
 def restore_canary(manifest: dict, roots: dict[str,pathlib.Path], receipt: dict) -> dict:
     errors=[]
+    if receipt["decision"] != "GATE_CLOSE_AUTHORIZED":
+        return {"decision":"RESTORE_FAIL","errors":["PREFLIGHT_NOT_AUTHORIZED"]}
     with tempfile.TemporaryDirectory(prefix="qros-restore-") as td:
         target=pathlib.Path(td)
         for item in sorted(manifest.get("objects",[]),key=lambda x:x["id"]):
             restored=None
             for sid in item["required_store_ids"]:
-                p=(roots[sid]/item["store_paths"][sid]).resolve()
+                root=roots.get(sid); rel=item.get("store_paths",{}).get(sid)
+                if root is None or not rel:
+                    continue
+                p=(root/rel).resolve()
+                if root.resolve() not in p.parents:
+                    continue
                 if p.is_file() and sha256(p)==item["sha256"]:
                     restored=target/item["id"]; shutil.copyfile(p,restored); break
             if restored is None or sha256(restored)!=item["sha256"]:
