@@ -1,0 +1,32 @@
+{
+  "schema": "QROS_SEED_UNIVERSE_COMPILER_POLICY_1.1",
+  "state": "ACTIVE_PROJECT_INVARIANT",
+  "adoption_date": "2026-09-13",
+  "supersedes_for_prospective_enforcement": "governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.0.json",
+  "inherits_unmodified_rules_from": "governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.0.json",
+  "factorized_exact_enumeration": {
+    "allowed": true,
+    "purpose": "Avoid materializing millions of redundant configuration records while preserving an exact finite universe.",
+    "requirements": [
+      "BASE_TUPLE_SET_EXACTLY_ENUMERATED",
+      "OPTIONAL_FILTER_PACKAGE_SET_EXACTLY_ENUMERATED",
+      "ALL_DECLARED_CONSTRAINTS_APPLIED_BEFORE_SET_ROOTS",
+      "CARTESIAN_MAPPING_IS_PURE_DETERMINISTIC_AND_FROZEN",
+      "RAW_CONFIG_COUNT_EQUALS_BASE_COUNT_TIMES_FILTER_PACKAGE_COUNT_WHEN_NO_CROSS_FACTOR_CONSTRAINT_EXISTS",
+      "TWO_INDEPENDENT_ENUMERATORS_HAVE_ZERO_SYMMETRIC_DIFFERENCE_ON_EACH_FACTOR_SET",
+      "BASE_ROOTS_EQUAL",
+      "FILTER_PACKAGE_ROOTS_EQUAL",
+      "FACTORIZED_UNIVERSE_DESCRIPTOR_ROOT_EQUAL",
+      "STREAMING_GENERATOR_CAN_MATERIALIZE_EVERY_CONFIG_ID_DETERMINISTICALLY_ON_DEMAND"
+    ],
+    "equivalence": "When the configuration universe is exactly the Cartesian product of independently frozen factor sets under a pure bijective merge mapping, equality of the factor sets plus equality of the mapping proves equality of the full configuration set without storing every member simultaneously.",
+    "not_allowed_when": [
+      "CROSS_FACTOR_CONSTRAINT_NOT_INCLUDED_IN_FACTORS",
+      "MAPPING_CAN_COLLIDE_OR_DROP_FIELDS",
+      "ENUMERATOR_USES_SAMPLING",
+      "DOMAIN_IS_UNBOUNDED_OR_PNL_DEPENDENT"
+    ]
+  },
+  "gate_a_requirement": "A factorized exact universe is fully frozen only after the independent factor-set parity receipt, factorized descriptor root, management overlay parity, execution/stress profile freeze, post-expansion RISE fixed point and config-hash freeze receipt all PASS.",
+  "anti_shortcut": "Factorization is a storage/execution optimization only. It must not reduce dimensions, omit cells, sample configurations or replace exact enumeration with estimates."
+}
