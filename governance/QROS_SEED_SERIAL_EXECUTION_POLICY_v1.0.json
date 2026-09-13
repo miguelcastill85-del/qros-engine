@@ -1,0 +1,79 @@
+{
+  "schema": "QROS_SEED_SERIAL_EXECUTION_POLICY_1.0",
+  "state": "ACTIVE_PROJECT_INVARIANT",
+  "adoption_date": "2026-09-13",
+  "scope": "PROSPECTIVE_QROS_RISE_SEED_RESEARCH",
+  "purpose": "Enforce one-seed-at-a-time causal-universe construction and scientific execution without forbidding global source dedupe or queue prioritization.",
+  "global_pool_operations_allowed": [
+    "SOURCE_INGESTION",
+    "SOURCE_SNAPSHOT_FREEZE",
+    "EXACT_AND_SEMANTIC_DEDUPE",
+    "CAUSAL_FINGERPRINTING",
+    "COLLISION_CHECK_AGAINST_PRIOR_GENEALOGIES",
+    "NON_PNL_PRIORITIZATION",
+    "QUEUE_ORDERING"
+  ],
+  "global_pool_operations_must_not": [
+    "OPEN_MULTIPLE_DETAILED_CAUSAL_UNIVERSES_IN_PARALLEL",
+    "ENUMERATE_CONFIGURATIONS_FOR_MULTIPLE_UNFINISHED_SEEDS",
+    "FREEZE_MULTIPLE_UNFINISHED_SEED_UNIVERSES_AHEAD_OF_EXECUTION",
+    "READ_PNL_TO_REORDER_UNFINISHED_SEEDS",
+    "USE_RESULTS_FROM_ONE_SEED_TO_RETUNE_ANOTHER_PREEXISTING_SEED"
+  ],
+  "serial_seed_gate": {
+    "max_active_seed_genealogies_in_universe_or_economic_research": 1,
+    "one_active_seed_genealogy_at_a_time": true,
+    "next_seed_universe_open_forbidden_while_current_seed_active": true,
+    "required_order": [
+      "SEED_SELECTED_FROM_FROZEN_PRIORITY_QUEUE",
+      "SOURCE_AND_GENEALOGY_COLLISION_GATE",
+      "CAUSAL_SCOPE_CONTRACT",
+      "STRUCTURAL_DATA_AUDIT_AND_UNIT_CLOCK_BINDING",
+      "CAUSAL_UNIVERSE_CONSTRUCTION",
+      "RISE_Q_ADVERSARIAL_ONTOLOGY_AUDIT_TO_FIXED_POINT",
+      "UNIVERSE_ONTOLOGY_FROZEN",
+      "CONFIGURATION_ENUMERATION_AND_DETERMINISTIC_HASH_FREEZE",
+      "INDEPENDENT_ENUMERATOR_PARITY",
+      "DEVELOPMENT_BACKTEST",
+      "GATE_A_DECISION",
+      "HOLDOUT_AND_SUPERGATE_ONLY_IF_AUTHORIZED_AND_ELIGIBLE",
+      "MT5_PARITY_IF_REQUIRED",
+      "FINAL_SEED_DISPOSITION",
+      "NEXT_SEED_MAY_OPEN"
+    ],
+    "results_cannot_modify_frozen_seed_rules": true,
+    "buy_sell_separate": true,
+    "xauusd_and_nqx_ndx_only": true
+  },
+  "next_seed_release_gate": {
+    "allowed_current_seed_terminal_states": [
+      "APPROVED_FINAL",
+      "REJECTED",
+      "BRANCH_EXHAUSTED"
+    ],
+    "infrastructure_exception": {
+      "state": "BLOCKED_BY_INFRASTRUCTURE",
+      "may_release_next_seed": true,
+      "requirements": [
+        "BLOCKER_EVIDENCE_RECORDED",
+        "RESUMABLE_CHECKPOINT_FROZEN",
+        "NO_SCIENTIFIC_SHORTCUT_TAKEN",
+        "NO_HOLDOUT_CONTAMINATION",
+        "CURRENT_SEED_REMAINS_PENDING_NOT_REJECTED"
+      ]
+    }
+  },
+  "anti_batch_rule": "The 1000 public hypotheses may be deduplicated, fingerprinted and prioritized as a pool, but detailed QROS causal-universe construction, RISE-Q fixed-point audit, configuration freeze and economic backtest must proceed seed by seed. No second seed may enter detailed universe construction until the active seed reaches a permitted terminal state or a documented infrastructure blocker checkpoint.",
+  "anti_drift": "A seed hypothesis is not a finished configuration. Missing timeframe, side, exit, risk or management is resolved ex ante inside that seed's causal universe. Public-code defects may invalidate literal copying without invalidating the causal hypothesis. No seed is penalized merely for omitted implementation dimensions.",
+  "historical_non_rewrite": {
+    "prospective_only": true,
+    "do_not_rewrite_frozen_campaigns": true,
+    "g30_note": "G30 remains frozen under its own prior authority and is not recreated or inherited by the new public-seed campaign."
+  },
+  "fail_closed_states": {
+    "multiple_active_seed_universes_detected": "SERIAL_SEED_GATE_FAIL",
+    "next_seed_opened_before_release_gate": "SERIAL_SEED_GATE_FAIL",
+    "pnl_observed_before_current_seed_universe_freeze": "METHODOLOGICAL_BREACH",
+    "results_used_to_expand_or_rewrite_current_seed_universe": "METHODOLOGICAL_BREACH"
+  }
+}
