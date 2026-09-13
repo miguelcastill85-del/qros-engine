@@ -1,0 +1,50 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0512_SOURCE_RECONCILIATION_PREREG_1.0",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "queue": {
+    "rank": 2,
+    "id": "WEB_SEED_0512",
+    "source_id": "FMZ:363749",
+    "catalog_name": "Fibonacci Progression With Breaks",
+    "priority": "A",
+    "confidence": "MEDIA_ALTA",
+    "similarity_max_previous_200": 0.0,
+    "semantic_aliases_collapsed": 0
+  },
+  "exact_source": {
+    "repository": "fmzquant/strategies",
+    "commit": "7853bb2bf262c4567ac238d3552d97f0e50cb801",
+    "path": "Fibonacci-Progression-With-Breaks.md",
+    "git_blob_sha1": "5180211c8e36fa2e545fed780e84ff84032272a0",
+    "public_detail_id": "363749"
+  },
+  "source_reconciliation": {
+    "catalog_interpretation": "CCI/Fibonacci breakout momentum",
+    "exact_source_mechanism": "Stateful excursion progression from a central anchor. Distance is ATR(200)*size or manual distance, multiplied by the current Fibonacci stage. A close beyond the current distance advances fib_n by one; when fib_n exceeds max+1 the central anchor resets to the current close and fib_n resets to 1. BUY/SELL labels are the direction of the anchor reset.",
+    "CCI_present_in_exact_source": false,
+    "catalog_interpretation_authority_for_ontology": false,
+    "queue_rank_changed": false,
+    "reason_queue_rank_unchanged": "No PnL is involved; frozen queue order remains immutable. Exact-source collision/eligibility gate decides whether the seed may open."
+  },
+  "collision_gate": {
+    "qros_repo_queries": ["Fibonacci Progression Breaks","adaptive central level reset threshold sequence","ATR 200 Fibonacci"],
+    "exact_or_mechanistic_collision_found_in_qros_repo": false,
+    "file_library_previous_seed_search": "No exact adaptive Fibonacci-anchor progression genealogy recovered; prior public-seed novelty material explicitly does not certify global novelty.",
+    "classification": "NOVEL_GENEALOGY_CANDIDATE_PENDING_ECONOMIC_OVERLAP"
+  },
+  "source_defects_or_non_strategy_elements": [
+    "Public file declares indicator() but includes strategy.entry calls; it is not accepted as a complete executable strategy contract.",
+    "No complete executable exit contract is supplied.",
+    "Displayed tp/sl bands are informational and are not strategy.exit rules.",
+    "Manual distance is dimensionful and cannot be transferred blindly between XAUUSD and NQX/NDX."
+  ],
+  "period_firewall": {
+    "development": "2018-2019_ONLY_WHEN_CANONICAL_BYTES_EXECUTABLE",
+    "2020_2022": "SEALED",
+    "2023_2026": "SEALED",
+    "development_pnl_open": false,
+    "holdout_open": false
+  },
+  "next_action": "Build source-faithful and preregistered causal descendants for the progression state machine; run RISE-Q to fixed point before any economic scoring."
+}
