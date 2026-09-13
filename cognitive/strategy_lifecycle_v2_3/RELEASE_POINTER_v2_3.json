@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_QSLE_V23_DURABLE_RELEASE_POINTER_V1",
+  "release": "QROS_STRATEGY_LIFECYCLE_ENGINE_v2_3_ASTRA_COMPLETION_REFERENCE",
+  "status": "REFERENCE_KERNEL_VALIDATED_NOT_SCIENTIFIC_AUTHORITY",
+  "scientific_authority": false,
+  "scientific_dispatch_authorized": false,
+  "promotion": false,
+  "f13_excluded": true,
+  "zip": {
+    "bytes": 82186,
+    "sha256": "04ef65ce47c50f7b00049fe78b056d051833f6ca9f0605069ce5f92087caa964",
+    "reproducible_builds": "PASS_2_OF_2_BYTE_IDENTICAL",
+    "fresh_unzip_sha256sums": "PASS",
+    "fresh_unzip_pytest": "PASS_73_OF_73"
+  },
+  "dropbox_secondary_carrier": {
+    "path": "/QROS/QROS_STRATEGY_LIFECYCLE_ENGINE_v2_3_ASTRA_COMPLETION_REFERENCE.zip",
+    "bytes": 82186,
+    "content_hash": "b725a485620e1b0558649a54d046d0a3f759e37580d3f8dc761edd1716592c1e",
+    "local_content_hash_match": true
+  },
+  "validation": {
+    "pytest": "PASS_73_OF_73",
+    "rise_q_persistence": "PASS_15_OF_15",
+    "rise_q_integrated": "PASS_12_OF_12",
+    "rise_q_local_fixed_point_operations": 1200,
+    "persistent_tamper_detection": "PASS_6_OF_6",
+    "stress": "PASS_80_CAMPAIGNS_640_COMMITS",
+    "precommit_crashes_recovered": 188,
+    "postcommit_crashes_exactly_once": 108,
+    "stale_workers_rejected": 16,
+    "sigkill_precommit_rollback": "PASS",
+    "sigkill_postcommit_exactly_once": "PASS",
+    "v22_to_v23_migration": "PASS",
+    "semantic_replay": "PASS"
+  },
+  "qrcel_astra_engineering_closure": {
+    "status": "ENGINEERING_CLOSURE_PASS_EXTERNAL_VALIDATION_BLOCKED",
+    "receipt_sha256": "b30d5da00244bf2a6f9d84e4a75ae63af379206f09736f087239d6887afe61d7"
+  },
+  "external_non_compensable_gates": [
+    "ASTRA_NATIVE_MODEL_COMPARISON",
+    "SEALED_EVALUATION",
+    "FULL_RISE_R14",
+    "SECOND_HOST_CANARY",
+    "SCIENTIFIC_PROMOTION"
+  ],
+  "authority_roles": {
+    "engineering_reference": "V191",
+    "scientific_head_observed": "V199_FORENSIC_NO_NEW_SELECTION_NO_NEW_RESULTS",
+    "runtime_dispatch": "FAIL_CLOSED_NO_IMPLICIT_DELEGATION"
+  },
+  "rule": "Do not infer scientific authority, execution delegation, native-model parity or promotion from this reference release."
+}
