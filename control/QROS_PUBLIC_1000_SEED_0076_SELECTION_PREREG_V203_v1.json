@@ -1,0 +1,45 @@
+{
+  "schema":"QROS_PUBLIC_1000_SEED_SELECTION_PREREG_1.0",
+  "state":"PREREGISTERED_NO_RESULTS",
+  "seed":{
+    "queue_rank":1,
+    "id":"WEB_SEED_0076",
+    "source_id":"FMZ:365059",
+    "name":"TrendScalp FractalBox 3EMA",
+    "category":"Acción del precio / patrones",
+    "priority":"A",
+    "confidence":"MEDIA_ALTA",
+    "similarity_max_prior_200":0.0,
+    "collapsed_aliases":0,
+    "public_url":"https://www.fmz.com/strategy/365059"
+  },
+  "source_freeze":{
+    "repository":"fmzquant/strategies",
+    "commit":"7853bb2bf262c4567ac238d3552d97f0e50cb801",
+    "path":"TrendScalp-FractalBox-3EMA.md",
+    "git_blob_sha1":"fb1178db236590f055b2a6d9a67e22317a23b40d"
+  },
+  "collision_gate":{
+    "qros_engine_search_exact_name_matches":0,
+    "qros_engine_search_fractalbox_3ema_matches":0,
+    "outcome":"NOVEL_GENEALOGY_CANDIDATE_PENDING_CAUSAL_ONTOLOGY_AUDIT"
+  },
+  "source_observations_no_pnl":[
+    "Description defines EMA ribbon 35/70/105 for trend bias and confirmed 5-bar fractal levels/box.",
+    "Fractal formation is only known after two later bars; any executable implementation must timestamp the level at confirmation time, not at the plotted negative offset.",
+    "Literal entry code triggers on close above/below the confirmed fractal level and does not apply the documented EMA trend filter.",
+    "The Pine file declares indicator() while containing strategy.entry calls; literal compilation/execution may therefore be defective. This does not invalidate the causal hypothesis but forbids treating public code performance as evidence."
+  ],
+  "preregistered_causal_branches":[
+    "B0_LITERAL_CONFIRMED_FRACTAL_BREAKOUT: confirmed 5-bar fractal level breakout/breakdown, without EMA gating.",
+    "B1_DOCUMENTED_3EMA_TREND_FRACTAL_BREAKOUT: same confirmed fractal breakout gated by bullish Price>EMA_fast>EMA_mid>EMA_slow for BUY and mirrored bearish order for SELL.",
+    "B2_CONTRACTION_GEOMETRY: optional documented smaller-fractal-box contraction is a separate causal descendant and must not be silently merged into B0/B1."
+  ],
+  "hard_rules":[
+    "No development PnL before DATA_AUDIT, causal-scope completion, RISE fixed point, ontology freeze and config/hash freeze.",
+    "BUY and SELL remain separate result strata.",
+    "No overnight; max 3 new entries/day at portfolio integration; realistic Bid/Ask execution.",
+    "Any plot offset is visualization only and may not move information backward in executable time."
+  ],
+  "next_phase":"CAUSAL_SCOPE_AND_RISE_ONTOLOGY"
+}
