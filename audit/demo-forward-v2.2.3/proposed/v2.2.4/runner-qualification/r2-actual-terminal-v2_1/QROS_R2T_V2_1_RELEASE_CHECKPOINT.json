@@ -1,0 +1,52 @@
+{
+  "schema": "QROS_R2T_V2_1_RELEASE_CHECKPOINT_1.0",
+  "generated_utc": "2026-09-13T23:40:00Z",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "parent_authority": {
+    "head_before_rebuild": "3a69f647d20800ebf7a1f7dade698b92ddfa7cf6",
+    "release_state": "QROS_RUNNER_RELEASE_STATE_v3.json",
+    "bound_runner_sha256": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+    "candidate3": "FROZEN_CANDIDATE"
+  },
+  "recovery": {
+    "qros_runner_native_env_qualifier_v2_final_exact_bytes": "NO_DISPONIBLE",
+    "searched": ["GitHub branch/tree", "Dropbox exact filename", "File Library exact/semantic filename", "current runtime"],
+    "action": "NEW_MINOR_VERSION_REBUILD_NOT_BYTE_IDENTICAL_REPLAY",
+    "new_version": "QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2_1_FINAL.zip"
+  },
+  "package": {
+    "bytes": 27278,
+    "sha256": "cf4da8a98e2e683ca19ce5ae239d5faf7b30c322a149ae4b9bd4f7c2e0388c10",
+    "status": "PREVALIDATED_ARTIFACT",
+    "native_validated": false
+  },
+  "source_sha256": {
+    "qualifier_ps1": "73c879e7dbe26c893f60c8be490f110781ac19a5bd016ce6f0c67e69504e0682",
+    "live_fence_mq5": "6b8438b5b1776a5e68d9ab355ba3e4d3c34bb0847d36bf0a73f7e6d447c91e81",
+    "tester_smoke_mq5": "1e933bbb2e534229bdc161d3c91e39bc7933089c78624071db09ff9f6eaf7ba7",
+    "runner_under_qualification": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+    "manifest": "50d657a892c6df29598f1d69d44825321d1441430a79da670cd0fd137d488d03",
+    "static_gate_report": "a97c3f08ddc9c712e02d9568f646019b4f8689acb5663a78b02553a4c36ae310",
+    "postbuild_validation": "8f01f97bf524018368feacb2af625f9f658d11ec95665f8d5e18b3dea417a6eb"
+  },
+  "qualification": {
+    "r1_rules": "31/31 PASS",
+    "r1_mutations": "21/21 CAUGHT",
+    "postbuild": "19/19 PASS",
+    "fencing_context": "NORMAL_ISOLATED_TERMINALS_STARTUP_EA_MQL_TESTER_0",
+    "strategy_tester_scope": "COMPILE_AND_MATERIALIZATION_SMOKE_ONLY",
+    "overlap_proof": "HOLDER_PROCESS_ALIVE + ADVANCING_HEARTBEAT + PRE_TICK < PROBE_TICK < POST_TICK + TOKEN_STABILITY",
+    "role_disjoint_results": true,
+    "restart_persistence": "FRESH_TERMINAL_PROCESS_WRITE_THEN_READ",
+    "r3_fingerprint": ["runner SHA", "qualifier SHA", "tester/live MQL SHAs", "terminal64 SHA", "metaeditor64 SHA", "MT5 build", "PowerShell version", "include snapshot SHA", "common path", "isolated roots", "Darwinex-Demo server"]
+  },
+  "safety": {
+    "candidate3_executed": false,
+    "real_broker_orders_authorized": false,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "active_mt5_control": "FORBIDDEN",
+    "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0"
+  },
+  "next_action": "Execute only EJECUTAR_QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2_1.bat on target Windows. R4 Candidate3 remains forbidden until exact R2+R3 PASS receipt is inspected."
+}
