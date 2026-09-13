@@ -1,0 +1,135 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_UNIVERSE_DOMAIN_FREEZE_1.0",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "seed": "WEB_SEED_0076",
+  "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "compiler_policy": "governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.0.json",
+  "economic_results_observed": false,
+  "root_mechanism": "Breakout/breakdown of the last causally confirmed symmetric fractal boundary, optionally conditioned by trend/context descendants while preserving the same structural event.",
+  "base_axes": {
+    "assets": ["XAUUSD", "NQX"],
+    "sides": ["BUY", "SELL"],
+    "signal_timeframes": ["M1","M2","M3","M4","M5","M6","M10","M12","M15","M20","M30","H1","H2","H3","H4"],
+    "fractal_windows": [3,5,7,9,11,13],
+    "trigger_modes": ["TICK_BREAK","CLOSE_BREAK"]
+  },
+  "ema_triples": [
+    [18,35,53],[26,53,79],[35,70,105],[44,88,131],[53,105,158],[70,140,210],
+    [5,10,20],[8,21,55],[9,20,50],[9,50,200],[13,34,89],[20,50,100],[20,50,200],[21,55,144],[50,100,200]
+  ],
+  "ema_origin": {
+    "source_triple": [35,70,105],
+    "source_scale_factors": [0.5,0.75,1.0,1.25,1.5,2.0],
+    "rounding": "ROUND_HALF_UP_INTEGER",
+    "canonical_library_additions": [[5,10,20],[8,21,55],[9,20,50],[9,50,200],[13,34,89],[20,50,100],[20,50,200],[21,55,144],[50,100,200]]
+  },
+  "optional_filter_families": {
+    "BREAKOUT_BUFFER": {
+      "off": true,
+      "variants": ["ATR0.05","ATR0.10","ATR0.25"],
+      "nonoff_count": 3
+    },
+    "TREND": {
+      "off": true,
+      "modes": ["EMA_ORDER","PRICE_EMA_ORDER","EMA_ORDER_SLOPE","PRICE_EMA_ORDER_SLOPE"],
+      "ema_triples_ref": "ema_triples",
+      "nonoff_count": 60
+    },
+    "GEOMETRY": {
+      "off": true,
+      "contraction_n": ["OFF",2,3,4],
+      "max_box_atr": ["OFF",0.5,1.0,1.5,2.0],
+      "max_midpoint_to_fast_ema_atr": ["OFF",0.5,1.0,2.0],
+      "all_cartesian_except_all_off": true,
+      "nonoff_count": 79
+    },
+    "VOLATILITY": {
+      "off": true,
+      "variants": ["ATR_FAST_SLOW_GT_1.00","ATR_FAST_SLOW_GT_1.25","ATR_FAST_SLOW_GT_1.50","ATR_FAST_SLOW_LT_1.00","ATR_FAST_SLOW_LT_0.75"],
+      "atr_fast": 14,
+      "atr_slow": 50,
+      "nonoff_count": 5
+    },
+    "MOMENTUM": {
+      "off": true,
+      "variants": ["RSI14_DIRECTIONAL_50","RSI14_DIRECTIONAL_55_45","ROC5_SIGN_ALIGNED"],
+      "nonoff_count": 3
+    },
+    "SESSION": {
+      "off": true,
+      "variants": ["NY_RTH","NY_OPEN_120","NY_MIDDAY","NY_CLOSE_120","LONDON","LONDON_NY_OVERLAP"],
+      "timezone_semantics": "IANA market-zone calendar with DST; source-clock conversion must be bound before execution",
+      "nonoff_count": 6
+    },
+    "MULTI_TF": {
+      "off": true,
+      "variants": ["NEXT_HIGHER_TF_TREND_ALIGN","TWO_STEPS_HIGHER_TF_TREND_ALIGN"],
+      "closed_bars_only": true,
+      "nonoff_count": 2
+    },
+    "RETEST_ENTRY": {
+      "off": true,
+      "windows_bars": [1,3,5],
+      "confirmations": ["TOUCH_RECLAIM","CLOSE_RECLAIM"],
+      "nonoff_count": 6
+    }
+  },
+  "optional_filter_combination_depth": {
+    "max_active_families": 2,
+    "requires_no_filter_control": true,
+    "requires_all_single_family_variants": true,
+    "requires_all_valid_pairwise_cross_family_variants": true,
+    "within_family_internal_cartesian_is_exhaustive": true,
+    "package_count_formula": "1 + SUM(nonoff_i) + SUM(i<j, nonoff_i*nonoff_j)",
+    "sum_nonoff": 164,
+    "pairwise_product_sum": 8468,
+    "filter_package_count": 8633
+  },
+  "signal_universe_expected_raw_count": {
+    "base_cells": 720,
+    "filter_packages": 8633,
+    "expected_raw_signal_configs": 6215760,
+    "formula": "2 assets * 2 sides * 15 timeframes * 6 fractal windows * 2 triggers * 8633 filter packages"
+  },
+  "management_overlay_domains": {
+    "stop": ["OPPOSITE_FRACTAL","ATR0.5","ATR1.0","ATR1.5","ATR2.0","ATR3.0","TIGHTER_STRUCT_OR_ATR0.5","TIGHTER_STRUCT_OR_ATR1.0","TIGHTER_STRUCT_OR_ATR1.5","TIGHTER_STRUCT_OR_ATR2.0","WIDER_STRUCT_OR_ATR0.5","WIDER_STRUCT_OR_ATR1.0","WIDER_STRUCT_OR_ATR1.5","WIDER_STRUCT_OR_ATR2.0"],
+    "target": ["NONE","R0.5","R1.0","R1.5","R2.0","R3.0","R4.0"],
+    "breakeven": ["OFF","AT0.5R_TO_ENTRY","AT1.0R_TO_ENTRY","AT1.5R_TO_ENTRY"],
+    "trailing": ["OFF","OPPOSITE_FRACTAL","FAST_EMA","ATR1.0","ATR2.0"],
+    "partials": ["OFF","HALF_AT_1R_REMAINDER_MANAGED","HALF_AT_2R_REMAINDER_MANAGED"],
+    "same_day_exit": "MANDATORY",
+    "raw_cartesian_count_before_constraints": 5880,
+    "independent_alpha": false
+  },
+  "execution_profiles": ["CENTRAL","CONSERVATIVE","SEVERE"],
+  "stress_profiles": ["BASE","SLIPPAGE_UP","LATENCY_UP","RANDOM_EXECUTION_FAILURES","REMOVE_BEST_TRADES_DIAGNOSTIC","COST_X1_5","COST_X2"],
+  "constraint_rules": [
+    "Fractal window must be odd and pivot is known only after floor(window/2) later completed bars.",
+    "No plot offset may move information backward in executable time.",
+    "RETEST_ENTRY applies only after a causal breakout event and cannot enter before the retest confirmation.",
+    "MULTI_TF uses only the latest fully closed higher-timeframe bar available before entry.",
+    "TREND slope uses completed bars only.",
+    "Session filters are compile-valid but execution-blocked until clock mapping is proven; they are not deleted from the universe.",
+    "BUY/SELL are separate strata.",
+    "Same-day exit is mandatory and not a tunable filter.",
+    "At most two optional filter families active per signal config; all valid singles and pairs are mandatory.",
+    "No PnL-based pruning, sampling or representative-only enumeration is permitted before Gate A."
+  ],
+  "semantic_dedupe": {
+    "required": true,
+    "performed_after_raw_enumeration": true,
+    "must_emit_alias_map": true,
+    "economic_equivalence_may_not_be_assumed_pre_pnl": true
+  },
+  "next_required_artifacts": [
+    "ENUMERATOR_A",
+    "ENUMERATOR_B_INDEPENDENT",
+    "RAW_VALID_SEMANTIC_COUNTS",
+    "EXACT_PARITY_RECEIPT",
+    "ORDERED_CONFIG_ID_ROOT_SHA256",
+    "MANAGEMENT_VALID_COUNT_AND_ROOT",
+    "RISE_Q_POST_EXPANSION_FIXED_POINT",
+    "CONFIG_HASH_FREEZE_RECEIPT"
+  ],
+  "gate_a_open": false
+}
