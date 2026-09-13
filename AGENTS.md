@@ -41,13 +41,37 @@ universo o multiplicidad para ganar velocidad. Resolver ambigüedades antes de u
 Todas las configuraciones que pasen avanzan. No seleccionar sólo la mejor.
 BRANCH_EXHAUSTED exige ontología congelada, RISE fixed point y cobertura demostrada.
 
+### Ejecución serial obligatoria por semilla
+
+Aplica obligatoriamente:
+`governance/QROS_SEED_SERIAL_EXECUTION_POLICY_v1.0.json` y
+`governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.2.json`.
+
+Las bibliotecas de hipótesis pueden ingerirse, congelarse, deduplicarse, fingerprintarse y
+priorizarse globalmente sin usar PnL. Eso NO autoriza construir por adelantado los universos
+detallados de múltiples semillas ni ejecutar backtests por lotes sobre semillas aún abiertas.
+
+Debe existir como máximo **una genealogía de semilla activa** dentro de construcción de
+universo causal, auditoría RISE-Q, freeze de configuraciones o investigación económica.
+La secuencia obligatoria es:
+`SEMILLA -> COLLISION/DEDUPE -> UNIVERSO CAUSAL -> RISE-Q FIXED_POINT -> FREEZE/HASHES -> BACKTEST -> GATES -> DECISION -> SIGUIENTE SEMILLA`.
+
+No abrir la ontología detallada de la siguiente semilla hasta que la actual termine en
+`APPROVED_FINAL`, `REJECTED` o `BRANCH_EXHAUSTED`. Un `BLOCKED_BY_INFRASTRUCTURE` puede
+liberar la cola únicamente si existe evidencia del bloqueo, checkpoint reanudable congelado,
+sin atajos científicos y sin contaminación del holdout; la semilla bloqueada sigue pendiente.
+
+Esta regla es prospectiva y no reescribe campañas ya congeladas. En particular, G30 conserva
+su autoridad anterior: no se recrea su payload perdido, no se heredan sus configuraciones y
+la campaña pública siguiente debe construir su propia genealogía semilla por semilla.
+
 ### Firewall obligatorio de holdout por genealogía
 
 La autoridad para abrir un holdout limpio pertenece a la **genealogía causal raíz**, nunca
 a un frente, subfrente, activo, cluster, tier, seed descendiente o `STAGE_EXHAUSTED`.
 Aplica obligatoriamente:
 `governance/QROS_HOLDOUT_GENEALOGY_FIREWALL_v1.0.json` y
-`governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.1.json`.
+`governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.2.json`.
 
 Antes de leer cualquier resultado económico reservado, ejecutar:
 `python3 scripts/qros_holdout_genealogy_preflight.py --input <packet.json> --out <receipt.json>`.
