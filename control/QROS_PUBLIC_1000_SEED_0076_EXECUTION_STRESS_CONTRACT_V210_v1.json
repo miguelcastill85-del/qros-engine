@@ -1,0 +1,25 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_EXECUTION_STRESS_CONTRACT_1.0",
+  "state":"FROZEN_PRE_PNL",
+  "seed":"WEB_SEED_0076",
+  "units":{"XAUUSD_point":"0.01 price units","NQX_point":"0.1 price units","source":"control/QROS_PUBLIC_1000_SEED_0076_DATA_BINDING_V204_v1.json"},
+  "valid_quote":"timestamp ordered; finite Bid/Ask; Ask>=Bid; crossed quotes cannot fill; zero-spread quote may exist in data but receives no artificial price advantage beyond its observed quote",
+  "profiles":{
+    "CENTRAL":{"signal_to_entry_latency":"first valid executable quote strictly after signal availability","additional_adverse_slippage_points":0,"stop_target_fill":"first actually executable side-specific quote after threshold event","commission":"PENDING_CANONICAL_DARWINEX_COST_BINDING"},
+    "CONSERVATIVE":{"signal_to_entry_latency":"skip first valid executable quote after signal and use the next valid quote","additional_adverse_slippage_points":1,"stop_target_fill":"skip first valid quote after exit trigger and use next valid quote plus one adverse point","commission":"same canonical commission as CENTRAL"},
+    "SEVERE":{"signal_to_entry_latency":"skip first two valid executable quotes after signal and use third valid quote","additional_adverse_slippage_points":2,"stop_target_fill":"skip first two valid quotes after exit trigger and use third valid quote plus two adverse points","commission":"same canonical commission as CENTRAL"}
+  },
+  "adverse_slippage_direction":{"BUY_entry":"add points to Ask","BUY_exit":"subtract points from Bid","SELL_entry":"subtract points from Bid","SELL_exit":"add points to Ask"},
+  "stress_profiles":{
+    "BASE":{"overlay":"none"},
+    "SLIPPAGE_UP":{"overlay":"add one additional adverse point to every fill beyond selected execution profile"},
+    "LATENCY_UP":{"overlay":"skip one additional valid quote event at each entry/exit trigger beyond selected execution profile"},
+    "RANDOM_EXECUTION_FAILURES":{"overlay":"deterministically suppress 1 percent of otherwise eligible new entries using SHA256(trade_candidate_id) mapped to [0,1); no reseeding by result"},
+    "REMOVE_BEST_TRADES_DIAGNOSTIC":{"overlay":"post-development diagnostic only; remove top 1 percent trades by R after primary Gate A metrics; never used for selection rescue"},
+    "COST_X1_5":{"overlay":"multiply canonical explicit commission/fee component by 1.5; observed Bid/Ask spread remains observed, not multiplied"},
+    "COST_X2":{"overlay":"multiply canonical explicit commission/fee component by 2.0; observed Bid/Ask spread remains observed, not multiplied"}
+  },
+  "hard_rules":["BUY entry Ask / exit Bid","SELL entry Bid / exit Ask","SL first if SL and TP become ambiguous at same observable event","gap fill at first price actually executable under selected latency profile","no artificial mid fills","no overnight"],
+  "gate_a_dependency":{"canonical_darwinex_commission_or_fee_contract_required":true,"session_clock_mapping_required_for_SESSION_filter_cells":true,"physical_DEV_data_required":true},
+  "economic_pnl_open":false,"holdout_open":false
+}
