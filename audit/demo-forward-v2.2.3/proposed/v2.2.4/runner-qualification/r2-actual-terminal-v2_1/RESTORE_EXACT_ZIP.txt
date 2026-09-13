@@ -1,0 +1,17 @@
+QROS R2 actual-terminal qualifier v2.1 — exact-byte restore
+
+Concatenate, in this exact order, the four UTF-8/ASCII files:
+  QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2_1_FINAL.zip.b64.part01-of-04
+  QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2_1_FINAL.zip.b64.part02-of-04
+  QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2_1_FINAL.zip.b64.part03-of-04
+  QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2_1_FINAL.zip.b64.part04-of-04
+
+Decode the concatenated Base64 to:
+  QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2_1_FINAL.zip
+
+Expected bytes: 27278
+Expected SHA-256: cf4da8a98e2e683ca19ce5ae239d5faf7b30c322a149ae4b9bd4f7c2e0388c10
+Expected ZIP CRC: PASS
+
+This is a new minor-version rebuild, NOT a byte-identical replay of the unavailable historical v2_FINAL package.
+Scientific state: Candidate3 remains FROZEN_CANDIDATE; no deployment; no CERT/ARM; keep QDB1.EXEC.CERT=0.
