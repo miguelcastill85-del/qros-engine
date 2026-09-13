@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0763_COLLISION_REJECTION_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "seed": {
+    "queue_rank": 3,
+    "id": "WEB_SEED_0763",
+    "source_id": "FMZ:441077",
+    "name": "Future Lines of Demarcation Backtest Strategy"
+  },
+  "state": "REJECTED",
+  "stage": "PRE_PNL_CAUSAL_COLLISION_GATE",
+  "exact_source": {
+    "repository": "fmzquant/strategies",
+    "commit": "7853bb2bf262c4567ac238d3552d97f0e50cb801",
+    "path": "未来价格延伸线回测策略Future-Lines-of-Demarcation-Backtest-Strategy.md",
+    "git_blob_sha1": "5b1d80928b6a779f1df4a2faafde2b4d79375fec"
+  },
+  "source_semantics": {
+    "core": "FLD = src; pos=+1 if src[t-Period] < close[t], pos=-1 if src[t-Period] > close[t], otherwise persist previous state",
+    "plot_offset": "visual only; offset=Period does not make future information available",
+    "default_period": 40,
+    "default_source": "hl2",
+    "reverse_flag": "direction inversion only"
+  },
+  "algebraic_collision": {
+    "close_source": "pos = sign(close[t]-close[t-Period]) except equality persistence; this is the sign of a lagged close return and introduces no new causal operator",
+    "other_ohlc_sources": "replace the lagged close reference with lagged hl2/high/low/open/hlc3/hlcc4/ohlc4; these are same-source lagged-reference profiles, not a distinct information source",
+    "reverse": "BUY/SELL inversion is explicitly non-novel under QROS policy",
+    "period": "changing Period is a window mutation and cannot create independent alpha"
+  },
+  "prior_operator_evidence": {
+    "artifact": "NDX_P26_CAUSAL_CONFORMAL_SURPRISE_CASCADE_PREREG_v6500_R1.json",
+    "existing_feature": "signed mid return over 1,3,6 bars",
+    "policy": "QROS_SCIENTIFIC_FASTLANE_AND_FRONTIER_REOPEN_v1 prohibits new window/threshold/monotonic-transform variants as new genealogies"
+  },
+  "classification": "PARAMETRIC_OR_COSMETIC_VARIANT_OF_EXISTING_LAGGED_RETURN_MOMENTUM_OPERATOR",
+  "development_pnl_open": false,
+  "holdout_open": false,
+  "economic_test_performed": false,
+  "decision": "REJECT_BEFORE_UNIVERSE_BUILD",
+  "reason": "The exact source does not provide causal-operator novelty. Building a detailed universe would violate the frozen collision policy and inflate multiplicity.",
+  "portfolio_impact": "0 new modules; 0R; 0 frequency claimed"
+}
