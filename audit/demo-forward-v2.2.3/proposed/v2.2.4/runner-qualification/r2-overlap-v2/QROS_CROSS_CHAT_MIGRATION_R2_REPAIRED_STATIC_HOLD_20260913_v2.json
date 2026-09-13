@@ -9,13 +9,19 @@
   "qualifier_ps1_sha256": "841b2ba9b8441c06b59af61456111421d042b2024c270d084199288e9c9dd1f9",
   "qualifier_mq5_sha256": "29dbc3495076a6ee53b878ada16ef3cb24279ae9ac3373a520f7a1f991d38873",
   "root_cause_classification": "QUALIFIER_DEFECT_D14_D15; LEGACY_R2_CODE_52_INCONCLUSIVE",
-  "r0_source_integrity": "PASS",
-  "r1_independent_reexecution": "PASS",
-  "r2_overlap_static_gate": "PASS",
+  "r0_source_integrity": "PASS_8_OF_8",
+  "r1_independent_reexecution": "PASS_13_OF_13_RULES_10_OF_10_MUTATIONS",
+  "r2_overlap_static_gate": "PASS_16_OF_16_RULES_14_OF_14_MUTATIONS",
+  "r2_legacy_regression": "PASS_REJECTED_BY_10_NEW_RULES",
+  "durable_recovery_package": {
+    "library_path": "/Trading algoritmico/QROS_RUNNER_R2_OVERLAP_REQUAL_v2.zip",
+    "bytes": 40573,
+    "sha256": "1f04afad6cfa52f96bd48ade5349a0480683ec066814c87d212205275321b017"
+  },
   "r2_native_windows": "NOT_EXECUTED_IN_THIS_RUNTIME",
   "real_env_gate": "HOLD",
   "candidate_gate_eligible": false,
   "deployment_allowed": false,
   "cert_arm_allowed": false,
-  "next_action": "Execute v2 native qualifier only in isolated Windows/Darwinex environment; require overlap_proven=true and native receipt PASS before Candidate3 eligibility."
+  "next_action": "Recover the durable package from Library, verify SHA-256, then execute only EJECUTAR_QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2.bat in the isolated Windows/Darwinex environment; require overlap_proven=true and native receipt PASS before Candidate3 eligibility."
 }
