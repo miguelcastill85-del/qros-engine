@@ -1,0 +1,22 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_NQX_DEV_ACTIVATION_RECEIPT_1.0",
+  "version":"V218",
+  "state":"PASS_NQX_ONLY",
+  "seed":"WEB_SEED_0076",
+  "genealogy":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "source_manifest":"control/QROS_PUBLIC_1000_SEED_0076_MINIMAL_DEV_CARRIER_MANIFEST_V213_v1.json",
+  "uploaded_parts":[
+    {"file":"QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip","bytes":100816656,"sha256":"8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b","zip_integrity":"PASS","member":"NQX_PACKED17_rows_000000000_019999999.bin","member_sha256_verified":"0a0f1814e51bb649aeeadc05a982b052bfaa3a6ea48c6b81c8ec7e1af096f60d"},
+    {"file":"QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip","bytes":113466374,"sha256":"53f827fa0b611d9e2b00db78b1da29b1c41f0d2d7d7e912ddcec12de42984a24","zip_integrity":"PASS","member":"NQX_PACKED17_rows_020000000_039999999.bin","member_sha256_verified":"371e8c4bff51ed6896101aec9212aa6fcc6677eb650c1e2b1e08739c2518da91"},
+    {"file":"QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip","bytes":111669173,"sha256":"48463c8dd2b020356fd9b21caea470cec4e9340d8a8fd0e25bea8fcb0c512c8b","zip_integrity":"PASS","member":"NQX_PACKED17_rows_040000000_059999999.bin","take_records":19940260,"consumed_prefix_sha256":"646da2cbdb608d815de73618d72aa7aacc416aeba93d8124bbb91727cf3169e1","full_member_tail_not_read":true}
+  ],
+  "materialized_dev":{"file":"NQX_PACKED17_DEV_2018_2019.bin","records":59940260,"bytes":1018984420,"sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf","status":"PASS_EXACT_MANIFEST_MATCH","local_materialization_receipt_sha256":"7dafa2f0ed5e1bd6cb890505708d88d32a07ace8dc26a6ff137b98666c3685b7"},
+  "ga0_data_audit":{"record_layout":"<int64 timestamp_ms><int32 bid_scaled><int32 ask_scaled><uint8 flags>","record_bytes":17,"first_timestamp_ms":1516885570165,"last_timestamp_ms":1577836797469,"out_of_order_records":0,"adjacent_equal_timestamps":465513,"zero_spread_records":48205,"crossed_spread_records":160,"nonpositive_bid_records":0,"nonpositive_ask_records":0,"spread_min_scaled":-72,"spread_max_scaled":1875,"bid_min_scaled":58704,"bid_max_scaled":88218,"ask_min_scaled":58715,"ask_max_scaled":88226,"flags_counts":{"2":17619217,"4":17510261,"6":24810782},"large_gap_counts":{"5m_to_lt30m":496,"30m_to_lt2h":382,"2h_to_lt12h":14,"12h_plus":105},"decision":"PASS_DATA_INTEGRITY_WITH_ZERO_AND_CROSSED_SPREAD_PRESERVED_FOR_CONSERVATIVE_EXECUTION"},
+  "source_clock_evidence":{"raw_calendar_day_transitions":499,"last_tick_2330_2359_bin":477,"next_day_first_tick_0100_0129_bin":498,"us_dst_transition_weekends_checked":["2018-03-11","2018-11-04","2019-03-10","2019-11-03"],"dst_weekend_pattern":"Friday last quote approx 23:55 source clock; Monday first quote approx 01:00 source clock in all four checked transitions","mapping":"source_server_clock = America/New_York civil time + 7 hours; equivalently Darwinex server GMT+3 during US DST and GMT+2 otherwise","documentary_authority":["https://help.darwinex.com/metatrader-time","https://www.darwinex.com/forex-cfds/indices"],"ndx_published_hours_new_york":"Sunday 18:00; weekdays 18:00-16:59:50; Friday close 16:55","decision":"PASS_NQX_SOURCE_CLOCK_BINDING"},
+  "execution_guards":{"zero_or_crossed_quote_may_not_create_execution_advantage":true,"crossed_invalid_quote_fill_forbidden":true,"same_day_exit_source_clock_date":true,"session_filters_use_IANA_New_York_and_Europe_London_after_source_clock_conversion":true},
+  "economic_pnl_open":false,
+  "holdout_open":false,
+  "global_gate_a_ready":false,
+  "remaining_global_dependencies":["materialize and verify exact XAUUSD DEV bytes from parts 001-008","cross-check XAUUSD carrier source-clock behavior before global clock PASS"],
+  "decision":"NQX_DEV_AND_CLOCK_VERIFIED_GLOBAL_GATE_A_STILL_CLOSED"
+}
