@@ -1,0 +1,186 @@
+{
+  "schema": "QROS_R2T_STATIC_GATE_1.0",
+  "decision": "PASS",
+  "rules": {
+    "RT001": {
+      "pass": true,
+      "description": "Actual-terminal qualifier must not use Strategy Tester."
+    },
+    "RT002": {
+      "pass": true,
+      "description": "Live trading must be disabled."
+    },
+    "RT003": {
+      "pass": true,
+      "description": "Qualifier MQL must contain no trade API."
+    },
+    "RT004": {
+      "pass": true,
+      "description": "Fence flags must exactly mirror Candidate3 primitive."
+    },
+    "RT005": {
+      "pass": true,
+      "description": "Fence must not opt into file sharing."
+    },
+    "RT006": {
+      "pass": true,
+      "description": "Wall-clock overlap must use GetTickCount64, not Sleep."
+    },
+    "RT007": {
+      "pass": true,
+      "description": "Both terminals must report and compare common data path."
+    },
+    "RT008": {
+      "pass": true,
+      "description": "Stop-Process must be unique and dual path-gated."
+    },
+    "RT009": {
+      "pass": true,
+      "description": "taskkill is forbidden."
+    },
+    "RT010": {
+      "pass": true,
+      "description": "Legacy CERT must not be touched or named by executable code."
+    },
+    "RT011": {
+      "pass": true,
+      "description": "Qualifier MQL must not contain Candidate3."
+    },
+    "RT012": {
+      "pass": true,
+      "description": "Qualifier must fail if accidentally run under Strategy Tester."
+    },
+    "RT013": {
+      "pass": true,
+      "description": "Package manifest must be hash verified."
+    },
+    "RT014": {
+      "pass": true,
+      "description": "No active-data or broad common deletion."
+    },
+    "RT015": {
+      "pass": true,
+      "description": "Actual process restart persistence must be tested."
+    }
+  },
+  "mutation_tests": [
+    {
+      "mutation": "M01_TESTER_SECTION",
+      "expected_rule": "RT001",
+      "caught": true,
+      "all_fails": [
+        "RT001"
+      ]
+    },
+    {
+      "mutation": "M02_LIVE_TRADING",
+      "expected_rule": "RT002",
+      "caught": true,
+      "all_fails": [
+        "RT002"
+      ]
+    },
+    {
+      "mutation": "M03_TRADE_API",
+      "expected_rule": "RT003",
+      "caught": true,
+      "all_fails": [
+        "RT003"
+      ]
+    },
+    {
+      "mutation": "M04_SHARE_WRITE",
+      "expected_rule": "RT005",
+      "caught": true,
+      "all_fails": [
+        "RT005"
+      ]
+    },
+    {
+      "mutation": "M05_SLEEP",
+      "expected_rule": "RT006",
+      "caught": true,
+      "all_fails": [
+        "RT006"
+      ]
+    },
+    {
+      "mutation": "M06_REMOVE_COMMON_PATH_GATE",
+      "expected_rule": "RT007",
+      "caught": true,
+      "all_fails": [
+        "RT007"
+      ]
+    },
+    {
+      "mutation": "M07_EXTRA_STOP",
+      "expected_rule": "RT008",
+      "caught": true,
+      "all_fails": [
+        "RT008"
+      ]
+    },
+    {
+      "mutation": "M08_TASKKILL",
+      "expected_rule": "RT009",
+      "caught": true,
+      "all_fails": [
+        "RT009"
+      ]
+    },
+    {
+      "mutation": "M09_CERT",
+      "expected_rule": "RT010",
+      "caught": true,
+      "all_fails": [
+        "RT010"
+      ]
+    },
+    {
+      "mutation": "M10_CANDIDATE3",
+      "expected_rule": "RT011",
+      "caught": true,
+      "all_fails": [
+        "RT011"
+      ]
+    },
+    {
+      "mutation": "M11_REMOVE_TESTER_REFUSAL",
+      "expected_rule": "RT012",
+      "caught": true,
+      "all_fails": [
+        "RT012"
+      ]
+    },
+    {
+      "mutation": "M12_REMOVE_MANIFEST",
+      "expected_rule": "RT013",
+      "caught": true,
+      "all_fails": [
+        "RT013"
+      ]
+    },
+    {
+      "mutation": "M13_ACTIVE_DELETE",
+      "expected_rule": "RT014",
+      "caught": true,
+      "all_fails": [
+        "RT014"
+      ]
+    },
+    {
+      "mutation": "M14_REMOVE_RESTART_READ",
+      "expected_rule": "RT015",
+      "caught": true,
+      "all_fails": [
+        "RT015"
+      ]
+    }
+  ],
+  "summary": {
+    "rules_pass": 15,
+    "rules_total": 15,
+    "mutations_caught": 14,
+    "mutations_total": 14
+  }
+}

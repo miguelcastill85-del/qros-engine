@@ -1,0 +1,83 @@
+{
+  "scope": "Python control-flow model, not PowerShell/native execution",
+  "source_sha256": "85ea6cd4da259cee65a2aec7aa3e0a497db260b4462bb144e072265b0527a0ca",
+  "legacy_false_negative_reproduced": true,
+  "regressions_pass": 12,
+  "regressions_total": 12,
+  "tests": [
+    {
+      "test": "stale_probe_then_reacquire",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true
+    },
+    {
+      "test": "missing_then_reacquire",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true
+    },
+    {
+      "test": "empty_closed_then_reacquire",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true
+    },
+    {
+      "test": "stale_probe_forever",
+      "expected": "TIMEOUT",
+      "actual": "TIMEOUT",
+      "pass": true
+    },
+    {
+      "test": "genuine_failure_not_rescued",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "pass": true
+    },
+    {
+      "test": "duplicate_stage",
+      "expected": "DUPLICATE",
+      "actual": "DUPLICATE",
+      "pass": true
+    },
+    {
+      "test": "wrong_run_id",
+      "expected": "BINDING",
+      "actual": "BINDING",
+      "pass": true
+    },
+    {
+      "test": "bound_run_id",
+      "expected": "PASS",
+      "actual": "PASS",
+      "pass": true
+    },
+    {
+      "test": "invalid_status",
+      "expected": "STATUS",
+      "actual": "STATUS",
+      "pass": true
+    },
+    {
+      "test": "wrong_role_filename_effect",
+      "expected": "TIMEOUT",
+      "actual": "TIMEOUT",
+      "pass": true
+    },
+    {
+      "test": "wrong_pid",
+      "expected": "BINDING",
+      "actual": "BINDING",
+      "pass": true
+    },
+    {
+      "test": "stale_same_stage_token",
+      "expected": "BINDING",
+      "actual": "BINDING",
+      "pass": true
+    }
+  ],
+  "powershell_executed": false,
+  "r2_native_qualified": false
+}

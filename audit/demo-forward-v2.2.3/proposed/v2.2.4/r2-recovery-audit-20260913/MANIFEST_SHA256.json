@@ -1,0 +1,111 @@
+{
+  "schema": "R2_RECOVERY_ENGINEERING_MANIFEST_1",
+  "files": [
+    {
+      "path": "AUDITORIA_RECUPERACION.md",
+      "bytes": 8103,
+      "sha256": "f430c732da0858c0c3cd07e2bf5af06d62878eb9d9acf3123e1f6386b40ca75a"
+    },
+    {
+      "path": "CHECKPOINT.json",
+      "bytes": 1294,
+      "sha256": "47fda06f88032b160901b8f2b38487186368e5a451f119d5ab11bdb738240de3"
+    },
+    {
+      "path": "DECISION.json",
+      "bytes": 1260,
+      "sha256": "568284a4a9f8c63498b06181cd1030e6f7a17988a9708554ca2547abedc183fc"
+    },
+    {
+      "path": "DEFECT_LEDGER.json",
+      "bytes": 8672,
+      "sha256": "a77c74f67929f9ec9ee7d069e6a575adc3acc6d8da09b9dbbf1e860b74aaa84a"
+    },
+    {
+      "path": "ENVIRONMENT_FINGERPRINT.json",
+      "bytes": 442,
+      "sha256": "6f0c3a408d3db9befbf66e7230872b02d4088088a5581fea48d6b1d0bd6b65d5"
+    },
+    {
+      "path": "PACKAGE_VERIFICATION.json",
+      "bytes": 4119,
+      "sha256": "40ba1a1ad77622cf3e4dfbfa9a136083d81655d8fc03c765c02c16d595872f0c"
+    },
+    {
+      "path": "REGRESSION_REPORT.json",
+      "bytes": 1816,
+      "sha256": "c10d139ba29d9e4a27b98c2a3586c625e2616648cc05a176fa33805d62cb5fe1"
+    },
+    {
+      "path": "SOURCE_INTEGRITY.json",
+      "bytes": 2756,
+      "sha256": "a2e77cd6aa191100d4d34afffb49e4644c45ddbfb7282c0bd651fe5526584579"
+    },
+    {
+      "path": "Test-WaitQrosStageRow.ps1",
+      "bytes": 3479,
+      "sha256": "77cb24a122565fc3850ef6675def4be08ed62fa74e01abe34d03147b56f26b62"
+    },
+    {
+      "path": "Wait-QrosStageRow.ps1",
+      "bytes": 3435,
+      "sha256": "1f22699be0652f0d9a14f741405da44fd5c05f4a9ad6e050e84b9450daa1150b"
+    },
+    {
+      "path": "reproduce_stage_race.py",
+      "bytes": 3436,
+      "sha256": "21ff3e5cff7fb70c0180423a92a8aa2507488e5a0fc813375da6bad0b85dad84"
+    },
+    {
+      "path": "sources/001963_QROS_RUNNER_DEFECT_LEDGER_v1.json",
+      "bytes": 3461,
+      "sha256": "4f77c44738bd443a259b1902a9ba583d2ebc5c69cc4763309cd767041bd72440"
+    },
+    {
+      "path": "sources/001964_QROS_RUNNER_QUALIFICATION_SYSTEM_v1.md",
+      "bytes": 4505,
+      "sha256": "6e215b2f1073e048ff07f34479c4529f22163fca0618b02592b24b5b44ab01c2"
+    },
+    {
+      "path": "sources/001965_QUALIFY_QROS_RUNNER_NATIVE_ENV_v1.ps1",
+      "bytes": 20280,
+      "sha256": "a58de18704ad76c3dce4e09950170462d4bc82442660203b4b8741a840b96f96"
+    },
+    {
+      "path": "sources/001966_R1_STATIC_GATE_REPORT.json",
+      "bytes": 4134,
+      "sha256": "77c2c51bd167742266133fcfd9bcb8d9abd309dc656128372a6a84397b79319d"
+    },
+    {
+      "path": "sources/001967_RUNNER_UNDER_QUALIFICATION.ps1",
+      "bytes": 36414,
+      "sha256": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375"
+    },
+    {
+      "path": "sources/001968_QROS_RUNNER_ENV_QUALIFIER_v1.mq5",
+      "bytes": 6057,
+      "sha256": "45cad9f9a3fb7a13b032fde417f7cdaa9abf342cb8706545f9c6354a18831347"
+    },
+    {
+      "path": "sources/001978_QUALIFY_QROS_RUNNER_ACTUAL_TERMINAL_FENCE_v1.ps1",
+      "bytes": 11630,
+      "sha256": "85ea6cd4da259cee65a2aec7aa3e0a497db260b4462bb144e072265b0527a0ca"
+    },
+    {
+      "path": "sources/001979_R2T_SPEC.json",
+      "bytes": 1001,
+      "sha256": "b11bba6e7b0741a026a0c3e63566f6d7ce2ee5ca46186b627644b2fa628282d9"
+    },
+    {
+      "path": "sources/001980_R2T_STATIC_GATE_REPORT.json",
+      "bytes": 4010,
+      "sha256": "0d1304b10708eca6ae8dfa156c5cae0792c924f468edace23bddbfbc683a8089"
+    },
+    {
+      "path": "sources/001981_QROS_RUNNER_RUNTIME_FENCE_QUALIFIER_v1.mq5",
+      "bytes": 5928,
+      "sha256": "89dc345b21e7d294a68b8c1cad2afd2bf07896d275b1132709ea5eee2a3db89e"
+    }
+  ],
+  "not_a_qualifier_release": true
+}

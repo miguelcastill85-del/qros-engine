@@ -1,0 +1,164 @@
+{
+  "schema": "QROS_RUNNER_STATIC_RELEASE_GATE_1.2",
+  "mode": "candidate",
+  "artifact": "QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v2_2_R1CANDIDATE.zip",
+  "artifact_sha256": "5de2707f7f730ac229a919e8bf909beb8c4311897b60788a321d664295acfe7b",
+  "runner": "RUN_QROS_V224_C3_NATIVE_RUNTIME_PHASEA_v2_2.ps1",
+  "runner_sha256": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+  "harness": "MQL5/Experts/QROS_V224_C3_NATIVE_RUNTIME_PHASEA_HARNESS_v1.mq5",
+  "harness_sha256": "f140a1019b4539e9df819c26f2144d26ad27b0714230a9d0fdb6739d9b50f5c3",
+  "zip_crc": "PASS",
+  "rules": [
+    {
+      "id": "PS001",
+      "severity": "BLOCKER",
+      "description": "Set-StrictMode Latest forbidden.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "PS002",
+      "severity": "BLOCKER",
+      "description": "Direct PSObject.Properties.Count forbidden.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "PS003",
+      "severity": "BLOCKER",
+      "description": "Direct .Count requires explicit @() arrayization or generic List.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "PS004",
+      "severity": "BLOCKER",
+      "description": "Import-Csv forbidden for live evidence.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "PS005",
+      "severity": "BLOCKER",
+      "description": "Broad wildcard deletion in FILE_COMMON forbidden.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "PS006",
+      "severity": "BLOCKER",
+      "description": "taskkill forbidden.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "PS007",
+      "severity": "BLOCKER",
+      "description": "Every Stop-Process must be dual-gated by SafeIsoPath and process.Path.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "PS010",
+      "severity": "BLOCKER",
+      "description": "Wait/timeout flows must delegate cleanup to a single safe helper.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "PS008",
+      "severity": "BLOCKER",
+      "description": "Evidence readiness cannot rely on Test-Path alone.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "PS009",
+      "severity": "BLOCKER",
+      "description": "Top-level fail-closed try/catch required.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "PS011",
+      "severity": "BLOCKER",
+      "description": "Active MT5 data path must be read-only.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "PS012",
+      "severity": "BLOCKER",
+      "description": "Legacy CERT mutation forbidden.",
+      "matches": [],
+      "pass": true
+    },
+    {
+      "id": "MQL001",
+      "severity": "BLOCKER",
+      "description": "Sleep() forbidden as Strategy Tester wall-clock hold.",
+      "matches": [],
+      "pass": true
+    }
+  ],
+  "mutation_tests": [
+    {
+      "mutation": "MUT_STRICTMODE_LATEST",
+      "expected_rule": "PS001",
+      "caught": true
+    },
+    {
+      "mutation": "MUT_PSOBJECT_COUNT",
+      "expected_rule": "PS002",
+      "caught": true
+    },
+    {
+      "mutation": "MUT_DIRECT_COUNT",
+      "expected_rule": "PS003",
+      "caught": true
+    },
+    {
+      "mutation": "MUT_IMPORT_CSV",
+      "expected_rule": "PS004",
+      "caught": true
+    },
+    {
+      "mutation": "MUT_COMMON_WILDCARD_DELETE",
+      "expected_rule": "PS005",
+      "caught": true
+    },
+    {
+      "mutation": "MUT_TASKKILL",
+      "expected_rule": "PS006",
+      "caught": true
+    },
+    {
+      "mutation": "MUT_STOP_UNGATED",
+      "expected_rule": "PS007",
+      "caught": true
+    },
+    {
+      "mutation": "MUT_TIMEOUT_DIRECT_STOP",
+      "expected_rule": "PS010",
+      "caught": true
+    },
+    {
+      "mutation": "MUT_MQL_SLEEP",
+      "expected_rule": "MQL001",
+      "caught": true
+    },
+    {
+      "mutation": "MUT_ACTIVE_REMOVE",
+      "expected_rule": "PS011",
+      "caught": true
+    }
+  ],
+  "summary": {
+    "blocker_fail": 0,
+    "mutation_fail": 0,
+    "rules_total": 13,
+    "mutations_total": 10
+  },
+  "decision": "PASS",
+  "meaning": "STATIC_QUALIFIED_ONLY_NOT_NATIVE_VALIDATED"
+}

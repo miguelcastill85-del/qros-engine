@@ -1,0 +1,12 @@
+{
+  "certified": false,
+  "current_host": "Linux",
+  "target_observed_this_session": false,
+  "historical_only": {
+    "build": 6182,
+    "server": "Darwinex-Demo",
+    "Trade_mqh_sha256": "96e6781624534377fe7971cba52cca3d62d1b030bc10d5e4ebf3ed8c541399ed"
+  },
+  "runner_sha256": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+  "reason": "No current native process/physical identity/PowerShell/MetaEditor measurement"
+}

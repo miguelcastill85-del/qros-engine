@@ -1,0 +1,125 @@
+{
+  "scope": "source audit, not fixed-point certification",
+  "defects": [
+    {
+      "DEFECT_ID": "R2REC-01",
+      "ROOT_CAUSE": "First reads the first readable snapshot once; stage mismatch returns null before deadline. RESULT.csv reused by probe/reacquire and restart stages.",
+      "DETECTION_RULE": "Inspect First plus LocalFile RESULT.csv call sites.",
+      "NEGATIVE_TEST": "Old probe followed by fresh reacquire; empty closed file followed by complete row.",
+      "REGRESSION_TEST": "12-case Python control-flow report; native reader tests supplied but not run.",
+      "FIX": "Wait-QrosStageRow component retries expected stage under one monotonic deadline; integration withheld.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "IMPLEMENTED_COMPONENT_NATIVE_PENDING"
+    },
+    {
+      "DEFECT_ID": "R2REC-02",
+      "ROOT_CAUSE": "AcquireFence failure of any cause is labelled SECOND_LOCK_DENIED/PASS; error 5004 does not independently identify Windows sharing violation.",
+      "DETECTION_RULE": "Probe else branch accepts every INVALID_HANDLE.",
+      "NEGATIVE_TEST": "Deny ACL or invalid path without holder.",
+      "REGRESSION_TEST": "External RW/share-none open must report sharing violation on same object.",
+      "FIX": "Require discriminating external witness and error classification in complete qualifier.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "OPEN_NATIVE_PROTOCOL"
+    },
+    {
+      "DEFECT_ID": "R2REC-03",
+      "ROOT_CAUSE": "Common path string equality does not prove physical file identity, handle continuity or ownership overlap.",
+      "DETECTION_RULE": "No file ID, volume, open/close trace or process binding in recovered row schema.",
+      "NEGATIVE_TEST": "Distinct physical namespace; holder releases before probe; fake PASS.",
+      "REGRESSION_TEST": "MQL+PowerShell+filesystem/process cross-evidence with ownership interval.",
+      "FIX": "Frozen prior A-G matrix remains required; no FILE_COMMON production replacement justified yet.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "OPEN_NATIVE_PROTOCOL"
+    },
+    {
+      "DEFECT_ID": "R2REC-04",
+      "ROOT_CAUSE": "SafeIso accepts prefix siblings; Stop-Owned compares wildcard prefix, not exact executable plus process creation identity.",
+      "DETECTION_RULE": "StartsWith($IsoA)/StartsWith($IsoB) and -like \"$iso*\".",
+      "NEGATIVE_TEST": "Append _OTHER to iso root; PID reuse.",
+      "REGRESSION_TEST": "Exact canonical root/executable plus reparse rejection and PID/start identity.",
+      "FIX": "Replace prefix checks in consolidated qualifier, never terminate by name.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "OPEN_CONSOLIDATED_REPAIR"
+    },
+    {
+      "DEFECT_ID": "R2REC-05",
+      "ROOT_CAUSE": "Stop-Owned swallows errors and does not require verified process exit before restarting same terminal directory.",
+      "DETECTION_RULE": "Empty catch and Wait-Process errors ignored.",
+      "NEGATIVE_TEST": "Stop denied or timeout while previous terminal remains.",
+      "REGRESSION_TEST": "Failure must block stage launch and preserve receipt.",
+      "FIX": "Explicit ownership checked shutdown acknowledgement; no active terminal control.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "OPEN_CONSOLIDATED_REPAIR"
+    },
+    {
+      "DEFECT_ID": "R2REC-06",
+      "ROOT_CAUSE": "MetaEditor -Wait has no deadline and is not registered in Owned for guaranteed scoped cleanup.",
+      "DETECTION_RULE": "Compile Start-Process uses -Wait outside owned list.",
+      "NEGATIVE_TEST": "Compiler stalls.",
+      "REGRESSION_TEST": "Timeout with bounded cleanup of only exact owned process.",
+      "FIX": "Add bounded compilation and owned-process receipt to consolidated qualifier.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "OPEN_CONSOLIDATED_REPAIR"
+    },
+    {
+      "DEFECT_ID": "R2REC-07",
+      "ROOT_CAUSE": "R2T copies install/config trees without proving clones contain only qualifier startup content; no check of reparse targets.",
+      "DETECTION_RULE": "Recreate-Iso and Copy-Tree broad copy; safety INI alone insufficient proof of clone content.",
+      "NEGATIVE_TEST": "Install tree contains startup EA/profile or redirected directory.",
+      "REGRESSION_TEST": "Allowlist clone files and verify no other EA can start; never copy credential stores into evidence.",
+      "FIX": "Build minimal isolated clone from explicit allowlist. No actual unwanted execution is claimed.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "OPEN_CONSOLIDATED_REPAIR"
+    },
+    {
+      "DEFECT_ID": "R2REC-08",
+      "ROOT_CAUSE": "Failure packaging omits current raw stage files, process completion evidence and native logs; snapshots precede cleanup.",
+      "DETECTION_RULE": "catch calls Zip-Evidence before finally Cleanup; stages copied only after checks.",
+      "NEGATIVE_TEST": "Fresh reacquire FAIL or early return leaves RESULT uncopied.",
+      "REGRESSION_TEST": "On every path collect bounded exact files and logs before packaging, then post-cleanup snapshot.",
+      "FIX": "Consolidated finalization path preserving failure cause and cleanup outcome.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "OPEN_CONSOLIDATED_REPAIR"
+    },
+    {
+      "DEFECT_ID": "R2REC-09",
+      "ROOT_CAUSE": "Rows omit run_id/role nonce/epoch/PID/ticks; fixed filenames reused. Matching test_id alone cannot reject same-stage replay.",
+      "DETECTION_RULE": "WriteLocalRow header has ten fields only.",
+      "NEGATIVE_TEST": "Old same-stage PASS, wrong RunId/PID/token, impossible timestamp.",
+      "REGRESSION_TEST": "Independent expected plan and unique per-stage evidence identity.",
+      "FIX": "ExpectedFields supported in reader; producer/schema integration still required.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "OPEN_PRODUCER_BINDING"
+    },
+    {
+      "DEFECT_ID": "R2REC-10",
+      "ROOT_CAUSE": "R2T receipt lacks binding to certified runner SHA/includes and is actual-terminal subset, not full R2/R3 qualification.",
+      "DETECTION_RULE": "Receipt schema and package contents omit runner-under-test.",
+      "NEGATIVE_TEST": "Change runner byte; present R2T PASS as full R2.",
+      "REGRESSION_TEST": "SHA exact invalidation and full R0-R4 dependency gate.",
+      "FIX": "Keep R2 unqualified and R3/R4 blocked.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "ENFORCED_NO_PROMOTION"
+    },
+    {
+      "DEFECT_ID": "R2REC-11",
+      "ROOT_CAUSE": "GetTickCount64 in OnTimer does not prevent early OnDeinit/end of backtest. R2 MQL contains no Sleep.",
+      "DETECTION_RULE": "Holder release in OnDeinit independent of elapsed duration.",
+      "NEGATIVE_TEST": "Tester ends before 180000ms while ready file survives.",
+      "REGRESSION_TEST": "Trace OnDeinit reason, owner handle and probe wall-clock.",
+      "FIX": "Treat early release as unresolved hypothesis; do not attribute R2 failure to Sleep.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "OPEN_NATIVE_CAUSE"
+    },
+    {
+      "DEFECT_ID": "R2REC-12",
+      "ROOT_CAUSE": "Token write/seek/flush success is not fully checked before AcquireFence returns true.",
+      "DETECTION_RULE": "FileSeek/FileWriteLong/FileFlush results not incorporated in ownership acceptance.",
+      "NEGATIVE_TEST": "Token write failure or malformed owner bytes.",
+      "REGRESSION_TEST": "Under-lock token/epoch write and readback plus ownership-consistent release.",
+      "FIX": "Consolidated ownership transaction must fail closed on write failure.",
+      "EVIDENCE": "Recovered exact R2/R2T source snapshots, SOURCE_INTEGRITY.json; native hypotheses explicitly unproven.",
+      "state": "OPEN_CONSOLIDATED_REPAIR"
+    }
+  ]
+}

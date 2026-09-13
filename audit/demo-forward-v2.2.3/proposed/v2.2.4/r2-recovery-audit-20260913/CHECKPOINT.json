@@ -1,0 +1,27 @@
+{
+  "parent_commit": "082ae2a5153c226739ae78ed491d8ed4a0b35baa",
+  "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+  "archive_library_file_id": "libfile_e878912b739481919af0eb4249684837",
+  "archive_sha256": "c7cc89e75276fedaf565cdae16a13538cab52046774e02b9904e654162b8502c",
+  "completed": [
+    "2739/2739 inventory",
+    "R2 package 8/8",
+    "R2T package 6/6",
+    "exact runner and qualifiers recovered",
+    "stage race source proof and 12 model regressions",
+    "reader component and native test script"
+  ],
+  "remaining": [
+    "consolidated qualifier remediation of ledger",
+    "full mutation validator and native physical identity witness",
+    "Windows 6182 R2 run"
+  ],
+  "scientific_state": "FROZEN_CANDIDATE",
+  "execution_annotation": "BLOCKED_NATIVE; engineering component not release",
+  "pause_reason": "native validation unavailable; do not issue release before whole qualifier validation",
+  "do_not_repeat": [
+    "archive integrity unless rematerializing",
+    "prior 27 transcript mutations as new native evidence"
+  ],
+  "next_action": "Consolidated qualifier implementation and native validator/identity instrumentation; execute full R2 only on isolated Windows 6182 without Candidate3. Supplied reader component requires native tests before integration."
+}

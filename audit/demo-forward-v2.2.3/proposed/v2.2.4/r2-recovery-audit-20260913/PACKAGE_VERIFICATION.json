@@ -1,0 +1,98 @@
+[
+  {
+    "member": "ARCHIVOS\\000980_QROS_RUNNER_NATIVE_ENV_QUALIFIER_v1_FINAL.zip",
+    "sha256": "a4dd75c13432ac0f423301e645a9acf3f1d07a4be7c95e9a0a6aa182e0b89bdd",
+    "checks": [
+      {
+        "path": "EJECUTAR_QROS_RUNNER_NATIVE_ENV_QUALIFIER_v1.bat",
+        "expected": "e3bf4c34644573e197c87803230a8683f924a5afef677bcef06be2c1ecb8f16d",
+        "actual": "e3bf4c34644573e197c87803230a8683f924a5afef677bcef06be2c1ecb8f16d",
+        "pass": true
+      },
+      {
+        "path": "MQL5/Experts/QROS_RUNNER_ENV_QUALIFIER_v1.mq5",
+        "expected": "45cad9f9a3fb7a13b032fde417f7cdaa9abf342cb8706545f9c6354a18831347",
+        "actual": "45cad9f9a3fb7a13b032fde417f7cdaa9abf342cb8706545f9c6354a18831347",
+        "pass": true
+      },
+      {
+        "path": "QROS_RUNNER_DEFECT_LEDGER_v1.json",
+        "expected": "4f77c44738bd443a259b1902a9ba583d2ebc5c69cc4763309cd767041bd72440",
+        "actual": "4f77c44738bd443a259b1902a9ba583d2ebc5c69cc4763309cd767041bd72440",
+        "pass": true
+      },
+      {
+        "path": "QROS_RUNNER_QUALIFICATION_SYSTEM_v1.md",
+        "expected": "6e215b2f1073e048ff07f34479c4529f22163fca0618b02592b24b5b44ab01c2",
+        "actual": "6e215b2f1073e048ff07f34479c4529f22163fca0618b02592b24b5b44ab01c2",
+        "pass": true
+      },
+      {
+        "path": "QUALIFY_QROS_RUNNER_NATIVE_ENV_v1.ps1",
+        "expected": "a58de18704ad76c3dce4e09950170462d4bc82442660203b4b8741a840b96f96",
+        "actual": "a58de18704ad76c3dce4e09950170462d4bc82442660203b4b8741a840b96f96",
+        "pass": true
+      },
+      {
+        "path": "R1_STATIC_GATE_REPORT.json",
+        "expected": "77c2c51bd167742266133fcfd9bcb8d9abd309dc656128372a6a84397b79319d",
+        "actual": "77c2c51bd167742266133fcfd9bcb8d9abd309dc656128372a6a84397b79319d",
+        "pass": true
+      },
+      {
+        "path": "README.txt",
+        "expected": "8e4fdd1abfb5af2145e11cbc480f1e3570e06b2afddd3bbba7314af1928857d1",
+        "actual": "8e4fdd1abfb5af2145e11cbc480f1e3570e06b2afddd3bbba7314af1928857d1",
+        "pass": true
+      },
+      {
+        "path": "RUNNER_UNDER_QUALIFICATION.ps1",
+        "expected": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+        "actual": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+        "pass": true
+      }
+    ]
+  },
+  {
+    "member": "ARCHIVOS\\000979_QROS_RUNNER_ACTUAL_TERMINAL_FENCE_QUALIFIER_v1.zip",
+    "sha256": "f65ca9bc2d362ac0ba193e304f2552537b880d5699a3e648e03b7c9c6054fc1b",
+    "checks": [
+      {
+        "path": "EJECUTAR_QROS_RUNNER_ACTUAL_TERMINAL_FENCE_QUALIFIER_v1.bat",
+        "expected": "afca3f1f8f077d3cdb0795c8fd9b9ec15ff7fe6e034309958f2812c594bb2170",
+        "actual": "afca3f1f8f077d3cdb0795c8fd9b9ec15ff7fe6e034309958f2812c594bb2170",
+        "pass": true
+      },
+      {
+        "path": "MQL5/Experts/QROS_RUNNER_RUNTIME_FENCE_QUALIFIER_v1.mq5",
+        "expected": "89dc345b21e7d294a68b8c1cad2afd2bf07896d275b1132709ea5eee2a3db89e",
+        "actual": "89dc345b21e7d294a68b8c1cad2afd2bf07896d275b1132709ea5eee2a3db89e",
+        "pass": true
+      },
+      {
+        "path": "QUALIFY_QROS_RUNNER_ACTUAL_TERMINAL_FENCE_v1.ps1",
+        "expected": "85ea6cd4da259cee65a2aec7aa3e0a497db260b4462bb144e072265b0527a0ca",
+        "actual": "85ea6cd4da259cee65a2aec7aa3e0a497db260b4462bb144e072265b0527a0ca",
+        "pass": true
+      },
+      {
+        "path": "R2T_SPEC.json",
+        "expected": "b11bba6e7b0741a026a0c3e63566f6d7ce2ee5ca46186b627644b2fa628282d9",
+        "actual": "b11bba6e7b0741a026a0c3e63566f6d7ce2ee5ca46186b627644b2fa628282d9",
+        "pass": true
+      },
+      {
+        "path": "R2T_STATIC_GATE_REPORT.json",
+        "expected": "0d1304b10708eca6ae8dfa156c5cae0792c924f468edace23bddbfbc683a8089",
+        "actual": "0d1304b10708eca6ae8dfa156c5cae0792c924f468edace23bddbfbc683a8089",
+        "pass": true
+      },
+      {
+        "path": "README.txt",
+        "expected": "2944da74c194428bc379116e9121f20e7c0d4bbac0cb1522145584ca7c364a4c",
+        "actual": "2944da74c194428bc379116e9121f20e7c0d4bbac0cb1522145584ca7c364a4c",
+        "pass": true
+      }
+    ]
+  }
+]
