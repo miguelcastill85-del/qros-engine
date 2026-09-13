@@ -1,0 +1,37 @@
+{
+  "schema": "QROS_RUNNER_RELEASE_STATE_3.0",
+  "utc": "2026-09-13T22:35:00Z",
+  "candidate": "QROS_DARWINEX_DEMO_V224_CANDIDATE3",
+  "candidate_state": "FROZEN_CANDIDATE",
+  "runner": {
+    "version": "v2.2_R1CANDIDATE",
+    "source_sha256": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+    "r1_state": "STATIC_QUALIFIED",
+    "candidate_execution_allowed": false
+  },
+  "r2_v1": {
+    "evidence_sha256": "43984d02d002a43fd7cc3a89bf45baf00d09fb473f07328c8376bb967d335927",
+    "verified_before_failure": ["selftest 13/13", "manifest PASS", "runner SHA PASS", "includes PASS", "MetaEditor 0/0", "tester smoke PASS"],
+    "receipt": "FAIL code 52 FENCE_SECOND_EXECUTOR_NOT_DENIED",
+    "adjudication": "INVALID_FENCE_TEST_CONTEXT_D14",
+    "candidate_failure": false
+  },
+  "r2_v2": {
+    "package": "QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2_FINAL.zip",
+    "bytes": 27165,
+    "sha256": "90b9b0861659721c58c6690166e661b45cf4c5e9084852ae9d37e84d3edfbee3",
+    "qualifier_ps1_sha256": "54c161b8da7b04dc54071b02e1ebc7d8c0a68a10dbc9f84c42617c98e629ece1",
+    "tester_smoke_mq5_sha256": "993446de7b6915f811af33b073a5874a78cb784bc04cb0505aa4d64b31b8d346",
+    "live_fence_mq5_sha256": "d829512f6c819ce6f19dc8b5b9e7c19285b0b7e96e8cc345767905facbe2d807",
+    "static_gate": "21/21 PASS + 12/12 mutations",
+    "static_gate_sha256": "930ef7236b101a6d82e9e333c9fe87e52564174c8225ab3520da227b7961816e",
+    "postbuild": "25/25 PASS",
+    "postbuild_sha256": "f3417aeea1578094b51dd98ddfc3b607d0820b4252d3daa7235573939283f47b",
+    "fencing_context": "NORMAL_ISOLATED_TERMINALS_STARTUP_EA_MQL_TESTER_0",
+    "state": "R2_NATIVE_EXECUTION_REQUIRED"
+  },
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "v223_cert_rule": "KEEP_QDB1_EXEC_CERT_0",
+  "next_action": "Execute only EJECUTAR_QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2.bat. Candidate3 remains forbidden until a PASS R2 v2 receipt binds the exact runner and environment fingerprint."
+}
