@@ -1,0 +1,41 @@
+{
+  "schema": "QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_1.3",
+  "state": "ACTIVE_PROJECT_INVARIANT",
+  "adoption_date": "2026-09-13",
+  "supersedes_for_prospective_enforcement": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.2.json",
+  "preserves_historical_receipts": true,
+  "inherits_unmodified_rules_from": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.2.json",
+  "mandatory_universe_compiler": "governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.0.json",
+  "clarification": "BUILD_CURRENT_SEED_CAUSAL_UNIVERSE means compile the entire finite preregistered configuration universe for the selected seed, not merely define a handful of causal branches or representative families.",
+  "required_seed_sequence": [
+    "SELECT_ONE_SEED",
+    "SOURCE_AND_COLLISION_GATE",
+    "ROOT_MECHANISM_FREEZE",
+    "MANDATORY_DIMENSION_AUDIT",
+    "FINITE_PARAMETER_DOMAIN_FREEZE",
+    "ALLOWED_MUTATION_OPERATOR_PROJECTION",
+    "CONSTRAINT_GRAPH_FREEZE",
+    "COMPLETE_CONFIGURATION_ENUMERATION",
+    "SEMANTIC_DEDUPE",
+    "RISE_Q_ADVERSARIAL_AUDIT_TO_FIXED_POINT",
+    "UNIVERSE_ONTOLOGY_AND_CONFIG_HASH_FREEZE",
+    "INDEPENDENT_ENUMERATOR_EXACT_SET_PARITY",
+    "GATE_A_DEVELOPMENT_BACKTEST",
+    "REQUIRED_LATER_GATES",
+    "FINAL_DISPOSITION",
+    "ONLY_THEN_NEXT_SEED"
+  ],
+  "hard_prohibitions": [
+    "TREAT_BRANCH_COUNT_AS_UNIVERSE_COUNT",
+    "DECLARE_RISE_FIXED_POINT_BEFORE_ALL_APPLICABLE_DIMENSIONS_HAVE_BEEN_PROJECTED",
+    "EXCLUDE_TIMEFRAME_EMA_FILTER_SESSION_OR_MANAGEMENT_DIMENSIONS_MERELY_TO_REDUCE_SEARCH_SIZE",
+    "ADVANCE_QUEUE_BECAUSE_DATA_BYTES_ARE_MISSING_WHILE_LOGICAL_UNIVERSE_COMPILATION_CAN_STILL_CONTINUE",
+    "OPEN_GATE_A_BEFORE_CONFIG_HASH_FREEZE_AND_INDEPENDENT_PARITY",
+    "USE_PNL_TO_CHOOSE_WHICH_DIMENSIONS_OR_PARAMETER_VALUES_EXIST"
+  ],
+  "finite_not_infinite": "Completeness is defined against a frozen finite causal grammar and explicit domains. It does not mean testing every arbitrary integer or every conceivable indicator in existence. Within the frozen grammar, every valid cell is mandatory and cannot be sampled or hand-picked.",
+  "current_public1000_correction": {
+    "WEB_SEED_0076": "V204 ontology/fixed-point is preserved as historical evidence but must not authorize Gate A; it is reopened for exhaustive universe compilation under the compiler policy because no development PnL was opened.",
+    "V207_queue_status": "Preserve rank history and collision receipts, but the next active detailed genealogy returns to WEB_SEED_0076 until its full universe compilation reaches a valid freeze or a logically demonstrated blocker prevents even compilation."
+  }
+}
