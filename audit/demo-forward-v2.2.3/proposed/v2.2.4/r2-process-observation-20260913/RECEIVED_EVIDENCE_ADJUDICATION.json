@@ -1,0 +1,116 @@
+{
+  "archive_sha256": "18aed649ebaf3eb02c4d9bc4eceb209cd079331bc34136ba80689f733cebe456",
+  "library_file_id": "libfile_48ffc6a30ca881918750e2136ed27ae4",
+  "archive_crc": "PASS",
+  "entries": [
+    {
+      "name": "COMPONENT_RECEIPT.json",
+      "bytes": 2258,
+      "sha256": "8947cbc12d61a53bd4342ed2a21afac1e7321a016358e9ba913631092d5cb975"
+    },
+    {
+      "name": "Lock.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Lock.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "ready.json",
+      "bytes": 459,
+      "sha256": "fd85efd7ef027f807558cac7b1bedac452691435984264d7586bdbaf6c8440d8"
+    },
+    {
+      "name": "released.json",
+      "bytes": 261,
+      "sha256": "fb416279e9c5c4d68394c943e1ca22a77d1435910ddd65d861e04975cea9a266"
+    },
+    {
+      "name": "Writer.stderr.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Writer.stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "received_receipt": {
+    "schema": "QROS_COMPONENT_DIAGNOSTIC_1",
+    "run_id": "8452e09a594e4d80bc1d5f32057bef65",
+    "start_utc": "2026-09-13T20:29:47.6185557Z",
+    "end_utc": "2026-09-13T20:29:53.8884628Z",
+    "scope": "POWERSHELL_READER_AND_WINDOWS_LOCK_ONLY",
+    "decision": "COMPONENT_TESTS_FAIL",
+    "powershell": "5.1.22621.6133",
+    "tests": [
+      {
+        "test": "fresh_pass",
+        "pass": true
+      },
+      {
+        "test": "real_fail_preserved",
+        "pass": true
+      },
+      {
+        "test": "stale_probe_rejected",
+        "pass": true
+      },
+      {
+        "test": "wrong_run_rejected",
+        "pass": true
+      },
+      {
+        "test": "duplicate_stage_rejected",
+        "pass": true
+      },
+      {
+        "test": "incomplete_row_rejected",
+        "pass": true
+      },
+      {
+        "test": "invalid_status_rejected",
+        "pass": true
+      },
+      {
+        "test": "missing_token_rejected",
+        "pass": true
+      },
+      {
+        "test": "stale_then_fresh_different_process",
+        "pass": false,
+        "error": "WRITER_FAILED"
+      },
+      {
+        "test": "two_process_exclusive_release_reacquire",
+        "pass": false,
+        "error": "HOLDER_EXIT_FAILED"
+      }
+    ],
+    "fatal": null,
+    "diagnostic_source_sha256": "facbc5740172aa99fda4ca6909680b0962b4490bbd963031d47e2dd40647f3a7",
+    "reader_sha256": "1f22699be0652f0d9a14f741405da44fd5c05f4a9ad6e050e84b9450daa1150b",
+    "r2_native_qualified": false,
+    "candidate3_executed": false,
+    "mt5_accessed": false,
+    "cert_modified": false,
+    "deployment_allowed": false
+  },
+  "native_closed_tests": [
+    "fresh_pass",
+    "real_fail_preserved",
+    "stale_probe_rejected",
+    "wrong_run_rejected",
+    "duplicate_stage_rejected",
+    "incomplete_row_rejected",
+    "invalid_status_rejected",
+    "missing_token_rejected"
+  ],
+  "unresolved_failure_value": "ExitCode omitted; cannot distinguish null from nonzero",
+  "decision": "COMPONENT_TESTS_FAIL_PRESERVED",
+  "r2_native_qualified": false
+}

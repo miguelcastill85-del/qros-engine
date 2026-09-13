@@ -1,0 +1,16 @@
+{
+  "scope": "STATIC_CHECKS_AND_ARCHIVE_INTEGRITY_NOT_NATIVE_EXECUTION",
+  "input_source_binding": "MATCH",
+  "prior_reader_bytes": "UNCHANGED",
+  "native_file_identity_source": "UNCHANGED",
+  "new_native_checks_declared": 6,
+  "native_negative_controls_declared": 6,
+  "new_native_tests_executed": false,
+  "known_outcome_gate_before_dependent_tests": true,
+  "no_terminal_access_or_process_termination_commands": true,
+  "zip_entries_verified": 7,
+  "zip_sha256": "fd9d207a3c179070aad9fdf053e1777f9f7777f5c337b7391851a9ab83751aff",
+  "diagnostic_sha256": "20b2071388ccea621c3c2a0881d4a527be926ba00a0be15d30e403869ab11c1c",
+  "powershell_ast": "PENDING_NATIVE_PACKAGE_PARSE_GATE",
+  "r2_qualified": false
+}

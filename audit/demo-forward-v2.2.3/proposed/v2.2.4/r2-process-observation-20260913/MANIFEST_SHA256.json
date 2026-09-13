@@ -1,0 +1,64 @@
+{
+  "files": [
+    {
+      "path": "AUDITORIA_SALIDA_PROCESOS.md",
+      "bytes": 4425,
+      "sha256": "ba9024642ca7dca52815054d52381cf6b30c3425f7bf788902cbc49d90bd0df6"
+    },
+    {
+      "path": "CHECKPOINT.json",
+      "bytes": 2309,
+      "sha256": "5a18c9b0d639f61864fe0bf615a69cc8dc0e19d79d52163426ecc7ca8927ab82"
+    },
+    {
+      "path": "DEFECT_LEDGER.json",
+      "bytes": 12637,
+      "sha256": "53fdccd559ee82edd0fac6cfff8eb91a74a71b0273bdfac251f4f4e3081713e9"
+    },
+    {
+      "path": "LEEME.txt",
+      "bytes": 1109,
+      "sha256": "3d8061807891cbf16b7760a8d6cc0f6ea32bb37bf95d1dd032ec4c08d17cef8d"
+    },
+    {
+      "path": "Lock-Child.ps1",
+      "bytes": 3204,
+      "sha256": "da7b998adbbf3fe01e9f1450940bdb52d1bf6ad318830e0ea3691019c831aea5"
+    },
+    {
+      "path": "NativeFileIdentity.cs",
+      "bytes": 1234,
+      "sha256": "5cc7992dd3a007ed83ff961f2ed8146f142643c848de036806940cda92c29e6f"
+    },
+    {
+      "path": "PACKAGE_MANIFEST.json",
+      "bytes": 984,
+      "sha256": "44efb0da2e82246b768f9e90e6df5b31da37df6293cafec9e89700197bace3ec"
+    },
+    {
+      "path": "PRE_DELIVERY.json",
+      "bytes": 708,
+      "sha256": "09191043073f3f9dd9f0b12463128c13cf3cc2a1f0124c86fefe733ce38c34d1"
+    },
+    {
+      "path": "PROBAR_COMPONENTES.bat",
+      "bytes": 405,
+      "sha256": "e198d211f3993cf60698530a9f1631fa671773e696b9279af9deaf822eac5bd3"
+    },
+    {
+      "path": "RECEIVED_EVIDENCE_ADJUDICATION.json",
+      "bytes": 3285,
+      "sha256": "af12d5d919d3076dee949be44be18d4b24de497a65c6e46f70f52aa9cba8144e"
+    },
+    {
+      "path": "Test-Components.ps1",
+      "bytes": 15427,
+      "sha256": "20b2071388ccea621c3c2a0881d4a527be926ba00a0be15d30e403869ab11c1c"
+    },
+    {
+      "path": "Wait-QrosStageRow.ps1",
+      "bytes": 3435,
+      "sha256": "1f22699be0652f0d9a14f741405da44fd5c05f4a9ad6e050e84b9450daa1150b"
+    }
+  ]
+}

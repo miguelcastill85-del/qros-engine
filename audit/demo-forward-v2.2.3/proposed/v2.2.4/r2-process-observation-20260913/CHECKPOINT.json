@@ -1,0 +1,53 @@
+{
+  "OBJETIVO": "Resolve native component failures and continue R2 qualification without Candidate3",
+  "AUTORIDAD": {
+    "parent_commit": "b986a9dbc74ece1ed28125355e5a52054ffb8754",
+    "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+    "received_evidence": "libfile_48ffc6a30ca881918750e2136ed27ae4",
+    "input_sha256": "18aed649ebaf3eb02c4d9bc4eceb209cd079331bc34136ba80689f733cebe456"
+  },
+  "DATOS": "Windows component evidence only; no economic data",
+  "TRABAJO_EJECUTADO": [
+    "ZIP integrity and exact source SHA binding",
+    "Native receipt adjudication",
+    "Full diagnostic process-lifecycle review and scoped repair",
+    "Known-outcome controls and failure evidence instrumentation",
+    "Single Windows diagnostic ZIP"
+  ],
+  "RESULTADOS_VERIFICADOS": {
+    "native_receipt_pass": 8,
+    "native_receipt_fail": 2,
+    "input_crc": "PASS",
+    "new_native_tests_executed": false,
+    "native_exit_values": "NOT_AVAILABLE_IN_RECEIVED_ARCHIVE"
+  },
+  "GATES": {
+    "R2": "NOT_QUALIFIED",
+    "Candidate3": "FROZEN_CANDIDATE",
+    "new_diagnostic": "STATIC_REVIEWED_NATIVE_PENDING",
+    "qualifier_fixed_point": "NOT_ESTABLISHED"
+  },
+  "PROBLEMAS": [
+    "Original raw exit codes missing",
+    "No callable Windows target here",
+    "Full qualifier repair and native physical MQL trace still pending"
+  ],
+  "CAUSA_RAIZ": {
+    "demonstrated": "Missing raw process-exit evidence and incomplete intermediate result capture",
+    "hypothesis": "ExitCode unavailable from Start-Process object; not proven retrospectively"
+  },
+  "CORRECCIONES": [
+    "Retain original Process and handle",
+    "Typed exit validation without coercion",
+    "0/7/timeout controls before dependent tests",
+    "Persist every observation before decision",
+    "Preserve 8 closed native tests"
+  ],
+  "ESTADO_CIENTIFICO": "FROZEN_CANDIDATE",
+  "IMPACTO_PORTAFOLIO": "NONE",
+  "SIGUIENTE_ACCION_AUTOMATICA": "Verify returned QROS_COMPONENT_EVIDENCE with schema QROS_COMPONENT_PROCESS_OBSERVATION_1 and exact diagnostic/package hashes; adjudicate process controls then writer/lock; do not promote R2 or launch Candidate3.",
+  "pause_reason": "Native execution unavailable in Linux; waiting for exact Windows evidence",
+  "candidate3_executed": false,
+  "cert_modified": false,
+  "deployment_allowed": false
+}

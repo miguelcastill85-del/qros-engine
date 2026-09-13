@@ -1,0 +1,20 @@
+QROS - DIAGNOSTICO DE SALIDA DE PROCESOS. NO ES R2 NI EJECUTA MT5.
+
+Extrae TODO el ZIP en una carpeta nueva y ejecuta PROBAR_COMPONENTES.bat.
+Adjunta solamente QROS_COMPONENT_EVIDENCE_...zip del Escritorio.
+No necesita administrador ni instalar nada. No modifica ni abre MT5.
+
+Tu evidencia anterior conserva 8 pruebas nativas aprobadas. No se repiten.
+Este paquete comprueba primero procesos con salida conocida 0 y 7, un timeout
+y seis entradas negativas del validador. Si esos controles fallan, se detiene
+antes de usar el lanzador para probar el escritor y el lock.
+Luego repite solamente las dos pruebas que quedaron pendientes.
+
+Conserva PID, identificacion de proceso, codigo de salida bruto y su tipo,
+stdout/stderr, fila del escritor y observaciones del lock antes de evaluarlas.
+La ausencia de codigo nunca se convierte en 0 ni en PASS.
+
+ESTADO: revisado estaticamente; nueva ejecucion Windows PENDIENTE.
+Windows PowerShell 5.1 y NTFS. No es una release del qualifier.
+Candidate3 permanece congelado. No cambia CERT ni opera cuentas.
+El resultado NO certifica R2, MQL5, Tester ni dos terminales MT5.
