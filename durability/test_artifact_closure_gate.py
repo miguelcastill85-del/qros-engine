@@ -28,4 +28,6 @@ class GateTests(unittest.TestCase):
   td,m,r=self.fixture(); m["objects"].append(dict(m["objects"][0])); self.assertIn("DUPLICATE_OBJECT_ID",evaluate(m,r)["errors"]); td.cleanup()
  def test_undeclared_store_fails(self):
   td,m,r=self.fixture(); m["objects"][0]["required_store_ids"].append("ghost"); self.assertIn("UNDECLARED_STORE:0:ghost",evaluate(m,r)["errors"]); td.cleanup()
+ def test_restore_never_runs_after_failed_preflight(self):
+  td,m,r=self.fixture(); m["objects"][0]["required_store_ids"].append("ghost"); receipt=evaluate(m,r); self.assertEqual(restore_canary(m,r,receipt)["errors"],["PREFLIGHT_NOT_AUTHORIZED"]); td.cleanup()
 if __name__=="__main__": unittest.main()
