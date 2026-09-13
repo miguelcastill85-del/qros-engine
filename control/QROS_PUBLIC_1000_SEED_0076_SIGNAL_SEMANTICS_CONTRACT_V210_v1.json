@@ -1,0 +1,89 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_SIGNAL_SEMANTICS_CONTRACT_1.0",
+  "state":"FROZEN_PRE_PNL",
+  "seed":"WEB_SEED_0076",
+  "machine_spec":"research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json",
+  "price_streams":{
+    "technical_signal_bars":"BID_OHLC built causally from Darwinex Bid ticks",
+    "buy_entry":"first executable Ask after signal event",
+    "sell_entry":"first executable Bid after signal event",
+    "buy_exit":"Bid",
+    "sell_exit":"Ask",
+    "mid_price_as_fill":false
+  },
+  "bar_availability":{
+    "completed_bar_only_for_indicators":true,
+    "tick_break":"boundary and all filter state must be known before triggering tick; ATR/filter values use the last completed signal bar",
+    "close_break":"signal is evaluated after the signal bar completes; indicators may include that just-completed bar; fill occurs on the next executable quote",
+    "multi_tf":"latest fully closed higher-timeframe bar available strictly before entry"
+  },
+  "fractal_generalization":{
+    "window":"odd integer N; k=floor(N/2); candidate pivot is bar t-k when bar t closes",
+    "SOURCE_ASYMMETRIC_high":"pivot >= every older/left neighbor inside window AND pivot > every newer/right neighbor inside window",
+    "SOURCE_ASYMMETRIC_low":"pivot <= every older/left neighbor inside window AND pivot < every newer/right neighbor inside window",
+    "STRICT_ALL_NEIGHBORS_high":"pivot > every other high in the window",
+    "STRICT_ALL_NEIGHBORS_low":"pivot < every other low in the window",
+    "first_usable_time":"after confirmation event at close of bar t; plot offsets never change executable time"
+  },
+  "rearm_modes":{
+    "RETURN_INSIDE_OR_LEVEL_REPLACED":"after same-side signal, same side rearms only after price returns to or through the broken boundary in the opposite direction, or a new confirmed same-side boundary replaces it",
+    "LEVEL_REPLACED_ONLY":"same-side signal may recur only after a new confirmed same-side boundary replaces the signaled boundary",
+    "ONE_SIGNAL_PER_LEVEL":"each unique confirmed boundary may trigger once per side; replacement creates a new eligible level"
+  },
+  "breakout_and_retest":{
+    "buy_threshold":"confirmed fractal high + breakout_buffer_atr * ATR14 when buffer active; otherwise confirmed high",
+    "sell_threshold":"confirmed fractal low - breakout_buffer_atr * ATR14 when buffer active; otherwise confirmed low",
+    "TICK_BREAK":"first causal Bid transition from <= threshold to > threshold for BUY; from >= threshold to < threshold for SELL",
+    "CLOSE_BREAK":"completed Bid bar close crosses threshold in the side direction relative to previous completed close",
+    "retest_arm":"only after a valid breakout event",
+    "TOUCH_RECLAIM":"within configured completed-bar window, price touches/crosses back through boundary and subsequently reclaims it intrabar; entry only after reclaim event is observable",
+    "CLOSE_RECLAIM":"within configured completed-bar window, a completed bar trades through/touches boundary and closes back on breakout side; entry next executable quote",
+    "boundary_replaced_during_retest":"cancel pending retest and restart from the new confirmed boundary",
+    "opposite_break_during_retest":"cancel pending same-side retest"
+  },
+  "indicator_formulas":{
+    "EMA":"source=CLOSE unless explicitly stated; alpha=2/(n+1); seed=SMA of first n completed bars; recursive thereafter",
+    "ATR":"Wilder true range; RMA period n seeded by SMA of first n TR values",
+    "RSI14":"Wilder RMA of gains/losses period 14; standard 0-100 definition",
+    "ROC5":"100*(Close[t]/Close[t-5]-1) on completed bars",
+    "CCI20":"TypicalPrice=(H+L+C)/3; (TP-SMA20(TP))/(0.015*mean_deviation20)",
+    "STOCH14_3":"raw %K over 14 completed bars; SMA3 smoothing; BUY aligned when smoothed K>50, SELL aligned when K<50",
+    "ADX14":"Wilder +DM/-DM/TR smoothing period14 followed by Wilder smoothing of DX period14; threshold is direction-neutral trend strength",
+    "EMA20_SLOPE_ATR14":"(EMA20[t]-EMA20[t-1])/ATR14[t]; BUY requires >= +threshold, SELL <= -threshold"
+  },
+  "trend_rules":{
+    "EMA_ORDER":"BUY EMAfast>EMAmid>EMAslow; SELL reverse",
+    "PRICE_EMA_ORDER":"BUY Close>EMAfast>EMAmid>EMAslow; SELL Close<EMAfast<EMAmid<EMAslow",
+    "EMA_ORDER_SLOPE":"EMA_ORDER plus each EMA one-bar slope sign aligned with side",
+    "PRICE_EMA_ORDER_SLOPE":"PRICE_EMA_ORDER plus each EMA one-bar slope sign aligned with side",
+    "EMA_CROSS_RECENCY":"fast/mid cross in side direction occurred within inclusive last N completed signal bars"
+  },
+  "dependency_defaults":{
+    "geometry_fast_ema_when_TREND_active":"use active TREND fast EMA",
+    "geometry_fast_ema_when_TREND_inactive":"EMA35 CLOSE",
+    "ema_cross_when_TREND_active":"use active TREND fast/mid EMA pair",
+    "ema_cross_when_TREND_inactive":"EMA35/EMA70 CLOSE",
+    "mtf_trend_when_TREND_active":"reuse active TREND mode/triple on context timeframe where meaningful; PRICE clause uses context close",
+    "mtf_trend_when_TREND_inactive":"PRICE_EMA_ORDER with source 35/70/105 on context timeframe"
+  },
+  "context_timeframe_mapping":{
+    "ladder":["M5","M15","H1","H4","D1","W1"],
+    "NEXT_HIGHER":"first ladder timeframe strictly greater in duration than signal timeframe",
+    "TWO_STEPS_HIGHER":"second ladder timeframe strictly greater in duration than signal timeframe",
+    "examples":{"M1":["M5","M15"],"M10":["M15","H1"],"M30":["H1","H4"],"H1":["H4","D1"],"H4":["D1","W1"]},
+    "closed_context_only":true
+  },
+  "session_semantics":{
+    "NY_RTH":"09:30-16:00 America/New_York",
+    "NY_OPEN_120":"09:30-11:30 America/New_York",
+    "NY_MIDDAY":"11:30-14:00 America/New_York",
+    "NY_CLOSE_120":"14:00-16:00 America/New_York",
+    "LONDON":"08:00-16:30 Europe/London",
+    "LONDON_NY_OVERLAP":"time intersection of LONDON and NY_RTH on each civil date using IANA DST rules",
+    "source_clock_mapping_required_before_execution":true
+  },
+  "same_day_exit":"close at last valid executable quote before source-clock trading date changes; if symbol session ends earlier, use last valid quote before that session break once session calendar is bound",
+  "execution_ambiguity_policy":"SL first when SL and TP are reached ambiguously; gap uses first actually executable quote; crossed/invalid quotes cannot fill",
+  "economic_pnl_open":false,
+  "holdout_open":false
+}
