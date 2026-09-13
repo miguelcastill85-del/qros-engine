@@ -1,0 +1,55 @@
+{
+  "schema": "QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V202_1.0",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "program": "QROS_PUBLIC_1000_HYPOTHESIS_SEEDS",
+  "date": "2026-09-13",
+  "methodology_authority": {
+    "serial_seed_policy": "governance/QROS_SEED_SERIAL_EXECUTION_POLICY_v1.0.json",
+    "causal_universe_policy": "governance/QROS_PROJECT_POLICY_CAUSAL_UNIVERSE_FIRST_v1.2.json",
+    "adoption_receipt": "control/QROS_SEED_SERIAL_EXECUTION_ADOPTION_RECEIPT_v1.json"
+  },
+  "reconciliation_authority": {
+    "source_resolution": "control/QROS_PUBLIC_1000_SOURCE_RESOLUTION_V202_v1.json",
+    "premature_selection_withdrawal": "control/QROS_G32_PREMATURE_SELECTION_WITHDRAWAL_V202_v1.json"
+  },
+  "scientific_frontier": {
+    "phase": "SOURCE_RESOLUTION_BEFORE_SEED_SELECTION",
+    "selected_seed": null,
+    "active_detailed_seed_genealogy": null,
+    "development_pnl_open": false,
+    "holdout_open": false,
+    "priority_queue_frozen": false,
+    "exact_pool_authority_verified_in_current_scope": false
+  },
+  "preserved_history": {
+    "mama_fama_v201": "HISTORICAL_NO_RESULTS_SELECTION_WITHDRAWN_NOT_REJECTED",
+    "g30": "FROZEN_SEPARATE_AUTHORITY_NO_CONFIG_INHERITANCE_NO_PAYLOAD_RECREATION"
+  },
+  "resume_preconditions": [
+    "RECOVER_EXACT_1000_POOL_CARRIER_OR_EXACT_PERSISTED_DEDUPE_PRIORITY_ARTIFACT",
+    "VERIFY_IDENTITY_AND_HASHES",
+    "RECONCILE_PRIOR_REPORTED_AUDIT_WITH_BYTE_VERIFIABLE_AUTHORITY",
+    "FREEZE_PNL_BLIND_DEDUPE_AND_PRIORITY_QUEUE",
+    "SELECT_EXACTLY_ONE_SEED"
+  ],
+  "resume_after_preconditions": [
+    "SOURCE_AND_GENEALOGY_COLLISION_GATE",
+    "BUILD_SELECTED_SEED_CAUSAL_UNIVERSE",
+    "RISE_Q_AUDIT_TO_FIXED_POINT",
+    "UNIVERSE_ONTOLOGY_FROZEN",
+    "DETERMINISTIC_CONFIG_ENUMERATION_AND_HASH_FREEZE",
+    "INDEPENDENT_ENUMERATOR_PARITY",
+    "DEVELOPMENT_BACKTEST",
+    "GATES_AND_FINAL_DISPOSITION",
+    "ONLY_THEN_NEXT_SEED"
+  ],
+  "forbidden_shortcuts": [
+    "SELECT_SEED_FROM_MEMORY_ONLY",
+    "SELECT_MAMA_FAMA_BECAUSE_V201_EXISTS",
+    "SUBSTITUTE_100_OR_200_SEED_FILES_FOR_1000_POOL",
+    "REBUILD_1000_POOL_FROM_WEB_AND_CALL_IT_SAME_AUTHORITY",
+    "OPEN_PNL_BEFORE_POOL_AND_SEED_FREEZE",
+    "INHERIT_G30_CONFIGURATIONS"
+  ],
+  "decision": "RESUMABLE_CHECKPOINT_FROZEN_NO_SEED_SELECTED"
+}
