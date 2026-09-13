@@ -8,6 +8,7 @@
   "policy":{"path":"control/QROS_ARTIFACT_DURABILITY_CLOSURE_GATE_V2.json","sha256":"4ea8f19e6b0b48c0ae24ae13158958466050b7df16f7155e8d134b6a8095371f"},
   "rise_audit":{"path":"control/QROS_ARTIFACT_DURABILITY_RISE_AUDIT_V2.json","sha256":"78f785d977084d7468a4f47f796e6f292a964e873873cfe886196febed99a912","decision":"FIXED_POINT_REACHED_FOR_ENGINEERING_CONTROL_SCOPE"},
   "verified_attacks":["missing durable copy","hash mismatch","hash without bytes","runtime claimed as authority","ambiguous holdout state","duplicate object id","undeclared store","restore after failed preflight"],
-  "decision":"IMPLEMENTATION_TEST_PASS_PENDING_REMOTE_READBACK_AND_MERGE",
+  "remote_readback":{"files":6,"byte_identical":6,"failed":0,"initial_merge_commit":"ba3d0437f5b9bf26f8fa82c49a21d25db3252559","hardening_merge_commit":"f924365ba368d2ef2625658476867e228b7eb79c"},
+  "decision":"IMPLEMENTED_TESTED_REMOTE_READBACK_PASS_MERGED_TO_MAIN",
   "scientific_state_unchanged":{"campaign":"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1","scope":"F03_F12_ONLY","stage_b":"GLOBALLY_CLOSED","stage_c":"NOT_EXECUTED","f13":"EXCLUDED","nqx_6570":"MATERIALIZATION_PENDING"}
 }
