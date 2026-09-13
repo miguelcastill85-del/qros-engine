@@ -1,0 +1,30 @@
+{
+  "schema": "QROS_R2T_POSTBUILD_VALIDATION_2.1",
+  "artifact": "QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2_1_FINAL.zip",
+  "bytes": 27278,
+  "sha256": "cf4da8a98e2e683ca19ce5ae239d5faf7b30c322a149ae4b9bd4f7c2e0388c10",
+  "checks": {
+    "zip_crc": true,
+    "manifest_count": true,
+    "file_EJECUTAR_QROS_RUNNER_NATIVE_ENV_QUALIFIER_v2_1.bat": true,
+    "file_MQL5/Experts/QROS_RUNNER_LIVE_FENCE_QUALIFIER_v2_1.mq5": true,
+    "file_MQL5/Experts/QROS_RUNNER_TESTER_SMOKE_v2_1.mq5": true,
+    "file_QROS_R2T_ACTUAL_TERMINAL_FENCE_SPEC_v2_1.json": true,
+    "file_QROS_RUNNER_DEFECT_LEDGER_v2_1.json": true,
+    "file_QROS_RUNNER_QUALIFICATION_SYSTEM_v1_2.md": true,
+    "file_QUALIFY_QROS_RUNNER_NATIVE_ENV_v2_1.ps1": true,
+    "file_R1_STATIC_GATE_REPORT.json": true,
+    "file_README.txt": true,
+    "file_RUNNER_UNDER_QUALIFICATION.ps1": true,
+    "runner_exact": true,
+    "static_gate": true,
+    "live_no_trade_api": true,
+    "no_candidate_execution": true,
+    "no_qdb1_cert": true,
+    "normal_startup": true,
+    "overlap_codes": true
+  },
+  "summary": {"pass": 19, "total": 19, "fail": 0},
+  "status": "PREVALIDATED_ARTIFACT",
+  "native_validated": false
+}
