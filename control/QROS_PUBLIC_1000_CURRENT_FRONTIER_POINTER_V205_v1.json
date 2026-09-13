@@ -1,0 +1,56 @@
+{
+  "schema": "QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "phase": "SEED_0512_FROZEN_INFRA_BLOCKER_QUEUE_RELEASED",
+  "canonical_pool": {
+    "zip_sha256": "e94a294f59a58785c7b0d3651022693cb770022b6dfb9d1e6fa5ec580f1bbef0",
+    "exact_bytes_store": "Dropbox:/QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.zip",
+    "authority_receipt": "control/QROS_PUBLIC_1000_CANONICAL_AUTHORITY_RECEIPT_V203_v1.json",
+    "persistence_correction": "control/QROS_PUBLIC_1000_CANONICAL_AUTHORITY_CORRECTION_V204_v1.json"
+  },
+  "priority_queue": {
+    "receipt": "control/QROS_PUBLIC_1000_PNL_BLIND_PRIORITY_QUEUE_FREEZE_V203_v1.json",
+    "frozen": true,
+    "sha256": "14b9b76103724fa61bcf72f8fb80cb6cb1cb56749678e4ed9cd54116e8d15a21"
+  },
+  "frozen_blocked_seeds": [
+    {
+      "rank": 1,
+      "id": "WEB_SEED_0076",
+      "state": "FROZEN_RESUMABLE_INFRA_BLOCKER_NOT_REJECTED_NOT_APPROVED",
+      "blocker": "control/QROS_PUBLIC_1000_SEED_0076_RUNTIME_BLOCKER_V204_v1.json",
+      "development_pnl_open": false,
+      "holdout_open": false
+    },
+    {
+      "rank": 2,
+      "id": "WEB_SEED_0512",
+      "source_id": "FMZ:363749",
+      "name": "Fibonacci Progression With Breaks",
+      "state": "FROZEN_RESUMABLE_INFRA_BLOCKER_NOT_REJECTED_NOT_APPROVED",
+      "source_prereg": "control/QROS_PUBLIC_1000_SEED_0512_SOURCE_RECONCILIATION_PREREG_V205_v1.json",
+      "ontology": "control/QROS_PUBLIC_1000_SEED_0512_CAUSAL_SCOPE_ONTOLOGY_V205_v1.json",
+      "ontology_canonical_sha256": "b0ff6fb467c776d6551e08b557ade00de37e86d8f1ac350a1b66f3d973b19f1a",
+      "rise": "control/QROS_PUBLIC_1000_SEED_0512_RISE_FIXED_POINT_V205_v1.json",
+      "logical_parity": "control/QROS_PUBLIC_1000_SEED_0512_ENUMERATOR_PARITY_V205_v1.json",
+      "signal_profiles": 2880,
+      "signal_management_profiles": 8640,
+      "signal_set_sha256": "d7252459a6c1cbf776d2f879d4b18be5b47068c2dbdb9e41d391cb3a2385bbb4",
+      "signal_management_set_sha256": "63307d9529de629dfc4f6ebeb64669894c05cb3e2d9cab5c2ee4dd138805313e",
+      "blocker": "control/QROS_PUBLIC_1000_SEED_0512_RUNTIME_BLOCKER_V205_v1.json",
+      "development_pnl_open": false,
+      "holdout_open": false
+    }
+  ],
+  "serial_queue_release": {
+    "active_detailed_seed_genealogy": null,
+    "next_queue_rank": 3,
+    "next_seed": "WEB_SEED_0763",
+    "next_source_id": "FMZ:441077",
+    "next_name": "Future Lines of Demarcation Backtest Strategy",
+    "reason": "seed0512 has a demonstrated common infrastructure blocker and a frozen resumable checkpoint with zero PnL/holdout contamination"
+  },
+  "g30_inheritance": false,
+  "next_action": "Recover exact source for WEB_SEED_0763, execute collision gate, then preregister/build only that seed if eligible."
+}
