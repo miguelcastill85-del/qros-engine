@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0929_COLLISION_REJECTION_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "seed": {
+    "queue_rank": 4,
+    "id": "WEB_SEED_0929",
+    "source_id": "FMZ:449810",
+    "name": "Hurst Future Lines of Demarcation Strategy"
+  },
+  "state": "REJECTED",
+  "stage": "PRE_PNL_CAUSAL_COLLISION_GATE",
+  "exact_source": {
+    "repository": "fmzquant/strategies",
+    "commit": "7853bb2bf262c4567ac238d3552d97f0e50cb801",
+    "path": "赫斯特未来分界线策略-Hurst-Future-Lines-of-Demarcation-Strategy.md"
+  },
+  "source_reduction": {
+    "FLD_out": "SMA(source, smoothFLD?FLDsmooth:1)",
+    "references": "signal=FLD_out[round(cyc_q/2)], trade=FLD_out[round(cyc/2)], trend=FLD_out[round(cyc_d/2)]",
+    "default_cycles": [5,20,80],
+    "plot_offsets": "visual only; no future information",
+    "buy": "crossover(price,signal) with bullish lag-stack ordering signal>trade>trend; state==1 is contemporaneously reconstructed by that ordering except exact-tie persistence",
+    "sell": "crossunder(price,signal) with bearish lag-stack ordering signal<trade<trend; state==6 is contemporaneously reconstructed by bearish ordering plus price<signal except exact-tie persistence",
+    "state_memory_materiality": "A-H state variable is not a genuine path-state entry operator on non-tie bars; it mostly labels the current ordering/price relation"
+  },
+  "collision_reason": {
+    "information_source": "same OHLC price history already used by lagged-return/momentum and trend-stack operators",
+    "operator_class": "multi-horizon lagged-price momentum stack plus shortest-reference crossover",
+    "existing_qros_evidence": [
+      "NDX_P26 preregistered signed mid return over multiple horizons",
+      "QROS context library contains multi-horizon trend/EMA stack operators",
+      "QROS novelty policy rejects new window, EMA, direction inversion and trivial conjunction of existing signals as independent genealogy"
+    ],
+    "close_trigger_choices": "exit/management variants cannot establish independent alpha"
+  },
+  "classification": "PARAMETRIC_OR_TRIVIAL_COMPOSITION_OF_EXISTING_MOMENTUM_TREND_OPERATOR_CLASS",
+  "development_pnl_open": false,
+  "holdout_open": false,
+  "economic_test_performed": false,
+  "decision": "REJECT_BEFORE_UNIVERSE_BUILD",
+  "portfolio_impact": "0 new modules; 0R; 0 frequency claimed"
+}
