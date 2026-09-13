@@ -1,0 +1,37 @@
+{
+  "schema": "QROS_PUBLIC_1000_CANONICAL_AUTHORITY_RECEIPT_1.0",
+  "state": "PASS_CANONICAL_AUTHORITY_RECOVERABLE",
+  "created_utc": "2026-09-13T15:58:00Z",
+  "authority": {
+    "filename": "QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.zip",
+    "bytes": 93608,
+    "sha256": "e94a294f59a58785c7b0d3651022693cb770022b6dfb9d1e6fa5ec580f1bbef0",
+    "durable_storage": {
+      "provider": "Dropbox",
+      "path": "/QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.zip",
+      "file_id": "id:3hcdcMy0pHAAAAAAAAAANg"
+    },
+    "github_role": "This receipt is the durable recovery pointer and identity contract. Recover the exact ZIP from durable_storage and require the SHA-256 above before use."
+  },
+  "zip_members": [
+    {"name":"QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.csv","bytes":2099705,"sha256":"e020b1c41aeb971c633658882a98ff479c6d28d32f671514f28be20e793fbaea"},
+    {"name":"QROS_1000_ESTRATEGIAS_DESCARTADAS_AUDIT_v1.csv","bytes":46484,"sha256":"716e6f961af53181347b149c440e35df6173e173f2284c7b1f1ea61f8df4a5ea"},
+    {"name":"QROS_1000_ESTRATEGIAS_SUMMARY_v1.json","bytes":1330,"sha256":"164381f3249fb2e80a53cb77f7082a6ebaf6569d73d416c86191a2ae11dee618"},
+    {"name":"QROS_1000_ESTRATEGIAS_README_v1.md","bytes":1754,"sha256":"00c827952e95c409abb2a4d6f9525a8ba3a313381c193b1272c52b2a54b0c71e"},
+    {"name":"QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_MANIFEST_v1.json","bytes":2372,"sha256":"915eb7b2db442e1a5914686e8a9de8be36b1d0bb031dbfb223897aa9bc135cb8"}
+  ],
+  "catalog_integrity": {
+    "manifest_status": "PASS_CATALOG_INTEGRITY",
+    "rows": 1000,
+    "source_ids_unique": true,
+    "semantic_fingerprints_unique": true,
+    "urls_unique": true,
+    "required_fields_nonempty": true
+  },
+  "scientific_status": "CATALOG_READY_NO_BACKTEST",
+  "prohibitions": [
+    "Do not substitute a similar or newer catalog for this byte identity.",
+    "Do not use development PnL to reorder the frozen seed queue.",
+    "Do not inherit G30 configurations into this program."
+  ]
+}
