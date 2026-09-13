@@ -1,0 +1,45 @@
+{
+  "schema": "QROS_G32_PREDEVELOPMENT_STATE_V2",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "supersedes": "control/G32_PREDEVELOPMENT_STATE_V1.json",
+  "global_head_parent": "QROS_PERSISTENT_CONTROL_HEAD_V200",
+  "relationship_to_global_head": "PARALLEL_PREREGISTRATION_DOES_NOT_SUPERSEDE_OR_MUTATE_ACTIVE_G30_RECOVERY",
+  "status": "DURABLY_PREREGISTERED_ONTOLOGY_FROZEN_EXECUTION_NOT_AUTHORIZED",
+  "core_commit": "c43dfbecc8351f49e02e4832539546f0a82d3f4e",
+  "completed": {
+    "catalog_triage": "PASS_1000_OF_1000",
+    "selected_root": "WEB_SEED_0937_FMZ_430662_MAMA_FAMA",
+    "causal_audit": "PASS_WITH_HARDENING_APPLIED",
+    "collision_gate": "NOVEL_GENEALOGY",
+    "ontology": "FROZEN_V2",
+    "rise": "FIXED_POINT_TWO_CONSECUTIVE_ZERO_DELTA_ROUNDS",
+    "signal_config_enumeration": "PASS_700416_OF_700416_ROOT_5d78fb75b54b2ff61b95c0917c1760d08da9ce1c55092793fa5917f7824bb7aa",
+    "management_profiles": 144,
+    "execution_profiles": 1,
+    "stress_profiles": 15,
+    "durability": "RESTORE_PASS_TWO_INDEPENDENT_STORES"
+  },
+  "pending_before_economic_execution": [
+    "FREEZE_DEVELOPMENT_SELECTION_SPEC",
+    "FREEZE_MULTIPLICITY_SPEC",
+    "FREEZE_COMPLETE_EXECUTION_AND_UNIT_CONTRACT",
+    "VERIFY_PINE_V2_LITERAL_REFERENCE_VECTORS_OR_KEEP_PUBLIC_BRANCH_BLOCKED",
+    "IMPLEMENT_PRIMARY_SIGNAL_ENGINE",
+    "IMPLEMENT_INDEPENDENT_SIGNAL_ENGINE",
+    "FULL_SIGNAL_MASK_PARITY_AND_EMPIRICAL_ALIAS_DEDUPE",
+    "DERIVE_RUN_QUEUE_FROM_FINAL_FROZEN_ROOTS"
+  ],
+  "execution_state": "READY_FOR_NON_ECONOMIC_SIGNAL_ENGINE_IMPLEMENTATION",
+  "scientific_outcome": "NONE_NO_RESULTS",
+  "stop_reason": null,
+  "guards": {
+    "economic_execution_authorized": false,
+    "holdout": "SEALED",
+    "forward": "SEALED",
+    "g30_stage_c": "UNCHANGED_NOT_EXECUTED",
+    "f13": "EXCLUDED_UNTOUCHED",
+    "all_passers_advance": true,
+    "no_medoids_no_reranking": true
+  },
+  "next_action": "FREEZE_REMAINING_PREDEVELOPMENT_SPECS_THEN_BUILD_PRIMARY_AND_INDEPENDENT_G32_SIGNAL_ENGINES_WITHOUT_PNL"
+}

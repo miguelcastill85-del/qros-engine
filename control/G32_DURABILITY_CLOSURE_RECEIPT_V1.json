@@ -1,0 +1,59 @@
+{
+  "schema": "QROS_G32_DURABILITY_CLOSURE_RECEIPT_V1",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "date": "2026-09-13",
+  "policy": "control/QROS_ARTIFACT_DURABILITY_CLOSURE_GATE_V2.json",
+  "scope": "G32_PREDEVELOPMENT_HYPOTHESIS_ONTOLOGY_AND_ENUMERATION_ONLY",
+  "status": "RESTORE_PASS",
+  "closure_protocol": {
+    "COMPUTATION_COMPLETE": "PASS_700416_SIGNAL_CONFIGS_144_MANAGEMENT_1_EXECUTION_15_STRESS",
+    "MANIFEST_CANONICALIZED": "PASS_G32_RECOVERY_PACKET_MANIFEST_V1",
+    "TWO_INDEPENDENT_COPIES_VERIFIED": "PASS_REPOSITORY_AND_PERSISTENT_RECOVERY_PACKET",
+    "REMOTE_READBACK_VERIFIED": "PASS_BOTH_STORES",
+    "EPHEMERAL_COPY_REMOVED": "PASS_DISPOSABLE_RESTORE_DIRECTORY_AUTOMATICALLY_REMOVED_AFTER_TEST",
+    "RESTORE_CANARY_PASS": "PASS_22_OF_22_PAYLOADS_AND_15_OF_15_TESTS",
+    "NEXT_STAGE_DRY_RUN_PASS": "PASS_RESTORED_ENUMERATOR_RECONSTRUCTS_EXACT_ROOT_AND_FAILS_CLOSED_BEFORE_SIGNAL_ENGINE",
+    "ATOMIC_HEAD_PROMOTION": "AUTHORIZED_PENDING_EXPECTED_PARENT_COMPARE_AND_SWAP"
+  },
+  "store_a_repository": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "branch": "codex/g32-mama-fama-intake-v201",
+    "core_commit": "c43dfbecc8351f49e02e4832539546f0a82d3f4e",
+    "tree": "3dc343806e18f29f939d99b250258e53298dad9c",
+    "paths": 27,
+    "tree_pointer_matches": "PASS_27_OF_27",
+    "text_byte_readback": "PASS_25_OF_25",
+    "binary_payloads": "PASS_2_GIT_BLOBS_WITH_2_BYTE_VERIFIED_BASE64_READBACK_MIRRORS"
+  },
+  "store_b_recovery_packet": {
+    "object_name": "QROS_G32_RECOVERY_PACKET_V1.zip",
+    "persistent_object_id": "libfile_114045b0f4b88191b070fe0ab9568921",
+    "version": 0,
+    "bytes": 288117,
+    "sha256": "0b97b25264d17f29c0aaf31b43ec73aed4d3a2145ee3312952ea4dc7355e66dd",
+    "remote_readback_sha256": "0b97b25264d17f29c0aaf31b43ec73aed4d3a2145ee3312952ea4dc7355e66dd",
+    "byte_compare": "PASS",
+    "zip_crc": "PASS",
+    "manifest_membership": "PASS",
+    "payload_hashes": "PASS_22_OF_22",
+    "restored_tests": "PASS_15_OF_15"
+  },
+  "mandatory_roles": {
+    "PAYLOAD": "PASS_CATALOG_ONTOLOGY_ENUMERATION_AND_SHARD_ROOTS",
+    "SOURCE": "PASS_PUBLIC_SOURCE_COMMIT_PATH_AND_SHA256",
+    "INPUT_MANIFEST": "PASS_RECOVERY_PACKET_MANIFEST",
+    "OUTPUT_MANIFEST": "PASS_ENUMERATION_AND_COVERAGE_RECEIPTS",
+    "DEPENDENCY_DAG": "PASS_PREDEVELOPMENT_STATE",
+    "NEXT_STAGE_PACKET": "PASS_BUILD_DUAL_SIGNAL_ENGINES_WITHOUT_PNL"
+  },
+  "scientific_guards": {
+    "market_data_read": false,
+    "pnl_read": false,
+    "holdout_opened": false,
+    "g30_changed": false,
+    "f13_searched_or_used": false,
+    "economic_execution_authorized": false
+  },
+  "decision": "GATE_CLOSE_AUTHORIZED_FOR_G32_PREDEVELOPMENT_ARTIFACT_SET_ONLY",
+  "does_not_authorize": ["G32_ECONOMIC_MINING", "HOLDOUT_OPEN", "ALPHA_CLAIM", "BRANCH_EXHAUSTION"]
+}

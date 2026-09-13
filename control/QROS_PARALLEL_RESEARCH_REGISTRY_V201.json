@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_PARALLEL_RESEARCH_REGISTRY_V201",
+  "date": "2026-09-13",
+  "status": "ACTIVE_REGISTRY",
+  "global_execution_authority": "control/HEAD.json",
+  "rule": "A parallel preregistration may be resumed only from its own state and receipts; it cannot displace the active campaign or authorize economic execution.",
+  "campaigns": {
+    "G31": {
+      "campaign": "QROS_G31_PUBLIC_ICHIMOKU_CLOUD_CROSS_v1",
+      "state_ref": "control/RISE_G31_v2.json",
+      "state": "PREDEVELOPMENT_SIGNAL_MASK_PARITY_PASS_NO_PNL"
+    },
+    "G32": {
+      "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+      "state_ref": "control/G32_PREDEVELOPMENT_STATE_V2.json",
+      "ontology_ref": "control/G32_UNIVERSE_ONTOLOGY_V2.json",
+      "rise_ref": "control/RISE_G32_V3.json",
+      "enumeration_ref": "control/G32_EXACT_ENUMERATION_PARITY_RECEIPT_V1.json",
+      "durability_ref": "control/G32_DURABILITY_CLOSURE_RECEIPT_V1.json",
+      "core_commit": "c43dfbecc8351f49e02e4832539546f0a82d3f4e",
+      "state": "READY_FOR_NON_ECONOMIC_SIGNAL_ENGINE_IMPLEMENTATION",
+      "economic_execution_authorized": false,
+      "holdout": "SEALED"
+    }
+  },
+  "active_global_campaign_unchanged": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "g30_next_action_unchanged": true,
+  "f13": "EXCLUDED_DO_NOT_SEARCH_DO_NOT_RECOVER_DO_NOT_EXECUTE"
+}
