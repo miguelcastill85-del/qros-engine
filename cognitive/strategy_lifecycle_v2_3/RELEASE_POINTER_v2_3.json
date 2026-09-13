@@ -1,26 +1,32 @@
 {
-  "schema": "QROS_QSLE_V23_DURABLE_RELEASE_POINTER_V1",
-  "release": "QROS_STRATEGY_LIFECYCLE_ENGINE_v2_3_ASTRA_COMPLETION_REFERENCE",
+  "schema": "QROS_QSLE_V231_DURABLE_RELEASE_POINTER_V1",
+  "release": "QROS_STRATEGY_LIFECYCLE_ENGINE_v2_3_1_ASTRA_COMPLETION_REFERENCE",
+  "supersedes": "QROS_STRATEGY_LIFECYCLE_ENGINE_v2_3_ASTRA_COMPLETION_REFERENCE",
   "status": "REFERENCE_KERNEL_VALIDATED_NOT_SCIENTIFIC_AUTHORITY",
   "scientific_authority": false,
   "scientific_dispatch_authorized": false,
   "promotion": false,
-  "f13_excluded": true,
+  "f13_current_route_excluded": true,
+  "historical_schema_roles": {
+    "V189": "HISTORICAL_EVIDENCE_ONLY_F13_HISTORICALLY_BLOCKED_BY_INFRASTRUCTURE",
+    "V191": "ENGINEERING_REFERENCE_ONLY",
+    "V199": "FORENSIC_SCIENTIFIC_HEAD_OBSERVED_NO_NEW_SELECTION_NO_NEW_RESULTS"
+  },
   "zip": {
-    "bytes": 82186,
-    "sha256": "04ef65ce47c50f7b00049fe78b056d051833f6ca9f0605069ce5f92087caa964",
+    "bytes": 83382,
+    "sha256": "5013cc1c44431ac319155e59b9adfd6f637a44b2cbe3577083be8cdee2921206",
     "reproducible_builds": "PASS_2_OF_2_BYTE_IDENTICAL",
     "fresh_unzip_sha256sums": "PASS",
-    "fresh_unzip_pytest": "PASS_73_OF_73"
+    "fresh_unzip_pytest": "PASS_75_OF_75"
   },
   "dropbox_secondary_carrier": {
-    "path": "/QROS/QROS_STRATEGY_LIFECYCLE_ENGINE_v2_3_ASTRA_COMPLETION_REFERENCE.zip",
-    "bytes": 82186,
-    "content_hash": "b725a485620e1b0558649a54d046d0a3f759e37580d3f8dc761edd1716592c1e",
+    "path": "/QROS/QROS_STRATEGY_LIFECYCLE_ENGINE_v2_3_1_ASTRA_COMPLETION_REFERENCE.zip",
+    "bytes": 83382,
+    "content_hash": "335226a99aee78eeba2d6952b913d6b847976f375c5f581ac10b78953b6d1e3f",
     "local_content_hash_match": true
   },
   "validation": {
-    "pytest": "PASS_73_OF_73",
+    "pytest": "PASS_75_OF_75",
     "rise_q_persistence": "PASS_15_OF_15",
     "rise_q_integrated": "PASS_12_OF_12",
     "rise_q_local_fixed_point_operations": 1200,
@@ -31,12 +37,15 @@
     "stale_workers_rejected": 16,
     "sigkill_precommit_rollback": "PASS",
     "sigkill_postcommit_exactly_once": "PASS",
-    "v22_to_v23_migration": "PASS",
-    "semantic_replay": "PASS"
+    "v22_to_v231_migration": "PASS",
+    "semantic_replay": "PASS",
+    "historical_schema_adapter_v189": "PASS",
+    "historical_schema_adapter_v191": "PASS",
+    "forensic_schema_adapter_v199": "PASS"
   },
   "qrcel_astra_engineering_closure": {
     "status": "ENGINEERING_CLOSURE_PASS_EXTERNAL_VALIDATION_BLOCKED",
-    "receipt_sha256": "b30d5da00244bf2a6f9d84e4a75ae63af379206f09736f087239d6887afe61d7"
+    "receipt_sha256": "89c845ffa6a2fdda7c0600f96f484bfaafb98cebb36623c0d33f082293419b09"
   },
   "external_non_compensable_gates": [
     "ASTRA_NATIVE_MODEL_COMPARISON",
@@ -45,10 +54,6 @@
     "SECOND_HOST_CANARY",
     "SCIENTIFIC_PROMOTION"
   ],
-  "authority_roles": {
-    "engineering_reference": "V191",
-    "scientific_head_observed": "V199_FORENSIC_NO_NEW_SELECTION_NO_NEW_RESULTS",
-    "runtime_dispatch": "FAIL_CLOSED_NO_IMPLICIT_DELEGATION"
-  },
+  "runtime_dispatch": "FAIL_CLOSED_NO_IMPLICIT_DELEGATION",
   "rule": "Do not infer scientific authority, execution delegation, native-model parity or promotion from this reference release."
 }
