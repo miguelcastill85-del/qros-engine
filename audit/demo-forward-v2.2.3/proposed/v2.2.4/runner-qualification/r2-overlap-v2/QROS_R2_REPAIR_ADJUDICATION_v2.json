@@ -1,0 +1,31 @@
+{
+  "schema": "QROS_R2_REPAIR_ADJUDICATION_2.0",
+  "generated_utc": "2026-09-13T21:20:00.447726+00:00",
+  "source_checkpoint": "QROS_CROSS_CHAT_MIGRATION_R2_NATIVE_FAIL_20260913_v1.json",
+  "source_parent_commit": "a9e9f976ef93a7b32cd5d64911774e9b39d43f8f",
+  "checkpoint_commit": "e75aca7e1a3588022926b464726b0d97a4a82824",
+  "candidate3": "FROZEN_UNMODIFIED",
+  "active_mt5": "DO_NOT_TOUCH",
+  "bound_runner_sha256": "17be652ebb5c3745590ceae798a02d136285a2c8dc1c3645f2be578dfa8d8375",
+  "legacy_r2_observation": "FAIL_CODE_52_PROBE_ACQUIRED",
+  "legacy_r2_adjudication": "UNSAT_INCONCLUSIVE_OVERLAP_NOT_PROVEN",
+  "root_causes": [
+    "D14_R2_TEMPORAL_OVERLAP_PROOF_MISSING",
+    "D15_R2_SHARED_RESULT_OVERWRITE_RACE"
+  ],
+  "repair_scope": [
+    "QUALIFICATION_POWERSHELL_HARNESS_ONLY",
+    "QUALIFICATION_MQL_HARNESS_ONLY",
+    "STATIC_REGRESSION_SYSTEM_ONLY"
+  ],
+  "runner_modified": false,
+  "candidate3_modified": false,
+  "scientific_state_modified": false,
+  "go_decision": "HOLD_UNTIL_WINDOWS_NATIVE_R2_V2_PASS_AND_FULL_GATE_RECONCILIATION",
+  "code_semantics": {
+    "52": "SECOND_EXECUTOR_ACQUIRED_UNDER_PROVEN_OVERLAP_ONLY",
+    "57": "OVERLAP_NOT_PROVEN_UNSAT",
+    "58": "PROBE_RESULT_MISSING_OR_INVALID",
+    "59": "COMMON_PATH_MISMATCH"
+  }
+}
