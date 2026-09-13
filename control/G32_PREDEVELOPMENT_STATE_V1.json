@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_G32_PREDEVELOPMENT_STATE_V1",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "global_head": "control/HEAD.json",
+  "global_head_epoch_observed": 200,
+  "relationship_to_global_head": "PARALLEL_PREREGISTRATION_DOES_NOT_SUPERSEDE_OR_MUTATE_ACTIVE_G30_RECOVERY",
+  "status": "ONTOLOGY_FROZEN_AND_ENUMERATED_EXECUTION_NOT_AUTHORIZED",
+  "completed": {
+    "hypothesis_catalog_triage": "PASS_1000_OF_1000",
+    "source_resolution": "PASS_SELECTED_SOURCE_BYTE_IDENTIFIED",
+    "genealogy_collision_gate": "NOVEL_GENEALOGY",
+    "causal_source_audit": "PASS_WITH_MANDATORY_HARDENING_APPLIED",
+    "data_authority_binding": "PASS_FROM_EXISTING_STRUCTURAL_RECEIPTS_NO_BYTES_READ",
+    "universe_ontology": "FROZEN_V2",
+    "exact_dual_enumeration": "PASS_700416_OF_700416",
+    "management_profiles": 144,
+    "execution_profiles": 1,
+    "stress_profiles": 15,
+    "rise_fixed_point": "PASS_TWO_CONSECUTIVE_ZERO_DELTA_ROUNDS"
+  },
+  "pending_before_economic_execution": [
+    "FREEZE_DEVELOPMENT_SELECTION_SPEC",
+    "FREEZE_MULTIPLICITY_SPEC",
+    "FREEZE_COMPLETE_EXECUTION_AND_UNIT_CONTRACT",
+    "VERIFY_PINE_V2_LITERAL_REFERENCE_VECTORS_OR_KEEP_THAT_BRANCH_BLOCKED",
+    "IMPLEMENT_PRIMARY_SIGNAL_ENGINE",
+    "IMPLEMENT_INDEPENDENT_SIGNAL_ENGINE",
+    "FULL_SIGNAL_MASK_PARITY_AND_EMPIRICAL_ALIAS_DEDUPE",
+    "DURABILITY_CLOSURE_AND_RESTORE_PASS_FOR_THE_EXECUTABLE_PACKET",
+    "DERIVE_RUN_QUEUE_FROM_FROZEN_ROOTS"
+  ],
+  "guards": {
+    "economic_execution_authorized": false,
+    "holdout": "SEALED",
+    "forward": "SEALED",
+    "g30_stage_c": "UNCHANGED_NOT_EXECUTED",
+    "f13": "EXCLUDED_UNTOUCHED",
+    "all_passers_advance": true,
+    "no_medoids_no_reranking": true
+  },
+  "next_action": "BUILD_AND_PARITY_TEST_G32_SIGNAL_ENGINES_WITHOUT_PNL"
+}

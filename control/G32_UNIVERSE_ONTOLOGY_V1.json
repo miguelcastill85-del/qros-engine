@@ -1,0 +1,22 @@
+{
+  "schema": "QROS_G32_UNIVERSE_ONTOLOGY_V1",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "status": "DRAFT_SUBMITTED_TO_RISE_NOT_EXECUTABLE",
+  "results_seen": false,
+  "holdout_opened": false,
+  "proposed_dimensions": {
+    "assets": ["NQX", "XAUUSD"],
+    "sides": ["BUY", "SELL"],
+    "signal_timeframes": ["M1", "M5", "M10", "M15", "M30", "H1"],
+    "feature_quote": ["BID", "MID"],
+    "source_transform": ["CLOSE", "HL2", "HLC3", "OHLC4"],
+    "fast_limit": [0.2, 0.3, 0.5, 0.7],
+    "slow_limit": [0.01, 0.025, 0.05, 0.1, 0.2],
+    "phase_estimator": ["PUBLIC_RATIO_ATAN", "ATAN2_DESCENDANT"],
+    "families": ["ROOT_CROSS", "PERSISTENCE", "SEPARATION", "SLOPE", "ALPHA_REGIME", "VOLATILITY", "SPREAD", "TICK_INTENSITY", "REFRACTORY"]
+  },
+  "known_constraints": ["0 < slow_limit < fast_limit <= 1"],
+  "management_separate": true,
+  "economic_execution_authorized": false,
+  "next_action": "RISE_G32_ADVERSARIAL_ITERATION_1"
+}

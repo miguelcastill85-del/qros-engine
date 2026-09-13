@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_G32_DATA_AUTHORITY_BINDING_V1",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "status": "EXISTING_STRUCTURAL_AUTHORITIES_BOUND_NO_MARKET_BYTES_READ_THIS_RUN",
+  "development_scope": "2018_2019_PREFIX_ONLY",
+  "authorities": {
+    "NQX": {
+      "source_receipt": "control/QROS_NQX_DEV_PREFIX_STRUCTURAL_AUDIT_v1.json",
+      "bytes": 1018984420,
+      "records": 59940260,
+      "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+      "integrity": "PASS_FROM_EXISTING_AUTHORITY"
+    },
+    "XAUUSD": {
+      "source_receipt": "control/QROS_XAU_DEV_PREFIX_STRUCTURAL_AUDIT_v1.json",
+      "bytes": 2573500596,
+      "records": 151382388,
+      "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+      "integrity": "PASS_FROM_EXISTING_AUTHORITY"
+    }
+  },
+  "bar_authority": {
+    "receipt": "control/FULL_BAR_PARITY_GATE_G29_G30_G31_v1.json",
+    "timeframes": ["M1", "M5", "M10", "M15", "M30", "H1"],
+    "primary_method": "numpy_reduceat_sharded",
+    "independent_method": "pandas_groupby_streaming_full_dev_prefix",
+    "existing_exact_parity": "PASS",
+    "g32_signal_engine_parity": "NOT_EXECUTED"
+  },
+  "clock": {
+    "stored_reference": "DARWINEX_MT5_SERVER_TIME_AS_STORED_IN_TICKS",
+    "timezone_dst": "UNPROVEN",
+    "consequence": "ALL_SESSION_ONLY_NO_DAY_OF_WEEK_OR_NAMED_SESSION_FAMILIES"
+  },
+  "quote_quality": {
+    "crossed_quotes": "EXCLUDE_FROM_FEATURE_BARS_AND_EXECUTION",
+    "zero_spread": "PRESERVE_AS_OBSERVED_NO_ARTIFICIAL_FILL",
+    "mid": "BID_PLUS_ASK_DIVIDED_BY_TWO_ON_ELIGIBLE_NONCROSSED_QUOTES"
+  },
+  "guards": {
+    "market_data_read_this_run": false,
+    "economic_results_computed": false,
+    "holdout_opened": false,
+    "session_mining_authorized": false,
+    "g32_development_mining_authorized": false
+  },
+  "next_action": "BUILD_PRIMARY_AND_INDEPENDENT_G32_SIGNAL_ENGINES_THEN_FULL_MASK_PARITY"
+}

@@ -1,0 +1,293 @@
+{
+  "causal_families": {
+    "ADAPTIVE_SIGNAL_PROCESSING": 62,
+    "BREAKOUT_CHANNEL_RANGE": 139,
+    "CANDLE_PRICE_ACTION": 20,
+    "CROSS_ASSET_RELATIVE_VALUE": 15,
+    "DIVERGENCE": 9,
+    "FAILED_BREAKOUT_REVERSION": 1,
+    "ICHIMOKU_CLOUD": 26,
+    "MEAN_REVERSION": 140,
+    "MOMENTUM_OSCILLATOR": 113,
+    "NON_MARKET_ASTROLOGY": 2,
+    "OPTIONS_DERIVED": 1,
+    "OTHER_TECHNICAL": 48,
+    "SESSION_CALENDAR": 4,
+    "SESSION_OPENING_RANGE": 2,
+    "STRUCTURE_LIQUIDITY": 4,
+    "TREND_PULLBACK_CROSSOVER": 363,
+    "VOLATILITY_BREAKOUT": 13,
+    "VOLUME_FLOW_VWAP": 38
+  },
+  "controls": {
+    "all_nonexcluded_hypotheses_preserved": true,
+    "holdout_opened": false,
+    "market_data_read": false,
+    "pnl_read": false,
+    "score_meaning": "Dispatch order for deeper source audit only; not alpha, approval or scientific rejection"
+  },
+  "coverage": {
+    "catalog_rows": 1000,
+    "prior_seeds_parsed": 200,
+    "source_snapshots_mapped": 999,
+    "source_snapshots_unmapped": 1,
+    "unique_ids": 1000
+  },
+  "dispatch_waves": {
+    "EXCLUDED": 2,
+    "PRESERVE_AS_COVERED_NOT_FIRST_DISPATCH": 92,
+    "WAVE_1_DEEP_CAUSAL_AUDIT": 591,
+    "WAVE_2_DEPENDENCY_OR_AMBIGUITY_AUDIT": 315
+  },
+  "inputs": {
+    "catalog": {
+      "path": "QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.csv",
+      "rows": 1000,
+      "sha256": "e020b1c41aeb971c633658882a98ff479c6d28d32f671514f28be20e793fbaea"
+    },
+    "fmz_repo": {
+      "path": "fmz-strategies",
+      "readme_sha256": "a576dcb7a29cec46b6895e1cd13285705fd3ac2355c757abd19b023f34a1b82e"
+    },
+    "prior_catalogs": [
+      {
+        "path": "QROS_100_ESTRATEGIAS_PUBLICAS_SEMILLAS.md",
+        "sha256": "e9758233e4023336cd0058e8f8b59d594adf942249bc80b33ab728d4f0dedf84"
+      },
+      {
+        "path": "QROS_100_ESTRATEGIAS_PUBLICAS_COHORTE_2_PRIOR_ALFA_ALTO.md",
+        "sha256": "04adc69dc17ea3f4edbde98f3ff67a9e6189cb56a4fbdac01929991ebed23f72"
+      }
+    ]
+  },
+  "next_action": "Deep-audit Wave-1 sources, select first root hypothesis, freeze G32 ontology, then run RISE fixed-point before market/PnL access.",
+  "outputs": {
+    "ledger": {
+      "path": "QROS_1000_HYPOTHESIS_CAUSAL_TRIAGE_V1.jsonl",
+      "rows": 1000,
+      "sha256": "02e9de212295a0b837dace0270901273ea5886d0e9a055db16117e60c8dabaf8"
+    }
+  },
+  "schema": "QROS_PUBLIC_HYPOTHESIS_CAUSAL_TRIAGE_V1",
+  "scope": "Hypothesis intake, causal deduplication, source mapping and dispatch order only",
+  "status": "TRIAGE_COMPLETE_NO_RESULTS",
+  "top_wave_1": [
+    {
+      "causal_family": "MEAN_REVERSION",
+      "dispatch_score_non_economic": 92.105749,
+      "id": "WEB_SEED_0123",
+      "name": "EMA-SMA Bull Market Support Band Strategy",
+      "source_id": "FMZ:452280"
+    },
+    {
+      "causal_family": "STRUCTURE_LIQUIDITY",
+      "dispatch_score_non_economic": 91.540925,
+      "id": "WEB_SEED_0696",
+      "name": "SMA Crossover with Fair Value Gap Pullback",
+      "source_id": "FMZ:458272"
+    },
+    {
+      "causal_family": "ADAPTIVE_SIGNAL_PROCESSING",
+      "dispatch_score_non_economic": 91.364264,
+      "id": "WEB_SEED_0921",
+      "name": "Gaussian Channel and Stochastic RSI Market Trend Capture Strategy",
+      "source_id": "FMZ:482471"
+    },
+    {
+      "causal_family": "TREND_PULLBACK_CROSSOVER",
+      "dispatch_score_non_economic": 91.028511,
+      "id": "WEB_SEED_0064",
+      "name": "1-2-3 Pattern with EMA MACD and Fourth Candle Extension",
+      "source_id": "FMZ:444003"
+    },
+    {
+      "causal_family": "ADAPTIVE_SIGNAL_PROCESSING",
+      "dispatch_score_non_economic": 90.989411,
+      "id": "WEB_SEED_0928",
+      "name": "Ehlers Fisher Stochastic Relative Vigor Strategy",
+      "source_id": "FMZ:436218"
+    },
+    {
+      "causal_family": "ADAPTIVE_SIGNAL_PROCESSING",
+      "dispatch_score_non_economic": 90.589275,
+      "id": "WEB_SEED_0392",
+      "name": "RSI and Supertrend Trend Following Adaptive Volatility Strategy",
+      "source_id": "FMZ:473709"
+    },
+    {
+      "causal_family": "MOMENTUM_OSCILLATOR",
+      "dispatch_score_non_economic": 90.51042,
+      "id": "WEB_SEED_0492",
+      "name": "Momentum Oscillation Crossing Bollinger with MA",
+      "source_id": "FMZ:435845"
+    },
+    {
+      "causal_family": "ADAPTIVE_SIGNAL_PROCESSING",
+      "dispatch_score_non_economic": 90.440785,
+      "id": "WEB_SEED_0925",
+      "name": "Gaussian Channel with Stochastic RSI Strategy",
+      "source_id": "FMZ:482451"
+    },
+    {
+      "causal_family": "MEAN_REVERSION",
+      "dispatch_score_non_economic": 90.436863,
+      "id": "WEB_SEED_0135",
+      "name": "Dynamic Pivot Bands Trend Tracking Strategy",
+      "source_id": "FMZ:436614"
+    },
+    {
+      "causal_family": "ADAPTIVE_SIGNAL_PROCESSING",
+      "dispatch_score_non_economic": 90.276814,
+      "id": "WEB_SEED_0935",
+      "name": "Gaussian Channel Adaptive Moving Average Strategy",
+      "source_id": "FMZ:446461"
+    },
+    {
+      "causal_family": "TREND_PULLBACK_CROSSOVER",
+      "dispatch_score_non_economic": 89.547028,
+      "id": "WEB_SEED_0383",
+      "name": "EMA-SMA-CCI-ATR Perfect Order with Trend Magic Strategy",
+      "source_id": "FMZ:468328"
+    },
+    {
+      "causal_family": "BREAKOUT_CHANNEL_RANGE",
+      "dispatch_score_non_economic": 89.468094,
+      "id": "WEB_SEED_0190",
+      "name": "Short-Term Breakthrough Reversal 5EMA Strategy",
+      "source_id": "FMZ:440433"
+    },
+    {
+      "causal_family": "BREAKOUT_CHANNEL_RANGE",
+      "dispatch_score_non_economic": 89.462594,
+      "id": "WEB_SEED_0124",
+      "name": "Dynamic Support-Resistance Breakout Moving Average Crossover",
+      "source_id": "FMZ:458271"
+    },
+    {
+      "causal_family": "OTHER_TECHNICAL",
+      "dispatch_score_non_economic": 89.033714,
+      "id": "WEB_SEED_0967",
+      "name": "Bollinger Cross-Boundary Dynamic Range Strategy",
+      "source_id": "FMZ:476270"
+    },
+    {
+      "causal_family": "BREAKOUT_CHANNEL_RANGE",
+      "dispatch_score_non_economic": 88.79733,
+      "id": "WEB_SEED_0062",
+      "name": "Multi-EMA RSI Candlestick Height Breakout Strategy",
+      "source_id": "FMZ:446428"
+    },
+    {
+      "causal_family": "TREND_PULLBACK_CROSSOVER",
+      "dispatch_score_non_economic": 88.763291,
+      "id": "WEB_SEED_0386",
+      "name": "MACD-ATR-EMA Multi-Indicator Dynamic Trend Following",
+      "source_id": "FMZ:468304"
+    },
+    {
+      "causal_family": "VOLATILITY_BREAKOUT",
+      "dispatch_score_non_economic": 88.718429,
+      "id": "WEB_SEED_0114",
+      "name": "Dynamic ATR Trend Following Strategy Based on Support Breakout",
+      "source_id": "FMZ:474884"
+    },
+    {
+      "causal_family": "ADAPTIVE_SIGNAL_PROCESSING",
+      "dispatch_score_non_economic": 88.374005,
+      "id": "WEB_SEED_0804",
+      "name": "Fisher Turnaround EMA Strategy",
+      "source_id": "FMZ:437787"
+    },
+    {
+      "causal_family": "BREAKOUT_CHANNEL_RANGE",
+      "dispatch_score_non_economic": 88.28785,
+      "id": "WEB_SEED_0197",
+      "name": "Dual EMA Crossover Breakout Strategy",
+      "source_id": "FMZ:433566"
+    },
+    {
+      "causal_family": "ADAPTIVE_SIGNAL_PROCESSING",
+      "dispatch_score_non_economic": 88.191349,
+      "id": "WEB_SEED_0694",
+      "name": "SuperTrend and Fisher Long-Term Trend Following",
+      "source_id": "FMZ:430988"
+    },
+    {
+      "causal_family": "TREND_PULLBACK_CROSSOVER",
+      "dispatch_score_non_economic": 88.10784,
+      "id": "WEB_SEED_0384",
+      "name": "Enhanced EMA Crossover with RSI-MACD-ATR",
+      "source_id": "FMZ:449851"
+    },
+    {
+      "causal_family": "MOMENTUM_OSCILLATOR",
+      "dispatch_score_non_economic": 88.101475,
+      "id": "WEB_SEED_0389",
+      "name": "BuySell Strategy Depends on AO Stoch RSI ATR",
+      "source_id": "FMZ:364518"
+    },
+    {
+      "causal_family": "BREAKOUT_CHANNEL_RANGE",
+      "dispatch_score_non_economic": 88.085541,
+      "id": "WEB_SEED_0200",
+      "name": "RSI Dynamic Breakout Retracement Strategy",
+      "source_id": "FMZ:478691"
+    },
+    {
+      "causal_family": "ADAPTIVE_SIGNAL_PROCESSING",
+      "dispatch_score_non_economic": 88.043956,
+      "id": "WEB_SEED_0437",
+      "name": "SMA Crossover and SuperTrend Adaptive Momentum Strategy",
+      "source_id": "FMZ:458061"
+    },
+    {
+      "causal_family": "CANDLE_PRICE_ACTION",
+      "dispatch_score_non_economic": 88.032096,
+      "id": "WEB_SEED_0058",
+      "name": "Three-Line-Strike Trend Following with EMA Filter and ATR Risk Management",
+      "source_id": "FMZ:482466"
+    },
+    {
+      "causal_family": "ADAPTIVE_SIGNAL_PROCESSING",
+      "dispatch_score_non_economic": 87.901315,
+      "id": "WEB_SEED_0125",
+      "name": "Adaptive Channel Breakout with Dynamic Support-Resistance",
+      "source_id": "FMZ:477528"
+    },
+    {
+      "causal_family": "ADAPTIVE_SIGNAL_PROCESSING",
+      "dispatch_score_non_economic": 87.777917,
+      "id": "WEB_SEED_0923",
+      "name": "Gaussian Cross EMA Trend Retracement Strategy",
+      "source_id": "FMZ:468320"
+    },
+    {
+      "causal_family": "VOLATILITY_BREAKOUT",
+      "dispatch_score_non_economic": 87.747772,
+      "id": "WEB_SEED_0169",
+      "name": "ATR Channel Breakout Strategy",
+      "source_id": "FMZ:439715"
+    },
+    {
+      "causal_family": "BREAKOUT_CHANNEL_RANGE",
+      "dispatch_score_non_economic": 87.716555,
+      "id": "WEB_SEED_0127",
+      "name": "Dynamic Support-Resistance Breakout Trend Strategy",
+      "source_id": "FMZ:436641"
+    },
+    {
+      "causal_family": "MEAN_REVERSION",
+      "dispatch_score_non_economic": 87.672444,
+      "id": "WEB_SEED_0284",
+      "name": "ATR Volatility HMA Trend-Bias Mean-Reversion Strategy",
+      "source_id": "FMZ:439089"
+    }
+  ],
+  "unmapped_sources": [
+    {
+      "id": "WEB_SEED_0657",
+      "name": "RSI MTF ObOs",
+      "source_id": "FMZ:362014"
+    }
+  ]
+}

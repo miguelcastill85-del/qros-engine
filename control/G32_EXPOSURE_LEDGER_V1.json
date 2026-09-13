@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_G32_DESIGN_EXPOSURE_LEDGER_V1",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "status": "NO_ECONOMIC_EXPOSURE",
+  "entries": [
+    {
+      "date": "2026-09-13",
+      "information": "Public catalog metadata and exact public source code FMZ 430662",
+      "use": "Hypothesis provenance, collision audit and causal hardening",
+      "economic_result": false
+    },
+    {
+      "date": "2026-09-13",
+      "information": "Existing structural data receipts, content hashes, row counts, quote anomalies and bar-parity status",
+      "use": "Bind available feature classes and prohibit clock-sensitive families",
+      "economic_result": false
+    },
+    {
+      "date": "2026-09-13",
+      "information": "Configuration enumeration counts, IDs and roots",
+      "use": "Exact-set parity and coverage only",
+      "economic_result": false
+    }
+  ],
+  "market_prices_loaded": false,
+  "pnl_loaded": false,
+  "holdout_opened": false,
+  "public_backtest_results_used": false
+}

@@ -1,0 +1,28 @@
+{
+  "schema": "QROS_G32_PUBLIC_HYPOTHESIS_PAYLOAD_PERSISTENCE_V1",
+  "status": "DETERMINISTIC_COMPRESSED_REPOSITORY_COPY_SPECIFIED",
+  "compression": "GZIP_DEFLATE_LEVEL_9_MTIME_ZERO_EMPTY_ORIGINAL_FILENAME",
+  "objects": [
+    {
+      "logical_path": "research/public_hypotheses/QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.csv",
+      "logical_bytes": 2099705,
+      "logical_sha256": "e020b1c41aeb971c633658882a98ff479c6d28d32f671514f28be20e793fbaea",
+      "repository_path": "research/public_hypotheses/QROS_1000_ESTRATEGIAS_PUBLICAS_XAU_NQX_v1.csv.gz",
+      "repository_bytes": 80503,
+      "repository_sha256": "546e28dbd2593356915abdfc11b2b86b40a77e7b2485de1cb83b2084e31439f4"
+    },
+    {
+      "logical_path": "research/public_hypotheses/QROS_1000_HYPOTHESIS_CAUSAL_TRIAGE_V1.jsonl",
+      "logical_bytes": 1011981,
+      "logical_sha256": "02e9de212295a0b837dace0270901273ea5886d0e9a055db16117e60c8dabaf8",
+      "repository_path": "research/public_hypotheses/QROS_1000_HYPOTHESIS_CAUSAL_TRIAGE_V1.jsonl.gz",
+      "repository_bytes": 150484,
+      "repository_sha256": "a1711e3c9cc9af95bfdc595c7f0498cda373f5b1444b9f231dea850be6fdd8e0"
+    }
+  ],
+  "restore_rule": "Gzip-decompress each repository object and require exact logical bytes and SHA-256 before use.",
+  "scientific_reselection_allowed_on_restore": false,
+  "market_data_read": false,
+  "pnl_read": false,
+  "holdout_opened": false
+}

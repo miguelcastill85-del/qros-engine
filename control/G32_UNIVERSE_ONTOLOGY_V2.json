@@ -1,0 +1,257 @@
+{
+  "schema": "QROS_G32_UNIVERSE_ONTOLOGY_V2",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "root_genealogy": "G32_MAMA_FAMA_ADAPTIVE_PHASE_CROSS",
+  "status": "UNIVERSE_ONTOLOGY_FROZEN_NO_RESULTS",
+  "supersedes": "control/G32_UNIVERSE_ONTOLOGY_V1.json",
+  "rise_parent": "control/RISE_G32_V1.json",
+  "protocol": "governance/QROS_RISE_PREDEVELOPMENT_UNIVERSE_FREEZE_PROTOCOL_v1.5.md",
+  "results_seen": false,
+  "market_data_read_for_design": false,
+  "holdout_opened": false,
+  "causal_scope_contract": {
+    "in_scope": "MAMA_FAMA_PHASE_ADAPTIVE_FILTER_CROSS_AND_ONE_CAUSALLY_JUSTIFIED_EXTENSION_AT_A_TIME",
+    "out_of_scope": [
+      "EMA_CONDITION_NOT_PRESENT_IN_SOURCE",
+      "MULTI_FAMILY_CONTEXT_STACKING",
+      "NAMED_SESSIONS_OR_DAY_OF_WEEK_BEFORE_CLOCK_PROOF",
+      "CROSS_ASSET_FEATURES",
+      "CENTERED_OR_FUTURE_WINDOWS",
+      "PUBLIC_POSITION_SIZING_OR_PNL",
+      "GRID_MARTINGALE_PYRAMIDING",
+      "OVERNIGHT_POSITIONS"
+    ],
+    "adaptation_boundary": "QROS may vary causal resolution, price transform, phase implementation, alpha bounds and one extension family; changing the adaptive phase-cross root or adding independent information creates a new seed.",
+    "genealogy_identity_invariants": [
+      "Both MAMA and FAMA are computed online from the same causal source series",
+      "An eligible entry descends from a fresh MAMA/FAMA order transition",
+      "No feature later than signal-bar close is used",
+      "BUY and SELL retain independent identities"
+    ],
+    "allowed_mutation_operators": [
+      "TIME_RESOLUTION",
+      "FEATURE_QUOTE_SIDE",
+      "CAUSAL_PRICE_TRANSFORM",
+      "PHASE_ESTIMATOR_SEMANTICS",
+      "ALPHA_BOUND_PAIR",
+      "GAP_STATE_POLICY",
+      "ONE_EXTENSION_FAMILY"
+    ],
+    "new_seed_boundary": "Any second simultaneous extension family or external/non-price information is a new preregistration."
+  },
+  "numeric_contract": {
+    "parameter_scale": "PPM_INTEGER_ONE_EQUALS_1000000",
+    "runtime_arithmetic": "IEEE_754_BINARY64_ROUND_TO_NEAREST_TIES_TO_EVEN",
+    "fma_contraction": "DISABLED",
+    "fast_math": "DISABLED",
+    "unavailable_history": "ZERO_BOOTSTRAP_MATCHING_NZ_LITERAL_BRANCH",
+    "nan_inf": "CONFIG_EVENT_INELIGIBLE_AND_DIAGNOSTIC_COUNTER_INCREMENT",
+    "signed_zero": "CANONICALIZE_TO_POSITIVE_ZERO_BEFORE_COMPARISON_OR_SERIALIZATION",
+    "canonical_json": "UTF8_NFC_SORTED_KEYS_NO_INSIGNIFICANT_WHITESPACE_INTEGER_PARAMETERS_ONLY",
+    "signal_config_id": "g32s_ + lowercase_sha256(canonical_signal_config_bytes)",
+    "management_profile_id": "g32m_ + lowercase_sha256(canonical_management_profile_bytes)",
+    "execution_profile_id": "g32e_ + lowercase_sha256(canonical_execution_profile_bytes)",
+    "stress_profile_id": "g32x_ + lowercase_sha256(canonical_stress_profile_bytes)"
+  },
+  "recursive_filter_contract": {
+    "fixed_public_coefficients_ppm": {
+      "smooth_price": [400000, 300000, 200000, 100000],
+      "hilbert_a": 96200,
+      "hilbert_b": 576900,
+      "period_scale_slope": 75000,
+      "period_scale_intercept": 540000,
+      "i2_q2_new_weight": 200000,
+      "i2_q2_prior_weight": 800000,
+      "re_im_new_weight": 200000,
+      "re_im_prior_weight": 800000,
+      "period_new_weight": 200000,
+      "period_prior_weight": 800000,
+      "smooth_period_new_weight": 330000,
+      "smooth_period_prior_weight": 670000,
+      "fama_alpha_multiplier": 500000
+    },
+    "period_clip_bars": [6, 50],
+    "period_jump_clip_ppm": [670000, 1500000],
+    "warmup_rule": "max(64, ceil(log(1e-12) / log(1 - slow_limit/2))) completed bars after bootstrap or reset",
+    "signals_during_warmup": "INELIGIBLE",
+    "state_checkpoint_required": true,
+    "state_checkpoint_fields": ["p", "spp", "i2", "q2", "re", "im", "phase", "mama", "fama", "alpha"]
+  },
+  "phase_estimators": {
+    "PUBLIC_LITERAL_RATIO_BRANCH": {
+      "genealogy": "SOURCE_PRESERVING",
+      "period_angle": "atan(im/re) under independently verified Pine-v2 interpreter semantics",
+      "phase_angle": "atan(q1/i1) under independently verified Pine-v2 interpreter semantics",
+      "zero_denominator": "carry prior finite value; if none exists event is ineligible",
+      "execution_gate": "BLOCKED_UNTIL_PINE_V2_REFERENCE_VECTOR_PARITY"
+    },
+    "EHLERS_ATAN2_DEGREES_DESCENDANT": {
+      "genealogy": "QROS_CAUSAL_EXTENSION",
+      "period_angle": "degrees(atan2(im,re)); nonpositive or nonfinite angle carries prior finite period",
+      "phase_angle": "degrees(atan2(q1,i1))",
+      "phase_delta": "previous_phase_minus_current_phase normalized to (0,360] then floored at 1 degree",
+      "execution_gate": "PRIMARY_INDEPENDENT_REFERENCE_VECTOR_PARITY_REQUIRED"
+    },
+    "aliasing": "PROHIBITED_BETWEEN_BRANCHES"
+  },
+  "base_axes": {
+    "asset": ["NQX", "XAUUSD"],
+    "side": ["BUY", "SELL"],
+    "timeframe_seconds": [60, 300, 600, 900, 1800, 3600],
+    "feature_quote_side": ["BID", "MID"],
+    "price_transform": ["CLOSE", "HL2", "HLC3", "OHLC4"],
+    "phase_estimator": ["PUBLIC_LITERAL_RATIO_BRANCH", "EHLERS_ATAN2_DEGREES_DESCENDANT"],
+    "fast_limit_ppm": [200000, 300000, 500000, 700000],
+    "slow_limit_ppm": [10000, 25000, 50000, 100000, 200000],
+    "gap_state_policy": ["CARRY_STATE_INVALIDATE_GAP_WINDOW", "RESET_STATE_AND_REWARM"]
+  },
+  "constraints": [
+    "0 < slow_limit_ppm < fast_limit_ppm <= 1000000",
+    "Exactly one family_variant is active",
+    "No session or weekday family is eligible before timezone/DST proof",
+    "All rolling statistics use prior completed eligible bars only",
+    "All active lookbacks and recursive state satisfy warmup before an event",
+    "PUBLIC_LITERAL_RATIO_BRANCH is not executable until Pine-v2 reference parity passes"
+  ],
+  "family_variants": {
+    "F01_ROOT_FRESH_CROSS": {
+      "variants": [{}],
+      "event": "BUY iff prior MAMA <= prior FAMA and current MAMA > current FAMA; SELL iff prior MAMA >= prior FAMA and current MAMA < current FAMA"
+    },
+    "F02_ORDER_PERSISTENCE": {
+      "parameters": {"additional_completed_bars": [1, 2, 3, 5]},
+      "event": "After a fresh cross, require the new line order to persist for exactly K additional completed bars; entry signal time is the confirming bar close"
+    },
+    "F03_NORMALIZED_SEPARATION": {
+      "parameters": {"atr_period": [14, 28], "minimum_abs_separation_atr_ppm": [50000, 100000, 200000, 330000, 500000]},
+      "event": "Fresh cross at t and absolute MAMA-FAMA separation at t is at least the threshold times causal Wilder ATR"
+    },
+    "F04_SLOPE_ALIGNMENT": {
+      "parameters": {"slope_target": ["MAMA", "FAMA", "BOTH"], "slope_lag_bars": [1, 3, 5]},
+      "event": "Fresh cross plus selected line slopes agree with side over the stated completed-bar lag"
+    },
+    "F05_ALPHA_REGIME": {
+      "parameters": {"alpha_regime": ["AT_FAST_CAP", "GE_BOUNDS_MIDPOINT", "LE_BOUNDS_MIDPOINT", "AT_SLOW_FLOOR"]},
+      "event": "Fresh cross plus current causal alpha satisfies the stated integer-scaled bound relation"
+    },
+    "F06_VOLATILITY_CONTEXT": {
+      "parameters": {"volatility_mode": ["ATR_ABOVE_PRIOR_MEDIAN", "ATR_BELOW_PRIOR_MEDIAN", "PRE_CROSS_ATR_BOTTOM_QUINTILE"], "context_lookback_bars": [50, 200]},
+      "event": "Fresh cross plus the preregistered causal ATR context; quantiles use only bars ending before t"
+    },
+    "F07_SPREAD_CONTEXT": {
+      "parameters": {"max_prior_spread_percentile_ppm": [750000, 900000], "context_lookback_bars": [100, 500]},
+      "event": "Fresh cross plus last eligible quote spread at t not exceeding the nearest-rank percentile of prior completed bars"
+    },
+    "F08_TICK_INTENSITY_CONTEXT": {
+      "parameters": {"min_prior_intensity_percentile_ppm": [500000, 800000], "context_lookback_bars": [50, 200]},
+      "event": "Fresh cross plus eligible quote count in t strictly above the nearest-rank percentile of prior completed bars"
+    },
+    "F09_REFRACTORY": {
+      "parameters": {"refractory_completed_bars": [1, 2, 3, 5, 8, 13]},
+      "event": "Accept a fresh cross only if no earlier accepted event for the same asset-side-signal identity occurred within R completed bars"
+    }
+  },
+  "finite_universe_cardinality": {
+    "valid_alpha_pairs": 19,
+    "base_axis_combinations": 14592,
+    "family_variants": 48,
+    "raw_signal_configs": 700416,
+    "logically_valid_signal_configs": 700416,
+    "formula": "2*2*6*2*4*2*19*2*48"
+  },
+  "event_and_semantic_canonicalization": {
+    "one_event_per_cross_regime": true,
+    "one_new_entry_per_signal_bar": true,
+    "same_timestamp_tie_break": "ASSET_NQX_BEFORE_XAUUSD_THEN_BUY_BEFORE_SELL_THEN_SIGNAL_CONFIG_ID_LEXICOGRAPHIC",
+    "nearest_rank_quantile": "sorted prior window, rank=max(1,ceil(ppm*n/1000000)), one-based",
+    "identical_signal_masks": "ONE_TEST_WITH_ALL_ALIASES_RECORDED_BEFORE_N_TESTS",
+    "economic_equivalence_inferred_predevelopment": false
+  },
+  "management_overlay_universe": {
+    "identity_namespace": "g32m_",
+    "profiles": {
+      "OPPOSITE_CROSS_OR_DAY_END": [{}],
+      "ATR_BRACKET": {
+        "atr_period": [14, 28],
+        "stop_atr_ppm": [500000, 750000, 1000000, 1250000, 1500000, 2000000, 2500000, 3000000],
+        "target_r_ppm": [750000, 1000000, 1250000, 1500000, 2000000, 2500000, 3000000, 4000000]
+      },
+      "SIGNAL_BAR_EXTREME_TARGET_R": {
+        "target_r_ppm": [750000, 1000000, 1250000, 1500000, 2000000, 2500000, 3000000, 4000000]
+      },
+      "TIME_STOP_OR_OPPOSITE_CROSS": {
+        "time_stop_bars": [1, 2, 3, 5, 8, 13, 20]
+      }
+    },
+    "expected_profiles": 144,
+    "same_day_exit_always": true
+  },
+  "execution_profile_universe": {
+    "identity_namespace": "g32e_",
+    "profiles": ["PRIMARY_OBSERVED_BID_ASK"],
+    "buy_entry": "ASK",
+    "buy_exit": "BID",
+    "sell_entry": "BID",
+    "sell_exit": "ASK",
+    "entry_time": "FIRST_EXECUTABLE_QUOTE_STRICTLY_AFTER_SIGNAL_CLOSE",
+    "ambiguous_sl_tp": "SL_FIRST",
+    "gaps": "FIRST_ACTUALLY_AVAILABLE_EXECUTABLE_QUOTE",
+    "same_day_exit": true,
+    "one_active_position_per_asset": true,
+    "max_new_entries_per_day_portfolio": 3
+  },
+  "stress_profile_universe": {
+    "identity_namespace": "g32x_",
+    "cost_regime": ["CENTRAL", "CONSERVATIVE", "SEVERE"],
+    "latency": ["NEXT_QUOTE", "PLUS_250MS", "PLUS_500MS", "PLUS_1S", "PLUS_1_SIGNAL_BAR"],
+    "expected_profiles": 15
+  },
+  "conditional_trial_expansion": {
+    "rule": "Enumerate management and stress profiles only for signal configs that pass the preregistered preceding gate; never use a winning result to invent or remove a profile.",
+    "trial_config_id": "sha256(signal_config_id, management_profile_id, execution_profile_id, stress_profile_id)",
+    "all_passers_advance": true,
+    "medoids": "PROHIBITED",
+    "result_reranking": "PROHIBITED"
+  },
+  "support_and_complexity": {
+    "max_interaction_depth": 1,
+    "minimum_trades_per_asset_side_for_economic_eligibility": 30,
+    "insufficient_support_state": "INSUFFICIENT_SUPPORT_TERMINAL",
+    "support_rule_may_not_be_relaxed_after_results": true
+  },
+  "data_clock_constraints": {
+    "bar_alignment": "EPOCH_ALIGNED_EXISTING_PARITY_AUTHORITY",
+    "session": "ALL_ONLY",
+    "named_sessions": "OUT_OF_SCOPE_FROZEN_REASON_TIMEZONE_DST_UNPROVEN",
+    "day_of_week": "OUT_OF_SCOPE_FROZEN_REASON_TIMEZONE_DST_UNPROVEN",
+    "crossed_quotes": "EXCLUDED_FROM_FEATURE_AND_FILL ELIGIBILITY",
+    "zero_spread": "PRESERVED_AS_OBSERVED_NO_ARTIFICIAL_FILL"
+  },
+  "multiplicity_contract": {
+    "test_count_unit": "UNIQUE_REALIZED_SIGNAL_MASK_PER_ASSET_SIDE_AFTER_EXACT_PRE_RESULT_DEDUPE",
+    "trial_ledger": "APPEND_ONLY",
+    "aliases_count_once_only_after_exact_identity_proof": true,
+    "management_selected_by_results_counts_as_additional_trials": true,
+    "n_tests_never_reduced_after_losses": true
+  },
+  "development_selection_contract": {
+    "status": "FROZEN_BEFORE_RESULTS",
+    "development_window": "2018-01-01_INCLUSIVE_TO_2020-01-01_EXCLUSIVE",
+    "minimum_trades": 30,
+    "cost_regimes_required": ["CENTRAL", "CONSERVATIVE", "SEVERE"],
+    "all_passers_advance": true,
+    "independent_signal_and_trade_parity_required": true,
+    "economic_thresholds": "BIND_TO_SEPARATE_HASHED_G32_DEVELOPMENT_SELECTION_SPEC_BEFORE_PNL",
+    "holdout": "SEALED"
+  },
+  "predevelopment_state": {
+    "ontology_frozen": true,
+    "enumerator_parity": "PENDING",
+    "semantic_canonicalization_parity": "PENDING",
+    "rise_fixed_point": "PENDING_TWO_ZERO_DELTA_ROUNDS",
+    "signal_engine_parity": "NOT_EXECUTED",
+    "economic_execution_authorized": false,
+    "branch_exhaustion_authorized": false
+  },
+  "next_action": "RUN_DUAL_ENUMERATION_AND_RISE_ITERATIONS_2_AND_3_NO_MARKET_DATA"
+}

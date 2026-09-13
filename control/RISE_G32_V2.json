@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_RISE_ADVERSARIAL_AUDIT_V2",
+  "campaign": "QROS_G32_PUBLIC_MAMA_FAMA_ADAPTIVE_PHASE_CROSS_v1",
+  "iteration": 2,
+  "input_ontology": "control/G32_UNIVERSE_ONTOLOGY_V2.json",
+  "audit_order": "GENEALOGY_THEN_ALLOWED_MUTATIONS_THEN_COVERAGE_MATRIX_THEN_CONSTRAINTS_THEN_NUMERICS_THEN_EXECUTION",
+  "results_seen": false,
+  "market_data_read": false,
+  "holdout_opened": false,
+  "status": "ZERO_DELTA_ROUND_1",
+  "repaired_findings_from_v1": {
+    "G32_R1_01": "PASS_INTEGER_SCALED_PARAMETERS_CANONICAL_JSON_AND_HASH_IDS",
+    "G32_R1_02": "PASS_BOOTSTRAP_CONVERGENCE_WARMUP_NUMERICS_AND_GAP_POLICIES_FROZEN",
+    "G32_R1_03": "PASS_PUBLIC_LITERAL_AND_ATAN2_DESCENDANT_SEPARATE",
+    "G32_R1_04": "PASS_CROSS_TIES_PRIOR_ONLY_QUANTILES_AND_EVENT_CONSOLIDATION_FROZEN",
+    "G32_R1_05": "PASS_NINE_FAMILIES_48_VARIANTS_MAX_INTERACTION_DEPTH_ONE",
+    "G32_R1_06": "PASS_FOUR_ID_NAMESPACES_AND_CONDITIONAL_TRIAL_EXPANSION",
+    "G32_R1_07": "PASS_ALL_SESSION_ONLY_CLOCK_SENSITIVE_FAMILIES_CLOSED",
+    "G32_R1_08": "PASS_DUAL_EXACT_ENUMERATION_MULTIPLICITY_AND_ALL_PASSERS_RULE"
+  },
+  "coverage_matrix": {
+    "axes": ["FAMILY", "DIRECTION", "TIME_REPRESENTATION", "FEATURE_QUOTE", "PRICE_GEOMETRY", "PHASE_SEMANTICS", "ALPHA_PAIR", "GAP_POLICY"],
+    "family_cells": 9,
+    "family_variants": 48,
+    "direction_cells": 2,
+    "time_cells": 6,
+    "feature_quote_cells": 2,
+    "price_geometry_cells": 4,
+    "phase_cells": 2,
+    "valid_alpha_pair_cells": 19,
+    "gap_policy_cells": 2,
+    "config_cells": 700416,
+    "unexamined_cells": 0,
+    "pending_resumable_cells": 350208,
+    "pending_reason": "PUBLIC_LITERAL_RATIO_BRANCH_REQUIRES_PINE_V2_REFERENCE_VECTOR_PARITY_BEFORE_EXECUTION"
+  },
+  "constraint": {
+    "new_eligible_family_delta": 0,
+    "new_causal_dimension_delta": 0,
+    "new_mutation_operator_delta": 0,
+    "new_unresolved_ambiguity_delta": 0
+  },
+  "exact_enumerator_parity": "PASS_700416_OF_700416_SYMMETRIC_DIFFERENCE_ZERO",
+  "semantic_config_canonicalization": "PASS_NO_CONFIG_ID_COLLISIONS_EMPIRICAL_MASK_ALIASES_DEFERRED_BEFORE_N_TESTS",
+  "scope_sufficiency": "PASS_WITHIN_FROZEN_MAMA_FAMA_RADIUS_MAX_INTERACTION_DEPTH_ONE",
+  "economic_execution_authorized": false,
+  "next_action": "RUN_SECOND_ZERO_DELTA_AUDIT_WITH_INDEPENDENT_DECOMPOSITION"
+}
