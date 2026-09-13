@@ -1,0 +1,28 @@
+{
+  "artifact": "RECUPERAR_QROS_MT5.bat",
+  "sha256": "798db03f9f7348f0917d36f987401ab01cc790ee3dd59da91eb8b3a239cbad80",
+  "bytes": 14610,
+  "validation": "OFFLINE_STATIC_REVIEW_ONLY",
+  "native_windows_executed": false,
+  "checks": {
+    "payload_after_batch_exit": true,
+    "crlf_only": true,
+    "batch_payload_ascii": true,
+    "no_terminal_control": true,
+    "no_network_calls": true,
+    "no_source_delete_or_rename": true,
+    "no_execution_policy_or_elevation_change": true,
+    "source_open_read_only": true,
+    "source_read_sharing_nonexclusive": true,
+    "no_cert_write": true,
+    "no_mql_execution": true,
+    "log_counter_initialized": true,
+    "empty_arrays_serialized_explicitly": true
+  },
+  "powershell_target": "Windows PowerShell 5.1",
+  "limitations": [
+    "No Windows or native PowerShell AST available in authoring environment.",
+    "Discovery is bounded and may be partial.",
+    "No active strategy identity is certified by file presence."
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "date": "2026-09-13",
+  "original_name": "QROS_RUNNER_NATIVE_ENV_EVIDENCE_r2_20260911_234345_12b72981(1).zip",
+  "sha256": "43984d02d002a43fd7cc3a89bf45baf00d09fb473f07328c8376bb967d335927",
+  "actual_bytes_sha256_verified": true,
+  "members": 13,
+  "expanded_bytes": 36739,
+  "native_receipt": "FAIL/FENCE_SECOND_EXECUTOR_NOT_DENIED/52",
+  "probe_result_present": false,
+  "holder_release_result_present": false,
+  "qualifier_source_present": false,
+  "previous_blocker_update": "Original R2 evidence ZIP now physically recovered; qualifier/runner exact sources and Windows host remain unavailable.",
+  "candidate_executed_this_session": false
+}
