@@ -1,0 +1,68 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_SOURCE_FREEZE_1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "branch": "design/runnerlab-v3-mvp2b-20260914",
+  "authority_parent_commit": "7270af8f68b960773a2008b90d82adfbcea41060",
+  "preregistration": "architecture/RUNNERLAB_MVP2B_ISOLATED_MT5_PROBE_SPEC_v1_1.json",
+  "carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP2B_1_ISOLATED_RUNTIME_SOURCE.zip",
+    "bytes": 63257,
+    "sha256": "ab96ebe1505920d740c5af380219cf30c95aac596ea54335598ec84339ed9ca9",
+    "zip_entries": 37,
+    "crc": "PASS",
+    "manifest_missing": 0,
+    "manifest_extra": 0,
+    "manifest_hash_mismatches": 0
+  },
+  "source_manifest": {
+    "files_governed": 36,
+    "sha256": "727335d46213a6a2ed54140c1432c7c972335891ef07a5cfbcbf6b36cfb9ec36"
+  },
+  "static_adversarial_audit": {
+    "checks": 69,
+    "pass": true,
+    "sha256": "8cd81f41c95a66a4c99d605a37128f05dff0ef34c52f5910d1d7dc318224ed01"
+  },
+  "independent_audit": {
+    "checks": 28,
+    "pass": true,
+    "sha256": "f3327dc44d3b3a77d94cd7fb93d8244aa6f224dcaad5a5023546e59f43bdb203"
+  },
+  "key_sources": {
+    "src/RunnerLab.Core/Mvp2B.cs": "bf75eef97555ca3f218c3ad7d22d3b1896f8abef6dfb7a48f11d4c8e983652f0",
+    "src/RunnerLab.Core/Mvp2BSelfTests.cs": "154da34913aed466d8a9cf56310f7c45c09ab1ce86fed33684ad08d1cc9e1270",
+    "src/RunnerLab.Cli/Program.cs": "feb716acb56ccddab8e8778f8bfad4015c091fe0739f4d44d937e2c82cf21d88",
+    "BUILD_AND_RUN_MVP2B.cmd": "2c6b553ca917673545bf5e5a32fe9dd42579c430a534b7fca70957c86f356ff7",
+    "MVP2B_PREREGISTRATION.json": "471854920c6274099b879cdc8ceaa1c57d5b4d0af99274f0d0f45d57e484ff68",
+    "tools/static_audit.py": "7db3948a8804b388842a0eb7e4ddfa541a8a24f4eb99ae23e209c6188a070d22",
+    "tools/independent_audit.py": "0b4e2376309d1c0a10442677853f9802cf9b545a4fc4e2e625df24a5a55db2c3"
+  },
+  "safety": {
+    "active_mt5_launch_allowed": false,
+    "frozen_mvp2a_clone_write_allowed": false,
+    "candidate3_allowed": false,
+    "mql5_payload_allowed": false,
+    "trading_allowed": false,
+    "cert_arm_allowed": false,
+    "deployment_allowed": false,
+    "live_account_actions_allowed": false
+  },
+  "design_hardening": [
+    "MVP2A MT5_A remains immutable",
+    "MVP2B launches only byte-parity ephemeral MT5_B runtime derivative",
+    "sterile config has AllowLiveTrading=0 AllowDllImport=0 Enabled=0 and no login/password/server/MQL5 credentials",
+    "CREATE_SUSPENDED then Job Object assignment and ownership verification before resume",
+    "active installation binaries and origin metadata fingerprinted before and after run",
+    "runtime scientific receipt precedes derived ZIP packaging",
+    "packaging failure cannot rewrite runtime PASS/FAIL"
+  ],
+  "evidence_classification": {
+    "source_integrity": "VERIFIED_IN_CHAT_RUNTIME",
+    "static_adversarial_audit": "VERIFIED_IN_CHAT_RUNTIME",
+    "independent_audit": "VERIFIED_IN_CHAT_RUNTIME",
+    "native_windows_mvp2b_execution": "NO_DISPONIBLE_YET",
+    "candidate3_execution": "PROHIBITED",
+    "mt5_active_environment_modification": "PROHIBITED"
+  },
+  "next_action": "Run BUILD_AND_RUN_MVP2B.cmd on the same Windows PC after overlaying/extracting this source carrier. Do not interact with any isolated MT5 window. Require M2B0-M2B9 PASS before MVP2C."
+}
