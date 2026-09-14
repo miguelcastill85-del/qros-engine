@@ -1,0 +1,19 @@
+{
+  "schema":"QROS_GC_D60_XAU_DIRECT_TRANSFER_RUNTIME_BLOCKER_RECEIPT_1.0",
+  "date":"2026-09-14",
+  "campaign_id":"QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "candidate":"GC_M1_D60_XAUUSD_DIRECT_TRANSFER",
+  "state":"BLOCKED_BY_INFRASTRUCTURE",
+  "historical_decision":"REJECTED_DIRECT_TRANSFER",
+  "historical_authority":{"worklog":"GC_TO_XAU_D60_WORKLOG_v100.md","spec":"GC_M1_D60_EXACT.json","rules_verified":true,"historical_source":"XAUUSD spot/CFD proxy M15, 2004-2025","historical_reference_trades":85,"historical_central_cost_rt_points":0.26,"historical_metrics_reported":{"net_R":12.1222,"PF":1.6377,"max_DD_R":3.5623,"win_rate":0.5529,"negative_years":[2006,2008,2013,2017,2018,2021,2024]}},
+  "frozen_rules":{"side":"BUY","signal_D1":"bullish candle","body_range_min":0.70,"range_atr14_min":1.25,"range_atr14_max":3.50,"close_location_min":0.80,"atr14_ge_median_previous_60_atr":true,"exclude_friday":true,"entry":"open of next session","stop":"min(1.25*ATR14,60 points)","target_R":2.0,"time_exit":"end of second session","one_position_at_a_time":true,"ambiguous_sl_tp":"SL first"},
+  "current_runtime":{"canonical_XAU_source":"Darwinex PACKED17 ticks 2018-2026","source_identity_matches_historical_proxy_M15":false,"historical_XAU_15m_data_csv_bytes":"NO_DISPONIBLE","exact_historical_trade_ledger_bytes":"NO_DISPONIBLE"},
+  "searches_performed":["File Library exact/semantic search for XAU_15m_data.csv, GC_TO_XAU_D60, GC_M1_D60 and exact specification","Dropbox exact title search for XAU_15m_data.csv","GitHub main search/tree for GC D60 and XAU transfer artifacts","local /mnt/data scan for historical M15 source or exact trade ledger"],
+  "why_indispensable":"The current campaign requires exact base reproduction before applying IPS. Using the current Darwinex tick carrier would change source identity, session/calendar semantics and execution substrate relative to the historical M15 proxy.",
+  "alternatives_attempted":["recover original M15 dataset","recover exact historical trade ledger","recover exact portable package","recover frozen rule/spec for future source-migration experiment"],
+  "approximate_or_silent_source_migration":"FORBIDDEN",
+  "ips_retest":{"executed":false,"reason":"exact base reproduction gate cannot be satisfied on current bytes"},
+  "2025_2026":"SEALED_FOR_THIS_CAMPAIGN",
+  "resume_condition":"Original XAU M15 proxy bytes or exact historical trade ledger becomes physically retrievable; alternatively preregister a NEW source-migration descendant against Darwinex, which is outside this exact-reproduction identity.",
+  "next_action":"Continue serially to next failed XAU identity."
+}
