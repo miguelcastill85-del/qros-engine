@@ -58,6 +58,7 @@ def _count_tick_crosses_four(bid,first,last,bar_high,bar_low,level,atr_prev,side
         for z in range(4):
             if z>0 and np.isnan(a): th[z]=np.nan
             else: th[z]=lv + (buffers[z]*a if side==1 else -buffers[z]*a)
+        # skip bar if impossible for every valid threshold
         possible=False
         for z in range(4):
             if np.isnan(th[z]):continue
@@ -168,6 +169,7 @@ def _find_touch_reclaim(bid,first,last,bar_low,bar_high,start_idx,start_bar,end_
                 p=bid[k]*point
                 if (side==1 and p<=thr) or (side==-1 and p>=thr): touched=True;touch_idx=k;j=k+1;break
             if not touched: continue
+        # seek reclaim after touch
         if side==1 and bar_high[bi]<=thr: continue
         if side==-1 and bar_low[bi]>=thr: continue
         for k in range(j,je+1):
@@ -177,11 +179,12 @@ def _find_touch_reclaim(bid,first,last,bar_low,bar_high,start_idx,start_bar,end_
 
 @nb.njit(cache=True)
 def _find_close_reclaim(bid,first,last,bar_low,bar_high,bar_close,start_idx,start_bar,end_bar_exclusive,cancel_idx,thr,side,point,level_id):
-    nbar=min(end_bar_exclusive,len(first)-1)
+    nbar=min(end_bar_exclusive,len(first)-1) # need next bar first tick for availability
     current_level=level_id[start_bar]
     for bi in range(start_bar,nbar):
         avail=first[bi+1]
         if cancel_idx>=0 and avail>=cancel_idx:return -1
+        # structural replacement at this availability cancels before reclaim
         if level_id[bi+1]!=current_level:return -1
         touched=False
         if bi==start_bar:
@@ -198,6 +201,8 @@ def _find_close_reclaim(bid,first,last,bar_low,bar_high,bar_close,start_idx,star
 
 @nb.njit(cache=True)
 def filter_raw_to_candidates(bid,first,last,bar_low,bar_high,bar_close,level,level_id,next_repl,atr_prev,raw_idx,raw_bar,raw_lid,opp_idx,side,point,buffer_mult,rearm_code,retest_code,retest_window):
+    # rearm_code:0 return_inside_or_replaced,1 level_replaced_only,2 one_signal_per_level
+    # retest_code:0 off,1 touch,2 close
     out=np.empty(len(raw_idx),np.int64);out_bar=np.empty(len(raw_idx),np.int32);n=0
     consumed_id=-999999; allowed_after=-1; pending_block_until=-1
     opp_pos=0
@@ -208,6 +213,7 @@ def filter_raw_to_candidates(bid,first,last,bar_low,bar_high,bar_close,level,lev
             if allowed_after>=0 and ri<allowed_after and lid==consumed_id: continue
         else:
             if lid==consumed_id: continue
+        # threshold known at breakout bar start
         a=atr_prev[bi]
         if buffer_mult!=0.0 and np.isnan(a): continue
         thr=level[bi]+(buffer_mult*a if side==1 else -buffer_mult*a)
@@ -226,10 +232,12 @@ def filter_raw_to_candidates(bid,first,last,bar_low,bar_high,bar_close,level,lev
             else:
                 final_idx=_find_close_reclaim(bid,first,last,bar_low,bar_high,bar_close,ri,bi,endbar,cancel,thr,side,point,level_id)
             if final_idx<0:
+                # Pending blocks same-level new breakouts until earliest cancel or window expiry.
                 expiry=first[endbar] if endbar<len(first) else last[-1]+1
                 pending_block_until=expiry
                 if cancel>=0 and cancel<pending_block_until:pending_block_until=cancel
                 continue
+            # map final source index to bar by monotonic first-source indices; windows <=5 => small scan
             fb=bi
             while fb+1<len(first) and first[fb+1]<=final_idx:fb+=1
             final_bar=fb
@@ -249,6 +257,7 @@ def filter_raw_to_candidates(bid,first,last,bar_low,bar_high,bar_close,level,lev
 
 @nb.njit(cache=True)
 def raw_close_crosses_four(first,close,level_start,level_id_start,atr,side,buffers=np.array([0.0,.05,.10,.25])):
+    # completed bar t is evaluated after structural update from t; availability is first tick of t+1.
     counts=np.zeros(4,np.int64)
     n=len(close)
     for t in range(1,n-1):
