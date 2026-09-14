@@ -1,0 +1,49 @@
+{
+  "schema": "QROS_XAU_BATCH_019_027_AUDIT_RECEIPT_1.0",
+  "created_date": "2026-09-14",
+  "authority": {
+    "manifest": "QROS_XAU_FULL_HISTORY_ZIP_MANIFEST_v2.json",
+    "carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4"
+  },
+  "uploaded_parts": [6,19,20,21,22,23,24,25,26,27],
+  "duplicate_part006": {
+    "status": "PASS",
+    "classification": "DUPLICATE_CANONICAL_COPY_NO_NEW_COVERAGE",
+    "zip_sha256": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8",
+    "payload_sha256": "3ce26873d8492c8a41837b76459165a239aaa8f2a26e0837b3e52663470cf52e"
+  },
+  "new_parts_019_027_status": "PASS_9_OF_9",
+  "parts": {
+    "19": {"zip_sha256":"9203cff2e8f6810b5eefa344b87268eba3590d44c43e87bc68451caa0e8158d8","payload_sha256":"bf2c119ba404156c8f0e78a61d78a78e763b6e713ef2426e130f7d1e5fe55137","start_record":360000000,"end_record":379999999,"first_timestamp_ms":1660592402902,"last_timestamp_ms":1668448265616,"status":"PASS"},
+    "20": {"zip_sha256":"3b6aeff34b7be4bde839bdeb0738159c54244f57b83ff9267ec47039fa637882","payload_sha256":"96c2432e23856325a3c74cc8d79c9c600759f44153f0b75d141db5cf37949d5c","start_record":380000000,"end_record":399999999,"first_timestamp_ms":1668448265664,"last_timestamp_ms":1679329946701,"status":"PASS"},
+    "21": {"zip_sha256":"61ece1382d6b84281cfc23871cb7b5c89b454f9f5203e1c06ea0e73a122f7856","payload_sha256":"e3a8c77beb1ea7c61ac1e86abee38f73e67f63f11274943cab197b6b85f99fd1","start_record":400000000,"end_record":419999999,"first_timestamp_ms":1679329946756,"last_timestamp_ms":1689257463457,"status":"PASS"},
+    "22": {"zip_sha256":"e6781ae8ae09082acb29cac7fbc5e84121fa56e8d68d74f0bf7945d968099636","payload_sha256":"9b9dc986f5e263aec9e166697d0214f636095cb95b03afba46b9c9754ba591ef","start_record":420000000,"end_record":439999999,"first_timestamp_ms":1689257463563,"last_timestamp_ms":1700744977639,"status":"PASS"},
+    "23": {"zip_sha256":"237463171a83b3025e39e18251d5a9578e372207f6c1b60a6e75b2ef5b44809b","payload_sha256":"fd090bc4bd5769b945b0e43c63c686e24aac7af05f31a3bba7e193599bc2cb9b","start_record":440000000,"end_record":459999999,"first_timestamp_ms":1700744977688,"last_timestamp_ms":1710737648460,"status":"PASS"},
+    "24": {"zip_sha256":"6782eec0dbf358866670219a103a3a1eb62ebceea92879a98d35d8b01d57c4d4","payload_sha256":"b70b14dac9a90281e18c1668e7f62ece714fd8f0410574f2c30639b0ea2982a7","start_record":460000000,"end_record":479999999,"first_timestamp_ms":1710737649361,"last_timestamp_ms":1719511571334,"status":"PASS"},
+    "25": {"zip_sha256":"2c013e37f713a4ade47832f68612b322862296d19f077a2cbb81a7f1ca0ccbca","payload_sha256":"08b42ef16da2a7f49516b02ea1aa565dd912561c6f5f0858bd762b6b3d5bc6af","start_record":480000000,"end_record":499999999,"first_timestamp_ms":1719511571384,"last_timestamp_ms":1728301809023,"status":"PASS"},
+    "26": {"zip_sha256":"8ef3568521b291da0c07594a88f75bf1afd9b59f16ac90d714819a405cdcf472","payload_sha256":"4b0130db01a96990a921c9ca0993b9b8a80838e75acd4a9e0643ac01e37a31c4","start_record":500000000,"end_record":519999999,"first_timestamp_ms":1728301809072,"last_timestamp_ms":1736241802021,"status":"PASS"},
+    "27": {"zip_sha256":"240abcf64df08d192f223ccb84e2b3a04150963c9aad2346e09a641d390fe039","payload_sha256":"195f017eb6262915228919662f4e7a390303eb0f9de5f6e8cc64df2fa92e2907","start_record":520000000,"end_record":539999999,"first_timestamp_ms":1736241802072,"last_timestamp_ms":1743686326237,"status":"PASS"}
+  },
+  "coverage_new": {
+    "start_record": 360000000,
+    "end_record": 539999999,
+    "records": 180000000,
+    "first_timestamp_ms": 1660592402902,
+    "last_timestamp_ms": 1743686326237,
+    "continuity_from_part018": "PASS"
+  },
+  "scientific_guards": {
+    "economic_scoring_performed": false,
+    "IPS_v2_state": "APPROVED_RESEARCH",
+    "IPS_v2_retuning": "FORBIDDEN",
+    "2023_2024": "STILL_SEALED_UNSCORED",
+    "2025_2026": "STILL_SEALED"
+  },
+  "capability_update": {
+    "parts_019_020_now_available": true,
+    "parts_020_026_now_available": true,
+    "original_clean_v2_oos_2023_2024_can_now_be_materialized": true,
+    "note": "Capability only; sealed OOS not opened by this audit."
+  },
+  "local_receipt_sha256": "184083cd173441a1bd60e5838b410bd29bcd84d576de56fb89e72d8971e39a35"
+}
