@@ -1,0 +1,24 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP1_SOURCE_CORRECTION_2",
+  "utc": "2026-09-14T04:05:00Z",
+  "supersedes_source_identity_only": "QROS_RUNNERLAB_MVP1_CHECKPOINT_v1.json",
+  "reason": "Added BUILD_AND_SELFTEST.cmd so the source carrier can compile, run native Windows D04/D14/D15 self-tests, publish self-contained win-x64, and retest the published executable without touching MT5 or Candidate3.",
+  "corrected_source_carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP1_SOURCE.zip",
+    "sha256": "1c0f4dc4c4a16f5c4f60628f5b7ef670d9c79b943a5ba3f2b67559a08bee13d2",
+    "bytes": 21524,
+    "entry_count": 20
+  },
+  "static_audit": {
+    "decision": "PASS",
+    "checks_passed": 20,
+    "checks_failed": 0
+  },
+  "native_windows_compile": "NOT_EXECUTED_IN_CHAT_RUNTIME_DOTNET_SDK_UNAVAILABLE",
+  "candidate3_executed": false,
+  "mt5_accessed": false,
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "next_action": "Run BUILD_AND_SELFTEST.cmd on native Windows. Promotion requires all SELF0-SELF4 PASS and a verified receipt from the published self-contained executable."
+}
