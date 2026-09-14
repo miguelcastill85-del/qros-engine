@@ -1,0 +1,60 @@
+{
+  "schema": "QROS_PUBLIC1000_ARCHITECTURE_GAP_REGISTER_1.0",
+  "version": "1.0",
+  "status": "FROZEN_ACTIVE",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "purpose": "Make every known missing contract or implementation explicit so that no chat can silently bridge it by memory or inference.",
+  "gaps": [
+    {
+      "id": "GAP-001",
+      "area": "FIRST_GATE scorer implementation",
+      "status": "OPEN_CURRENT_ACTION",
+      "blocking_state": "FG_SCORER_NOT_BUILT",
+      "closure_evidence_required": ["primary scorer source", "tests", "build receipt", "independent scorer oracle", "parity receipt"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-002",
+      "area": "Post-60-shard exact machine transition",
+      "status": "OPEN_FUTURE_POLICY_REQUIRED",
+      "blocking_state": "POST_GA1_POLICY_REQUIRED",
+      "closure_evidence_required": ["versioned downstream contract", "updated deterministic execution map", "independent oracle coverage", "external validation PASS"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-003",
+      "area": "Exact GA3 machine contract",
+      "status": "OPEN_FUTURE_POLICY_REQUIRED",
+      "depends_on": "GAP-002",
+      "closure_evidence_required": ["exhaustive management-profile execution contract", "survivor binding", "multiplicity semantics", "receipt schema"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-004",
+      "area": "Exact GA4 stress/execution machine contract",
+      "status": "OPEN_FUTURE_POLICY_REQUIRED",
+      "depends_on": "GAP-003",
+      "closure_evidence_required": ["execution/stress grid binding", "reject/downgrade rules", "receipt schema", "independent oracle"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-005",
+      "area": "Holdout opening contract",
+      "status": "LOCKED_FUTURE_POLICY_REQUIRED",
+      "depends_on": "terminal Gate A eligibility",
+      "closure_evidence_required": ["clean-period proof", "genealogy exposure ledger", "opening authorization receipt", "exact data carrier binding"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-006",
+      "area": "SUPERGATE/MT5/portfolio/final deterministic routing",
+      "status": "OPEN_FUTURE_POLICY_REQUIRED",
+      "depends_on": "valid holdout eligibility",
+      "closure_evidence_required": ["versioned contracts for each downstream stage", "state transitions", "external validation"],
+      "may_be_filled_by_chat_inference": false
+    }
+  ],
+  "closure_rule": "A gap closes only by a new durable versioned artifact plus machine validation. A chat statement, summary, memory item or prose recommendation cannot close a gap.",
+  "current_blocking_gap": "GAP-001",
+  "decision": "ALL_KNOWN_ARCHITECTURAL_GAPS_EXPLICIT; NO_SILENT_BRIDGING_ALLOWED"
+}
