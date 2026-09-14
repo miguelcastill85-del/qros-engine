@@ -1,0 +1,60 @@
+{
+  "checks": {
+    "class_root_sha256": {
+      "equal": true,
+      "v222": "332959706a3446f54f88c2b77be33b6e922a41d4c81b9600ee769470fbc6efc1",
+      "v223": "332959706a3446f54f88c2b77be33b6e922a41d4c81b9600ee769470fbc6efc1"
+    },
+    "distinct_mask_class_count": {
+      "equal": true,
+      "v222": 10521,
+      "v223": 10521
+    },
+    "duplicate_config_count": {
+      "equal": true,
+      "v222": 23007,
+      "v223": 23007
+    },
+    "full_alias_mapping_root_sha256": {
+      "equal": true,
+      "v222": "7eadd32cbde551025b4d862f55f07954fe8a77afee23334f8ccb38c3e1b83c0d",
+      "v223": "7eadd32cbde551025b4d862f55f07954fe8a77afee23334f8ccb38c3e1b83c0d"
+    },
+    "ordered_config_id_stream_root_sha256": {
+      "equal": true,
+      "v222": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3",
+      "v223": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3"
+    },
+    "processed_signal_configs": {
+      "equal": true,
+      "v222": 33528,
+      "v223": 33528
+    },
+    "semantic_class_root_sha256": {
+      "equal": true,
+      "v222": "a6fa6082dc39c9f37cfe2ac6c7f1e1e6862ecfc42589f54e96539a33090f4f22",
+      "v223": "a6fa6082dc39c9f37cfe2ac6c7f1e1e6862ecfc42589f54e96539a33090f4f22"
+    },
+    "zero_event_class_alias_count": {
+      "equal": true,
+      "v222": 1397,
+      "v223": 1397
+    }
+  },
+  "domain": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1"
+  },
+  "durable_v222_group_worker_sha256": "b965ab2adbd90d524e1befe90e2d439cb020d8007b6651c72e42afd78020dd77",
+  "economic_pnl_read": false,
+  "group_index": 0,
+  "holdout_open": false,
+  "low_storage_v223_worker_sha256": "1cda5fbb80d31b3137344724e4260b40df86e633f68c9750e78e657282829756",
+  "receipt_sha256": "9c6ba59bc6b44f949ba2e4c9c6ad44b61aaec61215620ff6f5bf4c4d8ddfa185",
+  "schema": "QROS_SEED0076_GA1_V222_V223_GROUP00_PARITY_RECEIPT_1.0",
+  "seed": "WEB_SEED_0076",
+  "semantic_change": false,
+  "status": "PASS",
+  "storage_change": "V223 omits redundant full_alias_mapping.bin and supports exact structural-group execution; scientific roots/counts unchanged"
+}
