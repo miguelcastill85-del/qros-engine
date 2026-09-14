@@ -1,0 +1,47 @@
+name: qros-seed0076-enumerator-parity-diagnostic-v1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/qros_seed0076_enumerator_parity_diagnose_v1.py'
+      - '.github/workflows/qros-seed0076-enumerator-parity-diagnostic-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout exact triggering commit
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir repo && cd repo
+          git init -q
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git -c http.extraheader="AUTHORIZATION: basic ${AUTH}" fetch --depth=1 "https://github.com/${GITHUB_REPOSITORY}.git" "${GITHUB_SHA}"
+          git checkout -q --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+      - name: Run semantic-set and root-definition diagnostic
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 -m py_compile scripts/qros_seed0076_enumerator_parity_diagnose_v1.py
+          python3 scripts/qros_seed0076_enumerator_parity_diagnose_v1.py --repo-root . --out /tmp/diag.json
+          cat /tmp/diag.json
+          python3 - <<'PY'
+          import json
+          x=json.load(open('/tmp/diag.json'))
+          assert x['status']=='PASS' and x['semantic_set_parity_pass'] is True and x['root_definition_divergence_confirmed'] is True
+          for k,v in x['sets'].items():
+              assert v['a_minus_b']==0 and v['b_minus_a']==0 and v['canonical_order_roots_equal'] is True
+          print('QROS_SEED0076_ENUMERATOR_SEMANTIC_PARITY=PASS')
+          print('ROOT_DEFINITION_DIVERGENCE=CONFIRMED')
+          print('RECEIPT_SHA256='+x['receipt_sha256'])
+          PY
