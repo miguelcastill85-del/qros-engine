@@ -77,7 +77,7 @@ def higher_tf(signal_tf,steps):
     d=TF_MIN[signal_tf];xs=[x for x in LADDER if TF_MIN[x]>d];return xs[steps-1] if len(xs)>=steps else None
 
 def mtf_context_index(context_bars,source_idx):
-    comp=context_bars['first_source_index'][1:]
+    comp=context_bars['first_source_index'][1:] # comp[j] is completion availability of context bar j
     return np.searchsorted(comp,np.asarray(source_idx,np.int64),side='left')-1
 
 def mtf_eval(loader,signal_tf,source_idx,side,variant,active_trend=None):
@@ -93,6 +93,11 @@ def mtf_eval(loader,signal_tf,source_idx,side,variant,active_trend=None):
     raise ValueError(rule)
 
 def session_eval_ms(server_ms,variant):
+    """Evaluate frozen civil-session windows on exact event signal time.
+    server_ms are Darwinex source-server civil labels encoded as epoch-like ms.
+    V219 byte-level binding: server civil = America/New_York civil + 7h.
+    London conversion uses IANA offsets per NY civil date; DST transition Sundays are non-session.
+    """
     server=np.asarray(server_ms,dtype=np.int64)
     nyms=server-np.int64(7*3600000)
     mins=((nyms//60000)%1440).astype(np.int16)
@@ -101,18 +106,25 @@ def session_eval_ms(server_ms,variant):
     if rule=='NY_OPEN_120': return (mins>=570)&(mins<690)
     if rule=='NY_MIDDAY': return (mins>=690)&(mins<840)
     if rule=='NY_CLOSE_120': return (mins>=840)&(mins<960)
-    day=np.floor_divide(nyms,np.int64(86400000));uniq,inv=np.unique(day,return_inverse=True);diffs=np.empty(len(uniq),dtype=np.int16);epoch_date=_dt.date(1970,1,1)
+    day=np.floor_divide(nyms,np.int64(86400000))
+    uniq,inv=np.unique(day,return_inverse=True)
+    diffs=np.empty(len(uniq),dtype=np.int16)
+    epoch_date=_dt.date(1970,1,1)
     for i,d in enumerate(uniq):
-        date=epoch_date+_dt.timedelta(days=int(d));ndt=_dt.datetime(date.year,date.month,date.day,12,0,tzinfo=NY);ldt=ndt.astimezone(LONDON)
+        date=epoch_date+_dt.timedelta(days=int(d))
+        ndt=_dt.datetime(date.year,date.month,date.day,12,0,tzinfo=NY)
+        ldt=ndt.astimezone(LONDON)
         diffs[i]=(_dt.date(ldt.year,ldt.month,ldt.day)-date).days*1440 + ldt.hour*60+ldt.minute-720
-    lmins=(mins.astype(np.int32)+diffs[inv].astype(np.int32))%1440;london=(lmins>=480)&(lmins<990)
+    lmins=(mins.astype(np.int32)+diffs[inv].astype(np.int32))%1440
+    london=(lmins>=480)&(lmins<990)
     if rule=='LONDON': return london
     if rule=='LONDON_NY_OVERLAP': return london&(mins>=570)&(mins<960)
     raise ValueError(rule)
 
 class GateContext:
     def __init__(self,asset,tf,side,bar_root,ind_root,point):
-        self.asset=asset;self.tf=tf;self.side=side;self.bar_root=Path(bar_root);self.ind_root=Path(ind_root);self.point=point;self._cache={};self.bars,self.ind=self.load(tf)
+        self.asset=asset;self.tf=tf;self.side=side;self.bar_root=Path(bar_root);self.ind_root=Path(ind_root);self.point=point;self._cache={}
+        self.bars,self.ind=self.load(tf)
     def load(self,tf):
         if tf not in self._cache:
             b=np.load(self.bar_root/f'{self.asset}_{tf}_BID_BARS.npy',mmap_mode='r',allow_pickle=False);z=np.load(self.ind_root/f'{self.asset}_{tf}_INDICATORS.npz',allow_pickle=False);d={k:z[k] for k in z.files};d['_CLOSE']=b['close_bid'].astype(np.float64)*self.point;self._cache[tf]=(b,d)
