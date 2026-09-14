@@ -1,0 +1,20 @@
+{
+  "schema":"QROS_IPS_FROZEN_XAU_COHORT_PREREG_1.0",
+  "created_date":"2026-09-14",
+  "objective":"Apply frozen IPS v2 uniformly to every recoverable frozen XAU strategy/module that had prior scientific potential, without retuning IPS or the base strategies.",
+  "indicator":{"id":"QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY","state":"APPROVED_RESEARCH","weights":[15,5,10,20,30,20],"threshold":65,"retuning":"FORBIDDEN"},
+  "common_filter":{"rule":"Keep a base trade only if a same-direction IPS event with score>=65 exists strictly before base entry and no more than 60 minutes before it, on the same source day.","window_minutes":60,"same_direction":true,"same_source_day":true,"multiple_events":"most recent qualifying event","base_entry_exit_R":"UNCHANGED","no_IPS_generated_trade":true,"no_threshold_or_window_search":true},
+  "primary_frozen_modules":[
+    {"priority":1,"id":"XAU_M1_BUY_PDH_ACCEPTED_RETEST_200S_v101","side":"BUY","status":"FROZEN_MT5_EXTERNAL_PENDING","expected_trades_full":79,"exact_ledger":"XAU_M1_v101_TRADES_FULL.csv","ledger_sha256":"ee0170069fc6cf564539742f256fa12db1b5d57b4b2f0f9d6cfd281ab645ffff","runtime_status":"EXECUTED_PARTIAL_PRE2025_61_TRADES; FULL_79_LEDGER_NOT_MATERIALIZED"},
+    {"priority":2,"id":"XAU_M2_SELL_TICK_PULLBACK_ROUTER_v10110","side":"SELL","status":"FROZEN_BALANCED_MT5_EXTERNAL_PENDING","expected_trades_full":259,"exact_ledger":"v10065_ACTIVITY_TRADES.csv","ledger_sha256":"be2f88005727c6324b780c89991ed310601c39695bd56b319a966a9a9a973499","runtime_status":"EXACT_LEDGER_REFERENCE_KNOWN_BYTES_NOT_MATERIALIZED"},
+    {"priority":3,"id":"XAU_M3_BUY_STRUCTURAL_ROUTER_v11310","side":"BUY","status":"FROZEN_29_OF_29_GATES_MT5_EXTERNAL_PENDING","expected_trades_full":241,"exact_ledger":"XAU_M3_BUY_STRUCTURAL_ROUTER_v11310_TRADES.csv","runtime_status":"EXACT_LEDGER_REFERENCE_KNOWN_BYTES_NOT_MATERIALIZED"},
+    {"priority":4,"id":"XAU_M4_BUY_TICK_OPENING_DRIVE_ROUTER_v11430","side":"BUY","status":"FROZEN_BALANCED_MT5_EXTERNAL_PENDING","expected_trades_full":186,"exact_ledger":"XAU_M4_BALANCED_TRADES_v11430.csv","runtime_status":"EXACT_LEDGER_REFERENCE_KNOWN_BYTES_NOT_MATERIALIZED"}
+  ],
+  "secondary_potential_reserve":[{"id":"XAU_BUY_MULTIWEEK_PULLBACK_v2512","side":"BUY","classification":"OBSERVATIONAL_RESERVE","recovery_parity":"PASS_64_OF_64","expanded_trades_2018_2025":84,"base_decision":"REJECTED_EXPANDED_TEMPORAL_GATE","policy":"May be tested only as a NEW IPS-filter descendant; cannot be promoted as the original v2512 or used to rescue its failed gate."}],
+  "excluded_from_primary":{"M5_SELL_Opening_Drive":"REJECTED_GATE_B_DEFAULT; frozen profiles are not approved modules. Eligible only as a separately named descendant after primary cohort.","M6_Liquidity_Shock":"REJECTED_GATE_A_NO_SURVIVORS","Failed_Auction":"REJECTED_GATE_A_NO_SURVIVORS"},
+  "evaluation_order":["M1_FULL_79","M2_259","M3_241","M4_186","controller_M1_M3_M4_M2","v2512_observational_reserve_descendant"],
+  "gates_per_module":{"base_reproduction_required":true,"minimum_filtered_trades":8,"minimum_coverage_fraction":0.10,"filtered_total_R_gt_0":true,"filtered_expectancy_gt_base":true,"filtered_PF_gt_base":true,"filtered_max_DD_le_base":true,"positive_year_fraction_with_trades_min":0.60,"concentration_top3_net_share_max":0.70},
+  "portfolio_gate":{"after_individual_results":"Apply the same filter to the frozen controller priority M1→M3→M4→M2 and measure marginal trade count, PF, DD, overlap, daily-cap interference and frequency loss.","max_new_entries_per_day":3,"one_open_XAU_position":true},
+  "future_data_policy":{"2025_2026":"DO_NOT_OPEN_FOR_ANY_DESCENDANT_THAT_HAS_NOT_PASSED_DEVELOPMENT_GATE_A","note":"Some legacy modules already contain historical diagnostics through 2025/2026; new IPS descendants must not silently treat those periods as clean if economically exposed."},
+  "execution_state":"DEVELOPMENT_RUNNING_WHERE_EXACT_LEDGER_BYTES_EXIST; BLOCKED_BY_INFRASTRUCTURE_PER_MODULE_WHERE_EXACT_LEDGER_BYTES_ARE_NOT_MATERIALIZED"
+}
