@@ -1,0 +1,11 @@
+{
+  "schema":"QROS_IPS_V2_CLEAN_OOS_2023_2024_PARITY_1.1",
+  "main_events":18386,
+  "oracle_events":18386,
+  "oracle_reason_mapping":{"1":"TP","2":"SL","3":"HORIZON_OR_DAY_END","4":"SOURCE_DAY_END","5":"EOF","6":"INVALID_RISK"},
+  "total_field_mismatches":0,
+  "max_numeric_abs_error":0.0,
+  "main_sha256":"9874f27cb8fb7afdd4ec8da6200dfa4a234715d3c7c5cdcba99e5b8c6dcbf340",
+  "oracle_sha256":"9e24a13638e4c3455be359cc13e71a002c16ef8347f4545be45453b7ed92a3c4",
+  "decision":"PASS"
+}
