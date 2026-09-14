@@ -1,0 +1,30 @@
+{
+  "schema": "QROS_PUBLIC1000_DETERMINISTIC_DECISION_LEDGER_2.0",
+  "version": "2.0",
+  "status": "FROZEN_ACTIVE",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "supersedes": "control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v1.json",
+  "append_model": "NEW_VERSION_ONLY; historical ledgers immutable",
+  "entries": [
+    {"id":"D001","rule":"Chat context, summaries and model memory are never operational authority; only durable pinned repository bytes are."},
+    {"id":"D002","rule":"Exactly one structured action ticket may be valid at a time; zero or multiple actions fail closed."},
+    {"id":"D003","rule":"Free-text next_action fields are advisory only after kernel activation."},
+    {"id":"D004","rule":"XAU parts 001-008 and NQX parts 001-003 are sufficient exact DEV prefixes for FIRST_GATE; remaining full-history parts are not prerequisites for this gate."},
+    {"id":"D005","rule":"The eight already-promoted shards are drained in immutable FIFO order before any new GA1 shard."},
+    {"id":"D006","rule":"A state transition is not promotable until an independent source implementation validates it on an external GitHub Actions runner."},
+    {"id":"D007","rule":"Undefined future scientific criteria become explicit POLICY_REQUIRED blocking states; they may never be inferred from chat history."},
+    {"id":"D008","rule":"Completed valid scientific work is never recomputed solely because a new chat starts."},
+    {"id":"D009","rule":"V243 is an unpromoted rejected architecture candidate; its external run failed during private-repository checkout before kernel validation and it must never become stable authority."},
+    {"id":"D010","rule":"The deterministic compiler and independent oracle must each cover every guard profile, subject selector and success-state selector declared by the active execution map."},
+    {"id":"D011","rule":"Adversarial mutation fixtures must contain all pinned dependencies so each negative case fails because of the intended invariant, not because the fixture is incomplete."},
+    {"id":"D012","rule":"The end-to-end master workgraph is authoritative for stage order. A stage marked POLICY_REQUIRED is a hard deterministic barrier until a versioned contract closes it."},
+    {"id":"D013","rule":"Architecture activation and every later semantic map change require an external clean-runner PASS before stable-pointer promotion."}
+  ],
+  "bound_artifacts": {
+    "v243_failure_receipt": "control/QROS_DETERMINISTIC_KERNEL_CANDIDATE_V243_VALIDATION_FAILURE_20260914_v1.json",
+    "execution_map": "control/QROS_PUBLIC_1000_DETERMINISTIC_EXECUTION_MAP_v2.json",
+    "master_workgraph": "control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v1.json",
+    "gap_register": "control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v1.json"
+  },
+  "decision": "V2_FROZEN: COMPLETE_DECLARED_STATE_COVERAGE_AND_EXPLICIT_GAPS_REQUIRED_BEFORE_KERNEL_ACTIVATION"
+}
