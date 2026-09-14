@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_IPS_V2_DEVELOPMENT_ROBUSTNESS_1.0",
+  "period": "2018-2019 exposed development only",
+  "parent_v1": {
+    "n_high": 2490,
+    "high_rate": 0.2855421686746988,
+    "lift": 0.04707455980749167,
+    "month_positive": 22,
+    "month_total": 24,
+    "worst_month_lift": -0.11963636363636365,
+    "median_month_lift": 0.054874794402714616,
+    "day_block_bootstrap_95ci": [0.03209999136779955, 0.06273354023652888]
+  },
+  "v2": {
+    "n_high": 1728,
+    "high_rate": 0.32407407407407407,
+    "lift": 0.08560646520686696,
+    "month_positive": 24,
+    "month_total": 24,
+    "worst_month_lift": 0.021777777777777785,
+    "median_month_lift": 0.08219989696131454,
+    "day_block_bootstrap_95ci": [0.0656907342342283, 0.10562790016688825]
+  },
+  "paired_bootstrap_v2_minus_v1_lift_95ci": [0.024886823891094863, 0.05211495338610911],
+  "local_neighbors_tested": 14,
+  "local_neighbors_preserving_core_hard_gates": 10,
+  "plateau_fraction": 0.7142857142857143,
+  "interpretation": "Development robustness only; selected after 1125 tests and not independent evidence."
+}
