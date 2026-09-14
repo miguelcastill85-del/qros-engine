@@ -1,0 +1,38 @@
+{
+  "schema":"QROS_DETERMINISTIC_KERNEL_V251_ACTIVE_EXECUTION_VALIDATION_PASS_1.0",
+  "status":"PASS_EXTERNAL_INDEPENDENT_VALIDATION",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "frontier_version":"V251",
+  "stable_pointer_git_blob_sha1_at_validation":"b3e302e25eb882d2eb375a1054854dac25792aea",
+  "target_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V251_v1.json",
+  "target_git_blob_sha1":"1420d5d15439e39399c70ac05c013c0fed19db42",
+  "external_workflow":".github/workflows/qros-deterministic-execution-kernel-v6.yml",
+  "external_workflow_git_blob_sha1":"c760f03320a7d29fb5134670e6bc80fca739c549",
+  "external_run_id":34891361669,
+  "external_job_id":104134595190,
+  "mode":"ACTIVE_EXECUTION",
+  "checks":{
+    "exact_trigger_commit_checkout":"PASS",
+    "generic_mode_resolution":"PASS",
+    "direct_authority_exact_pins":"PASS",
+    "dynamic_component_syntax":"PASS",
+    "compiler_internal_execution_latch":"PASS",
+    "primary_ticket":"PASS",
+    "independent_oracle":"PASS",
+    "active_pointer_ticket_binding":"PASS",
+    "frontier_version_hardcoded":false,
+    "component_version_hardcoded":false
+  },
+  "ticket":{
+    "ticket_id":"aa713339ae4f67451342a24c72585520a2a01e6b27ce9a399b4248d9d50ed69b",
+    "state_id":"PRE_SCIENTIFIC_BLOCKER",
+    "guard_profile":"P00_RISE_FIXED_POINT_EVIDENCE_REQUIRED",
+    "action_type":"RECOVER_OR_REVALIDATE_RISE_FIXED_POINT_NO_PNL",
+    "subject":{"campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA","seed":"WEB_SEED_0076","stage":"POST_EXPANSION_RISE_FIXED_POINT"}
+  },
+  "independent_oracle_receipt_sha256":"c60b4264a5f40af0bdfbf0736f3abd20b12c40a6a28309a60bb6e1864a139f89",
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false,
+  "decision":"THREE_PHASE_KERNEL_VALIDATION_COMPLETE; EXACT NON_ECONOMIC MACHINE TICKET IS EXECUTABLE. NEXT ACTION IS RECOVER_OR_REVALIDATE_RISE_FIXED_POINT_NO_PNL."
+}
