@@ -1,0 +1,71 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_PORTABLE_GA1_WRAPPER_PARITY_1.0",
+  "status": "PASS_BYTE_EXACT_PARITY",
+  "seed": "WEB_SEED_0076",
+  "purpose": "Remove runtime-specific absolute /mnt/data dependencies from the certified GA1 acceleration stack without changing event semantics or scientific outputs.",
+  "historical_authorities_preserved": {
+    "cached_wrapper_v225_commit": "a531d8e80c3277408c212b6d912ae2c42a8552ea",
+    "tree_wrapper_v227_commit": "727609a1dc7350d41b9bbec13aa18964b5aaca34",
+    "base_worker_v223_commit": "78409b09bb5cae75e6fa6d70ec3b402b585a24b7",
+    "base_worker_git_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041"
+  },
+  "portable_authorities": {
+    "cached_wrapper_path": "scripts/qros_seed0076_ga1_cached_wrapper_v233.py",
+    "cached_wrapper_commit": "73fda4b73960fed0c28638c60fc1cf07f9091723",
+    "cached_wrapper_git_blob_sha1": "2da5448fc6403c3c0b081b980ab20eff6870a1dc",
+    "cached_wrapper_sha256": "c47808f3dae5c807ebdc6fa74e0ac72e7797dfe44c27eb2acce12cfa51210b69",
+    "tree_wrapper_path": "scripts/qros_seed0076_ga1_tree_wrapper_v233.py",
+    "tree_wrapper_commit": "35303d4ca7e2d96d66c3b02cd69d75746f041d06",
+    "tree_wrapper_git_blob_sha1": "6d4ed7763b103a522efbe50a62dd9637ec02d7c2",
+    "tree_wrapper_sha256": "1d6363bf445aed8379b91b34172173733164d1e88e519d55fcfb721f0a5f322d",
+    "path_resolution": "repository-relative via Path(__file__).resolve().parent",
+    "dependency_hash_guards": true
+  },
+  "test_domain": {
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "H4",
+    "shard_id": "b6fe997fe6eded0f4df4692256ea872e41e7fccc5ea453e230844488a7840c41",
+    "ordered_config_id_stream_root_sha256": "da93ef4605d4a8c94753248cacc3f75188fa7197e9728922fe4d8b5853c65b90"
+  },
+  "byte_exact_regressions": [
+    {
+      "group": 0,
+      "processed_signal_configs": 33528,
+      "distinct_mask_classes": 2416,
+      "duplicate_configs": 31112,
+      "semantic_class_root_sha256": "85c676f8bc71b18c6e132b85bcb610abab5c4b5449a3e4924cd6e1b19cdb3ec5",
+      "class_root_sha256": "d0e9795c1d1ce7f6c09079a34bd6480761356801340425116f51289f675ca99d",
+      "full_alias_mapping_root_sha256": "621c47fb9e95ddc67baeed3ae6d076dd0e0a92e74c7e1f3fe18475bf0a2d225a",
+      "artifacts_equal": {
+        "mask_classes.delta_u32.bin": "3f88ab83015e48f60f021010cbc74c69edbbc5482a1a2b2ade34284a88f8aee1",
+        "mask_class_index.jsonl": "bdbbaa28785e1ad9b3458b76043fdc57d3e7775687299601f4a8bfd50f5c97e8",
+        "duplicate_alias_pairs.bin": "7415945ecc2d7deeef786b0ba25193f849cee6e7297865b862c3b0f56642289f"
+      }
+    },
+    {
+      "group": 1,
+      "processed_signal_configs": 33528,
+      "distinct_mask_classes": 3889,
+      "duplicate_configs": 29639,
+      "semantic_class_root_sha256": "995247b530a4eab24327c66a70a056ff40ac4f10be03842a3cb5971f0d2733cb",
+      "class_root_sha256": "c7ce7de054d198bbeef115470feea0e61f3ca1126def0f8d86bf8c6e83b673cd",
+      "full_alias_mapping_root_sha256": "b9cf659308be06ab843e8d0b7a5130240154465e55267790991828e0d4a455df",
+      "artifacts_equal": {
+        "mask_classes.delta_u32.bin": "486a5a47600cbd6902cf9d5dd74859b0a3f8e49d3707cf173a550dcbe87de3a1",
+        "mask_class_index.jsonl": "24cd74a6597e071dae6f60ac4b1afd1f09194bfa3ea2c83d4adf801e66c85308",
+        "duplicate_alias_pairs.bin": "4a742f6febec63abcdc2ed46ace4f9d6b220255057c8a8c26e8ec09c2ac8502e"
+      }
+    }
+  ],
+  "decision": "ADOPT_V233_PORTABLE_WRAPPERS_FOR_FUTURE_EXECUTION_AND_REMATERIALIZATION",
+  "retroactivity": "Historical V225/V227 receipts remain valid and immutable; V233 is a portability-equivalent successor, not a rewrite of historical evidence.",
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "universe_changed": false,
+    "config_ids_changed": false,
+    "event_masks_changed": false
+  }
+}
