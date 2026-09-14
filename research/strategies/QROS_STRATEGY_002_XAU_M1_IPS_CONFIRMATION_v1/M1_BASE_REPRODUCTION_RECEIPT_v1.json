@@ -1,0 +1,56 @@
+{
+  "schema": "QROS_XAU_M1_BASE_REPRODUCTION_RECEIPT_1.0",
+  "created_date": "2026-09-14",
+  "campaign_id": "QROS_STRATEGY_002_XAU_M1_IPS_CONFIRMATION_v1",
+  "authority": {
+    "base_module": "XAU_M1_BUY_PDH_ACCEPTED_RETEST_200S_v101",
+    "frozen_rules_source": "XAU_M1_v101_SUPERGATE_FINAL_REPORT-2.md",
+    "expected_full_ledger_sha256": "ee0170069fc6cf564539742f256fa12db1b5d57b4b2f0f9d6cfd281ab645ffff",
+    "expected_replay_sha256": "77ce506b61a7117c0eb80ef5f811ab3e715b68648f2a234147c975910ac27334"
+  },
+  "recovery_method": "Reconstructed exact 200-second Bid/Ask bars from canonical ticks. Ambiguous lost-source semantics were resolved using only the frozen pre-2025 trade-count golden vector, without reading trade PnL or IPS-filter outcomes.",
+  "recovered_semantics": {
+    "day_definition": "UTC day",
+    "previous_day": "previous observed trading day",
+    "atr36": "simple rolling mean of causal True Range, current bar included",
+    "first_break": "first bar whose BID close > previous observed day high",
+    "retest_window": "next 6 contiguous 200-second bars",
+    "single_attempt": "first reclaim (BID low <= PDH and BID close > PDH) consumes the only attempt for the day",
+    "extension": "(reclaim BID close - PDH)/ATR36",
+    "extension_bounds": [0.25,1.5],
+    "close_location_min": 0.5,
+    "range_atr_min": 1.5,
+    "bullish_or_flat": true,
+    "entry": "ASK open of next contiguous 200-second bar",
+    "max_entry_spread_atr": 0.5,
+    "stop": "entry - 6*ATR36",
+    "target": "entry + 3R",
+    "max_bars": 72,
+    "same_bar_sl_tp": "SL first",
+    "gap_rule": "exit at last executable price before >400s gap / first executable price through stop/target where applicable",
+    "central_cost_R_per_trade": 0.02
+  },
+  "golden_vector_gate": {
+    "expected_counts_by_year": {"2018":7,"2019":10,"2020":9,"2021":7,"2022":9,"2023":7,"2024":12},
+    "actual_counts_by_year": {"2018":7,"2019":10,"2020":9,"2021":7,"2022":9,"2023":7,"2024":12},
+    "expected_total": 61,
+    "actual_total": 61,
+    "decision": "PASS"
+  },
+  "reproduced_metrics": {
+    "net_R": 29.468388839986478,
+    "expectancy_R": 0.48308834163912256,
+    "PF": 2.510163406959253,
+    "win_rate": 0.5901639344262295,
+    "max_DD_R": 2.4406451612903233,
+    "annual_net_R": {"2018":2.775519895565739,"2019":6.122354090411587,"2020":4.787083532855893,"2021":2.920081455127192,"2022":3.449076136650351,"2023":4.527119011770079,"2024":4.887155717605639},
+    "exit_reasons": {"TIME72":37,"SL":16,"TP":8}
+  },
+  "ledger": {
+    "file": "M1_BASE_RECON_TRADES_2018_2024_v1.csv",
+    "bytes": 13535,
+    "sha256": "925fa23483eb0e521de000884b66203d5c18937f0f46948160b1fc7647f8247d"
+  },
+  "filter_PnL_read": false,
+  "decision": "PASS_BASE_REPRODUCTION"
+}
