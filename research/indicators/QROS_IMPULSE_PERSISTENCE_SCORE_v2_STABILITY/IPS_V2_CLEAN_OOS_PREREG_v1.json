@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_IPS_V2_CLEAN_OOS_PREREG_1.0",
+  "campaign_id": "QROS_INDICATOR_004_XAU_IPS_V2_STABILITY",
+  "indicator": "QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY",
+  "freeze_date": "2026-09-14",
+  "state": "PREREGISTERED_CLEAN_OOS_NO_RESULTS",
+  "indicator_lock": {
+    "config_freeze_sha256": "0dedefcb0e002d3aeaca8c813757100b4a5cfae5c598a1196aa74ea53548291a",
+    "weights": [15, 5, 10, 20, 30, 20],
+    "threshold": 65,
+    "event_ontology": "IPS v1 unchanged",
+    "retuning_before_or_after_clean_oos": "FORBIDDEN"
+  },
+  "clean_period": {
+    "source_clock_calendar_start": "2023-01-01T00:00:00",
+    "source_clock_calendar_end_exclusive": "2025-01-01T00:00:00",
+    "reason": "2020 OOS1 is genealogy-exposed and IPS v1 OOS2 2020-2022 remains reserved by prior contract. 2023-2024 is designated as v2 confirmatory clean OOS.",
+    "exact_record_range_and_sha": "TO_BE_MATERIALIZED_AND_FROZEN_BEFORE_SCORING",
+    "canonical_carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4"
+  },
+  "gates": {
+    "independent_event_parity": "100% required",
+    "minimum_executable_events": 1000,
+    "minimum_high_score_events": 150,
+    "high_rate_gt_baseline": true,
+    "exact_one_sided_permutation_p_max": 0.05,
+    "day_block_bootstrap_95ci_lift_lower_gt": 0.0,
+    "BUY_lift_nonnegative": true,
+    "SELL_lift_nonnegative": true,
+    "year_2023_lift_nonnegative": true,
+    "year_2024_lift_nonnegative": true,
+    "score_bin_spearman_rho_gt": 0.0
+  },
+  "decision": {
+    "PASS": "all gates pass",
+    "FAIL": "sample minimums met and any effect/stability gate fails",
+    "INCONCLUSIVE": "sample minimums not met"
+  },
+  "future_reserve": {
+    "2025_2026": "SEALED_FOR_LATER_TRUE_FORWARD_DIAGNOSTIC",
+    "IPS_v1_OOS2_2020_2022": "UNCHANGED_AND_NOT_CONSUMED_BY_V2"
+  }
+}
