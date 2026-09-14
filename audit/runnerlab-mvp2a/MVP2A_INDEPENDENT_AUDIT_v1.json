@@ -1,0 +1,28 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2A_INDEPENDENT_AUDIT_1",
+  "pass": true,
+  "n_checks": 20,
+  "checks": [
+    {"check":"NO_PROCESS_LAUNCH","pass":true,"detail":""},
+    {"check":"NO_TRADE_API","pass":true,"detail":""},
+    {"check":"NO_CERT_ARM","pass":true,"detail":""},
+    {"check":"FAIL_CLOSED_TARGET_SELECTION","pass":true,"detail":""},
+    {"check":"ORIGIN_ONLY_MAPPING","pass":true,"detail":""},
+    {"check":"ALLOWLIST_NOT_DENYLIST_ONLY","pass":true,"detail":""},
+    {"check":"ACTIVE_DATA_EXCLUDED","pass":true,"detail":""},
+    {"check":"REPARSE_REJECTED","pass":true,"detail":""},
+    {"check":"ATOMIC_TEMP_TO_FINAL","pass":true,"detail":""},
+    {"check":"POST_COPY_SOURCE_REHASH","pass":true,"detail":""},
+    {"check":"INDEPENDENT_CLONE_RECONSTRUCTION","pass":true,"detail":""},
+    {"check":"SAFETY_FLAGS_HARD_FALSE","pass":true,"detail":""},
+    {"check":"SYNTHETIC_SECRET_TEST","pass":true,"detail":""},
+    {"check":"SYNTHETIC_AMBIGUITY_TEST","pass":true,"detail":""},
+    {"check":"PREREG_STAGE_COUNT","pass":true,"detail":"8"},
+    {"check":"MUTATION_INJECT_PROCESS_START","pass":true,"detail":""},
+    {"check":"MUTATION_REMOVE_MARKER_GATE","pass":true,"detail":""},
+    {"check":"MUTATION_REMOVE_ALLOWLIST","pass":true,"detail":""},
+    {"check":"MUTATION_REMOVE_SOURCE_REHASH","pass":true,"detail":""},
+    {"check":"MUTATION_ENABLE_CERT_FLAG","pass":true,"detail":""}
+  ],
+  "sha256_of_local_exact_report": "a9838f36c623ebf46207369a9da386b7a710e4c4638417b591c7a3d2e00f3add"
+}
