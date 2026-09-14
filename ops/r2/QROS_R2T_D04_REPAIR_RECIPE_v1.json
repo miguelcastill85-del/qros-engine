@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_R2T_D04_REPAIR_RECIPE_1.0",
+  "parent": {
+    "qualifier_v1_sha256": "85ea6cd4da259cee65a2aec7aa3e0a497db260b4462bb144e072265b0527a0ca",
+    "mql_v1_sha256": "89dc345b21e7d294a68b8c1cad2afd2bf07896d275b1132709ea5eee2a3db89e",
+    "r2t_v1_receipt_sha256": "2fff9eaedb59ab52592fb40f5e73e2a7d068939f3ea14127937c47410b0ccd81"
+  },
+  "repair_invariants": [
+    "remove $script:Owned registry and Stop-Owned proxy cleanup",
+    "canonicalize IsoA/IsoB and require exact-root boundary checks",
+    "enumerate actual terminal64.exe processes by process.Path under isolated clone root",
+    "Start-Normal must bind to an actually observed isolated terminal process",
+    "Stop-IsoTerminals may stop only path-verified isolated terminal processes",
+    "Assert-IsoStopped must prove zero isolated terminal processes before continuing",
+    "finally cleanup must sweep both isolated roots",
+    "retain MQL qualifier byte-exact",
+    "retain AllowLiveTrading=0, no trade API, no Candidate3 execution, CERT=0"
+  ],
+  "automated_negative_controls": [
+    "D04 proxy registry reintroduced -> static gate fail",
+    "actual process discovery removed -> static gate fail",
+    "quiescence proof removed -> static gate fail",
+    "process path guard removed -> static gate fail",
+    "taskkill introduced -> static gate fail"
+  ],
+  "package_manifest": {
+    "schema": "QROS_PACKAGE_MANIFEST_SHA256_1.0",
+    "manifest_self_excluded": true,
+    "files": {
+      "D04_REPAIR_RECEIPT.json": {"sha256": "ee4721c6e5f65be70c5e0359f408cdc4eb737f77c491c8c9ef27ea8c293a82c1", "bytes": 1150},
+      "EJECUTAR_QROS_RUNNER_ACTUAL_TERMINAL_FENCE_QUALIFIER_v2.bat": {"sha256": "f4d3379dcfe2391c2730bcc335c5955ddd776f19870ea55f4f0ba3a71f3e9941", "bytes": 566},
+      "MQL5/Experts/QROS_RUNNER_RUNTIME_FENCE_QUALIFIER_v1.mq5": {"sha256": "89dc345b21e7d294a68b8c1cad2afd2bf07896d275b1132709ea5eee2a3db89e", "bytes": 5928},
+      "QUALIFY_QROS_RUNNER_ACTUAL_TERMINAL_FENCE_v2.ps1": {"sha256": "2fdf97070d905ee4594fba8801674748748a3a43f8fae552bd918a3aee3c6842", "bytes": 13561},
+      "R2T_SPEC_v2.json": {"sha256": "53ad9ca1ce4939242d4c7504dff9c98617fef0441c6240c73a65097f429f70a3", "bytes": 2047},
+      "README.txt": {"sha256": "36bf141f0d3382139dff59e8ac101a7477a94fd3829085bc87fdde740d0f34bc", "bytes": 1159},
+      "STATIC_GATE_QROS_RUNNER_ACTUAL_TERMINAL_FENCE_v2.ps1": {"sha256": "b45a2b3f030ed95747ffa1bf26f1d97ae96a33e70965e975caf703eea8d9ac0f", "bytes": 4105},
+      "R2T_V2_PREDELIVERY_AUDIT.json": {"sha256": "118680a16587ef358b9060e7474ca1b224112a94f5cab3b1908c59384bee0ceb", "bytes": 881}
+    }
+  },
+  "package_sha256": "229c41b8740b56c18e94170753007d90dcba0a21cfcc692cd63a35e0adcff09a",
+  "native_status": "NOT_EXECUTED"
+}
