@@ -1,0 +1,12 @@
+{
+  "schema": "QROS_RUNNER_DEFECT_LEDGER_APPEND_1",
+  "defect_id": "D15",
+  "class": "EVIDENCE_ZIP_NAMESPACE",
+  "status": "REPAIRED_PENDING_NATIVE_REEXECUTION",
+  "discovered_run_id": "20260914_002325_fd75f9c7",
+  "symptom": "Windows PowerShell 5.1 Add-Type failed because qualifier requested IO.Compression.FileSystem instead of System.IO.Compression.FileSystem.",
+  "root_cause": "Inherited namespace truncation in Zip-Evidence. Other recovered PhaseA/native qualifier scripts use System.IO.Compression.FileSystem.",
+  "repair": "Fully qualify assembly and compression types; add static rule and adversarial mutation; classify future post-runtime packaging failure separately.",
+  "candidate3_implicated": false,
+  "r2_promoted": false
+}
