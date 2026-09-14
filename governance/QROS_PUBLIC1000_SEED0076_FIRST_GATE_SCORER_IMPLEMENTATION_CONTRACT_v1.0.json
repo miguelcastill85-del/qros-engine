@@ -1,0 +1,101 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_FIRST_GATE_SCORER_IMPLEMENTATION_CONTRACT_1.0",
+  "version": "1.0",
+  "status": "FROZEN_PRE_PNL",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "purpose": "Define the deterministic statistical scorer interface and diagnostics without changing the frozen first-gate hypothesis, multiplicity, survival criteria, FIFO order, universe, execution semantics, or economic state.",
+  "authority": {
+    "multiplicity_contract": {"path": "governance/QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_v1.0.json", "git_blob_sha1": "bc5ce2b52ca5734328283fb3c1d67ee1d93905c1"},
+    "xau_m1_ga1_completion": {"path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_XAUUSD_BUY_M1_COMPLETION_V224_v1.json", "git_blob_sha1": "19e47f7a25fb88eac1ba871dccfc56f79b9d9647"},
+    "execution_map": {"path": "control/QROS_PUBLIC_1000_DETERMINISTIC_EXECUTION_MAP_v2.json", "git_blob_sha1": "a685a781f22fdf1909ba9238a0c3c5da8536b0e8"}
+  },
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "first_gate_order": 1,
+    "expected_distinct_mask_classes": 303572,
+    "semantic_class_root_sha256": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+    "alias_root_sha256": "4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458"
+  },
+  "layering": {
+    "normalized_execution_layer": "Produces one canonical candidate row with normalized realized anchored trades. This layer owns raw mask decoding, market-data traversal, Ask/Bid fills, stop/gap/same-day semantics, and trade-by-trade execution parity.",
+    "statistical_scorer_layer": "Consumes normalized candidate rows and the full frozen eligible DEV trading-date axis. It never decodes event masks, never reconstructs GA1 classes, never reads raw ticks, and never changes trade executions.",
+    "reason": "The durable GA1 completion proves semantic/alias identity but states mask blobs/index were runtime-local and no portable binary archive was persisted. No durable raw-mask encoding contract was recovered; inventing one is forbidden.",
+    "production_gate": "Actual economic FIRST_GATE remains forbidden until a normalized execution bundle is accompanied by an independently verified trade-by-trade execution receipt."
+  },
+  "normalized_input_contract": {
+    "transport": "directory containing manifest.json, date_axis.json, candidates.jsonl",
+    "candidate_stream_order": "arbitrary on input; scorer emits canonical SIGNAL_CONFIG_ID ascending",
+    "manifest_required": ["schema", "mode", "campaign", "asset", "side", "timeframe", "shard_id", "first_gate_order", "expected_distinct_mask_classes", "per_shard_q_exact", "multiplicity_contract_git_blob_sha1", "semantic_class_root_sha256", "alias_root_sha256"],
+    "date_axis": "sorted unique YYYY-MM-DD eligible frozen DEV trading dates; no-trade dates remain in axis and contribute zero",
+    "candidate_required": ["canonical_signal_config_id", "event_mask_sha256", "eligible_event_count", "zero_event", "trades"],
+    "trade_required": ["trade_id", "trading_date", "R"],
+    "R_encoding": "finite base-10 string parsed as Decimal; gate comparisons for net_R/expectancy/PF use Decimal without display rounding",
+    "candidate_identity": "canonical_signal_config_id and event_mask_sha256 must each be unique across the stream",
+    "zero_event_rule": "zero_event=true requires eligible_event_count=0, event_mask_sha256=SHA256(empty bytes), zero trades, p=1, never survives",
+    "production_requirements": ["mode=PRODUCTION", "execution_parity_pass=true", "trade_by_trade_execution_receipt path+sha256 present", "economic_exposure_authorized by machine state"],
+    "synthetic_requirements": ["mode=SYNTHETIC_VALIDATION", "synthetic_fixture=true"],
+    "synthetic_outputs_may_not_authorize_economic_decision": true
+  },
+  "primary_test_numeric_contract": {
+    "daily_R": "exact Decimal sum of candidate trade R by trading_date, converted to IEEE-754 binary64 only for HAC moments after aggregation",
+    "D": "length of complete date_axis",
+    "mean": "math.fsum(daily_float)/D",
+    "lag": "L=min(D-1,floor(4*(D/100)^(2/9)))",
+    "gamma": "gamma_l=math.fsum((r_t-mean)*(r_(t-l)-mean) for t=l..D-1)/D",
+    "omega": "gamma_0 + 2*sum((1-l/(L+1))*gamma_l for l=1..L), accumulated with math.fsum",
+    "standard_error": "sqrt(max(omega,0)/D)",
+    "degenerate": "if trades<30 or SE non-finite or <=0 then raw_p=1; zero-event always raw_p=1",
+    "t": "mean/SE when valid",
+    "raw_p": "clamp(0.5*erfc(t/sqrt(2)),0,1)",
+    "no_metric_rounding_before_gate_comparisons": true
+  },
+  "BY_contract": {
+    "q_exact": "1/1200",
+    "m": "all distinct exact mask classes including zero-event",
+    "harmonic": "Decimal precision 80; c_m=sum(Decimal(1)/Decimal(j), j=1..m)",
+    "p_conversion_for_comparison": "Decimal.from_float(raw_p)",
+    "threshold": "Decimal(k)/1200 / (Decimal(m)*c_m)",
+    "ordering": "raw_p ascending, ties canonical_signal_config_id lexicographically",
+    "largest_k_rule": true
+  },
+  "gate_metrics": {
+    "trades": "count of normalized trades",
+    "net_R": "exact Decimal sum of trade R",
+    "expectancy_R": "net_R/trades, null when trades=0",
+    "PF": "gross positive R / abs(gross negative R); POS_INF when loss denominator=0 and gross profit>0; null when no positive and no negative R",
+    "win_rate": "wins(R>0)/trades; breakeven R=0 is not a win",
+    "survival": "BY_rejected AND trades>=30 AND net_R>0 AND expectancy_R>0 AND PF>1"
+  },
+  "diagnostic_metric_definitions": {
+    "DD_R": "maximum peak-to-trough drawdown of cumulative daily_R across full date_axis, initial equity=0",
+    "recovery": "net_R/DD_R when DD_R>0; POS_INF if DD_R=0 and net_R>0; otherwise null",
+    "Sharpe": "annualized daily sqrt(252)*mean/sample_std(ddof=1); null if D<2 or denominator<=0/non-finite",
+    "Sortino": "annualized daily sqrt(252)*mean/sqrt(mean(min(daily_R,0)^2)); null if downside denominator<=0/non-finite",
+    "year_concentration": "max(abs(year_net_R))/sum(abs(year_net_R)); null if denominator=0; full year_net_R map also emitted",
+    "month_concentration": "max(abs(month_net_R))/sum(abs(month_net_R)); null if denominator=0; full month_net_R map also emitted",
+    "underwater": "emit underwater_days and max_consecutive_underwater_days from daily cumulative equity below prior running peak",
+    "frequency": "emit trades_per_eligible_day and trades_per_distinct_DEV_year"
+  },
+  "diagnostic_governance": {
+    "diagnostics_affect_first_gate_survival": false,
+    "diagnostics_may_not_rescue_failure": true,
+    "reason": "The frozen multiplicity contract reports these metrics but does not include them in the candidate survival rule. Definitions are frozen here pre-PnL solely for reproducible reporting."
+  },
+  "fail_closed_conditions": [
+    "manifest authority mismatch",
+    "candidate count mismatch",
+    "duplicate canonical id",
+    "duplicate mask hash",
+    "invalid or unsorted date axis",
+    "trade date outside date axis",
+    "duplicate trade_id within candidate",
+    "non-finite R",
+    "zero-event inconsistency",
+    "PRODUCTION input without independent execution parity receipt"
+  ],
+  "scientific_guards": {"economic_pnl_read": false, "ga2_open": false, "holdout_open": false, "universe_changed": false, "multiplicity_changed": false},
+  "decision": "FROZEN_IMPLEMENTATION_CONTRACT_PRE_PNL; W09 MAY BUILD/TEST SCORER ON SYNTHETIC FIXTURES ONLY; W10 ECONOMIC EXECUTION REMAINS LOCKED UNTIL SCORER PARITY AND TRADE-EXECUTION PARITY"
+}
