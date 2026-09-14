@@ -1,0 +1,11 @@
+{
+  "schema":"QROS_IPS_V2_SUPERGATE_CORRECTION_1.0",
+  "created_date":"2026-09-14",
+  "affected_artifact":"IPS_V2_INDICATOR_SUPERGATE_RESULT_v1.json",
+  "error":"Serialized top_5pct_days_n as 5 because loop variable k was reused by the later component-ablation loop.",
+  "correct_value":21,
+  "derivation":"ceil(0.05 * 417 source days) = 21",
+  "verified_unchanged":{"top_5pct_positive_excess_share":0.23733561930326952,"lift_after_removing_top_5pct_days":0.061722961357256356,"SG04_concentration":"PASS","overall_decision":"PASS_SUPERGATE"},
+  "scientific_impact":"NONE. The stress calculation selected 21 days correctly; only the saved count metadata was overwritten.",
+  "retuning":false
+}
