@@ -1,0 +1,24 @@
+--- src/RunnerLab.Core/Mvp2B.cs (D20)
++++ src/RunnerLab.Core/Mvp2B.cs (D21)
+@@
++Adds Mvp2BPortablePathState and Mvp2BRoamingStubAudit records.
++Captures M2B5_PORTABLE_LOCAL_BASELINE before launch.
++Replaces PORTABLE_MODE_FAILED_CLONE_MAPPED_TO_ROAMING_DATA with:
++  - metadata-only roaming-stub audit (origin.txt + optional portable.txt only),
++  - PORTABLE_MODE_ROAMING_DATA_PAYLOAD_DETECTED fail-closed gate,
++  - positive local mutable-data activity requirement inside MT5_B,
++  - ACTIVE_ORIGIN_TXT_MUTATED_DURING_PORTABLE_CHECK recheck,
++  - persisted M2B5_ROAMING_STUB_AUDIT.json, M2B5_PORTABLE_LOCAL_AFTER.json and M2B5_PORTABLE_LOCAL_DELTA.json evidence.
++Adds SnapshotPortableMutableState, CountPortableMutableDelta, AuditPortableRoamingStub and self-test adapters.
++
+--- src/RunnerLab.Core/Mvp2BSelfTests.cs (D20)
++++ src/RunnerLab.Core/Mvp2BSelfTests.cs (D21)
+@@
++Adds M2B_SELF_D21_METADATA_ONLY_ROAMING_STUB_ACCEPTED.
++Adds M2B_SELF_D21_ROAMING_PAYLOAD_REJECTED.
++Adds M2B_SELF_D21_LOCAL_PORTABLE_ACTIVITY_REQUIRED.
++
+Exact local patch SHA-256: b825c19d091cdfe12172c59d4a1a52d2ad090227e05d637c3e78b75772204f62
+Exact local governed source hashes:
+- src/RunnerLab.Core/Mvp2B.cs = c1bb00c90460b107ec08ae913bcd8ee70c819636bdf137da833c48955f90aabd
+- src/RunnerLab.Core/Mvp2BSelfTests.cs = 7285eb5217f4984b28f78e2cb2f41a8d1b710629e8e0b78481fd99d5aec2ca6f
