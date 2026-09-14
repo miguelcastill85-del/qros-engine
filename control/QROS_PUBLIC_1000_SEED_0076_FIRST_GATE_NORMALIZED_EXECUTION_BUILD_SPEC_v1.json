@@ -1,0 +1,26 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_FIRST_GATE_NORMALIZED_EXECUTION_BUILD_SPEC_1.0",
+  "status":"FROZEN_PRE_PNL",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","first_gate_order":1},
+  "authorized_action":"BUILD_FIRST_GATE_NORMALIZED_EXECUTION_LAYER_AND_SYNTHETIC_PARITY",
+  "pins":{
+    "reconciliation_policy":{"path":"governance/QROS_STATE_ARTIFACT_RECONCILIATION_AND_EXECUTION_CAPSULE_POLICY_v1.0.json","git_blob_sha1":"b2213253180805da56d02068164bf5c74749232d"},
+    "workgraph":{"path":"control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.2.json","git_blob_sha1":"a75f72a45dd66d4916812113dad9721073b8e175"},
+    "gap_register":{"path":"control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.2.json","git_blob_sha1":"68ef19675b7a3d509bf34f4c341a4e8a05f59b55"},
+    "scorer_pass":{"path":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_BUILD_VALIDATION_PASS_20260914_v1.json","git_blob_sha1":"ba9310879c4f7028c98cf5ea615696777aba8919"},
+    "execution_contract":{"path":"governance/QROS_PUBLIC1000_SEED0076_FIRST_GATE_NORMALIZED_EXECUTION_CONTRACT_v1.1.json","git_blob_sha1":"5d7006c5b54d4647113c7caab5107e8c9229d2bf"},
+    "primary_core":{"path":"scripts/qros_first_gate_execution_normalizer_primary_v1.py","git_blob_sha1":"7774745805999db2faa59ff5f318c1e3072eeea5"},
+    "oracle_core":{"path":"scripts/qros_first_gate_execution_normalizer_oracle_v1.py","git_blob_sha1":"347ff69ab1ffd85f99a0905701b47659ea324444"},
+    "primary_bound":{"path":"scripts/qros_first_gate_execution_normalizer_primary_v2.py","git_blob_sha1":"323937c4c591c4531d3ebde2d20fa695e48a5067"},
+    "oracle_bound":{"path":"scripts/qros_first_gate_execution_normalizer_oracle_v2.py","git_blob_sha1":"9581a725d4f2c0d590763fe97743dd8c21948b8f"},
+    "adversarial_suite":{"path":"scripts/qros_first_gate_execution_normalizer_adversarial_v1.py","git_blob_sha1":"28ec3b0cb99c831c884295f5eae5b6bee99ff76e"}
+  },
+  "validation_commands":["python3 -m py_compile scripts/qros_first_gate_execution_normalizer_primary_v1.py scripts/qros_first_gate_execution_normalizer_oracle_v1.py scripts/qros_first_gate_execution_normalizer_primary_v2.py scripts/qros_first_gate_execution_normalizer_oracle_v2.py scripts/qros_first_gate_execution_normalizer_adversarial_v1.py","python3 scripts/qros_first_gate_execution_normalizer_adversarial_v1.py"],
+  "success_requires":["all Git blob pins exact","primary/oracle cores different","7 independently expected execution cases PASS","primary-oracle normalized_trades byte parity","primary-oracle summary byte parity","11 fail-closed mutations PASS for intended cause","synthetic economic firewall PASS"],
+  "production_not_authorized":true,
+  "scientific_guards":{"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"first_gate_execution_authorized":false,"new_ga1_authorized":false},
+  "terminal_receipt_path":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_NORMALIZED_EXECUTION_SYNTHETIC_PARITY_PASS_20260914_v1.json",
+  "next_state_on_pass":"FG_EXECUTION_NORMALIZER_SYNTHETIC_PARITY_PASS_PRODUCTION_BINDINGS_PENDING",
+  "decision":"BUILD_SPEC_FROZEN; VALIDATE EXTERNALLY BEFORE STATE PROMOTION"
+}
