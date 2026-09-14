@@ -1,0 +1,17 @@
+{
+  "schema":"QROS_IPS_INDEPENDENT_ENUMERATOR_PARITY_1.0",
+  "campaign_id":"QROS_INDICATOR_003_XAU_IMPULSE_PERSISTENCE_SCORE_v1",
+  "status":"PASS",
+  "events_main":14702,
+  "events_oracle":14702,
+  "total_mismatches":0,
+  "max_float_abs_diff":0.0,
+  "float_tolerance":2e-12,
+  "main_ledger_sha256":"f1e165898d66fc39ca54bbc9e4ea0df1d8b49dae4fd842e93bb3833786146c08",
+  "oracle_ledger_sha256":"0084724dd53252b61401bd7a6447975287c43d184d282617969116e7282deca9",
+  "main_source_sha256":"810d7a8bc26b04b6332c88a1f71fce5ea77db07935c1f8e79927583d9ce5d477",
+  "main_binary_sha256":"66494ee6addea4223478691dce7ed81729b5713fa743575ff051806a3882ea4d",
+  "oracle_source_sha256":"1693f9fc0b0f592de49d6e9648ba810fd6697844ef11a29556fc33d3d0341580",
+  "parity_scope":"event-by-event timestamps, direction, impulse OHLC, pullback extreme, ATR, geometry, all score components, score, spread, stop, target, risk and outcome",
+  "reason_code_equivalence":{"1":"TP","2":"SL","3":"HORIZON_OR_DAY_END","4":"SOURCE_DAY_END","5":"EOF","6":"INVALID_RISK"}
+}
