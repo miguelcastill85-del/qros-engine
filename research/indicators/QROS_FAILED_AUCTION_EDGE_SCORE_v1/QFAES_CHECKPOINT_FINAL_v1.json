@@ -1,0 +1,55 @@
+{
+  "schema": "QROS_INDICATOR_RESEARCH_CHECKPOINT_1.0",
+  "campaign_id": "QROS_INDICATOR_001_XAU_FAILED_AUCTION_EDGE_SCORE_v1",
+  "objective": "Create first original indicator with statistically demonstrated predictive advantage on XAUUSD without holdout contamination.",
+  "authority": {
+    "carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+    "carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+    "development_prefix_bytes": 2573500596,
+    "development_prefix_records": 151382388,
+    "development_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
+  },
+  "data": {
+    "development": "2018-01-25..2019-12-31 source-clock",
+    "holdout_2020_plus": "SEALED_NOT_READ_FOR_QFAES",
+    "ticks_scanned": 151382388,
+    "out_of_order": 0,
+    "crossed": 74,
+    "zero_spread": 942184
+  },
+  "work_executed": [
+    "8 ZIP parts verified by archive CRC and payload SHA256",
+    "development prefix reconstructed with exact SHA256 parity",
+    "QFAES semantics frozen before real scoring",
+    "main C++ enumerator executed",
+    "independent Numba oracle executed",
+    "450/450 event parity PASS",
+    "Gate A statistical test executed"
+  ],
+  "verified_results": {
+    "raw_events": 450,
+    "executable_events": 378,
+    "high_score_events": 32,
+    "baseline_success_rate": 0.29365079365079366,
+    "high_score_success_rate": 0.28125,
+    "lift": -0.012400793650793662,
+    "permutation_p": 0.6339491800705127,
+    "bootstrap_lift_95ci": [-0.15929139958598423,0.1423833257385888]
+  },
+  "gates": {
+    "minimum_high_score_events_60": false,
+    "high_rate_gt_baseline": false,
+    "permutation_p_le_0_05": false,
+    "bootstrap_95ci_lift_excludes_0_positive": false,
+    "2018_lift_nonnegative": false,
+    "2019_lift_nonnegative": true,
+    "score_bins_non_decreasing_nonempty": false
+  },
+  "problems": ["QFAES score>=70 does not enrich target-before-stop success; insufficient high-score sample; non-monotone score bins; 2018 lift negative."],
+  "root_cause": "The fixed five-component weighted score is not a reliable ranking of failed-auction continuation in 2018-2019; no single execution bug explains the failure because independent parity is exact.",
+  "corrections": ["72 confirmation events with structural risk<=0 classified non-executable per preregistered stop_and_target contract and excluded from Gate A, not counted as losses."],
+  "scientific_state": "REJECTED",
+  "portfolio_impact": "NONE; QFAES v1 receives no risk and no portfolio integration.",
+  "holdout_opened": false,
+  "next_automatic_action": "Close QFAES v1. Do not retune. Open the next pre-ranked indicator seed as a new genealogy with a fresh preregistration."
+}
