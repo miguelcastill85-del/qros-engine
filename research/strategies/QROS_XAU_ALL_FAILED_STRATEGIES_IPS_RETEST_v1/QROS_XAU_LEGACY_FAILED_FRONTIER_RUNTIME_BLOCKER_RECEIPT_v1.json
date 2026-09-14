@@ -1,0 +1,19 @@
+{
+  "schema":"QROS_XAU_LEGACY_FAILED_FRONTIER_RUNTIME_BLOCKER_RECEIPT_1.0",
+  "date":"2026-09-14",
+  "campaign_id":"QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "state":"CAMPAIGN_ACTIVE_WITH_INDIVIDUAL_BLOCKERS",
+  "verified_terminal_groups":{
+    "A01":{"id":"XAU_A01_PATH_ENTROPY_TRANSITION_v1050","decision":"REJECTED / BRANCH_EXHAUSTED","authority":"A02_CHECKPOINT_v2000.md","exact_current_runner_or_trade_ledger":"NO_DISPONIBLE"},
+    "PB20":{"id":"PB20_EMA_PULLBACK_CONTACT_DURATION","decision":"REJECTED_BRANCH_EXHAUSTED","authority":"RUN_QUEUE_CHECKPOINT_v20020.json","exact_current_runner_or_trade_ledger":"NO_DISPONIBLE"},
+    "G001R":{"id":"QROS_XAU_G001R","decision":"REJECTED_BRANCH_EXHAUSTED","authority":"QROS_XAU_ALPHA_EXPANSION_BLOCKER_v16440.json","exact_current_terminal_execution_closure":"NO_DISPONIBLE","note":"v16200 implementation/recovery reports survive, but not a terminal executable result chain sufficient to reproduce the rejected campaign exactly."},
+    "M42_M79":{"terminal_authority":"QROS_MASTER_CONTINUITY v14250 instruction/checkpoint evidence","states":"M42-M47/M49-M79 closed or branch exhausted; M48 separately Failed Auction; M64 blocked with 0 trials and excluded from failed-strategy count","required_portable":"QROS_MASTER_CONTINUITY_PORTABLE_v14250.zip","portable_current_bytes":"NO_DISPONIBLE"},
+    "M129_M135":{"authority":"START_NEW_CHAT_QROS_XAU_v14780.txt","states":"M129-M133 BRANCH_EXHAUSTED; M134 BRANCH_EXHAUSTED; M135 diagnostic negative/unverified continuation","referenced_M134_package":"QROS_XAU_M134_MONTH_END_LONDON_FIX_PRESSURE_v14780.zip","package_current_bytes":"NO_DISPONIBLE"},
+    "M164_M191":{"authority":"QROS_XAU_ALPHA_EXPANSION_BLOCKER_v16440.json","states":"M164-M169 closed/failed; M171-M177 do_not_reopen; M178-M180 branch exhausted; M188 rejected; M191 rejected branch exhausted","exact_terminal_packages_current_bytes":"NO_DISPONIBLE"}
+  },
+  "searches_performed":["File Library exact/semantic search for A01, PB20, G001R, M42-M79 inventory/history, M134 package, M188/M191 terminal packages","GitHub main search/tree for A01 and PB20 exact identifiers","Dropbox exact title search for A01, PB20, QROS_MASTER_CONTINUITY_PORTABLE_v14250.zip and QROS_XAU_M134_MONTH_END_LONDON_FIX_PRESSURE_v14780.zip","local /mnt/data campaign/runtime scan"],
+  "why_indispensable":"The 2018-2024 replay requires exact strategy identity: event builder, parameters, execution semantics and/or an authentic trade ledger. Terminal state summaries alone cannot identify the exact trades to rescore or filter.",
+  "approximate_reconstruction":"FORBIDDEN",
+  "excluded_nonfailed_or_nonterminal":["M64 CFTC: BLOCKED_BY_INFRASTRUCTURE with 0 trials","A02: PREREGISTERED_NO_RESULTS / blocked","A25_I1_S200: physical GateA=0 but final independent parity artifact pending; not terminally classified yet","GC_M1_CANDIDATA_B: explicitly not rejected","GC_SELL_QUALITY_FIRST: selected/provisional satellite, not a failed strategy"],
+  "next_action":"Continue literal census/recovery. Execute only identities whose exact bytes or authentic ledger become recoverable."
+}
