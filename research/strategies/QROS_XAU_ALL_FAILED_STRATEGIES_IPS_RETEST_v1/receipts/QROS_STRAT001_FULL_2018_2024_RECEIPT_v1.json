@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_STRAT001_FULL_2018_2024_RECEIPT_1.0",
+  "date": "2026-09-14",
+  "campaign_id": "QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "strategy": "XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+  "state": "REJECTED",
+  "evidence": "VERIFICADO",
+  "period": "2018-01-25 through 2024-12-31",
+  "period_status": "EXPOSED_DIAGNOSTIC_RESEARCH_ONLY",
+  "segments": [
+    {"period":"2018-2019","execution":"fresh_main_plus_independent_oracle","trade_sha256":"2550c5ad8b85b17a07060f2f67e9c7377b4ca15d55d44a33898c254b2a8e4e34","trades":1174},
+    {"period":"2020","execution":"fresh_main_plus_independent_oracle","trade_sha256":"46838e7f1dddaf8734584b87625102e09a4c6727f1ae128cc8e52c402ba6e280","trades":621},
+    {"period":"2021-2024","execution":"frozen_historical_main_plus_oracle","trade_sha256":"05921d58102e9a53ec4e506248ac6374980c175cec118c393b9d4cf40ab381f3","oracle_sha256":"05921d58102e9a53ec4e506248ac6374980c175cec118c393b9d4cf40ab381f3","byte_identical":true,"trades":2549}
+  ],
+  "combined_ledger": {"file":"TRADES_2018_2024_COMBINED_v1.csv","sha256":"af1dec7dd5f89bf7141a8292b98d71f407b49712f27d92ae3d0f457846f975ea","trades":4344,"entry_monotonic":true,"zero_overnight_violations":true},
+  "central": {"trades":4344,"net_R":-961.6709392817911,"expectancy_R":-0.2213791296689206,"PF":0.6913133166021098,"DD_R":972.9558000703594,"win_rate":0.31445672191528545},
+  "conservative_minus_0p01R": {"trades":4344,"net_R":-1005.1109392817909,"expectancy_R":-0.23137912966892057,"PF":0.6804243633011501,"DD_R":1015.9714706541108},
+  "severe_minus_0p02R": {"trades":4344,"net_R":-1048.5509392817912,"expectancy_R":-0.24137912966892064,"PF":0.6697396814569986,"DD_R":1059.0214706541155},
+  "by_year": {
+    "2018":{"trades":584,"net_R":-76.36789581101,"PF":0.8086847909930761},
+    "2019":{"trades":590,"net_R":-93.279306150785,"PF":0.7703709874656482},
+    "2020":{"trades":621,"net_R":-230.1607282189,"PF":0.522501668163339},
+    "2021":{"trades":607,"net_R":-112.45317814422,"PF":0.7380794712805893},
+    "2022":{"trades":665,"net_R":-180.18120444244602,"PF":0.6316957750065344},
+    "2023":{"trades":642,"net_R":-149.75485655530002,"PF":0.6770161470378141},
+    "2024":{"trades":635,"net_R":-119.47376995913001,"PF":0.7319644770976851}
+  },
+  "by_side": {
+    "BUY":{"trades":2237,"net_R":-426.25961485555104,"expectancy_R":-0.1905496713703849,"PF":0.7274226311667413},
+    "SELL":{"trades":2107,"net_R":-535.4113244262401,"expectancy_R":-0.25411073774382537,"PF":0.6549186660932966}
+  },
+  "decision":"REJECTED_ALL_2018_2024_YEARS_NEGATIVE",
+  "correction_scope":"No historical state rewritten; this is a common-window retrospective extension of an already REJECTED strategy.",
+  "portfolio_impact":"NONE"
+}
