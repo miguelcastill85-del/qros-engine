@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_IPS_V2_INDICATOR_SUPERGATE_RESULT_1.0",
+  "prereg_sha256": "0024455fa98044932809b636961aa5ad962b74a96b9dc5ff43c20b46284cd371",
+  "prereg_git_commit": "17ebda1a995094cefdc5cc85ba480dfd65eea82d",
+  "scientific_scope": "Already-exposed robustness evidence only; not an independent holdout.",
+  "primary": {"N":11691,"successes":2769,"high_n":1505,"high_successes":490,"baseline_rate":0.23684885809597125,"high_rate":0.32558139534883723,"lift":0.08873253725286598,"p_exact":2.5878594173129698e-17,"day_bootstrap_95ci":[0.06702251380020807,0.11112197540403077],"side_lifts":{"BUY":0.08412411588881008,"SELL":0.09038660987697847},"year_lifts":{"2021":0.08037441253391464,"2022":0.09838665759019741},"score_bin_rho":0.9999999999999999},
+  "SG02_temporal": {"positive_months":18,"months":20,"positive_month_fraction":0.9,"worst_month_lift":-0.025681647627782883,"positive_quarters":7,"quarters":7,"worst_quarter_lift":0.039882326179358024,"leave_one_month_out_min_lift":0.08349526354141362},
+  "SG03_cluster_bootstrap": {"weeks":84,"weekly_95ci":[0.06798858073323763,0.11046869207928398],"months":20,"monthly_95ci":[0.06537371920108172,0.11195226272760131]},
+  "SG04_concentration": {"days":417,"top_5pct_days_n":5,"top_5pct_positive_excess_share":0.23733561930326952,"lift_after_removing_top_5pct_days":0.061722961357256356},
+  "SG05_threshold_sensitivity": [{"threshold":60.0,"high_n":3318,"high_rate":0.29475587703435807,"lift":0.05790701893838682},{"threshold":62.5,"high_n":2295,"high_rate":0.3093681917211329,"lift":0.07251933362516164,"day_bootstrap_lower":0.05617540624526614,"day_bootstrap_upper":0.08871567188742456},{"threshold":65.0,"high_n":1505,"high_rate":0.32558139534883723,"lift":0.08873253725286598,"day_bootstrap_lower":0.06689790446161527,"day_bootstrap_upper":0.11010088340695444},{"threshold":67.5,"high_n":935,"high_rate":0.3390374331550802,"lift":0.10218857505910897,"day_bootstrap_lower":0.07349030328553262,"day_bootstrap_upper":0.13181100921021022},{"threshold":70.0,"high_n":501,"high_rate":0.32934131736526945,"lift":0.0924924592692982}],
+  "SG06_weight_plateau": {"neighbors":14,"positive_lift_fraction":1.0,"median_neighbor_lift":0.08499501808168688,"median_neighbor_lift_fraction_of_v2":0.9578788200259835,"min_neighbor_lift":0.0660291684001457,"max_neighbor_lift":0.09915755730098144},
+  "SG07_regime_stability": {"ATR":[{"quartile":1,"n":2922,"high_n":319,"lift":0.1141368367524283},{"quartile":2,"n":2923,"high_n":370,"lift":0.0705439616832022},{"quartile":3,"n":2923,"high_n":416,"lift":0.08882964025369086},{"quartile":4,"n":2923,"high_n":400,"lift":0.07430807389668148}],"SPREAD_REF":[{"quartile":1,"n":2922,"high_n":325,"lift":0.09203917232664666},{"quartile":2,"n":2923,"high_n":401,"lift":0.09952795056491512},{"quartile":3,"n":2923,"high_n":390,"lift":0.05608656368150039},{"quartile":4,"n":2923,"high_n":389,"lift":0.11146416990678484}]},
+  "diagnostics": {"component_ablation":[{"removed":"disp_q","high_n":2021,"lift":0.06943515971699263},{"removed":"eff_q","high_n":1477,"lift":0.08745716763185543},{"removed":"pullback_q","high_n":2148,"lift":0.0592405273788891},{"removed":"recovery_q","high_n":509,"lift":0.11875035604941184},{"removed":"micro_q","high_n":3002,"lift":0.044297044635541044},{"removed":"spread_q","high_n":2314,"lift":0.06522547206824655}]},
+  "gates": {"SG01_primary_oos_remains_pass":true,"SG02_temporal":true,"SG03_cluster_bootstrap":true,"SG04_concentration":true,"SG05_threshold_sensitivity":true,"SG06_weight_plateau":true,"SG07_regime_stability":true,"SG08_side_year":true},
+  "decision":"PASS_SUPERGATE",
+  "post_decision_state":"APPROVED_RESEARCH",
+  "mt5_compile":"PENDING_EXTERNAL_METAEDITOR",
+  "mt5_parity":"PENDING_EXTERNAL_MT5",
+  "approval_final":false
+}
