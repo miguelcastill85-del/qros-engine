@@ -1,0 +1,64 @@
+{
+  "schema": "QROS_POLICY_V2_ACTIVATION_CHECKPOINT_1.0",
+  "status": "PASS_DURABLE_PRIMARY_POLICY_ACTIVATION",
+  "version": "V241",
+  "objective": "Make immediate per-shard first economic gate sequencing the deterministic primary QROS shard policy and freeze the conflicting v1 all-60-before-GA2 sequencing rule without rewriting historical evidence.",
+  "authority": {
+    "stable_frontier_pointer": {"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","git_blob_sha1":"83008be0430d8eb786ee0a0e301d63390e366660","current_version":"V241"},
+    "versioned_frontier": {"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V241_v1.json","git_blob_sha1":"a8b6bd952b5d8da6001ab7c68b8dcfc6098103be","creation_commit":"a5e4797e65d46f73f10a9019df4c5d93004faca3"},
+    "stable_policy_pointer": {"path":"governance/QROS_PRIMARY_SHARD_GATE_POLICY.json","git_blob_sha1":"ff6e6ac50d63ef1bc94c2d1c3894d4223d18bcc7"},
+    "primary_policy": {"path":"governance/QROS_SHARD_PROMOTION_AND_FIRST_GATE_SEQUENTIAL_POLICY_v2.0.json","git_blob_sha1":"8d9e59d12aabbbe41444982096bf35d42a1f0350","status":"ACTIVE_PRIMARY"},
+    "frozen_multiplicity_contract": {"path":"governance/QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_v1.0.json","git_blob_sha1":"bc5ce2b52ca5734328283fb3c1d67ee1d93905c1","status":"FROZEN_PRE_PNL"},
+    "supersession_receipt": {"path":"control/QROS_POLICY_SUPERSESSION_SHARD_GATE_SEQUENCE_20260914_v1.json","git_blob_sha1":"2f5d9241166332cdcc2229817b3b527ba9e60de9"},
+    "historical_v1": {"path":"governance/QROS_SHARD_PROMOTION_AND_CROSS_CHAT_CONTINUITY_POLICY_v1.0.json","git_blob_sha1":"08117b1b4926f2532f16542340a64bff72197e94","effective_status":"FROZEN_SUPERSEDED_FOR_SHARD_SEQUENCING","bytes_rewritten":false},
+    "fifo_ledger": {"path":"control/QROS_PUBLIC_1000_FIRST_ECONOMIC_GATE_PROMOTION_LEDGER_v7.json","git_blob_sha1":"32092f52bd62c6a4ebe6642fdf7f60d474e3ecb6"},
+    "preflight": {"path":"scripts/qros_cross_chat_resume_preflight_v241.py","git_blob_sha1":"45f1671c17a9a8d6729202b2c26f6cb183685b9e"},
+    "preflight_regression": "control/QROS_PUBLIC_1000_CROSS_CHAT_RESUME_PREFLIGHT_REGRESSION_V241_v1.json"
+  },
+  "data": {
+    "ga1_completed_shards": 8,
+    "ga1_remaining_shards": 52,
+    "first_gate_queue_count": 8,
+    "first_gate_pending": 8,
+    "first_gate_terminal": 0,
+    "current_first_gate": "XAUUSD/BUY/M1",
+    "next_preregistered_ga1": "NQX/BUY/M15"
+  },
+  "work_executed": [
+    "Persisted M12 cleanup and GA1 completion receipts.",
+    "Persisted M15 config-stream independent parity but blocked its GA1 execution.",
+    "Froze Seed0076 sequential first-gate multiplicity contract before any economic PnL read.",
+    "Activated shard policy v2 as primary authority.",
+    "Created immutable supersession receipt for v1 without changing v1 bytes.",
+    "Created stable governance policy pointer.",
+    "Created FIFO ledger v7 with eight pending first gates.",
+    "Created V241 fail-closed preflight and adversarial regression receipt.",
+    "CAS-promoted stable frontier V239 to V241 and re-read the resulting stable blob."
+  ],
+  "verified_results": {
+    "primary_policy_is_v2": true,
+    "old_v1_bytes_unchanged": true,
+    "first_gate_contract_frozen_before_pnl": true,
+    "fifo_order_fixed": true,
+    "new_ga1_forbidden_while_pending_first_gate": true,
+    "m15_blocked": true,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false
+  },
+  "gates": {
+    "policy_activation": "PASS",
+    "frontier_CAS": "PASS",
+    "first_economic_gate": "PREREGISTERED_NO_RESULTS"
+  },
+  "problems": [
+    "Fresh local git clone unavailable because runtime DNS could not resolve github.com."
+  ],
+  "root_cause": "Runtime network/DNS limitation only; GitHub connector authority remained available.",
+  "corrections": [
+    "Used direct GitHub blob/content verification plus executed local adversarial preflight-logic regression; did not claim a fresh-clone preflight run."
+  ],
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "portfolio_impact": "None yet; no economic scoring has been executed under v2 and holdout remains sealed.",
+  "next_automatic_action": "Construct and independently verify the deterministic first-gate scorer against V213 and the frozen multiplicity contract, then execute FIRST_GATE FIFO order 1 XAUUSD/BUY/M1. Do not execute NQX/BUY/M15 before the pending first-gate backlog is durably resolved in FIFO order."
+}
