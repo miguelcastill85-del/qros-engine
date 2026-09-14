@@ -1,0 +1,11 @@
+{
+  "schema":"QROS_XAU_FAILED_STRATEGY_CENSUS_MANIFEST_5.0",
+  "created_date":"2026-09-14",
+  "status":"PARTIAL_EXHAUSTIVE_CENSUS_ACTIVE",
+  "rows":45,
+  "census_sha256":"de7581be52ca8de2ba242e13bdefbda46d9969e592e63ade38e2173843270412",
+  "quantified_hard_failed_lower_bound_after_alias_dedupe":48357,
+  "new_terminal_identity_added":"XAU_R1_R70_TERMINAL_FRONTIER",
+  "counting_note":"R1-R70 terminal range adds zero to quantified lower bound until exact membership and alias mapping are recovered.",
+  "exhaustiveness":"IN_PROGRESS"
+}
