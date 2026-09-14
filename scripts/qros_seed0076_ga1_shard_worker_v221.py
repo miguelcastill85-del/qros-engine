@@ -13,7 +13,7 @@ from qros_seed0076_gate_engine_v221 import GateContext, TF_MIN
 from qros_seed0076_carrier_masks_v221 import CarrierMaskEngine, group_packages_exact
 
 TICK_DTYPE=np.dtype([('ts','<i8'),('bid','<i4'),('ask','<i4'),('flags','u1')])
-CLASS_HDR=struct.Struct('>32s32sIII')
+CLASS_HDR=struct.Struct('>32s32sIII') # class_hash, rep, alias_count, event_count, delta_bytes
 REARM_CODE={'RETURN_INSIDE_OR_LEVEL_REPLACED':0,'LEVEL_REPLACED_ONLY':1,'ONE_SIGNAL_PER_LEVEL':2}
 TIE_CODE={'SOURCE_ASYMMETRIC':0,'STRICT_ALL_NEIGHBORS':1}
 BUFFERS=(0.0,0.05,0.10,0.25)
@@ -43,6 +43,7 @@ def package_partition(fps):
 def session_ms_for_candidates(ticks,bars,cand,cbar,mode,tf):
     if len(cand)==0:return np.empty(0,np.int64)
     if mode=='TICK':return np.asarray(ticks['ts'][cand],dtype=np.int64)
+    # cbar is first bar after completed close/reclaim bar; exact signal time is completed-bar right edge.
     prev=np.asarray(cbar,dtype=np.int64)-1
     if np.any(prev<0):raise RuntimeError('CLOSE_CANDIDATE_WITHOUT_PREVIOUS_BAR')
     return bars['bucket_ms'][prev].astype(np.int64)+np.int64(TF_MIN[tf]*60000)
@@ -117,8 +118,7 @@ def finalize_artifacts(db_path:Path,out:Path,asset,side,tf):
             if ec==0:zero_alias=int(ac);zero_rep=rep.hex()
             hdr=CLASS_HDR.pack(ch,rep,int(ac),int(ec),len(dbytes));bf.write(hdr);bf.write(dbytes)
             row={'class_hash':ch.hex(),'representative_config_id':rep.hex(),'alias_count':int(ac),'event_count':int(ec),'mask_content_sha256':hashlib.sha256(raw).hexdigest(),'blob_offset':offset,'delta_bytes':len(dbytes)}
-            cb=canonical(row);jf.write(cb+b'\n');hclass.update(hashlib.sha256(cb).digest())
-            semantic_row={'class_hash':ch.hex(),'representative_config_id':rep.hex(),'alias_count':int(ac),'event_count':int(ec),'mask_content_sha256':hashlib.sha256(raw).hexdigest()};sb=canonical(semantic_row);hsemantic.update(hashlib.sha256(sb).digest());offset+=CLASS_HDR.size+len(dbytes)
+            cb=canonical(row);jf.write(cb+b'\n');hclass.update(hashlib.sha256(cb).digest());semantic_row={'class_hash':ch.hex(),'representative_config_id':rep.hex(),'alias_count':int(ac),'event_count':int(ec),'mask_content_sha256':hashlib.sha256(raw).hexdigest()};sb=canonical(semantic_row);hsemantic.update(hashlib.sha256(sb).digest());offset+=CLASS_HDR.size+len(dbytes)
     halias=hashlib.sha256();duplicates=0
     with dup.open('wb') as f:
         q='SELECT a.config_id,a.class_hash,c.rep FROM aliases a JOIN classes c ON a.class_hash=c.class_hash ORDER BY a.config_id'
@@ -134,6 +134,7 @@ def process(shard, spec_path, ticks_path, bar_root, ind_root, point, out, expect
     spec=json.loads(Path(spec_path).read_text(encoding='utf-8'));ticks=np.memmap(ticks_path,dtype=TICK_DTYPE,mode='r');bars=np.load(Path(bar_root)/f'{asset}_{tf}_BID_BARS.npy',mmap_mode='r',allow_pickle=False);z=np.load(Path(ind_root)/f'{asset}_{tf}_INDICATORS.npz',allow_pickle=False);ind={k:z[k] for k in z.files}
     fps=filter_packages(spec);bases=shard_base_rows(spec,asset,side,tf);parts=package_partition(fps)
     if len(fps)!=11176 or len(bases)!=72 or len(parts)!=28:raise RuntimeError('FROZEN_ENUMERATION_COUNT_MISMATCH')
+    # Full ordered config root, independent of later grouping.
     hr=hashlib.sha256();cfg_count=0
     for base in bases:
         for fp in fps:hr.update(config_id(base,fp));cfg_count+=1
@@ -149,11 +150,12 @@ def process(shard, spec_path, ticks_path, bar_root, ind_root, point, out, expect
     try:
         for gnum,(k,rows) in enumerate(sorted(base_groups.items(),key=lambda x:canonical({'fractal_window':x[0][0],'tie_policy':x[0][1],'trigger':x[0][2]}))):
             w,tie,trigger=k;st=sc[(int(w),tie)];level,lid,ol,olid,same,opp=raw_cache_for(st,bars,ind,ticks,h,l,side_sign,point,trigger);nr=next_replacement_source(lid,first);ap=np.r_[np.nan,ind['ATR14'][:-1]]
+            # Rows here are exactly three rearm modes for the same structural/trigger state.
             row_by_rearm={b['rearm_mode']:b for _,b in rows}
             if set(row_by_rearm)!=set(REARM_CODE):raise RuntimeError('REARM_GROUP_INCOMPLETE')
             for tkey,pkgrows in sorted(parts.items()):
-                bm,rcode,rwin=tkey;bidx=BUFFERS.index(float(bm));raw_idx,raw_bar,raw_lid=same[bidx];opp_idx=opp[bidx][0]
-                cand_by={}
+                bm,rcode,rwin=tkey;bidx=BUFFERS.index(float(bm));raw_idx,raw_bar,raw_lid=same[bidx];opp_idx=opp[bidx][0] # same trigger + same active buffer, V221
+                cand_by={};
                 for rname,rc in REARM_CODE.items():
                     cand,cbar=filter_raw_to_candidates(ticks['bid'],first,last,l,h,c,level,lid,nr,ap,raw_idx,raw_bar,raw_lid,opp_idx,side_sign,point,float(bm),rc,int(rcode),int(rwin))
                     if len(cand)>1 and np.any(cand[1:]<=cand[:-1]):raise RuntimeError('CANDIDATES_NOT_STRICTLY_INCREASING')
@@ -165,6 +167,7 @@ def process(shard, spec_path, ticks_path, bar_root, ind_root, point, out, expect
                 eng=CarrierMaskEngine(ctx,union,ubar,st['sh'],st['sl'],st['boxhist'],sms)
                 groups=group_packages_exact(eng,pkgrows)
                 metrics['transform_carriers']+=1;metrics['candidate_union_total']+=len(union);metrics['local_gate_groups_total']+=len(groups)
+                # membership masks for each rearm on union coordinates
                 memberships={}
                 for rname,(cand,_) in cand_by.items():
                     m=np.zeros(len(union),dtype=bool)
