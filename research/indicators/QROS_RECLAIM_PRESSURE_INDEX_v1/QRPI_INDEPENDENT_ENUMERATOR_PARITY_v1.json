@@ -1,0 +1,17 @@
+{
+  "schema":"QROS_QRPI_INDEPENDENT_ENUMERATOR_PARITY_1.0",
+  "campaign_id":"QROS_INDICATOR_002_XAU_RECLAIM_PRESSURE_INDEX_v1",
+  "status":"PASS",
+  "events_main":10635,
+  "events_oracle":10635,
+  "total_mismatches":0,
+  "max_float_abs_diff":1.0000333894311098e-12,
+  "float_tolerance":2e-12,
+  "main_ledger_sha256":"dcaf1dfd19201720cb64e37bf3b25dffffbc6a63abe99d29eda043f766324c63",
+  "oracle_ledger_sha256":"d406d4837b55e7e923a4eb31923212874dc1c368ca39eb407332a444ed0f2fe1",
+  "main_source_sha256":"847363d62f60583e9c5d5e1acc9e5e5c26ea6805ec443e4225720e38f6c252ab",
+  "main_binary_sha256":"89bef5dcc1a9ac471fb9356678074e671b2e6fed818b8a4ad0c7e4029bbfe72c",
+  "oracle_source_sha256":"96a32021694e4f768e251dc32fb2043a5957e99aa887faae8eabab351c642ee1",
+  "parity_scope":"event-by-event timestamps, side, frozen level, extreme, entry, ATR, score components, score, spread, stop, target, risk and outcome",
+  "reason_code_equivalence":{"1":"TP","2":"SL","3":"HORIZON_OR_DAY_END","4":"SOURCE_DAY_END","6":"INVALID_RISK"}
+}
