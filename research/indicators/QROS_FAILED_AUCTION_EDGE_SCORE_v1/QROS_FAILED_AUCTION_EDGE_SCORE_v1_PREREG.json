@@ -1,0 +1,106 @@
+{
+  "schema": "QROS_INDICATOR_PREREG_1.0",
+  "campaign_id": "QROS_INDICATOR_001_XAU_FAILED_AUCTION_EDGE_SCORE_v1",
+  "indicator_id": "QROS_FAILED_AUCTION_EDGE_SCORE_v1",
+  "short_name": "QFAES",
+  "created_date": "2026-09-14",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "asset": "XAUUSD",
+  "direction": [
+    "BUY",
+    "SELL"
+  ],
+  "purpose": "Predict whether a breach of the previous broker-day high/low is a failed auction followed by directional rejection.",
+  "scientific_claim": "NO_EDGE_CLAIM_UNTIL_EMPIRICALLY_VALIDATED",
+  "data_authority": {
+    "canonical_carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+    "carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+    "records": 697060968,
+    "development_period": "2018-01-25 through 2019-12-31 source-clock",
+    "holdout": "SEALED",
+    "source_clock": "Darwinex broker server clock; do not reinterpret as UTC during scoring",
+    "record_layout": "<int64 timestamp_ms><int32 bid_cent><int32 ask_cent><uint8 flags>",
+    "execution_semantics": "BUY Ask->Bid; SELL Bid->Ask; crossed quotes invalid; zero spread preserved but no artificial advantage."
+  },
+  "structural_levels": {
+    "v1_only": [
+      "PREVIOUS_BROKER_DAY_HIGH",
+      "PREVIOUS_BROKER_DAY_LOW"
+    ],
+    "reason": "Keep v1 causally narrow and interpretable; other level families are descendants, not silent additions."
+  },
+  "event_definition": {
+    "bearish_failed_auction": "Executable market breaches previous-day high, reaches an extreme, then reclaims below the level within max_dwell_seconds.",
+    "bullish_failed_auction": "Executable market breaches previous-day low, reaches an extreme, then reclaims above the level within max_dwell_seconds.",
+    "max_dwell_seconds": 1200,
+    "max_full_m5_closes_outside": 1,
+    "sweep_depth_atr_min": 0.03,
+    "sweep_depth_atr_max": 0.5,
+    "atr": "ATR14 from completed M15 bars only",
+    "confirmation_seconds_after_reclaim": 20,
+    "same_day_only": true
+  },
+  "score_components": {
+    "depth_quality": {
+      "weight": 25,
+      "formula": "triangular_peak(depth_atr; left=0.03, peak=0.15, right=0.50)"
+    },
+    "dwell_quality": {
+      "weight": 20,
+      "formula": "exp(-dwell_seconds/180)"
+    },
+    "reclaim_velocity": {
+      "weight": 20,
+      "formula": "clip((return_speed/outbound_speed)/2,0,1)"
+    },
+    "micro_reversal": {
+      "weight": 20,
+      "formula": "directional signed-mid-tick imbalance over last 32 valid mid-price changes, mapped to [0,1]"
+    },
+    "spread_quality": {
+      "weight": 15,
+      "formula": "clip(1-current_spread/(2*rolling_positive_spread_p50),0,1)"
+    }
+  },
+  "score": "0..100; direction is stored separately. No fitted weights in v1.",
+  "prediction_contract": {
+    "entry_time": "end of 20-second post-reclaim confirmation window",
+    "entry_price": "BUY Ask; SELL Bid",
+    "stop": "beyond sweep extreme by 0.05*ATR14",
+    "target": "1.0R from executable entry",
+    "max_horizon_minutes": 90,
+    "same_day_close": true,
+    "ambiguity": "SL first if SL and target are first reachable at the same timestamp/bar granularity",
+    "gap": "first actually executable price"
+  },
+  "primary_statistical_test": {
+    "threshold_predeclared": 70,
+    "minimum_events_high_score": 60,
+    "null": "High-score events have no better target-before-stop probability than all eligible failed-auction events.",
+    "effect_requirements": [
+      "High-score target-before-stop rate > baseline rate",
+      "one-sided permutation p <= 0.05",
+      "bootstrap 95% CI of lift excludes 0",
+      "2018 and 2019 lift both non-negative",
+      "score-bin hit rate is directionally monotone across [0-40), [40-55), [55-70), [70-85), [85-100]"
+    ],
+    "multiplicity": "All predeclared score thresholds/bins counted; no post-hoc threshold substitution."
+  },
+  "gate_a_for_indicator": {
+    "PASS": [
+      "all primary statistical requirements pass",
+      "no lookahead/data-integrity failure",
+      "BUY and SELL reported separately",
+      "combined result not used to hide a failing side"
+    ],
+    "FAIL": "No threshold rescue after seeing results. New rule => descendant campaign."
+  },
+  "portfolio_rule": "Even if predictive Gate A passes, portfolio inclusion requires later marginal-correlation and overlap analysis versus XAU M1-M4.",
+  "forbidden": [
+    "opening 2020+ holdout during development",
+    "fitting weights to maximize PF",
+    "changing score threshold after outcomes are seen",
+    "treating M5/M15 proxy data as parity with canonical ticks",
+    "claiming statistical edge before execution"
+  ]
+}
