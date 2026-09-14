@@ -1,0 +1,16 @@
+{
+  "schema":"QROS_INDICATOR_RESEARCH_CHECKPOINT_1.0",
+  "campaign_id":"QROS_INDICATOR_002_XAU_RECLAIM_PRESSURE_INDEX_v1",
+  "objective":"Find an original XAUUSD indicator with preregistered statistical predictive edge.",
+  "authority":{"carrier":"XAU_PACKED17_CENT_FULL_2018_2026.bin","carrier_sha256":"c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4","development_prefix_bytes":2573500596,"development_prefix_records":151382388,"development_prefix_sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"},
+  "data":{"development":"2018-01-25..2019-12-31 source-clock","holdout_2020_plus":"SEALED","ticks_scanned":151382388,"out_of_order":0,"crossed":74,"zero_spread":942184},
+  "work_executed":["QRPI preregistered and committed before outcomes","main C++ enumerator executed","independent Numba oracle executed","10635/10635 event parity PASS","strict Gate A executed"],
+  "verified_results":{"raw_events":10635,"executable_events":9324,"high_score_events":612,"baseline_success_rate":0.2398112398112398,"high_score_success_rate":0.35130718954248363,"lift":0.11149594973124383,"permutation_p":8.893057537889116e-11,"bootstrap_lift_95ci":[0.07518202114667609,0.14726852400244092]},
+  "gates":{"minimum_high_score_events_100":true,"high_rate_gt_baseline":true,"permutation_p_le_0_05":true,"bootstrap_95ci_lift_lower_gt_0":true,"2018_lift_nonnegative":true,"2019_lift_nonnegative":true,"BUY_lift_nonnegative":true,"SELL_lift_nonnegative":true,"score_bins_non_decreasing_nonempty":false},
+  "problems":["Preregistered score-bin monotonicity failed despite strong aggregate, side and year enrichment."],
+  "root_cause":"Score >=65 enriches outcomes strongly, but the score does not maintain required monotonic ordering at the top bin; Gate A was preregistered as conjunctive.",
+  "corrections":["None after outcomes. No threshold or weights changed."],
+  "scientific_state":"REJECTED",
+  "portfolio_impact":"NONE; no risk allocation and no holdout opening.",
+  "next_automatic_action":"Close QRPI v1 without rescue. Open pre-ranked third seed Impulse Persistence Score as a new genealogy with fresh preregistration."
+}
