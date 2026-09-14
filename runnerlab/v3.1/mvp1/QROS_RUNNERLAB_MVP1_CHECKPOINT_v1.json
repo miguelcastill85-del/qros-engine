@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP1_CHECKPOINT_1",
+  "utc": "2026-09-14T04:00:00Z",
+  "branch": "design/runnerlab-v3-audited-20260914",
+  "parent_architecture_commit": "527bd8369b417e74d702e17607bcb21403d1543f",
+  "objective": "Build first RunnerLab v3.1 carrier with Durable Journal + Stage Engine + Win32 Job Supervisor + immutable evidence + regressions D04/D14/D15 before any MT5 or Candidate3 access.",
+  "source_carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP1_SOURCE.zip",
+    "sha256": "4c1cb18319fbd9fb946d907ca9953ded14dfc2962691a36a142818ae72d41c9c",
+    "bytes": 20456,
+    "entry_count": 19
+  },
+  "static_audit": {
+    "decision": "PASS",
+    "checks_passed": 20,
+    "checks_failed": 0,
+    "verified_controls": [
+      "NO_CERT_ARM_IMPLEMENTATION",
+      "NO_CANDIDATE3_EXECUTION",
+      "D04_CREATE_SUSPENDED_ASSIGN_VERIFY_RESUME",
+      "D04_KILL_ON_JOB_CLOSE",
+      "D04_NO_BREAKAWAY_FLAGS",
+      "D14_EXACT_RUN_STAGE_ATTEMPT_NONCE_TEST_ID",
+      "EVIDENCE_CREATE_NEW_WRITE_THROUGH_FLUSH_TO_DISK",
+      "SQLITE_WAL_SYNCHRONOUS_FULL",
+      "STAGE_PRIMARY_KEY_INCLUDES_NONCE",
+      "D15_PACKAGING_FAILURE_SEPARATE_FROM_RUNTIME",
+      "MICROSOFT_DATA_SQLITE_PINNED_10_0_12"
+    ]
+  },
+  "execution_annotation": {
+    "dotnet_sdk_available_in_current_runtime": false,
+    "windows_native_selftests_executed": false,
+    "compiled_binary_verified": false,
+    "candidate3_executed": false,
+    "mt5_accessed": false,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false
+  },
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "promotion_blockers": [
+    "SELF4_D04_JOB_OWNERSHIP must PASS on native Windows",
+    "source must compile warnings-as-errors on .NET 10",
+    "all self-tests must produce immutable receipt and SHA-256"
+  ],
+  "next_action": "Compile/publish self-contained win-x64 carrier and execute SELF0-SELF4 on native Windows. Do not touch MT5 or Candidate3 until all self-tests PASS."
+}
