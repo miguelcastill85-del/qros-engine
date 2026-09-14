@@ -1,0 +1,18 @@
+{
+  "schema": "QROS_IPS_OPERATIONAL_BUILD_RECEIPT_1.0",
+  "state": "CONSTRUCTED_APPROVED_RESEARCH",
+  "static_checks": {
+    "balanced_braces": true,
+    "oninit_present": true,
+    "oncalculate_present": true,
+    "copyticksrange_present": true,
+    "score_formula_present": true,
+    "threshold_65_default": true,
+    "no_trade_functions": true
+  },
+  "golden_vector_test_stdout": "IPS_OPERATIONAL_GOLDEN_VECTOR_TEST=PASS\nvectors= 40\nmax_score_abs_error= 9.524e-11",
+  "mt5_compile": "NOT_AVAILABLE_IN_THIS_RUNTIME",
+  "mt5_parity": "PENDING_EXTERNAL_MT5",
+  "development_gate_a": "PASS",
+  "development_event_parity": "14702/14702"
+}
