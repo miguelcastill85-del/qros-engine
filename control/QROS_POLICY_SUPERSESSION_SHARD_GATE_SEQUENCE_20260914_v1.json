@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_POLICY_SUPERSESSION_SHARD_GATE_SEQUENCE_1.0",
+  "status": "PASS_SUPERSESSION_FROZEN",
+  "effective_date": "2026-09-14",
+  "scope": "QROS sharded campaign sequencing; immediately binding for PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "superseded_policy": {
+    "path": "governance/QROS_SHARD_PROMOTION_AND_CROSS_CHAT_CONTINUITY_POLICY_v1.0.json",
+    "git_blob_sha1": "08117b1b4926f2532f16542340a64bff72197e94",
+    "bytes_rewritten": false,
+    "effective_status_after_this_receipt": "FROZEN_SUPERSEDED_FOR_SHARD_SEQUENCING",
+    "historical_evidence_preserved": true
+  },
+  "primary_policy": {
+    "path": "governance/QROS_SHARD_PROMOTION_AND_FIRST_GATE_SEQUENTIAL_POLICY_v2.0.json",
+    "git_blob_sha1": "8d9e59d12aabbbe41444982096bf35d42a1f0350",
+    "status": "ACTIVE_PRIMARY"
+  },
+  "seed0076_first_gate_contract": {
+    "path": "governance/QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_v1.0.json",
+    "git_blob_sha1": "bc5ce2b52ca5734328283fb3c1d67ee1d93905c1",
+    "status": "FROZEN_PRE_PNL"
+  },
+  "activation_preconditions_verified": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "frozen_shard_count": 60,
+    "no_completed_GA1_invalidated": true,
+    "no_config_id_changed": true,
+    "no_universe_changed": true
+  },
+  "transition": {
+    "old_v1_firewall_requiring_all_60_before_GA2": "SUPERSEDED",
+    "new_rule": "Every GA1-complete promoted shard must execute and durably close its first economic gate before any new GA1 shard may start.",
+    "existing_promoted_backlog": "PRESERVED_AND_DRAINED_FIFO",
+    "backlog_order_source": "durable first promotion order; never PnL-dependent",
+    "first_pending": "XAUUSD/BUY/M1",
+    "next_preregistered_GA1": "NQX/BUY/M15",
+    "next_preregistered_GA1_status": "BLOCKED_BY_FIRST_GATE_BACKLOG"
+  },
+  "scientific_reason": "The new frozen multiplicity contract partitions the campaign error budget across all 60 frozen shards ex ante, without alpha recycling or result-dependent thresholds. Therefore per-shard sequential first-gate execution no longer requires waiting for all 60 GA1 shards before economic scoring.",
+  "decision": "V2_IS_PRIMARY_AUTHORITY; V1_REMAINS_IMMUTABLE_HISTORICAL_AUTHORITY_ONLY_FOR_NON_CONFLICTING_CONTINUITY_RULES"
+}
