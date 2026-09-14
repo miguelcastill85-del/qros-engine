@@ -1,0 +1,24 @@
+{
+  "schema": "QROS_XAU_UPLOAD_BATCH_009_018_AUDIT_1.0",
+  "date": "2026-09-14",
+  "canonical_carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+  "manifest_authority": "QROS_XAU_FULL_HISTORY_ZIP_MANIFEST_v2.json",
+  "received_indices": [9,10,12,13,14,15,16,17,18],
+  "missing_within_009_018": [11],
+  "all_received_pass": true,
+  "parts": [
+    {"index":9,"file":"QROS_XAU_FULL_HISTORY_v2_part009-of-035.zip","bytes":108223807,"zip_sha256":"4229584dad745da7e5e658fe6351a811ad99b8f62aff185a98b2e1a1b4225fc6","payload_sha256":"9f098efa00f1edf12a223caa58f4152ef63052912f5711108b5da8faaf8404ce","start_record":160000000,"records":20000000,"first_timestamp_ms":1580795001341,"last_timestamp_ms":1584603177405,"decision":"PASS"},
+    {"index":10,"file":"QROS_XAU_FULL_HISTORY_v2_part010-of-035.zip","bytes":105533667,"zip_sha256":"e510cafc5529c1a63c0221c17b710a4b20167186760169e2c4f1f011cde345e2","payload_sha256":"6c998f2032e1c9dbb62e30076e1be124917c75e43f58eb0dfb7c430243816b3c","start_record":180000000,"records":20000000,"first_timestamp_ms":1584603177405,"last_timestamp_ms":1589379116125,"decision":"PASS"},
+    {"index":12,"file":"QROS_XAU_FULL_HISTORY_v2_part012-of-035.zip","bytes":107073485,"zip_sha256":"9e447fbe238ae3a57851fe6d9854889bf8ca624c335f44cd4d80a76db58fd754","payload_sha256":"40bdb95d12230678c304b8ed1795cf2168e617b4e82a9c2094f7d28d914d648b","start_record":220000000,"records":20000000,"first_timestamp_ms":1594403881490,"last_timestamp_ms":1598463265649,"decision":"PASS"},
+    {"index":13,"file":"QROS_XAU_FULL_HISTORY_v2_part013-of-035.zip","bytes":109112411,"zip_sha256":"abf444a55936b07768b24233f19deaed03377c1c47cd680669b8e2b73f586e14","payload_sha256":"38e14d0e0d2993055e3b26ee0648e31c3199deb6eb5a12cdcc6395307f9d7c92","start_record":240000000,"records":20000000,"first_timestamp_ms":1598463265657,"last_timestamp_ms":1603398601062,"decision":"PASS"},
+    {"index":14,"file":"QROS_XAU_FULL_HISTORY_v2_part014-of-035.zip","bytes":109262990,"zip_sha256":"f699ade58b0106f6015d890aac8f7e4f79a1a2af95a186fb3f844aa7b6b8576a","payload_sha256":"afc7e4b72fd4f4ccbf87a8cdaafe2a009438309a914448f2a8bd16305e124408","start_record":260000000,"records":20000000,"first_timestamp_ms":1603398601078,"last_timestamp_ms":1609949925454,"decision":"PASS"},
+    {"index":15,"file":"QROS_XAU_FULL_HISTORY_v2_part015-of-035.zip","bytes":123555864,"zip_sha256":"06d51282d8551b7b0aa6fe428bec9af8d036c5639e7a05b97db9fae304028306","payload_sha256":"96831423175c95fba632d5223b3d51d56cc25ef43f84a4d229e2de6720fbfde5","start_record":280000000,"records":20000000,"first_timestamp_ms":1609949925461,"last_timestamp_ms":1623435124671,"decision":"PASS"},
+    {"index":16,"file":"QROS_XAU_FULL_HISTORY_v2_part016-of-035.zip","bytes":120323074,"zip_sha256":"422775ec95f5bc92727dfeff90aa582c443bbbeab68158c1b23fe513f85fe02b","payload_sha256":"2a82ead1255ffdfcbbde9498f0496a1773927a50f9b6e671102561f0b0a84359","start_record":300000000,"records":20000000,"first_timestamp_ms":1623435124871,"last_timestamp_ms":1637767083938,"decision":"PASS"},
+    {"index":17,"file":"QROS_XAU_FULL_HISTORY_v2_part017-of-035.zip","bytes":124534301,"zip_sha256":"b96d094cdf801a1b08a02f50e71e23bd673893d082890a90cbcb8dd9b3325b36","payload_sha256":"e9ec8a9d53860a5bb3b20b239beddcf855d02883541ad56b02863092c581bfba","start_record":320000000,"records":20000000,"first_timestamp_ms":1637767084994,"last_timestamp_ms":1652712588964,"decision":"PASS"},
+    {"index":18,"file":"QROS_XAU_FULL_HISTORY_v2_part018-of-035.zip","bytes":105754637,"zip_sha256":"13b0cfe0c798a549c2a709a0c0b4f425ba58adbbf9af37836702679da8618e76","payload_sha256":"8e6259df130e9459e57049b528a7219be0a49686221817778fb3a927313a6621","start_record":340000000,"records":20000000,"first_timestamp_ms":1652712589020,"last_timestamp_ms":1660592402871,"decision":"PASS"}
+  ],
+  "scientific_effect":"DATA_AUDIT_ONLY_NO_STRATEGY_SCORING",
+  "v1_oos2_required_indices":[9,10,11,12,13,14,15,16,17,18,19,20],
+  "v1_oos2_missing_indices":[11,19,20],
+  "v2_clean_oos_2023_2024_note":"Requires later canonical parts beginning after 2022; this batch does not reach the preregistered 2023-2024 clean OOS."
+}
