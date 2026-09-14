@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_R2T_V2_PS51_ARRAY_BINDER_CORRECTION_RECEIPT_1.0",
+  "created_utc": "2026-09-14T02:52:44.706013+00:00",
+  "trigger_evidence": "User Windows PowerShell 5.1 screenshot: STATIC_GATE line 55, System.ArgumentException, Los tipos de argumentos no coinciden",
+  "root_cause": "PS51_ARRAY_SUBEXPRESSION_GENERIC_LIST_BINDER_INCOMPATIBILITY",
+  "classification": "RUNNER_GATE_INFRASTRUCTURE_FAILURE_NOT_CANDIDATE3",
+  "correction": {
+    "removed_generic_list": true,
+    "removed_array_subexpression_over_generic_list": true,
+    "native_powershell_object_array": true,
+    "mutation_semantics_unchanged": true,
+    "scientific_qualifier_modified": false
+  },
+  "qualifier_sha256": "2fdf97070d905ee4594fba8801674748748a3a43f8fae552bd918a3aee3c6842",
+  "mql_sha256": "89dc345b21e7d294a68b8c1cad2afd2bf07896d275b1132709ea5eee2a3db89e",
+  "static_gate_sha256_after": "e571f780bd79be3619bd3f9790ed388049447312685a41b4dcf755035c975902",
+  "candidate3_executed": false,
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "native_windows_rerun": "PENDING"
+}
