@@ -1,0 +1,36 @@
+{
+  "schema":"QROS_SEED0076_ENUMERATOR_B_ROOT_DEFINITION_CORRECTION_1.0",
+  "status":"PASS_ROOT_CAUSE_VERIFIED",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "diagnostic_run_id":34892960189,
+  "diagnostic_job_id":104139882931,
+  "diagnostic_receipt_sha256":"a1fee0c02837e53211efe730703474e4f179eb000f1c8539df8a54e04895a54c",
+  "enumerator_a":{"path":"scripts/qros_seed_universe_enumerator_a_v2.py","git_blob_sha1":"15e4402fb39161caa5612e81d42ee8c2dd701dd8"},
+  "enumerator_b_v2":{"path":"scripts/qros_seed_universe_enumerator_b_v2.py","git_blob_sha1":"e3bff26dce352bbc3c1e91ce4d2958571d35d001"},
+  "enumerator_b_v3":{"path":"scripts/qros_seed_universe_enumerator_b_v3.py","git_blob_sha1":"6391f0291128e97f1d905cb67c7d3c837b6927db"},
+  "semantic_set_parity":{
+    "base":{"count_a":4320,"count_b":4320,"a_minus_b":0,"b_minus_a":0},
+    "filters":{"count_a":11176,"count_b":11176,"a_minus_b":0,"b_minus_a":0},
+    "management":{"count_a":3710,"count_b":3710,"a_minus_b":0,"b_minus_a":0}
+  },
+  "canonical_roots":{
+    "base":"1c1b8a6d2c458be3389886f56d41471cd9556f0fa8f84a44bbd51fbfa883d4c9",
+    "filters":"3c0dfe0adf69c2fd0e82f36df15fc3a0537cb0a90646008b2f7a95408394e5e9",
+    "management":"2ca72abbd712917769528720422c2399adb8939d2585ca83c519d839afb46b1d"
+  },
+  "b_v2_native_roots":{
+    "base":"60a727e516aaf08a0e15850384c6b8588bb1b2daa7f90c5e9d9f28f571a35e02",
+    "filters":"8437d9a6649bcda03895097d87e16c144762029cc1d456d99ea54bf8511f7c30",
+    "management":"3ae72c3edf9def349cd401368a90255cd624fc5798f1ad00e983181278f3fb08"
+  },
+  "v213_management_root_sha256":"2ca72abbd712917769528720422c2399adb8939d2585ca83c519d839afb46b1d",
+  "root_cause":"Enumerator B_v2 sorted SHA256 leaf digests before aggregation, while the canonical QROS definition sorts canonical row bytes first and then hashes each leaf in that byte order. The enumerated sets were identical; only the root aggregation order differed.",
+  "correction":"Enumerator B_v3 preserves the independent itertools enumeration and changes only root aggregation to SORT_CANONICAL_ROW_BYTES_THEN_SHA256_LEAF_AGGREGATE.",
+  "scientific_universe_changed":false,
+  "configuration_set_changed":false,
+  "management_set_changed":false,
+  "economic_pnl_read":false,
+  "ga2_open":false,
+  "holdout_open":false,
+  "decision":"ROOT_DEFINITION_BUG_CORRECTED_WITHOUT_CHANGING_THE_FROZEN_UNIVERSE; FULL_EXTERNAL_RISE_REVALIDATION_REQUIRED_WITH_A_v2_AND_B_v3."
+}
