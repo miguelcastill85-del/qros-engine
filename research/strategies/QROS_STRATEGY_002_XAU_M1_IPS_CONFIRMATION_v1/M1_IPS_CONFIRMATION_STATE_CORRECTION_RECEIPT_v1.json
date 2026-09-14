@@ -1,0 +1,11 @@
+{
+  "schema": "QROS_XAU_M1_IPS_CONFIRMATION_STATE_CORRECTION_1.0",
+  "created_date": "2026-09-14",
+  "error": "Checkpoint used INCONCLUSIVE_SUPPORT as scientific state; this is a decision label, not an allowed QROS scientific state.",
+  "prior_decision": "INCONCLUSIVE_SUPPORT",
+  "correct_scientific_state": "OBSERVATIONAL_RESERVE",
+  "metrics_changed": false,
+  "gates_changed": false,
+  "evidence_changed": false,
+  "2025_2026": "SEALED_NOT_OPENED"
+}
