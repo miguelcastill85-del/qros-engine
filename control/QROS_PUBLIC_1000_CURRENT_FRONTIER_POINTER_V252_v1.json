@@ -28,7 +28,7 @@
     "gap_register":{"path":"control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.1.json","git_blob_sha1":"1bd34bf6ca148413307f3036c1f2aa78011f8743"},
     "compiler":{"path":"scripts/qros_execution_kernel_compile_v3.py","git_blob_sha1":"3a3ae1cce43f3706ca98b9ce68873852012c7052"},
     "oracle":{"path":"scripts/qros_execution_kernel_oracle_v3.py","git_blob_sha1":"389fe7b4605927d9afd1a80d48461166da4314b6"},
-    "adversarial_suite":{"path":"scripts/qros_execution_kernel_adversarial_v5.py","git_blob_sha1":"bd64b8324550697b429e4773b8662a171a4ebc11"},
+    "adversarial_suite":{"path":"scripts/qros_execution_kernel_adversarial_v6.py","git_blob_sha1":"60e9426d541fabf927ce26cd254e38be94b4f817"},
     "mode_resolver":{"path":"scripts/qros_execution_kernel_mode_resolver_v1.py","git_blob_sha1":"b4f2781354854ca823c63321e707cac9297bc4cf"},
     "external_workflow":{"path":".github/workflows/qros-deterministic-execution-kernel-v6.yml","git_blob_sha1":"c760f03320a7d29fb5134670e6bc80fca739c549"},
     "transitive_core":{
@@ -66,7 +66,7 @@
   "holdout_open":false,
   "ga2_open":false,
   "remaining_full_history_zips_required_for_current_action":false,
-  "validation_closure":{"rise_fixed_point":{"path":"control/QROS_SEED0076_POST_EXPANSION_RISE_FIXED_POINT_PASS_20260914_v1.json","git_blob_sha1":"4196b71533097b66ddb0965e8b9a29cda3f72dd8","external_run_id":34893335551}},
+  "validation_closure":{"rise_fixed_point":{"path":"control/QROS_SEED0076_POST_EXPANSION_RISE_FIXED_POINT_PASS_20260914_v1.json","git_blob_sha1":"4196b71533097b66ddb0965e8b9a29cda3f72dd8","external_run_id":34893335551},"candidate_adversarial_v5_failure":{"path":"control/QROS_V252_CANDIDATE_ADVERSARIAL_V5_COMPATIBILITY_FAILURE_20260914_v1.json"}},
   "resume_contract":"Candidate V252 may be promoted only after generic external candidate validation. The single next scientific action is BUILD_FIRST_GATE_SCORER for FIFO #1 XAUUSD/BUY/M1. Scorer construction is non-economic: no PnL, GA2, holdout, new GA1 or frozen-universe changes. No ZIP upload is required.",
   "next_action":"ADVISORY_ONLY: after V252 candidate/active validation, build and independently parity-check the FIRST_GATE scorer for FIFO #1 XAUUSD/BUY/M1 without reading economic output."
 }
