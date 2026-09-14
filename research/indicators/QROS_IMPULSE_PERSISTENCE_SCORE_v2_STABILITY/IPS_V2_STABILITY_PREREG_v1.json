@@ -1,0 +1,84 @@
+{
+  "schema": "QROS_IPS_V2_STABILITY_PREREG_1.0",
+  "campaign_id": "QROS_INDICATOR_004_XAU_IPS_V2_STABILITY",
+  "parent": "QROS_IMPULSE_PERSISTENCE_SCORE_v1",
+  "indicator_candidate": "QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY",
+  "created_date": "2026-09-14",
+  "state": "PREREGISTERED_NO_V2_RESULTS",
+  "scientific_goal": "Improve reliability/stability of IPS ranking without changing its event ontology or using any post-2019 outcome for selection.",
+  "genealogy_rule": "NEW_DESCENDANT. IPS v1 remains immutable. No result from OOS-1 or OOS-2 may choose v2 parameters.",
+  "development_authority": {
+    "source_events": "IPS_EVENTS_MAIN_v1.csv",
+    "raw_events": 14702,
+    "executable_filter": "risk_cents > 0",
+    "period": "2018-2019 only",
+    "post_2019_for_selection": "FORBIDDEN"
+  },
+  "frozen_event_ontology": {
+    "impulse_definition": "UNCHANGED_FROM_IPS_V1",
+    "pullback_reacceleration": "UNCHANGED_FROM_IPS_V1",
+    "six_components": ["disp_q", "eff_q", "pullback_q", "recovery_q", "micro_q", "spread_q"],
+    "component_transforms": "UNCHANGED_FROM_IPS_V1",
+    "execution/outcome_contract": "UNCHANGED_FROM_IPS_V1",
+    "primary_threshold": 65
+  },
+  "optimization_space": {
+    "weights_percent": {
+      "disp_q": [10, 15, 20, 25, 30],
+      "eff_q": [5, 10, 15, 20, 25],
+      "pullback_q": [10, 15, 20, 25, 30],
+      "recovery_q": [15, 20, 25, 30, 35],
+      "micro_q": [10, 15, 20, 25, 30],
+      "spread_q": [5, 10, 15, 20]
+    },
+    "constraint": "weights sum exactly to 100",
+    "step": 5,
+    "expected_N_TESTS": 1125,
+    "no_threshold_search": true,
+    "no_event_rule_search": true,
+    "no_feature_addition": true
+  },
+  "stability_partitions": {
+    "quarters": ["2018Q1", "2018Q2", "2018Q3", "2018Q4", "2019Q1", "2019Q2", "2019Q3", "2019Q4"],
+    "side_year_cells": ["BUY_2018", "SELL_2018", "BUY_2019", "SELL_2019"]
+  },
+  "candidate_hard_gates": {
+    "high_score_events_min": 1500,
+    "overall_lift_ge_parent_v1_development_lift": true,
+    "all_8_quarter_lifts_positive": true,
+    "worst_quarter_lift_ge_parent_v1_worst_quarter_lift": true,
+    "all_4_side_year_lifts_positive": true,
+    "overall_score_bin_spearman_rho_ge": 0.9,
+    "BY_q_value_le": 0.05
+  },
+  "selection_rule_lexicographic": [
+    "maximize worst_quarter_lift",
+    "maximize minimum_side_year_lift",
+    "maximize median_quarter_lift",
+    "maximize overall_lift",
+    "minimize L1_distance_from_parent_v1_weights",
+    "lexicographically smallest weight tuple [disp,eff,pullback,recovery,micro,spread]"
+  ],
+  "multiplicity": {
+    "N_TESTS": "record exact enumerated count",
+    "primary_enrichment_test": "one-sided exact hypergeometric/permutation-equivalent enrichment for score>=65",
+    "correction": "Benjamini-Yekutieli across all enumerated candidates",
+    "selected_candidate_p_or_q": "development evidence only; never treated as independent validation"
+  },
+  "parent_benchmark": {
+    "weights": [20, 15, 20, 20, 15, 10],
+    "threshold": 65,
+    "known_development_lift": 0.04707455980749167,
+    "known_worst_quarter_lift": 0.009686689563327966
+  },
+  "decision": {
+    "FROZEN_CANDIDATE": "at least one candidate passes every hard gate; freeze exactly one by lexicographic rule",
+    "BRANCH_REJECTED": "no candidate passes every hard gate",
+    "no_rescue": "Do not relax gates or choose runner-up after results."
+  },
+  "future_validation": {
+    "OOS1_2020": "EXPOSED FOR GENEALOGY; diagnostics only, never confirmatory",
+    "IPS_v1_OOS2": "reserved for unchanged v1 by existing contract; do not consume during v2 selection",
+    "v2_clean_validation": "must be preregistered on an independently sealed period before scoring"
+  }
+}
