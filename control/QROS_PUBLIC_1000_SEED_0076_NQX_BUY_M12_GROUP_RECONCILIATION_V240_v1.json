@@ -1,0 +1,14 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_NQX_BUY_M12_GROUP_RECONCILIATION_1.0",
+  "status":"PASS",
+  "domain":{"asset":"NQX","side":"BUY","timeframe":"M12"},
+  "shard_id":"280066aa7fa5fee847fb533be58f986f5181bb5b211abc643b4cfa46226f4ea3",
+  "processed_signal_configs":804672,
+  "groups_verified":24,
+  "artifacts_verified":72,
+  "group_receipts_root_sha256":"fbb4583df843e6ff45dc54f94e0b645be7018cedf55c01d8302fe5ce5091a2eb",
+  "ordered_config_id_stream_root_sha256":"07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714",
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false
+}
