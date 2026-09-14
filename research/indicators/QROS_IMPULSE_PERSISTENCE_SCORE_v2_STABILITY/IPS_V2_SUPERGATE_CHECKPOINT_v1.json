@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_IPS_V2_SUPERGATE_CHECKPOINT_1.0",
+  "OBJETIVO":"Adversarially test frozen IPS v2 after materialized OOS PASS without retuning or opening sealed future data.",
+  "AUTORIDAD":["control/QROS_INDICATOR_RESEARCH_CURRENT_FRONTIER_POINTER.json v1.6","IPS_V2_CONFIG_FREEZE_v1.json","IPS_V2_MATERIALIZED_OOS_RESULT_RECEIPT_v1.json","IPS_V2_INDICATOR_SUPERGATE_PREREG_v1.json"],
+  "DATOS":{"period":"2021-01-01 through 2022-08-14 complete source-clock days","status":"EXPOSED_MATERIALIZED_OOS","future_2023_2024":"UNOPENED","future_2025_2026":"SEALED"},
+  "TRABAJO_EJECUTADO":["temporal stability","weekly/monthly block bootstrap","concentration stress","threshold sensitivity","weight-neighborhood plateau","ATR/spread regime stress","BUY/SELL and year stability","component ablation diagnostics"],
+  "RESULTADOS_VERIFICADOS":{"decision":"PASS_SUPERGATE","gates_passed":"8/8","weekly_bootstrap_95ci":[0.06798858073323763,0.11046869207928398],"monthly_bootstrap_95ci":[0.06537371920108172,0.11195226272760131],"top5pct_day_share":0.23733561930326952,"lift_after_top5pct_day_removal":0.061722961357256356,"neighbor_positive_fraction":1.0,"neighbor_median_fraction_of_v2":0.9578788200259835,"worst_neighbor_lift":0.0660291684001457},
+  "GATES":{"SG01_primary_oos_remains_pass":true,"SG02_temporal":true,"SG03_cluster_bootstrap":true,"SG04_concentration":true,"SG05_threshold_sensitivity":true,"SG06_weight_plateau":true,"SG07_regime_stability":true,"SG08_side_year":true},
+  "PROBLEMAS":"No scientific blocker. MT5 compile/parity remains externally pending.",
+  "CAUSA_RAÍZ":"N/A for Supergate; all preregistered gates passed.",
+  "CORRECCIONES":"None to score, threshold, event ontology or gates.",
+  "ESTADO_CIENTÍFICO":"APPROVED_RESEARCH",
+  "IMPACTO_PORTAFOLIO":"NONE_YET; indicator is not a strategy and receives no independent risk.",
+  "SIGUIENTE_ACCIÓN_AUTOMÁTICA":"Compile frozen MQL5 indicator in MetaEditor/MT5 and require event-by-event parity against frozen reference evidence before any final operational integration."
+}
