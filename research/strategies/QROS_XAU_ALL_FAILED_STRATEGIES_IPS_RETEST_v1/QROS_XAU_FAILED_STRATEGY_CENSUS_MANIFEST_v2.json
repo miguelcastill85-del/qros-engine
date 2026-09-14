@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_XAU_FAILED_STRATEGY_CENSUS_MANIFEST_2.0",
+  "date": "2026-09-14",
+  "campaign_id": "QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "state": "CAMPAIGN_ACTIVE",
+  "status": "PARTIAL_EXHAUSTIVE_CENSUS_ACTIVE",
+  "census": {
+    "path": "QROS_XAU_FAILED_STRATEGY_MASTER_CENSUS_v2.csv",
+    "rows": 37,
+    "sha256": "9ebc531b3830bb99347f827304ec48cda3e530cfc98787fe341f94cefb707fae",
+    "quantified_hard_failed_lower_bound_after_alias_dedupe": 48357,
+    "alias_nonindependent": [
+      "M48_FAILED_AUCTION -> FAILED_AUCTION_BUY_SELL",
+      "BUY_pair_v3801-416 member of XAU_v3801 family"
+    ]
+  },
+  "completed_exact_2018_2024": [
+    {
+      "id": "XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+      "state": "REJECTED",
+      "receipt": "receipts/QROS_STRAT001_FULL_2018_2024_RECEIPT_v1.json",
+      "trades": 4344,
+      "all_7_years_negative": true
+    }
+  ],
+  "completed_no_pass_descendants": [
+    {
+      "id": "XAU_M1_IPS_CONFIRMATION_v1",
+      "state": "INCONCLUSIVE_SUPPORT_NOT_APPROVED",
+      "base_trades": 61,
+      "ips_filtered_trades": 5,
+      "failed_gates": ["n>=8","coverage>=10%","top3_share<=70%"]
+    }
+  ],
+  "individual_runtime_blockers": [
+    "XAU_BUY_MULTIWEEK_PULLBACK_v2512",
+    "XAU_BUY_Rolling40_v2050",
+    "XAU_BEAR_FLAG_SELL_v1205",
+    "BUY_pair_v3801-416",
+    "BUY_DENSITY_v6026",
+    "XAU_DENSITY_v6116"
+  ],
+  "family_materialization_pending": [
+    "FAILED_AUCTION_BUY_SELL exact 1424 catalog",
+    "XAU_M5_SELL_TICK_OPENING_DRIVE exact 28450 catalog/profiles",
+    "XAU_M6_LIQUIDITY_SHOCK_FAILURE_BUY_SELL exact 6317 catalog",
+    "XAU_v3801 and v3900 exact configuration catalogs",
+    "M42-M79 master portable catalogs",
+    "M129-M191 terminal inventories"
+  ],
+  "period_policy": {"common_window":"2018-2024","status":"EXPOSED_DIAGNOSTIC_RESEARCH_ONLY","2025_2026":"SEALED_FOR_THIS_CAMPAIGN"},
+  "ips_policy": {"indicator":"QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY","threshold":65,"window_minutes":60,"retuning":"FORBIDDEN"},
+  "next_action": "Enumerate next exact-recoverable failed strategy from durable repository/library artifacts and execute serially; never approximate missing identity."
+}
