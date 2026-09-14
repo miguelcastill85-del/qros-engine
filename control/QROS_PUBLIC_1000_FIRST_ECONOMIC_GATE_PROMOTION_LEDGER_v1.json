@@ -1,0 +1,60 @@
+{
+  "schema": "QROS_PUBLIC1000_FIRST_ECONOMIC_GATE_PROMOTION_LEDGER_1.0",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "seed": "WEB_SEED_0076",
+  "policy": "governance/QROS_SHARD_PROMOTION_AND_CROSS_CHAT_CONTINUITY_POLICY_v1.0.json",
+  "queue_target": "FIRST_ECONOMIC_GATE_QUEUE",
+  "economic_execution_authorized": false,
+  "economic_execution_blocker": "Complete all 60 GA1 shards and freeze global multiplicity/testing procedure before GA2.",
+  "completed_and_promoted_shards": [
+    {
+      "asset": "XAUUSD",
+      "side": "BUY",
+      "timeframe": "M1",
+      "signal_configs": 804672,
+      "distinct_mask_classes": 303572,
+      "semantic_class_root_sha256": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+      "full_alias_mapping_root_sha256": "4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458",
+      "completion_receipt": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_XAUUSD_BUY_M1_COMPLETION_V224_v1.json",
+      "promotion_status": "PROMOTED_TO_FIRST_ECONOMIC_GATE_QUEUE",
+      "economic_scoring_executed": false
+    },
+    {
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "H1",
+      "signal_configs": 804672,
+      "distinct_mask_classes": 165360,
+      "semantic_class_root_sha256": "6eea7db4b1a5b975eed8b97af5c8509e36894bc8c4b2bb645ba8f88dd33aac79",
+      "completion_receipt": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_H1_COMPLETION_V229_v1.json",
+      "promotion_status": "PROMOTED_TO_FIRST_ECONOMIC_GATE_QUEUE",
+      "economic_scoring_executed": false
+    },
+    {
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "H2",
+      "signal_configs": 804672,
+      "distinct_mask_classes": 105642,
+      "semantic_class_root_sha256": "8cc8292a0a8241caf4abc0f2281a1eb73dafebec61046979145b7e18a217ab74",
+      "completion_receipt": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_H2_COMPLETION_V230_v1.json",
+      "promotion_status": "PROMOTED_TO_FIRST_ECONOMIC_GATE_QUEUE",
+      "economic_scoring_executed": false
+    },
+    {
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "H3",
+      "signal_configs": 804672,
+      "distinct_mask_classes": 80166,
+      "semantic_class_root_sha256": "9a9630ff78c98ef2144acd031298b2b41aab647cfb63d07613b605da9de2a14e",
+      "completion_receipt": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_H3_COMPLETION_V231_v1.json",
+      "promotion_status": "PROMOTED_TO_FIRST_ECONOMIC_GATE_QUEUE",
+      "economic_scoring_executed": false
+    }
+  ],
+  "queued_shard_count": 4,
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false
+}
