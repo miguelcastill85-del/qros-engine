@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_RUNNER_DEFECT_LEDGER_APPEND_1",
+  "parent_ledger_sha256": "4f77c44738bd443a259b1902a9ba583d2ebc5c69cc4763309cd767041bd72440",
+  "parent_schema": "QROS_RUNNER_DEFECT_LEDGER_1.2",
+  "append": {
+    "id": "D14",
+    "class": "STALE_RESULT_EARLY_RETURN",
+    "symptom": "reused RESULT.csv let First() see a prior phase row and return null immediately before the requested test_id materialized",
+    "required_regression": "guarded stale-artifact reset + expected-test-id polling + mutation tests"
+  },
+  "evidence_run_id": "20260914_000244_39c9fd6c",
+  "evidence": {
+    "log_sha256": "0aaa84803e380f06a81bbf1774b5bc7ec39bc5f598a54c429a8d223fb85c9784",
+    "receipt_sha256": "051586c193b0cfc1a6290d6d70e11c61a32b2a382c4cb376933fe8fa6bbd62af",
+    "probe_sha256": "79d25d805c306a2b25e114dcb4299a38d672c8b0060dfc49b0de2b0861629217",
+    "release_sha256": "3ad305a3d6e07ee7127e7050d8ae884caa6ff1e0286a792140f2e96b5f03d172",
+    "after_fail_sha256": "c45024849c748b48b3ea27bfa8cec8da309e8aeb895cba80ca4e8763f7160da7"
+  },
+  "rule": "Additive only. Does not rewrite D01-D13."
+}
