@@ -127,6 +127,37 @@ el caché de barras/ATR usa escala interna ×2 respecto de la cotización raw ej
 Por ello `3.0 * ATR_cache / 2.0` equivale dimensionalmente a un stop de `3.0 * ATR` real;
 no equivale a un stop de 1.5 ATR.
 
+### Promoción inmediata de shards y continuidad entre chats
+
+Aplica obligatoriamente:
+`governance/QROS_SHARD_PROMOTION_AND_CROSS_CHAT_CONTINUITY_POLICY_v1.0.json`.
+
+Para campañas shardeadas, un shard que completa GA1 con cobertura total, merge PASS,
+oracle independiente PASS, identidades/roots correctos y preservación lossless exigida
+se **promueve inmediatamente** a `FIRST_ECONOMIC_GATE_QUEUE`. Antes de iniciar el siguiente
+shard deben quedar en `main`: receipt de completion, ledger de promoción, pointer versionado
+y pointer estable. La promoción a la cola NO equivale a abrir PnL.
+
+En PUBLIC1000/seed0076, GA2 económico continúa cerrado hasta completar los 60 shards GA1
+y congelar el procedimiento global de multiplicidad/testing. Está prohibido leer resultados
+económicos shard por shard mientras esa condición no se cumpla, salvo que una política
+secuencial explícita de alpha-spending sea preregistrada antes de cualquier PnL y la
+superseda formalmente. Actualmente no existe esa excepción.
+
+Todo chat/runtime nuevo de PUBLIC1000 debe comenzar por
+`control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json`, verificar el pointer versionado
+que éste referencia y luego recuperar receipts/policies/hashes. La memoria o el historial
+son sólo pistas cuando existe autoridad durable. Un grupo/shard con receipt válido no se
+recalcula salvo rematerialización determinista necesaria.
+
+Tras cualquier avance material, incluso si termina a mitad de shard, persistir un checkpoint
+con: campaña/seed, fase, shards completados, shard actual, grupos PASS, roots esperados,
+runner/commit/blob, identidades de datos o rematerialización, flags `economic_pnl_read`,
+`holdout_open`, `ga2_open` y una única `next_action`. Los artefactos grandes pueden vivir
+fuera de GitHub sólo si quedan almacenados duraderamente por hash o son rematerializables
+determinísticamente desde inputs y runner congelados; la mera presencia en `/mnt/data` no
+es autoridad durable.
+
 ## Construcción y pruebas existentes
 
 Desde la raíz, antes de editar: `python3 handoff/verify_import.py`.
