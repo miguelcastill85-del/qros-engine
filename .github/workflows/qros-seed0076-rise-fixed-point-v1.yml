@@ -1,0 +1,93 @@
+name: qros-seed0076-rise-fixed-point-v1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/qros_seed0076_rise_fixed_point_revalidate_v1.py'
+      - 'scripts/qros_seed0076_rise_fixed_point_oracle_v1.py'
+      - 'scripts/qros_seed0076_rise_fixed_point_adversarial_v1.py'
+      - '.github/workflows/qros-seed0076-rise-fixed-point-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rise-fixed-point:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout exact triggering commit
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir repo && cd repo
+          git init -q
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git -c http.extraheader="AUTHORIZATION: basic ${AUTH}" fetch --depth=1 "https://github.com/${GITHUB_REPOSITORY}.git" "${GITHUB_SHA}"
+          git checkout -q --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+          echo EXACT_TRIGGER_COMMIT_CHECKOUT=PASS
+
+      - name: Syntax and source identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 -m py_compile scripts/qros_seed0076_rise_fixed_point_revalidate_v1.py scripts/qros_seed0076_rise_fixed_point_oracle_v1.py scripts/qros_seed0076_rise_fixed_point_adversarial_v1.py scripts/qros_seed_universe_enumerator_a_v2.py scripts/qros_seed_universe_enumerator_b_v2.py scripts/qros_seed0076_gate_a_build_shard_manifest.py
+          git hash-object scripts/qros_seed0076_rise_fixed_point_revalidate_v1.py
+          git hash-object scripts/qros_seed0076_rise_fixed_point_oracle_v1.py
+          git hash-object scripts/qros_seed0076_rise_fixed_point_adversarial_v1.py
+          echo SOURCE_SYNTAX=PASS
+
+      - name: Primary non-economic RISE fixed-point revalidation
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 scripts/qros_seed0076_rise_fixed_point_revalidate_v1.py --repo-root . --out /tmp/qros_rise_primary.json
+          cat /tmp/qros_rise_primary.json
+
+      - name: Independent RISE oracle
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 scripts/qros_seed0076_rise_fixed_point_oracle_v1.py --repo-root . --primary /tmp/qros_rise_primary.json --out /tmp/qros_rise_oracle.json
+          cat /tmp/qros_rise_oracle.json
+
+      - name: Adversarial fail-closed suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 scripts/qros_seed0076_rise_fixed_point_adversarial_v1.py --repo-root . --out /tmp/qros_rise_adversarial.json
+          cat /tmp/qros_rise_adversarial.json
+
+      - name: Final external consistency gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          p=json.load(open('/tmp/qros_rise_primary.json')); o=json.load(open('/tmp/qros_rise_oracle.json')); a=json.load(open('/tmp/qros_rise_adversarial.json'))
+          assert p['status']=='PASS' and p['decision']=='RISE_FIXED_POINT_REVALIDATED_NO_PNL'
+          assert p['post_expansion_rise_fixed_point'] is True and p['rise_zero_delta_round_count']>=2
+          assert p['enumerator_parity_pass'] is True and p['enumerator_symmetric_difference_count']==0
+          assert p['economic_pnl_read'] is False and p['holdout_open'] is False and p['ga2_open'] is False and p['zip_or_market_data_required'] is False
+          assert o['status']=='PASS' and o['primary_receipt_sha256']==p['receipt_sha256']
+          assert o['signal_universe_root_sha256']==p['signal_universe_root_sha256']
+          assert o['management_universe_root_sha256']==p['management_universe_root_sha256']
+          assert o['ontology_root_sha256']==p['ontology_root_sha256']
+          assert a['status']=='PASS' and a['negative_cases']==8
+          print('QROS_SEED0076_RISE_FIXED_POINT_EXTERNAL_VALIDATION=PASS')
+          print('PRIMARY_RECEIPT_SHA256='+p['receipt_sha256'])
+          print('ORACLE_RECEIPT_SHA256='+o['receipt_sha256'])
+          print('ADVERSARIAL_RECEIPT_SHA256='+a['receipt_sha256'])
+          print('SIGNAL_UNIVERSE_ROOT_SHA256='+p['signal_universe_root_sha256'])
+          print('MANAGEMENT_UNIVERSE_ROOT_SHA256='+p['management_universe_root_sha256'])
+          print('ONTOLOGY_ROOT_SHA256='+p['ontology_root_sha256'])
+          print('FULL_FREEZE_DESCRIPTOR_ROOT_SHA256='+p['full_freeze_descriptor_root_sha256'])
+          PY
