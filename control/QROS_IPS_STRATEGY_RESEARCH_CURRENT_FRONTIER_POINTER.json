@@ -1,43 +1,50 @@
 {
-  "schema": "QROS_IPS_STRATEGY_RESEARCH_FRONTIER_POINTER_1.1",
+  "schema": "QROS_IPS_STRATEGY_RESEARCH_FRONTIER_POINTER_2.0",
   "updated_date": "2026-09-14",
-  "active_parent_indicator": "QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY",
-  "parent_indicator_state": "APPROVED_RESEARCH",
-  "strategy_001": {
-    "id": "QROS_STRATEGY_001_XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
-    "state": "REJECTED",
-    "trades": 2549,
-    "total_R": -561.8630091010959,
-    "expectancy_R": -0.22042487606947664,
-    "PF": 0.6926281051045963
+  "state": "CAMPAIGN_ACTIVE",
+  "active_campaign": "QROS_IPS_FROZEN_XAU_COHORT_v1",
+  "prereg_git_commit": "61ce19ca5003984cfd214b3903d7adfe2e7b80bd",
+  "parent_indicator": {
+    "id": "QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY",
+    "state": "APPROVED_RESEARCH",
+    "retuning": "FORBIDDEN"
   },
-  "latest_strategy_campaign": "QROS_STRATEGY_002_XAU_M1_IPS_CONFIRMATION_v1",
-  "latest_strategy_decision": "INCONCLUSIVE_SUPPORT",
-  "latest_strategy_state": "OBSERVATIONAL_RESERVE",
-  "latest_strategy_prereg": "research/strategies/QROS_STRATEGY_002_XAU_M1_IPS_CONFIRMATION_v1/QROS_XAU_M1_IPS_CONFIRMATION_v1_PREREG.json",
-  "latest_strategy_result": "research/strategies/QROS_STRATEGY_002_XAU_M1_IPS_CONFIRMATION_v1/M1_IPS_CONFIRMATION_GATE_A_RESULT_v1.json",
-  "latest_strategy_checkpoint": "research/strategies/QROS_STRATEGY_002_XAU_M1_IPS_CONFIRMATION_v1/M1_IPS_CONFIRMATION_CHECKPOINT_v1.json",
-  "latest_strategy_state_correction": "research/strategies/QROS_STRATEGY_002_XAU_M1_IPS_CONFIRMATION_v1/M1_IPS_CONFIRMATION_STATE_CORRECTION_RECEIPT_v1.json",
-  "latest_strategy_metrics": {
-    "base_M1_trades": 61,
-    "base_net_R": 29.468388839986474,
-    "base_expectancy_R": 0.4830883416391225,
-    "base_PF": 2.510163406959253,
-    "filtered_trades": 5,
-    "coverage_fraction": 0.08196721311475409,
-    "filtered_net_R": 5.3728835102984895,
-    "filtered_expectancy_R": 1.074576702059698,
-    "filtered_PF": "INF_NO_LOSSES",
-    "filtered_win_rate": 1.0,
-    "filtered_DD_R": 0.0,
-    "top3_net_share": 0.8044667554042793
+  "completed": [
+    {"descendant":"QROS_STRATEGY_001_XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1","state":"REJECTED","trades":2549,"total_R":-561.8630091010959,"expectancy_R":-0.22042487606947664,"PF":0.6926281051045963},
+    {"descendant":"QROS_STRATEGY_002_XAU_M1_IPS_CONFIRMATION_v1","state":"OBSERVATIONAL_RESERVE","decision":"INCONCLUSIVE_SUPPORT","base_n":61,"filtered_n":5,"coverage_fraction":0.08196721311475409,"filtered_net_R":5.3728835102984895,"filtered_expectancy_R":1.074576702059698,"filtered_PF":"INF_NO_LOSSES","filtered_DD_R":0.0}
+  ],
+  "cohort_prereg": "research/strategies/QROS_IPS_FROZEN_XAU_COHORT_v1/QROS_IPS_FROZEN_XAU_COHORT_PREREG_v1.json",
+  "cohort_status": "research/strategies/QROS_IPS_FROZEN_XAU_COHORT_v1/QROS_IPS_FROZEN_XAU_COHORT_EXECUTION_STATUS_v1.csv",
+  "cohort_recovery_receipt": "research/strategies/QROS_IPS_FROZEN_XAU_COHORT_v1/QROS_IPS_FROZEN_XAU_COHORT_RECOVERY_EXECUTION_RECEIPT_v1.json",
+  "cohort_order": [
+    "XAU_M1_BUY_PDH_ACCEPTED_RETEST_200S_v101",
+    "XAU_M2_SELL_TICK_PULLBACK_ROUTER_v10110",
+    "XAU_M3_BUY_STRUCTURAL_ROUTER_v11310",
+    "XAU_M4_BUY_TICK_OPENING_DRIVE_ROUTER_v11430",
+    "XAU_M1_M3_M4_M2_CONTROLLER_v11440",
+    "BUY_v901",
+    "SELL_v1005",
+    "XAU_BUY_MULTIWEEK_PULLBACK_v2512",
+    "SELL_v1103_AUCTION",
+    "BUY_DENSITY_v6116",
+    "Bear_Flag_SELL_v1205",
+    "BUY_v2050_Rolling40",
+    "XAU_M5_SELL_TICK_OPENING_DRIVE_FROZEN_PROFILES"
+  ],
+  "common_filter": {
+    "threshold":65,
+    "window_minutes":60,
+    "same_direction":true,
+    "strictly_prior":true,
+    "same_source_day":true,
+    "base_economics_unchanged":true
   },
-  "latest_strategy_failed_gates": ["minimum_filtered_trades_8","minimum_coverage_fraction_0_10","top3_net_share_le_0_70"],
-  "indicator_retuning": "FORBIDDEN",
-  "M1_filter_retuning": "FORBIDDEN_UNDER_STRATEGY_002_IDENTITY",
-  "2025_2026": "SEALED_NOT_OPENED",
-  "next_existing_base_queue": ["M2_259_TRADES","M3_241_TRADES","M4_186_TRADES"],
-  "next_route_state": "BLOCKED_BY_INFRASTRUCTURE",
-  "next_route_receipt": "research/strategies/QROS_STRATEGY_002_XAU_M1_IPS_CONFIRMATION_v1/IPS_NEXT_BASE_AUTHORITY_RECOVERY_RECEIPT_v1.json",
-  "next_action": "Recover exact M2 accepted-trade ledger bytes (expected SHA256 be2f88005727c6324b780c89991ed310601c39695bd56b319a966a9a9a973499) or exact M2 generator/event population. Do not substitute aggregate metrics or approximate reconstruction. If M2 remains unavailable and exact M3 bytes become retrievable, resume serially at M3. Keep 2025-2026 sealed until a descendant passes development Gate A."
+  "next_target": "XAU_M2_SELL_TICK_PULLBACK_ROUTER_v10110",
+  "next_target_state": "BLOCKED_BY_INFRASTRUCTURE_EXACT_LEDGER_BYTES_NOT_MATERIALIZED",
+  "next_target_exact_ledger": "v10065_ACTIVITY_TRADES.csv",
+  "next_target_expected_sha256": "be2f88005727c6324b780c89991ed310601c39695bd56b319a966a9a9a973499",
+  "controller_after_lane_A": "XAU_M1_M2_M3_M4_CONTROLLER_LEDGER_v11440.csv",
+  "controller_recovered_sha256": "457fd03cf31823e170ec008d1af6b41c74646fe6cbe30ac2df4fb73905c29563",
+  "2025_2026_policy": "DO_NOT_OPEN_FOR_NEW_DESCENDANT_BEFORE_ITS_GATE_A",
+  "resume_contract": "Do not alter IPS threshold 65 or the common 60-minute same-direction rule. Resume from the first cohort member whose exact base ledger or exact generator becomes physically recoverable. Never substitute aggregate metrics for trade bytes. Original parent decisions remain unchanged; rejected parents can only produce separately named IPS descendants. After M1-M4 individual results, run the frozen controller and measure marginal PF, DD, overlap, daily-cap interference and frequency loss."
 }
