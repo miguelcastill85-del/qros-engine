@@ -1,0 +1,120 @@
+{
+  "schema": "QROS_PUBLIC1000_RESUME_INTEGRITY_INCIDENT_1.0",
+  "created_date_utc": "2026-09-14",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "seed": "WEB_SEED_0076",
+  "scope": "Cross-chat resume integrity plus executable-byte availability only. This receipt does not read economic PnL, open holdout, open GA2, alter the frozen universe, or invalidate historical scientific evidence without direct proof.",
+  "authority": {
+    "stable_pointer_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "stable_pointer_git_blob_sha1_verified": "52b77d5e963e462d1771ecd90d1ab91e41b25955",
+    "current_version": "V234",
+    "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V234_v1.json",
+    "target_git_blob_sha1_verified": "e421be2c422798e4fe5c5626cbcd5e3bd7bdad18",
+    "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260914_v1.json",
+    "handoff_git_blob_sha1_verified": "4b0d09239760ae04540728e3aa77a16dbbab214e"
+  },
+  "v235_chain": {
+    "preflight_script_present": true,
+    "versioned_target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V235_v1.json",
+    "versioned_target_lookup": "404_NOT_FOUND",
+    "promoted_to_stable_pointer": false,
+    "decision": "V235 is not a complete manifest-target-stable-pointer authority chain. V234 remains the stable metadata authority."
+  },
+  "verified_scientific_checkpoint": {
+    "checkpoint_path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_NQX_BUY_H4_PARTIAL_CHECKPOINT_V232_v1.json",
+    "current_shard": {
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "H4",
+      "shard_id": "b6fe997fe6eded0f4df4692256ea872e41e7fccc5ea453e230844488a7840c41",
+      "groups_pass": 24,
+      "groups_total": 24,
+      "processed_signal_configs": 804672,
+      "expected_config_root_sha256": "da93ef4605d4a8c94753248cacc3f75188fa7197e9728922fe4d8b5853c65b90",
+      "group_receipts_root_sha256": "27cb9f67cbb4e65945a054452aec2281a1ab251cb8d77b56f227aa84dcf72972"
+    },
+    "ga1_formally_completed_shards": 4,
+    "first_economic_gate_queue_count": 4,
+    "promotion_changed_by_this_incident": false
+  },
+  "integrity_failure": {
+    "component": "scripts/qros_seed0076_ga1_cached_wrapper_v233.py",
+    "declared_authority_receipt": "control/QROS_PUBLIC_1000_SEED_0076_PORTABLE_GA1_WRAPPER_PARITY_V233_v1.json",
+    "expected_cached_wrapper_git_blob_sha1": "2da5448fc6403c3c0b081b980ab20eff6870a1dc",
+    "actual_cached_wrapper_git_blob_sha1_on_main": "c822b3b01584f34e3434f8e17bd43a716bee4110",
+    "actual_cached_wrapper_git_blob_sha1_at_declared_creation_commit": "c822b3b01584f34e3434f8e17bd43a716bee4110",
+    "expected_cached_wrapper_blob_lookup": "404_NOT_FOUND",
+    "actual_cached_wrapper_worker_path": "scripts/qros_seed0076_ga1_shard_worker_v222.py",
+    "actual_cached_wrapper_worker_path_lookup": "404_NOT_FOUND",
+    "durable_base_worker_path": "scripts/qros_seed0076_ga1_shard_worker_v223.py",
+    "durable_base_worker_expected_git_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+    "tree_wrapper_path": "scripts/qros_seed0076_ga1_tree_wrapper_v233.py",
+    "tree_wrapper_actual_and_expected_git_blob_sha1": "6d4ed7763b103a522efbe50a62dd9637ec02d7c2",
+    "tree_wrapper_expected_cached_wrapper_git_blob_sha1": "2da5448fc6403c3c0b081b980ab20eff6870a1dc",
+    "v234_preflight_consequence": "The exact V234 preflight compares the cached wrapper Git blob to the parity receipt pin. On current main bytes, portable_blob_cached_wrapper cannot pass; therefore no cross-chat V234 preflight PASS may be claimed. The tree wrapper also fails closed before execution because it pins the unavailable cached-wrapper blob.",
+    "classification": "VERIFIED_AUTHORITY_IDENTITY_CONTRADICTION"
+  },
+  "artifact_availability": {
+    "h4_group_binaries_github": "NOT_PRESENT_BY_DURABLE_DESIGN",
+    "h4_group_binaries_dropbox_search": "NOT_FOUND",
+    "h4_group_binaries_file_library_search": "NOT_FOUND_AS_EXECUTABLE_BYTES",
+    "nqx_dev_prefix": {
+      "records": 59940260,
+      "bytes": 1018984420,
+      "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+      "catalog_status": "28_ZIP_ROUTE_CATALOGUED_IN_FILE_LIBRARY",
+      "runtime_status": "NOT_MOUNTABLE_AS_EXECUTABLE_BYTES_IN_CURRENT_RUNTIME"
+    },
+    "github_actions_runs_on_main": 0,
+    "container_git_clone": "FAILED_DNS_GITHUB"
+  },
+  "last_clean_point": {
+    "preserved": [
+      "V232 NQX/BUY/H4 24-of-24 group checkpoint and its recorded roots",
+      "the four already completed/promoted GA1 shard receipts and promotion ledger entries",
+      "the scientific firewall: economic PnL closed, holdout closed, GA2 closed",
+      "historical V233/V234 files as immutable evidence of what was previously asserted"
+    ],
+    "requires_recertification_before_use": [
+      "operational executability of the V233 portable cached/tree wrapper chain",
+      "V233 portable-wrapper parity decision as sufficient cross-chat rematerialization authority",
+      "the V234 audit conclusion that no known critical portability/durability gap remained"
+    ],
+    "not_invalidated_without_evidence": [
+      "the historical H4 group scientific results",
+      "the four prior completed/promoted shards",
+      "the frozen universe or config IDs"
+    ]
+  },
+  "gates": {
+    "v234_cross_chat_preflight": "FAIL_CLOSED_BY_VERIFIED_BLOB_MISMATCH",
+    "v228_domain_bound_merge": "NOT_RUN",
+    "independent_merge_oracle": "NOT_RUN",
+    "global_mask_preservation_oracle": "NOT_RUN",
+    "maskpack": "NOT_RUN",
+    "h4_durable_pass": "NOT_REACHED",
+    "h4_promotion": "NOT_RUN",
+    "next_ga1_shard": "NOT_STARTED"
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "universe_changed": false,
+    "config_ids_changed": false,
+    "historical_receipts_rewritten": false,
+    "h4_reenumerated": false
+  },
+  "correction_plan": [
+    "Recover or materialize the exact NQX DEV prefix bytes and require bytes=1018984420 and SHA-256=451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf before any rematerialization.",
+    "Create a new non-rewriting portable-wrapper authority version rather than editing historical V233 evidence. Its code identity must be pinned to bytes that actually exist in GitHub.",
+    "Independently certify the corrected wrapper against the frozen H4 group-0 and group-1 byte-exact parity evidence before using it for rematerialization. A source edit alone is not certification.",
+    "If the original 24 H4 group artifacts become accessible, verify every worker receipt and artifact byte/SHA and reuse them without recomputation. Otherwise deterministically rematerialize the 24 groups only after the corrected wrapper authority and exact DEV bytes pass; each group must reconcile to the V232 frozen identities/roots.",
+    "Then run V228 domain-bound merge, independent merge oracle, global mask preservation/oracle, maskpack and require durable PASS.",
+    "Only after that PASS promote H4 immediately to FIRST_ECONOMIC_GATE_QUEUE and atomically update ledger plus versioned/stable pointers.",
+    "Only after H4 promotion recover the canonical next GA1 shard from durable ordering authority and continue."
+  ],
+  "stable_pointer_update": "PROHIBITED_UNTIL_CORRECTION_IS_RECERTIFIED_AND_H4_REACHES_DURABLE_PASS",
+  "decision": "PRESERVE_LAST_CLEAN_SCIENTIFIC_CHECKPOINT_AND_FAIL_CLOSED; DO_NOT_PROMOTE_H4; DO_NOT_START_NEXT_SHARD"
+}
