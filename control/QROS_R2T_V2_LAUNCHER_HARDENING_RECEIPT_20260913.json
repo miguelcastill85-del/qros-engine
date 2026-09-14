@@ -1,0 +1,28 @@
+{
+  "schema": "QROS_R2T_V2_LAUNCHER_HARDENING_RECEIPT_1.0",
+  "created_date": "2026-09-13",
+  "branch": "fix/r2t-d04-process-ownership-v2-20260913",
+  "reason": "Original BAT exited immediately, hiding diagnostics and allowing execution directly from inside the ZIP where companion PS1/MQL files may be unavailable.",
+  "scientific_qualifier_modified": false,
+  "qualifier_sha256": "2fdf97070d905ee4594fba8801674748748a3a43f8fae552bd918a3aee3c6842",
+  "launcher_changes": [
+    "pause on every success/failure exit path",
+    "guard against executing BAT before extracting the complete ZIP",
+    "required companion-file presence checks",
+    "prefer explicit Windows PowerShell 5.1 path with fallback",
+    "preserve static gate and native qualifier exit codes",
+    "display clear Spanish diagnostic messages"
+  ],
+  "artifact_name": "QROS_RUNNER_ACTUAL_TERMINAL_FENCE_QUALIFIER_v2_D04_FIXED_LAUNCHER_HARDENED.zip",
+  "artifact_sha256": "fa0ebac0689432ec8e16c01e2727f6244a841c9a659f33bafd43d628bc3bb37d",
+  "artifact_bytes": 15488,
+  "artifact_entries": 10,
+  "zip_integrity": "PASS",
+  "manifest_integrity": "PASS",
+  "candidate3_modified": false,
+  "candidate3_executed": false,
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "qdb1_exec_cert": "KEEP_0",
+  "native_windows_execution": "PENDING"
+}
