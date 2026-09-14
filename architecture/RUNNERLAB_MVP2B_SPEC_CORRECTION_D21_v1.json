@@ -1,0 +1,17 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_SPEC_CORRECTION_D21_1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "parent_spec": "QROS_RUNNERLAB_MVP2B_SPEC_1_1",
+  "reason": "Correct an invalid portable-mode inference exposed by native Windows evidence without changing the launch contract or safety prohibitions.",
+  "m2b5_corrected_gate": {
+    "required": [
+      "runtime terminal remains owned by the Job Object",
+      "terminal executable path and SHA-256 remain stable",
+      "mutable-data activity is observed inside the MT5_B runtime derivative",
+      "any roaming origin mapping matching MT5_B is metadata-only (origin.txt plus optional portable.txt, no data directories/payload)",
+      "active Darwinex origin.txt remains byte-stable"
+    ],
+    "forbidden_inference": "Presence of an origin mapping alone must not be interpreted as portable-mode failure."
+  },
+  "promotion_effect": "None until native rerun passes M2B5-M2B9. Candidate3, CERT, deployment and trading remain prohibited."
+}
