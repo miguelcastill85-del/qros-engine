@@ -1,0 +1,145 @@
+name: qros-deterministic-execution-kernel-v4
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json'
+      - 'control/QROS_PUBLIC_1000_EXECUTION_KERNEL_CANDIDATE_POINTER.json'
+      - 'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V*.json'
+      - 'control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v*.json'
+      - 'control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v*.json'
+      - 'control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v*.json'
+      - 'governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v*.json'
+      - 'scripts/qros_execution_kernel_mode_resolver_v*.py'
+      - 'scripts/qros_execution_kernel_compile_v*.py'
+      - 'scripts/qros_execution_kernel_oracle_v*.py'
+      - 'scripts/qros_execution_kernel_adversarial_v*.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deterministic-kernel-generic:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout exact private-repository triggering commit
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir repo && cd repo
+          git init -q
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git -c http.extraheader="AUTHORIZATION: basic ${AUTH}" fetch --depth=1 "https://github.com/${GITHUB_REPOSITORY}.git" "${GITHUB_SHA}"
+          git checkout -q --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+          echo "EXACT_TRIGGER_COMMIT_CHECKOUT=PASS"
+
+      - name: Resolve validation mode without frontier-version literals
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 scripts/qros_execution_kernel_mode_resolver_v1.py --repo-root . --out /tmp/qros_mode.json
+          cat /tmp/qros_mode.json
+          python3 - <<'PY' >> "$GITHUB_ENV"
+          import json
+          x=json.load(open('/tmp/qros_mode.json'))
+          print('QROS_MODE='+x['mode'])
+          print('QROS_TARGET='+x['candidate_target_path'])
+          PY
+
+      - name: Dynamic syntax and pinned-dependency presence validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 -m py_compile scripts/qros_execution_kernel_mode_resolver_v1.py scripts/qros_execution_kernel_compile_v3.py scripts/qros_execution_kernel_oracle_v3.py scripts/qros_execution_kernel_adversarial_v3.py
+          python3 - <<'PY'
+          import json, os, pathlib
+          target=json.load(open(os.environ['QROS_TARGET']))
+          for group in ('execution_kernel','authority'):
+              for name,node in target.get(group,{}).items():
+                  if isinstance(node,dict) and node.get('path'):
+                      p=pathlib.Path(node['path'])
+                      assert p.is_file(), (group,name,p)
+                      if p.suffix=='.json': json.load(open(p))
+          json.load(open(os.environ['QROS_TARGET']))
+          print('DYNAMIC_DEPENDENCY_PRESENCE=PASS')
+          PY
+
+      - name: Compile deterministic action in resolved mode
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          case "$QROS_MODE" in
+            CANDIDATE_VALIDATION)
+              python3 scripts/qros_execution_kernel_compile_v3.py --repo-root . --target "$QROS_TARGET" --validation-only --out /tmp/qros_ticket.json ;;
+            ACTIVE_VALIDATION)
+              python3 scripts/qros_execution_kernel_compile_v3.py --repo-root . --validation-only --out /tmp/qros_ticket.json ;;
+            ACTIVE_EXECUTION)
+              python3 scripts/qros_execution_kernel_compile_v3.py --repo-root . --out /tmp/qros_ticket.json ;;
+            *) echo "UNREACHABLE_MODE=$QROS_MODE" >&2; exit 2 ;;
+          esac
+          cat /tmp/qros_ticket.json
+
+      - name: Independent oracle in resolved mode
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          case "$QROS_MODE" in
+            CANDIDATE_VALIDATION)
+              python3 scripts/qros_execution_kernel_oracle_v3.py --repo-root . --target "$QROS_TARGET" --validation-only --primary-ticket /tmp/qros_ticket.json --out /tmp/qros_oracle.json ;;
+            ACTIVE_VALIDATION)
+              python3 scripts/qros_execution_kernel_oracle_v3.py --repo-root . --validation-only --primary-ticket /tmp/qros_ticket.json --out /tmp/qros_oracle.json ;;
+            ACTIVE_EXECUTION)
+              python3 scripts/qros_execution_kernel_oracle_v3.py --repo-root . --primary-ticket /tmp/qros_ticket.json --out /tmp/qros_oracle.json ;;
+          esac
+          cat /tmp/qros_oracle.json
+
+      - name: Candidate-only adversarial suite
+        if: env.QROS_MODE == 'CANDIDATE_VALIDATION'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 scripts/qros_execution_kernel_adversarial_v3.py --repo-root . --target "$QROS_TARGET" --out /tmp/qros_adversarial.json
+          cat /tmp/qros_adversarial.json
+
+      - name: Active pointer exact ticket binding
+        if: env.QROS_MODE != 'CANDIDATE_VALIDATION'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 - <<'PY'
+          import json
+          p=json.load(open('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json'))
+          t=json.load(open('/tmp/qros_ticket.json'))
+          assert p['target_path']==t['frontier_target_path']
+          assert p['current_version']==t['frontier_version']
+          assert p['machine_action_ticket_id']==t['ticket_id']
+          assert p['machine_action_type']==t['action_type']
+          assert p['machine_state_id']==t['state_id']
+          assert p['machine_subject']==t['subject']
+          print('ACTIVE_POINTER_TICKET_BINDING=PASS')
+          PY
+
+      - name: Machine-readable validation summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os
+          t=json.load(open('/tmp/qros_ticket.json')); o=json.load(open('/tmp/qros_oracle.json'))
+          s={'kernel_validation':'PASS','mode':os.environ['QROS_MODE'],'frontier_version':t['frontier_version'],'ticket_id':t['ticket_id'],'state_id':t['state_id'],'action_type':t['action_type'],'oracle_status':o['status'],'version_hardcoded':False}
+          if os.environ['QROS_MODE']=='CANDIDATE_VALIDATION':
+              a=json.load(open('/tmp/qros_adversarial.json')); s['adversarial_status']=a['status']; s['negative_mutations']=a['negative_mutations']; s['generic_future_version_test']=a['generic_future_version_test']
+          else: s['active_pointer_ticket_binding']='PASS'
+          print('QROS_GENERIC_EXTERNAL_VALIDATION_SUMMARY='+json.dumps(s,sort_keys=True,separators=(',',':')))
+          PY
