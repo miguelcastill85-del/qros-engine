@@ -1,0 +1,154 @@
+{
+  "schema": "QROS_PUBLIC1000_DETERMINISTIC_EXECUTION_MAP_1.0",
+  "version": "1.0",
+  "status": "FROZEN_ACTIVE",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "principle": "Every operational condition maps to one state and one authorized action. Undefined scientific criteria are represented as explicit blocking states, never inferred.",
+  "states": {
+    "FG_SCORER_NOT_BUILT": {
+      "deterministic": true,
+      "authorized_action": "BUILD_FIRST_GATE_SCORER",
+      "success_state": "FG_SCORER_PRIMARY_BUILT",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": [
+        "scripts/qros_seed0076_first_gate_scorer_v1.py",
+        "tests/test_qros_seed0076_first_gate_scorer_v1.py",
+        "control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_PRIMARY_BUILD_v1.json"
+      ],
+      "forbidden_actions": ["READ_ECONOMIC_PNL", "OPEN_GA2", "OPEN_HOLDOUT", "START_NEW_GA1", "CHANGE_MULTIPLICITY_CONTRACT"]
+    },
+    "FG_SCORER_PRIMARY_BUILT": {
+      "deterministic": true,
+      "authorized_action": "VERIFY_FIRST_GATE_SCORER_WITH_INDEPENDENT_ORACLE",
+      "success_state": "FG_SCORER_PARITY_PASS",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": [
+        "scripts/qros_seed0076_first_gate_scorer_oracle_v1.py",
+        "control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_PARITY_v1.json"
+      ],
+      "forbidden_actions": ["READ_ECONOMIC_PNL", "OPEN_GA2", "OPEN_HOLDOUT", "START_NEW_GA1"]
+    },
+    "FG_SCORER_PARITY_PASS": {
+      "deterministic": true,
+      "authorized_action": "EXECUTE_FIRST_GATE_FIFO_CURRENT",
+      "success_state": "FG_EXECUTION_COMPLETE_UNVALIDATED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": [
+        "trade_by_trade execution receipt",
+        "canonical mask result table",
+        "economic exposure receipt"
+      ],
+      "forbidden_actions": ["OPEN_HOLDOUT", "START_NEW_GA1", "SKIP_FIFO", "RETUNE_AFTER_RESULTS"]
+    },
+    "FG_EXECUTION_COMPLETE_UNVALIDATED": {
+      "deterministic": true,
+      "authorized_action": "RUN_INDEPENDENT_FIRST_GATE_RESULT_ORACLE",
+      "success_state": "FG_RESULT_ORACLE_PASS",
+      "failure_state": "INVALID_FIRST_GATE",
+      "required_outputs": ["independent trade/result parity receipt", "multiplicity recomputation receipt"],
+      "forbidden_actions": ["OPEN_HOLDOUT", "START_NEW_GA1", "SELECT_WINNER_BY_MAX_PF", "RETUNE_AFTER_RESULTS"]
+    },
+    "FG_RESULT_ORACLE_PASS": {
+      "deterministic": true,
+      "authorized_action": "PERSIST_FIRST_GATE_TERMINAL_DECISION",
+      "success_state": "FG_TERMINAL_PERSISTED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["immutable first-gate result receipt", "updated FIFO ledger", "versioned frontier"],
+      "forbidden_actions": ["OPEN_HOLDOUT", "START_NEW_GA1_BEFORE_LEDGER_COMMIT"]
+    },
+    "FG_TERMINAL_PERSISTED": {
+      "deterministic": true,
+      "authorized_action": "ADVANCE_FIFO_OR_RELEASE_NEXT_GA1",
+      "success_state": "DERIVE_FROM_LEDGER_ONLY",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["next immutable frontier target", "stable pointer CAS receipt"],
+      "forbidden_actions": ["RESULT_DEPENDENT_REORDERING", "SKIP_PENDING_FIRST_GATE"]
+    },
+    "FG_NEXT_PENDING_READY": {
+      "deterministic": true,
+      "authorized_action": "EXECUTE_FIRST_GATE_FIFO_CURRENT",
+      "success_state": "FG_EXECUTION_COMPLETE_UNVALIDATED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["trade_by_trade execution receipt", "canonical mask result table", "economic exposure receipt"],
+      "forbidden_actions": ["OPEN_HOLDOUT", "START_NEW_GA1", "SKIP_FIFO"]
+    },
+    "FIRST_GATE_BACKLOG_DRAINED": {
+      "deterministic": true,
+      "authorized_action": "AUTHORIZE_PREREGISTERED_NEXT_GA1",
+      "success_state": "GA1_SHARD_AUTHORIZED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["frontier binding exact preregistered shard", "action ticket"],
+      "forbidden_actions": ["CHOOSE_DIFFERENT_SHARD", "OPEN_HOLDOUT"]
+    },
+    "GA1_SHARD_AUTHORIZED": {
+      "deterministic": true,
+      "authorized_action": "EXECUTE_GA1_TRANSACTION",
+      "success_state": "GA1_SHARD_COMPLETE_UNPROMOTED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["group receipts", "primary merge", "independent merge oracle", "global mask preservation oracle", "lossless preservation receipt"],
+      "forbidden_actions": ["READ_ECONOMIC_PNL_DURING_GA1", "OPEN_HOLDOUT"]
+    },
+    "GA1_SHARD_COMPLETE_UNPROMOTED": {
+      "deterministic": true,
+      "authorized_action": "PROMOTE_GA1_SHARD_TO_FIFO_FIRST_GATE",
+      "success_state": "FG_NEXT_PENDING_READY",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["immutable GA1 completion receipt", "updated promotion ledger", "versioned frontier", "stable pointer CAS"],
+      "forbidden_actions": ["START_NEXT_GA1_BEFORE_FIRST_GATE_TERMINAL"]
+    },
+    "GA1_ALL_60_COMPLETE": {
+      "deterministic": true,
+      "authorized_action": "FREEZE_POST_GA1_TRANSITION_POLICY",
+      "success_state": "POST_GA1_POLICY_REQUIRED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["new preregistered policy describing exact GA3/GA4/downstream transition"],
+      "forbidden_actions": ["INFER_UNFROZEN_THRESHOLDS", "OPEN_HOLDOUT_WITHOUT_POLICY"],
+      "future_state_explicit": true
+    },
+    "POST_GA1_POLICY_REQUIRED": {
+      "deterministic": true,
+      "authorized_action": "BLOCK_UNTIL_EXPLICIT_PREREGISTRATION",
+      "success_state": "POLICY_DEFINED_NEXT_STATE",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["frozen policy artifact with exact next state and gates"],
+      "forbidden_actions": ["USE_CHAT_TO_FILL_POLICY_GAP", "OPEN_HOLDOUT", "RETUNE"],
+      "future_state_explicit": true
+    },
+    "FAIL_CLOSED": {
+      "deterministic": true,
+      "authorized_action": "DIAGNOSE_AND_PERSIST_INTEGRITY_INCIDENT_ONLY",
+      "success_state": "EXPLICIT_REPAIRED_STATE_ONLY",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["integrity incident receipt", "root cause", "minimal invalidation scope", "repair validation"],
+      "forbidden_actions": ["SCIENTIFIC_EXECUTION", "OPEN_HOLDOUT", "READ_NEW_ECONOMIC_RESULTS"],
+      "future_state_explicit": true
+    }
+  },
+  "branching_rules": {
+    "after_FG_TERMINAL_PERSISTED": [
+      "if promotion ledger contains PENDING first_gate rows: next state=FG_NEXT_PENDING_READY and subject=lowest first_gate_order PENDING row",
+      "else if preregistered next GA1 exists: next state=FIRST_GATE_BACKLOG_DRAINED",
+      "else if all 60 GA1 shards complete: next state=GA1_ALL_60_COMPLETE",
+      "else FAIL_CLOSED"
+    ],
+    "no_branch_may_depend_on_PF_Sharpe_or_other_economic_rank": true
+  },
+  "scientific_lifecycle_guardrail": [
+    "DATA_AUDIT",
+    "PREREGISTRATION",
+    "CAUSAL_SCOPE",
+    "UNIVERSE_BUILD",
+    "RISE_FIXED_POINT",
+    "UNIVERSE_ONTOLOGY_FROZEN",
+    "CONFIG_HASH_FREEZE",
+    "INDEPENDENT_ENUMERATOR_PARITY",
+    "DEVELOPMENT_BACKTEST",
+    "GATE_A",
+    "HOLDOUT_ONLY_IF_EXPLICITLY_FROZEN",
+    "SUPERGATE",
+    "MT5_PARITY",
+    "PORTFOLIO_MARGINAL_ANALYSIS",
+    "FINAL_DECISION"
+  ],
+  "decision": "FROZEN: NO CHAT MAY INVENT A TRANSITION; EVERY FUTURE GAP IS AN EXPLICIT BLOCKING STATE UNTIL A DURABLE POLICY DEFINES IT"
+}
