@@ -1,0 +1,54 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_DERIVED_ARTIFACT_REMATERIALIZATION_MANIFEST_1.0",
+  "state":"FROZEN_NON_ECONOMIC",
+  "seed":"WEB_SEED_0076",
+  "genealogy":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "purpose":"Single durable authority for deterministic rematerialization of GA1 scientific derived bytes across chats/runtimes. Large binaries themselves need not be in GitHub when exact scientific identity and reconstruction chain are frozen here.",
+  "input_authority":{
+    "cache_durability_receipt":"control/QROS_SEED0076_CAUSAL_CACHE_DURABILITY_RECEIPT_V220_v1.json",
+    "cache_durability_commit":"60b92242bb45bfc0dc9843a5ddca86fc158c63d2",
+    "NQX_DEV":{"records":59940260,"bytes":1018984420,"sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf"},
+    "XAUUSD_DEV":{"records":151382388,"bytes":2573500596,"sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"},
+    "NQX_BAR_RECEIPT_FILE_SHA256":"54e233364352ef1f333d9877c8cb8ac42ac767e1b543fdec90ba14f8f579b863",
+    "NQX_IND_RECEIPT_FILE_SHA256":"8c9cb489b0bcd8bd86be4b0010fb230b3ee6259dfd2f6ca60064af95f39f81f1",
+    "XAUUSD_BAR_RECEIPT_FILE_SHA256":"318b96bbfc5e30d0fba55ed5a9ef3413bda43909ac6263db56aaa678a54b81f2",
+    "XAUUSD_IND_RECEIPT_FILE_SHA256":"cb001d6ac11fab926c7d80ecd40b0e6f3f88aad7c4e4ed36e8c1f046d525a8e8"
+  },
+  "code_authority":{
+    "machine_spec":"research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json",
+    "bar_builder":{"path":"scripts/qros_seed0076_build_bar_cache_v220.py","commit":"1166f374fa00a5d49bf0055f78c18461181697b1"},
+    "bar_oracle":{"path":"scripts/qros_seed0076_bar_cache_oracle_v220.py","commit":"04896c33cf6942effd252581c6a21c00154c6fc4"},
+    "indicator_kernel":{"path":"scripts/qros_seed0076_indicators_v220.py","commit":"cbb244aae9944ca9b9d842780a51d969dd2c804d"},
+    "indicator_builder":{"path":"scripts/qros_seed0076_build_indicator_cache_v220.py","commit":"b00699d09f63d13704e1d1819f69a7e99cf3f099"},
+    "base_group_worker":{"path":"scripts/qros_seed0076_ga1_shard_worker_v223.py","commit":"78409b09bb5cae75e6fa6d70ec3b402b585a24b7","git_blob_sha1":"c77e0a5156c5bb1a874d3c33fde49f162a2a3041"},
+    "shared_raw_tick_cache":{"path":"scripts/qros_seed0076_tick_raw_cache_v225.py","commit":"6210855b088e8797f0360b916a32fabc9a2cf9cd"},
+    "portable_cached_wrapper":{"path":"scripts/qros_seed0076_ga1_cached_wrapper_v233.py","commit":"73fda4b73960fed0c28638c60fc1cf07f9091723","git_blob_sha1":"2da5448fc6403c3c0b081b980ab20eff6870a1dc","sha256":"c47808f3dae5c807ebdc6fa74e0ac72e7797dfe44c27eb2acce12cfa51210b69"},
+    "portable_tree_wrapper":{"path":"scripts/qros_seed0076_ga1_tree_wrapper_v233.py","commit":"35303d4ca7e2d96d66c3b02cd69d75746f041d06","git_blob_sha1":"6d4ed7763b103a522efbe50a62dd9637ec02d7c2","sha256":"1d6363bf445aed8379b91b34172173733164d1e88e519d55fcfb721f0a5f322d"},
+    "portable_parity_receipt":"control/QROS_PUBLIC_1000_SEED_0076_PORTABLE_GA1_WRAPPER_PARITY_V233_v1.json",
+    "domain_bound_merger":{"path":"scripts/qros_seed0076_ga1_merge_groups_v228.py","commit":"b8f3c39de4fd4a7e0f43c91d6ac7904cb9088f97"},
+    "independent_merge_oracle":{"path":"scripts/qros_seed0076_ga1_merge_oracle_v228.py","commit":"235119002fb9841629bf79c69fe308bf165a4316"},
+    "global_maskpack_builder":{"path":"scripts/qros_seed0076_global_maskpack_v229.py","commit":"6355ee8e4c9ea8bec79bc46365cc7805628f83fd"},
+    "generic_maskpack_oracle":{"path":"scripts/qros_seed0076_maskpack_oracle_v230.py","commit":"e3af45813f0d58fffda9161b03e73a1f233f2f9d"}
+  },
+  "completed_shards":[
+    {
+      "domain":"XAUUSD/BUY/M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","config_root_sha256":"96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3","distinct_mask_classes":303572,"semantic_class_root_sha256":"cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4","full_alias_mapping_root_sha256":"4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458","completion_receipt":"control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_XAUUSD_BUY_M1_COMPLETION_V224_v1.json","durable_binary_state":"NOT_IN_GITHUB","representation":"24_GROUP_ZSTD_MASK_BLOBS","physical_manifest_root_sha256":"fccb8f93664a70fd804c928e806e2a0d68f18bf1f8506f5742f221e83f5c968d","rematerialization_acceptance":"Recompute exact 24 groups with portable V233 wrapper; each group must match V224/V223 receipt identities; domain-bound V228 merge must reproduce semantic root and alias root above. A future global pack may replace physical representation only after independent pack oracle; historical V224 remains immutable."
+    },
+    {
+      "domain":"NQX/BUY/H1","shard_id":"368668905e78ede8069dc326e04304dd06feeb879c2604d06fb69fabf0ca39ce","config_root_sha256":"0b615ea7dd35b8ef9ef39c97c6750223a07800a07631edb06daf900370b503ed","distinct_mask_classes":165360,"semantic_class_root_sha256":"6eea7db4b1a5b975eed8b97af5c8509e36894bc8c4b2bb645ba8f88dd33aac79","full_alias_mapping_root_sha256":"98218fd8d552e2db81450d664834078785e418ff1891d57b867e45e53a03ad9a","completion_receipt":"control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_H1_COMPLETION_V229_v1.json","durable_binary_state":"NOT_IN_GITHUB","representation":"GLOBAL_UNIQUE_MASKPACK_ZSTD","compressed_bytes":159449994,"compressed_sha256":"bdf7f1afd912b53c7069475da643c6f8ce70a94cd0e7bd9a564a59a5ae715204","decompressed_sha256":"84493f0ff510df8b91ca87336d1412e11d3f09d84a9eb2a6002d3dffdee43940","index_sha256":"6a715da39bb04b026ab097b3724518452d26dad8d294e1ef87eeb35e523cbe68","config_to_class_sha256":"98218fd8d552e2db81450d664834078785e418ff1891d57b867e45e53a03ad9a"
+    },
+    {
+      "domain":"NQX/BUY/H2","shard_id":"d4d20810b02f8bd44bdc9218405ced52a02c762be2632d6af9f185deb7fe4e2e","config_root_sha256":"42eab98346bfbf2680ff9d28f5efa8c62eafc8520159a06f8192f9c7313eaf16","distinct_mask_classes":105642,"semantic_class_root_sha256":"8cc8292a0a8241caf4abc0f2281a1eb73dafebec61046979145b7e18a217ab74","full_alias_mapping_root_sha256":"5b45e900d052bfede7345067f52b30a226fce8c53852ddf9542c97974148a81f","completion_receipt":"control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_H2_COMPLETION_V230_v1.json","durable_binary_state":"NOT_IN_GITHUB","representation":"GLOBAL_UNIQUE_MASKPACK_ZSTD","compressed_bytes":68773411,"compressed_sha256":"bf61d1afa875006d0851882e859281950b2fd99bdd9f7ae467b0bef3e3bf01d6","decompressed_sha256":"41a5a1860fe86bb623d841a31df7d377e13b438e475d0c0f7b17754393c37771","index_sha256":"fd31d6fab2d70821f2a66716538381e62f7b87b1513f3cc42d09f695c92a9b9d","config_to_class_sha256":"5b45e900d052bfede7345067f52b30a226fce8c53852ddf9542c97974148a81f"
+    },
+    {
+      "domain":"NQX/BUY/H3","shard_id":"d02436fc8986f1d3d826b97a64e2b23207aeb08f11644d455b8fa1cc320c5c88","config_root_sha256":"69263b6d35afff3b17760f4742cefe718b9925392362c75a68c207fd85857525","distinct_mask_classes":80166,"semantic_class_root_sha256":"9a9630ff78c98ef2144acd031298b2b41aab647cfb63d07613b605da9de2a14e","full_alias_mapping_root_sha256":"00380a85d5cc28fd9d7e4b885c03150cfcc6bc3ddaf6f038f72581b482e0b5da","completion_receipt":"control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_H3_COMPLETION_V231_v1.json","durable_binary_state":"NOT_IN_GITHUB","representation":"GLOBAL_UNIQUE_MASKPACK_ZSTD","compressed_bytes":41022366,"compressed_sha256":"0dd0f7da298bf094a120df61db46d92a66c8f0a45cebf672059c13ef6d0a6e10","decompressed_sha256":"5d971276815d740d561aabb83d175daf7bd8cd1dc3f8c5833d7a0084aecb40f4","index_sha256":"ce07fdebca7c1ad7940fb0b07ffa379fe69f89a15077aef749ee352e4ff57625","config_to_class_sha256":"00380a85d5cc28fd9d7e4b885c03150cfcc6bc3ddaf6f038f72581b482e0b5da"
+    }
+  ],
+  "acceptance_rules":[
+    "Never accept a rematerialized shard from aggregate metrics alone; exact config root + semantic class root + full alias mapping root must match.",
+    "Compressed-byte SHA is a storage identity. Scientific identity is preserved by the decompressed mask representation, domain-bound class roots and config-to-class mapping.",
+    "If exact derived bytes already pass their durable hashes, reuse them; do not recompute carriers/caches/shards.",
+    "No rematerialization may read economic PnL or holdout."
+  ],
+  "scientific_guards":{"economic_pnl_read":false,"holdout_open":false,"ga2_open":false}
+}
