@@ -1,0 +1,19 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_D20_ARTIFACT_MANIFEST_1",
+  "parent_d19_commit": "fdb650e861a6f6ad274983de8c441b46f9f5eaab",
+  "carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP2B_3_D20_SELF_LOCK_FIXED_SOURCE.zip",
+    "sha256": "5a998b8ab5a6a4549a02d9be2a50548fa68005284d962295ba1f52f305d92839",
+    "bytes": 69760,
+    "entries": 39
+  },
+  "source_manifest_sha256": "6804225fc283fd436e3fecba7dd4f82a20242b4c79336414e8c2d6ace13ea1ee",
+  "artifacts": {
+    "src/RunnerLab.Core/Mvp2B.cs": {"sha256":"7689d6e5183f734c3d55f01ff0bb4951fec1c93ec1412f34adec8009c8b619cf","bytes":41743},
+    "src/RunnerLab.Core/Mvp2BSelfTests.cs": {"sha256":"b467ab19f5e76a701c9aab2479a76ffc4c7d9dd96a85360b4a51253d03c010fc","bytes":6137},
+    "MVP2B_D20_SELF_LOCK_CORRECTION_RECEIPT_20260914_v1.json": {"sha256":"7693df8ebcd32d86cbe727e60cea310f676bc2817dc4c6da31c266b0cdbe7462","bytes":1382},
+    "STATIC_AUDIT_REPORT.json": {"sha256":"cdbb840779bfcf5507de9f3a0dd43c8edd0b2504262df771cda4574efdbcb09c","bytes":8189,"checks":82,"pass":true},
+    "MVP2B_INDEPENDENT_AUDIT.json": {"sha256":"ae87513bacdee0d327ef1016326088acfbe9ab3de81c16676048c1f9d492bfd0","bytes":3817,"checks":40,"pass":true}
+  },
+  "native_windows_rerun": "PENDING"
+}
