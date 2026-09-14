@@ -1,0 +1,44 @@
+{
+  "schema": "QROS_PUBLIC1000_MASTER_WORKGRAPH_1.0",
+  "version": "1.0",
+  "status": "FROZEN_ARCHITECTURE_MAP",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "objective": "Provide one durable end-to-end map from current research state through FINAL_DECISION. A node may be executable only when its exact machine contract is frozen; otherwise it is an explicit POLICY_REQUIRED barrier rather than an implicit chat decision.",
+  "nodes": [
+    {"id":"W00_DATA_AUDIT","stage":"DATA_AUDIT","status":"CLOSED_FOR_CURRENT_DEV_PREFIXES","evidence":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_MINIMAL_DEV_CARRIER_BINDING_20260914_v1.json","economic":false},
+    {"id":"W01_PREREGISTRATION","stage":"PREREGISTRATION","status":"CLOSED","evidence":"control/QROS_PUBLIC_1000_SEED_0076_GATE_A_SHARD_PLAN_V213_v1.json","economic":false},
+    {"id":"W02_CAUSAL_SCOPE","stage":"CAUSAL_SCOPE","status":"CLOSED_FOR_SEED0076_GA1","economic":false},
+    {"id":"W03_UNIVERSE_BUILD","stage":"UNIVERSE_BUILD","status":"CLOSED_FOR_FROZEN_60_SHARD_UNIVERSE","economic":false},
+    {"id":"W04_RISE_FIXED_POINT","stage":"RISE_FIXED_POINT","status":"CLOSED_BY_EXISTING_FROZEN_UNIVERSE_AUTHORITIES","economic":false},
+    {"id":"W05_ONTOLOGY_FREEZE","stage":"UNIVERSE_ONTOLOGY_FROZEN","status":"CLOSED_BY_EXISTING_FROZEN_UNIVERSE_AUTHORITIES","economic":false},
+    {"id":"W06_CONFIG_HASH_FREEZE","stage":"CONFIG_HASH_FREEZE","status":"CLOSED_FOR_FROZEN_SHARDS_BEING_EXECUTED","economic":false},
+    {"id":"W07_ENUMERATOR_PARITY","stage":"INDEPENDENT_ENUMERATOR_PARITY","status":"SERIAL_PER_SHARD","economic":false},
+    {"id":"W08_GA1_MASK_ENUMERATION","stage":"GA1_EVENT_MASK_ENUMERATION_AND_DEDUPE","status":"LOOP_ACTIVE","economic":false,"loop_total_shards":60,"completed_shards_at_map_freeze":8},
+    {"id":"W09_FIRST_GATE_SCORER_BUILD","stage":"FIRST_GATE_SCORER_BUILD_AND_PARITY","status":"CURRENT","economic":false,"subject":"FIFO #1 XAUUSD/BUY/M1","predecessor":"W08 for already promoted shard"},
+    {"id":"W10_FIRST_GATE","stage":"GA2_SIGNAL_ALPHA_SCORING_FIRST_GATE","status":"FIFO_LOOP_PREREGISTERED","economic":true,"holdout":false,"contract":"governance/QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_v1.0.json"},
+    {"id":"W11_GA1_FIRST_GATE_SERIAL_LOOP","stage":"SERIAL_SHARD_TRANSACTION_LOOP","status":"PREREGISTERED","economic":"MIXED","rule":"Drain current 8 FIRST_GATE rows FIFO; thereafter each new GA1 shard must be immediately followed by its FIRST_GATE terminal decision before another GA1 shard starts.","exit_condition":"60/60 GA1 complete and 60/60 FIRST_GATE terminal"},
+    {"id":"W12_POST_GA1_POLICY_FREEZE","stage":"POST_GA1_TRANSITION_PREREGISTRATION","status":"POLICY_REQUIRED","economic":false,"reason":"Gate-A V213 defines downstream scientific concepts, but the exact durable machine transition contract after the 60-shard serial loop has not yet been frozen in the deterministic kernel."},
+    {"id":"W13_GA3_MANAGEMENT","stage":"GA3_MANAGEMENT_OVERLAY_SWEEP","status":"MAP_DEFINED_POLICY_REQUIRED","economic":true,"invariant":"management cannot rescue FIRST_GATE failures"},
+    {"id":"W14_GA4_EXECUTION_STRESS","stage":"GA4_EXECUTION_AND_STRESS","status":"MAP_DEFINED_POLICY_REQUIRED","economic":true,"invariant":"stress may reject/downgrade but may not rescue"},
+    {"id":"W15_GATE_A_FINAL","stage":"GATE_A_TERMINAL_DECISION","status":"MAP_DEFINED_POLICY_REQUIRED","economic":true},
+    {"id":"W16_HOLDOUT_AUTHORIZATION","stage":"HOLDOUT_AUTHORIZATION","status":"MAP_DEFINED_POLICY_REQUIRED","economic":false,"invariant":"holdout remains closed until an explicit frozen contract authorizes opening"},
+    {"id":"W17_HOLDOUT","stage":"HOLDOUT","status":"LOCKED_POLICY_REQUIRED","economic":true,"cleanliness_rule":"DEV-exposed periods can never become clean holdout"},
+    {"id":"W18_SUPERGATE","stage":"SUPERGATE","status":"MAP_DEFINED_POLICY_REQUIRED","economic":true},
+    {"id":"W19_MT5_PARITY","stage":"MT5_PARITY","status":"MAP_DEFINED_POLICY_REQUIRED","economic":true,"invariant":"trade-by-trade parity required"},
+    {"id":"W20_PORTFOLIO_MARGINAL","stage":"PORTFOLIO_MARGINAL_ANALYSIS","status":"MAP_DEFINED_POLICY_REQUIRED","economic":true},
+    {"id":"W21_FINAL_DECISION","stage":"FINAL_DECISION","status":"MAP_DEFINED_POLICY_REQUIRED","economic":true}
+  ],
+  "edges": [
+    ["W00_DATA_AUDIT","W01_PREREGISTRATION"],["W01_PREREGISTRATION","W02_CAUSAL_SCOPE"],["W02_CAUSAL_SCOPE","W03_UNIVERSE_BUILD"],["W03_UNIVERSE_BUILD","W04_RISE_FIXED_POINT"],["W04_RISE_FIXED_POINT","W05_ONTOLOGY_FREEZE"],["W05_ONTOLOGY_FREEZE","W06_CONFIG_HASH_FREEZE"],["W06_CONFIG_HASH_FREEZE","W07_ENUMERATOR_PARITY"],["W07_ENUMERATOR_PARITY","W08_GA1_MASK_ENUMERATION"],["W08_GA1_MASK_ENUMERATION","W09_FIRST_GATE_SCORER_BUILD"],["W09_FIRST_GATE_SCORER_BUILD","W10_FIRST_GATE"],["W10_FIRST_GATE","W11_GA1_FIRST_GATE_SERIAL_LOOP"],["W11_GA1_FIRST_GATE_SERIAL_LOOP","W12_POST_GA1_POLICY_FREEZE"],["W12_POST_GA1_POLICY_FREEZE","W13_GA3_MANAGEMENT"],["W13_GA3_MANAGEMENT","W14_GA4_EXECUTION_STRESS"],["W14_GA4_EXECUTION_STRESS","W15_GATE_A_FINAL"],["W15_GATE_A_FINAL","W16_HOLDOUT_AUTHORIZATION"],["W16_HOLDOUT_AUTHORIZATION","W17_HOLDOUT"],["W17_HOLDOUT","W18_SUPERGATE"],["W18_SUPERGATE","W19_MT5_PARITY"],["W19_MT5_PARITY","W20_PORTFOLIO_MARGINAL"],["W20_PORTFOLIO_MARGINAL","W21_FINAL_DECISION"]
+  ],
+  "global_invariants": [
+    "No node may be skipped because a later node looks more profitable.",
+    "POLICY_REQUIRED is a deterministic blocking condition, not permission to infer missing rules.",
+    "No clean holdout is opened from a period already economically observed by the genealogy.",
+    "Every transition must leave an immutable receipt and advance the single durable frontier by CAS.",
+    "A new chat resumes from the stable pointer and machine action ticket only; no reconstruction from conversation is required."
+  ],
+  "current_node": "W09_FIRST_GATE_SCORER_BUILD",
+  "automatic_next_node_after_kernel_activation": "W09_FIRST_GATE_SCORER_BUILD",
+  "decision": "END_TO_END_MAP_FROZEN; DOWNSTREAM GAPS ARE EXPLICIT POLICY_REQUIRED BARRIERS AND CANNOT BE SILENTLY FILLED"
+}
