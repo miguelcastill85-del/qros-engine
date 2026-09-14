@@ -1,0 +1,82 @@
+{
+  "schema": "QROS_XAU_ALL_FAILED_IPS_RETEST_PREREG_1.0",
+  "created_date": "2026-09-14",
+  "campaign_id": "QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "state": "CAMPAIGN_ACTIVE",
+  "objective": "Recover every historically failed/rejected/exhausted XAU strategy identity or configuration family and retest each exactly on 2018-2024, then apply the frozen IPS v2 confirmation layer without changing base economics.",
+  "scope": {
+    "asset": "XAUUSD",
+    "calendar": "2018-01-25 through 2024-12-31",
+    "period_status": "EXPOSED_DIAGNOSTIC_RESEARCH_ONLY",
+    "include": [
+      "every strategy/candidate that received REJECTED, failed Gate A/B/Supergate, BRANCH_EXHAUSTED after economic testing, or observational-reserve classification caused by failed gates",
+      "every frozen profile/configuration inside a rejected family when its exact identity is recoverable",
+      "historical transfer strategies to XAU whose XAU decision was negative",
+      "invalidated historical candidates only as INVALIDATED_NOT_ELIGIBLE unless a corrected exact implementation is recoverable"
+    ],
+    "exclude": [
+      "approved M1-M4 parents except as reference controls",
+      "campaigns with zero PnL trials and BLOCKED_BY_INFRASTRUCTURE only",
+      "PREREGISTERED_NO_RESULTS universes not yet economically failed",
+      "indicators that were not trading strategies",
+      "NQX-only strategies"
+    ]
+  },
+  "parent_indicator": {
+    "id": "QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY",
+    "state": "APPROVED_RESEARCH",
+    "weights": [15,5,10,20,30,20],
+    "threshold": 65,
+    "retuning": "FORBIDDEN"
+  },
+  "uniform_ips_filter": {
+    "rule": "Keep a reproduced base trade only if a same-direction frozen IPS event with score>=65 occurred strictly before the base entry, within 60 minutes, on the same source day.",
+    "window_minutes": 60,
+    "same_direction": true,
+    "strictly_prior": true,
+    "same_source_day": true,
+    "if_multiple": "most recent qualifying IPS event",
+    "base_entry_exit_stop_target_management": "UNCHANGED",
+    "ips_may_create_new_trade": false,
+    "threshold_search": false,
+    "window_search": false
+  },
+  "serial_execution": {
+    "priority_rule": "historical chronology of terminal decisions, with exact-recoverable identities executed when reached; unrecoverable identities are checkpointed BLOCKED_BY_INFRASTRUCTURE and the queue continues",
+    "no_PnL_ranking": true,
+    "dedupe": "exact aliases first, then semantic/causal aliases; aliases remain in census but are not counted as independent alpha",
+    "one_identity_at_a_time": true
+  },
+  "base_reproduction_gate": {
+    "required_before_IPS_result": true,
+    "authority_matching": "exact trade-by-trade parity when a frozen ledger exists; otherwise exact generator/source hash plus every recoverable frozen golden metric/count",
+    "approximate_reconstruction": "FORBIDDEN"
+  },
+  "common_report": {
+    "base_metrics": ["trades","net_R","expectancy_R","PF","max_DD_R","win_rate","annual"],
+    "filtered_metrics": ["trades","coverage","net_R","expectancy_R","PF","max_DD_R","win_rate","annual"],
+    "delta_metrics": ["expectancy","PF","DD","frequency","positive_year_fraction"],
+    "execution": ["BUY Ask->Bid","SELL Bid->Ask","SL first","first executable price in gap","no impossible zero/crossed spread fills"]
+  },
+  "descendant_gate": {
+    "minimum_filtered_trades": 8,
+    "minimum_coverage_fraction": 0.1,
+    "filtered_net_R_gt": 0.0,
+    "filtered_expectancy_gt_base": true,
+    "filtered_PF_gt_base": true,
+    "filtered_DD_le_base": true,
+    "positive_year_fraction_with_trades_min": 0.6,
+    "top3_net_share_max": 0.7,
+    "note": "A base strategy that was historically rejected never changes its old decision. A passing IPS combination is a new descendant and requires later independent validation."
+  },
+  "multiplicity": {
+    "N_DESCENDANTS": "ledgered explicitly as census expands",
+    "same_filter_for_all": true,
+    "no_retrospective_rule_change": true,
+    "family_configurations": "all recoverable configurations are accounted for; causal/semantic duplicates do not receive independent multiplicity credit"
+  },
+  "future_policy": {
+    "2025_2026": "not used in this 2018-2024 retrospective campaign",
+    "validation_of_successful_descendant": "must be separately preregistered on genuinely independent evidence; historically exposed years stay EXPOSED"
+  }
+}
