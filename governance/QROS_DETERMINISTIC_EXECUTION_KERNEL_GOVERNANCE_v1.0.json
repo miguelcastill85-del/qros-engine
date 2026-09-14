@@ -1,0 +1,99 @@
+{
+  "schema": "QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_1.0",
+  "version": "1.0",
+  "status": "FROZEN_ACTIVE",
+  "scope": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA initially; reusable for QROS campaigns only through an explicit campaign binding",
+  "purpose": "Remove chat-context interpretation from scientific execution. A chat is an ephemeral executor; durable repository state is the only operational memory.",
+  "chat_runtime_role": "EPHEMERAL_EXECUTOR_ONLY",
+  "no_memory_as_authority": true,
+  "design_assumptions": [
+    "chat context is finite and may be compacted or omitted",
+    "tool runtimes and local files may be ephemeral across chats",
+    "natural-language summaries may lose detail and therefore are advisory only",
+    "durable repository bytes, hashes, receipts and machine-verifiable state must be sufficient to resume without conversation history"
+  ],
+  "authority_rules": {
+    "single_mutable_bootstrap_pointer": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "immutable_versioned_frontier_targets": true,
+    "all_scientific_and_execution_dependencies_must_be_exact_path_and_git_blob_sha1_pinned": true,
+    "unstructured_next_action_text_is_non_authoritative": true,
+    "structured_action_ticket_is_the_only_execution_authority": true,
+    "chat_memory_is_non_authoritative": true,
+    "file_recency_does_not_override_exact_authority": true
+  },
+  "deterministic_resume_contract": [
+    "read the stable pointer only",
+    "load its exact immutable target",
+    "verify every pinned dependency by Git blob SHA-1",
+    "verify campaign invariants and scientific firewalls",
+    "derive exactly one state from machine-readable facts",
+    "compile exactly one action ticket",
+    "run an independently implemented oracle over the same durable bytes",
+    "require primary ticket == oracle ticket byte-for-byte semantically",
+    "execute only the ticketed action",
+    "persist immutable receipts before advancing the pointer",
+    "advance stable pointer only by compare-and-swap against the previously read blob"
+  ],
+  "ambiguity_policy": {
+    "zero_valid_actions": "FAIL_CLOSED",
+    "more_than_one_valid_action": "FAIL_CLOSED",
+    "missing_required_field": "FAIL_CLOSED",
+    "contradictory_flags": "FAIL_CLOSED",
+    "unpinned_dependency": "FAIL_CLOSED",
+    "hash_mismatch": "FAIL_CLOSED",
+    "free_text_conflicts_with_structured_state": "IGNORE_FREE_TEXT_AND_FAIL_CLOSED_IF_STRUCTURED_STATE_IS_INCOMPLETE",
+    "future_scientific_rule_not_yet_frozen": "ENTER_EXPLICIT_POLICY_REQUIRED_STATE; NEVER_INFER_THE_RULE"
+  },
+  "transaction_rules": {
+    "one_authoritative_action_at_a_time": true,
+    "action_sequence_monotonic": true,
+    "kernel_epoch_monotonic": true,
+    "idempotent_resume_required": true,
+    "completed_valid_work_is_never_recomputed_without_proven_corruption": true,
+    "historical_receipts_immutable": true,
+    "state_transition_requires_receipt": true,
+    "frontier_promotion_requires_external_validation_pass": true
+  },
+  "external_validation": {
+    "required": true,
+    "primary_and_oracle_must_be_independent_source_files": true,
+    "oracle_may_not_import_primary_compiler": true,
+    "github_actions_clean_runner_required_for_activation": true,
+    "adversarial_mutation_suite_required": true,
+    "minimum_mutations": [
+      "duplicate FIFO order",
+      "stable-target mismatch",
+      "authority blob mutation",
+      "economic firewall contradiction",
+      "DEV carrier binding contradiction",
+      "current subject mismatch",
+      "unknown state"
+    ],
+    "self_asserted_model_validation_is_not_sufficient": true
+  },
+  "scientific_firewalls": {
+    "holdout_may_only_open_from_an_explicit_frozen_transition": true,
+    "economic_pnl_may_only_open_from_an_explicit_frozen_transition": true,
+    "GA2_may_only_open_from_an_explicit_frozen_transition": true,
+    "economic_results_may_not_rewrite_prior_state_map": true,
+    "result_dependent_reordering_forbidden": true,
+    "first_gate_fifo_must_be_preserved": true
+  },
+  "checkpoint_minimum_fields": [
+    "objective",
+    "authority",
+    "data",
+    "work_executed",
+    "verified_results",
+    "gates",
+    "problems",
+    "root_cause",
+    "corrections",
+    "scientific_state",
+    "portfolio_impact",
+    "automatic_next_action",
+    "action_ticket_id",
+    "external_validation_receipt"
+  ],
+  "decision": "ACTIVE: CHAT_IS_NOT_STATE; REPOSITORY_KERNEL_IS_STATE; NO_ACTION_WITHOUT_SINGLE_MACHINE_COMPILED_TICKET_AND_INDEPENDENT_ORACLE"
+}
