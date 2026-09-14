@@ -1,0 +1,23 @@
+{
+  "schema":"QROS_IPS_V2_INDICATOR_SUPERGATE_PREREG_1.0",
+  "campaign_id":"QROS_INDICATOR_004_XAU_IPS_V2_STABILITY",
+  "indicator":"QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY",
+  "created_date":"2026-09-14",
+  "state":"PREREGISTERED_NO_SUPERGATE_RESULTS",
+  "scientific_scope":"Adversarial robustness gate using only already-exposed/materialized evidence. This is not a new independent holdout.",
+  "config_lock":{"weights":[15,5,10,20,30,20],"threshold":65,"event_ontology":"UNCHANGED","retuning":"FORBIDDEN","parameter_selection_from_supergate":"FORBIDDEN"},
+  "primary_dataset":{"period":"2021-01-01 through 2022-08-14 complete source-clock days","status":"EXPOSED_MATERIALIZED_OOS_AFTER_PRIOR_PASS","events_file":"IPS_V2_MATERIALIZED_OOS_EVENTS_v1.csv","executable_filter":"risk_cents > 0"},
+  "hard_gates":{
+    "SG01_primary_oos_remains_pass":true,
+    "SG02_temporal":{"quarter_lift_all_positive":true,"positive_month_fraction_min":0.80,"leave_one_month_out_lift_all_positive":true},
+    "SG03_cluster_bootstrap":{"weekly_block_bootstrap_95ci_lower_gt":0.0,"monthly_block_bootstrap_95ci_lower_gt":0.0,"reps_each":10000,"seeds":{"weekly":2026091407,"monthly":2026091408}},
+    "SG04_concentration":{"remove_top_5pct_days_by_excess_high_success_contribution_lift_gt":0.0,"top_5pct_days_share_of_positive_excess_max":0.50},
+    "SG05_threshold_sensitivity":{"thresholds":[60.0,62.5,65.0,67.5,70.0],"all_lifts_positive":true,"central_thresholds_bootstrap_lower_gt_zero":[62.5,65.0,67.5]},
+    "SG06_weight_plateau":{"neighborhood":"all valid one-step 5-point weight transfers around frozen v2 within preregistered v2 bounds","neighbor_positive_lift_fraction_min":0.70,"neighbor_median_lift_fraction_of_v2_min":0.70},
+    "SG07_regime_stability":{"regimes":["ATR_quartiles","spread_reference_quartiles"],"positive_cells_min_per_4":3,"worst_cell_lift_min":-0.02},
+    "SG08_side_year":{"BUY_lift_positive":true,"SELL_lift_positive":true,"2021_lift_positive":true,"2022_materialized_lift_positive":true}
+  },
+  "diagnostics_not_hard_gates":{"component_ablation":"Renormalize remaining five frozen weights to sum 100 and report effect. No configuration can replace v2.","score_monotonicity":"Report fixed bins [0,35),[35,50),[50,65),[65,80),[80,100].","v1_secondary_benchmark":"Descriptive only."},
+  "decision":{"PASS_SUPERGATE":"all SG01-SG08 pass","FAIL_SUPERGATE":"any SG01-SG08 fails","no_rescue":"Do not alter thresholds, weights, gates or interpretation after results."},
+  "post_decision":{"PASS_SUPERGATE":"Promote indicator research state to APPROVED_RESEARCH; MT5 parity still required before any operational/final integration.","FAIL_SUPERGATE":"Remain FROZEN_CANDIDATE or move to OBSERVATIONAL_RESERVE according to failure mode; no retune under v2 identity."}
+}
