@@ -1,0 +1,16 @@
+{
+  "schema":"QROS_XAU_CLOSED_MECHANISM_ALIAS_RECONCILIATION_1.0",
+  "date":"2026-09-14",
+  "campaign_id":"QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "labels":["Liquidity","Genome Native","PCA lineal","contraste de barras","wavelets","firmas de caminos","intervención residualizada"],
+  "authority":{"source":"QUANT_RESEARCH_OS_v12100_INICIO_CHAT_COMUN.txt","statement":"Liquidity, Genome Native, PCA lineal, contraste de barras, wavelets, firmas de caminos e intervención residualizada están cerrados dentro de sus contratos exactos."},
+  "recovery_work":["File Library precision/recall searches for every label with XAU + rejected/closed/branch-exhausted context","File Library second-pass searches combining labels with possible M/R campaign nomenclature","GitHub main code search for Genome and combined mechanism keywords","local runtime filename/content scan including Investigación XAUUSD.txt"],
+  "results":{"distinct_XAU_campaign_ids_recovered":[],"distinct_trade_ledgers_recovered":[],"distinct_generators_recovered":[],"exact_alias_mapping_to_XAU_R1_R70":"NO_DISPONIBLE","evidence_they_are_closed":"VERIFIED_AGGREGATE_ONLY"},
+  "decision":"UNRESOLVED_ALIAS_GROUP_DO_NOT_ADD_SEVEN_ROWS",
+  "reason":"The aggregate authority proves closure of these mechanisms but not whether they are seven standalone campaigns, subfamilies inside XAU_R1_R70, or aliases of other terminal campaigns already represented. Adding seven rows would risk double counting.",
+  "counting_impact":0,
+  "backtest_impact":"NO_EXECUTION; no exact base identity or ledger recovered",
+  "approximation":"FORBIDDEN",
+  "resume_condition":"Recover a durable file tying any label to a unique XAU campaign/configuration identity and terminal decision, plus executable bytes or authentic trade ledger for backtesting.",
+  "next_action":"Continue literal census beyond these unresolved labels and prioritize any newly recovered exact ledger/generator."
+}
