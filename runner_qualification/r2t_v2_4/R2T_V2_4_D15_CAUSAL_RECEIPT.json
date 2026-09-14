@@ -1,0 +1,22 @@
+{
+  "schema": "QROS_R2T_V2_4_D15_CAUSAL_RECEIPT_1",
+  "created_utc": "2026-09-14T03:40:00Z",
+  "run_id": "20260914_002325_fd75f9c7",
+  "evidence_photo_sha256": "d0cda0cf35420ffb3ccd2603a06a83ec35f9253c7c328c1d5a88aba87ddc59ee",
+  "verified_source_fault": "Add-Type -AssemblyName IO.Compression.FileSystem",
+  "recovered_known_good_pattern": "Add-Type -AssemblyName System.IO.Compression.FileSystem and [System.IO.Compression.ZipFile]::CreateFromDirectory",
+  "classification": "RUNNER_EVIDENCE_PACKAGING_INFRASTRUCTURE_FAILURE",
+  "runtime_sequence_observed": [
+    "COMPILE PASS 0/0",
+    "NORMAL RUNTIME SMOKE PASS",
+    "ACTUAL TERMINAL FENCE PASS",
+    "reacquire terminal process bound",
+    "restart-write terminal process bound",
+    "restart-read terminal process bound",
+    "then ZIP assembly load failure"
+  ],
+  "inference_boundary": "Control flow plus unique Zip-Evidence Add-Type location establishes that the assembly error occurs only after the PASS receipt path is reached. Promotion remains withheld until rerun emits a valid evidence ZIP and receipt.",
+  "candidate3_executed": false,
+  "deployment_allowed": false,
+  "cert_arm_allowed": false
+}
