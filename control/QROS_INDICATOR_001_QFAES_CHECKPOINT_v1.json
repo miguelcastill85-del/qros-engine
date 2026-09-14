@@ -1,0 +1,78 @@
+{
+  "schema": "QROS_INDICATOR_CHECKPOINT_1.0",
+  "checkpoint_id": "QROS_INDICATOR_001_QFAES_CHECKPOINT_v1",
+  "created_date": "2026-09-14",
+  "OBJETIVO": "Crear el primer indicador QROS nuevo orientado a ventaja estadistica causal, sin afirmar alfa antes de validacion empirica.",
+  "AUTORIDAD": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "branch": "main",
+    "public1000_frontier_observed": "V241",
+    "public1000_state_unchanged": "DEVELOPMENT_RUNNING / PREREGISTERED_NO_RESULTS",
+    "public1000_economic_pnl_read": false,
+    "public1000_holdout_open": false,
+    "public1000_ga2_open": false,
+    "indicator_prereg": "research/indicators/QROS_FAILED_AUCTION_EDGE_SCORE_v1/QROS_FAILED_AUCTION_EDGE_SCORE_v1_PREREG.json",
+    "xau_carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+    "xau_carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4"
+  },
+  "DATOS": {
+    "asset": "XAUUSD",
+    "canonical_records": 697060968,
+    "development_period": "2018-01-25 through 2019-12-31 source-clock",
+    "holdout": "SEALED",
+    "current_runtime_materialized_canonical_bytes": false,
+    "file_library_manifest_recovered": true,
+    "dropbox_carrier_search": "NO_MATCH"
+  },
+  "TRABAJO_EJECUTADO": [
+    "Preregistered QFAES v1 before empirical outcomes",
+    "Frozen PDH/PDL-only causal scope",
+    "Frozen five-component score and weights",
+    "Frozen score threshold 70 and target-before-stop prediction contract",
+    "Implemented deterministic Python reference scorer",
+    "Implemented SL-first/Bid-Ask causal outcome helper",
+    "Executed synthetic unit tests",
+    "Persisted preregistration, code, tests, receipt and SHA-256 manifest to GitHub main"
+  ],
+  "RESULTADOS_VERIFICADOS": {
+    "synthetic_unit_tests": "PASS",
+    "fast_reject_score": 74.587442,
+    "slow_accepted_score": 13.764848,
+    "empirical_statistical_edge": "NOT_YET_TESTED",
+    "economic_pnl": "NOT_READ"
+  },
+  "GATES": {
+    "DATA_AUDIT": "AUTHORITY_IDENTIFIED_CANONICAL_BYTES_NOT_MATERIALIZED_THIS_RUNTIME",
+    "PREREGISTRATION": "PASS",
+    "CAUSAL_SCOPE": "FROZEN_V1",
+    "RISE_FIXED_POINT": "PENDING",
+    "UNIVERSE_ONTOLOGY_FROZEN": "PENDING",
+    "DEVELOPMENT_PREDICTIVE_GATE_A": "PENDING",
+    "HOLDOUT": "SEALED"
+  },
+  "PROBLEMAS": [
+    "Canonical XAU tick bytes are referenced in File Library but not mounted in /mnt/data for direct execution in this runtime."
+  ],
+  "CAUSA_RAIZ": "File Library references are not equivalent to executable local byte paths in this runtime; Dropbox search did not contain the carrier parts.",
+  "CORRECCIONES": [
+    "Do not substitute older XAU M5/M15 proxy data for canonical ticks.",
+    "Keep empirical edge claim disabled until exact carrier bytes are materialized and hashed."
+  ],
+  "ESTADO_CIENTIFICO": "PREREGISTERED_NO_RESULTS",
+  "IMPACTO_PORTAFOLIO": "NONE_YET; marginal correlation/overlap versus XAU M1-M4 is required only after predictive Gate A and later robustness gates.",
+  "PERSISTENCE_COMMITS": {
+    "prereg": "2bf1556f81f66870bb7db1fc576541ecd013ec8c",
+    "reference_scorer": "2e5177fab44c8127a2a96f763a39dfc86c9a6c88",
+    "test_initial": "0aa1046d4cb6d22eda7d3769690fcb716de9a1e4",
+    "readme": "728ef4f95c4755038840c8ec21f9dfd448f28cf7",
+    "test_byte_alignment": "005e29bb4dcc643f83651d2fb3fe174331450368",
+    "synthetic_receipt": "96bb643f7a7900e088ab2397422070ea04cbac86",
+    "manifest": "c2de90c336bf0047e487d0ba55d63be4e6b78e9c"
+  },
+  "LOCAL_PACKAGE": {
+    "file": "QROS_QFAES_v1_PREREG_PACKAGE.zip",
+    "bytes": 6707,
+    "sha256": "48aa3f5dea0758e8bda7c6d97795cac15b3d9730ff7d1a20a6e6f961e7494acb"
+  },
+  "SIGUIENTE_ACCION_AUTOMATICA": "Materialize the exact XAU 2018-2019 canonical development prefix, verify SHA-256 3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53, build the causal PDH/PDL failed-auction event enumerator, require independent enumerator parity, then execute the preregistered predictive Gate A on development only. Do not open 2020+ holdout."
+}
