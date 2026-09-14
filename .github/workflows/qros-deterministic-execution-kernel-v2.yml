@@ -1,0 +1,127 @@
+name: qros-deterministic-execution-kernel-v2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v1.0.json'
+      - 'control/QROS_PUBLIC_1000_DETERMINISTIC_EXECUTION_MAP_v2.json'
+      - 'control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v2.json'
+      - 'control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v1.json'
+      - 'control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v1.json'
+      - 'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json'
+      - 'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V244_v1.json'
+      - 'scripts/qros_execution_kernel_compile_v2.py'
+      - 'scripts/qros_execution_kernel_oracle_v2.py'
+      - 'scripts/qros_execution_kernel_adversarial_v2.py'
+      - '.github/workflows/qros-deterministic-execution-kernel-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deterministic-kernel-v2:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      TARGET: control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V244_v1.json
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout exact private-repository triggering commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir repo
+          cd repo
+          git init -q
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git -c http.extraheader="AUTHORIZATION: basic ${AUTH}" fetch --depth=1 "https://github.com/${GITHUB_REPOSITORY}.git" "${GITHUB_SHA}"
+          git checkout -q --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+          echo "EXACT_TRIGGER_COMMIT_CHECKOUT=PASS"
+
+      - name: Syntax and frozen JSON validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 -m py_compile scripts/qros_execution_kernel_compile_v2.py scripts/qros_execution_kernel_oracle_v2.py scripts/qros_execution_kernel_adversarial_v2.py
+          python3 -m json.tool governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v1.0.json >/dev/null
+          python3 -m json.tool control/QROS_PUBLIC_1000_DETERMINISTIC_EXECUTION_MAP_v2.json >/dev/null
+          python3 -m json.tool control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v2.json >/dev/null
+          python3 -m json.tool control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v1.json >/dev/null
+          python3 -m json.tool control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v1.json >/dev/null
+          python3 -m json.tool "${TARGET}" >/dev/null
+          echo "SYNTAX_AND_JSON=PASS"
+
+      - name: Compile single candidate action
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 scripts/qros_execution_kernel_compile_v2.py --repo-root . --target "${TARGET}" --out /tmp/qros_action_ticket_v2.json
+          cat /tmp/qros_action_ticket_v2.json
+
+      - name: Independent action oracle
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 scripts/qros_execution_kernel_oracle_v2.py --repo-root . --target "${TARGET}" --primary-ticket /tmp/qros_action_ticket_v2.json --out /tmp/qros_action_oracle_v2.json
+          cat /tmp/qros_action_oracle_v2.json
+
+      - name: Specific-cause adversarial ambiguity suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 scripts/qros_execution_kernel_adversarial_v2.py --repo-root . --target "${TARGET}" --out /tmp/qros_kernel_adversarial_v2.json
+          cat /tmp/qros_kernel_adversarial_v2.json
+
+      - name: Active pointer integration if V244 is promoted
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          VERSION=$(python3 - <<'PY'
+          import json
+          print(json.load(open('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json'))['current_version'])
+          PY
+          )
+          if [ "$VERSION" = "V244" ]; then
+            python3 scripts/qros_execution_kernel_compile_v2.py --repo-root . --out /tmp/qros_active_ticket_v2.json
+            python3 scripts/qros_execution_kernel_oracle_v2.py --repo-root . --primary-ticket /tmp/qros_active_ticket_v2.json --out /tmp/qros_active_oracle_v2.json
+            cmp -s /tmp/qros_action_ticket_v2.json /tmp/qros_active_ticket_v2.json
+            echo "ACTIVE_V244_KERNEL_INTEGRATION=PASS"
+          else
+            test "$VERSION" = "V242"
+            echo "CANDIDATE_V244_VALIDATION_BEFORE_PROMOTION=PASS"
+          fi
+
+      - name: Machine-readable summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          t=json.load(open('/tmp/qros_action_ticket_v2.json'))
+          o=json.load(open('/tmp/qros_action_oracle_v2.json'))
+          a=json.load(open('/tmp/qros_kernel_adversarial_v2.json'))
+          summary={
+            "kernel_validation":"PASS",
+            "ticket_id":t["ticket_id"],
+            "state_id":t["state_id"],
+            "guard_profile":t["guard_profile"],
+            "action_type":t["action_type"],
+            "resolved_success_state":t["resolved_success_state"],
+            "guard_profiles_covered":t["map_coverage"]["guard_profiles_total"],
+            "oracle_status":o["status"],
+            "adversarial_status":a["status"],
+            "negative_mutations":a["negative_mutations"],
+            "free_text_non_authority":"PASS"
+          }
+          print("QROS_EXTERNAL_VALIDATION_SUMMARY="+json.dumps(summary,sort_keys=True,separators=(',',':')))
+          with open('/tmp/qros_external_validation_summary_v2.json','w') as f:
+              json.dump(summary,f,sort_keys=True,indent=2)
+          PY
