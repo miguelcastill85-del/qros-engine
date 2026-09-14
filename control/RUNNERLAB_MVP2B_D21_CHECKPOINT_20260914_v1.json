@@ -1,0 +1,24 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_D21_CHECKPOINT_1",
+  "observed_evidence": "USER_SCREENSHOT_20260914",
+  "evidence_classification": "VERIFIED_VISIBLE_NOT_BYTE_REVERIFIED",
+  "observed_stage_results": {
+    "M2B0": "PASS",
+    "M2B1": "PASS",
+    "M2B2": "PASS terminal64_processes=0",
+    "M2B3": "PASS isolated MT5_B launched under Job Object",
+    "M2B4": "PASS owned PID/path/hash continuity",
+    "M2B5": "FAIL PORTABLE_MODE_FAILED_CLONE_MAPPED_TO_ROAMING_DATA"
+  },
+  "observed_safety": {
+    "clone_mt5_launched": true,
+    "candidate3_executed": false,
+    "trades_sent_by_runnerlab": false,
+    "promotion_allowed": false
+  },
+  "root_cause": "D21_PORTABLE_MAPPING_METADATA_FALSE_FAIL",
+  "root_cause_status": "VERIFIED_CODE_PREDICATE_PLUS_OFFICIAL_PORTABLE_SEMANTICS",
+  "correction": "Replace absence-of-origin-mapping predicate with metadata-only roaming-stub audit plus positive mutable-data activity inside MT5_B and active-origin stability recheck.",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "next_action": "Run corrected MVP2B D21 carrier natively on the same Windows PC; Candidate3/CERT/deployment remain blocked."
+}
