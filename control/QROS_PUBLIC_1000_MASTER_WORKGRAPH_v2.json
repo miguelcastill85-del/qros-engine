@@ -1,0 +1,74 @@
+{
+  "schema": "QROS_PUBLIC1000_MASTER_WORKGRAPH_2.0",
+  "version": "2.0",
+  "status": "FROZEN_ARCHITECTURE_MAP_CANDIDATE",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "supersedes": "control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v1.json",
+  "objective": "Bind each claimed closed upstream stage to exact durable evidence and make every unsupported closure explicit before economic execution.",
+  "nodes": [
+    {
+      "id":"W00_DATA_AUDIT","stage":"DATA_AUDIT","status":"CLOSED_FOR_CURRENT_DEV_PREFIXES",
+      "evidence":{"path":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_MINIMAL_DEV_CARRIER_BINDING_20260914_v1.json","git_blob_sha1":"d5de576cd4c81f80931418d40f9f7877c114d03d"},"economic":false
+    },
+    {
+      "id":"W01_PREREGISTRATION","stage":"PREREGISTRATION","status":"CLOSED",
+      "evidence":{"path":"control/QROS_PUBLIC_1000_SEED_0076_GATE_A_SHARD_PLAN_V213_v1.json","git_blob_sha1":"0b4f724ccf683907b05013687c581deadfc2ecc1"},"economic":false
+    },
+    {
+      "id":"W02_CAUSAL_SCOPE","stage":"CAUSAL_SCOPE","status":"EVIDENCE_BOUND",
+      "evidence":{"path":"research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json","git_blob_sha1":"c6f7ac8b49993460bee57a9feb6f3bd3bd6a2ebf","required_status":"FROZEN_MACHINE_CANONICAL"},"economic":false
+    },
+    {
+      "id":"W03_UNIVERSE_BUILD","stage":"UNIVERSE_BUILD","status":"EVIDENCE_BOUND_FROZEN_60_SHARD_UNIVERSE",
+      "evidence":[
+        {"path":"research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json","git_blob_sha1":"c6f7ac8b49993460bee57a9feb6f3bd3bd6a2ebf"},
+        {"path":"control/QROS_PUBLIC_1000_SEED_0076_GATE_A_SHARD_PLAN_V213_v1.json","git_blob_sha1":"0b4f724ccf683907b05013687c581deadfc2ecc1","expected_shards":60,"expected_configs_per_shard":804672,"expected_raw_configs_total":48280320}
+      ],"economic":false
+    },
+    {
+      "id":"W04_RISE_FIXED_POINT","stage":"RISE_FIXED_POINT","status":"EVIDENCE_BINDING_REQUIRED",
+      "policy_evidence":{"path":"governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.1.json","git_blob_sha1":"9dd081e87a255176108823f63f064ae28dea2bc7","requirement":"post-expansion RISE fixed point PASS"},
+      "missing_evidence":"exact Seed0076 post-expansion RISE fixed-point receipt",
+      "closure":"recover original receipt or perform non-economic revalidation against frozen universe",
+      "economic":false
+    },
+    {
+      "id":"W05_ONTOLOGY_FREEZE","stage":"UNIVERSE_ONTOLOGY_FROZEN","status":"EVIDENCE_PARTIAL_BLOCKED_BY_W04",
+      "available_evidence":{"path":"research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json","git_blob_sha1":"c6f7ac8b49993460bee57a9feb6f3bd3bd6a2ebf","status":"FROZEN_MACHINE_CANONICAL"},
+      "non_inference_rule":"FROZEN_MACHINE_CANONICAL alone does not prove the policy-required post-expansion RISE fixed point",
+      "economic":false
+    },
+    {
+      "id":"W06_CONFIG_HASH_FREEZE","stage":"CONFIG_HASH_FREEZE","status":"EVIDENCE_BOUND_FOR_FROZEN_SHARD_PLAN",
+      "evidence":{"path":"control/QROS_PUBLIC_1000_SEED_0076_GATE_A_SHARD_PLAN_V213_v1.json","git_blob_sha1":"0b4f724ccf683907b05013687c581deadfc2ecc1","universe_hash":"7a9ccb60ec0a146065df5c8126352e0978e13eedbc992fecdb65730726633a30","config_stream_root_sha256":"526e57bae7a1bb95b1fcaf90bfab4095956fc5445334eddf59e97d89a789f947"},"economic":false
+    },
+    {"id":"W07_ENUMERATOR_PARITY","stage":"INDEPENDENT_ENUMERATOR_PARITY","status":"SERIAL_PER_SHARD","economic":false},
+    {"id":"W08_GA1_MASK_ENUMERATION","stage":"GA1_EVENT_MASK_ENUMERATION_AND_DEDUPE","status":"LOOP_ACTIVE_VALID_WORK_PRESERVED","economic":false,"loop_total_shards":60,"completed_shards_at_map_freeze":8,"recompute_completed_valid_work":false},
+    {"id":"W09_FIRST_GATE_SCORER_BUILD","stage":"FIRST_GATE_SCORER_BUILD_AND_PARITY","status":"BLOCKED_BY_W04","economic":false,"subject":"FIFO #1 XAUUSD/BUY/M1"},
+    {"id":"W10_FIRST_GATE","stage":"GA2_SIGNAL_ALPHA_SCORING_FIRST_GATE","status":"PREREGISTERED_BLOCKED_BY_W04_AND_SCORER","economic":true,"holdout":false,"contract":"governance/QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_v1.0.json"},
+    {"id":"W11_GA1_FIRST_GATE_SERIAL_LOOP","stage":"SERIAL_SHARD_TRANSACTION_LOOP","status":"PREREGISTERED","economic":"MIXED","rule":"After upstream evidence is closed, drain current 8 FIRST_GATE rows FIFO; thereafter each new GA1 shard is immediately followed by its FIRST_GATE terminal decision before another GA1 shard starts.","exit_condition":"60/60 GA1 complete and 60/60 FIRST_GATE terminal"},
+    {"id":"W12_POST_GA1_POLICY_FREEZE","stage":"POST_GA1_TRANSITION_PREREGISTRATION","status":"POLICY_REQUIRED","economic":false},
+    {"id":"W13_GA3_MANAGEMENT","stage":"GA3_MANAGEMENT_OVERLAY_SWEEP","status":"POLICY_REQUIRED","economic":true,"invariant":"management cannot rescue FIRST_GATE failures"},
+    {"id":"W14_GA4_EXECUTION_STRESS","stage":"GA4_EXECUTION_AND_STRESS","status":"POLICY_REQUIRED","economic":true,"invariant":"stress may reject/downgrade but may not rescue"},
+    {"id":"W15_GATE_A_FINAL","stage":"GATE_A_TERMINAL_DECISION","status":"POLICY_REQUIRED","economic":true},
+    {"id":"W16_HOLDOUT_AUTHORIZATION","stage":"HOLDOUT_AUTHORIZATION","status":"POLICY_REQUIRED","economic":false,"invariant":"holdout remains closed until explicit frozen authorization"},
+    {"id":"W17_HOLDOUT","stage":"HOLDOUT","status":"LOCKED_POLICY_REQUIRED","economic":true},
+    {"id":"W18_SUPERGATE","stage":"SUPERGATE","status":"POLICY_REQUIRED","economic":true},
+    {"id":"W19_MT5_PARITY","stage":"MT5_PARITY","status":"POLICY_REQUIRED","economic":true},
+    {"id":"W20_PORTFOLIO_MARGINAL","stage":"PORTFOLIO_MARGINAL_ANALYSIS","status":"POLICY_REQUIRED","economic":true},
+    {"id":"W21_FINAL_DECISION","stage":"FINAL_DECISION","status":"POLICY_REQUIRED","economic":true}
+  ],
+  "edges": [
+    ["W00_DATA_AUDIT","W01_PREREGISTRATION"],["W01_PREREGISTRATION","W02_CAUSAL_SCOPE"],["W02_CAUSAL_SCOPE","W03_UNIVERSE_BUILD"],["W03_UNIVERSE_BUILD","W04_RISE_FIXED_POINT"],["W04_RISE_FIXED_POINT","W05_ONTOLOGY_FREEZE"],["W05_ONTOLOGY_FREEZE","W06_CONFIG_HASH_FREEZE"],["W06_CONFIG_HASH_FREEZE","W07_ENUMERATOR_PARITY"],["W07_ENUMERATOR_PARITY","W08_GA1_MASK_ENUMERATION"],["W08_GA1_MASK_ENUMERATION","W09_FIRST_GATE_SCORER_BUILD"],["W09_FIRST_GATE_SCORER_BUILD","W10_FIRST_GATE"],["W10_FIRST_GATE","W11_GA1_FIRST_GATE_SERIAL_LOOP"],["W11_GA1_FIRST_GATE_SERIAL_LOOP","W12_POST_GA1_POLICY_FREEZE"],["W12_POST_GA1_POLICY_FREEZE","W13_GA3_MANAGEMENT"],["W13_GA3_MANAGEMENT","W14_GA4_EXECUTION_STRESS"],["W14_GA4_EXECUTION_STRESS","W15_GATE_A_FINAL"],["W15_GATE_A_FINAL","W16_HOLDOUT_AUTHORIZATION"],["W16_HOLDOUT_AUTHORIZATION","W17_HOLDOUT"],["W17_HOLDOUT","W18_SUPERGATE"],["W18_SUPERGATE","W19_MT5_PARITY"],["W19_MT5_PARITY","W20_PORTFOLIO_MARGINAL"],["W20_PORTFOLIO_MARGINAL","W21_FINAL_DECISION"]
+  ],
+  "global_invariants": [
+    "No stage is called CLOSED without exact evidence binding.",
+    "EVIDENCE_BINDING_REQUIRED is a hard blocker, not permission to infer.",
+    "No economic PnL, GA2 or holdout opening is allowed while W04 is unresolved.",
+    "Completed valid GA1 evidence is preserved and is not recomputed solely because W04 evidence is rebound.",
+    "Every transition leaves immutable evidence and advances the stable pointer only by CAS."
+  ],
+  "current_node": "W04_RISE_FIXED_POINT",
+  "automatic_next_action": "RECOVER_OR_REVALIDATE_RISE_FIXED_POINT_NO_PNL",
+  "decision": "WORKGRAPH_V2_FROZEN: CURRENT SCIENTIFIC PRECONDITION IS W04 EVIDENCE, NOT FIRST_GATE SCORER"
+}
