@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP1_SOURCE_CORRECTION_3",
+  "utc": "2026-09-14T04:10:00Z",
+  "supersedes_source_identities": [
+    "QROS_RUNNERLAB_MVP1_CHECKPOINT_v1.json",
+    "QROS_RUNNERLAB_MVP1_SOURCE_CORRECTION_v2.json"
+  ],
+  "cause": "SOURCE_MANIFEST referenced transient static_audit_stdout.txt while that file was intentionally excluded from the distributable ZIP. ZIP bytes were sound but manifest coverage was not exact.",
+  "correction": "Manifest generation now writes the current static audit first, excludes only SOURCE_MANIFEST itself and transient console capture, then hashes every exact distributable file. Final carrier audit requires no missing, mismatched, or uncovered entries.",
+  "authoritative_source_carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP1_SOURCE.zip",
+    "sha256": "01098ff81164368bd768ca76c479ab8417da655a3be39fcd9b58a693971181e4",
+    "bytes": 21690,
+    "entry_count": 20,
+    "zip_crc": "PASS",
+    "duplicate_names": 0,
+    "unsafe_paths": 0,
+    "static_audit": "PASS_20_OF_20",
+    "manifest_missing": 0,
+    "manifest_hash_mismatches": 0,
+    "manifest_uncovered_extras": 0
+  },
+  "native_execution": {
+    "compiled": false,
+    "reason": "Current chat runtime has no dotnet SDK and is Linux; Win32 Job Object selftest must run on native Windows.",
+    "candidate3_executed": false,
+    "mt5_accessed": false,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false
+  },
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "next_action": "Execute BUILD_AND_SELFTEST.cmd on native Windows. Require SELF0-SELF4 PASS from both build output and published self-contained win-x64 executable before adding any MT5 clone integration."
+}
