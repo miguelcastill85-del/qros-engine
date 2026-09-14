@@ -1,0 +1,64 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2A_SOURCE_FREEZE_1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "authority_parent_commit": "23c14a0e0bc034fbd290b4511ddffb5771de541b",
+  "preregistration": "architecture/RUNNERLAB_MVP2A_READ_ONLY_MT5_DISCOVERY_SPEC_v1.json",
+  "carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP2A_READONLY_DISCOVERY_SOURCE_FINAL.zip",
+    "bytes": 46678,
+    "sha256": "f3688c823aca63441e7c9c8d29bb7cb8352060452aa6196031f316d9e2ed73f0",
+    "zip_entries": 28,
+    "crc": "PASS",
+    "manifest_missing": 0,
+    "manifest_extra": 0,
+    "manifest_hash_mismatches": 0
+  },
+  "source_manifest_sha256": "2b0de74c4c560882e540a5c553667c8a16c9ae3d4bb9f3205419188e6ffe0a7e",
+  "static_audit": {
+    "checks": 92,
+    "pass": true,
+    "sha256": "792126d61090b54ff3c622a257482371d8c980534d92f4e2d8fcdc9a75192274"
+  },
+  "independent_audit": {
+    "checks": 20,
+    "pass": true,
+    "sha256": "a9838f36c623ebf46207369a9da386b7a710e4c4638417b591c7a3d2e00f3add"
+  },
+  "key_sources": {
+    "src/RunnerLab.Core/Mvp2A.cs": "96d76074b381b3ae664211b830c625bfd0a30d5913cb449e4b24e37b9503c66c",
+    "src/RunnerLab.Core/Mvp2ASelfTests.cs": "87662d55c8cfe4a5dbf3fff51e79a1e7907d5d0e56454c37a535a75a85b673f4",
+    "src/RunnerLab.Cli/Program.cs": "51d1b7fb1322ef7477451e5b3dd8f74c68c8d88c1dc7a9e2815174598d37935a",
+    "BUILD_AND_RUN_MVP2A.cmd": "4e1f202388220bab4b148bc1301e2f3304ae91891f2d270475fd81bcc1427fa0"
+  },
+  "safety": {
+    "mt5_launch_allowed": false,
+    "candidate3_allowed": false,
+    "trading_allowed": false,
+    "cert_arm_allowed": false,
+    "deployment_allowed": false,
+    "active_mt5_write_allowed": false,
+    "active_data_traversal_allowed": false
+  },
+  "validated_design_properties": [
+    "exactly_one_deterministic_darwinex_marker_or_safe_stop",
+    "origin_txt_only_active_data_mapping",
+    "allowlist_only_installation_clone",
+    "secret_name_and_extension_guard",
+    "reparse_point_rejection",
+    "source_destination_overlap_rejection",
+    "destination_outside_program_files_and_active_data",
+    "copy_create_new_write_through_flush_to_disk",
+    "source_to_clone_sha256_parity",
+    "post_copy_source_stability_recheck",
+    "independent_clone_manifest_reconstruction",
+    "runtime_result_separated_from_evidence_packaging"
+  ],
+  "evidence_classification": {
+    "source_integrity": "VERIFIED_IN_CHAT_RUNTIME",
+    "static_adversarial_audit": "VERIFIED_IN_CHAT_RUNTIME",
+    "native_windows_mvp2a_execution": "NO_DISPONIBLE_YET",
+    "mt5_environment_fingerprint": "NO_DISPONIBLE_YET",
+    "clone_parity": "NO_DISPONIBLE_YET"
+  },
+  "next_action": "Run BUILD_AND_RUN_MVP2A.cmd on the same Windows PC. MVP1 safety regressions and synthetic MVP2A tests must pass before read-only Darwinex discovery. Do not launch MT5 from RunnerLab in MVP2A."
+}
