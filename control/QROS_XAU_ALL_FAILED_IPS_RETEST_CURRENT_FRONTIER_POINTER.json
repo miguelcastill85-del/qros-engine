@@ -1,29 +1,31 @@
 {
-  "schema": "QROS_XAU_ALL_FAILED_IPS_RETEST_CURRENT_FRONTIER_POINTER_1.0",
+  "schema": "QROS_XAU_ALL_FAILED_IPS_RETEST_CURRENT_FRONTIER_POINTER_1.1",
   "updated_date": "2026-09-14",
   "campaign_id": "QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
   "scientific_state": "CAMPAIGN_ACTIVE",
   "objective": "Recover literally all historically failed/rejected/exhausted/not-approved XAU trading strategies and exact configurations, then execute a common 2018-2024 retrospective backtest serially where exact bytes are recoverable.",
   "authority": {
     "prereg": {"path":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_ALL_FAILED_IPS_RETEST_PREREG_v1.json","commit":"b3453e967354ec0f354cf4dcef59fa949da6dfe1"},
-    "census": {"path":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_FAILED_STRATEGY_MASTER_CENSUS_v2.csv","sha256":"9ebc531b3830bb99347f827304ec48cda3e530cfc98787fe341f94cefb707fae","commit":"a03f18e91fc19ca1a4b30b21b44fe7a1d6fa362d"},
-    "manifest": {"path":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_FAILED_STRATEGY_CENSUS_MANIFEST_v2.json","commit":"f147bdd867395007ba6f2b20c17dd7eb147d3e9f"}
+    "census": {"path":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_FAILED_STRATEGY_MASTER_CENSUS_v3.csv","sha256":"ff4b45bfc7677a8dad3e95fa1e2fd38f0ab7c611360c2e3d8bce72dba21da9b1","commit":"ef6b60813d159ad46263f81fa5f1d5eae1f7c2b4"},
+    "manifest": {"path":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_FAILED_STRATEGY_CENSUS_MANIFEST_v3.json","commit":"144157253e16203ba8b7072f9b3be34c34834d76"}
   },
   "period_policy": {"common_window":"2018-2024","classification":"EXPOSED_DIAGNOSTIC_RESEARCH_ONLY","2025_2026":"SEALED_FOR_THIS_CAMPAIGN"},
   "ips_filter": {"indicator":"QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY","threshold":65,"lookback_minutes":60,"same_direction":true,"strictly_prior":true,"same_source_day":true,"retuning":"FORBIDDEN"},
-  "census_state": {"rows":37,"quantified_hard_failed_lower_bound_after_alias_dedupe":48357,"exhaustiveness":"IN_PROGRESS"},
+  "census_state": {"rows":41,"quantified_hard_failed_lower_bound_after_alias_dedupe":48357,"exhaustiveness":"IN_PROGRESS"},
   "completed_exact": [
-    {"id":"XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1","period":"2018-2024","state":"REJECTED","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/receipts/QROS_STRAT001_FULL_2018_2024_RECEIPT_v1.json","commit":"9c726cbd905408f583cd6b24391a6ef7bd9ae44c"}
+    {"id":"XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1","period":"2018-2024","state":"REJECTED","trades":4344,"net_R":-961.671,"expectancy_R":-0.2214,"PF":0.691,"max_DD_R":972.956,"positive_years":"0/7","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/receipts/QROS_STRAT001_FULL_2018_2024_RECEIPT_v1.json","commit":"9c726cbd905408f583cd6b24391a6ef7bd9ae44c"}
   ],
   "completed_no_pass_descendants": [
-    {"id":"XAU_M1_IPS_CONFIRMATION_v1","period":"2018-2024","state":"INCONCLUSIVE_SUPPORT_NOT_APPROVED","base_trades":61,"filtered_trades":5}
+    {"id":"XAU_M1_IPS_CONFIRMATION_v1","period":"2018-2024","state":"INCONCLUSIVE_SUPPORT_NOT_APPROVED","base_trades":61,"filtered_trades":5,"coverage_fraction":0.08196721311475409}
   ],
   "runtime_blockers": [
-    {"id":"XAU_BUY_MULTIWEEK_PULLBACK_v2512","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_V2512_CURRENT_RUNTIME_BLOCKER_RECEIPT_v1.json","commit":"3ad97f397f407a70e24c4ca4c880384dd0c6df56"},
-    {"id":"XAU_BUY_Rolling40_v2050","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_V2050_CURRENT_RUNTIME_BLOCKER_RECEIPT_v1.json","commit":"5d9d795ee86348b2c8f9273bf1c8cd910b5be70c"},
-    {"id":"XAU_BEAR_FLAG_SELL_v1205","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_V1205_CURRENT_RUNTIME_BLOCKER_RECEIPT_v1.json","commit":"b9b88b7ad451da4c94ff4c44a926a8339cedc8b5"},
-    {"ids":["BUY_pair_v3801-416","BUY_DENSITY_v6026","XAU_DENSITY_v6116"],"receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_V3801_V6026_V6116_CURRENT_RUNTIME_BLOCKER_RECEIPT_v1.json","commit":"9d6feb9ce6161e6f996655a583bcc12595971770"}
+    {"id":"XAU_BUY_MULTIWEEK_PULLBACK_v2512","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_V2512_CURRENT_RUNTIME_BLOCKER_RECEIPT_v1.json","historical_parity":"PASS_64_OF_64","current_issue":"EXACT_BYTES_NOT_MATERIALIZED"},
+    {"id":"XAU_BUY_Rolling40_v2050","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_V2050_CURRENT_RUNTIME_BLOCKER_RECEIPT_v1.json"},
+    {"id":"XAU_BEAR_FLAG_SELL_v1205","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_V1205_CURRENT_RUNTIME_BLOCKER_RECEIPT_v1.json"},
+    {"ids":["BUY_pair_v3801-416","BUY_DENSITY_v6026","XAU_DENSITY_v6116"],"receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_V3801_V6026_V6116_CURRENT_RUNTIME_BLOCKER_RECEIPT_v1.json"},
+    {"ids":["FAILED_AUCTION_v12000_v12100","FA_BUY_R108_ONEBAR_DEEP_FLOW_BROAD_FAST","FA_BUY_R108_ONEBAR_DEEP_FLOW_BROAD_BAL","XAU_M5_M5D02","XAU_M6_LIQUIDITY_SHOCK_FAILURE_BUY_SELL","XAU_SELL_AUCTION_UNIFIED_v1103"],"receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_FAILED_AUCTION_M5_M6_V1103_RUNTIME_BLOCKER_RECEIPT_v1.json","commit":"dab0336b2862d01ec235f3534ddabf496cb91c79"}
   ],
   "base_reproduction_policy": "Exact trade-by-trade parity or exact frozen generator plus all recoverable golden metrics is mandatory before IPS scoring. Approximation is forbidden.",
-  "next_action": "Enumerate repository and File Library for the next failed XAU strategy with exact executable bytes; execute it serially for 2018-2024. If an identity lacks exact bytes, create a blocker and continue without stopping the campaign."
+  "correction": "v2512 durable authority verifies historical 64/64 parity. Any current reconstruction mismatch is not evidence of historical parity failure; current blocker is absence of exact executable bytes/ledger in this runtime.",
+  "next_action": "Continue serial census and recovery at the next failed XAU identity. Execute immediately only when exact base bytes or an exact reproducible generator are recoverable; otherwise persist an individual blocker and continue."
 }
