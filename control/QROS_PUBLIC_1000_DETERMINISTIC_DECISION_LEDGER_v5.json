@@ -1,0 +1,19 @@
+{
+  "schema":"QROS_PUBLIC1000_DETERMINISTIC_DECISION_LEDGER_5.0",
+  "version":"5.0",
+  "status":"FROZEN_ACTIVE_CANDIDATE",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "supersedes":"control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v4.json",
+  "correction_receipt":"control/QROS_V246_CANDIDATE_EXTERNAL_VALIDATION_FAILURE_20260914_v1.json",
+  "entries":[
+    {"id":"D032","rule":"V246 is rejected and never promotable because external validation found a V209 Git-blob pin mismatch before ticket generation."},
+    {"id":"D033","rule":"The authoritative current Git blob for research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json is c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf as independently observed by GitHub Actions and then re-read through the connector."},
+    {"id":"D034","rule":"The current V209 bytes do not contain status=FROZEN_MACHINE_CANONICAL; that prior characterization is invalid and may not be reused."},
+    {"id":"D035","rule":"Gate-A V213 GA0_PREFLIGHT explicitly requires universe/hash/parity/fixed-point receipts PASS before economic PnL; therefore missing Seed0076 fixed-point evidence is a hard blocker."},
+    {"id":"D036","rule":"The generic kernel architecture rules D021-D031 remain valid, but corrected candidates must use the actual V209 bytes and must not infer unsupported artifact status."},
+    {"id":"D037","rule":"Eight completed GA1 shards are preserved; the V209 evidence correction does not by itself prove corruption of those masks and therefore does not authorize recomputation."},
+    {"id":"D038","rule":"Remaining XAU/NQX full-history ZIP uploads remain independent of the current W04 fixed-point evidence blocker and may continue without delaying its resolution."}
+  ],
+  "inherits_rules_from":"control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v4.json except claims corrected by D032-D038",
+  "decision":"V5_CORRECTED: EXTERNAL FAILURE ACCEPTED AS AUTHORITY; W04 FIXED-POINT EVIDENCE IS THE CURRENT PRE-SCIENTIFIC BLOCKER"
+}
