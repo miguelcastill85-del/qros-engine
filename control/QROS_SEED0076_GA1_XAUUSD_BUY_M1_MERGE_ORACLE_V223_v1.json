@@ -1,0 +1,29 @@
+{
+  "checks": {
+    "distinct_mask_class_count": true,
+    "full_alias_mapping_root_sha256": true,
+    "group_receipt_sequence": true,
+    "local_distinct_class_sum": true,
+    "processed_signal_configs": true,
+    "semantic_class_root_sha256": true,
+    "zero_event_class_alias_count": true,
+    "zero_event_representative_config_id": true
+  },
+  "domain": {"asset":"XAUUSD","side":"BUY","timeframe":"M1"},
+  "economic_pnl_read": false,
+  "failures": [],
+  "holdout_open": false,
+  "receipt_sha256": "562f6fe56e16d40e77967ef8c9d66a97eaaf5c727e0f4402fcbacb48645d678c",
+  "reconstructed": {
+    "distinct_mask_class_count": 303572,
+    "full_alias_mapping_root_sha256": "4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458",
+    "local_distinct_class_sum": 304069,
+    "processed_signal_configs": 804672,
+    "semantic_class_root_sha256": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+    "zero_event_class_alias_count": 13148,
+    "zero_event_representative_config_id": "00029d442378644f3717d61f675726b453ab2d53dcb84a9a887ab76834c627f4"
+  },
+  "schema": "QROS_SEED0076_GA1_DISTRIBUTED_MERGE_ORACLE_1.0",
+  "seed": "WEB_SEED_0076",
+  "status": "PASS"
+}
