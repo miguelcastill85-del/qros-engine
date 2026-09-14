@@ -1,0 +1,95 @@
+{
+  "schema":"QROS_PUBLIC1000_CAMPAIGN_HARDENING_AUDIT_1.0",
+  "status":"PASS_HARDENED_WITH_DERIVED_BYTES_REMATERIALIZABLE",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "seed":"WEB_SEED_0076",
+  "scope":"Durability, cross-chat recovery, code portability, shard identity binding, lossless derived-artifact preservation and promotion continuity for the current GA1 state. This audit does not claim economic alpha or complete the remaining GA1 shards.",
+  "authority_after_audit":{
+    "hardening_policy":"governance/QROS_SHARDED_EXECUTION_HARDENING_POLICY_v1.0.json",
+    "promotion_ledger":"control/QROS_PUBLIC_1000_FIRST_ECONOMIC_GATE_PROMOTION_LEDGER_v2.json",
+    "rematerialization_manifest":"control/QROS_PUBLIC_1000_SEED_0076_DERIVED_ARTIFACT_REMATERIALIZATION_MANIFEST_V233_v1.json",
+    "portable_wrapper_parity":"control/QROS_PUBLIC_1000_SEED_0076_PORTABLE_GA1_WRAPPER_PARITY_V233_v1.json",
+    "resume_preflight":"scripts/qros_cross_chat_resume_preflight_v234.py",
+    "resume_preflight_regression":"control/QROS_PUBLIC_1000_CROSS_CHAT_RESUME_PREFLIGHT_REGRESSION_V234_v1.json",
+    "xau_modern_rebinding_parity":"control/QROS_PUBLIC_1000_SEED_0076_XAU_BUY_M1_V228_REBINDING_PARITY_V233_v1.json"
+  },
+  "findings_and_corrections":[
+    {
+      "id":"HARDEN-01",
+      "finding":"Certified V225/V227 accelerated wrappers contained absolute transient /mnt/data paths, making the committed code non-portable across chats/runtimes even though historical executed bytes/results remained valid.",
+      "severity":"HIGH_DURABILITY_NOT_SCIENTIFIC_INVALIDATION",
+      "correction":"Repository-relative V233 wrappers with exact dependency Git-blob guards.",
+      "verification":"Byte-exact parity on frozen NQX/BUY/H4 real groups 0 and 1, including counts, roots and artifact SHA-256.",
+      "receipt":"control/QROS_PUBLIC_1000_SEED_0076_PORTABLE_GA1_WRAPPER_PARITY_V233_v1.json",
+      "status":"CLOSED"
+    },
+    {
+      "id":"HARDEN-02",
+      "finding":"Cross-chat continuity existed as policy/pointer text but had no machine fail-closed authority graph preflight.",
+      "severity":"HIGH_DURABILITY",
+      "correction":"Cross-chat resume preflight V234 validates stable/target binding, authority existence, ledger/completion identity equality, shard/config/semantic/alias roots, checkpoint progress, rematerialization domain set, portable wrapper blobs and economic firewalls.",
+      "verification":"Positive fixture PASS; alias-root mutation FAIL; missing hardening-policy FAIL.",
+      "receipt":"control/QROS_PUBLIC_1000_CROSS_CHAT_RESUME_PREFLIGHT_REGRESSION_V234_v1.json",
+      "status":"CLOSED"
+    },
+    {
+      "id":"HARDEN-03",
+      "finding":"Promotion ledger v1 did not uniformly contain shard_id, ordered config root and full alias-map root for every completed shard.",
+      "severity":"MEDIUM_AUTHORITY",
+      "correction":"Promotion ledger v2 normalizes strong identities and storage/rematerialization authority for all four promoted shards while preserving v1 historically.",
+      "verification":"Identities reconciled to completion receipts; H2 exact completion independently re-read from main.",
+      "authority":"control/QROS_PUBLIC_1000_FIRST_ECONOMIC_GATE_PROMOTION_LEDGER_v2.json",
+      "status":"CLOSED"
+    },
+    {
+      "id":"HARDEN-04",
+      "finding":"Large derived bytes were intentionally not persisted to GitHub but reconstruction authority was distributed across several receipts.",
+      "severity":"HIGH_RECOVERY",
+      "correction":"Single deterministic rematerialization manifest binds exact DEV bytes, cache receipts, builder/oracle/worker commits, portable wrappers and per-shard scientific/storage roots.",
+      "authority":"control/QROS_PUBLIC_1000_SEED_0076_DERIVED_ARTIFACT_REMATERIALIZATION_MANIFEST_V233_v1.json",
+      "status":"CLOSED_WITH_REMATERIALIZATION"
+    },
+    {
+      "id":"HARDEN-05",
+      "finding":"Historical XAU/BUY/M1 completion depended on an old merge envelope that predated generic domain binding; forcing a new global pack would be expensive and scientifically unnecessary.",
+      "severity":"MEDIUM_PORTABILITY",
+      "correction":"Re-merge the original 24 group artifacts with generic V228 merger and independent oracle; preserve old V224 receipt and 24-zstd representation rather than forcing storage normalization.",
+      "verification":"V228 reproduces exactly 804672 configs, 303572 classes, config root 96d664f4..., semantic root cf28be12..., alias root 4151cccd....",
+      "receipt":"control/QROS_PUBLIC_1000_SEED_0076_XAU_BUY_M1_V228_REBINDING_PARITY_V233_v1.json",
+      "status":"CLOSED"
+    },
+    {
+      "id":"HARDEN-06",
+      "finding":"Engineering lessons from this first campaign were campaign-local and could regress in future sharded campaigns.",
+      "severity":"MEDIUM_PROCESS",
+      "correction":"General sharded execution hardening policy freezes portability, parity-before-optimization, generic domain binding, lossless cleanup, resume preflight, rematerialization and economic-firewall rules.",
+      "authority":"governance/QROS_SHARDED_EXECUTION_HARDENING_POLICY_v1.0.json",
+      "status":"CLOSED"
+    }
+  ],
+  "verified_current_state":{
+    "ga1_formally_completed_shards":4,
+    "first_economic_gate_queue_count":4,
+    "completed_domains":["XAUUSD/BUY/M1","NQX/BUY/H1","NQX/BUY/H2","NQX/BUY/H3"],
+    "current_domain":"NQX/BUY/H4",
+    "current_groups_pass":24,
+    "current_groups_total":24,
+    "current_processed_signal_configs":804672,
+    "current_expected_config_root_sha256":"da93ef4605d4a8c94753248cacc3f75188fa7197e9728922fe4d8b5853c65b90",
+    "current_group_receipts_root_sha256":"27cb9f67cbb4e65945a054452aec2281a1ab251cb8d77b56f227aa84dcf72972",
+    "economic_pnl_read":false,
+    "holdout_open":false,
+    "ga2_open":false
+  },
+  "known_residuals_not_classified_as_critical_gaps":[
+    "H4 is not yet a completed/promoted shard: V228 merge, independent oracle, mask preservation/pack and promotion are still pending.",
+    "56 of 60 GA1 shards remain scientifically uncompleted after the four formal completions; this is campaign progress, not missing durability authority.",
+    "Large derived mask binaries are not GitHub-resident. They are accepted only through exact hashes and deterministic rematerialization authority; a future runtime may need to rematerialize them.",
+    "XAUUSD/BUY/M1 retains the historical 24-group zstd representation instead of the NQX global unique-mask pack. Modern V228 re-merge parity proves scientific equivalence; storage normalization is optional, not a gate.",
+    "The V234 preflight has executable positive/negative regression coverage. This runtime could not network-clone GitHub into the local container, so the full preflight was not executed against a fresh local clone of main here; the current authority graph was instead re-read directly from GitHub connector sources during this audit.",
+    "No audit can prove absence of unknown future bugs; the decision below applies to known, tested durability/portability gaps in the current state."
+  ],
+  "decision":"NO_KNOWN_CRITICAL_DURABILITY_OR_PORTABILITY_GAP_REMAINS_FOR_CURRENT_GA1_STATE",
+  "resume_rule":"New chats/runtimes must read control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json, recover its versioned target, execute the referenced cross-chat resume preflight and proceed only on PASS. Chat memory is not authority.",
+  "scientific_guards":{"economic_pnl_read":false,"holdout_open":false,"ga2_open":false,"universe_changed":false,"config_ids_changed":false,"historical_receipts_rewritten":false}
+}
