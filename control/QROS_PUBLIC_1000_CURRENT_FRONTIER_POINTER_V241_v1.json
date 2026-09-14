@@ -1,0 +1,67 @@
+{
+  "schema": "QROS_PUBLIC1000_CURRENT_FRONTIER_POINTER_2.0",
+  "version": "V241",
+  "state": "DEVELOPMENT_RUNNING",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "seed": "WEB_SEED_0076",
+  "phase": "PRIMARY_POLICY_V2_ACTIVE_DRAIN_FIRST_GATE_BACKLOG_FIFO_XAUUSD_BUY_M1_NEXT",
+  "audit_decision": "OLD_ALL_60_BEFORE_GA2_FIREWALL_SUPERSEDED_PRE_PNL; IMMEDIATE_PER_SHARD_FIRST_GATE_POLICY_ACTIVE",
+  "authority": {
+    "primary_policy_pointer": "governance/QROS_PRIMARY_SHARD_GATE_POLICY.json",
+    "primary_policy": "governance/QROS_SHARD_PROMOTION_AND_FIRST_GATE_SEQUENTIAL_POLICY_v2.0.json",
+    "first_gate_multiplicity_contract": "governance/QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_v1.0.json",
+    "policy_supersession_receipt": "control/QROS_POLICY_SUPERSESSION_SHARD_GATE_SEQUENCE_20260914_v1.json",
+    "promotion_ledger": "control/QROS_PUBLIC_1000_FIRST_ECONOMIC_GATE_PROMOTION_LEDGER_v7.json",
+    "gate_a_plan": "control/QROS_PUBLIC_1000_SEED_0076_GATE_A_SHARD_PLAN_V213_v1.json",
+    "m12_completion": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_M12_COMPLETION_V240_v1.json",
+    "m12_storage_cleanup": "control/QROS_PUBLIC_1000_SEED_0076_NQX_BUY_M12_STORAGE_CLEANUP_V240_v1.json",
+    "m15_config_stream_parity": "control/QROS_PUBLIC_1000_SEED_0076_GA1_NQX_BUY_M15_CONFIG_STREAM_PARITY_V240_v1.json",
+    "xau_m1_completion": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_XAUUSD_BUY_M1_COMPLETION_V224_v1.json",
+    "cross_chat_resume_preflight": "scripts/qros_cross_chat_resume_preflight_v241.py",
+    "cross_chat_resume_regression": "control/QROS_PUBLIC_1000_CROSS_CHAT_RESUME_PREFLIGHT_REGRESSION_V241_v1.json"
+  },
+  "policy_pins": {
+    "primary_policy_git_blob_sha1": "8d9e59d12aabbbe41444982096bf35d42a1f0350",
+    "multiplicity_contract_git_blob_sha1": "bc5ce2b52ca5734328283fb3c1d67ee1d93905c1",
+    "superseded_policy_git_blob_sha1": "08117b1b4926f2532f16542340a64bff72197e94",
+    "primary_governance_pointer_git_blob_sha1": "ff6e6ac50d63ef1bc94c2d1c3894d4223d18bcc7",
+    "promotion_ledger_v7_git_blob_sha1": "32092f52bd62c6a4ebe6642fdf7f60d474e3ecb6"
+  },
+  "verified_counts": {
+    "shards_total": 60,
+    "ga1_formally_completed_shards": 8,
+    "ga1_remaining_shards": 52,
+    "first_gate_queue_count": 8,
+    "first_gate_pending": 8,
+    "first_gate_terminal": 0
+  },
+  "current_first_gate": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "first_gate_order": 1,
+    "distinct_mask_classes": 303572,
+    "completion_receipt": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_XAUUSD_BUY_M1_COMPLETION_V224_v1.json",
+    "status": "PREREGISTERED_PENDING_EXECUTION"
+  },
+  "next_preregistered_ga1": {
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M15",
+    "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+    "expected_config_root_sha256": "46e39c9108d4eec03d847fe3b405bdd7777976ba048f27705abfb7a3c869f947",
+    "status": "BLOCKED_BY_FIRST_GATE_BACKLOG"
+  },
+  "new_ga1_authorized": false,
+  "new_ga1_blocker": "FIRST_GATE_BACKLOG_PENDING",
+  "first_gate_execution_authorized_after_stable_promotion": true,
+  "first_gate_contract_frozen_pre_pnl": true,
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "supersedes_frontier_version": "V239",
+  "superseded_stable_pointer_blob_sha1": "2c451a0888da9275af81f3c2c8d37436c6fe8884",
+  "next_action": "Run V241 fail-closed preflight and require PASS; CAS-promote stable pointer from V239 to V241 only if unchanged; then construct/verify deterministic first-gate scorer against V213 plus the frozen multiplicity contract and execute FIFO shard #1 XAUUSD/BUY/M1. Do not start NQX/BUY/M15. Holdout remains closed."
+}
