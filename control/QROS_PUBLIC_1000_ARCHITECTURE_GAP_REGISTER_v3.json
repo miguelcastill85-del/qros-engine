@@ -1,0 +1,23 @@
+{
+  "schema":"QROS_PUBLIC1000_ARCHITECTURE_GAP_REGISTER_3.0",
+  "version":"3.0",
+  "status":"FROZEN_ACTIVE_CANDIDATE",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "supersedes":"control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v2.json",
+  "correction_receipt":"control/QROS_V246_CANDIDATE_EXTERNAL_VALIDATION_FAILURE_20260914_v1.json",
+  "gaps":[
+    {"id":"GAP-A01","area":"Version-hardcoded external validator","status":"CLOSURE_CANDIDATE_GENERIC_KERNEL","closure_required":["generic candidate pointer","generic mode resolver","version-independent workflow","external PASS"],"may_be_filled_by_chat_inference":false},
+    {"id":"GAP-A02","area":"Stale validation dependency reference","status":"CLOSURE_CANDIDATE_GENERIC_KERNEL","closure_required":["dynamic dependency validation from target pins","external PASS"],"may_be_filled_by_chat_inference":false},
+    {"id":"GAP-A03","area":"Compiler execution authorization latch","status":"CLOSURE_CANDIDATE_GENERIC_KERNEL","closure_required":["compiler v3 latch","independent oracle v3 latch","exact-error adversarial tests","external PASS"],"may_be_filled_by_chat_inference":false},
+    {"id":"GAP-A04","area":"Master workgraph evidence binding","status":"CLOSURE_CANDIDATE_WORKGRAPH_V3","closure_required":["exact W00-W03/W06 evidence pins","explicit W04/W05 non-closure","external PASS"],"may_be_filled_by_chat_inference":false},
+    {"id":"GAP-A05","area":"Legacy validator workflow noise","status":"OPEN_NON_SCIENTIFIC_NOISE","scientific_execution_blocking":false,"note":"Available connector controls do not expose workflow disable; historical pinned workflow bytes are not modified.","may_be_filled_by_chat_inference":false},
+    {"id":"GAP-A06","area":"V246 incorrect V209 evidence pin and unsupported status claim","status":"CLOSED_BY_CORRECTION_RECEIPT","closure_evidence":"control/QROS_V246_CANDIDATE_EXTERNAL_VALIDATION_FAILURE_20260914_v1.json","may_be_filled_by_chat_inference":false},
+    {"id":"GAP-S01","area":"Seed0076 POST_EXPANSION_RISE fixed-point evidence","status":"OPEN_BLOCKING_EVIDENCE_REQUIRED","reason":"Gate-A V213 GA0_PREFLIGHT requires universe/hash/parity/fixed-point receipts PASS, and no exact Seed0076 fixed-point PASS receipt has been recovered.","blocking_class":"EVIDENCE_BINDING_REQUIRED","closure_options":["recover exact original receipt","or perform non-economic RISE fixed-point revalidation against the existing frozen configuration description without changing configs or reading PnL"],"forbidden_while_open":["BUILD_FIRST_GATE_SCORER","READ_ECONOMIC_PNL","OPEN_GA2","OPEN_HOLDOUT","START_NEW_GA1"],"may_be_filled_by_chat_inference":false},
+    {"id":"GAP-S02","area":"Seed0076 ontology-freeze evidence binding","status":"OPEN_DEPENDS_ON_GAP-S01","reason":"Current V209 bytes define the machine universe but do not contain a status field proving ontology/fixed-point completion.","depends_on":"GAP-S01","may_be_filled_by_chat_inference":false},
+    {"id":"GAP-S03","area":"FIRST_GATE scorer implementation","status":"OPEN_BLOCKED_BY_GAP-S01","may_be_filled_by_chat_inference":false},
+    {"id":"GAP-F01","area":"Post-60-shard downstream deterministic contracts","status":"FUTURE_POLICY_REQUIRED","may_be_filled_by_chat_inference":false}
+  ],
+  "current_blocking_gap":"GAP-S01",
+  "closure_rule":"Only exact durable evidence plus machine validation closes a gap.",
+  "decision":"GAP_REGISTER_V3_CORRECTED: GENERIC ARCHITECTURE MAY CLOSE A01-A04, BUT S01 REMAINS THE UNIQUE CURRENT SCIENTIFIC BLOCKER"
+}
