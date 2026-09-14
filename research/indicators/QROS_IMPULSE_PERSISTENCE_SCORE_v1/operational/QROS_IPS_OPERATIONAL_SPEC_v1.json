@@ -49,12 +49,13 @@
     }
   },
   "zones": [
-    {"name":"LOW","min":0,"max_exclusive":40},
-    {"name":"WATCH","min":40,"max_exclusive":55},
-    {"name":"MEDIUM","min":55,"max_exclusive":65},
+    {"name":"LOW","min":0,"max_exclusive":35},
+    {"name":"WATCH","min":35,"max_exclusive":50},
+    {"name":"MEDIUM","min":50,"max_exclusive":65},
     {"name":"HIGH","min":65,"max_exclusive":80},
     {"name":"VERY_HIGH","min":80,"max_inclusive":100}
   ],
+  "research_ranking_bins": "[0,35), [35,50), [50,65), [65,80), [80,100]",
   "research_threshold": 65,
   "measurement_output": {
     "score": "0..100",
