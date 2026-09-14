@@ -1,0 +1,53 @@
+{
+  "schema": "QROS_XAU_FAILED_CAMPAIGN_RECOVERY_BLOCKERS_1.0",
+  "date": "2026-09-14",
+  "campaign_id": "QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "state": "CAMPAIGN_ACTIVE_WITH_INDIVIDUAL_BLOCKERS",
+  "verified_authorities": {
+    "Failed_Auction_v12000_v12100": {
+      "variants": 1424,
+      "gate_a_survivors": 0,
+      "near_miss": [
+        {"id":"FA_BUY_R108_ONEBAR_DEEP_FLOW_BROAD_FAST","trades":29,"historical_independent_parity":"PASS"},
+        {"id":"FA_BUY_R108_ONEBAR_DEEP_FLOW_BROAD_BAL","trades":28,"historical_independent_parity":"PASS"}
+      ],
+      "current_exact_trade_bytes": "NO_DISPONIBLE"
+    },
+    "M5": {
+      "variants": 28450,
+      "frozen_profiles": 4,
+      "default": "M5D02",
+      "decision": "REJECTED_GATE_B_DEFAULT",
+      "current_exact_profile_ledger_or_generator": "NO_DISPONIBLE"
+    },
+    "M6": {
+      "variants": 6317,
+      "gate_a_survivors": 0,
+      "decision": "REJECTED_GATE_A_NO_SURVIVORS",
+      "current_exact_catalog_or_generator": "NO_DISPONIBLE"
+    },
+    "v1103": {
+      "ledger_rows": 134,
+      "historical_ledger_authenticity": "VERIFIED_BY_DURABLE_REPORT",
+      "historical_generator": "MISSING_SEMANTICS",
+      "current_exact_ledger_bytes": "NO_DISPONIBLE",
+      "status": "EVIDENCE_NOT_EXECUTABLE"
+    }
+  },
+  "searches_performed": [
+    "local /mnt/data exhaustive filename scan",
+    "GitHub main recursive tree/code search",
+    "File Library exact names and semantic search",
+    "Dropbox title/content search from prior receipts"
+  ],
+  "why_bytes_indispensable": "IPS descendant scoring requires exact base trade entry timestamps and unchanged economic outcomes, or an exact generator that reproduces them. Aggregate metrics cannot determine which base trades are confirmed by IPS.",
+  "alternatives_attempted": [
+    "recover exact package/ledger names from durable reports",
+    "search exact candidate IDs",
+    "recover parameter descriptions",
+    "use existing canonical XAU tick/bar data where generator semantics are complete"
+  ],
+  "approximate_reconstruction": "FORBIDDEN",
+  "2025_2026": "SEALED_FOR_THIS_CAMPAIGN",
+  "next_action": "Continue census serially to next identity with exact executable bytes; blocked identities remain resumable and do not stop campaign."
+}
