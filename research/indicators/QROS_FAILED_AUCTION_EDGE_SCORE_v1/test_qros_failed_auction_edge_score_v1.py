@@ -26,6 +26,7 @@ def run():
     assert target < 2499.9
     assert risk > 0
 
+    # SL-first semantics on BUY and SELL are exercised separately.
     assert target_before_stop("BUY", 99.0, 101.0, [(100.0,100.1),(101.0,101.1)]) == 1
     assert target_before_stop("SELL", 101.0, 99.0, [(99.9,100.0),(98.9,99.0)]) == 1
     print("QFAES_SYNTHETIC_UNIT_TESTS=PASS")
