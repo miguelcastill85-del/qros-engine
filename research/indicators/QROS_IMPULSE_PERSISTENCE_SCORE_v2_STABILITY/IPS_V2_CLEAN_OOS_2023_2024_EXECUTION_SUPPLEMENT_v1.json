@@ -1,0 +1,13 @@
+{
+  "schema":"QROS_IPS_V2_CLEAN_OOS_2023_2024_EXECUTION_SUPPLEMENT_1.0",
+  "created_date":"2026-09-14",
+  "parent_prereg":"IPS_V2_CLEAN_OOS_PREREG_v1.json",
+  "materialization_freeze_commit":"70a26cdc5a1dcc81da1eb3f326fb6f589d2b41e8",
+  "purpose":"Freeze implementation details omitted by the original prereg without changing any scientific gate.",
+  "bootstrap":{"unit":"source day","reps":10000,"seed":2026091409,"interval":0.95},
+  "exact_enrichment_test":"one-sided hypergeometric, equivalent to fixed-margin permutation enrichment test",
+  "score":{"weights":[15,5,10,20,30,20],"threshold":65},
+  "year_gates":"derive 2023/2024 from raw entry_ts cutovers because frozen enumerators have the known post-2020 year metadata limitation",
+  "gate_changes":"NONE",
+  "retuning":"FORBIDDEN"
+}
