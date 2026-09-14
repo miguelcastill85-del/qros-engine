@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_EXECUTION_KERNEL_CANDIDATE_POINTER_1.0",
+  "status":"CANDIDATE_VALIDATION_PENDING",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "candidate_version":"V246",
+  "candidate_target_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V246_v1.json",
+  "candidate_target_git_blob_sha1":"4662f95619a461101dabdcfbb501ddd69e1e1df6",
+  "expected_parent_version":"V245",
+  "expected_parent_stable_blob_sha1":"27463829c5637e512af6c2eb5425d630e08f9a4b",
+  "mode_contract":"Mode is derived by scripts/qros_execution_kernel_mode_resolver_v1.py; no workflow may hardcode V245 or V246 to choose candidate/active behavior.",
+  "candidate_purpose":"Close architecture audit gaps and preempt scorer execution with GAP-S01 RISE fixed-point evidence requirement without reading economic PnL.",
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false
+}
