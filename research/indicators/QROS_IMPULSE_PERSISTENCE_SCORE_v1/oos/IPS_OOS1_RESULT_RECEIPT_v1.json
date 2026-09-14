@@ -1,0 +1,55 @@
+{
+  "schema": "QROS_IPS_OOS1_RESULT_1.0",
+  "indicator": "QROS_IMPULSE_PERSISTENCE_SCORE_v1",
+  "data_sha256": "9d69d2b93a86d938f03f7ab8f8a8780221d380848b9069570c1d32925f400d9e",
+  "record_range": "[151382388,160000000)",
+  "raw_events": 683,
+  "invalid_nonexecutable_risk_events_excluded": 47,
+  "executable_events": 636,
+  "primary": {
+    "threshold": 65,
+    "successes": 177,
+    "baseline_rate": 0.2783018867924528,
+    "high_n": 109,
+    "high_successes": 40,
+    "high_rate": 0.3669724770642202,
+    "lift": 0.08867059027176738,
+    "relative_lift": 0.3186129684341472,
+    "exact_one_sided_permutation_p": 0.017109234865034833
+  },
+  "bootstrap_day_blocks": {
+    "source_days": 24,
+    "reps": 10000,
+    "seed": 2026091402,
+    "mean_lift": 0.08697927113225283,
+    "lift_95pct_ci": [-0.0064732480497871015,0.17726050957542247]
+  },
+  "by_side": {
+    "BUY": {"n":348,"high_n":59,"baseline_rate":0.31896551724137934,"high_rate":0.3728813559322034,"lift":0.05391583869082406},
+    "SELL": {"n":288,"high_n":50,"baseline_rate":0.22916666666666666,"high_rate":0.36,"lift":0.13083333333333333}
+  },
+  "ranking_bins": [
+    {"bin":"[0,35)","n":31,"mean_score":30.16159671576129,"successes":8,"hit_rate":0.25806451612903225},
+    {"bin":"[35,50)","n":215,"mean_score":43.62069939113023,"successes":46,"hit_rate":0.21395348837209302},
+    {"bin":"[50,65)","n":281,"mean_score":56.803524338777585,"successes":83,"hit_rate":0.29537366548042704},
+    {"bin":"[65,80)","n":100,"mean_score":69.92061634355402,"successes":37,"hit_rate":0.37},
+    {"bin":"[80,100]","n":9,"mean_score":82.9913556068,"successes":3,"hit_rate":0.3333333333333333}
+  ],
+  "ranking_spearman_rho": 0.8,
+  "parity": {"events_main":683,"events_oracle":683,"total_field_mismatches":0,"max_float_abs_error":0.0,"decision":"PASS"},
+  "gates": {
+    "parity_100pct": true,
+    "minimum_executable_events_300": true,
+    "minimum_high_score_events_60": true,
+    "high_rate_gt_baseline": true,
+    "exact_one_sided_permutation_p_le_0_05": true,
+    "day_block_bootstrap_95ci_lower_gt_0": false,
+    "BUY_lift_nonnegative": true,
+    "SELL_lift_nonnegative": true,
+    "ranking_spearman_rho_gt_0": true
+  },
+  "decision": "FAIL_OOS1",
+  "scientific_interpretation": "OOS effect is positive and exact-permutation significant, but preregistered day-block bootstrap CI includes zero; strict OOS-1 gate therefore fails. No retuning permitted.",
+  "oos1_exposure": "EXPOSED_AFTER_THIS_RESULT",
+  "records_160000000_onward": "UNSEEN_OOS2_RESERVED"
+}
