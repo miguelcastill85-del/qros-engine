@@ -1,0 +1,22 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_D19_CORRECTION_RECEIPT_1",
+  "defect_id": "D19_EQUIVALENT_READY_MULTIPLICITY",
+  "classification": "RUNNER_SELECTION_INFRASTRUCTURE_DEFECT",
+  "observed_result": "MVP2B safe-stopped with AMBIGUOUS_MVP2A_READY_CLONE after multiple successful MVP2A reruns created multiple CLONE_READY markers.",
+  "candidate3_executed": false,
+  "mt5_launched_by_runnerlab": false,
+  "trades_sent_by_runnerlab": false,
+  "cert_arm_allowed": false,
+  "deployment_allowed": false,
+  "root_cause": "MVP2B treated multiplicity of READY markers as semantic ambiguity even when multiple markers represented byte-equivalent clones of the same verified Darwinex environment.",
+  "correction": [
+    "Validate every READY marker against its exact MVP2A final PASS receipt, source/reconstructed manifest hashes, derived evidence bundle SHA-256, and current clone byte parity.",
+    "Deduplicate only candidates with the same active install root, active data root, source manifest SHA-256, and reconstructed clone manifest SHA-256.",
+    "If all valid candidates collapse to one equivalence class, select a deterministic ordinal run_id representative; do not select by timestamp or newest file.",
+    "If multiple non-equivalent content classes remain, fail closed with AMBIGUOUS_MVP2A_READY_VARIANTS.",
+    "If no valid authoritative candidate remains, fail closed with NO_VALID_MVP2A_READY_CLONE.",
+    "Persist candidate audit and selection receipt before any MT5 launch attempt."
+  ],
+  "scientific_scope": "Infrastructure-only correction. No change to Candidate3, alpha, risk, portfolio rules, holdout, CERT, or deployment authority.",
+  "status": "DEVELOPMENT_RUNNING_NATIVE_RERUN_REQUIRED"
+}
