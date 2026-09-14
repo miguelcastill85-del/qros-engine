@@ -1,0 +1,111 @@
+name: QROS State Artifact Capsule W09B v1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'governance/QROS_STATE_ARTIFACT_RECONCILIATION_AND_EXECUTION_CAPSULE_POLICY_v1.0.json'
+      - 'governance/QROS_PUBLIC1000_SEED0076_FIRST_GATE_NORMALIZED_EXECUTION_CONTRACT_v1.1.json'
+      - 'control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_BUILD_VALIDATION_PASS_20260914_v1.json'
+      - 'control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.2.json'
+      - 'control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.2.json'
+      - 'control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_NORMALIZED_EXECUTION_BUILD_SPEC_v1.json'
+      - 'control/capsules/QROS_PUBLIC1000_SEED0076_W09B_SYNTHETIC_PARITY_CAPSULE_v2.json'
+      - 'scripts/qros_execution_capsule_validate_v1.py'
+      - 'scripts/qros_state_artifact_reconcile_v1.py'
+      - 'scripts/qros_execution_capsule_adversarial_v1.py'
+      - 'scripts/qros_first_gate_execution_normalizer_primary_v1.py'
+      - 'scripts/qros_first_gate_execution_normalizer_oracle_v1.py'
+      - 'scripts/qros_first_gate_execution_normalizer_primary_v2.py'
+      - 'scripts/qros_first_gate_execution_normalizer_oracle_v2.py'
+      - 'scripts/qros_first_gate_execution_normalizer_adversarial_v1.py'
+      - '.github/workflows/qros-state-artifact-capsule-w09b-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-state-artifact-capsule-w09b:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Compile architecture and W09B sources
+        run: |
+          python3 --version
+          python3 -m py_compile \
+            scripts/qros_execution_capsule_validate_v1.py \
+            scripts/qros_state_artifact_reconcile_v1.py \
+            scripts/qros_execution_capsule_adversarial_v1.py \
+            scripts/qros_first_gate_execution_normalizer_primary_v1.py \
+            scripts/qros_first_gate_execution_normalizer_oracle_v1.py \
+            scripts/qros_first_gate_execution_normalizer_primary_v2.py \
+            scripts/qros_first_gate_execution_normalizer_oracle_v2.py \
+            scripts/qros_first_gate_execution_normalizer_adversarial_v1.py
+          echo PYTHON_COMPILE=PASS
+      - name: Validate exact capsule pins and semantics
+        run: |
+          python3 scripts/qros_execution_capsule_validate_v1.py \
+            --capsule control/capsules/QROS_PUBLIC1000_SEED0076_W09B_SYNTHETIC_PARITY_CAPSULE_v2.json \
+            | tee /tmp/capsule.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/capsule.json'))
+          assert r['status']=='PASS',r
+          assert r['single_action']=='VALIDATE_FIRST_GATE_NORMALIZED_EXECUTION_LAYER_SYNTHETIC_PARITY',r
+          print('CAPSULE_EXACT_VALIDATION=PASS')
+          PY
+      - name: Reconcile stale stable state forward
+        run: |
+          python3 scripts/qros_state_artifact_reconcile_v1.py \
+            --stable control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json \
+            --capsule control/capsules/QROS_PUBLIC1000_SEED0076_W09B_SYNTHETIC_PARITY_CAPSULE_v2.json \
+            | tee /tmp/reconcile.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/reconcile.json'))
+          assert r['status']=='PASS' and r['reconciliation'] in ('RECONCILE_FORWARD','ALIGNED'),r
+          assert r['to_state']=='FG_EXECUTION_NORMALIZER_MATERIALIZED_UNVALIDATED',r
+          print('STATE_ARTIFACT_RECONCILIATION=PASS')
+          PY
+      - name: Run architecture adversarial suite
+        run: |
+          python3 scripts/qros_execution_capsule_adversarial_v1.py | tee /tmp/capsule_adv.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/capsule_adv.json'))
+          assert r['status']=='PASS' and r['check_count']>=13,r
+          assert 'STALE_DECLARED_STATE_RECONCILES_FORWARD' in r['checks'],r
+          assert 'FREE_TEXT_TAMPER_NO_EFFECT' in r['checks'],r
+          assert r['economic_pnl_read'] is False,r
+          print('CAPSULE_ADVERSARIAL=PASS')
+          print('CAPSULE_ADVERSARIAL_RECEIPT_SHA256='+r['receipt_sha256'])
+          PY
+      - name: Run W09B independent synthetic execution parity
+        run: |
+          python3 scripts/qros_first_gate_execution_normalizer_adversarial_v1.py | tee /tmp/w09b.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/w09b.json'))
+          assert r['status']=='PASS' and r['check_count']>=20,r
+          assert r['synthetic_only'] is True and r['economic_pnl_read'] is False,r
+          assert 'PRIMARY_ORACLE_BYTE_PARITY' in r['checks'],r
+          assert 'PRODUCTION_OVERLAP_BINDING_FAIL' in r['checks'],r
+          print('W09B_SYNTHETIC_EXECUTION_PARITY=PASS')
+          print('W09B_RECEIPT_SHA256='+r['receipt_sha256'])
+          print('W09B_TRADES_SHA256='+r['primary_oracle_normalized_trades_sha256'])
+          print('W09B_SUMMARY_SHA256='+r['primary_oracle_summary_sha256'])
+          PY
+      - name: Final no-economic gate
+        run: |
+          python3 - <<'PY'
+          import json
+          c=json.load(open('control/capsules/QROS_PUBLIC1000_SEED0076_W09B_SYNTHETIC_PARITY_CAPSULE_v2.json'))
+          assert all(c['economic_firewall'][k] is False for k in ('economic_pnl_read','ga2_open','holdout_open','first_gate_execution_authorized'))
+          print('ECONOMIC_FIREWALL=PASS')
+          print('OPEN_ENDED_REPOSITORY_SEARCH=FORBIDDEN')
+          print('W09_REBUILD=FORBIDDEN')
+          PY
