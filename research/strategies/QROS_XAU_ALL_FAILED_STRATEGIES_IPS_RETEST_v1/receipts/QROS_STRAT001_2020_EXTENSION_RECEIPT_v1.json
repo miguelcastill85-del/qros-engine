@@ -1,0 +1,26 @@
+{
+  "schema": "QROS_STRAT001_2020_EXTENSION_RECEIPT_1.0",
+  "date": "2026-09-14",
+  "campaign_id": "QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "strategy": "XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+  "state": "REJECTED",
+  "evidence": "VERIFICADO",
+  "input": {
+    "stream": "IPS_2020_WARMUP_STREAM.bin",
+    "stream_sha256": "cf283c9409f96f7cd14e491f673b1cc07b8dd43cd91ec28fc9c5f3ce6a894fda",
+    "stream_records": 138773773,
+    "ips_main_raw_sha256": "d987873d64ed13e4f56ae71f0ca9e48ed9d216a6f3562e8a934d58dfae77b4a9",
+    "ips_oracle_raw_sha256": "847d0570328a0033907673f0f23ed8604553990127b82d83b87cc3962f081837",
+    "ips_recon_parity": "PASS_8711_8711_ZERO_FIELD_MISMATCH"
+  },
+  "candidates": {"count":957,"sha256":"b4d5fc2c73988ca03661cdebcc078298ad5aec810e461996a273acf11450095f"},
+  "parity": {
+    "main_trades":621,
+    "oracle_trades":621,
+    "main_sha256":"46838e7f1dddaf8734584b87625102e09a4c6727f1ae128cc8e52c402ba6e280",
+    "oracle_sha256":"46838e7f1dddaf8734584b87625102e09a4c6727f1ae128cc8e52c402ba6e280",
+    "byte_identical":true
+  },
+  "metrics": {"trades":621,"net_R":-230.1607282189,"expectancy_R":-0.3706291919789049,"PF":0.522501668163339,"DD_R":231.9194285520301,"win_rate":0.2576489533011272},
+  "decision":"REJECTED_EXTENSION_NEGATIVE_2020"
+}
