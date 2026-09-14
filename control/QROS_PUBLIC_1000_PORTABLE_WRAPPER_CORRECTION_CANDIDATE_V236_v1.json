@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_PUBLIC1000_PORTABLE_WRAPPER_CORRECTION_CANDIDATE_1.0",
+  "created_date_utc": "2026-09-14",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "seed": "WEB_SEED_0076",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "authority_status": "NON_AUTHORITATIVE_CORRECTION_CANDIDATE",
+  "parent_incident": "control/QROS_PUBLIC_1000_RESUME_INTEGRITY_INCIDENT_20260914_v1.json",
+  "parent_incident_git_blob_sha1": "c3694ccf8de49d8a695846f31c8690ba80645928",
+  "candidate": {
+    "path": "scripts/qros_seed0076_ga1_cached_wrapper_v236.py",
+    "creation_commit": "d3b24e5e7878c754421238710532edb10597b663",
+    "git_blob_sha1": "2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f",
+    "worker_path": "scripts/qros_seed0076_ga1_shard_worker_v223.py",
+    "worker_expected_git_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+    "worker_blob_lookup": "PASS_EXISTS",
+    "purpose": "Correct the broken repository-relative worker filename in the historical V233 cached-wrapper line while preserving the V223 worker binding. Receipt metadata explicitly marks this version non-authoritative until parity is executed."
+  },
+  "historical_defect": {
+    "historical_path": "scripts/qros_seed0076_ga1_cached_wrapper_v233.py",
+    "historical_actual_git_blob_sha1": "c822b3b01584f34e3434f8e17bd43a716bee4110",
+    "historical_claimed_git_blob_sha1": "2da5448fc6403c3c0b081b980ab20eff6870a1dc",
+    "historical_worker_path": "scripts/qros_seed0076_ga1_shard_worker_v222.py",
+    "historical_worker_path_lookup": "404_NOT_FOUND"
+  },
+  "required_validation_before_adoption": {
+    "exact_dev_prefix": {
+      "records": 59940260,
+      "bytes": 1018984420,
+      "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf"
+    },
+    "frozen_test_domain": {
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "H4",
+      "shard_id": "b6fe997fe6eded0f4df4692256ea872e41e7fccc5ea453e230844488a7840c41",
+      "ordered_config_id_stream_root_sha256": "da93ef4605d4a8c94753248cacc3f75188fa7197e9728922fe4d8b5853c65b90"
+    },
+    "byte_exact_regression_groups": [0, 1],
+    "reference_receipt": "control/QROS_PUBLIC_1000_SEED_0076_PORTABLE_GA1_WRAPPER_PARITY_V233_v1.json",
+    "adoption_rule": "Do not adopt, rematerialize H4, alter a pointer, or claim PASS until group 0 and group 1 reproduce the frozen counts, semantic/class/alias roots and all three artifact SHA-256 values exactly under independently checked inputs."
+  },
+  "execution_in_this_runtime": {
+    "candidate_source_persisted": true,
+    "candidate_blob_re_read_from_main": true,
+    "base_worker_blob_verified_present": true,
+    "byte_exact_parity_executed": false,
+    "reason_parity_not_executed": "Exact NQX DEV bytes and H4 derived group bytes are catalogued/referenced but not mounted as executable bytes in the current runtime. File Library navigation by exact ZIP names resolves only authority/index documents, not the ZIP payloads; Dropbox search and GitHub Actions provide no alternative copy."
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "universe_changed": false,
+    "config_ids_changed": false,
+    "historical_v233_rewritten": false,
+    "h4_reenumerated": false,
+    "promotion_ledger_changed": false,
+    "stable_pointer_changed": false
+  },
+  "decision": "PRESERVE_AS_CORRECTION_CANDIDATE_ONLY_PENDING_BYTE_EXACT_PARITY"
+}
