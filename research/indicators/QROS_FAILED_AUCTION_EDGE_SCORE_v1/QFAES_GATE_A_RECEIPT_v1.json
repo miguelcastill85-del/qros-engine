@@ -1,0 +1,91 @@
+{
+  "schema": "QROS_QFAES_GATE_A_RECEIPT_1.0",
+  "campaign_id": "QROS_INDICATOR_001_XAU_FAILED_AUCTION_EDGE_SCORE_v1",
+  "state": "REJECTED",
+  "decision": "FAIL_GATE_A_NO_STATISTICAL_EDGE",
+  "source_event_ledger_sha256": "c3fd6ca7067c7b1ecb16c0bb09938309440dd890d070b3101adf29b24b0b7bef",
+  "raw_events": 450,
+  "invalid_nonexecutable_risk_events_excluded": 72,
+  "executable_events": 378,
+  "primary": {
+    "N": 378,
+    "successes": 111,
+    "high_n": 32,
+    "high_successes": 9,
+    "baseline_rate": 0.29365079365079366,
+    "high_rate": 0.28125,
+    "lift": -0.012400793650793662,
+    "permutation_p_one_sided": 0.6339491800705127
+  },
+  "by_side": {
+    "BUY": {
+      "N": 188,
+      "successes": 62,
+      "high_n": 18,
+      "high_successes": 4,
+      "baseline_rate": 0.32978723404255317,
+      "high_rate": 0.2222222222222222,
+      "lift": -0.10756501182033096,
+      "permutation_p_one_sided": 0.904236789130427
+    },
+    "SELL": {
+      "N": 190,
+      "successes": 49,
+      "high_n": 14,
+      "high_successes": 5,
+      "baseline_rate": 0.2578947368421053,
+      "high_rate": 0.35714285714285715,
+      "lift": 0.09924812030075186,
+      "permutation_p_one_sided": 0.27650840534690024
+    }
+  },
+  "by_year": {
+    "2018": {
+      "N": 193,
+      "successes": 54,
+      "high_n": 14,
+      "high_successes": 2,
+      "baseline_rate": 0.27979274611398963,
+      "high_rate": 0.14285714285714285,
+      "lift": -0.13693560325684678,
+      "permutation_p_one_sided": 0.9417600067448948
+    },
+    "2019": {
+      "N": 185,
+      "successes": 57,
+      "high_n": 18,
+      "high_successes": 7,
+      "baseline_rate": 0.3081081081081081,
+      "high_rate": 0.3888888888888889,
+      "lift": 0.08078078078078077,
+      "permutation_p_one_sided": 0.29737311769046404
+    }
+  },
+  "score_bins": [
+    {"bin":"[0,40)","n":47,"successes":7,"rate":0.14893617021276595,"score_mean":37.48140245740426},
+    {"bin":"[40,55)","n":159,"successes":52,"rate":0.3270440251572327,"score_mean":47.71753050007421},
+    {"bin":"[55,70)","n":140,"successes":43,"rate":0.30714285714285716,"score_mean":61.45772172127215},
+    {"bin":"[70,85)","n":32,"successes":9,"rate":0.28125,"score_mean":75.40375655540001}
+  ],
+  "bootstrap": {
+    "method": "source-broker-day block bootstrap",
+    "reps": 10000,
+    "seed": 20260914,
+    "lift_95pct_ci": [-0.15929139958598423,0.1423833257385888],
+    "mean_lift": -0.01198122309238437
+  },
+  "requirements": {
+    "minimum_high_score_events_60": false,
+    "high_rate_gt_baseline": false,
+    "permutation_p_le_0_05": false,
+    "bootstrap_95ci_lift_excludes_0_positive": false,
+    "2018_lift_nonnegative": false,
+    "2019_lift_nonnegative": true,
+    "score_bins_non_decreasing_nonempty": false
+  },
+  "gate_pass": false,
+  "holdout_opened": false,
+  "weights_retuned": false,
+  "threshold_retuned": false,
+  "note": "Invalid-risk events are excluded by the preregistered stop_and_target executable-risk contract; this is an execution-validity filter, not an outcome optimization."
+}
