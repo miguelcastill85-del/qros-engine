@@ -1,0 +1,39 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2A_CORRECTION_RECEIPT_1",
+  "correction_id": "MVP2A_D17_CS0136_ROOT_SCOPE_COLLISION",
+  "timestamp_utc": "2026-09-14T15:20:00Z",
+  "branch_authority_before_fix": "07399b13f943529c904943afc421bc00d4fe6cb1",
+  "failed_carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP2A_READONLY_DISCOVERY_SOURCE_FINAL.zip",
+    "bytes": 46678,
+    "sha256": "f3688c823aca63441e7c9c8d29bb7cb8352060452aa6196031f316d9e2ed73f0"
+  },
+  "failure_evidence": {
+    "kind": "user_screenshot",
+    "sha256": "ff26c722b18f7b22b33e1154f1ee0b106e0dccefe438c050167350f2849a0d27",
+    "compiler": "C#",
+    "code": "CS0136",
+    "source": "src/RunnerLab.Cli/Program.cs",
+    "line": 55,
+    "column": 13,
+    "message_summary": "local root in nested mvp2a-selftest scope collides with root in enclosing top-level scope"
+  },
+  "root_cause": "Static design audits checked prior CS0136 receipt-name regression but did not compile the carrier and did not include a generic top-level local-scope collision guard. The Windows compiler correctly stopped at stage 2/8.",
+  "correction": {
+    "pre_fix_program_sha256": "51d1b7fb1322ef7477451e5b3dd8f74c68c8d88c1dc7a9e2815174598d37935a",
+    "post_fix_program_sha256": "a4a1360ae447a458e1cd755efa23a508247499789e4f693794a2d58aa045a413",
+    "renames": [
+      {"from": "root", "to": "mvp2aSelftestRoot", "scope": "mvp2a-selftest branch"},
+      {"from": "root", "to": "runnerStateRoot", "scope": "MVP1 regression selftest"}
+    ],
+    "regression_guard": "Static and independent audits reject a reintroduced generic local named root in Program.cs."
+  },
+  "safety_impact": {
+    "mt5_opened": false,
+    "candidate3_executed": false,
+    "cert_modified": false,
+    "deployment_allowed": false,
+    "scientific_state_changed": false
+  },
+  "next_gate": "WINDOWS_NATIVE_RECOMPILE_THEN_SELFTEST_CHAIN"
+}
