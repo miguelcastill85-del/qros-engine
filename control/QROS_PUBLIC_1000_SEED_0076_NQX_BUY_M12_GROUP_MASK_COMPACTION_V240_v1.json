@@ -1,0 +1,14 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_NQX_BUY_M12_GROUP_MASK_COMPACTION_1.0",
+  "status":"PASS",
+  "domain":{"asset":"NQX","side":"BUY","timeframe":"M12"},
+  "groups":24,
+  "total_original_bytes":2591397468,
+  "total_compressed_bytes":322011859,
+  "compression_ratio":0.12426185599715188,
+  "identity_verified_24_of_24":true,
+  "source_receipt_sha256":"9bc6ef318373e18eac37f0066ce011fdd26f0262916a4d4429de627566c0562e",
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false
+}
