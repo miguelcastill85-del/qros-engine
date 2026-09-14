@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_XAU_FAILED_STRATEGY_CENSUS_MANIFEST_1.0",
+  "created_date": "2026-09-14",
+  "status": "PARTIAL_EXHAUSTIVE_CENSUS_ACTIVE",
+  "known_rows": 32,
+  "important_semantics": "A family count is an authority-reported number of configurations/variants. It is not silently converted into named strategy IDs. Exact configuration catalogs must be recovered before individual configuration execution.",
+  "known_lower_bound_configurations_from_quantified_families": 48356,
+  "unquantified_campaigns_present": 20,
+  "next_recovery": [
+    "master portable v14250 inventory/history",
+    "older gap-to-500 M7-M41 artifacts",
+    "M129-M191 terminal inventories",
+    "exact M5/M6/Failed-Auction catalogs"
+  ],
+  "first_serial_execution": "XAU_BUY_MULTIWEEK_PULLBACK_v2512",
+  "correction_note": "Corrected from 49780: M48_FAILED_AUCTION is an alias of FAILED_AUCTION_BUY_SELL and must not be double-counted (1424 variants).",
+  "authority_corrections": [
+    "v2512 historical recovery is VERIFIED in XAU_PORTFOLIO_RESEARCH_REPORT_v13300: PASS_64_OF_64 entries/exits and PnL error <=5.7065e-14R.",
+    "Current runtime lacks exact v2512 generator/ledger bytes; do not approximate despite verified historical reproducibility."
+  ]
+}
