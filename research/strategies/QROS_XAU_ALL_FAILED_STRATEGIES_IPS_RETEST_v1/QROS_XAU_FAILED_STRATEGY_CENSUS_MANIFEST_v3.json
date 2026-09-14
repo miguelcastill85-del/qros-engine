@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_XAU_FAILED_STRATEGY_CENSUS_MANIFEST_3.0",
+  "created_date": "2026-09-14",
+  "campaign_id": "QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "rows": 41,
+  "census_sha256": "ff4b45bfc7677a8dad3e95fa1e2fd38f0ab7c611360c2e3d8bce72dba21da9b1",
+  "quantified_hard_failed_lower_bound_after_alias_dedupe": 48357,
+  "granular_subidentities_added": [
+    "FA_BUY_R108_ONEBAR_DEEP_FLOW_BROAD_FAST",
+    "FA_BUY_R108_ONEBAR_DEEP_FLOW_BROAD_BAL",
+    "XAU_M5_M5D02",
+    "XAU_SELL_AUCTION_UNIFIED_v1103"
+  ],
+  "counting_note": "Granular members of already-counted families do not increase the family configuration lower bound. v1103 is a separate historical evidence-ledger identity and is not silently merged with v12000 Failed Auction variants.",
+  "execution_status": {
+    "exact_2018_2024_completed": ["XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1"],
+    "not_approved_completed": ["XAU_M1_IPS_CONFIRMATION_v1"],
+    "individual_blockers": "tracked by receipts"
+  },
+  "exhaustiveness": "IN_PROGRESS"
+}
