@@ -1,0 +1,16 @@
+{
+  "schema":"QROS_DETERMINISTIC_KERNEL_ACTIVE_EXECUTION_VALIDATION_PASS_1.0",
+  "status":"PASS",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "frontier_version":"V252",
+  "stable_pointer_blob_sha1_at_validation":"f2f5c108baa775e236754457dab63e6ab6380699",
+  "target":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V252_v1.json","git_blob_sha1":"8b7857f34b8de5b88d8eff0f57f25d659b0aeb8f"},
+  "external_validation":{"workflow":"qros-deterministic-execution-kernel-v6","run_id":34896545805,"job_id":104151970035,"trigger_commit":"1f1a7649e13374b3257f933f547aea0bc1413cca","conclusion":"success","mode":"ACTIVE_EXECUTION"},
+  "ticket":{"ticket_id":"cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552","state_id":"FG_SCORER_NOT_BUILT","guard_profile":"P01_PRE_ECONOMIC_SCORER_NOT_BUILT","action_type":"BUILD_FIRST_GATE_SCORER","subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","first_gate_order":1,"distinct_mask_classes":303572}},
+  "oracle":{"status":"PASS","independent_implementation":true,"receipt_sha256":"db176d16809f4fff535dbafd5d324e1e270d925208c22a20236ece4624e43627","ticket_id":"cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552","validation_only":false},
+  "active_pointer_ticket_binding":"PASS",
+  "direct_authority_exact_pins":"PASS",
+  "dynamic_component_syntax":"PASS",
+  "firewalls":{"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"first_gate_execution_authorized":false,"new_ga1_authorized":false},
+  "decision":"ACTIVE_EXECUTION validation PASS. The exact non-economic action BUILD_FIRST_GATE_SCORER is now executable under ticket cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552. This validation does not itself execute the scorer or read economic output."
+}
