@@ -1,0 +1,14 @@
+{
+  "schema":"QROS_IPS_V2_MT5_PARITY_CONTRACT_1.0",
+  "indicator":"QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY",
+  "scientific_state":"APPROVED_RESEARCH",
+  "frozen_operational_source":"QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY.mq5",
+  "validation_harness":"QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY_PARITY.mq5",
+  "validation_harness_policy":"Instrumentation only; it may not replace or retune the frozen operational source.",
+  "symbol":"XAUUSD Darwinex MT5",
+  "research_scale":100,
+  "replay":{"from_msc":1603398601078,"to_msc":1660592402871,"evaluation_start_msc":1609459200000,"evaluation_end_exclusive_msc":1660521600000,"InpParityExport":true,"InpParityOneShot":true},
+  "required_compile_gate":{"MetaEditor_errors":0,"warnings_target":0,"compiled_ex5_sha256":"RECORD_AFTER_COMPILE"},
+  "event_parity_gate":{"reference_events":12245,"integer_and_side_fields":"EXACT","float_abs_tolerance":1e-8,"total_field_mismatches_required":0,"score_threshold":65,"no_aggregate_only_substitute":true},
+  "runtime_environment":{"this_chat_runtime_MetaEditor":"NOT_AVAILABLE","this_chat_runtime_MT5_terminal":"NOT_AVAILABLE","current_status":"MT5_EXTERNAL_PENDING"}
+}
