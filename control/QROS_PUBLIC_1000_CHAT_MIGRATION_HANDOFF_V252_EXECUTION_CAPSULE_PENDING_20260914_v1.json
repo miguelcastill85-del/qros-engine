@@ -1,0 +1,89 @@
+{
+  "schema": "QROS_PUBLIC1000_CHAT_MIGRATION_HANDOFF_1.0",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "created_date": "2026-09-14",
+  "status": "PASS_HANDOFF_FROZEN",
+  "authority": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "branch": "main",
+    "stable_pointer_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "stable_pointer_git_blob_sha1": "84fdb25f6af18b4b118e7425f2a5427cfb5c0207",
+    "stable_version": "V252",
+    "stable_target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V252_v1.json",
+    "stable_target_git_blob_sha1": "8b7857f34b8de5b88d8eff0f57f25d659b0aeb8f"
+  },
+  "scientific_state": {
+    "state": "DEVELOPMENT_RUNNING",
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "current_workgraph_node": "W09_FIRST_GATE_SCORER_BUILD",
+    "current_architecture_gap": "GAP-S03",
+    "rise_fixed_point": "PASS_DURABLE",
+    "ga1_formally_completed_shards": 8,
+    "first_gate_pending": 8,
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_ga1_authorized": false
+  },
+  "machine_ticket": {
+    "ticket_id": "cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552",
+    "action": "BUILD_FIRST_GATE_SCORER",
+    "state_id": "FG_SCORER_NOT_BUILT",
+    "guard_profile": "P01_PRE_ECONOMIC_SCORER_NOT_BUILT",
+    "subject": {
+      "asset": "XAUUSD",
+      "side": "BUY",
+      "timeframe": "M1",
+      "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+      "first_gate_order": 1,
+      "distinct_mask_classes": 303572
+    }
+  },
+  "closed_work_do_not_repeat": [
+    "V252 candidate validation PASS",
+    "V252 active validation PASS",
+    "V252 active execution validation PASS",
+    "Seed0076 POST_EXPANSION_RISE_FIXED_POINT PASS",
+    "Seed0076 ontology binding/freeze PASS",
+    "8 GA1 shards already completed and preserved",
+    "XAU/NQX minimal DEV prefix identity verification already completed for FIRST_GATE"
+  ],
+  "newly_identified_architecture_defect": {
+    "id": "ARCH-GAP-EXEC-CAPSULE-001",
+    "classification": "VERIFIED_DESIGN_GAP",
+    "problem": "The stable pointer identifies the unique machine action, but execution of BUILD_FIRST_GATE_SCORER still requires the chat/runtime to rediscover multiple dependencies and interfaces by searching repository files. This can cause chat saturation, repeated reconstruction, ambiguity and inconsistent dependency selection.",
+    "repository_search_result": "No EXECUTION_CAPSULE artifact exists on main at handoff time.",
+    "required_correction": "Introduce a deterministic immutable EXECUTION_CAPSULE layer. Every executable machine ticket must resolve to exactly one capsule containing all direct dependency paths plus Git blob pins, input contracts, commands/entrypoints, expected outputs, success/failure predicates, forbidden actions, validation/oracle requirements and next-state transition. A new chat must be able to resume via: stable handoff pointer -> frozen handoff -> stable scientific pointer -> exact capsule -> verify pins -> execute. Repository-wide exploratory dependency discovery must not be part of normal execution.",
+    "scientific_effect": "NONE. Architecture/orchestration only. Must not alter frozen universe, configs, FIFO order, multiplicity, execution semantics, GA1 results or economic gates.",
+    "economic_access_allowed_during_correction": false,
+    "holdout_access_allowed_during_correction": false
+  },
+  "resume_protocol": [
+    "1. Read control/QROS_PUBLIC_1000_CURRENT_CHAT_HANDOFF.json first.",
+    "2. Verify this handoff path and blob SHA from that pointer.",
+    "3. Verify stable scientific pointer is still V252 or, if repository advanced, use the newer durable authority and reconcile this handoff without forcing V252.",
+    "4. Do not repeat closed scientific work.",
+    "5. Before repository-wide discovery for BUILD_FIRST_GATE_SCORER, implement and externally validate ARCH-GAP-EXEC-CAPSULE-001 as an architecture-only transition.",
+    "6. Generate the exact scorer execution capsule from frozen authorities; require one and only one valid capsule for ticket cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552.",
+    "7. Validate capsule and resolver with an independent implementation and external GitHub Actions runner, including adversarial missing/wrong-pin/extra-dependency/ambiguous-capsule tests.",
+    "8. Only after capsule PASS, continue BUILD_FIRST_GATE_SCORER without reading economic PnL.",
+    "9. Holdout, GA2 and FIRST_GATE economic execution remain closed until their explicit machine states authorize them."
+  ],
+  "data_note": {
+    "zip_uploads_are_not_durable_cross_chat_storage": true,
+    "additional_zip_upload_required_for_current_action": false,
+    "instruction": "Do not ask the user to re-upload XAU/NQX ZIPs for the architecture correction or scorer build unless an exact later machine action proves physical bytes indispensable and unrecoverable by other authorized means."
+  },
+  "next_automatic_action": "IMPLEMENT_AND_EXTERNALLY_VALIDATE_EXECUTION_CAPSULE_LAYER_FOR_CURRENT_V252_MACHINE_TICKET_THEN_BUILD_FIRST_GATE_SCORER",
+  "forbidden": [
+    "DO_NOT_READ_ECONOMIC_PNL",
+    "DO_NOT_OPEN_GA2",
+    "DO_NOT_OPEN_HOLDOUT",
+    "DO_NOT_START_NEW_GA1",
+    "DO_NOT_RECOMPUTE_COMPLETED_GA1_SHARDS",
+    "DO_NOT_CHANGE_FIFO_ORDER",
+    "DO_NOT_CHANGE_MULTIPLICITY_CONTRACT",
+    "DO_NOT_CHANGE_FROZEN_UNIVERSE",
+    "DO_NOT_TREAT_CHAT_MEMORY_AS_AUTHORITY"
+  ]
+}
