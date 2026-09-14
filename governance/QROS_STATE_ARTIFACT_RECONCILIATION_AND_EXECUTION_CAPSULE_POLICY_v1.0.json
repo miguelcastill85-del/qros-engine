@@ -1,0 +1,16 @@
+{
+  "schema":"QROS_STATE_ARTIFACT_RECONCILIATION_AND_EXECUTION_CAPSULE_POLICY_1.0",
+  "status":"FROZEN_ACTIVE",
+  "purpose":"Eliminate chat-time rediscovery loops by making durable evidence monotonic and every current action self-contained in one immutable execution capsule.",
+  "normal_resume_path":["READ_STABLE_FRONTIER_POINTER","READ_EXACT_CURRENT_EXECUTION_CAPSULE","VERIFY_ALL_CAPSULE_PINS","EXECUTE_EXACT_CAPSULE_ACTION","PERSIST_TERMINAL_RECEIPT","ATOMically_PROMOTE_NEXT_STATE_AND_CAPSULE"],
+  "normal_resume_forbidden":["OPEN_ENDED_REPOSITORY_SEARCH","RECONSTRUCT_FROM_CHAT_HISTORY","INFER_NEXT_ACTION_FROM_FREE_TEXT","REPEAT_TERMINAL_WORK","SELECT_SIMILAR_OR_NEWER_FILE_BY_NAME","ASK_USER_TO_REUPLOAD_DURABLE_EVIDENCE"],
+  "bounded_dereference_contract":{"stable_pointer_to_capsule_exactly_one":true,"capsule_must_pin_all_direct_dependencies":true,"transitive_dependency_discovery_for_execution":false,"unbounded_search_budget":0,"free_text_authority":false},
+  "evidence_monotonicity":{"rule":"A durable PASS receipt with exact subject, action, source pins and external validation outranks an older declared workflow state.","on_state_behind_evidence":"STATE_ARTIFACT_DIVERGENCE_RECONCILE_FORWARD","on_state_ahead_of_evidence":"STATE_ARTIFACT_DIVERGENCE_FAIL_CLOSED","rollback_without_invalidation_receipt":false},
+  "artifact_state_lattice":["ABSENT","MATERIALIZED_UNVALIDATED","VALIDATED_SYNTHETIC_PARITY_PASS","PRODUCTION_INPUT_READY_PARITY_PENDING","PRODUCTION_EXECUTION_PARITY_PASS","ECONOMIC_EXECUTION_AUTHORIZED","TERMINAL_RECEIPT_PERSISTED"],
+  "reconciliation_rules":{"file_presence_never_implies_PASS":true,"external_success_receipt_required_for_VALIDATED_SYNTHETIC_PARITY_PASS":true,"receipt_subject_and_source_pins_must_match":true,"contradiction_must_be_persisted":true,"rebuild_when_validated_receipt_exists":false},
+  "execution_capsule_required_fields":["capsule_id","machine_state_id","single_action","subject","preconditions","exact_inputs","exact_commands","expected_outputs","pass_criteria","fail_closed_codes","forbidden_actions","terminal_receipt_path","next_state_on_pass"],
+  "capsule_rules":{"immutable_after_creation":true,"all_paths_git_blob_pinned":true,"commands_are_authoritative":true,"advisory_text_is_non_authoritative":true,"one_action_only":true,"no_wildcards_or_globs":true,"no_latest_file_resolution":true},
+  "external_validation":{"required_for_capsule_activation":true,"clean_runner_required":true,"independent_oracle_required_when_scientifically_applicable":true,"mutations_required":["STALE_DECLARED_STATE","MISSING_RECEIPT","WRONG_RECEIPT_SUBJECT","WRONG_SOURCE_PIN","MISSING_CAPSULE_DEPENDENCY","FREE_TEXT_NEXT_ACTION_TAMPER"]},
+  "chat_boundary_contract":{"new_chat_reads_only":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","then":"the exact capsule pinned by that pointer","may_search_repository_on_normal_resume":false,"search_allowed_only_for":"explicit STATE_ARTIFACT_DIVERGENCE repair capsule"},
+  "scientific_effect":"EXECUTION_AND_CONTINUITY_HARDENING_ONLY; NO ALPHA, UNIVERSE, MULTIPLICITY, PNL, HOLDOUT OR FIFO CHANGE"
+}
