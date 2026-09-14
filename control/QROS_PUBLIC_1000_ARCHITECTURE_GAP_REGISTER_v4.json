@@ -1,0 +1,24 @@
+{
+  "schema":"QROS_PUBLIC1000_ARCHITECTURE_GAP_REGISTER_4.0",
+  "version":"4.0",
+  "status":"FROZEN_ACTIVE_CANDIDATE",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "supersedes":"control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v3.json",
+  "gaps":[
+    {"id":"GAP-A01","area":"Version-hardcoded external validator","status":"CLOSED","closure_evidence":["control/QROS_DETERMINISTIC_KERNEL_V251_CANDIDATE_VALIDATION_PASS_20260914_v1.json","control/QROS_DETERMINISTIC_KERNEL_V251_ACTIVE_VALIDATION_PASS_20260914_v1.json","control/QROS_DETERMINISTIC_KERNEL_V251_ACTIVE_EXECUTION_VALIDATION_PASS_20260914_v1.json"],"result":"generic future-version test PASS and no frontier-version hardcoding"},
+    {"id":"GAP-A02","area":"Stale validation dependency reference","status":"CLOSED","closure_evidence":"V251 three-phase external validation with exact direct-authority pins and dynamically selected component paths"},
+    {"id":"GAP-A03","area":"Compiler execution authorization latch","status":"CLOSED","closure_evidence":"V251 compiler/oracle/adversarial three-phase PASS; active execution latch and exact ticket binding externally validated"},
+    {"id":"GAP-A04","area":"Master workgraph evidence binding","status":"CLOSED","closure_evidence":"control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.json"},
+    {"id":"GAP-A05","area":"Legacy validator workflow noise","status":"OPEN_NON_SCIENTIFIC_NOISE","scientific_execution_blocking":false,"rule":"Only the workflow pinned by the active frontier is authoritative; legacy workflow failures do not alter state."},
+    {"id":"GAP-A06","area":"V246 incorrect V209 evidence pin and unsupported status claim","status":"CLOSED_BY_CORRECTION_RECEIPT","closure_evidence":"control/QROS_V246_CANDIDATE_EXTERNAL_VALIDATION_FAILURE_20260914_v1.json"},
+    {"id":"GAP-A07","area":"V251 active-execution receipt duplicated stale pin during first RISE attempt","status":"CLOSED_BY_CORRECTED_STABLE_AUTHORITY_AND_EXTERNAL_REVALIDATION","closure_evidence":["control/QROS_SEED0076_RISE_REVALIDATION_V1_PIN_FAILURE_20260914_v1.json","GitHub Actions run 34892700557"]},
+    {"id":"GAP-A08","area":"Enumerator B_v2 root aggregation definition divergence","status":"CLOSED_WITHOUT_UNIVERSE_CHANGE","closure_evidence":{"path":"control/QROS_SEED0076_ENUMERATOR_B_ROOT_DEFINITION_CORRECTION_20260914_v1.json","git_blob_sha1":"b5643ca37ac0a21391bae2044c05950b23d0218d"},"result":"semantic symmetric difference zero for base/filter/management; B_v3 uses canonical root aggregation"},
+    {"id":"GAP-S01","area":"Seed0076 POST_EXPANSION_RISE fixed-point evidence","status":"CLOSED_EXTERNAL_INDEPENDENT_PASS","closure_evidence":{"path":"control/QROS_SEED0076_POST_EXPANSION_RISE_FIXED_POINT_PASS_20260914_v1.json","git_blob_sha1":"4196b71533097b66ddb0965e8b9a29cda3f72dd8","external_run_id":34893335551},"scope":"Frozen genealogy radius and canonical V209 information only"},
+    {"id":"GAP-S02","area":"Seed0076 ontology-freeze evidence binding","status":"CLOSED_EVIDENCE_BOUND","closure_evidence":{"path":"control/QROS_SEED0076_POST_EXPANSION_RISE_FIXED_POINT_PASS_20260914_v1.json","git_blob_sha1":"4196b71533097b66ddb0965e8b9a29cda3f72dd8","ontology_root_sha256":"e22d1a428bcb3e1f868f1cfb6161766ab0fdf22ce08e6c7e527767264d186200"}},
+    {"id":"GAP-S03","area":"FIRST_GATE scorer implementation and independent parity","status":"OPEN_CURRENT_ENGINEERING_GAP","blocking_class":"IMPLEMENTATION_REQUIRED","closure_required":["primary scorer source","independent scorer oracle","unit/adversarial tests","parity receipt","no PnL read during construction"],"forbidden_while_open":["EXECUTE_FIRST_GATE_ECONOMIC_SCORING","OPEN_HOLDOUT"]},
+    {"id":"GAP-F01","area":"Post-60-shard downstream deterministic contracts","status":"FUTURE_POLICY_REQUIRED","may_be_filled_by_chat_inference":false}
+  ],
+  "current_blocking_gap":"GAP-S03",
+  "closure_rule":"Only exact durable evidence plus machine validation closes a gap.",
+  "decision":"GAP_REGISTER_V4: RISE/ONTOLOGY GAPS CLOSED; FIRST_GATE SCORER IMPLEMENTATION IS THE UNIQUE CURRENT BLOCKER."
+}
