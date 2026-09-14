@@ -20,7 +20,8 @@
   "PROBLEMAS": "Only 5 of 61 M1 trades met the preregistered IPS confirmation; sample and coverage hard gates fail.",
   "CAUSA_RAÍZ": "M1 itself is low-frequency (~9 trades/year) and a strict same-direction IPS>=65 event within 60 minutes overlaps rarely.",
   "CORRECCIONES": "None. No widening of window, threshold reduction, exit change or rescue under v1 identity.",
-  "ESTADO_CIENTÍFICO": "INCONCLUSIVE_SUPPORT",
+  "DECISION": "INCONCLUSIVE_SUPPORT",
+  "ESTADO_CIENTÍFICO": "OBSERVATIONAL_RESERVE",
   "IMPACTO_PORTAFOLIO": "NONE; filtered descendant is not eligible for risk or integration.",
   "SIGUIENTE_ACCIÓN_AUTOMÁTICA": "Close this genealogy without opening 2025-2026. Select the next independent XAU base alpha ex ante by recoverable authority and higher trade count, then preregister a new IPS-filter descendant without reusing M1 result to tune IPS."
 }
