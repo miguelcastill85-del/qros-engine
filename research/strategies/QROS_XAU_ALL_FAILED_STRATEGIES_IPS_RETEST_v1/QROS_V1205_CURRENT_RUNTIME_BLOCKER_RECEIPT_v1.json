@@ -1,0 +1,22 @@
+{
+  "schema": "QROS_V1205_CURRENT_RUNTIME_BLOCKER_RECEIPT_1.0",
+  "date": "2026-09-14",
+  "campaign_id": "QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "candidate": "XAU_BEAR_FLAG_SELL_v1205",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "historical_decision": "REJECTED_DEFINITIVE_COST_WF_FRAGILITY",
+  "historical_evidence": {
+    "class": "VERIFIED_BY_RECOVERABLE_DURABLE_REPORT",
+    "authority": "XAU_PORTFOLIO_RESEARCH_REPORT_v13300.md",
+    "findings": ["costs destroy edge","walk-forward 5/8","WFE 17.9%","narrow plateau","2025 marginal"],
+    "decision": "definitive rejection"
+  },
+  "current_runtime_exact_bytes": {
+    "class": "NO_DISPONIBLE",
+    "required": ["exact frozen generator or exact trade ledger sufficient for event-by-event replay"],
+    "approximate_reconstruction": "FORBIDDEN"
+  },
+  "searches_performed": ["local /mnt/data exact-name/content search","GitHub main code search","File Library exact/semantic search","Dropbox title/content search"],
+  "ips_retest": {"executed":false,"reason":"base-reproduction gate cannot be satisfied from exact current bytes"},
+  "next_action": "continue serial queue"
+}
