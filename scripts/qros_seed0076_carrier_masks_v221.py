@@ -34,6 +34,7 @@ class CarrierMaskEngine:
         ids=self.selected_indices(packed);h=hashlib.sha256();h.update(domain_prefix);h.update(ids.astype('<u8',copy=False).tobytes());return h.digest(),len(ids)
 
 def group_packages_exact(engine, packages):
+    # exact within-carrier equality: hash then zlib-stored packed bytes for collision confirmation.
     groups={};rows=[]
     for i,g in packages:
         p=engine.package(g);h=hashlib.sha256(p.tobytes()).digest();z=zlib.compress(p.tobytes(),1)
