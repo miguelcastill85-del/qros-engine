@@ -1,0 +1,20 @@
+{
+  "schema":"QROS_PUBLIC1000_DETERMINISTIC_DECISION_LEDGER_6.1","version":"6.1","status":"FROZEN_ACTIVE","campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA","supersedes":"control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v6.json","inherits_rules_from":"control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v6.json",
+  "active_decisions":[
+    "No XAU/NQX ZIP upload is required for current scorer construction or validation continuity.",
+    "POST_EXPANSION_RISE_FIXED_POINT PASS is scoped to frozen Seed0076 genealogy radius and canonical V209 only.",
+    "Fixed-point durable authority is control/QROS_SEED0076_POST_EXPANSION_RISE_FIXED_POINT_PASS_20260914_v1.json blob 4196b71533097b66ddb0965e8b9a29cda3f72dd8.",
+    "Enumerator A_v2 and B_v3 have exact base/filter/management root parity and zero semantic symmetric difference.",
+    "B_v2 root mismatch was root-aggregation-only and did not change scientific universe membership.",
+    "Eight completed GA1 shards remain valid and are not recomputed.",
+    "W09 FIRST_GATE_SCORER_BUILD_AND_PARITY is the unique current engineering node.",
+    "Scorer construction remains non-economic; economic_pnl_read=false, ga2_open=false, holdout_open=false."
+  ],
+  "bound_artifacts":{
+    "rise_fixed_point_pass":{"path":"control/QROS_SEED0076_POST_EXPANSION_RISE_FIXED_POINT_PASS_20260914_v1.json","git_blob_sha1":"4196b71533097b66ddb0965e8b9a29cda3f72dd8"},
+    "enumerator_root_correction":{"path":"control/QROS_SEED0076_ENUMERATOR_B_ROOT_DEFINITION_CORRECTION_20260914_v1.json","git_blob_sha1":"b5643ca37ac0a21391bae2044c05950b23d0218d"},
+    "workgraph":"control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.1.json",
+    "gap_register":"control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.1.json"
+  },
+  "decision":"FROZEN_ACTIVE: VALIDATION COMPLETE; BUILD_FIRST_GATE_SCORER IS NEXT NON_ECONOMIC ENGINEERING ACTION"
+}
