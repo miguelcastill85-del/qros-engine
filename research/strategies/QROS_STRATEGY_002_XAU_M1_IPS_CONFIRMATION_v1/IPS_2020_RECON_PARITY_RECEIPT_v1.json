@@ -1,0 +1,13 @@
+{
+  "schema": "QROS_IPS_2020_RECON_PARITY_1.0",
+  "stream_sha256": "cf283c9409f96f7cd14e491f673b1cc07b8dd43cd91ec28fc9c5f3ce6a894fda",
+  "stream_records": 138773773,
+  "main_events": 8711,
+  "oracle_events": 8711,
+  "main_sha256": "d987873d64ed13e4f56ae71f0ca9e48ed9d216a6f3562e8a934d58dfae77b4a9",
+  "oracle_sha256": "847d0570328a0033907673f0f23ed8604553990127b82d83b87cc3962f081837",
+  "total_field_mismatches": 0,
+  "max_numeric_abs_error": 0.0,
+  "decision": "PASS",
+  "first_simultaneous_main_output_issue": "Initial simultaneous C++ run logged PASS but exported zero-byte CSV; deterministic rerun of identical binary/input produced this ledger. Scientific parity is based on rerun bytes."
+}
