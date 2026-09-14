@@ -1,0 +1,80 @@
+{
+  "byte_exact_regressions": [
+    {
+      "artifacts": {
+        "duplicate_alias_pairs.bin": "7415945ecc2d7deeef786b0ba25193f849cee6e7297865b862c3b0f56642289f",
+        "mask_class_index.jsonl": "bdbbaa28785e1ad9b3458b76043fdc57d3e7775687299601f4a8bfd50f5c97e8",
+        "mask_classes.delta_u32.bin": "3f88ab83015e48f60f021010cbc74c69edbbc5482a1a2b2ade34284a88f8aee1"
+      },
+      "class_root_sha256": "d0e9795c1d1ce7f6c09079a34bd6480761356801340425116f51289f675ca99d",
+      "distinct_mask_classes": 2416,
+      "duplicate_configs": 31112,
+      "full_alias_mapping_root_sha256": "621c47fb9e95ddc67baeed3ae6d076dd0e0a92e74c7e1f3fe18475bf0a2d225a",
+      "group": 0,
+      "processed_signal_configs": 33528,
+      "semantic_class_root_sha256": "85c676f8bc71b18c6e132b85bcb610abab5c4b5449a3e4924cd6e1b19cdb3ec5"
+    },
+    {
+      "artifacts": {
+        "duplicate_alias_pairs.bin": "4a742f6febec63abcdc2ed46ace4f9d6b220255057c8a8c26e8ec09c2ac8502e",
+        "mask_class_index.jsonl": "24cd74a6597e071dae6f60ac4b1afd1f09194bfa3ea2c83d4adf801e66c85308",
+        "mask_classes.delta_u32.bin": "486a5a47600cbd6902cf9d5dd74859b0a3f8e49d3707cf173a550dcbe87de3a1"
+      },
+      "class_root_sha256": "c7ce7de054d198bbeef115470feea0e61f3ca1126def0f8d86bf8c6e83b673cd",
+      "distinct_mask_classes": 3889,
+      "duplicate_configs": 29639,
+      "full_alias_mapping_root_sha256": "b9cf659308be06ab843e8d0b7a5130240154465e55267790991828e0d4a455df",
+      "group": 1,
+      "processed_signal_configs": 33528,
+      "semantic_class_root_sha256": "995247b530a4eab24327c66a70a056ff40ac4f10be03842a3cb5971f0d2733cb"
+    }
+  ],
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "corrected_authority": {
+    "base_worker_git_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+    "base_worker_path": "scripts/qros_seed0076_ga1_shard_worker_v223.py",
+    "base_worker_sha256": "1cda5fbb80d31b3137344724e4260b40df86e633f68c9750e78e657282829756",
+    "cached_wrapper_git_blob_sha1": "2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f",
+    "cached_wrapper_path": "scripts/qros_seed0076_ga1_cached_wrapper_v236.py",
+    "cached_wrapper_sha256": "bdb2f6e1981ad8ec0f905b9f5a7dcc4eb5414c55ae6c615338a03f1e32412c3c"
+  },
+  "decision": "ADOPT_V236_FOR_DETERMINISTIC_GA1_REMATERIALIZATION_ONLY",
+  "frozen_domain": {
+    "asset": "NQX",
+    "ordered_config_id_stream_root_sha256": "da93ef4605d4a8c94753248cacc3f75188fa7197e9728922fe4d8b5853c65b90",
+    "shard_id": "b6fe997fe6eded0f4df4692256ea872e41e7fccc5ea453e230844488a7840c41",
+    "side": "BUY",
+    "timeframe": "H4"
+  },
+  "input_recovery": {
+    "NQX_DEV": {
+      "bytes": 1018984420,
+      "records": 59940260,
+      "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+      "source_parts": [
+        "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+        "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+        "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip"
+      ]
+    },
+    "bar_oracle_checks": 614,
+    "bar_oracle_receipt_sha256": "e04797e6d4d6dcc76e23f35217807f5d62b7279fffb1a816d32c58a72eb54ed5",
+    "indicator_cache_receipt_sha256": "4305ce352bcea2ace21fd2f4c951da8943b2a45daae64df4090bcd4d1241bce1",
+    "tick_raw_cache_sha256": "f4cac1055455c6348c6648f3f73a3019b02a5e33021364fe81a7505872e8b3fb"
+  },
+  "parent_incident": "control/QROS_PUBLIC_1000_RESUME_INTEGRITY_INCIDENT_20260914_v1.json",
+  "purpose": "Prospective correction of V233 cached-wrapper repository-relative worker filename; historical V233 evidence remains immutable.",
+  "receipt_sha256": "5857c9ac7017332d22c3125716c96d272cd1d9d4492c4f1850ed12ee1b6516d0",
+  "schema": "QROS_PUBLIC1000_SEED0076_PORTABLE_GA1_WRAPPER_PARITY_2.0",
+  "scientific_guards": {
+    "config_ids_changed": false,
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "historical_v233_rewritten": false,
+    "holdout_open": false,
+    "universe_changed": false
+  },
+  "seed": "WEB_SEED_0076",
+  "status": "PASS_BYTE_EXACT_PARITY",
+  "supersedes_for_future_rematerialization": "control/QROS_PUBLIC_1000_PORTABLE_WRAPPER_CORRECTION_CANDIDATE_V236_v1.json"
+}
