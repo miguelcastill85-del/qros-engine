@@ -1,0 +1,39 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP1_1_D16_CORRECTION_RECEIPT_1",
+  "timestamp_context": "2026-09-14",
+  "branch": "design/runnerlab-v3-audited-20260914",
+  "parent_commit": "7f0e79ee49a8526536520f32c36a299a8b9f69eb",
+  "defect": {
+    "id": "D16_CS0136_LOCAL_SCOPE_NAME_COLLISION",
+    "classification": "BUILD_INFRASTRUCTURE_FAILURE",
+    "evidence": "Windows native build stopped at Program.cs(43,13) CS0136 before any self-test",
+    "root_cause": "local variable name receipt reused in package-release branch and later selftest scope",
+    "candidate3_affected": false,
+    "mt5_affected": false,
+    "scientific_result_produced": false
+  },
+  "correction": {
+    "package_variable": "packageReceipt",
+    "selftest_variable": "selfTestReceipt",
+    "regression_gate": "CS0136_RECEIPT_SCOPE_REGRESSION"
+  },
+  "validation": {
+    "static_audit_pass": true,
+    "static_audit_checks": 62,
+    "source_manifest_sha256": "61f663b4b7f09c665ee86c95d8a8b6192458e086be0c6a495e4b70e41c361fc7",
+    "static_audit_report_sha256": "049a1df6fbb2b8cac4dd0d4e6849c7b99930ea019bf618deee5d54ba0c99b3f6",
+    "full_zip_sha256": "7e1e4ac8110d22f1c612dd8cd81018c3dec3a018c8e6b894b9116ea6569c2f7d",
+    "full_zip_bytes": 34334,
+    "hotfix_zip_sha256": "8b226fb5a9a7113589431b3f27fe525bd01945cdd3c24ec1bde5afb4fe07a058",
+    "hotfix_zip_bytes": 10772,
+    "native_windows_retest": "PENDING"
+  },
+  "state": {
+    "scientific_state": "DEVELOPMENT_RUNNING",
+    "mt5_accessed": false,
+    "candidate3_executed": false,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "next_gate": "WINDOWS_BUILD_AND_SELF0_SELF4_RERUN"
+  }
+}
