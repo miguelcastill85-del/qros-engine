@@ -1,17 +1,19 @@
 {
-  "schema":"QROS_XAU_ALL_FAILED_IPS_RETEST_CURRENT_FRONTIER_POINTER_1.3",
+  "schema":"QROS_XAU_ALL_FAILED_IPS_RETEST_CURRENT_FRONTIER_POINTER_1.4",
   "updated_date":"2026-09-14",
   "campaign_id":"QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
   "scientific_state":"CAMPAIGN_ACTIVE",
   "objective":"Recover literally all historically failed/rejected/exhausted/not-approved XAU trading strategies and exact configurations, then execute a common 2018-2024 retrospective backtest serially where exact bytes are recoverable.",
   "authority":{
     "prereg":{"path":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_ALL_FAILED_IPS_RETEST_PREREG_v1.json","commit":"b3453e967354ec0f354cf4dcef59fa949da6dfe1"},
-    "census":{"path":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_FAILED_STRATEGY_MASTER_CENSUS_v5.csv","sha256":"de7581be52ca8de2ba242e13bdefbda46d9969e592e63ade38e2173843270412","commit":"fc0e989abb9c0060e08bcc58214cd7e3b294e35f"},
-    "manifest":{"path":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_FAILED_STRATEGY_CENSUS_MANIFEST_v5.json","commit":"d33791f1f67246ae82dfd0366d6a874744e3a529"}
+    "base_census":{"path":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_FAILED_STRATEGY_MASTER_CENSUS_v5.csv","sha256":"de7581be52ca8de2ba242e13bdefbda46d9969e592e63ade38e2173843270412","commit":"fc0e989abb9c0060e08bcc58214cd7e3b294e35f"},
+    "census_delta_v6":{"path":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_FAILED_STRATEGY_CENSUS_DELTA_v6.json","commit":"3ae07f8eed0c1bb3bcdb8d515c546fa492dfa927"},
+    "manifest":{"path":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_FAILED_STRATEGY_CENSUS_MANIFEST_v6.json","commit":"6558aad9c15255c089ca2c4362c86f14e0248f5e"},
+    "effective_local_census":{"file":"QROS_XAU_FAILED_STRATEGY_MASTER_CENSUS_v6.csv","sha256":"56e365573ff639b0dbbe7d3a15a5959c02c84daa80f0a2d3363784178e5261fe"}
   },
   "period_policy":{"common_window":"2018-2024","classification":"EXPOSED_DIAGNOSTIC_RESEARCH_ONLY","2025_2026":"SEALED_FOR_THIS_CAMPAIGN"},
   "ips_filter":{"indicator":"QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY","threshold":65,"lookback_minutes":60,"same_direction":true,"strictly_prior":true,"same_source_day":true,"retuning":"FORBIDDEN"},
-  "census_state":{"rows":45,"quantified_hard_failed_lower_bound_after_alias_dedupe":48357,"exhaustiveness":"IN_PROGRESS"},
+  "census_state":{"rows":46,"quantified_hard_failed_lower_bound_after_alias_dedupe":48357,"exhaustiveness":"IN_PROGRESS"},
   "completed_exact":[{"id":"XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1","period":"2018-2024","state":"REJECTED","trades":4344,"net_R":-961.671,"expectancy_R":-0.2214,"PF":0.691,"max_DD_R":972.956,"positive_years":"0/7","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/receipts/QROS_STRAT001_FULL_2018_2024_RECEIPT_v1.json","commit":"9c726cbd905408f583cd6b24391a6ef7bd9ae44c"}],
   "completed_no_pass_descendants":[{"id":"XAU_M1_IPS_CONFIRMATION_v1","period":"2018-2024","state":"INCONCLUSIVE_SUPPORT_NOT_APPROVED","base_trades":61,"filtered_trades":5,"coverage_fraction":0.08196721311475409}],
   "runtime_blockers":[
@@ -23,10 +25,11 @@
     {"id":"GC_M1_D60_XAUUSD_DIRECT_TRANSFER","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_GC_D60_XAU_DIRECT_TRANSFER_RUNTIME_BLOCKER_RECEIPT_v1.json","commit":"0b4bd38bb38f6f87edab5ce7d3a50e192ed93375"},
     {"id":"XAU_GC_MODULE1_TRANSFER__CANDIDATA_A","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_GC_M1_CANDIDATA_A_XAU_RUNTIME_BLOCKER_RECEIPT_v1.json","commit":"6cad65a645aee330ee986f7f4bc425d75663110e"},
     {"ids":["XAU_A01_PATH_ENTROPY_TRANSITION_v1050","PB20_EMA_PULLBACK_CONTACT_DURATION","QROS_XAU_G001R","M42_M79_TERMINAL_GROUP","M129_M135_TERMINAL_GROUP","M164_M191_TERMINAL_GROUP"],"receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_LEGACY_FAILED_FRONTIER_RUNTIME_BLOCKER_RECEIPT_v1.json","commit":"6755dbb436ed86cd1e46b693446a8608b5bd9938"},
-    {"id":"XAU_R1_R70_TERMINAL_FRONTIER","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_R1_R70_TERMINAL_FRONTIER_BLOCKER_RECEIPT_v1.json","commit":"8ae7072f65ec518e85f6645cb68ac68f3674f35f","current_issue":"TERMINAL_RANGE_VERIFIED_BUT_MEMBER_MAPPING_AND_ALIAS_CATALOG_NOT_RECOVERED"}
+    {"id":"XAU_R1_R70_TERMINAL_FRONTIER","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_R1_R70_TERMINAL_FRONTIER_BLOCKER_RECEIPT_v1.json","commit":"8ae7072f65ec518e85f6645cb68ac68f3674f35f"},
+    {"id":"XAU_OPENING_DRIVE_OTHER_SESSIONS_LEGACY_RESERVE","receipt":"research/strategies/QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1/QROS_XAU_OPENING_DRIVE_OTHER_SESSIONS_LEGACY_BLOCKER_v1.json","commit":"253c3083233cdcc1836357ecb39b9bbe5fac3b0a","current_issue":"EXHAUSTED_RESERVE_VERIFIED_BUT_EUROPEAN_CANDIDATE_ID_RULES_AND_LEDGER_NOT_RECOVERED"}
   ],
   "excluded_from_failed_census":["M64_BLOCKED_ZERO_TRIALS","A02_PREREGISTERED_NO_RESULTS","A25_I1_GATEA_ZERO_BUT_FINAL_PARITY_PENDING","GC_M1_CANDIDATA_B_NOT_REJECTED","GC_M1_CANDIDATA_C_PROVISIONAL_NOT_REJECTED","GC_SELL_QUALITY_FIRST_NOT_REJECTED","OLD_XAU_FINAL_IMPULSE_BREAK_POSITIVE_NOT_PROVEN_REJECTED"],
   "base_reproduction_policy":"Exact trade-by-trade parity or exact frozen generator plus all recoverable golden metrics is mandatory before IPS scoring. Approximation and silent source migration are forbidden.",
-  "corrections":["v2512 durable authority verifies historical 64/64 parity; current blocker is absence of exact executable bytes/ledger.","Census v3 omitted A01, PB20 and later-terminal G001R; added in v4.","Census v4 omitted protected XAU_R1_R70 terminal frontier; added in v5 without assuming 70 independent strategies or changing the quantified lower bound.","Candidate A is rejected definitive but Candidate B/C and GC Sell Quality First are explicitly not failed and remain excluded."],
+  "corrections":["v2512 durable authority verifies historical 64/64 parity; current blocker is absence of exact executable bytes/ledger.","A01, PB20 and later-terminal G001R added in census v4.","Protected XAU_R1_R70 terminal frontier added in v5 without assuming 70 independent strategies.","Legacy Opening Drive other sessions exhausted reserve added in v6; it is not aliased to the later approved M4 thesis."],
   "next_action":"Continue exhaustive identity recovery and alias reconciliation, prioritizing any failed XAU identity for which an authentic trade ledger or exact generator becomes physically retrievable. Keep blocked identities resumable and do not stop the campaign globally."
 }
