@@ -1,0 +1,12 @@
+{
+  "schema":"QROS_XAU_FAILED_STRATEGY_CENSUS_MANIFEST_4.0",
+  "created_date":"2026-09-14",
+  "status":"PARTIAL_EXHAUSTIVE_CENSUS_ACTIVE",
+  "rows":44,
+  "census_sha256":"41310ad64f7e63631c71aeba8d48dafe73c8dc44e2ccabc4f74d684396d68885",
+  "quantified_hard_failed_lower_bound_after_alias_dedupe":48357,
+  "new_terminal_identities_added":["XAU_A01_PATH_ENTROPY_TRANSITION_v1050","PB20_EMA_PULLBACK_CONTACT_DURATION","QROS_XAU_G001R"],
+  "counting_note":"New rows have no safely recovered exact tested-configuration counts, so they do not alter the quantified lower bound.",
+  "exclusions_verified":["M64_ZERO_TRIALS_BLOCKED","A02_NO_RESULTS","A25_NOT_TERMINAL_PARITY_PENDING","GC_M1_CANDIDATA_B_NOT_REJECTED","GC_SELL_QUALITY_FIRST_NOT_REJECTED"],
+  "exhaustiveness":"IN_PROGRESS"
+}
