@@ -1,0 +1,52 @@
+{
+  "schema": "QROS_IPS_V2_CHECKPOINT_1.0",
+  "objective": "Create a more reliable/advantageous descendant of IPS v1 without contaminating clean validation.",
+  "authority": [
+    "control/QROS_INDICATOR_RESEARCH_CURRENT_FRONTIER_POINTER.json (parent state)",
+    "IPS_V2_STABILITY_PREREG_v1.json",
+    "IPS_V2_CONFIG_FREEZE_v1.json"
+  ],
+  "data": {
+    "development": "2018-2019 exposed, 13,939 executable events",
+    "oos1_2020": "EXPOSED_DIAGNOSTIC_ONLY",
+    "v1_oos2_2020_2022": "SEALED_AND_RESERVED",
+    "v2_clean_oos_2023_2024": "PREREGISTERED_UNSCORED"
+  },
+  "work_executed": {
+    "weight_candidates_enumerated": 1125,
+    "hard_gate_survivors": 68,
+    "selection": "lexicographic preregistered stability rule",
+    "multiplicity": "Benjamini-Yekutieli over 1125 tests",
+    "operational_instrument": "BUILT",
+    "golden_vectors": "PASS_40",
+    "mql5_source": "BUILT_NOT_EXTERNALLY_COMPILED"
+  },
+  "verified_results": {
+    "weights": [15, 5, 10, 20, 30, 20],
+    "threshold": 65,
+    "development_lift": 0.08560646520686696,
+    "development_bootstrap_95ci": [0.0656907342342283, 0.10562790016688825],
+    "development_positive_months": "24/24",
+    "development_worst_month_lift": 0.021777777777777785,
+    "development_worst_quarter_lift": 0.04896407884071727,
+    "BY_q": 5.098038348744293e-15,
+    "local_plateau": "10/14 immediate neighbors preserve core gates",
+    "exposed_2020_diagnostic_lift": 0.15207786004299023,
+    "exposed_2020_diagnostic_bootstrap_95ci": [0.0616167746113171, 0.23788114644341798]
+  },
+  "gates": {
+    "development_selection": "PASS",
+    "multiplicity": "PASS_BY",
+    "stability": "PASS_DEVELOPMENT",
+    "clean_oos": "PENDING_UNOPENED",
+    "mt5_compile": "PENDING_EXTERNAL_METAEDITOR",
+    "mt5_parity": "PENDING_EXTERNAL_MT5"
+  },
+  "problems": "No clean v2 OOS bytes are currently mounted. This does not block indicator construction.",
+  "root_cause": "Available physical uploads end at XAU part008; clean v2 OOS 2023-2024 resides in later canonical carrier parts.",
+  "corrections": "None to indicator. Clean OOS contract frozen before future scoring.",
+  "scientific_state": "FROZEN_CANDIDATE",
+  "portfolio_impact": "NONE_UNTIL_CLEAN_OOS_AND_MARGINAL_ANALYSIS",
+  "next_automatic_action": "Materialize canonical XAU 2023-2024, freeze exact record range/SHA before scoring, run independent main+oracle, then execute clean OOS gate. Do not retune v2.",
+  "universe_results_sha256": "c5267e8c3c2dd00080b1d990c2be17b548b578b4ca00ec8a168dc3c122120177"
+}
