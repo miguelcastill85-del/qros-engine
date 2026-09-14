@@ -1,0 +1,104 @@
+{
+  "schema": "QROS_SHARD_PROMOTION_AND_FIRST_GATE_SEQUENTIAL_POLICY_2.0",
+  "version": "2.0",
+  "status": "ACTIVE_PRIMARY",
+  "scope": "All sharded QROS/RISE campaigns unless an explicitly preregistered campaign-specific policy supersedes this before economic outputs are read.",
+  "supersedes_for_shard_sequencing": "governance/QROS_SHARD_PROMOTION_AND_CROSS_CHAT_CONTINUITY_POLICY_v1.0.json",
+  "historical_policy_bytes_must_remain_unchanged": true,
+  "purpose": [
+    "Make completed-shard promotion and first economic gate execution one deterministic serial transaction.",
+    "Prevent accumulation of an unevaluated economic queue while later GA1 shards continue running.",
+    "Keep cross-chat recovery deterministic and auditable.",
+    "Preserve multiplicity discipline through a frozen campaign-specific first-gate contract before any economic PnL is read."
+  ],
+  "primary_invariant": "If any promoted GA1-complete shard has first_gate_status=PENDING, STARTING OR CONTINUING A NEW GA1 SHARD IS FORBIDDEN until the oldest pending promoted shard receives a durable terminal first-gate decision or an explicit BLOCKED_BY_INFRASTRUCTURE receipt.",
+  "shard_transaction": [
+    "complete all GA1 groups for exactly one shard",
+    "primary merge PASS",
+    "independent merge oracle PASS",
+    "global exact-mask preservation/oracle PASS",
+    "required lossless preservation PASS",
+    "write immutable GA1 shard completion receipt",
+    "append shard to promotion ledger with immutable first_gate_order",
+    "update frontier so that this shard is current_first_gate",
+    "execute the campaign-frozen first economic gate on this shard",
+    "persist full first-gate result and exposure receipt",
+    "record terminal first_gate_status PASS_FIRST_GATE, REJECTED_FIRST_GATE, INVALID_FIRST_GATE, or BLOCKED_BY_INFRASTRUCTURE",
+    "only then authorize the next GA1 shard"
+  ],
+  "ordering": {
+    "mode": "STRICT_FIFO_BY_FIRST_DURABLE_PROMOTION_ORDER",
+    "result_dependent_reordering": false,
+    "skipping_for_better_expected_performance": false,
+    "parallel_first_gate_execution": false,
+    "parallel_new_GA1_while_first_gate_pending": false
+  },
+  "campaign_contract_requirement": {
+    "required_before_first_economic_read": true,
+    "must_freeze": [
+      "economic execution semantics",
+      "hypothesis unit",
+      "cross-shard error budget",
+      "within-shard multiplicity procedure",
+      "candidate survival rule",
+      "shard decision rule",
+      "exposure semantics"
+    ],
+    "results_may_not_change_contract": true
+  },
+  "seed0076_binding": {
+    "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "multiplicity_contract": "governance/QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_v1.0.json",
+    "existing_backlog_rule": "All GA1 work completed before activation remains scientifically valid because no economic PnL was read. Freeze the backlog and drain it FIFO before any new GA1 shard is executed.",
+    "backlog_first_shard": {
+      "asset": "XAUUSD",
+      "side": "BUY",
+      "timeframe": "M1",
+      "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+    },
+    "preregistered_next_GA1_after_backlog": {
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "M15",
+      "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+      "status": "BLOCKED_BY_FIRST_GATE_BACKLOG"
+    }
+  },
+  "economic_exposure": {
+    "first_gate_is_development_economic_exposure": true,
+    "holdout_remains_closed": true,
+    "economic_pnl_read_changes_to_true_at_first_valid_first_gate_execution": true,
+    "ga2_open_changes_to_true_when_first_gate_execution_is_authorized_and_started": true,
+    "economic_results_may_not_mutate_frozen_GA1_universe": true,
+    "economic_results_may_not_change_FIFO_order": true
+  },
+  "backlog_transition": {
+    "reason": "Policy v1 accumulated promoted shards without economic execution. Policy v2 is activated before any Seed0076 economic PnL read.",
+    "preserve_all_valid_GA1_evidence": true,
+    "invalidate_completed_GA1": false,
+    "drain_backlog_before_new_GA1": true,
+    "do_not_recompute_valid_GA1": true
+  },
+  "durability": {
+    "required_after_every_shard_or_gate_transition": [
+      "immutable receipt",
+      "promotion/first-gate ledger update",
+      "versioned frontier pointer",
+      "stable frontier pointer CAS update",
+      "exact next action",
+      "economic_pnl_read flag",
+      "holdout_open flag",
+      "ga2_open flag"
+    ],
+    "stable_governance_pointer_required": true,
+    "historical_receipts_immutable": true,
+    "no_memory_as_authority": true
+  },
+  "failure_semantics": {
+    "first_gate_integrity_failure": "INVALID_FIRST_GATE and no next GA1 authorization",
+    "missing_required_infrastructure": "BLOCKED_BY_INFRASTRUCTURE only after attempted deterministic recovery is documented",
+    "economic_failure": "REJECTED_FIRST_GATE; preserve evidence; no rescue by management",
+    "policy_or_contract_mismatch": "FAIL_CLOSED"
+  },
+  "decision": "PRIMARY_POLICY_ACTIVE; OLD_V1_SEQUENCING_FIREWALL_SUPERSEDED; FIRST_GATE_BACKLOG_MUST_BE_DRAINED_BEFORE_NEW_GA1"
+}
