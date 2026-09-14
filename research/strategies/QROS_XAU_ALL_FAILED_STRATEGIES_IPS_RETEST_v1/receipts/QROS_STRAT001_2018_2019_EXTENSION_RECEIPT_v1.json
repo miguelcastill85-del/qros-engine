@@ -1,0 +1,36 @@
+{
+  "schema": "QROS_STRAT001_2018_2019_EXTENSION_RECEIPT_1.0",
+  "date": "2026-09-14",
+  "campaign_id": "QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "strategy": "XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+  "state": "REJECTED",
+  "evidence": "VERIFICADO",
+  "frozen_parent_campaign": "QROS_STRATEGY_001_XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+  "input": {
+    "carrier": "XAU_PACKED17_2018_2019_QFAES_DEV.bin",
+    "carrier_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "records": 151382388,
+    "ips_events": "IPS_EVENTS_MAIN_v1.csv"
+  },
+  "engines": {
+    "main_source_sha256": "6867e26d33b8d0b9cb09c8e599115c6a8cb97aa6bac4e4011b08ff05bf7f6291",
+    "oracle_binary_sha256": "fc209652defaa6c569b73de154600b840cae1e01d086c922763daeb18e39d11c"
+  },
+  "candidates": {
+    "count": 1763,
+    "sha256": "7d904fa5036ac20b2a1cc7f6e948b69467545319518a5ba67e675af73e7ca2ff"
+  },
+  "parity": {
+    "main_trades": 1174,
+    "oracle_trades": 1174,
+    "main_sha256": "2550c5ad8b85b17a07060f2f67e9c7377b4ca15d55d44a33898c254b2a8e4e34",
+    "oracle_sha256": "2550c5ad8b85b17a07060f2f67e9c7377b4ca15d55d44a33898c254b2a8e4e34",
+    "byte_identical": true
+  },
+  "metrics": {
+    "combined": {"trades":1174,"net_R":-169.647201961795,"expectancy_R":-0.144503579184,"PF":0.789360335292,"DD_R":182.433026611875,"win_rate":0.3415672913117547},
+    "2018": {"trades":584,"net_R":-76.36789581101,"expectancy_R":-0.1307669448818664,"PF":0.8086847909930761,"DD_R":95.74208868323001,"win_rate":0.3424657534246575},
+    "2019": {"trades":590,"net_R":-93.279306150785,"expectancy_R":-0.1581005188996356,"PF":0.7703709874656482,"DD_R":102.26128855657501,"win_rate":0.34067796610169493}
+  },
+  "decision": "REJECTED_EXTENSION_NEGATIVE_BOTH_YEARS"
+}
