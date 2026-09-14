@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_R2T_V2_3_D14_CHECKPOINT_1",
+  "utc": "2026-09-14T03:15:00Z",
+  "branch": "fix/r2t-d04-process-ownership-v2-20260913",
+  "scope": "R2_NATIVE_ENVIRONMENT_INFRASTRUCTURE_ONLY",
+  "parent_run_id": "20260914_000244_39c9fd6c",
+  "parent_result": "FAIL_REACQUIRE_FALSE_NEGATIVE",
+  "verified_parent_facts": {
+    "compile_0_0": true,
+    "normal_runtime_mql_tester_0": true,
+    "holder_lock_held": true,
+    "second_executor_denied": true,
+    "release_lock_released": true,
+    "reacquire_terminal_process_discovered": true,
+    "reacquire_fail_same_log_second_as_process_bind": true,
+    "candidate3_executed": false,
+    "real_broker_orders_sent": 0
+  },
+  "root_cause": {
+    "id": "D14",
+    "class": "STALE_RESULT_EARLY_RETURN",
+    "evidence_level": "VERIFIED",
+    "description": "PROBE and REACQUIRE reused the same RESULT.csv. First() performed one read and returned null immediately when the expected test_id was absent, so the stale R2T_FENCE_PROBE row caused REACQUIRE_FAIL before a fresh R2T_FENCE_REACQUIRE row could materialize."
+  },
+  "repair": {
+    "expected_row_polling": "poll exact test_id until deadline",
+    "guarded_artifact_reset": "delete exact run-namespaced local artifact under isolated MQL5/Files before each phase",
+    "covered_phases": ["SMOKE","HOLDER_READY","RELEASED","PROBE","REACQUIRE","RESTART_WRITE","RESTART_READ"],
+    "failure_cleanup_evidence": "snapshot at failure, stop only canonical isolated clone terminal64 processes, snapshot after cleanup before evidence ZIP",
+    "negative_controls": ["M_STALE_REMOVE_REACQUIRE_RESET","M_STALE_DISABLE_EXPECTED_ROW_READ"]
+  },
+  "package": {
+    "name": "QROS_RUNNER_ACTUAL_TERMINAL_FENCE_QUALIFIER_v2_3_STALE_RESULT_FIXED.zip",
+    "sha256": "611d2536c5d8b7ace09a129f8ec9168b8e054e9bd7a96df6980e40216e2c3a49",
+    "bytes": 33612,
+    "entries": 34,
+    "manifest_sha256": "e6caa9540172e93d6834030afaafe7e0d7729c42499f95b3e5bf37e1e58992b5",
+    "qualifier_source_sha256": "97f9b9b7d0f800cefcfe462b855542507a1e8e1a110d88a86972fcdc28c5b114",
+    "static_gate_sha256": "4dc3121b39ea13906df73ad6e572f46dedaf9fd44ae1dabb7fa397d4a24cb93e",
+    "mql_sha256": "89dc345b21e7d294a68b8c1cad2afd2bf07896d275b1132709ea5eee2a3db89e",
+    "predelivery": "PASS",
+    "native_windows_execution": "PENDING"
+  },
+  "scientific_state": {
+    "r2_native_qualified": false,
+    "r3_locked": true,
+    "r4_candidate3_locked": true,
+    "candidate3_state": "FROZEN_CANDIDATE",
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "qdb1_exec_cert": 0
+  },
+  "next_action": "Execute only the v2.3 R2T package on Windows/MT5, then reconcile the generated native evidence. Do not execute Candidate3 before R2 and R3 pass."
+}
