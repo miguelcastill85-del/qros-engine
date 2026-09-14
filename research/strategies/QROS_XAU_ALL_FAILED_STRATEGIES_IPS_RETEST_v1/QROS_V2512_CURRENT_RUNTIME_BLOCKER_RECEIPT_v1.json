@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_V2512_CURRENT_RUNTIME_BLOCKER_RECEIPT_1.0",
+  "date": "2026-09-14",
+  "campaign_id": "QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "candidate": "XAU_BUY_MULTIWEEK_PULLBACK_v2512",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "historical_scientific_state": "OBSERVATIONAL_RESERVE",
+  "historical_decision": "REJECTED_EXPANDED_TEMPORAL_GATE",
+  "historical_reproducibility": {
+    "evidence_class": "VERIFIED_BY_RECOVERABLE_DURABLE_REPORT",
+    "authority": "XAU_PORTFOLIO_RESEARCH_REPORT_v13300.md",
+    "parity": "PASS_64_OF_64_TIMESTAMPS_ENTRIES_EXITS",
+    "max_pnl_error_R": 5.7065e-14,
+    "missing_signals": 0,
+    "extra_signals": 0
+  },
+  "current_runtime_exact_bytes": {
+    "evidence_class": "NO_DISPONIBLE",
+    "required": ["exact frozen generator bytes or exact frozen trade ledger sufficient for event-by-event replay"],
+    "approximate_reconstruction": "FORBIDDEN"
+  },
+  "searches_performed": [
+    "local runtime /mnt/data for v2512 and MULTIWEEK_PULLBACK artifacts",
+    "GitHub main code search for v2512 and MULTIWEEK_PULLBACK",
+    "File Library semantic/exact-name searches for v2512 rule/ledger/report",
+    "Dropbox title/content search for XAU_BUY_MULTIWEEK_PULLBACK_v2512 and v2512"
+  ],
+  "search_result": "Historical report recovered; exact executable generator/ledger bytes not recovered in the current runtime, GitHub main, File Library search results, or Dropbox search results.",
+  "2018_2024_trade_count": {
+    "value": 63,
+    "evidence_class": "INFERRED",
+    "derivation": "84 trades reported for 2018-2025 minus 21 trades reported for 2025",
+    "warning": "Do not treat as verified ledger row count until exact 2018-2024 bytes are materialized."
+  },
+  "ips_retest": {
+    "executed": false,
+    "reason": "Base-reproduction gate cannot be satisfied from exact current bytes.",
+    "threshold": 65,
+    "window_minutes": 60,
+    "retuning": "FORBIDDEN"
+  },
+  "correction": {
+    "supersedes": "Any current-runtime reconstruction claim that v2512 produced a 65-vs-63 mismatch.",
+    "correct_statement": "Durable historical authority verifies an exact 64/64 recovery. The present issue is byte materialization, not historical parity."
+  },
+  "next_action": "Advance serially to the next failed strategy identity; do not globally block the campaign."
+}
