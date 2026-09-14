@@ -1,0 +1,23 @@
+{
+  "schema":"QROS_V252_CANDIDATE_ADVERSARIAL_V6_HELPER_FAILURE_1.0",
+  "status":"FAIL_CLOSED_ROOT_CAUSE_VERIFIED",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "candidate_version":"V252",
+  "failed_external_run_id":34896103927,
+  "failed_external_job_id":104150348848,
+  "trigger_commit":"ea0df9ceffa063d126a3356dd347daaa3064622d",
+  "candidate_target_blob_sha1":"603aae9cab7a98f1295392d2155e5006010dac75",
+  "primary_compile":{"status":"PASS","ticket_id":"13e7382c36bfb436f5c29a40e5800cdedcf5c40c6198c32ea64e89ccc858d665","state_id":"FG_SCORER_NOT_BUILT","action_type":"BUILD_FIRST_GATE_SCORER"},
+  "independent_oracle":{"status":"PASS","ticket_id":"13e7382c36bfb436f5c29a40e5800cdedcf5c40c6198c32ea64e89ccc858d665","independent_implementation":true},
+  "failed_adversarial":{"path":"scripts/qros_execution_kernel_adversarial_v6.py","git_blob_sha1":"60e9426d541fabf927ce26cd254e38be94b4f817"},
+  "observed_failure":"direct_authority_pin helper mutated minimal_dev_carrier_binding but then only checked authority nodes encoded as objects with path/git_blob_sha1. In V252 that authority is encoded as a string path with its pin in authority_pins, so the helper itself failed to inspect it.",
+  "root_cause":"ADVERSARIAL_V6_TEST_HELPER_DID_NOT_MODEL_STRING_PATH_PLUS_AUTHORITY_PINS_ENCODING",
+  "minimal_correction":"Use the real compiler negative test for minimal_dev_carrier_binding mutation and require exact PIN_MISMATCH:minimal_dev_carrier_binding. Preserve compiler/oracle/target semantics.",
+  "scientific_universe_changed":false,
+  "configuration_set_changed":false,
+  "economic_pnl_read":false,
+  "ga2_open":false,
+  "holdout_open":false,
+  "candidate_promoted":false,
+  "decision":"V252 remains unpromoted until fresh external candidate validation passes with corrected adversarial suite."
+}
