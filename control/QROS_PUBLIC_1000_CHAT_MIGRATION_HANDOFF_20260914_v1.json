@@ -1,0 +1,78 @@
+{
+  "schema": "QROS_PUBLIC1000_CHAT_MIGRATION_HANDOFF_1.0",
+  "created_utc": "2026-09-14T12:05:00Z",
+  "purpose": "Durable handoff for migration to a new ChatGPT conversation without repeating closed work or relying on chat memory.",
+  "repository": "miguelcastill85-del/qros-engine",
+  "branch": "main",
+  "authority_rule": "The new chat MUST read the stable pointer first and treat repository bytes as authority. This handoff is a resume map, not a replacement for the stable pointer.",
+  "stable_authority": {
+    "stable_pointer_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "stable_pointer_git_blob_sha1_verified_at_handoff": "52b77d5e963e462d1771ecd90d1ab91e41b25955",
+    "current_version": "V234",
+    "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V234_v1.json",
+    "target_git_blob_sha1_verified_at_handoff": "e421be2c422798e4fe5c5626cbcd5e3bd7bdad18",
+    "target_creation_commit": "19390b314f26dd99a58750fa7daf60476b8b8b83",
+    "stable_pointer_advance_commit": "0bc480af22e5154e574e984288861a1d1d00729e",
+    "state": "DEVELOPMENT_RUNNING",
+    "phase": "GA1_NQX_BUY_H4_GROUP_ENUMERATION_COMPLETE_PENDING_MERGE_ORACLE_PACK_PROMOTION_HARDENED_V234"
+  },
+  "scientific_firewall": {
+    "gate_a_authorized": true,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "rule": "Do not open economic PnL, holdout or GA2 during migration/resume. GA2 remains closed until all 60 GA1 shards plus multiplicity preregistration are complete."
+  },
+  "verified_progress": {
+    "signal_configs_total": 48280320,
+    "shards_total": 60,
+    "signal_configs_per_shard": 804672,
+    "ga1_formally_completed_shards": 4,
+    "ga1_remaining_shards": 56,
+    "first_economic_gate_queue_count": 4,
+    "current_shard": {
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "H4",
+      "shard_id": "b6fe997fe6eded0f4df4692256ea872e41e7fccc5ea453e230844488a7840c41",
+      "expected_signal_configs": 804672,
+      "expected_config_root_sha256": "da93ef4605d4a8c94753248cacc3f75188fa7197e9728922fe4d8b5853c65b90",
+      "groups_pass": 24,
+      "groups_total": 24,
+      "processed_signal_configs": 804672,
+      "group_receipts_root_sha256": "27cb9f67cbb4e65945a054452aec2281a1ab251cb8d77b56f227aa84dcf72972",
+      "status": "GROUP_ENUMERATION_COMPLETE_PENDING_GLOBAL_MERGE_ORACLE_PACK_PROMOTION"
+    }
+  },
+  "completed_shard_domains": [
+    "XAUUSD/BUY/M1",
+    "NQX/BUY/H1",
+    "NQX/BUY/H2",
+    "NQX/BUY/H3"
+  ],
+  "v235_hardening_in_progress": {
+    "promoted_to_stable_authority": false,
+    "script_path": "scripts/qros_cross_chat_resume_preflight_v235.py",
+    "script_commit": "656d67913c0e8855336fcd79024b1b4d8be3796b",
+    "script_git_blob_sha1": "01dddbc0c139e9bac4835fa8f8056da5b3b5b7dd",
+    "design_intent": "Byte-pin stable pointer target plus integrity manifest through an acyclic chain: manifest -> target -> stable pointer.",
+    "resume_rule": "Do not treat V235 as promoted until its integrity manifest, target and stable pointer chain exist and pass regression/adversarial verification. Until then V234 remains authoritative."
+  },
+  "mandatory_new_chat_sequence": [
+    "RECOVER: fetch control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json from GitHub main.",
+    "VERIFY: confirm its current_version, target_path and scientific firewall before any execution; if repository advanced after this handoff, follow the newer durable authority instead of forcing V234.",
+    "VERIFY: fetch the target pointer and all referenced authority/receipts/hashes. Do not use chat memory as authority.",
+    "HARDENING: inspect scripts/qros_cross_chat_resume_preflight_v235.py. If V235 chain has since been fully materialized and promoted, run that exact promoted preflight; otherwise use the stable V234 preflight referenced by the stable pointer and keep V235 as unpromoted work-in-progress.",
+    "EXECUTE: finish NQX/BUY/H4 using the existing 24/24 group artifacts or deterministic rematerialization to the frozen checkpoint roots; do not re-enumerate valid groups unnecessarily.",
+    "VALIDATE: run the V228 domain-bound merge, independent merge oracle, global mask preservation/oracle and pack checks; require durable PASS.",
+    "PERSIST: immediately promote H4 to FIRST_ECONOMIC_GATE_QUEUE after PASS, then update promotion ledger and frontier/stable pointers atomically/durably.",
+    "CONTINUE: move to the next canonical GA1 shard. Do not open GA2 until all 60 GA1 shards plus multiplicity preregistration are complete."
+  ],
+  "do_not_repeat": [
+    "Do not repeat the 24 H4 group enumerations unless deterministic rematerialization is required by failed byte/hash verification.",
+    "Do not reopen the four already completed/promoted GA1 shards except for integrity verification/rematerialization required by durable policy.",
+    "Do not change frozen seed universe, alpha, risk, holdout boundaries, cost semantics or execution semantics as part of migration.",
+    "Do not infer a newer scientific state from this handoff alone; repository HEAD/pointers override it."
+  ],
+  "new_chat_bootstrap_instruction": "Recupera miguelcastill85-del/qros-engine desde GitHub main. Lee primero control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json y después control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260914_v1.json. Verifica bytes/SHAs y reconstruye el último checkpoint durable. Si el repositorio avanzó, sigue la autoridad durable más nueva. No repitas trabajo cerrado ni abras PnL/holdout/GA2. Continúa automáticamente desde la siguiente acción pendiente, que en el checkpoint de migración es cerrar NQX/BUY/H4 mediante merge + oracle + maskpack, promoverlo tras PASS y seguir con el siguiente shard GA1 canónico."
+}
