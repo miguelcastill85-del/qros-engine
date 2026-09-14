@@ -1,0 +1,58 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2A_SOURCE_FREEZE_2",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "execution_annotation": "NATIVE_COMPILE_FAIL_D17_CORRECTED_RETEST_PENDING",
+  "authority_parent_commit": "07399b13f943529c904943afc421bc00d4fe6cb1",
+  "preregistration": "architecture/RUNNERLAB_MVP2A_READ_ONLY_MT5_DISCOVERY_SPEC_v1.json",
+  "prior_carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP2A_READONLY_DISCOVERY_SOURCE_FINAL.zip",
+    "sha256": "f3688c823aca63441e7c9c8d29bb7cb8352060452aa6196031f316d9e2ed73f0",
+    "disposition": "SUPERSEDED_FOR_NATIVE_RETEST_ONLY; retained as historical failed-build evidence"
+  },
+  "carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP2A_1_CS0136_COMPILE_FIXED_SOURCE.zip",
+    "bytes": 51145,
+    "sha256": "ef83ef547b931389180837336722398361f5dedd6e78546924287ec6a64c2081",
+    "zip_entries": 30,
+    "crc": "PASS",
+    "manifest_missing": 0,
+    "manifest_extra": 0,
+    "manifest_hash_mismatches": 0,
+    "unsafe_paths": 0,
+    "duplicate_names": 0
+  },
+  "source_manifest_sha256": "2c212d868b422388bdfe3fb533d4e5e3ac19c0f8ed11f51847f0ffe24b90a734",
+  "static_audit": {
+    "checks": 96,
+    "pass": true,
+    "sha256": "61bd755d2b3f124718ddffacf04c39733a99880d7f674f1ebaee2b7472f88924"
+  },
+  "independent_audit": {
+    "checks": 24,
+    "pass": true,
+    "sha256": "9b4c10350b9bbca5155c5fe68d5c6b8d245e5d022e4ffa5ee1fed6e88ad5948d"
+  },
+  "correction": {
+    "id": "MVP2A_D17_CS0136_ROOT_SCOPE_COLLISION",
+    "failure_evidence_sha256": "ff26c722b18f7b22b33e1154f1ee0b106e0dccefe438c050167350f2849a0d27",
+    "program_before_sha256": "51d1b7fb1322ef7477451e5b3dd8f74c68c8d88c1dc7a9e2815174598d37935a",
+    "program_after_sha256": "a4a1360ae447a458e1cd755efa23a508247499789e4f693794a2d58aa045a413",
+    "logic_change": "NONE; local identifiers only plus audit/receipt hardening"
+  },
+  "safety": {
+    "mt5_launch_allowed": false,
+    "candidate3_allowed": false,
+    "trading_allowed": false,
+    "cert_arm_allowed": false,
+    "deployment_allowed": false,
+    "active_mt5_write_allowed": false
+  },
+  "evidence_classification": {
+    "original_native_compile_failure": "VERIFIED",
+    "source_fix_bytes": "VERIFIED",
+    "static_audits_after_fix": "VERIFIED",
+    "native_windows_compile_after_fix": "NO_DISPONIBLE_YET",
+    "mvp2a_runtime": "NO_DISPONIBLE_YET"
+  },
+  "next_action": "Run BUILD_AND_RUN_MVP2A.cmd from the corrected carrier on Windows. Require compile PASS, MVP1 regression PASS, synthetic MVP2A PASS, then read-only discovery. No R4/Candidate3."
+}
