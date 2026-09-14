@@ -1,110 +1,16 @@
-name: qros-deterministic-execution-kernel
+name: qros-deterministic-execution-kernel-v1-rejected
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v1.0.json'
-      - 'control/QROS_PUBLIC_1000_DETERMINISTIC_EXECUTION_MAP_v1.json'
-      - 'control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v1.json'
-      - 'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json'
-      - 'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V243_v1.json'
-      - 'scripts/qros_execution_kernel_compile_v1.py'
-      - 'scripts/qros_execution_kernel_oracle_v1.py'
-      - 'scripts/qros_execution_kernel_adversarial_v1.py'
-      - '.github/workflows/qros-deterministic-execution-kernel.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  deterministic-kernel:
+  rejected-v243-candidate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    env:
-      TARGET: control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V243_v1.json
-      GH_TOKEN: ${{ github.token }}
     steps:
-      - name: Checkout exact triggering commit without external checkout action
-        shell: bash
+      - name: Historical candidate rejected
         run: |
-          set -euo pipefail
-          mkdir repo
-          cd repo
-          git init -q
-          git -c http.extraheader="AUTHORIZATION: bearer ${GH_TOKEN}" fetch --depth=1 "https://github.com/${GITHUB_REPOSITORY}.git" "${GITHUB_SHA}"
-          git checkout -q --detach FETCH_HEAD
-          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
-
-      - name: Syntax and JSON validation
-        shell: bash
-        run: |
-          set -euo pipefail
-          cd repo
-          python3 -m py_compile scripts/qros_execution_kernel_compile_v1.py scripts/qros_execution_kernel_oracle_v1.py scripts/qros_execution_kernel_adversarial_v1.py
-          python3 -m json.tool governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v1.0.json >/dev/null
-          python3 -m json.tool control/QROS_PUBLIC_1000_DETERMINISTIC_EXECUTION_MAP_v1.json >/dev/null
-          python3 -m json.tool control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v1.json >/dev/null
-          python3 -m json.tool "${TARGET}" >/dev/null
-
-      - name: Candidate deterministic action compilation
-        shell: bash
-        run: |
-          set -euo pipefail
-          cd repo
-          python3 scripts/qros_execution_kernel_compile_v1.py --repo-root . --target "${TARGET}" --out /tmp/qros_action_ticket.json
-          cat /tmp/qros_action_ticket.json
-
-      - name: Independent action oracle
-        shell: bash
-        run: |
-          set -euo pipefail
-          cd repo
-          python3 scripts/qros_execution_kernel_oracle_v1.py --repo-root . --target "${TARGET}" --primary-ticket /tmp/qros_action_ticket.json --out /tmp/qros_action_oracle.json
-          cat /tmp/qros_action_oracle.json
-
-      - name: Adversarial ambiguity and fail-closed suite
-        shell: bash
-        run: |
-          set -euo pipefail
-          cd repo
-          python3 scripts/qros_execution_kernel_adversarial_v1.py --repo-root . --target "${TARGET}" --out /tmp/qros_kernel_adversarial.json
-          cat /tmp/qros_kernel_adversarial.json
-
-      - name: Active-pointer integration after V243 promotion
-        shell: bash
-        run: |
-          set -euo pipefail
-          cd repo
-          VERSION=$(python3 - <<'PY'
-          import json
-          print(json.load(open('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json'))['current_version'])
-          PY
-          )
-          if [ "$VERSION" = "V243" ]; then
-            python3 scripts/qros_execution_kernel_compile_v1.py --repo-root . --out /tmp/qros_active_ticket.json
-            python3 scripts/qros_execution_kernel_oracle_v1.py --repo-root . --primary-ticket /tmp/qros_active_ticket.json --out /tmp/qros_active_oracle.json
-            cmp -s /tmp/qros_action_ticket.json /tmp/qros_active_ticket.json
-            echo "ACTIVE_V243_KERNEL_INTEGRATION=PASS"
-          else
-            test "$VERSION" = "V242"
-            echo "CANDIDATE_VALIDATION_BEFORE_PROMOTION=PASS"
-          fi
-
-      - name: Machine-readable summary
-        shell: bash
-        run: |
-          set -euo pipefail
-          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
-          import json
-          t=json.load(open('/tmp/qros_action_ticket.json'))
-          o=json.load(open('/tmp/qros_action_oracle.json'))
-          a=json.load(open('/tmp/qros_kernel_adversarial.json'))
-          print('## QROS deterministic execution kernel')
-          print(f"- ticket_id: `{t['ticket_id']}`")
-          print(f"- state: `{t['state_id']}`")
-          print(f"- action: `{t['action_type']}`")
-          print(f"- independent oracle: `{o['status']}`")
-          print(f"- adversarial suite: `{a['status']}` ({a['mutation_count']} mutations)")
-          PY
+          echo "V243 was never promoted. See control/QROS_DETERMINISTIC_KERNEL_CANDIDATE_V243_VALIDATION_FAILURE_20260914_v1.json"
+          exit 1
