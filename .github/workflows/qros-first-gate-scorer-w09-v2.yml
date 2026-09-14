@@ -1,0 +1,84 @@
+name: QROS First Gate Scorer W09 v2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'governance/QROS_PUBLIC1000_SEED0076_FIRST_GATE_SCORER_IMPLEMENTATION_CONTRACT_v1.0.json'
+      - 'scripts/qros_first_gate_scorer_primary_v1.py'
+      - 'scripts/qros_first_gate_scorer_oracle_v1.py'
+      - 'scripts/qros_first_gate_scorer_adversarial_v1.py'
+      - 'scripts/qros_first_gate_scorer_adversarial_v2.py'
+      - 'control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_BUILD_SPEC_v2.json'
+      - 'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json'
+      - '.github/workflows/qros-first-gate-scorer-w09-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-w09-scorer-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Verify V252 authorization and firewalls
+        run: |
+          python3 - <<'PY'
+          import json
+          p=json.load(open('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json'))
+          assert p['current_version']=='V252'
+          assert p['machine_action_ticket_id']=='cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552'
+          assert p['machine_action_type']=='BUILD_FIRST_GATE_SCORER'
+          assert p['scientific_execution_authorized'] is True
+          assert p['economic_pnl_read'] is False and p['ga2_open'] is False and p['holdout_open'] is False
+          assert p['first_gate_execution_authorized'] is False
+          print('V252_AUTHORIZATION_AND_FIREWALLS=PASS')
+          PY
+      - name: Verify corrected exact pins
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          s=json.load(open('control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_BUILD_SPEC_v2.json'))
+          assert s['status']=='FROZEN_PRE_PNL'
+          assert s['machine_action_ticket_id']=='cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552'
+          for name,node in s['pins'].items():
+              actual=subprocess.check_output(['git','hash-object',node['path']],text=True).strip()
+              assert actual==node['git_blob_sha1'], (name,actual,node['git_blob_sha1'])
+              print(f'PIN {name} {actual} PASS')
+          print('BUILD_SPEC_V2_PINS=PASS')
+          PY
+      - name: Compile sources
+        run: |
+          python3 --version
+          python3 -m py_compile scripts/qros_first_gate_scorer_primary_v1.py
+          python3 -m py_compile scripts/qros_first_gate_scorer_oracle_v1.py
+          python3 -m py_compile scripts/qros_first_gate_scorer_adversarial_v1.py
+          python3 -m py_compile scripts/qros_first_gate_scorer_adversarial_v2.py
+          echo PYTHON_COMPILE=PASS
+      - name: Run corrected synthetic parity and adversarial suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/qros_first_gate_scorer_adversarial_v2.py | tee /tmp/scorer_adversarial_v2.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/scorer_adversarial_v2.json'))
+          assert r['status']=='PASS', r
+          assert r['synthetic_only'] is True and r['economic_pnl_read'] is False, r
+          assert r['check_count']>=13, r
+          assert 'DEGENERATE_FULL_AXIS_HAC_P1' in r['checks'], r
+          print('ADVERSARIAL_V2=PASS')
+          print('RECEIPT_SHA256='+r['receipt_sha256'])
+          print('RESULT_SHA256='+r['primary_oracle_candidate_results_sha256'])
+          print('SUMMARY_SHA256='+r['primary_oracle_summary_sha256'])
+          PY
+      - name: Final W09 build validation
+        run: |
+          echo W09_PRIMARY_SCORER_BUILD=PASS
+          echo INDEPENDENT_SYNTHETIC_PARITY=PASS
+          echo ECONOMIC_PNL_READ=false
+          echo FIRST_GATE_EXECUTED=false
