@@ -1,0 +1,59 @@
+{
+  "schema": "QROS_DETERMINISTIC_KERNEL_TWO_PHASE_CANDIDATE_VALIDATION_PASS_1.0",
+  "date": "2026-09-14",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "candidate_version": "V245",
+  "candidate_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V245_v1.json",
+  "candidate_git_blob_sha1": "409daed09b03c774fcc14746d06019447be3eb34",
+  "candidate_creation_commit": "01bb6bb399b980155b38aa0be3b0f97e83651797",
+  "stable_parent_version": "V244",
+  "stable_parent_blob_sha1": "aca13ca44034e16ba817c2619ff52d0f54ae72f8",
+  "validation_mode": "candidate",
+  "external_runner": {
+    "provider": "GitHub Actions hosted runner",
+    "workflow": ".github/workflows/qros-deterministic-execution-kernel-v3.yml",
+    "workflow_git_blob_sha1": "c0774e8037060ec836228ff9a2eaad40c801ed90",
+    "run_id": 34883555039,
+    "job_id": 104108478182,
+    "head_sha": "0d9af72a83ee18c57c9f1d31a1417aeee57127af",
+    "runner_version": "2.337.0",
+    "os": "Ubuntu 24.04.5 LTS",
+    "conclusion": "success"
+  },
+  "checks": {
+    "mode_selection": "PASS_CANDIDATE_PARENT_V244",
+    "exact_trigger_commit_checkout": "PASS",
+    "syntax_and_json": "PASS",
+    "primary_compiler": "PASS",
+    "independent_oracle": "PASS",
+    "guard_profiles_covered": 13,
+    "adversarial_suite": "PASS",
+    "negative_mutations": 9,
+    "negative_mutations_expected_error_exact": true,
+    "free_text_non_authority": "PASS_IDENTICAL_TICKET"
+  },
+  "compiled_action": {
+    "ticket_id": "e23144690d37345015540426098935158f813c7733a9e47bd2f60acef84e6ba5",
+    "state_id": "FG_SCORER_NOT_BUILT",
+    "guard_profile": "P01_PRE_ECONOMIC_SCORER_NOT_BUILT",
+    "action_type": "BUILD_FIRST_GATE_SCORER",
+    "resolved_success_state": "FG_SCORER_PRIMARY_BUILT",
+    "subject": {
+      "asset": "XAUUSD",
+      "side": "BUY",
+      "timeframe": "M1",
+      "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+      "first_gate_order": 1,
+      "distinct_mask_classes": 303572
+    }
+  },
+  "independent_oracle_receipt_sha256": "4219a9f9c663f44a6c9974d9a5eed622fc85a4b6011acc3962a2fc0c0c520ba4",
+  "adversarial_receipt_sha256": "2f6cc75576e8beed5b0e28948ed844ab1d08e36bb59b860b0f275537ff7643cb",
+  "economic_pnl_read": false,
+  "ga2_open": false,
+  "holdout_open": false,
+  "status": "PASS_CANDIDATE_MODE",
+  "promotion_allowed": true,
+  "post_promotion_requirement": "ACTIVE_MODE external validation must PASS before scientific execution resumes.",
+  "decision": "V245_MAY_BE_PROMOTED_BY_CAS_IF_STABLE_POINTER_STILL_EQUALS_EXACT_V244_PARENT; SCIENTIFIC_EXECUTION_REMAINS_BLOCKED_PENDING_ACTIVE_MODE_PASS"
+}
