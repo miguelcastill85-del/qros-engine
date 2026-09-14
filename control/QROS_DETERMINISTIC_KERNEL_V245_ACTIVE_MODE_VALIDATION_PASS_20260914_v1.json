@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_DETERMINISTIC_KERNEL_TWO_PHASE_ACTIVE_VALIDATION_PASS_1.0",
+  "date": "2026-09-14",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "stable_version": "V245",
+  "stable_pointer_blob_sha1_at_validation": "ea41fd6389173c65584ae8d7a8a698699fe3323f",
+  "stable_promotion_commit": "0ef1cb5ed6eea0e990e155df2383a3e8da677758",
+  "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V245_v1.json",
+  "target_git_blob_sha1": "409daed09b03c774fcc14746d06019447be3eb34",
+  "validation_mode": "active",
+  "external_runner": {
+    "provider": "GitHub Actions hosted runner",
+    "workflow": ".github/workflows/qros-deterministic-execution-kernel-v3.yml",
+    "workflow_git_blob_sha1": "c0774e8037060ec836228ff9a2eaad40c801ed90",
+    "run_id": 34883675878,
+    "job_id": 104108886191,
+    "head_sha": "0ef1cb5ed6eea0e990e155df2383a3e8da677758",
+    "runner_version": "2.337.0",
+    "os": "Ubuntu 24.04.5 LTS",
+    "conclusion": "success"
+  },
+  "checks": {
+    "mode_selection": "PASS_ACTIVE_V245",
+    "exact_trigger_commit_checkout": "PASS",
+    "syntax_and_json": "PASS",
+    "active_compile_without_target": "PASS",
+    "independent_oracle_without_target": "PASS",
+    "active_pointer_ticket_binding": "PASS",
+    "guard_profiles_covered": 13,
+    "machine_action_ticket_matches_stable_pointer": true,
+    "machine_action_type_matches_stable_pointer": true,
+    "machine_state_matches_stable_pointer": true
+  },
+  "compiled_action": {
+    "ticket_id": "e23144690d37345015540426098935158f813c7733a9e47bd2f60acef84e6ba5",
+    "state_id": "FG_SCORER_NOT_BUILT",
+    "guard_profile": "P01_PRE_ECONOMIC_SCORER_NOT_BUILT",
+    "action_type": "BUILD_FIRST_GATE_SCORER",
+    "resolved_success_state": "FG_SCORER_PRIMARY_BUILT",
+    "subject": {
+      "asset": "XAUUSD",
+      "side": "BUY",
+      "timeframe": "M1",
+      "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+      "first_gate_order": 1,
+      "distinct_mask_classes": 303572
+    }
+  },
+  "independent_oracle_receipt_sha256": "4219a9f9c663f44a6c9974d9a5eed622fc85a4b6011acc3962a2fc0c0c520ba4",
+  "candidate_mode_receipt": "control/QROS_DETERMINISTIC_KERNEL_V245_CANDIDATE_MODE_VALIDATION_PASS_20260914_v1.json",
+  "candidate_mode_status": "PASS",
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_ga1_authorized": false
+  },
+  "status": "PASS_ACTIVE_MODE_EXTERNAL_INDEPENDENT_VALIDATION",
+  "scientific_execution_may_resume": true,
+  "authorized_machine_action_only": "BUILD_FIRST_GATE_SCORER",
+  "decision": "TWO_PHASE_DETERMINISTIC_KERNEL_VALIDATION_COMPLETE; CHAT_CONTEXT_IS_NOT_REQUIRED_TO_RESUME; EXECUTE_ONLY_STABLE_MACHINE_TICKET"
+}
