@@ -1,0 +1,22 @@
+{
+  "schema":"QROS_IPS_GATE_A_RECEIPT_1.0",
+  "campaign_id":"QROS_INDICATOR_003_XAU_IMPULSE_PERSISTENCE_SCORE_v1",
+  "state":"APPROVED_RESEARCH",
+  "decision":"PASS_GATE_A_DEVELOPMENT",
+  "source_event_ledger_sha256":"f1e165898d66fc39ca54bbc9e4ea0df1d8b49dae4fd842e93bb3833786146c08",
+  "raw_events":14702,
+  "invalid_nonexecutable_risk_events_excluded":763,
+  "executable_events":13939,
+  "primary":{"N":13939,"successes":3324,"high_n":2490,"high_successes":711,"baseline_rate":0.2384676088672071,"high_rate":0.2855421686746988,"lift":0.04707455980749167,"permutation_p_one_sided":1.238540961450486e-09},
+  "by_side":{"BUY":{"N":7205,"successes":2076,"high_n":1256,"high_successes":414,"baseline_rate":0.2881332408049965,"high_rate":0.32961783439490444,"lift":0.041484593589907914,"permutation_p_one_sided":0.00022823943196321344},"SELL":{"N":6734,"successes":1248,"high_n":1234,"high_successes":297,"baseline_rate":0.18532818532818532,"high_rate":0.2406807131280389,"lift":0.055352527799853585,"permutation_p_one_sided":4.15206455420593e-08}},
+  "by_year":{"2018":{"N":6880,"successes":1576,"high_n":1256,"high_successes":338,"baseline_rate":0.22906976744186047,"high_rate":0.26910828025477707,"lift":0.040038512812916593,"permutation_p_one_sided":0.00013193144465986856},"2019":{"N":7059,"successes":1748,"high_n":1234,"high_successes":373,"baseline_rate":0.24762714265476696,"high_rate":0.30226904376012964,"lift":0.054641901105362684,"permutation_p_one_sided":8.786632232475856e-07}},
+  "score_bins":[{"bin":"[0,35)","n":807,"successes":170,"rate":0.21065675340768278,"score_mean":29.865166507127505},{"bin":"[35,50)","n":4406,"successes":936,"rate":0.212437585111212,"score_mean":44.02798852420708},{"bin":"[50,65)","n":6236,"successes":1507,"rate":0.24166132135984605,"score_mean":57.119453832805384},{"bin":"[65,80)","n":2334,"successes":664,"rate":0.28449014567266495,"score_mean":70.29922898576817},{"bin":"[80,100]","n":156,"successes":47,"rate":0.30128205128205127,"score_mean":82.69652043714102}],
+  "ranking":{"spearman_rho_bin_mean_score_vs_hit_rate":0.9999999999999999,"spearman_p":1.4042654220543602e-24,"strict_adjacent_monotonicity_diagnostic":true},
+  "bootstrap":{"method":"source-broker-day block bootstrap","reps":10000,"seed":20260914,"lift_95pct_ci":[0.03168191,0.06257710],"mean_lift":0.04723712159835536,"unique_days":499},
+  "requirements":{"minimum_high_score_events_100":true,"high_rate_gt_baseline":true,"permutation_p_le_0_05":true,"bootstrap_95ci_lift_lower_gt_0":true,"2018_lift_nonnegative":true,"2019_lift_nonnegative":true,"BUY_lift_nonnegative":true,"SELL_lift_nonnegative":true,"ranking_spearman_rho_positive":true},
+  "gate_pass":true,
+  "holdout_opened":false,
+  "weights_retuned":false,
+  "threshold_retuned":false,
+  "interpretation":"Development evidence supports predictive enrichment, but no final edge claim is allowed until the separately frozen 2020-2022 holdout passes."
+}
