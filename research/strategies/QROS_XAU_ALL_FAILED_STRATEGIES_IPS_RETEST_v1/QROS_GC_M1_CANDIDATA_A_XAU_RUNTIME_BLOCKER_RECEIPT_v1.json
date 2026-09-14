@@ -1,0 +1,17 @@
+{
+  "schema":"QROS_GC_M1_CANDIDATA_A_XAU_RUNTIME_BLOCKER_RECEIPT_1.0",
+  "date":"2026-09-14",
+  "campaign_id":"QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "identity":"XAU_GC_MODULE1_TRANSFER__CANDIDATA_A",
+  "state":"BLOCKED_BY_INFRASTRUCTURE",
+  "historical_decision":"REJECTED_AS_MODULE1_DEFINITIVE",
+  "authority":{"file":"GC_M1_DECISION_VALIDACION_EXTERNA.txt","decision":"RECHAZADA COMO MODULO 1 DEFINITIVO","portfolio":"NO INCORPORAR","live":"NO APROBADA","reported_XAU_results":{"H1_2007_2023":{"trades":71,"net_R":11.748,"PF":1.579,"DD_R":4.331},"H1_2015_2023":{"trades":30,"net_R":1.664,"PF":1.149},"H1_2020_2023":{"trades":17,"net_R":-0.875,"PF":0.894},"M15_2015_2023":{"trades":30,"net_R":0.677,"PF":1.060},"M5_2020_2023":{"trades":12,"net_R":-0.581,"PF":0.895}}},
+  "recovered_files_checked":{"candidate_A_trade_ledger":"NO_DISPONIBLE","candidate_B_files":"RECOVERED_BUT_DIFFERENT_IDENTITY_NOT_REJECTED","candidate_C_trade_ledger":"RECOVERED_BUT_DIFFERENT_IDENTITY_PROVISIONAL_NOT_REJECTED","historical_raw_XAU_H1_M15_M5_source":"NOT_MATERIALIZED_AS_EXACT_ORIGINAL_SOURCE"},
+  "searches_performed":["File Library exact and semantic search for GC Módulo 1 / CANDIDATA A / XAU trade ledger","File Library scan of candidate B/C trade artifacts to exclude mistaken substitution","GitHub current tree/code search inherited from campaign recovery","Dropbox/local-runtime searches inherited from failed-strategy recovery"],
+  "why_indispensable":"The IPS overlay needs authentic base entry timestamps and unchanged R outcomes, or an exact generator/source capable of reproducing the rejected Candidate A trades. Aggregate H1/M15/M5 metrics cannot identify which trades satisfy the IPS 60-minute confirmation.",
+  "forbidden_substitutions":["Candidate B trades","Candidate C XAU_M15 trades","GC Sell Quality First trades","current Darwinex XAU ticks as silent replacement for the historical validation source"],
+  "ips_filter_executed":false,
+  "approximation":"FORBIDDEN",
+  "resume_condition":"Authentic Candidate A XAU trade ledger or exact Candidate A generator plus original/reproducible source becomes physically retrievable.",
+  "next_action":"Continue serial failed-strategy census and recovery."
+}
