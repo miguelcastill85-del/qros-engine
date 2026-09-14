@@ -1,0 +1,53 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_D19_CHECKPOINT_1",
+  "status": "DEVELOPMENT_RUNNING",
+  "authority_parent_branch": "design/runnerlab-v3-mvp2b-20260914",
+  "authority_parent_commit": "83c11a93727236312026054e7266abd1e467e16f",
+  "observed_native_result": {
+    "classification": "VERIFIED_BY_USER_SCREENSHOT_NOT_BYTE_REVERIFIED",
+    "decision": "AMBIGUOUS_MVP2A_READY_CLONE",
+    "mvp2b_synthetic_selftest": "PASS",
+    "clone_mt5_launched": false,
+    "candidate3_executed": false,
+    "trades_sent_by_runnerlab": false,
+    "cert_arm_allowed": false,
+    "deployment_allowed": false
+  },
+  "cause_root": {
+    "id": "D19_EQUIVALENT_READY_MULTIPLICITY",
+    "classification": "RUNNER_SELECTION_INFRASTRUCTURE_DEFECT",
+    "finding": "MVP2B treated multiple CLONE_READY markers as semantic ambiguity even when repeated successful MVP2A runs can produce byte-equivalent clones of the same environment."
+  },
+  "correction": {
+    "policy": "Validate exact MVP2A PASS receipt + source/reconstructed manifest hashes + evidence bundle SHA-256 + clone byte parity for every candidate; dedupe only byte/environment-equivalent candidates; choose deterministic ordinal run_id representative; fail closed on divergent classes.",
+    "selection_uses_recency": false,
+    "candidate3_changed": false,
+    "alpha_changed": false,
+    "risk_changed": false,
+    "cert_changed": false,
+    "deployment_changed": false
+  },
+  "carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP2B_2_D19_EQUIVALENT_READY_DEDUP_SOURCE.zip",
+    "bytes": 67297,
+    "sha256": "ee837228d07bfbded59db9e507c4b3b06aca378b1a30539cdce41c342abda6f1",
+    "zip_entries": 38,
+    "crc": "PASS",
+    "manifest_missing": 0,
+    "manifest_extra": 0,
+    "manifest_hash_mismatches": 0
+  },
+  "audits": {
+    "static": {"pass": true, "checks": 77, "sha256": "3f44b16f3a87ee0795a48336096eb49bb989d7daff7d68ccc58233fa81b7c497"},
+    "independent": {"pass": true, "checks": 36, "sha256": "96a1cf3e07fb449d0c6032cf3b0223b49875f43aa25d46eeb317636443c5379f"}
+  },
+  "source_manifest_sha256": "f9a4ae54df42f4db37b9a6fdc0482c256a158c037f1183c0f95af6fb612767c5",
+  "key_sources": {
+    "src/RunnerLab.Core/Mvp2B.cs": "3d0795a06bbcebc5e4dd1a005d87382fc3b2ba6775b606ac5e4cdc14ceb171de",
+    "src/RunnerLab.Core/Mvp2BSelfTests.cs": "6e2f1bb9a818bdf1603bdb93ac24e978dc4fb4f4ba0715d55118c6e2e1b21e12",
+    "src/RunnerLab.Cli/Program.cs": "e26950ecd1a7eaf2c5d9c1831672b85842ebfe489d73afb4cb291ad0943755fc",
+    "BUILD_AND_RUN_MVP2B.cmd": "73361d36043d5a63c012b4685d76882b4f10a583214925c22ca9461546620da3"
+  },
+  "native_windows_compile_and_rerun": "PENDING",
+  "next_action": "Execute BUILD_AND_RUN_MVP2B.cmd from the corrected carrier on the same Windows PC. Candidate3/CERT/deployment remain blocked."
+}
