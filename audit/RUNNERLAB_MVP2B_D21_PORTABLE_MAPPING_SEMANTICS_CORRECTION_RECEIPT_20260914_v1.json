@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_D21_CORRECTION_RECEIPT_1",
+  "defect_id": "D21_PORTABLE_MAPPING_METADATA_FALSE_FAIL",
+  "observed_run_classification": "MVP2B_FAIL_BEFORE_M2B5_PASS",
+  "root_cause": "The gate incorrectly equated existence of an AppData\\Roaming\\MetaQuotes\\Terminal origin mapping for the isolated runtime clone with failure of /portable mode. MetaTrader portable mode is defined by storing mutable terminal data in the installation directory; a metadata mapping directory can still exist. The old predicate therefore produced a false fail after a correctly supervised isolated launch.",
+  "correction": [
+    "Do not reject a runtime clone merely because an origin mapping exists.",
+    "Audit any matching roaming mapping and permit only a metadata-only stub containing origin.txt and optional portable.txt, with no subdirectories or other payload.",
+    "Require positive local mutable activity under known portable data roots inside MT5_B.",
+    "Recheck the active Darwinex origin.txt hash during the portable gate.",
+    "Persist M2B5 roaming-stub and local-delta evidence before promotion."
+  ],
+  "scientific_effect": "Infrastructure gate correction only; no alpha, Candidate3, CERT, deployment, portfolio or trading rule changed.",
+  "safety": {
+    "candidate3_executed": false,
+    "trades_sent_by_runnerlab": false,
+    "cert_arm_allowed": false,
+    "deployment_allowed": false
+  },
+  "status": "CORRECTED_PENDING_NATIVE_WINDOWS_RERUN"
+}
