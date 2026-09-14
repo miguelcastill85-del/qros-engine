@@ -1,0 +1,51 @@
+{
+  "schema": "QROS_IPS_FROZEN_XAU_COHORT_RECOVERY_EXECUTION_RECEIPT_1.0",
+  "created_date": "2026-09-14",
+  "campaign": "QROS_IPS_FROZEN_XAU_COHORT_v1",
+  "common_filter": {
+    "indicator": "QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY",
+    "weights": [15,5,10,20,30,20],
+    "threshold": 65,
+    "window_minutes": 60,
+    "same_direction": true,
+    "strictly_prior": true,
+    "same_source_day": true,
+    "base_trade_economics_unchanged": true
+  },
+  "work_executed": [
+    "Recovered official established module registry M1-M4 and frozen controller.",
+    "Recovered historical candidate register for BUY v901, BUY v2050, BUY v2512, SELL v1005, SELL v1103, Bear Flag SELL v1205 and DENSITY v6116.",
+    "Recovered later superseding decisions for v2050, v1205 and v2512.",
+    "Recovered M5 frozen-profile status and later Gate B failure.",
+    "Searched File Library by exact ledger/generator names and hashes.",
+    "Searched GitHub qros-engine for exact ledger names.",
+    "Searched Dropbox for exact ledger names.",
+    "Checked active runtime /mnt/data.",
+    "Executed M1 descendant on exact reproducible pre-2025 base subset; no other base was approximated."
+  ],
+  "verified_result": {
+    "M1_IPS_descendant": "INCONCLUSIVE_SUPPORT",
+    "M1_base_trades": 61,
+    "M1_filtered_trades": 5,
+    "M1_filtered_net_R": 5.3728835102984895,
+    "M1_filtered_expectancy_R": 1.074576702059698,
+    "M1_filtered_win_rate": 1.0,
+    "M1_filtered_DD_R": 0.0
+  },
+  "blocked_routes": {
+    "M2": "Exact ledger identity/hash known; bytes not materialized.",
+    "M3": "Exact ledger identity known; bytes not materialized.",
+    "M4": "Exact ledger identity known; bytes not materialized.",
+    "controller": "Recovered payload identity/hash known from recovery manifest; bytes not materialized.",
+    "historical_candidates": "Exact ledgers/generators not materialized in current runtime; per-candidate authority retained in status CSV."
+  },
+  "scientific_guards": {
+    "no_approximate_ledger_substitution": true,
+    "no_retuning_IPS": true,
+    "no_filter_window_search": true,
+    "parent_rejections_remain_unchanged": true,
+    "2025_2026_not_opened_for_new_descendants_without_GateA": true
+  },
+  "status": "CAMPAIGN_ACTIVE_PARTIAL_EXECUTION_WITH_PER_MODULE_INFRA_BLOCKS",
+  "next_action": "Resume serially at M2 immediately when exact v10065_ACTIVITY_TRADES.csv bytes become recoverable; otherwise process the next candidate whose exact base ledger/generator becomes physically recoverable. After M1-M4, run the frozen controller with the same filter."
+}
