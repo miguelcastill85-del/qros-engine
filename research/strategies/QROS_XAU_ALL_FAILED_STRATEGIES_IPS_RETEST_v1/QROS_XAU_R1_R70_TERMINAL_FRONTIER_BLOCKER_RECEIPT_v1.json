@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_XAU_R1_R70_TERMINAL_FRONTIER_BLOCKER_RECEIPT_1.0",
+  "date":"2026-09-14",
+  "campaign_id":"QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "identity":"XAU_R1_R70_TERMINAL_FRONTIER",
+  "state":"BLOCKED_BY_INFRASTRUCTURE",
+  "verified_terminal_state":"BRANCH_EXHAUSTED_DO_NOT_REOPEN",
+  "authorities":["NDX_P26_TERMINAL_CHECKPOINT_v6502_R1.json protected_history","QROS_MULTIPLICITY_NDX_P26_HANDOFF_v17267_R1.json do_not_repeat","QROS_ACTIVE_STATE.json protected_closed","QROS_SCIENTIFIC_FASTLANE_AND_FRONTIER_REOPEN_v1.txt collision-gate history"],
+  "recovery_result":{"exact_R1_R70_mapping":"NO_DISPONIBLE","exact_per_identity_ledgers":"NO_DISPONIBLE","exact_terminal_inventory":"NO_DISPONIBLE","GitHub_search_XAU_R1_R70":"NO_RESULTS","File_Library_exact_semantic_search":"TERMINAL_LABELS_ONLY"},
+  "counting_policy":"Do not add 70 or any inferred configuration count. The protected range may overlap campaigns already individually represented in the failed-strategy census.",
+  "why_indispensable":"Without the R1-R70 mapping, adding inferred members risks duplicate counting and applying IPS to the wrong genealogy.",
+  "ips_retest_executed":false,
+  "approximation":"FORBIDDEN",
+  "next_action":"Keep range as protected aggregate; continue identifying exact members from durable artifacts and dedupe before execution."
+}
