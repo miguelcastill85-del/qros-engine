@@ -1,0 +1,19 @@
+{
+  "schema":"QROS_XAU_OPENING_DRIVE_OTHER_SESSIONS_LEGACY_BLOCKER_1.0",
+  "date":"2026-09-14",
+  "campaign_id":"QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "identity":"XAU_OPENING_DRIVE_OTHER_SESSIONS_LEGACY_RESERVE",
+  "state":"BLOCKED_BY_INFRASTRUCTURE",
+  "historical_classification":"OBSERVATIONAL_RESERVE_EXHAUSTED",
+  "authority":{"source":"Investigación XAUUSD.txt","statement":"La campaña no repitió la antigua rama Opening Drive other sessions, que había quedado como reserva agotada con un candidato europeo débil.","genealogy_relation_to_M4":"M4 was explicitly constructed as a new thesis rather than reopening this branch."},
+  "recovery_searches":["File Library semantic/exact search for Opening Drive other sessions","current-conversation historical XAU source search for exhausted/closed/reserve branches","GitHub/Dropbox campaign recovery sweeps inherited from exhaustive census"],
+  "exact_candidate_id":"NO_DISPONIBLE",
+  "exact_rules":"NO_DISPONIBLE",
+  "trade_ledger":"NO_DISPONIBLE",
+  "configuration_count":"NO_DISPONIBLE",
+  "counting_policy":"Adds one terminal branch row but zero to quantified configuration lower bound.",
+  "ips_retest_executed":false,
+  "approximation":"FORBIDDEN",
+  "resume_condition":"Recover the old European candidate's exact identity plus authentic trade ledger or deterministic generator.",
+  "next_action":"Continue exhaustive recovery; do not substitute current M4 because it is a distinct later thesis."
+}
