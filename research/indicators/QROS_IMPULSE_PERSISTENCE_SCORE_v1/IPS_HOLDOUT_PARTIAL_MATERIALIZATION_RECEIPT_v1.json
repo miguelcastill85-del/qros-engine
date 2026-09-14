@@ -1,0 +1,22 @@
+{
+  "schema":"QROS_IPS_HOLDOUT_PARTIAL_MATERIALIZATION_1.0",
+  "campaign_id":"QROS_INDICATOR_003_XAU_IMPULSE_PERSISTENCE_SCORE_v1",
+  "holdout_prereg":"IPS_HOLDOUT_2020_2022_PREREG_v1.json",
+  "holdout_record_start":151382388,
+  "holdout_record_end_exclusive":387092539,
+  "holdout_total_records":235710151,
+  "materialized_from":"QROS_XAU_FULL_HISTORY_v2_part008-of-035.zip tail only",
+  "materialized_record_start":151382388,
+  "materialized_record_end_exclusive":160000000,
+  "materialized_records":8617612,
+  "materialized_bytes":146499404,
+  "materialized_sha256":"9d69d2b93a86d938f03f7ab8f8a8780221d380848b9069570c1d32925f400d9e",
+  "first_record":{"timestamp_ms":1577926860154,"bid_cent":152002,"ask_cent":152026,"flags":6},
+  "last_record":{"timestamp_ms":1580795001335,"bid_cent":157503,"ask_cent":157511,"flags":2},
+  "progress_fraction":0.03656020737095875,
+  "next_required_record":160000000,
+  "next_required_archive":"QROS_XAU_FULL_HISTORY_v2_part009-of-035.zip",
+  "holdout_outcomes_computed":false,
+  "economic_results_read":false,
+  "note":"Physical holdout bytes were materialized only after Gate A PASS and holdout preregistration. No IPS scoring or outcome computation was performed on these bytes."
+}
