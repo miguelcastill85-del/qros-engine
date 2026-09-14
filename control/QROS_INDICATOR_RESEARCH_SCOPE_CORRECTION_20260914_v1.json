@@ -1,0 +1,16 @@
+{
+  "schema":"QROS_INDICATOR_RESEARCH_SCOPE_CORRECTION_1.0",
+  "date":"2026-09-14",
+  "reason":"User correctly identified that the physical absence of XAU parts 009-020 is not a blocker for creation, definition, implementation, or development-stage measurement validation of the indicator. It only blocks the preregistered 2020-2022 holdout validation.",
+  "last_clean_scientific_state":"APPROVED_RESEARCH",
+  "indicator":"QROS_IMPULSE_PERSISTENCE_SCORE_v1",
+  "development_gate_a":"PASS",
+  "development_parity":"PASS_14702_OF_14702",
+  "creation_status":"COMPLETE",
+  "instrument_definition_status":"COMPLETE",
+  "development_measurement_evidence_status":"COMPLETE",
+  "holdout_validation_status":"PENDING_BYTES_PART009_PART020",
+  "correction":"Remove BLOCKED_BY_INFRASTRUCTURE as a global indicator-research state. The infrastructure limitation applies only to holdout execution. IPS remains usable as a research measurement instrument but must not be labeled APPROVED_FINAL until holdout and later gates pass.",
+  "forbidden_reinterpretation":"Do not claim final/generalizable edge from development evidence alone. Do not require parts 009-020 to continue instrument engineering, visualization, MT5 indicator implementation, score diagnostics on the existing development carrier, documentation, or deterministic unit/parity tests.",
+  "next_action":"Continue IPS instrument engineering using the verified 2018-2019 development carrier and existing 8 ZIP parts. Holdout validation remains an independent later action when parts 009-020 become physically available."
+}
