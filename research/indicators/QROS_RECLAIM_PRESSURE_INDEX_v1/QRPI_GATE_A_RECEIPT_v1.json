@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_QRPI_GATE_A_RECEIPT_1.0",
+  "campaign_id": "QROS_INDICATOR_002_XAU_RECLAIM_PRESSURE_INDEX_v1",
+  "state": "REJECTED",
+  "decision": "FAIL_GATE_A_STRICT_PREREG",
+  "source_event_ledger_sha256": "dcaf1dfd19201720cb64e37bf3b25dffffbc6a63abe99d29eda043f766324c63",
+  "raw_events": 10635,
+  "invalid_nonexecutable_risk_events_excluded": 1311,
+  "executable_events": 9324,
+  "primary": {"N":9324,"successes":2236,"high_n":612,"high_successes":215,"baseline_rate":0.2398112398112398,"high_rate":0.35130718954248363,"lift":0.11149594973124383,"permutation_p_one_sided":8.893057537889116e-11},
+  "by_side": {
+    "BUY": {"N":4865,"successes":1411,"high_n":336,"high_successes":123,"baseline_rate":0.29003083247687567,"high_rate":0.36607142857142855,"lift":0.07604059609455288,"permutation_p_one_sided":0.0010891362255279382},
+    "SELL": {"N":4459,"successes":825,"high_n":276,"high_successes":92,"baseline_rate":0.18501906257008296,"high_rate":0.3333333333333333,"lift":0.14831427076325035,"permutation_p_one_sided":8.103244637937881e-10}
+  },
+  "by_year": {
+    "2018": {"N":4729,"successes":1119,"high_n":326,"high_successes":117,"baseline_rate":0.23662507929794882,"high_rate":0.3588957055214724,"lift":0.12227062622352355,"permutation_p_one_sided":1.7300880657446073e-07},
+    "2019": {"N":4595,"successes":1117,"high_n":286,"high_successes":98,"baseline_rate":0.24309031556039173,"high_rate":0.34265734265734266,"lift":0.09956702709695092,"permutation_p_one_sided":5.8508421087621616e-05}
+  },
+  "score_bins": [
+    {"bin":"[0,35)","n":3204,"successes":524,"rate":0.16354556803995007},
+    {"bin":"[35,50)","n":3484,"successes":877,"rate":0.25172215843857637},
+    {"bin":"[50,65)","n":2024,"successes":620,"rate":0.30632411067193677},
+    {"bin":"[65,80)","n":548,"successes":194,"rate":0.354014598540146},
+    {"bin":"[80,100]","n":64,"successes":21,"rate":0.328125}
+  ],
+  "bootstrap": {"method":"source-broker-day block bootstrap","reps":10000,"seed":20260914,"lift_95pct_ci":[0.07518202114667609,0.14726852400244092],"mean_lift":0.11163578074647135,"unique_days":499},
+  "requirements": {"minimum_high_score_events_100":true,"high_rate_gt_baseline":true,"permutation_p_le_0_05":true,"bootstrap_95ci_lift_lower_gt_0":true,"2018_lift_nonnegative":true,"2019_lift_nonnegative":true,"BUY_lift_nonnegative":true,"SELL_lift_nonnegative":true,"score_bins_non_decreasing_nonempty":false},
+  "gate_pass": false,
+  "holdout_opened": false,
+  "weights_retuned": false,
+  "threshold_retuned": false,
+  "failure_reason": "Highest preregistered score bin [80,100] has lower hit rate than [65,80), violating required non-decreasing bin monotonicity."
+}
