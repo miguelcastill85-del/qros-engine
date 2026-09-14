@@ -14,12 +14,12 @@
     "oracle_source":{"path":"scripts/qros_first_gate_scorer_oracle_v1.py","git_blob_sha1":"0cae8efcbb7e081d63e7aa5714d3d6dd2afc162e"},
     "adversarial_helper_v1":{"path":"scripts/qros_first_gate_scorer_adversarial_v1.py","git_blob_sha1":"ddfea534dfbcaf01b229f1fc881b71392d052655"},
     "adversarial_suite_v2":{"path":"scripts/qros_first_gate_scorer_adversarial_v2.py","git_blob_sha1":"7f55a8e412d8dd2cd6d61a7e0c33aefadd09d424"},
-    "incident_receipt":{"path":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_VALIDATION_INCIDENT_20260914_v1.json","git_blob_sha1":"PENDING_DISCOVERY"}
+    "incident_receipt":{"path":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_VALIDATION_INCIDENT_20260914_v1.json","git_blob_sha1":"768b70c963812e5df1474bfc45dc252cd5bdf882"}
   },
   "correction_scope":"adversarial degenerate-HAC fixture only; primary scorer, oracle, implementation contract and multiplicity contract unchanged",
   "external_validation_required":true,
   "external_validation_command":"python3 scripts/qros_first_gate_scorer_adversarial_v2.py",
-  "success_requires":["all non-placeholder pins exact","Python compile PASS","primary-oracle byte parity","correct full-axis degenerate HAC p=1","all adversarial mutations fail closed for expected cause","synthetic mode cannot authorize economic decision"],
+  "success_requires":["all pins exact","Python compile PASS","primary-oracle byte parity","correct full-axis degenerate HAC p=1","all adversarial mutations fail closed for expected cause","synthetic mode cannot authorize economic decision"],
   "scientific_guards":{"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"first_gate_execution_authorized":false},
   "decision":"CORRECTED_BUILD_SPEC_FROZEN_PRE_PNL"
 }
