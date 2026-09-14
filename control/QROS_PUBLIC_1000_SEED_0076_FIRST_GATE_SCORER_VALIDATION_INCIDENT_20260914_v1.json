@@ -1,0 +1,13 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_FIRST_GATE_SCORER_VALIDATION_INCIDENT_1.0",
+  "date":"2026-09-14",
+  "status":"VALIDATION_FIXTURE_DEFECT_NO_SCIENTIFIC_INVALIDATION",
+  "external_run":{"run_id":34901327635,"job_id":104167715091,"head_sha":"7d764241db81bfb7ea539a289ba748b2208038a2","conclusion":"failure"},
+  "verified_pass_before_failure":["stable V252 ticket/firewalls","all build-spec Git blob pins","Python compilation of primary/oracle/adversarial"],
+  "failure_step":"Run synthetic parity and adversarial suite",
+  "failure_assertion":"degenerate HAC fixture expected raw_p=1",
+  "root_cause":"The fixture used 30 +1 trades on the first 30 dates of an 80-date eligible DEV axis. Per the frozen contract, the remaining 50 no-trade dates contribute daily_R=0, so daily variance is non-zero and SE is not degenerate. The expected p=1 assertion was wrong.",
+  "scientific_scope":{"primary_scorer_invalidated":false,"independent_oracle_invalidated":false,"multiplicity_contract_changed":false,"implementation_contract_changed":false,"economic_pnl_read":false,"ga2_open":false,"holdout_open":false},
+  "correction":"Create an immutable adversarial v2 fixture with one identical +1 daily trade on every eligible synthetic date, making the daily series constant and SE=0 exactly; do not modify scorer/oracle semantics.",
+  "decision":"FAILURE_PRESERVED; CORRECT TEST ONLY; REVALIDATE FROM CLEAN EXTERNAL RUN"
+}
