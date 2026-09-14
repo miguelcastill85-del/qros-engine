@@ -1,0 +1,23 @@
+{
+  "schema":"QROS_INDICATOR_PREREG_1.0",
+  "campaign_id":"QROS_INDICATOR_003_XAU_IMPULSE_PERSISTENCE_SCORE_v1",
+  "indicator_id":"QROS_IMPULSE_PERSISTENCE_SCORE_v1",
+  "short_name":"IPS",
+  "created_date":"2026-09-14",
+  "genealogy":"NEW_IMPULSE_PULLBACK_REACCELERATION; NOT_QFAES_OR_QRPI_RETUNE",
+  "state":"PREREGISTERED_NO_RESULTS",
+  "asset":"XAUUSD",
+  "directions":["BUY","SELL"],
+  "thesis":"A directionally efficient M5 impulse followed by a controlled pullback and fast causal reacceleration has a higher probability of persisting in the impulse direction when impulse quality, pullback geometry, recovery speed, tick pressure and spread jointly agree.",
+  "data":{"carrier":"XAU_PACKED17_CENT_FULL_2018_2026.bin","carrier_sha256":"c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4","development_prefix_bytes":2573500596,"development_prefix_records":151382388,"development_prefix_sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53","development":"2018-01-25..2019-12-31 source-clock","holdout_2020_plus":"SEALED"},
+  "bar_contract":{"price":"Bid","M5":"source-clock floor(timestamp_ms/300000), completed bars only","M15":"source-clock floor(timestamp_ms/900000), completed bars only","ATR14":"Wilder ATR14 from completed M15 Bid OHLC","clock":"preserve raw Darwinex/New-York-Close source clock; no UTC relabeling"},
+  "impulse_event":{"direction":"BUY if M5 close>open; SELL if close<open","body_atr_inclusive":[0.35,1.20],"body_to_range_min":0.60,"close_location_max_fraction_from_directional_extreme":0.20,"atr_snapshot":"ATR14 available at impulse-bar close","one_event_per_impulse_bar":true},
+  "pullback_reacceleration":{"observation_starts":"first tick after impulse bar close","max_pullback_window_minutes":20,"minimum_retracement_of_impulse_body":0.15,"maximum_retracement_before_invalidation":0.60,"eligible_pullback_extreme_retracement_max":0.50,"reacceleration_level":"10% retracement from impulse close toward impulse open","reacceleration":"after minimum retracement is reached, first Bid tick returning through reacceleration_level in impulse direction before invalidation/window expiry","confirmation_seconds_after_reacceleration":10,"entry_quote":"first strictly positive-spread quote at-or-after confirmation time and before source-day end","overlap_cap":"at most one completed IPS event per direction per source-clock M5 bar; a new impulse may arm only when no same-direction impulse state remains active"},
+  "score_components":{"impulse_displacement":{"weight":20,"formula":"clip((body_atr-0.35)/(0.90-0.35),0,1)"},"impulse_efficiency":{"weight":15,"formula":"clip((body_to_range-0.60)/(0.95-0.60),0,1)"},"pullback_quality":{"weight":20,"formula":"triangular(retracement; left=0.15, peak=0.30, right=0.50)"},"recovery_speed":{"weight":20,"formula":"clip((reacceleration_speed/pullback_speed)/2,0,1) using impulse-close to pullback-extreme distance/time and extreme to reacceleration-level distance/time"},"micro_pressure":{"weight":15,"formula":"directional sign imbalance of last 64 non-zero mid-price changes ending at confirmation, mapped to [0,1]"},"spread_quality":{"weight":10,"formula":"clip(1-current_spread/(2*positive_spread_median_of_last_completed_M15),0,1)"}},
+  "score":"0..100 fixed weighted sum; no fitted weights",
+  "primary_threshold":65,
+  "prediction":{"entry":"confirmation quote: BUY Ask / SELL Bid","stop":"0.03*ATR14 beyond pullback extreme","target":"1.0R from executable entry","horizon_minutes":60,"same_source_day_only":true,"exit_observation":"BUY Bid / SELL Ask","ambiguity":"SL first","zero_or_crossed_spread_fill":"forbidden","nonpositive_structural_risk":"non-executable; exclude before outcome statistics","unresolved_within_horizon":"binary success=0; retain diagnostic reason"},
+  "gate_a":{"minimum_high_score_events":100,"high_score_success_rate_gt_all_events":true,"exact_one_sided_permutation_p_max":0.05,"day_block_bootstrap_95ci_lift_lower_gt":0.0,"year_lift_nonnegative":{"2018":true,"2019":true},"side_lift_nonnegative":{"BUY":true,"SELL":true},"ranking_diagnostic":{"bins":["[0,35)","[35,50)","[50,65)","[65,80)","[80,100]"],"hard_gate":"Spearman rho between non-empty bin mean score and bin hit rate >0; strict adjacent monotonicity is diagnostic only, not a hard gate"},"bootstrap_reps":10000,"bootstrap_seed":20260914},
+  "multiplicity":{"primary_thresholds_tested":1,"no_post_result_threshold_substitution":true,"new_rule_requires_new_descendant_campaign":true},
+  "forbidden":["fitting weights to PnL or hit rate","changing threshold after development outcomes","using QFAES or QRPI outcomes as IPS features","opening 2020+ unless Gate A passes","claiming final edge from development alone"]
+}
