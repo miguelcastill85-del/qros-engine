@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_SPEC_1_1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "supersedes": "architecture/RUNNERLAB_MVP2B_ISOLATED_MT5_PROBE_SPEC_v1.json",
+  "change_reason": "Safety hardening before any MVP2B result: preserve the verified MVP2A MT5_A clone immutable and materialize a byte-parity ephemeral MT5_B runtime derivative for launch.",
+  "objective": "Qualify launch semantics using only an ephemeral runtime derivative of the verified MVP2A clone, with no account credentials, no Candidate3, no MQL5 payload, no trading capability, and no modification of the frozen MVP2A clone.",
+  "hard_prohibitions": [
+    "NO_ACTIVE_DARWINEX_INSTALLATION_LAUNCH_BY_RUNNERLAB",
+    "NO_ACTIVE_DATA_ROOT_WRITE",
+    "NO_FROZEN_MVP2A_CLONE_WRITE",
+    "NO_ACCOUNT_LOGIN_ARGUMENT",
+    "NO_PASSWORD_OR_CREDENTIAL_COPY",
+    "NO_CANDIDATE3",
+    "NO_MQL5_PAYLOAD_IMPORT",
+    "NO_TRADES",
+    "NO_CERT_ARM",
+    "NO_DEPLOYMENT",
+    "NO_LIVE_ACCOUNT_ACTIONS"
+  ],
+  "launch_contract": {
+    "frozen_source": "MVP2A MT5_A gated by CLONE_READY.json and exact manifest parity",
+    "runtime_derivative": "new MT5_B copied byte-exact from the frozen source manifest into a separate runtime root",
+    "mode": "portable",
+    "config": "generated dedicated read-only launch config with AllowLiveTrading=0, AllowDllImport=0, Enabled=0 and no login/server/password/MQL5 credentials",
+    "process_supervision": "CREATE_SUSPENDED -> AssignProcessToJobObject -> verify PID/start-time/path ownership -> ResumeThread",
+    "candidate3": false,
+    "mql5_payloads": false
+  },
+  "stages": [
+    "M2B0_REVERIFY_MVP2A_CLONE_READY_AND_HASH_PARITY",
+    "M2B1_GENERATE_STERILE_CONFIG_AND_ASSERT_NO_CREDENTIALS_NO_LOGIN",
+    "M2B2_PRELAUNCH_ACTIVE_MT5_AND_CLONE_PROCESS_BASELINE",
+    "M2B3_MATERIALIZE_EPHEMERAL_RUNTIME_DERIVATIVE_AND_LAUNCH_UNDER_JOB",
+    "M2B4_VERIFY_EXECUTABLE_PATH_PID_CREATION_TIME_AND_BUILD_CONTINUITY",
+    "M2B5_VERIFY_PORTABLE_DATA_ROOT_IS_INSIDE_RUNTIME_DERIVATIVE_AND_ACTIVE_DATA_UNTOUCHED",
+    "M2B6_VERIFY_AUTOTRADING_DISABLED_AND_NO_MQL5_CANDIDATE_PAYLOAD",
+    "M2B7_CONTROLLED_SHUTDOWN_AND_ORPHAN_FREE_JOB_CLEANUP",
+    "M2B8_POSTRUN_FROZEN_SOURCE_AND_ACTIVE_ENVIRONMENT_STABILITY_RECHECK",
+    "M2B9_IMMUTABLE_RECEIPT_AND_DERIVED_EVIDENCE_BUNDLE"
+  ],
+  "promotion_gate": "MVP2B_PASS authorizes only progression to MVP2C minimal no-trade MQL5 environment probe. It does not authorize Candidate3, CERT, deployment, or trading.",
+  "next_after_pass": "MVP2C_MINIMAL_MQL5_ENVIRONMENT_PROBE_WITH_NO_TRADE_API_AND_NO_CANDIDATE3"
+}
