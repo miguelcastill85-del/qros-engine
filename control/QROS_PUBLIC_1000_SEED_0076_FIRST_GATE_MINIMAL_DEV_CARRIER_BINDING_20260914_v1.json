@@ -1,0 +1,191 @@
+{
+  "authorities": {
+    "gate_a_plan": {
+      "git_blob_sha1": "0b4f724ccf683907b05013687c581deadfc2ecc1",
+      "path": "control/QROS_PUBLIC_1000_SEED_0076_GATE_A_SHARD_PLAN_V213_v1.json"
+    },
+    "historical_xau_partial_ingest": {
+      "git_blob_sha1": "dbcb4d722cd05a91faffb34978f0735f067a8583",
+      "interpretation": "Full-history completion is out of scope for FIRST_GATE. This historical receipt remains unchanged.",
+      "path": "control/QROS_XAU_FULL_HISTORY_V2_PARTIAL_INGEST_001_008_20260914_v1.json"
+    },
+    "multiplicity_contract": {
+      "git_blob_sha1": "bc5ce2b52ca5734328283fb3c1d67ee1d93905c1",
+      "path": "governance/QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_v1.0.json"
+    },
+    "primary_policy": {
+      "git_blob_sha1": "8d9e59d12aabbbe41444982096bf35d42a1f0350",
+      "path": "governance/QROS_SHARD_PROMOTION_AND_FIRST_GATE_SEQUENTIAL_POLICY_v2.0.json"
+    }
+  },
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "current_first_gate": {
+    "asset": "XAUUSD",
+    "order": 1,
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "side": "BUY",
+    "timeframe": "M1"
+  },
+  "date": "2026-09-14",
+  "decision": "FIRST_GATE_DATA_AUTHORIZED_FROM_MINIMAL_VERIFIED_DEV_PREFIXES",
+  "development_period": "2018-2019",
+  "full_history_completion_required_for_first_gate": false,
+  "gate_a_ga0_requirement": "minimal DEV bytes materialized and exact-prefix SHA verified",
+  "next_action": "Build and independently verify deterministic FIRST_GATE scorer; after scorer parity PASS, open GA2 development economic exposure for FIFO #1 XAUUSD/BUY/M1 only. Holdout remains closed.",
+  "nqx": {
+    "asset": "NQX",
+    "first_excluded_timestamp_ms": 1577926800210,
+    "first_excluded_utc": "2020-01-02T01:00:00.210000+00:00",
+    "format": "PACKED17",
+    "last_included_timestamp_ms": 1577836797469,
+    "last_included_utc": "2019-12-31T23:59:57.469000+00:00",
+    "part_001_002_usage": "FULL_PAYLOAD",
+    "part_003_bytes_used": 338984420,
+    "part_003_records_used": 19940260,
+    "parts": [
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+        "index": 1,
+        "payload_bytes": 340000000,
+        "payload_member": "NQX_PACKED17_rows_000000000_019999999.bin",
+        "payload_sha256": "0a0f1814e51bb649aeeadc05a982b052bfaa3a6ea48c6b81c8ec7e1af096f60d",
+        "zip_bytes": 100816656,
+        "zip_sha256": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b"
+      },
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+        "index": 2,
+        "payload_bytes": 340000000,
+        "payload_member": "NQX_PACKED17_rows_020000000_039999999.bin",
+        "payload_sha256": "a86065eda52a99ac41b842a0cb1a92d903b7c241874118932f2d35c7d588353b",
+        "zip_bytes": 113466374,
+        "zip_sha256": "0d9f0f3758982607ed3e49d99bf0d2db11b77074a4e569c05931e27f1946cc90"
+      },
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip",
+        "index": 3,
+        "payload_bytes": 340000000,
+        "payload_member": "NQX_PACKED17_rows_040000000_059999999.bin",
+        "payload_sha256": "a88cd8ace8c929b15725fb7f650a955de28a7ad06e82b95f01d4455c3cc990c9",
+        "zip_bytes": 111669173,
+        "zip_sha256": "7c9e9f8655387eb52fd2fd96a2a23fbda3bc5c48894f28608390204252499887"
+      }
+    ],
+    "parts_004_028_required_for_first_gate": false,
+    "parts_used": "001-003",
+    "prefix_hash_equal": true,
+    "recomputed_dev_prefix_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "record_bytes": 17,
+    "required_dev_bytes": 1018984420,
+    "required_dev_prefix_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "required_dev_records": 59940260,
+    "verification": "PASS_BYTE_EXACT_PREFIX"
+  },
+  "receipt_sha256": "81a0f0f5a1509b73abc7c03b817fa2f7867a54f352223a5b06a8212a91f4daae",
+  "schema": "QROS_PUBLIC1000_SEED0076_FIRST_GATE_MINIMAL_DEV_CARRIER_BINDING_1.0",
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false
+  },
+  "stable_frontier": {
+    "git_blob_sha1": "83008be0430d8eb786ee0a0e301d63390e366660",
+    "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "version": "V241"
+  },
+  "status": "PASS",
+  "xau": {
+    "asset": "XAUUSD",
+    "first_excluded_timestamp_ms": 1577926860154,
+    "first_excluded_utc": "2020-01-02T01:01:00.154000+00:00",
+    "format": "PACKED17",
+    "last_included_timestamp_ms": 1577836737796,
+    "last_included_utc": "2019-12-31T23:58:57.796000+00:00",
+    "part_001_007_usage": "FULL_PAYLOAD",
+    "part_008_bytes_used": 193500596,
+    "part_008_records_used": 11382388,
+    "parts": [
+      {
+        "file": "QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip",
+        "index": 1,
+        "payload_bytes": 340000000,
+        "payload_member": "XAU_PACKED17_rows_000000000_019999999.bin",
+        "payload_sha256": "b302be60a191aa70517f81ac06fbdfb5c53ff900b687c255222478068840267b",
+        "zip_bytes": 102025545,
+        "zip_sha256": "d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70"
+      },
+      {
+        "file": "QROS_XAU_FULL_HISTORY_v2_part002-of-035.zip",
+        "index": 2,
+        "payload_bytes": 340000000,
+        "payload_member": "XAU_PACKED17_rows_020000000_039999999.bin",
+        "payload_sha256": "22a55911b5556d62e86f2ae36364fd062d13183daf7796451ec24bb77c5e0a73",
+        "zip_bytes": 100388081,
+        "zip_sha256": "159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a"
+      },
+      {
+        "file": "QROS_XAU_FULL_HISTORY_v2_part003-of-035.zip",
+        "index": 3,
+        "payload_bytes": 340000000,
+        "payload_member": "XAU_PACKED17_rows_040000000_059999999.bin",
+        "payload_sha256": "4ccd9dc1929e36b911a1a18eef0f05cb0874a73abfc81b269bfd64d53a692ddd",
+        "zip_bytes": 100191422,
+        "zip_sha256": "ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9"
+      },
+      {
+        "file": "QROS_XAU_FULL_HISTORY_v2_part004-of-035.zip",
+        "index": 4,
+        "payload_bytes": 340000000,
+        "payload_member": "XAU_PACKED17_rows_060000000_079999999.bin",
+        "payload_sha256": "47ea938186b4e6c5e799602e3696c1a2871867b270f942f92d96763e5131f13e",
+        "zip_bytes": 101615157,
+        "zip_sha256": "241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241"
+      },
+      {
+        "file": "QROS_XAU_FULL_HISTORY_v2_part005-of-035.zip",
+        "index": 5,
+        "payload_bytes": 340000000,
+        "payload_member": "XAU_PACKED17_rows_080000000_099999999.bin",
+        "payload_sha256": "8bb0376fe33904c80ee3e25337e446797378201eaa22f39041685286b48a1f39",
+        "zip_bytes": 101074945,
+        "zip_sha256": "3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad"
+      },
+      {
+        "file": "QROS_XAU_FULL_HISTORY_v2_part006-of-035.zip",
+        "index": 6,
+        "payload_bytes": 340000000,
+        "payload_member": "XAU_PACKED17_rows_100000000_119999999.bin",
+        "payload_sha256": "3ce26873d8492c8a41837b76459165a239aaa8f2a26e0837b3e52663470cf52e",
+        "zip_bytes": 102955655,
+        "zip_sha256": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8"
+      },
+      {
+        "file": "QROS_XAU_FULL_HISTORY_v2_part007-of-035.zip",
+        "index": 7,
+        "payload_bytes": 340000000,
+        "payload_member": "XAU_PACKED17_rows_120000000_139999999.bin",
+        "payload_sha256": "4f8f853b9a7ff5cf54c9b59bcacbcca373953e027960154a9f4efc716a8eab36",
+        "zip_bytes": 104531384,
+        "zip_sha256": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185"
+      },
+      {
+        "file": "QROS_XAU_FULL_HISTORY_v2_part008-of-035.zip",
+        "index": 8,
+        "payload_bytes": 340000000,
+        "payload_member": "XAU_PACKED17_rows_140000000_159999999.bin",
+        "payload_sha256": "6992a0f4e9955712a3914f0f3540625525a470b9a76845a7611df5b6cf7623a4",
+        "zip_bytes": 104463758,
+        "zip_sha256": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b"
+      }
+    ],
+    "parts_009_035_required_for_first_gate": false,
+    "parts_used": "001-008",
+    "prefix_hash_equal": true,
+    "recomputed_dev_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "record_bytes": 17,
+    "required_dev_bytes": 2573500596,
+    "required_dev_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "required_dev_records": 151382388,
+    "verification": "PASS_BYTE_EXACT_PREFIX"
+  }
+}
