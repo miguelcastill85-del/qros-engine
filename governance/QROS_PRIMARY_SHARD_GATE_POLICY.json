@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_PRIMARY_SHARD_GATE_POLICY_POINTER_1.0",
+  "status": "ACTIVE",
+  "primary_policy": {
+    "version": "2.0",
+    "path": "governance/QROS_SHARD_PROMOTION_AND_FIRST_GATE_SEQUENTIAL_POLICY_v2.0.json",
+    "git_blob_sha1": "8d9e59d12aabbbe41444982096bf35d42a1f0350",
+    "status": "ACTIVE_PRIMARY"
+  },
+  "seed0076_first_gate_contract": {
+    "path": "governance/QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_v1.0.json",
+    "git_blob_sha1": "bc5ce2b52ca5734328283fb3c1d67ee1d93905c1",
+    "status": "FROZEN_PRE_PNL"
+  },
+  "supersession_receipt": {
+    "path": "control/QROS_POLICY_SUPERSESSION_SHARD_GATE_SEQUENCE_20260914_v1.json",
+    "git_blob_sha1": "2f5d9241166332cdcc2229817b3b527ba9e60de9"
+  },
+  "superseded_policy": {
+    "path": "governance/QROS_SHARD_PROMOTION_AND_CROSS_CHAT_CONTINUITY_POLICY_v1.0.json",
+    "git_blob_sha1": "08117b1b4926f2532f16542340a64bff72197e94",
+    "effective_status": "FROZEN_SUPERSEDED_FOR_SHARD_SEQUENCING",
+    "bytes_must_remain_unchanged": true
+  },
+  "resolution_rule": "Always read this pointer before applying shard sequencing. The referenced primary_policy wins over older conflicting shard sequencing rules. Historical policies remain authoritative only for non-conflicting provisions and historical evidence.",
+  "current_seed0076_rule": "Drain promoted FIRST_GATE backlog FIFO. No new GA1 shard may start while first_gate_status=PENDING exists.",
+  "current_seed0076_next_action": "Open first economic gate for XAUUSD/BUY/M1 only after frontier migration preflight passes; M15 remains blocked.",
+  "holdout_open": false
+}
