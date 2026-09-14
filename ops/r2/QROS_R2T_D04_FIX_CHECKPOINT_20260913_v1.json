@@ -1,0 +1,40 @@
+{
+  "schema": "QROS_R2T_D04_FIX_CHECKPOINT_1.0",
+  "utc": "2026-09-14T02:15:30.985701+00:00",
+  "objective": "Repair runner actual-terminal process ownership D04 without executing or modifying Candidate3.",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "branch": "fix/demo-forward-v2.2.4-hardening-20260907",
+    "commit": "44fb4843e9756694d97deac52d75048c6b6e0fdf",
+    "tree": "4ec37c259e6b8b5b5bfe2eb37ce6edf4b9ed3d31"
+  },
+  "verified_inputs": {
+    "recovery_zip_sha256": "c7cc89e75276fedaf565cdae16a13538cab52046774e02b9904e654162b8502c",
+    "r2_evidence_zip_sha256": "43984d02d002a43fd7cc3a89bf45baf00d09fb473f07328c8376bb967d335927",
+    "c3_phasea_v2_1_zip_sha256": "85c5e039b348d37b9da5aa4490d81c2fc7160401dada1d94e9dc5c72b5ef2997",
+    "div3_blocked_zip_sha256": "b484daec1adc78ead9a5d952f58dc0d172dcb7bd7af4b79183a6941355c36039"
+  },
+  "findings": {
+    "r2_original": "FAIL FENCE_SECOND_EXECUTOR_NOT_DENIED in Strategy Tester",
+    "r2t_actual_runtime_second_lock": "PASS SECOND_LOCK_DENIED",
+    "r2t_actual_runtime_release": "PASS LOCK_RELEASED",
+    "r2t_actual_runtime_reacquire": "FAIL REACQUIRE_FAIL",
+    "r2t_after_fail": "terminal64.exe remained alive under isolated B path",
+    "candidate3_phasea_v2_1": "FAIL runner/gate infrastructure: missing Path property",
+    "div3_historical": "FAIL DATA/BAR_PARITY; first row bucket mismatch"
+  },
+  "repair": {
+    "ledger_binding": "D04_PROCESS_LIFETIME_PROXY",
+    "evidence_level": "INFERRED_PENDING_NATIVE_CONFIRMATION",
+    "package": "QROS_RUNNER_ACTUAL_TERMINAL_FENCE_QUALIFIER_v2_D04_FIXED.zip",
+    "package_sha256": "229c41b8740b56c18e94170753007d90dcba0a21cfcc692cd63a35e0adcff09a",
+    "package_bytes": 13679,
+    "predelivery_static_gate": "PASS",
+    "candidate3_modified": false,
+    "candidate3_executed": false,
+    "deployment_allowed": false,
+    "cert_arm_allowed": false,
+    "qdb1_exec_cert": "KEEP_0"
+  },
+  "next_action": "Execute only EJECUTAR_QROS_RUNNER_ACTUAL_TERMINAL_FENCE_QUALIFIER_v2.bat on target Windows/Darwinex environment. Promote this sublayer only if native receipt decision=PASS and no isolated terminal orphan remains. Then reconcile full R2 and R3 before Candidate3."
+}
