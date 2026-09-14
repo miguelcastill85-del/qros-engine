@@ -1,0 +1,20 @@
+{
+  "schema":"QROS_PUBLIC1000_CROSS_CHAT_RESUME_PREFLIGHT_REGRESSION_2.0",
+  "status":"PASS",
+  "script":"scripts/qros_cross_chat_resume_preflight_v234.py",
+  "script_commit":"ec97b56c4cde82688945e6e6d26dd5b567fbc057",
+  "script_sha256":"b2058702e5d017d476bdfd8a12cd6161a2adac7ec0854012f6e2ca8325f3a162",
+  "test":"tests/test_qros_cross_chat_resume_preflight_v234.py",
+  "test_commit":"a4767b911de3fe0f6a4f45b51ab701eded7c31f6",
+  "test_sha256":"8859f1dda4deb72826782770f3abea23b25b3aa9a7f8ccecf087a8d17f40cc99",
+  "executed_regressions":[
+    {"case":"coherent_authority_graph","expected":"PASS","observed":"PASS"},
+    {"case":"mutate_only_full_alias_mapping_root","expected":"FAIL_CLOSED","observed":"FAIL_CLOSED","guard":"ALIAS_ROOT_*"},
+    {"case":"delete_sharded_hardening_policy","expected":"FAIL_CLOSED","observed":"FAIL_CLOSED","guard":"AUTHORITY_EXISTS_SHARDED_HARDENING_POLICY"}
+  ],
+  "coverage_added_over_v233":["shard_id equality completion-target-ledger","ordered config root equality completion-target-ledger","full alias mapping root equality completion-target-ledger","required authority file existence","stable pointer policy/ledger/rematerialization binding","rematerialization completed-domain set","portable wrapper Git-blob identity","current checkpoint group-receipts root"],
+  "decision":"ADOPT_V234_AS_MANDATORY_CROSS_CHAT_RESUME_GATE",
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false
+}
