@@ -1,0 +1,38 @@
+{
+  "schema": "QROS_DETERMINISTIC_KERNEL_CANDIDATE_VALIDATION_FAILURE_1.0",
+  "date": "2026-09-14",
+  "candidate": "V243",
+  "candidate_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V243_v1.json",
+  "candidate_creation_commit": "7dc7993fca841ab4feed0485abd4ea64abc0e485",
+  "stable_frontier_remained": "V242",
+  "stable_pointer_blob_sha1": "1aa5fe484c55ed45a91bfc002a2c908df87e004d",
+  "external_validation": {
+    "provider": "GitHub Actions hosted runner",
+    "run_id": 34882361386,
+    "job_id": 104104497998,
+    "head_sha": "fe8afe094e7baa49397ea11501eee9766c25d5e8",
+    "runner_os": "Ubuntu 24.04.5 LTS",
+    "runner_version": "2.337.0",
+    "status": "COMPLETED_FAILURE",
+    "failed_step": "Checkout exact triggering commit without external checkout action",
+    "error": "fatal: could not read Username for 'https://github.com': No such device or address",
+    "later_validation_steps_executed": false
+  },
+  "classification": "CANDIDATE_INFRASTRUCTURE_VALIDATION_FAILURE",
+  "scientific_kernel_result": "NOT_EVALUATED",
+  "economic_pnl_read": false,
+  "ga2_open": false,
+  "holdout_open": false,
+  "candidate_promoted": false,
+  "additional_architecture_findings_before_retry": [
+    "The v1 compiler assumes a pending FIRST_GATE row globally and therefore cannot compile states after the backlog is drained.",
+    "Several normal future states in the v1 execution map are not implemented by the v1 compiler/oracle and would fail as unimplemented rather than follow a defined transition.",
+    "The v1 adversarial mini-repository does not copy all pinned kernel dependencies, so a mutation may fail because a dependency is absent instead of because the intended invariant was violated."
+  ],
+  "root_cause": [
+    "Private-repository git fetch authentication header was invalid for the hosted runner workflow.",
+    "Candidate v1 architecture was not yet total over its declared execution map."
+  ],
+  "correction_policy": "Do not mutate/promote V243. Create a new V244 candidate with corrected private checkout, total state guard coverage, complete adversarial fixtures, and a clean external validation run.",
+  "decision": "V243_REJECTED_AS_UNPROMOTED_ARCHITECTURE_CANDIDATE; V242_REMAINS_SOLE_STABLE_AUTHORITY"
+}
