@@ -1,0 +1,14 @@
+{
+  "schema":"QROS_IPS_V2_MT5_INFRASTRUCTURE_CHECK_1.0",
+  "created_date":"2026-09-14",
+  "indicator":"QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY",
+  "scientific_state":"APPROVED_RESEARCH",
+  "clean_2023_2024":"PASS",
+  "checks":{"MetaEditor_in_runtime":false,"MT5_terminal_in_runtime":false,"wine_in_runtime":false,"wine64_in_runtime":false,"repo_search_QROS_MT5_BRIDGE":"NO_RESULT","repo_search_MetaEditor64_exe":"NO_RESULT","repo_search_MT5":"NO_RESULT"},
+  "indispensable_for":"Compile frozen MQL5 source and execute event-by-event MT5 parity against the 12245-event frozen reference fixture.",
+  "alternatives_attempted":["local executable discovery","Wine discovery","GitHub code search for MT5 bridge/runner/MetaEditor references"],
+  "status":"MT5_EXTERNAL_PENDING",
+  "scientific_blocked":false,
+  "operational_mt5_parity_blocked":true,
+  "next_action":"Execute the already-built MT5 parity package in an environment with MetaEditor/MT5. No IPS retuning is permitted."
+}
