@@ -1,0 +1,23 @@
+{
+  "schema":"QROS_IPS_HOLDOUT_PREREG_1.0",
+  "campaign_id":"QROS_INDICATOR_003_XAU_IMPULSE_PERSISTENCE_SCORE_v1",
+  "created_date":"2026-09-14",
+  "prerequisite":"IPS_GATE_A_RECEIPT_v1 PASS",
+  "state":"APPROVED_RESEARCH",
+  "holdout_status":"SEALED_BEFORE_THIS_FILE",
+  "holdout_period":"2020-01-01 through 2022-12-31 source-clock",
+  "carrier_record_start_inclusive":151382388,
+  "carrier_record_end_exclusive":387092539,
+  "records":235710151,
+  "bytes":4007072567,
+  "carrier_byte_start_inclusive":2573500596,
+  "carrier_byte_end_exclusive":6580573163,
+  "indicator_contract":"exact IPS v1 frozen preregistration; no parameter, score, threshold, stop, target or horizon changes",
+  "primary_threshold":65,
+  "primary_holdout_gate":{"minimum_high_score_events":150,"high_score_success_rate_gt_all_events":true,"exact_one_sided_permutation_p_max":0.05,"day_block_bootstrap_95ci_lift_lower_gt":0.0,"calendar_year_lift_nonnegative":{"2020":true,"2021":true,"2022":true},"side_lift_nonnegative":{"BUY":true,"SELL":true},"ranking_spearman_rho_positive":true,"development_to_holdout_effect_retention_min":0.40},
+  "effect_retention_definition":"holdout lift / development lift, using score>=65 target-before-stop rate minus all-executable-event rate",
+  "bootstrap_reps":10000,
+  "bootstrap_seed":20260915,
+  "failure_policy":"Any hard holdout gate failure rejects IPS v1. No holdout-driven retune or rescue. A changed rule requires a new descendant and this holdout becomes EXPOSED for that genealogy.",
+  "after_holdout_if_pass":"Proceed to Supergate on already-exposed development+holdout diagnostics without opening 2023-2026 true-forward reserve for tuning."
+}
