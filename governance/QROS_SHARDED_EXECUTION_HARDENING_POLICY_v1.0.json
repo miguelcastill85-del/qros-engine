@@ -1,0 +1,25 @@
+{
+  "schema":"QROS_SHARDED_EXECUTION_HARDENING_POLICY_1.0",
+  "state":"ACTIVE",
+  "scope":"All current and future QROS sharded scientific execution campaigns",
+  "purpose":"Freeze certified engineering lessons from PUBLIC1000 seed0076 so future chats/runtimes cannot regress into non-portable, weakly-bound or destructive shard execution.",
+  "mandatory_rules":{
+    "portable_runtime_paths":{"rule":"Scientific/reproduction scripts committed to main MUST NOT depend on absolute transient runtime paths such as /mnt/data. Repository code dependencies resolve relative to the script/repository or are supplied explicitly by CLI.","dependency_guard":"Imported scientific dependencies MUST be identity-bound by Git blob SHA1 and/or SHA256 where the execution result depends on exact bytes."},
+    "optimization_adoption":{"rule":"A performance optimization may replace an authoritative implementation only after preregistered non-economic parity. For event-mask engines, parity MUST include exact counts, scientific roots and byte equality of representative artifacts on adversarial/real frozen fixtures.","historical_evidence":"Never rewrite old receipts. New optimized code is a successor with an explicit parity receipt."},
+    "generic_domain_binding":{"rule":"Reusable merger/oracle/pack tools MUST infer and bind asset, side, timeframe, shard_id, descriptor hash and config-stream root from their inputs. Hardcoded domain/config identities are forbidden."},
+    "lossless_cleanup":{"rule":"Never delete or replace group mask blobs until the global unique-mask representation, full config-to-class mapping, independent oracle, compression/decompression identity and durable receipt all PASS.","fail_closed":true},
+    "cross_chat_resume":{"rule":"Every new chat/runtime MUST run scripts/qros_cross_chat_resume_preflight_v233.py (or a formally superseding version) against the durable stable pointer before scientific execution. FAIL forbids continuation until authority is reconciled."},
+    "derived_bytes":{"rule":"Large derived bytes may remain outside GitHub only when their scientific identity is durable and deterministic rematerialization is fully specified by exact input identities, code identities, output identities and validation gates. Presence in /mnt/data is never durable authority."},
+    "promotion":{"rule":"A GA1-complete shard is promoted immediately to the first-economic-gate queue after full coverage + merge + independent oracle + required lossless preservation. Queue promotion never implies economic scoring authorization."},
+    "economic_firewall":{"rule":"No PnL/PF/Sharpe/DD/trade outcome is read during GA1, portability hardening, rematerialization or cross-chat recovery. GA2 opens only under its frozen global multiplicity gate."}
+  },
+  "certified_references":{
+    "portable_wrapper_parity":"control/QROS_PUBLIC_1000_SEED_0076_PORTABLE_GA1_WRAPPER_PARITY_V233_v1.json",
+    "resume_preflight":"scripts/qros_cross_chat_resume_preflight_v233.py",
+    "resume_regression":"control/QROS_PUBLIC_1000_CROSS_CHAT_RESUME_PREFLIGHT_REGRESSION_V233_v1.json",
+    "domain_bound_merger":"scripts/qros_seed0076_ga1_merge_groups_v228.py",
+    "generic_maskpack_oracle":"scripts/qros_seed0076_maskpack_oracle_v230.py",
+    "promotion_continuity_policy":"governance/QROS_SHARD_PROMOTION_AND_CROSS_CHAT_CONTINUITY_POLICY_v1.0.json"
+  },
+  "scientific_guards":{"economic_pnl_read":false,"holdout_open":false,"ga2_open":false}
+}
