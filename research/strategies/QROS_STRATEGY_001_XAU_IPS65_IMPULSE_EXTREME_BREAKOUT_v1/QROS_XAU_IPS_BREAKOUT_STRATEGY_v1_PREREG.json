@@ -1,0 +1,20 @@
+{
+  "schema":"QROS_XAU_IPS_BREAKOUT_STRATEGY_PREREG_1.0",
+  "campaign_id":"QROS_STRATEGY_001_XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+  "strategy":"XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+  "created_date":"2026-09-14",
+  "state":"PREREGISTERED_NO_STRATEGY_RESULTS",
+  "genealogy":{"parent_indicator":"QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY","parent_state":"APPROVED_RESEARCH","parent_weights":[15,5,10,20,30,20],"parent_threshold":65,"indicator_retuning":"FORBIDDEN"},
+  "causal_thesis":"A high-quality persistent impulse (IPS>=65) has greater economic continuation value when price subsequently confirms by breaking the original impulse extreme in the same direction.",
+  "asset":"XAUUSD",
+  "development_period":{"calendar":"2021-01-01 through 2024-12-31 source-clock","status":"EXPOSED_FOR_IPS_GENEALOGY; strategy development only","future_2025_2026":"SEALED_FOR_STRATEGY_VALIDATION","no_claim_of_independent_OOS":true},
+  "signal":{"source":"frozen IPS v2 event","minimum_score":65,"direction":"same as IPS event","entry_window_minutes_after_ips_confirmation":30,"BUY_break_condition":"first tick with Bid >= frozen impulse_high","SELL_break_condition":"first tick with Bid <= frozen impulse_low","entry_requires_positive_spread":true,"no_break_within_window":"no trade","same_source_day_required":true},
+  "execution":{"BUY_entry":"Ask at first executable breakout tick","SELL_entry":"Bid at first executable breakout tick","BUY_exit_mark":"Bid","SELL_exit_mark":"Ask","one_position_at_a_time":true,"max_new_entries_per_source_day":3,"no_overnight":true,"gap_rule":"first actually executable tick; never fill at synthetic threshold","SL_TP_same_tick":"SL first"},
+  "risk_exit":{"BUY_stop":"pullback_extreme - 0.03 * ATR14_M15","SELL_stop":"pullback_extreme + 0.03 * ATR14_M15","initial_R":"absolute(entry - stop) using executable entry","reject_if_R_nonpositive":true,"target_R_multiple":1.5,"BUY_target":"entry + 1.5R","SELL_target":"entry - 1.5R","management":"NONE; no BE, trailing, partials or time stop","day_end_exit":"last executable tick of the same source day"},
+  "cost_scenarios":{"central":"recorded Bid/Ask only; no invented commission","conservative_execution_stress":"subtract 0.01R from every completed trade","severe_execution_stress":"subtract 0.02R from every completed trade","note":"R stresses are generic execution robustness penalties, not broker commission estimates."},
+  "selection_policy":{"number_of_strategy_configs":1,"no_parameter_search":true,"no_threshold_search":true,"no_RR_search":true,"no_session_filter_search":true,"no_side_selection":true},
+  "development_gate_A":{"minimum_trades_total":400,"minimum_trades_each_side":100,"expectancy_R_central_gt":0.0,"profit_factor_central_ge":1.25,"profit_factor_severe_ge":1.10,"BUY_expectancy_R_nonnegative":true,"SELL_expectancy_R_nonnegative":true,"positive_calendar_years_min":3,"max_drawdown_R_le":30.0,"top_10_days_abs_pnl_share_max":0.35,"max_entries_day_rule_zero_violations":true,"overnight_zero_violations":true},
+  "decision":{"GATE_A_PASS":"all development gates pass","REJECTED":"any hard development gate fails","no_rescue":"Do not alter score threshold, breakout window, stop, RR or management after seeing results. Any change creates a new descendant campaign."},
+  "next_if_pass":"Freeze strategy implementation/hash, independent parity, then open a separately preregistered 2025 validation slice only.",
+  "next_if_fail":"Reject this exact strategy identity; preserve IPS v2 and design a causally distinct descendant only."
+}
