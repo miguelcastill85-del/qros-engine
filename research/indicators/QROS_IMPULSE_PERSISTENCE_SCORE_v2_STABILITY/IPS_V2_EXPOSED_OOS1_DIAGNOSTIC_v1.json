@@ -1,0 +1,28 @@
+{
+  "schema": "QROS_IPS_V2_EXPOSED_OOS1_DIAGNOSTIC_1.0",
+  "warning": "NOT_CONFIRMATORY. 2020 OOS1 was already exposed by parent IPS v1 before v2 existed.",
+  "selection_use": "FORBIDDEN",
+  "retuning_after_diagnostic": "FORBIDDEN",
+  "baseline_rate": 0.2783018867924528,
+  "parent_v1": {
+    "high_n": 109,
+    "high_successes": 40,
+    "high_rate": 0.3669724770642202,
+    "lift": 0.08867059027176738,
+    "p_exact": 0.017109234865034833,
+    "bootstrap_95ci": [-0.008382871897318863, 0.17422632680703612]
+  },
+  "v2_frozen": {
+    "high_n": 79,
+    "high_successes": 34,
+    "high_rate": 0.43037974683544306,
+    "lift": 0.15207786004299023,
+    "p_exact": 0.0013775018868872786,
+    "bootstrap_95ci": [0.0616167746113171, 0.23788114644341798],
+    "BUY_lift": 0.12289494787489974,
+    "SELL_lift": 0.18750000000000003,
+    "score_bin_spearman_rho": 0.39999999999999997
+  },
+  "v2_minus_v1_lift": 0.06340726977122285,
+  "interpretation": "Diagnostic only. Clean validation must use a separately sealed period."
+}
