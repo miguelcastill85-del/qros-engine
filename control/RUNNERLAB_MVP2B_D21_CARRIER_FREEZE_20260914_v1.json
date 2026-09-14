@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_D21_CARRIER_FREEZE_1",
+  "status": "DEVELOPMENT_RUNNING_NATIVE_RERUN_REQUIRED",
+  "branch": "design/runnerlab-v3-mvp2b-d21-20260914",
+  "parent_commit": "ac0fd4abac18173961ad83919fc110e0d59d6fe2",
+  "carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP2B_4_D21_PORTABLE_SEMANTICS_FIXED_SOURCE.zip",
+    "bytes": 74361,
+    "sha256": "a25a5d48f091f585f28bdf8e93cf4b004754e794b0e581a0c291a6248673f54b",
+    "entries": 41,
+    "crc": "PASS",
+    "manifest_missing": 0,
+    "manifest_extra": 0,
+    "manifest_hash_mismatches": 0
+  },
+  "source_manifest_sha256": "432a6654f8584dc5f1a086b6111b90b592edbbe67f8b353a7d100cdbcd811b96",
+  "audits": {
+    "principal": "91/91 PASS",
+    "independent": "47/47 PASS"
+  },
+  "d21": {
+    "old_false_fail_removed": true,
+    "metadata_only_roaming_stub_allowed": true,
+    "roaming_payload_fail_closed": true,
+    "local_portable_activity_required": true,
+    "active_origin_stability_rechecked": true
+  },
+  "safety": {
+    "candidate3_allowed": false,
+    "trades_allowed": false,
+    "cert_arm_allowed": false,
+    "deployment_allowed": false
+  },
+  "next_action": "Native Windows rerun of BUILD_AND_RUN_MVP2B.cmd; no Candidate3 until MVP2B PASS."
+}
