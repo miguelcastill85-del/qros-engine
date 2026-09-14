@@ -1,0 +1,119 @@
+name: qros-seed0076-rise-fixed-point-v3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/qros_seed0076_rise_fixed_point_revalidate_v3.py'
+      - 'scripts/qros_seed0076_rise_fixed_point_oracle_v2.py'
+      - 'scripts/qros_seed0076_rise_fixed_point_adversarial_v3.py'
+      - 'scripts/qros_seed_universe_enumerator_b_v3.py'
+      - '.github/workflows/qros-seed0076-rise-fixed-point-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rise-fixed-point-v3:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout exact triggering commit
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir repo && cd repo
+          git init -q
+          AUTH=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)
+          git -c http.extraheader="AUTHORIZATION: basic ${AUTH}" fetch --depth=1 "https://github.com/${GITHUB_REPOSITORY}.git" "${GITHUB_SHA}"
+          git checkout -q --detach FETCH_HEAD
+          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+          echo EXACT_TRIGGER_COMMIT_CHECKOUT=PASS
+
+      - name: Verify exact validator and enumerator identities
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 -m py_compile scripts/qros_seed0076_rise_fixed_point_revalidate_v3.py scripts/qros_seed0076_rise_fixed_point_oracle_v2.py scripts/qros_seed0076_rise_fixed_point_adversarial_v3.py scripts/qros_seed_universe_enumerator_a_v2.py scripts/qros_seed_universe_enumerator_b_v3.py
+          test "$(git hash-object scripts/qros_seed0076_rise_fixed_point_revalidate_v3.py)" = "77368b0a683233f2d34b036919662cf98e68a133"
+          test "$(git hash-object scripts/qros_seed0076_rise_fixed_point_oracle_v2.py)" = "c41c8d39a25f7823e7ef7e08a79e54fd5bcdec4d"
+          test "$(git hash-object scripts/qros_seed0076_rise_fixed_point_adversarial_v3.py)" = "df8b5d06c3225555f68e974d573789cf35b53da8"
+          test "$(git hash-object scripts/qros_seed_universe_enumerator_a_v2.py)" = "15e4402fb39161caa5612e81d42ee8c2dd701dd8"
+          test "$(git hash-object scripts/qros_seed_universe_enumerator_b_v3.py)" = "6391f0291128e97f1d905cb67c7d3c837b6927db"
+          echo EXACT_SOURCE_IDENTITIES=PASS
+
+      - name: Confirm V251 corrected kernel authority and firewalls
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          p=json.load(open('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json'))
+          assert p['current_version']=='V251'
+          assert p['active_execution_validation_status']=='PASS'
+          assert p['machine_action_ticket_id']=='aa713339ae4f67451342a24c72585520a2a01e6b27ce9a399b4248d9d50ed69b'
+          assert p['machine_action_type']=='RECOVER_OR_REVALIDATE_RISE_FIXED_POINT_NO_PNL'
+          n=p['active_execution_validation_receipt']; q=pathlib.Path(n['path']); b=q.read_bytes(); got=hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          assert got==n['git_blob_sha1']=='f6dbbb42568db8abf4deaf3d346d2bf0f554f364'
+          assert p['economic_pnl_read'] is False and p['ga2_open'] is False and p['holdout_open'] is False
+          print('V251_CORRECTED_AUTHORITY_AND_FIREWALLS=PASS')
+          PY
+
+      - name: Primary RISE fixed-point revalidation v3
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 scripts/qros_seed0076_rise_fixed_point_revalidate_v3.py --repo-root . --out /tmp/qros_rise_primary.json
+          cat /tmp/qros_rise_primary.json
+
+      - name: Independent RISE oracle v2
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 scripts/qros_seed0076_rise_fixed_point_oracle_v2.py --repo-root . --primary /tmp/qros_rise_primary.json --out /tmp/qros_rise_oracle.json
+          cat /tmp/qros_rise_oracle.json
+
+      - name: Adversarial fail-closed suite v3
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd repo
+          python3 scripts/qros_seed0076_rise_fixed_point_adversarial_v3.py --repo-root . --out /tmp/qros_rise_adversarial.json
+          cat /tmp/qros_rise_adversarial.json
+
+      - name: Final fixed-point consistency gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          p=json.load(open('/tmp/qros_rise_primary.json')); o=json.load(open('/tmp/qros_rise_oracle.json')); a=json.load(open('/tmp/qros_rise_adversarial.json'))
+          assert p['schema']=='QROS_SEED0076_POST_EXPANSION_RISE_FIXED_POINT_REVALIDATION_3.0'
+          assert p['status']=='PASS' and p['decision']=='RISE_FIXED_POINT_REVALIDATED_NO_PNL'
+          assert p['post_expansion_rise_fixed_point'] is True and p['rise_zero_delta_round_count']==2
+          assert all(r['delta_count']==0 for r in p['rise_rounds'])
+          assert p['enumerator_parity_pass'] is True and p['enumerator_symmetric_difference_count']==0
+          for k in ('base_tuple_root_sha256','filter_package_root_sha256','management_root_sha256'):
+              assert p['enumerator_a'][k]==p['enumerator_b'][k]
+          assert p['enumerator_a']['management_root_sha256']=='2ca72abbd712917769528720422c2399adb8939d2585ca83c519d839afb46b1d'
+          assert p['shard_manifest']['shard_count']==60 and p['shard_manifest']['total_signal_configs']==48280320
+          assert p['shard_manifest']['shard_descriptor_root_sha256']=='629093e113aa4fa22f7640ff32c9f4affb4b0f89797f21420a3a9c8293e99f21'
+          assert p['economic_pnl_read'] is False and p['holdout_open'] is False and p['ga2_open'] is False and p['zip_or_market_data_required'] is False
+          assert p['completed_ga1_recomputed'] is False and p['validator_v3']['scientific_universe_changed'] is False
+          assert o['status']=='PASS' and o['primary_receipt_sha256']==p['receipt_sha256']
+          for k in ('signal_universe_root_sha256','management_universe_root_sha256','execution_universe_root_sha256','stress_universe_root_sha256','ontology_root_sha256'):
+              assert o[k]==p[k]
+          assert a['status']=='PASS' and a['negative_cases']==8
+          print('QROS_SEED0076_RISE_FIXED_POINT_EXTERNAL_VALIDATION_V3=PASS')
+          print('PRIMARY_RECEIPT_SHA256='+p['receipt_sha256'])
+          print('ORACLE_RECEIPT_SHA256='+o['receipt_sha256'])
+          print('ADVERSARIAL_RECEIPT_SHA256='+a['receipt_sha256'])
+          for k in ('signal_universe_root_sha256','management_universe_root_sha256','execution_universe_root_sha256','stress_universe_root_sha256','ontology_root_sha256','full_freeze_descriptor_root_sha256'):
+              print(k.upper()+'='+p[k])
+          PY
