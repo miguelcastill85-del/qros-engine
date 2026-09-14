@@ -1,0 +1,56 @@
+{
+  "schema": "QROS_IPS_OOS1_PREREG_1.0",
+  "campaign_id": "QROS_INDICATOR_003_XAU_IMPULSE_PERSISTENCE_SCORE_v1",
+  "indicator": "QROS_IMPULSE_PERSISTENCE_SCORE_v1",
+  "created_date": "2026-09-14",
+  "state": "PREREGISTERED_NO_OOS_RESULTS",
+  "purpose": "First strictly unseen sequential out-of-sample check after operational instrument construction.",
+  "instrument_lock": {
+    "operational_spec": "QROS_IPS_OPERATIONAL_SPEC_v1",
+    "formula": "UNCHANGED",
+    "primary_threshold": 65,
+    "weights": "UNCHANGED",
+    "event_definition": "UNCHANGED",
+    "outcome_contract": "UNCHANGED"
+  },
+  "data": {
+    "source": "XAU canonical packed17 Darwinex carrier",
+    "record_range": "[151382388,160000000)",
+    "records": 8617612,
+    "bytes": 146499404,
+    "sha256": "9d69d2b93a86d938f03f7ab8f8a8780221d380848b9069570c1d32925f400d9e",
+    "first_timestamp_ms": 1577926860154,
+    "last_timestamp_ms": 1580795001335,
+    "development_overlap_records": 0,
+    "economic_results_observed_before_freeze": false
+  },
+  "parity_gate": {
+    "main_vs_independent_oracle": "100% event-by-event required",
+    "fields": "timestamps, side, OHLC impulse, ATR, pullback extreme, six score components, total score, entry, stop, target, outcome"
+  },
+  "oos1_gate": {
+    "minimum_executable_events": 300,
+    "minimum_high_score_events": 60,
+    "high_score_success_rate_gt_all_events": true,
+    "exact_one_sided_permutation_p_max": 0.05,
+    "day_block_bootstrap_95ci_lift_lower_gt": 0.0,
+    "side_lift_nonnegative": {"BUY": true, "SELL": true},
+    "ranking_diagnostic": {
+      "bins": ["[0,35)", "[35,50)", "[50,65)", "[65,80)", "[80,100]"],
+      "hard_gate": "Spearman rho between non-empty bin mean score and hit rate > 0"
+    },
+    "bootstrap_reps": 10000,
+    "bootstrap_seed": 2026091402
+  },
+  "decision": {
+    "PASS_OOS1": "all parity and statistical gates pass",
+    "FAIL_OOS1": "sample-size gates met but one or more effect/statistical gates fail",
+    "INCONCLUSIVE_OOS1": "sample-size minimum not met"
+  },
+  "sequential_holdout_policy": {
+    "oos1_becomes_exposed_after_scoring": true,
+    "records_160000000_onward": "remain unseen OOS-2",
+    "retuning_between_oos1_and_oos2": "FORBIDDEN",
+    "2023_2026": "remain sealed true-forward/diagnostic reserve"
+  }
+}
