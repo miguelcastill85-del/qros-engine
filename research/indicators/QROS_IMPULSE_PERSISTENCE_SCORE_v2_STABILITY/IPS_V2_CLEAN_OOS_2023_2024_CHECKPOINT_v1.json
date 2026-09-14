@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_IPS_V2_CLEAN_OOS_2023_2024_CHECKPOINT_1.0",
+  "OBJETIVO":"Execute the originally preregistered clean 2023-2024 confirmatory OOS for frozen IPS v2.",
+  "AUTORIDAD":["control/QROS_INDICATOR_RESEARCH_CURRENT_FRONTIER_POINTER.json v1.8","IPS_V2_CLEAN_OOS_PREREG_v1.json","IPS_V2_CLEAN_OOS_2023_2024_MATERIALIZATION_FREEZE_v1.json","IPS_V2_CLEAN_OOS_2023_2024_EXECUTION_SUPPLEMENT_v1.json"],
+  "DATOS":{"record_range":[387092539,519057574],"records":131965035,"exact_slice_sha256":"8e5a743af448aad305917f1fefd62b809a42611b3e29fe25f79ff6eb8f147ff7","out_of_order":0},
+  "TRABAJO_EJECUTADO":["freeze exact bytes before scoring","run frozen C++ enumerator","run independent Numba oracle","event-by-event parity","preregistered clean OOS gates"],
+  "RESULTADOS_VERIFICADOS":{"decision":"PASS","parity":"PASS_18386_OF_18386_ZERO_MISMATCH","executable_events":14450,"high_n":1899,"baseline_rate":0.2641522491349481,"high_rate":0.3328067403896788,"lift":0.06865449125473067,"bootstrap_95ci":[0.04888298606916323,0.0880368220180829],"p":5.876126110629318e-13,"BUY_lift":0.06729738684038905,"SELL_lift":0.07230077022801798,"2023_lift":0.07834165088204276,"2024_lift":0.05854827002318769},
+  "GATES":"ALL_PREREGISTERED_GATES_PASS",
+  "PROBLEMAS":"Frozen enumerators retain the known post-2020 year metadata limitation; year gates were derived from raw entry_ts per frozen execution supplement.",
+  "CAUSA_RAÍZ":"Original enumerators were authored for 2018-2020 metadata scope.",
+  "CORRECCIONES":"Analysis-layer year derivation only; no signal, score, execution or outcome logic changed.",
+  "ESTADO_CIENTÍFICO":"APPROVED_RESEARCH",
+  "IMPACTO_PORTAFOLIO":"NONE_YET; IPS remains an indicator, not a standalone strategy.",
+  "SIGUIENTE_ACCIÓN_AUTOMÁTICA":"Proceed to exact external MetaEditor compile and MT5 event-by-event parity. Keep 2025-2026 sealed. If MT5 parity passes, preregister the first IPS-as-filter alpha hypothesis without retuning IPS."
+}
