@@ -1,0 +1,27 @@
+{
+  "schema": "QROS_DETERMINISTIC_KERNEL_ACTIVE_MODE_VALIDATION_FAILURE_1.0",
+  "date": "2026-09-14",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "stable_version": "V244",
+  "stable_pointer_blob_sha1": "aca13ca44034e16ba817c2619ff52d0f54ae72f8",
+  "promotion_commit": "d2c7b3121bdd402f87041a3f5b87919625d7646e",
+  "external_run": {
+    "run_id": 34883273092,
+    "job_id": 104107523929,
+    "head_sha": "d2c7b3121bdd402f87041a3f5b87919625d7646e",
+    "conclusion": "failure",
+    "checkout": "PASS",
+    "syntax_and_json": "PASS",
+    "failed_step": "Compile single candidate action",
+    "expected_error_observed": "CANDIDATE_PARENT_VERSION_MISMATCH"
+  },
+  "root_cause": "The V244 workflow always invoked candidate mode with --target V244. After V244 became stable, the compiler correctly rejected V244 as a candidate because its preregistered parent is V242 while the stable version was now V244. Active-mode validation was therefore unreachable.",
+  "scientific_kernel_pre_promotion_validation": "PASS_EXTERNAL_INDEPENDENT_VALIDATION",
+  "scientific_results_changed": false,
+  "economic_pnl_read": false,
+  "ga2_open": false,
+  "holdout_open": false,
+  "scorer_execution_allowed_until_repair": false,
+  "correction": "Create a new V245 architecture-only candidate with a two-mode workflow selected exclusively from the stable pointer: candidate mode when stable=V244, active mode when stable=V245. Candidate mode must retain full adversarial validation. Active mode must compile from the stable pointer with no --target, run the independent oracle, and assert the active ticket equals the preregistered ticket_id stored in the stable pointer.",
+  "decision": "V244_SCIENTIFIC_STATE_PRESERVED_BUT_SCORER_EXECUTION_PAUSED_UNTIL_V245_TWO_MODE_EXTERNAL_VALIDATION_PASS"
+}
