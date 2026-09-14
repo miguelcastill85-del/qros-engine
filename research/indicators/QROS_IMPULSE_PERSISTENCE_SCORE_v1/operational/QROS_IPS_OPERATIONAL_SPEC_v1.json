@@ -1,0 +1,78 @@
+{
+  "schema": "QROS_IPS_OPERATIONAL_SPEC_1.0",
+  "indicator": "QROS_IMPULSE_PERSISTENCE_SCORE_v1",
+  "short_name": "IPS",
+  "asset": "XAUUSD",
+  "time_model": {
+    "source": "raw Darwinex tick time_msc / carrier timestamp_ms",
+    "timezone_conversion": "FORBIDDEN",
+    "day_bucket_ms": 86400000,
+    "m5_bucket_ms": 300000,
+    "m15_bucket_ms": 900000
+  },
+  "price_model": {
+    "research_scale": 100,
+    "bid_for_structure": true,
+    "buy_entry": "Ask",
+    "sell_entry": "Bid",
+    "buy_exit_evaluation": "Bid",
+    "sell_exit_evaluation": "Ask",
+    "crossed_quote": "ignore tick",
+    "zero_spread": "preserve for state but do not use for entry/outcome confirmation"
+  },
+  "impulse_definition": {
+    "bar": "completed M5",
+    "atr": "Wilder ATR14 from completed M15 Bid bars only",
+    "body_atr_min": 0.35,
+    "body_atr_max": 1.2,
+    "body_to_range_min": 0.6,
+    "close_near_extreme_max_fraction": 0.2
+  },
+  "pullback_reacceleration": {
+    "window_seconds": 1200,
+    "arm_retracement_min": 0.15,
+    "invalidate_retracement_gt": 0.6,
+    "accepted_retracement_max": 0.5,
+    "reacceleration_level_from_impulse_close_body_fraction": 0.1,
+    "post_reacceleration_confirmation_seconds": 10
+  },
+  "score": {
+    "range": [0,100],
+    "formula": "20*disp_q + 15*eff_q + 20*pullback_q + 20*recovery_q + 15*micro_q + 10*spread_q",
+    "components": {
+      "disp_q": "clip((body_atr-0.35)/(0.90-0.35),0,1)",
+      "eff_q": "clip((body_to_range-0.60)/(0.95-0.60),0,1)",
+      "pullback_q": "triangular(retracement; left=0.15, peak=0.30, right=0.50)",
+      "recovery_q": "clip(((return_distance/return_seconds)/(pullback_distance/pullback_seconds))/2,0,1)",
+      "micro_q": "directional imbalance of last 64 non-flat mid-price changes, mapped to [0,1]",
+      "spread_q": "clip(1-current_positive_spread/(2*median_positive_spread_previous_completed_M15),0,1)"
+    }
+  },
+  "zones": [
+    {"name":"LOW","min":0,"max_exclusive":40},
+    {"name":"WATCH","min":40,"max_exclusive":55},
+    {"name":"MEDIUM","min":55,"max_exclusive":65},
+    {"name":"HIGH","min":65,"max_exclusive":80},
+    {"name":"VERY_HIGH","min":80,"max_inclusive":100}
+  ],
+  "research_threshold": 65,
+  "measurement_output": {
+    "score": "0..100",
+    "direction": ["BUY","SELL"],
+    "event_timestamp": "10 seconds after causal reacceleration once positive spread and spread reference exist",
+    "actionable_signal": "eligible event AND score >=65",
+    "note": "Indicator measures persistence quality; it does not place orders."
+  },
+  "reference_outcome_contract": {
+    "stop_buffer_atr": 0.03,
+    "target": "1R",
+    "max_horizon_seconds": 3600,
+    "same_source_day_only": true,
+    "sl_first": true
+  },
+  "scientific_state": "APPROVED_RESEARCH",
+  "development_gate_a": "PASS",
+  "development_parity": "14702/14702 exact event parity",
+  "mt5_compile": "PENDING_EXTERNAL_METAEDITOR",
+  "mt5_trade_by_trade_parity": "PENDING_EXTERNAL_MT5"
+}
