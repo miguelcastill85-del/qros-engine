@@ -1,0 +1,21 @@
+{
+  "schema":"QROS_SEED0076_RISE_REVALIDATION_V1_PIN_FAILURE_1.0",
+  "status":"REJECTED_FAIL_CLOSED",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "external_run_id":34892584703,
+  "external_job_id":104138646614,
+  "failed_step":"Primary non-economic RISE fixed-point revalidation",
+  "failure_code":"PIN_MISMATCH:control/QROS_DETERMINISTIC_KERNEL_V251_ACTIVE_EXECUTION_VALIDATION_PASS_20260914_v1.json",
+  "incorrect_preregistered_git_blob_sha1":"1a8a9c43aef8b577a676f10104ffc0fd638b36d9",
+  "externally_observed_git_blob_sha1":"f6dbbb42568db8abf4deaf3d346d2bf0f554f364",
+  "connector_refetch_git_blob_sha1":"f6dbbb42568db8abf4deaf3d346d2bf0f554f364",
+  "stable_pointer_also_contained_incorrect_active_execution_receipt_pin":true,
+  "scientific_rise_evaluation_started":false,
+  "economic_pnl_read":false,
+  "ga2_open":false,
+  "holdout_open":false,
+  "completed_ga1_invalidated":false,
+  "root_cause":"Manual hardcoded receipt identity was stale/incorrect. External exact-commit validation detected the mismatch before any RISE conclusion.",
+  "correction":"Correct the stable pointer to the externally and connector-confirmed blob, then use a new validator that derives the active-execution receipt path/hash from the stable authority instead of duplicating that pin in source code.",
+  "decision":"V1_REVALIDATION_REJECTED; NO SCIENTIFIC CONCLUSION; PRESERVE ALL VALID PRIOR WORK."
+}
