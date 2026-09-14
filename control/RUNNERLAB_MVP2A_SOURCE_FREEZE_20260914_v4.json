@@ -1,0 +1,58 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2A_SOURCE_FREEZE_4",
+  "status": "DEVELOPMENT_RUNNING",
+  "branch": "design/runnerlab-v3-mvp2a-20260914",
+  "authority_parent_before_correction": "8cf9ca412279a263caf98e5b0db074ae637dc589",
+  "carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP2A_2_D18_CLONE_IO_HARDENED_SOURCE.zip",
+    "bytes": 55333,
+    "sha256": "23c4b8185a6fc1f509ff6cfb86868d4a8ac5c8a029cbb38fe6d428e4b9d9fce5",
+    "zip_entries": 31,
+    "crc": "PASS",
+    "manifest_missing": 0,
+    "manifest_extra": 0,
+    "manifest_hash_mismatches": 0
+  },
+  "source_manifest_sha256": "74c955f61ca6861ee8d1e94d09d2df89c5a6ace19b2d5cb8a77459ac2a27d26c",
+  "static_audit": {
+    "checks": 103,
+    "pass": true,
+    "sha256": "018bb9766aa5bf9c0f3166af5d11641451d4122a30d2886591ce9baf8abac928"
+  },
+  "independent_audit": {
+    "checks": 31,
+    "pass": true,
+    "sha256": "f0233ead0274a030ad849c858adcf10dd2c5f880427894be00ac624f831b3b88"
+  },
+  "key_sources": {
+    "src/RunnerLab.Core/Mvp2A.cs": "a71186c571c08601d87b7fefc5e133550544b3f3dc67299d2156fcb413250b1d",
+    "src/RunnerLab.Core/Mvp2ASelfTests.cs": "889116f59114fc49efcae6b01c8ade6ec42aa7eb15094f6d83542cc0e67bc66d",
+    "src/RunnerLab.Cli/Program.cs": "a4a1360ae447a458e1cd755efa23a508247499789e4f693794a2d58aa045a413",
+    "CARRIER_RECEIPT.json": "4b5bd6a410e9665930c567fe971e85dc813d5284dad126c445f918eca2827f13",
+    "MVP2A_CORRECTION_RECEIPT_20260914_v2.json": "e75d43835b2043994bd28c9ecbf0e2c93a09f3a4004042e3f0711c9ba9ea7a49"
+  },
+  "verified_native_observation": {
+    "M2A0": "PASS candidates=1",
+    "M2A1": "PASS origin_mappings=18",
+    "M2A2": "PASS",
+    "M2A3": "PASS",
+    "M2A4": "PASS files=19",
+    "M2A5": "FAIL access denied on staging path",
+    "mt5_launched": false,
+    "candidate3_executed": false,
+    "promotion_allowed": false
+  },
+  "scientific_interpretation": {
+    "verified_defect": "Old finally cleanup could mask the primary clone-materialization exception.",
+    "inferred_only": "Transient AV/file handle contention may have triggered the access-denied condition, but that trigger is not proven by the old run.",
+    "native_retest_after_fix": "PENDING"
+  },
+  "safety": {
+    "mt5_launch_allowed": false,
+    "candidate3_allowed": false,
+    "trading_allowed": false,
+    "cert_arm_allowed": false,
+    "deployment_allowed": false
+  },
+  "next_action": "Run BUILD_AND_RUN_MVP2A.cmd from this corrected carrier on the same Windows PC. Require BUILD PASS, MVP1 selftests PASS, MVP2A synthetic PASS, then native M2A0-M2A7. If M2A5 fails again, use MVP2A_FATAL_DIAGNOSTIC.json as the primary root-cause evidence."
+}
