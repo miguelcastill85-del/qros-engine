@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_SHARD_PROMOTION_AND_CROSS_CHAT_CONTINUITY_POLICY_1.0",
+  "version": "1.0",
+  "status": "ACTIVE",
+  "scope": "All sharded QROS/RISE campaigns; immediately applicable to PUBLIC1000_WEB_SEED_0076 because no economic PnL has been read.",
+  "purpose": [
+    "Make shard completion and promotion explicit rather than implicit.",
+    "Prevent loss of scientific state across chat/runtime migration.",
+    "Preserve multiplicity discipline while allowing completed shards to advance operationally."
+  ],
+  "authority_order": [
+    "stable current frontier pointer in control/",
+    "versioned current frontier pointer referenced by the stable pointer",
+    "promotion ledger and shard completion/progress receipts",
+    "manifests, hashes and frozen scientific contracts",
+    "GitHub main durable code and governance",
+    "durable external storage for large artifacts when available",
+    "File Library/chat files",
+    "conversation history/memory only as clues"
+  ],
+  "shard_promotion_rule": {
+    "trigger": "As soon as a shard has complete GA1 coverage and passes its required primary merge, independent oracle, identity/root checks and required lossless-preservation step, it MUST be promoted immediately.",
+    "required_durable_actions_before_starting_next_shard": [
+      "write immutable shard completion receipt to GitHub main",
+      "append/update the first-economic-gate promotion ledger",
+      "update versioned frontier pointer",
+      "update stable frontier pointer",
+      "record exact next shard or next incomplete action",
+      "record economic_pnl_read and holdout_open flags"
+    ],
+    "promotion_target": "FIRST_ECONOMIC_GATE_QUEUE",
+    "promotion_means": "The shard is frozen, accepted as a completed GA1 scientific unit, and queued for the first economic Gate-A scoring stage.",
+    "promotion_does_not_mean": "Economic PnL may be opened immediately. Queue promotion and economic execution are distinct states."
+  },
+  "economic_gate_firewall": {
+    "current_public1000_rule": "GA2 economic signal-alpha scoring remains CLOSED until all 60 frozen GA1 shards are completed and the global multiplicity/testing procedure is preregistered and frozen.",
+    "reason": "Reading shard PnL sequentially before the global hypothesis count and multiplicity contract are fixed can create order-dependent exposure and selection bias.",
+    "exception": "A future explicitly preregistered sequential-testing/alpha-spending policy may supersede this only before economic outputs are read and only with its own durable receipt. No such exception is active for seed0076.",
+    "management_overlay_rule": "GA3 management cannot rescue a GA2 signal failure and remains closed until GA2 eligibility is established."
+  },
+  "cross_chat_checkpoint_contract": {
+    "must_persist_after_every_material_progress": [
+      "campaign/seed/genealogy identity",
+      "current scientific state and phase",
+      "completed shard count and exact completed shard identities",
+      "current shard identity and exact substage/group progress",
+      "expected config count and config-stream root",
+      "runner/script paths plus Git commit/blob identities",
+      "input data identities/hashes or deterministic rematerialization authorities",
+      "merge/oracle/maskpack/compaction roots when available",
+      "economic_pnl_read, holdout_open and ga2_open flags",
+      "single exact next automatic action"
+    ],
+    "stable_pointer_required": true,
+    "stable_pointer_path_for_public1000": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "resume_rule": "A new chat/runtime MUST read the stable pointer first, verify the referenced versioned pointer and receipts, then resume from the first incomplete action. It MUST NOT reconstruct state from memory when durable authority exists.",
+    "no_recompute_rule": "Completed shard/group work with valid receipts/hashes must not be recomputed unless deterministic rematerialization is necessary because derived bytes are unavailable.",
+    "derived_artifact_rule": "Large derived artifacts need not live in GitHub if they are either stored durably elsewhere by exact hash or deterministically rematerializable from exact frozen inputs and frozen runner bytes. The checkpoint must state which case applies; transient local presence alone is never durable authority.",
+    "failure_rule": "If a chat/runtime ends mid-shard, persist a partial-progress receipt listing every completed group and its receipt hash/root; resume from the first group without a valid receipt."
+  },
+  "promotion_ledger": {
+    "public1000_path": "control/QROS_PUBLIC_1000_FIRST_ECONOMIC_GATE_PROMOTION_LEDGER_v1.json",
+    "append_semantics": "Each GA1-complete shard is added immediately after durable completion; economic_execution remains false until the economic gate firewall authorizes GA2."
+  },
+  "guards": {
+    "no_universe_change": true,
+    "no_config_id_change": true,
+    "no_holdout_open": true,
+    "no_economic_pnl_read_by_this_policy": true,
+    "preserve_historical_receipts": true
+  }
+}
