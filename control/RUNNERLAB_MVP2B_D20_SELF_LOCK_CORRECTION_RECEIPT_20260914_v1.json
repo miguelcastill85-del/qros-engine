@@ -1,0 +1,23 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_D20_CORRECTION_RECEIPT_1",
+  "status": "DEVELOPMENT_RUNNING",
+  "defect_id": "D20_SELF_LOCKED_DESTINATION_PARITY_CHECK",
+  "evidence": {
+    "windows_visible_error": "IOException on runtime MT5_B/config/servers.dat: file is being used by another process",
+    "stage_before_failure": "M2B2_PRELAUNCH_ACTIVE_MT5_AND_CLONE_PROCESS_BASELINE",
+    "mt5_launched": false,
+    "candidate3_executed": false,
+    "trades_sent": false,
+    "cert_arm_allowed": false
+  },
+  "root_cause": "MaterializeRuntimeClone created destination with FileShare.None using a using-var whose lifetime extended through the subsequent HashFile(dest) parity read. RunnerLab therefore attempted to reopen its own exclusively-held destination before disposal.",
+  "classification": "VERIFIED_BY_SOURCE_AND_MATCHING_NATIVE_ERROR",
+  "correction": [
+    "factor durable copy into CopyRuntimeFileDurableAndVerify",
+    "scope source and destination FileStreams in explicit using blocks",
+    "dispose exclusive destination before SHA-256 parity reopen",
+    "add native self-test requiring immediate exclusive reopen after copy+parity"
+  ],
+  "scientific_impact": "No MVP2B runtime launch result was produced; failure occurred before MT5 launch. MVP2A PASS remains valid.",
+  "next_gate": "Rebuild and rerun MVP2B; D20 self-test must PASS before any real isolated MT5 launch."
+}
