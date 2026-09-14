@@ -1,0 +1,18 @@
+{
+  "artifacts_verified": 72,
+  "domain": {
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M10"
+  },
+  "economic_pnl_read": false,
+  "ga2_open": false,
+  "group_receipts_root_sha256": "f377a2448e02d1e7b906275832a5875b8787cebdadf82d9916928a82baea8561",
+  "groups_verified": 24,
+  "holdout_open": false,
+  "ordered_config_id_stream_root_sha256": "a81a1fab5d48c38fc5a2b477b4968bf8130ff28e5906d410ac98a2ffd5db4f59",
+  "processed_signal_configs": 804672,
+  "schema": "QROS_PUBLIC1000_SEED0076_NQX_BUY_M10_GROUP_RECONCILIATION_1.0",
+  "shard_id": "6b33d3ed8c7efe6579bff5a65a6c77b852b2ed991cd862731ba32fe3def4def6",
+  "status": "PASS"
+}
