@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_QFAES_EXECUTION_SEMANTICS_FREEZE_1.0",
+  "campaign_id": "QROS_INDICATOR_001_XAU_FAILED_AUCTION_EDGE_SCORE_v1",
+  "freeze_date": "2026-09-14",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "purpose": "Resolve implementation-level ambiguities before any real outcome scoring.",
+  "clock": {
+    "authority": "Darwinex/New-York-Close server/source clock",
+    "policy": "Preserve raw timestamp calendar fields; do not relabel or convert to UTC for day/M15/M5 partitioning.",
+    "broker_day": "raw source-clock calendar date 00:00:00..23:59:59.999"
+  },
+  "structural_price": {
+    "PDH": "maximum valid Bid of previous source-clock broker day",
+    "PDL": "minimum valid Bid of previous source-clock broker day",
+    "ATR14": "Wilder ATR14 from completed source-clock M15 Bid OHLC bars only",
+    "M5_outside_close": "completed source-clock M5 Bid close outside the breached level"
+  },
+  "spread_reference": "median of strictly positive Ask-Bid spreads within the immediately preceding completed M15 bar; if unavailable score spread_quality=0",
+  "event_machine": {
+    "upper_failed_auction_side": "SELL",
+    "lower_failed_auction_side": "BUY",
+    "first_out": "first valid Bid tick strictly beyond PDH/PDL while no active event exists",
+    "outbound_start_price": "the breached structural level itself",
+    "extreme": "max Bid for upper / min Bid for lower between first_out and reclaim",
+    "reclaim": "first valid Bid tick at-or-inside the structural level after first_out",
+    "dwell_limit_seconds": 1200,
+    "max_completed_M5_closes_outside": 1,
+    "depth_atr_range_inclusive": [0.03, 0.5],
+    "post_reclaim_confirmation_seconds": 20,
+    "confirmation_tick": "first valid non-crossed quote at or after reclaim+20 seconds and before source-day end",
+    "daily_event_cap": "at most one completed eligible event per breached level/side/source day",
+    "atr_snapshot": "ATR14 value available at first_out is frozen for the event and its outcome.",
+    "signal_quote_validity": "Bid structure accepts Ask>=Bid; confirmation requires strictly positive spread Ask>Bid."
+  },
+  "micro_reversal": "last 32 non-zero mid-price changes ending at confirmation tick; BUY rewards positive, SELL rewards negative",
+  "outcome": {
+    "entry": "confirmation tick: BUY Ask / SELL Bid",
+    "stop": "0.05*ATR14 beyond sweep extreme",
+    "target": "1.0R from executable entry",
+    "exit_observation": "BUY on Bid; SELL on Ask",
+    "horizon_minutes": 90,
+    "same_source_day_only": true,
+    "SL_first_on_same_tick": true,
+    "unresolved_within_horizon": "binary success=0; retained separately as unresolved",
+    "crossed_quotes": "ignored for signal and cannot fill",
+    "executable_quotes": "Only strictly positive-spread non-crossed quotes may trigger entry/SL/TP; zero-spread and crossed quotes cannot create fill advantage."
+  },
+  "selection": {
+    "primary_score_threshold": 70,
+    "no_post_result_threshold_change": true,
+    "BUY_SELL_reported_separately": true
+  },
+  "real_results_read_before_freeze": false,
+  "statistics_freeze": {
+    "permutation_test": "exact one-sided fixed-size label permutation / hypergeometric tail for score>=70 success count conditional on total successes",
+    "bootstrap": "10000 source-broker-day block bootstrap replicates; deterministic PRNG seed 20260914; percentile 95% CI for lift(high-score rate - all-event rate)",
+    "year_stability": "2018 and 2019 lift(high-score - year baseline) each >=0",
+    "bins": ["[0,40)", "[40,55)", "[55,70)", "[70,85)", "[85,100]"],
+    "monotonicity": "hit rate must be non-decreasing across non-empty score bins",
+    "minimum_high_score_events": 60
+  }
+}
