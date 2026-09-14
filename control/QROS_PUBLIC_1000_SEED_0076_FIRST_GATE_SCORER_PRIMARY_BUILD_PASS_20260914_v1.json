@@ -1,0 +1,18 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_FIRST_GATE_SCORER_PRIMARY_BUILD_PASS_1.0",
+  "date":"2026-09-14",
+  "status":"PASS_EXTERNAL_CLEAN_RUNNER",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "machine_action_ticket_id":"cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552",
+  "authorized_action":"BUILD_FIRST_GATE_SCORER",
+  "subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","first_gate_order":1,"distinct_mask_classes":303572},
+  "external_validation":{"workflow":".github/workflows/qros-first-gate-scorer-w09-v2.yml","workflow_git_blob_sha1":"082ca9b9cd3ea89b47db85430a79b2db17a1b9fc","run_id":34901493411,"job_id":104168250438,"head_sha":"8ed7fc534c84b13fc173abbed83ea101c899fa73","runner_os":"Ubuntu 24.04.5 LTS","python":"3.12.3","conclusion":"success"},
+  "build_spec":{"path":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_BUILD_SPEC_v2.json","git_blob_sha1":"8157d031f91960533a65620e3f1fda075dd1385f"},
+  "sources":{"primary":{"path":"scripts/qros_first_gate_scorer_primary_v1.py","git_blob_sha1":"968f45bf45477b87d316edccb4aa1409d5d83019"},"oracle":{"path":"scripts/qros_first_gate_scorer_oracle_v1.py","git_blob_sha1":"0cae8efcbb7e081d63e7aa5714d3d6dd2afc162e"},"adversarial_v2":{"path":"scripts/qros_first_gate_scorer_adversarial_v2.py","git_blob_sha1":"7f55a8e412d8dd2cd6d61a7e0c33aefadd09d424"}},
+  "synthetic_validation":{"check_count":14,"receipt_sha256":"3524abe26bf244ba7dab1a8567c22ff64d18de8cd7d0f6506720dab49a071978","primary_oracle_candidate_results_sha256":"fdbec9e96fbc26cd7a07f6767fee109c87aa6e8153fe11bce847c055c108f0e3","primary_oracle_summary_sha256":"e112eef32908592e82ee7d28b7765a08b5aea387bec397ad2003eb96197fafd2","byte_parity":true,"degenerate_full_axis_HAC_p1":true,"production_parity_latch_fail_closed":true},
+  "first_failed_validation_preserved":{"incident":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_VALIDATION_INCIDENT_20260914_v1.json","root_cause":"invalid synthetic degenerate fixture; no scorer/oracle semantic change"},
+  "verified_results":["all exact Git blob pins PASS","primary source Python compile PASS","independent oracle Python compile PASS","primary vs oracle synthetic candidate-results byte parity PASS","primary vs oracle synthetic summary byte parity PASS","14 adversarial checks PASS"],
+  "scientific_guards":{"economic_pnl_read":false,"first_gate_executed":false,"ga2_open":false,"holdout_open":false,"universe_changed":false,"multiplicity_changed":false},
+  "state_transition":{"from":"FG_SCORER_NOT_BUILT","to":"FG_SCORER_PRIMARY_BUILT","next_machine_action":"VERIFY_FIRST_GATE_SCORER_WITH_INDEPENDENT_ORACLE"},
+  "decision":"PRIMARY_SCORER_BUILD_PASS; ORACLE SOURCE EXISTS BUT THE NEXT MACHINE ACTION MUST FORMALLY BIND INDEPENDENT PARITY BEFORE FIRST_GATE EXECUTION CAN BE AUTHORIZED"
+}
