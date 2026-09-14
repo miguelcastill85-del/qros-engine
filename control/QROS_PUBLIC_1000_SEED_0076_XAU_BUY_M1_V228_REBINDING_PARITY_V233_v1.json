@@ -1,0 +1,20 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_XAU_BUY_M1_V228_REBINDING_PARITY_1.0",
+  "status":"PASS_DOUBLE_ORACLE",
+  "purpose":"Demonstrate that the generic domain-bound V228 merger/oracle reproduces the historical XAUUSD/BUY/M1 GA1 result, removing dependence on the old V223 hardcoded merge envelope for future rematerialization.",
+  "domain":{"asset":"XAUUSD","side":"BUY","timeframe":"M1"},
+  "shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+  "descriptor_sha256":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+  "processed_signal_configs":804672,
+  "distinct_mask_class_count":303572,
+  "duplicate_config_count":501100,
+  "zero_event_class_alias_count":13148,
+  "ordered_config_id_stream_root_sha256":"96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3",
+  "semantic_class_root_sha256":"cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+  "full_alias_mapping_root_sha256":"4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458",
+  "historical_completion_receipt":"control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_XAUUSD_BUY_M1_COMPLETION_V224_v1.json",
+  "modern_merger":{"path":"scripts/qros_seed0076_ga1_merge_groups_v228.py","commit":"b8f3c39de4fd4a7e0f43c91d6ac7904cb9088f97","receipt_sha256":"3fccf679b4720c3694de09f8992c0b45f7b4ec4933bfe94959b71775c15e47e4","receipt_file_sha256":"f0550b3a8c0bbaae2248748d861e2e7993eb0aa701cd49b0d030d589f1fd9c47"},
+  "modern_oracle":{"path":"scripts/qros_seed0076_ga1_merge_oracle_v228.py","commit":"235119002fb9841629bf79c69fe308bf165a4316","receipt_sha256":"952e567d2f8274d0b0550a6ae5e26067ec00774bd41ca6cbe560aa3992d1a699","receipt_file_sha256":"c0e42ec228ae7c9e59ea5cc7a08e8f3fc245255c2d1c4b286382bc7e4232251a"},
+  "global_maskpack_migration":{"status":"NOT_REQUIRED_FOR_SCIENTIFIC_VALIDITY","note":"A global unique-mask pack was attempted as storage normalization but is materially heavier for XAU/M1. Historical 24-group zstd representation remains accepted by exact physical manifest root and deterministic rematerialization manifest. No incomplete pack is authority."},
+  "scientific_guards":{"economic_pnl_read":false,"holdout_open":false,"ga2_open":false,"event_masks_changed":false}
+}
