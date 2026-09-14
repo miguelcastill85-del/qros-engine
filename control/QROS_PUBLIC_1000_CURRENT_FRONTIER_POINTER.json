@@ -1,5 +1,5 @@
 {
-  "schema":"QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_4.0",
+  "schema":"QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_4.1",
   "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "current_version":"V251",
   "target_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V251_v1.json",
@@ -7,7 +7,7 @@
   "target_creation_commit":"c62a3820579c341bfe0ffb5ccf03c20995f16089",
   "state":"DEVELOPMENT_RUNNING",
   "scientific_state":"PREREGISTERED_NO_RESULTS",
-  "phase":"GENERIC_KERNEL_V251_ACTIVE_VALIDATION_PENDING_RISE_FIXED_POINT_EVIDENCE_REQUIRED",
+  "phase":"GENERIC_KERNEL_V251_ACTIVE_EXECUTION_REVALIDATION_PENDING_RISE_FIXED_POINT_EVIDENCE_REQUIRED",
   "architecture_kernel_active":true,
   "kernel_epoch":7,
   "action_sequence":2,
@@ -19,10 +19,13 @@
   "candidate_validation_receipt":{"path":"control/QROS_DETERMINISTIC_KERNEL_V251_CANDIDATE_VALIDATION_PASS_20260914_v1.json","git_blob_sha1":"da2d9332d5337a3c5eee8aa30cbec8ad5f3dcb03"},
   "candidate_validation_run_id":34888906100,
   "candidate_validation_status":"PASS",
-  "active_validation_status":"PENDING",
-  "scientific_execution_authorized":false,
+  "active_validation_receipt":{"path":"control/QROS_DETERMINISTIC_KERNEL_V251_ACTIVE_VALIDATION_PASS_20260914_v1.json","git_blob_sha1":"4960cf682274bf4a4120a371cadab9d02e4ce291"},
+  "active_validation_run_id":34889014758,
+  "active_validation_job_id":104126704880,
+  "active_validation_status":"PASS",
+  "scientific_execution_authorized":true,
   "authorized_action_scope":"MACHINE_ACTION_TICKET_ONLY",
-  "execution_blocker":"ACTIVE_MODE_EXTERNAL_VALIDATION_PENDING",
+  "execution_blocker":"ACTIVE_EXECUTION_EXTERNAL_REVALIDATION_PENDING",
   "execution_map":"control/QROS_PUBLIC_1000_DETERMINISTIC_EXECUTION_MAP_v2.json",
   "master_workgraph":"control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v3.json",
   "architecture_gap_register":"control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v3.json",
@@ -41,6 +44,6 @@
   "holdout_open":false,
   "ga2_open":false,
   "remaining_full_history_zips_required_for_current_action":false,
-  "resume_contract":"This pointer is the only bootstrap authority. Until active_validation_status=PASS, scientific_execution_authorized remains false. The machine ticket is PRE_SCIENTIFIC_BLOCKER and preempts the scorer. Chat history, summaries, memory and free-text next_action are non-authoritative. Completed valid GA1 work is preserved. Remaining full-history ZIP uploads may proceed independently and do not close GAP-S01.",
-  "next_action":"ADVISORY_ONLY: external ACTIVE_VALIDATION of V251; after PASS authorize only ticket aa713339ae4f67451342a24c72585520a2a01e6b27ce9a399b4248d9d50ed69b. No PnL."
+  "resume_contract":"This pointer is the only bootstrap authority. Candidate and active validation are PASS. Scientific execution authorization is restricted to the exact non-economic machine_action_ticket_id. ACTIVE_EXECUTION external revalidation is required before treating the kernel validation cycle as complete. Chat history, summaries, memory, unavailable ZIPs and free-text next_action are non-authoritative. Completed valid GA1 work is preserved.",
+  "next_action":"ADVISORY_ONLY: externally revalidate ACTIVE_EXECUTION for exact ticket aa713339ae4f67451342a24c72585520a2a01e6b27ce9a399b4248d9d50ed69b; then execute only RECOVER_OR_REVALIDATE_RISE_FIXED_POINT_NO_PNL. No PnL, GA2 or holdout."
 }
