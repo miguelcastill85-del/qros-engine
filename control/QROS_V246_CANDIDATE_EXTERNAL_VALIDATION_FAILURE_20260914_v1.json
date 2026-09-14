@@ -1,0 +1,21 @@
+{
+  "schema":"QROS_V246_CANDIDATE_EXTERNAL_VALIDATION_FAILURE_1.0",
+  "status":"REJECTED_CANDIDATE_FAIL_CLOSED",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "candidate":"V246",
+  "external_run_id":34887884499,
+  "failed_step":"Compile deterministic action in resolved mode",
+  "failure_code":"PIN_MISMATCH:blocker_evidence_1",
+  "incorrect_preregistered_v209_git_blob_sha1":"c6f7ac8b49993460bee57a9feb6f3bd3bd6a2ebf",
+  "externally_observed_v209_git_blob_sha1":"c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "subsequent_connector_refetch_v209_git_blob_sha1":"c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "additional_correction":"Current V209 bytes do not contain a status=FROZEN_MACHINE_CANONICAL field. Any earlier statement assigning that status to the current bytes is invalidated.",
+  "gate_a_v213_fact":"GA0_PREFLIGHT explicitly requires universe/hash/parity/fixed-point receipts PASS before PnL.",
+  "scientific_invalidation_scope":"NONE_OF_THE_COMPLETED_GA1_MASK_WORK_IS_INVALIDATED_BY_THIS ARCHITECTURE/EVIDENCE-BINDING FAILURE; economic progression remains blocked.",
+  "stable_pointer_changed":false,
+  "stable_version_remains":"V245",
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false,
+  "next_action":"Create corrected new candidate with the actual V209 blob and no unsupported frozen-status assertion; require external candidate validation again."
+}
