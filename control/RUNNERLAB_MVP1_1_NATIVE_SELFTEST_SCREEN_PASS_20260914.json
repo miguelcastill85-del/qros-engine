@@ -1,0 +1,28 @@
+{
+  "schema": "QROS_RUNNERLAB_NATIVE_SELFTEST_SCREEN_CHECKPOINT_1",
+  "date_utc": "2026-09-14",
+  "source_branch_parent": "bf1b2169a6d41a78f2c372f8b118a56f6a418e0e",
+  "evidence_classification": "VERIFIED_BY_USER_SCREEN_CAPTURE_NOT_BYTE_REVERIFIED",
+  "runnerlab_version_visible": "QROS RUNNERLAB v3.1 MVP1.1",
+  "native_build_visible": "PASS",
+  "published_selftest_visible": "PASS",
+  "tests_visible": {
+    "SELF0_JOURNAL_CRASH_RECOVERY": "PASS",
+    "SELF1_D14_IDENTITY_MATRIX": "PASS",
+    "SELF2_D15_PACKAGING_SEPARATION": "PASS",
+    "SELF3_IMMUTABLE_EVIDENCE": "PASS",
+    "SELF4_D04_JOB_OWNERSHIP": "PASS"
+  },
+  "release_packaging_visible": "PASS",
+  "bundle_sha256_visible": "dd3f5f97a75f8935ebe55f86cf33734bc81de7fb68995c9d455383147cd811dc",
+  "bundle_bytes_visible": 38226182,
+  "bundle_entries_visible": 201,
+  "candidate3_executed": false,
+  "mt5_accessed": false,
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "promotion_note": "MVP1.1 native self-tests are sufficient to unlock development of MVP2A read-only MT5 discovery/fingerprint/clone-preparation. Byte-level receipt and release bundle remain to be independently reverified before any final promotion.",
+  "next_action": "MVP2A_READ_ONLY_MT5_DISCOVERY_FINGERPRINT_CLONE_PREPARATION",
+  "main_touched": false
+}
