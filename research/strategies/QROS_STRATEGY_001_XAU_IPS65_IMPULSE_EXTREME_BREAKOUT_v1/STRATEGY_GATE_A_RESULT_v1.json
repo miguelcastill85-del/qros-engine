@@ -1,0 +1,20 @@
+{
+  "schema":"QROS_XAU_IPS_BREAKOUT_STRATEGY_GATE_A_RESULT_1.0",
+  "campaign_id":"QROS_STRATEGY_001_XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+  "prereg_sha256":"a3272de3f861d2e68c1f43b780a2a0237fd0797c9c4121383e6c9ac001950d45",
+  "prereg_git_commit":"f2b81401066ca116d60706009191293b14f08345",
+  "strategy_parity":{"main_trades":2549,"oracle_trades":2549,"main_sha256":"05921d58102e9a53ec4e506248ac6374980c175cec118c393b9d4cf40ab381f3","oracle_sha256":"05921d58102e9a53ec4e506248ac6374980c175cec118c393b9d4cf40ab381f3","decision":"PASS_EXACT_BYTE_IDENTICAL"},
+  "period":"2021-01-01 through 2024-12-31 source-clock; exposed development only",
+  "central":{"n":2549,"total_R":-561.8630091010959,"expectancy_R":-0.22042487606947664,"median_R":-1.01248224987,"win_rate":0.3158101216163201,"PF":0.6926281051045963,"max_DD_R":565.4030626017161},
+  "severe_minus_0_02R_per_trade":{"n":2549,"total_R":-612.843009101096,"expectancy_R":-0.24042487606947663,"PF":0.6710165309167533,"max_DD_R":616.3030626017169},
+  "by_side":{"BUY":{"n":1312,"total_R":-238.119229222886,"expectancy_R":-0.18149331495646798,"PF":0.7392305997021997},"SELL":{"n":1237,"total_R":-323.74377987821003,"expectancy_R":-0.2617168794488359,"PF":0.6461110054603221}},
+  "by_year":{"2021":{"n":607,"total_R":-112.45317814422,"PF":0.7380794712805893},"2022":{"n":665,"total_R":-180.18120444244602,"PF":0.6316957750065344},"2023":{"n":642,"total_R":-149.75485655530002,"PF":0.6770161470378141},"2024":{"n":635,"total_R":-119.47376995913001,"PF":0.7319644770976851}},
+  "positive_years":0,
+  "months_positive":5,
+  "months_total":48,
+  "daily":{"max_entries_per_day":3,"top10_abs_daily_pnl_share":0.03107619177972714},
+  "execution":{"overnight_violations":0,"one_position_overlap_violations":0,"exit_reasons":{"SL":1744,"TP":803,"DAY_END":2},"mean_hold_minutes":6.322878409833922},
+  "gates":{"minimum_trades_total":true,"minimum_trades_each_side":true,"expectancy_R_central_gt_0":false,"profit_factor_central_ge_1_25":false,"profit_factor_severe_ge_1_10":false,"BUY_expectancy_R_nonnegative":false,"SELL_expectancy_R_nonnegative":false,"positive_calendar_years_min_3":false,"max_drawdown_R_le_30":false,"top_10_days_abs_pnl_share_max_0_35":true,"max_entries_day_rule_zero_violations":true,"overnight_zero_violations":true,"one_position_at_a_time_zero_violations":true},
+  "decision":"REJECTED",
+  "scientific_note":"Development/backtest uses periods already exposed to IPS genealogy. It is not independent strategy OOS. 2025-2026 remains sealed."
+}
