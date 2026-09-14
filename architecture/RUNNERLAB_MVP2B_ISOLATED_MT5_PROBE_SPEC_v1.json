@@ -1,0 +1,55 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_SPEC_1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "parent_mvp2a_pass_receipt": "control/RUNNERLAB_MVP2A_NATIVE_PASS_VISIBLE_20260914_v1.json",
+  "objective": "Launch only the previously verified isolated MT5 clone, with no account credentials, no Candidate3, no MQL5 payload, no trading capability, and prove process ownership, sterile startup, fingerprint continuity, clean shutdown, orphan-free cleanup, and immutable evidence.",
+  "hard_prohibitions": [
+    "NO_ACTIVE_DARWINEX_INSTALLATION_LAUNCH_BY_RUNNERLAB",
+    "NO_ACTIVE_DATA_ROOT_WRITE",
+    "NO_ACCOUNT_LOGIN_ARGUMENT",
+    "NO_PASSWORD_OR_CREDENTIAL_COPY",
+    "NO_CANDIDATE3",
+    "NO_MQL5_PAYLOAD_IMPORT",
+    "NO_TRADES",
+    "NO_CERT_ARM",
+    "NO_DEPLOYMENT",
+    "NO_LIVE_ACCOUNT_ACTIONS"
+  ],
+  "launch_contract": {
+    "source": "MVP2A clone only, gated by CLONE_READY.json and exact manifest parity",
+    "mode": "portable clone outside Program Files",
+    "config": "generated dedicated read-only launch config; automated trading disabled; no login parameter",
+    "process_supervision": "CREATE_SUSPENDED -> AssignProcessToJobObject -> verify ownership -> ResumeThread",
+    "candidate3": false,
+    "mql5_payloads": false
+  },
+  "stages": [
+    "M2B0_REVERIFY_MVP2A_CLONE_READY_AND_HASH_PARITY",
+    "M2B1_GENERATE_STERILE_CONFIG_AND_ASSERT_NO_CREDENTIALS_NO_LOGIN",
+    "M2B2_PRELAUNCH_ACTIVE_MT5_AND_CLONE_PROCESS_BASELINE",
+    "M2B3_LAUNCH_CLONE_SUSPENDED_ASSIGN_JOB_VERIFY_RESUME",
+    "M2B4_VERIFY_EXECUTABLE_PATH_PID_CREATION_TIME_AND_BUILD_CONTINUITY",
+    "M2B5_VERIFY_PORTABLE_DATA_ROOT_IS_INSIDE_CLONE_AND_ACTIVE_DATA_UNTOUCHED",
+    "M2B6_VERIFY_AUTOTRADING_DISABLED_AND_NO_MQL5_CANDIDATE_PAYLOAD",
+    "M2B7_CONTROLLED_SHUTDOWN_AND_ORPHAN_FREE_JOB_CLEANUP",
+    "M2B8_POSTRUN_SOURCE_AND_ACTIVE_ENVIRONMENT_STABILITY_RECHECK",
+    "M2B9_IMMUTABLE_RECEIPT_AND_DERIVED_EVIDENCE_BUNDLE"
+  ],
+  "fail_closed": [
+    "missing or mismatched MVP2A ready marker",
+    "clone hash drift",
+    "active installation path selected as launch target",
+    "account/login credential discovered in launch material",
+    "unexpected MQL5 content",
+    "process ownership ambiguity",
+    "job assignment failure",
+    "portable data path escapes clone",
+    "active data root mutation",
+    "automated trading not demonstrably disabled",
+    "orphan isolated terminal after cleanup",
+    "terminal/metaeditor fingerprint drift"
+  ],
+  "promotion_gate": "MVP2B_PASS authorizes only progression to a later probe/strategy qualification layer. It does not authorize Candidate3 execution, CERT, deployment, or trading.",
+  "evidence_policy": "Scientific runtime receipt is authoritative before derived ZIP packaging; packaging failure cannot rewrite a runtime PASS/FAIL result.",
+  "next_after_pass": "MVP2C_MINIMAL_MQL5_ENVIRONMENT_PROBE_WITH_NO_TRADE_API_AND_NO_CANDIDATE3"
+}
