@@ -1,0 +1,17 @@
+{
+  "schema":"QROS_PUBLIC1000_CROSS_CHAT_RESUME_EXECUTION_5.0",
+  "status":"PASS",
+  "version":"V239",
+  "script":"scripts/qros_cross_chat_resume_preflight_v239.py",
+  "checks_total":120,
+  "checks_pass":120,
+  "checks_fail":0,
+  "errors":[],
+  "receipt_sha256":"e9036e00d1f53f8b5c075c1bb576899d650b3d90da223ab670a7ad76fcec13e3",
+  "target":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V239_v1.json",
+  "promotion_ledger":"control/QROS_PUBLIC_1000_FIRST_ECONOMIC_GATE_PROMOTION_LEDGER_v5.json",
+  "current_shard":{"asset":"NQX","side":"BUY","timeframe":"M12","shard_id":"280066aa7fa5fee847fb533be58f986f5181bb5b211abc643b4cfa46226f4ea3","config_root_sha256":"07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714"},
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false
+}
