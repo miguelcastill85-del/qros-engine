@@ -1,0 +1,10 @@
+{
+  "schema": "QROS_IPS_V2_MATERIALIZED_OOS_PARITY_1.0",
+  "main_events": 13752,
+  "oracle_events": 13752,
+  "total_field_mismatches": 0,
+  "max_numeric_abs_error": 0.0,
+  "decision": "PASS",
+  "main_ledger_sha256": "0a2acda4cd648778808a49cadace077ca93e910352551896fbc82a37f52610b6",
+  "oracle_ledger_sha256": "457109b392558b2c169f57a74ac77b63b64cd290587372731cb70bcf806f64b1"
+}
