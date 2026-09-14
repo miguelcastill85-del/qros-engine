@@ -1,0 +1,14 @@
+{
+  "schema":"QROS_XAU_FAILED_STRATEGY_CENSUS_MANIFEST_6.0",
+  "created_date":"2026-09-14",
+  "status":"PARTIAL_EXHAUSTIVE_CENSUS_ACTIVE",
+  "effective_rows":46,
+  "base_census":{"file":"QROS_XAU_FAILED_STRATEGY_MASTER_CENSUS_v5.csv","sha256":"de7581be52ca8de2ba242e13bdefbda46d9969e592e63ade38e2173843270412"},
+  "delta":{"file":"QROS_XAU_FAILED_STRATEGY_CENSUS_DELTA_v6.json","commit":"3ae07f8eed0c1bb3bcdb8d515c546fa492dfa927"},
+  "effective_local_materialization":"QROS_XAU_FAILED_STRATEGY_MASTER_CENSUS_v6.csv",
+  "effective_local_sha256":"56e365573ff639b0dbbe7d3a15a5959c02c84daa80f0a2d3363784178e5261fe",
+  "quantified_hard_failed_lower_bound_after_alias_dedupe":48357,
+  "new_terminal_identity_added":"XAU_OPENING_DRIVE_OTHER_SESSIONS_LEGACY_RESERVE",
+  "counting_note":"Legacy exhausted Opening Drive branch has no recoverable exact configuration count, so quantified lower bound is unchanged.",
+  "exhaustiveness":"IN_PROGRESS"
+}
