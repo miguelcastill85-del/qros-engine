@@ -1,0 +1,62 @@
+--- a/src/RunnerLab.Core/Mvp2B.cs
++++ b/src/RunnerLab.Core/Mvp2B.cs
+@@ -510,14 +510,32 @@
+             var dest = Path.GetFullPath(Path.Combine(runtime, item.RelativePath.Replace('/', Path.DirectorySeparatorChar)));
+             if (!IsSameOrChild(source, frozen) || !IsSameOrChild(dest, runtime)) throw new InvalidOperationException("RUNTIME_COPY_PATH_ESCAPE");
+             Directory.CreateDirectory(Path.GetDirectoryName(dest)!);
+-            using var input = new FileStream(source, FileMode.Open, FileAccess.Read, FileShare.Read, 1024 * 1024, FileOptions.SequentialScan);
+-            using var output = new FileStream(dest, FileMode.CreateNew, FileAccess.Write, FileShare.None, 1024 * 1024, FileOptions.WriteThrough | FileOptions.SequentialScan);
++            CopyRuntimeFileDurableAndVerify(source, dest, item.Sha256, item.Bytes, item.RelativePath);
++        }
++        return CanonicalDirectory(runtime);
++    }
++
++
++    private static void CopyRuntimeFileDurableAndVerify(string source, string dest, string expectedSha256, long expectedBytes, string relativePath)
++    {
++        // D20: the exclusive destination handle MUST be disposed before parity re-open/hash.
++        // Keeping `using var output` alive through HashFile(dest) self-locks the file on Windows.
++        using (var input = new FileStream(source, FileMode.Open, FileAccess.Read, FileShare.Read, 1024 * 1024, FileOptions.SequentialScan))
++        using (var output = new FileStream(dest, FileMode.CreateNew, FileAccess.Write, FileShare.None, 1024 * 1024, FileOptions.WriteThrough | FileOptions.SequentialScan))
++        {
+             input.CopyTo(output);
+             output.Flush(true);
+-            if (!string.Equals(HashFile(dest), item.Sha256, StringComparison.OrdinalIgnoreCase) || new FileInfo(dest).Length != item.Bytes)
+-                throw new IOException("RUNTIME_CLONE_COPY_PARITY_FAIL: " + item.RelativePath);
+         }
+-        return CanonicalDirectory(runtime);
++
++        if (!string.Equals(HashFile(dest), expectedSha256, StringComparison.OrdinalIgnoreCase) || new FileInfo(dest).Length != expectedBytes)
++            throw new IOException("RUNTIME_CLONE_COPY_PARITY_FAIL: " + relativePath);
++    }
++
++    public static void CopyRuntimeFileDurableForSelfTest(string source, string dest)
++    {
++        var expected = HashFile(source);
++        var bytes = new FileInfo(source).Length;
++        CopyRuntimeFileDurableAndVerify(source, dest, expected, bytes, Path.GetFileName(source));
+     }
+ 
+     private static void AssertNoCandidateOrMqlPayloadBeforeLaunch(string cloneRoot)
+--- a/src/RunnerLab.Core/Mvp2BSelfTests.cs
++++ b/src/RunnerLab.Core/Mvp2BSelfTests.cs
+@@ -84,6 +84,19 @@
+         }
+         tests.Add(new("M2B_SELF_DIVERGENT_READY_FAIL_CLOSED", divergentRejected, "non-equivalent ready variants rejected"));
+ 
++        var d20Source = Path.Combine(root, "d20_source.bin");
++        var d20Dest = Path.Combine(root, "d20_dest.bin");
++        File.WriteAllBytes(d20Source, Enumerable.Range(0, 4096).Select(i => (byte)(i % 251)).ToArray());
++        Mvp2BEngine.CopyRuntimeFileDurableForSelfTest(d20Source, d20Dest);
++        var d20ExclusiveReopen = false;
++        try
++        {
++            using var probe = new FileStream(d20Dest, FileMode.Open, FileAccess.ReadWrite, FileShare.None);
++            d20ExclusiveReopen = probe.Length == new FileInfo(d20Source).Length;
++        }
++        catch { d20ExclusiveReopen = false; }
++        tests.Add(new("M2B_SELF_D20_DESTINATION_HANDLE_RELEASED_BEFORE_PARITY", d20ExclusiveReopen, "destination can be reopened exclusively immediately after durable copy+parity"));
++
+         var pass = tests.All(t => t.Pass);
+         return new("QROS_RUNNERLAB_MVP2B_SELFTEST_1", pass, tests, DateTimeOffset.UtcNow);
+     }
