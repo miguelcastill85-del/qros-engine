@@ -1,0 +1,77 @@
+{
+  "schema": "QROS_INDICATOR_PREREG_1.0",
+  "campaign_id": "QROS_INDICATOR_002_XAU_RECLAIM_PRESSURE_INDEX_v1",
+  "indicator_id": "QROS_RECLAIM_PRESSURE_INDEX_v1",
+  "short_name": "QRPI",
+  "created_date": "2026-09-14",
+  "genealogy": "NEW_LOCAL_LIQUIDITY_RECLAIM_PRESSURE; NOT_QFAES_RETUNE",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "asset": "XAUUSD",
+  "directions": ["BUY","SELL"],
+  "thesis": "A local-liquidity sweep that is shallow, rapidly reclaimed, penetrates back inside the prior 60-minute range, shows immediate directional tick pressure and acceptable spread has higher probability of continuing away from the swept boundary than an unfiltered local reclaim.",
+  "data": {
+    "carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+    "carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+    "development_prefix_bytes": 2573500596,
+    "development_prefix_records": 151382388,
+    "development_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "development": "2018-01-25..2019-12-31 source-clock",
+    "holdout_2020_plus": "SEALED"
+  },
+  "structure": {
+    "price": "Bid",
+    "local_high": "maximum high of previous 12 completed source-clock M5 Bid bars",
+    "local_low": "minimum low of previous 12 completed source-clock M5 Bid bars",
+    "ATR14": "Wilder ATR14 from completed source-clock M15 Bid bars",
+    "clock": "raw Darwinex/New-York-Close source clock; no UTC relabeling"
+  },
+  "event": {
+    "SELL": "Bid breaches frozen local_high then reclaims at-or-below it",
+    "BUY": "Bid breaches frozen local_low then reclaims at-or-above it",
+    "max_dwell_seconds": 300,
+    "depth_atr_inclusive": [0.02,0.30],
+    "confirmation_seconds_after_reclaim": 15,
+    "confirmation_requires_positive_spread": true,
+    "cap": "at most one completed QRPI event per side per source-clock hour",
+    "ATR_snapshot": "freeze ATR available at first breach"
+  },
+  "score_components": {
+    "sweep_depth_quality": {"weight":20,"formula":"triangular(depth_atr; left=0.02, peak=0.08, right=0.30)"},
+    "reclaim_speed": {"weight":25,"formula":"clip((return_speed/outbound_speed)/2,0,1)"},
+    "range_penetration": {"weight":20,"formula":"clip(directional_inside_distance_at_confirmation/(0.10*ATR14),0,1)"},
+    "micro_pressure": {"weight":20,"formula":"directional sign imbalance of last 64 non-zero mid-price changes at confirmation mapped to [0,1]"},
+    "spread_quality": {"weight":15,"formula":"clip(1-current_spread/(2*positive_spread_median_of_last_completed_M15),0,1)"}
+  },
+  "score": "0..100 fixed weighted sum; no fitted weights",
+  "primary_threshold": 65,
+  "prediction": {
+    "entry": "first strictly positive-spread quote at-or-after reclaim+15s; BUY Ask / SELL Bid",
+    "stop": "0.03*ATR14 beyond sweep extreme",
+    "target": "1.0R",
+    "horizon_minutes": 45,
+    "same_source_day_only": true,
+    "exit": "BUY observes Bid; SELL observes Ask; SL first; zero/crossed spread cannot fill",
+    "nonpositive_structural_risk": "non-executable; excluded before outcome statistics"
+  },
+  "gate_a": {
+    "minimum_high_score_events": 100,
+    "high_score_success_rate_gt_all_events": true,
+    "exact_one_sided_permutation_p_max": 0.05,
+    "day_block_bootstrap_95ci_lift_lower_gt": 0.0,
+    "2018_lift_nonnegative": true,
+    "2019_lift_nonnegative": true,
+    "BUY_lift_nonnegative": true,
+    "SELL_lift_nonnegative": true,
+    "score_bins": ["[0,35)","[35,50)","[50,65)","[65,80)","[80,100]"],
+    "nonempty_bin_rates_non_decreasing": true,
+    "bootstrap_reps": 10000,
+    "bootstrap_seed": 20260914
+  },
+  "forbidden": [
+    "changing threshold after development outcomes",
+    "fitting component weights to development PnL or hit rate",
+    "reusing QFAES score/results as a feature",
+    "opening 2020+ unless Gate A passes",
+    "claiming edge from development alone"
+  ]
+}
