@@ -1,0 +1,14 @@
+{
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "prior_probe_invalidated": true,
+  "receipt_sha256": "5d52168d6917334b317b0b8a2f278e69ccc86b2307a180e0e6ba5ccbb3fc237f",
+  "schema": "QROS_SEED0076_TEMPORAL_SEMANTICS_V221_TEST_1.0",
+  "status": "PASS",
+  "tests": [
+    {"detail": [true,true,false],"id":"NY_RTH_LEFT_CLOSED_RIGHT_OPEN","pass":true},
+    {"detail":{"calc":[true,true,true,false],"expected":[true,true,true,false]},"id":"LONDON_IANA_MATCH","pass":true},
+    {"detail":null,"id":"CLOSE_EVENT_EXACT_CLOSE_SESSION_TIME","pass":true},
+    {"detail":[3],"id":"TICK_RETEST_WINDOW1_INCLUDES_REMAINDER_BREAKOUT_BAR","pass":true}
+  ]
+}
