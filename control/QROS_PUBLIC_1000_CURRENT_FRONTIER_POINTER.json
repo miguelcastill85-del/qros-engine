@@ -1,5 +1,5 @@
 {
-  "schema":"QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_5.1",
+  "schema":"QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_5.2",
   "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "current_version":"V252",
   "target_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V252_v1.json",
@@ -7,7 +7,7 @@
   "target_creation_commit":"0b3c90538899c90c5dd03c7bcb33402c00582bd3",
   "state":"DEVELOPMENT_RUNNING",
   "scientific_state":"PREREGISTERED_NO_RESULTS",
-  "phase":"V252_ACTIVE_VALIDATION_PASS_ACTIVE_EXECUTION_VALIDATION_PENDING_FIRST_GATE_SCORER_BUILD",
+  "phase":"V252_THREE_PHASE_VALIDATED_BUILD_FIRST_GATE_SCORER_AUTHORIZED",
   "architecture_kernel_active":true,
   "kernel_epoch":8,
   "action_sequence":3,
@@ -24,13 +24,13 @@
   "active_validation_run_id":34896458877,
   "active_validation_job_id":104151681282,
   "active_validation_status":"PASS",
-  "active_execution_validation_receipt":null,
-  "active_execution_validation_run_id":null,
-  "active_execution_validation_job_id":null,
-  "active_execution_validation_status":"PENDING",
+  "active_execution_validation_receipt":{"path":"control/QROS_DETERMINISTIC_KERNEL_V252_ACTIVE_EXECUTION_VALIDATION_PASS_20260914_v1.json","git_blob_sha1":"fb21ec9a8df1b8f60846be270abf372343dca993"},
+  "active_execution_validation_run_id":34896545805,
+  "active_execution_validation_job_id":104151970035,
+  "active_execution_validation_status":"PASS",
   "scientific_execution_authorized":true,
   "authorized_action_scope":"MACHINE_ACTION_TICKET_ONLY",
-  "execution_blocker":"ACTIVE_EXECUTION_VALIDATION_PENDING",
+  "execution_blocker":null,
   "execution_map":"control/QROS_PUBLIC_1000_DETERMINISTIC_EXECUTION_MAP_v2.json",
   "master_workgraph":"control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.1.json",
   "architecture_gap_register":"control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.1.json",
@@ -51,6 +51,6 @@
   "holdout_open":false,
   "ga2_open":false,
   "remaining_full_history_zips_required_for_current_action":false,
-  "resume_contract":"V252 is stable. Candidate and ACTIVE_VALIDATION are PASS for exact ticket cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552 BUILD_FIRST_GATE_SCORER on FIFO #1 XAUUSD/BUY/M1. scientific_execution_authorized=true is scoped only to that immutable ticket, but actual execution remains blocked until ACTIVE_EXECUTION external validation passes. Economic PnL, GA2, holdout, new GA1 and FIRST_GATE economic execution remain closed. No ZIP upload is required.",
-  "next_action":"ADVISORY_ONLY: execute external ACTIVE_EXECUTION validation for the exact V252 ticket. After PASS, persist receipt and only then execute BUILD_FIRST_GATE_SCORER as non-economic engineering."
+  "resume_contract":"V252 is fully three-phase validated. The only executable action is exact immutable ticket cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552 BUILD_FIRST_GATE_SCORER for FIFO #1 XAUUSD/BUY/M1. This is non-economic engineering and may not read PnL, open GA2/holdout, start new GA1, execute FIRST_GATE or alter the multiplicity contract/frozen universe. No ZIP upload is required.",
+  "next_action":"ADVISORY_ONLY: build the primary FIRST_GATE scorer and its primary tests/build receipt without reading economic output; then transition to independent scorer parity verification."
 }
