@@ -1,0 +1,14 @@
+{
+  "schema":"QROS_PUBLIC1000_CROSS_CHAT_RESUME_PREFLIGHT_REGRESSION_1.0",
+  "status":"PASS",
+  "script":"scripts/qros_cross_chat_resume_preflight_v233.py",
+  "script_commit":"f11d7e6a77343554cd435d0e6b4b0c3810e9e0d9",
+  "test":"tests/test_qros_cross_chat_resume_preflight_v233.py",
+  "test_commit":"c0de12f75ee160cca1aab52368a8317acb7bea5a",
+  "positive_case":{"expected":"PASS","observed":"PASS","receipt_sha256":"ba6ab40172870f1840ae2652ae62699a40a6cbb3a59457e5d3d9a062ef171a90"},
+  "negative_case":{"mutation":"queued_shard_count changed from 1 to 2 while completed/target stayed 1","expected":"FAIL_CLOSED","observed_return_code":2,"observed_errors":["LEDGER_QUEUE_COUNT","QUEUE_EQUALS_COMPLETED"],"receipt_sha256":"1bd3402416e9d3f46557c9ef3ca4e6c3c6e9fbfd09662dc33c125a73e9ff58dc"},
+  "decision":"ADOPT_AS_MANDATORY_CROSS_CHAT_RESUME_GATE",
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false
+}
