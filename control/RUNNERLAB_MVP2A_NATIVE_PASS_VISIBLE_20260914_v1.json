@@ -1,0 +1,39 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2A_NATIVE_PASS_VISIBLE_1",
+  "status": "PASS_VISIBLE_PENDING_BYTE_REVERIFICATION",
+  "source_branch": "design/runnerlab-v3-mvp2a-20260914",
+  "source_head_before_receipt": "59d8be337805f2429521e4fba16123c67955a897",
+  "evidence_source": "user-supplied Windows console photograph in ChatGPT on 2026-09-14",
+  "evidence_classification": {
+    "console_passes": "VERIFIED_BY_IMAGE",
+    "derived_bundle_sha256": "VERIFIED_BY_IMAGE_ONLY",
+    "bundle_bytes": "NO_DISPONIBLE",
+    "clone_bytes": "NO_DISPONIBLE",
+    "independent_byte_reverification": "PENDING"
+  },
+  "observed": {
+    "runnerlab_mvp2a_selftest_pass": true,
+    "M2A0_DISCOVER_TERMINAL_INSTALLATIONS_READ_ONLY": "PASS candidates=1",
+    "M2A1_MAP_DATA_ROOT_USING_ORIGIN_METADATA_ONLY": "PASS origin_mappings=18",
+    "M2A2_FINGERPRINT_TERMINAL64_METAEDITOR64_SHA256_VERSION": "PASS",
+    "M2A3_SECRET_GUARD_AND_EXPORT_ALLOWLIST": "PASS active data root not traversed; secret denylist active",
+    "M2A4_CLONE_SOURCE_MANIFEST": "PASS files=19",
+    "M2A5_MATERIALIZE_ISOLATED_CLONE_WITHOUT_LAUNCH": "PASS",
+    "M2A6_CLONE_HASH_PARITY": "PASS files=19; source_stable=true; ready_marker=true",
+    "M2A7_DERIVED_EVIDENCE_BUNDLE": "PASS",
+    "derived_bundle_sha256_visible": "3f2cf79f672e4e4089a364949bd7c9b249fa1256dab7be61fc201e807df02b16",
+    "decision": "MVP2A_PASS",
+    "promotion_allowed": true,
+    "mt5_launched": false,
+    "candidate3_executed": false
+  },
+  "safety": {
+    "trades": false,
+    "cert_arm": false,
+    "deployment": false,
+    "active_mt5_modified": false,
+    "candidate3_touched": false
+  },
+  "promotion_scope": "Promotes only to MVP2B isolated clone launch qualification. Does not promote Candidate3, R4, CERT, deployment, or trading.",
+  "next_action": "Preregister MVP2B isolated clone launch with no Candidate3, no credentials, no trading, AllowLiveTrading=0, Job Object ownership, environment fingerprint parity, clean shutdown, orphan check, and immutable evidence."
+}
