@@ -1,0 +1,25 @@
+{
+  "schema": "QROS_PUBLIC1000_DETERMINISTIC_DECISION_LEDGER_3.0",
+  "version": "3.0",
+  "status": "FROZEN_ACTIVE",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "supersedes": "control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v2.json",
+  "append_model": "NEW_VERSION_ONLY; historical ledgers immutable",
+  "inherited_decisions": "D001-D013 from v2 remain binding without semantic change",
+  "entries_added": [
+    {
+      "id": "D014",
+      "rule": "Candidate validation and active-frontier validation are distinct deterministic modes. A workflow must select the mode solely from the stable pointer version; it may not blindly reuse candidate-parent checks after promotion."
+    },
+    {
+      "id": "D015",
+      "rule": "Before scientific execution resumes after a frontier promotion, an external active-mode run must compile from the stable pointer without --target, pass the independent oracle, and prove its ticket_id equals the machine_action_ticket_id recorded in the stable pointer."
+    },
+    {
+      "id": "D016",
+      "rule": "V244 pre-promotion kernel validation is valid evidence, but its post-promotion workflow integration failed with CANDIDATE_PARENT_VERSION_MISMATCH; no scorer execution is permitted until the two-mode validation architecture is promoted and active-mode PASS is persisted."
+    }
+  ],
+  "bound_incident": "control/QROS_DETERMINISTIC_KERNEL_V244_ACTIVE_MODE_VALIDATION_FAILURE_20260914_v1.json",
+  "decision": "V3_FROZEN: TWO_PHASE_EXTERNAL_VALIDATION IS MANDATORY; CANDIDATE_MODE BEFORE PROMOTION AND ACTIVE_MODE AFTER PROMOTION"
+}
