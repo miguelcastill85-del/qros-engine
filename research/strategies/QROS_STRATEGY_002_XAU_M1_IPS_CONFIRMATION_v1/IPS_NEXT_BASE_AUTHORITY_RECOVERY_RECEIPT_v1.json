@@ -1,0 +1,24 @@
+{
+  "schema": "QROS_IPS_NEXT_BASE_AUTHORITY_RECOVERY_RECEIPT_1.0",
+  "created_date": "2026-09-14",
+  "objective": "Recover exact higher-frequency independent XAU base after M1+IPS observational reserve.",
+  "selection_rule": "Choose highest-trade-count frozen independent XAU module ex ante, without looking at IPS-filter PnL: M2 (259) before M3 (241) before M4 (186).",
+  "authority_registry": {
+    "M2": {"id":"XAU_M2_SELL_TICK_PULLBACK_ROUTER_v10110","trades":259,"ledger":"v10065_ACTIVITY_TRADES.csv","expected_sha256":"be2f88005727c6324b780c89991ed310601c39695bd56b319a966a9a9a973499","file_library_id":"file_0000000089cc820ebdca3ec2f255f816"},
+    "M3": {"id":"XAU_M3_BUY_STRUCTURAL_ROUTER_v11310","trades":241,"ledger":"XAU_M3_BUY_STRUCTURAL_ROUTER_v11310_TRADES.csv","file_library_id":"file_000000006004820e9a48dc73c5545b35"},
+    "M4": {"id":"XAU_M4_BUY_TICK_OPENING_DRIVE_ROUTER_v11430","trades":186,"ledger":"XAU_M4_BALANCED_TRADES_v11430.csv","file_library_id":"file_00000000e85c820ea46ce75a1a8cc5bb"}
+  },
+  "searches_performed": {
+    "File_Library": "Exact names and M2 SHA searched. Registry/manifest references found, but exact ledger bytes were not surfaced as retrievable file results in this runtime.",
+    "Dropbox": "Exact-title searches for M2, M3 and M4 trade ledgers returned zero results.",
+    "GitHub": "Repository code/content search and tree inspection found no exact M2/M3/M4 ledger/source artifacts.",
+    "local_mnt_data": "No matching M2/M3/M4 frozen ledger/spec files present.",
+    "historical_recovery": "M2/M4 checkpoint explicitly records missing exact event population/generator for independent replay."
+  },
+  "why_indispensable": "The IPS filter must subset an exact accepted-trade ledger while preserving entry/exit/R unchanged. Aggregate module metrics or approximate reconstruction cannot establish which trades qualify.",
+  "alternatives_attempted": ["Use exact M1 base: completed, but filter sample only 5 and campaign closed as observational reserve.","Recover M2 exact ledger by name/hash/File Library reference.","Recover M3 exact ledger/package.","Recover M4 exact ledger/package.","Search Dropbox and GitHub for durable copies."],
+  "decision": "BLOCKED_BY_INFRASTRUCTURE_FOR_NEXT_EXISTING_MODULE_BASES",
+  "scope": "Only the route that overlays IPS on existing frozen M2/M3/M4 modules; IPS v2 and M1 states are unaffected.",
+  "2025_2026": "SEALED_NOT_OPENED",
+  "resume_condition": "Exact M2 ledger bytes with SHA be2f8800... or another higher-authority exact M2 generator/event population becomes retrievable. If M2 remains unavailable but exact M3 bytes become retrievable, resume serially at M3."
+}
