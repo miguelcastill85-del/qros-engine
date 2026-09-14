@@ -1,0 +1,26 @@
+{
+  "schema": "QROS_XAU_M1_IPS_CONFIRMATION_CHECKPOINT_1.0",
+  "OBJETIVO": "Test IPS v2 as a confirmation/filter on independent frozen XAU M1 without changing M1 economics.",
+  "AUTORIDAD": [
+    "QROS_XAU_M1_IPS_CONFIRMATION_v1_PREREG.json @ GitHub a90f55ce0f93d000983cc2c781a6b1df735eba40",
+    "M1_BASE_REPRODUCTION_RECEIPT_v1.json @ GitHub d982f73e5b9c60699db435043c7acda4188f9027",
+    "M1_IPS_FILTER_EXECUTION_SUPPLEMENT_v1.json @ GitHub dbc28f9346f89a500bf80c1f6189e8d49bf3c8b1",
+    "IPS_2020_RECON_PARITY_RECEIPT_v1.json @ GitHub 7b3812a9ff26786e2a0d9ff9928f7684ba44b3ca",
+    "M1_IPS_CONFIRMATION_GATE_A_RESULT_v1.json @ GitHub 3907e7ab6e1f36d146f3f33a66f932526b433f60"
+  ],
+  "DATOS": {"development":"2018-01-25 through 2024-12-31; exposed","base_M1_trades":61,"IPS_event_coverage":"2018-2024 complete for filter","2025_2026":"SEALED_NOT_OPENED"},
+  "TRABAJO_EJECUTADO": ["Recovered and exactly reproduced M1 61-trade pre-2025 golden vector","Materialized full 2020 IPS with independent main/oracle parity","Applied one preregistered 60-minute same-direction IPS>=65 filter","Compared unchanged M1 R outcomes base versus filtered subset"],
+  "RESULTADOS_VERIFICADOS": {
+    "base":{"n":61,"net_R":29.468388839986474,"expectancy_R":0.4830883416391225,"PF":2.510163406959253,"DD_R":2.4406451612903233},
+    "filtered":{"n":5,"coverage":0.08196721311475409,"net_R":5.3728835102984895,"expectancy_R":1.074576702059698,"PF":"INF_NO_LOSSES","win_rate":1.0,"DD_R":0.0},
+    "matched_years":{"2020":2,"2022":1,"2024":2},
+    "top3_net_share":0.8044667554042793
+  },
+  "GATES": {"minimum_filtered_trades_8":false,"minimum_coverage_fraction_0_10":false,"filtered_total_R_gt_0":true,"filtered_expectancy_gt_base":true,"filtered_PF_gt_base":true,"filtered_max_DD_le_base":true,"positive_years_with_trades_fraction_ge_0_60":true,"2023_expectancy_nonnegative_if_any":true,"2024_expectancy_nonnegative_if_any":true,"top3_net_share_le_0_70":false},
+  "PROBLEMAS": "Only 5 of 61 M1 trades met the preregistered IPS confirmation; sample and coverage hard gates fail.",
+  "CAUSA_RAÍZ": "M1 itself is low-frequency (~9 trades/year) and a strict same-direction IPS>=65 event within 60 minutes overlaps rarely.",
+  "CORRECCIONES": "None. No widening of window, threshold reduction, exit change or rescue under v1 identity.",
+  "ESTADO_CIENTÍFICO": "INCONCLUSIVE_SUPPORT",
+  "IMPACTO_PORTAFOLIO": "NONE; filtered descendant is not eligible for risk or integration.",
+  "SIGUIENTE_ACCIÓN_AUTOMÁTICA": "Close this genealogy without opening 2025-2026. Select the next independent XAU base alpha ex ante by recoverable authority and higher trade count, then preregister a new IPS-filter descendant without reusing M1 result to tune IPS."
+}
