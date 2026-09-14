@@ -1,0 +1,16 @@
+{
+  "schema": "QROS_IPS_V2_OPERATIONAL_BUILD_RECEIPT_1.0",
+  "state": "FROZEN_CANDIDATE_OPERATIONAL_BUILD_PASS",
+  "config_freeze_sha256": "0dedefcb0e002d3aeaca8c813757100b4a5cfae5c598a1196aa74ea53548291a",
+  "static_checks": {
+    "balanced_braces": true,
+    "copyticksrange": true,
+    "v2_formula": true,
+    "threshold65": true,
+    "no_trade_functions": true
+  },
+  "golden_vector_test": "IPS_V2_GOLDEN_VECTOR_TEST=PASS\nvectors= 40\nmax_score_abs_error= 4.999e-11",
+  "golden_vectors": 40,
+  "mt5_compile": "PENDING_EXTERNAL_METAEDITOR",
+  "mt5_parity": "PENDING_EXTERNAL_MT5"
+}
