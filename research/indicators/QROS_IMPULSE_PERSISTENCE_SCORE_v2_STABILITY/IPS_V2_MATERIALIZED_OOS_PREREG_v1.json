@@ -1,0 +1,68 @@
+{
+  "schema": "QROS_IPS_V2_MATERIALIZED_OOS_PREREG_1.0",
+  "campaign_id": "QROS_INDICATOR_004_XAU_IPS_V2_STABILITY",
+  "indicator": "QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY",
+  "authorization": "USER_EXPLICITLY_AUTHORIZED_USE_ONLY_CURRENTLY_MATERIALIZED_ZIPS",
+  "created_date": "2026-09-14",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "config_lock": {
+    "config_freeze_sha256": "0dedefcb0e002d3aeaca8c813757100b4a5cfae5c598a1196aa74ea53548291a",
+    "weights": [15, 5, 10, 20, 30, 20],
+    "threshold": 65,
+    "event_ontology": "IDENTICAL_TO_IPS_V1",
+    "retuning": "FORBIDDEN"
+  },
+  "data": {
+    "physical_zip_parts": [14, 15, 16, 17, 18],
+    "warmup_stream": "XAU_PART014_018_WARMUP_STREAM.bin",
+    "warmup_stream_records": 100000000,
+    "warmup_stream_bytes": 1700000000,
+    "warmup_stream_sha256": "37a23b0cd434a6fb2ea0df6311e0536d223b3b4c6ca2ef27694c7cfd5a2b751f",
+    "warmup_stream_global_record_range": "[260000000,360000000)",
+    "evaluation_calendar_start_source_clock_ms": 1609459200000,
+    "evaluation_calendar_end_exclusive_source_clock_ms": 1660521600000,
+    "evaluation_calendar_label": "2021-01-01 through 2022-08-14 complete source-clock days",
+    "evaluation_local_record_range_within_warmup_stream": "[18773773,99783528)",
+    "evaluation_global_record_range": "[278773773,359783528)",
+    "evaluation_records": 81009755,
+    "first_evaluation_tick_ms": 1609722060001,
+    "last_evaluation_tick_ms": 1660348499716,
+    "development_overlap_records": 0,
+    "selection_overlap_records": 0,
+    "2020_exposed_diagnostic_overlap_records": 0
+  },
+  "scientific_note": "This replaces waiting for the originally planned 2023-2024 clean OOS because the user explicitly authorized validation using only already-materialized bytes. The 2021-2022 materialized evaluation interval is clean for v2 selection at freeze time and becomes permanently EXPOSED after scoring.",
+  "parity_gate": {
+    "main_vs_independent_oracle": "100% event-by-event required",
+    "comparison": "timestamps, side, event geometry, six components, score source components, execution fields, outcome"
+  },
+  "hard_gates": {
+    "minimum_executable_events": 1000,
+    "minimum_high_score_events": 150,
+    "high_score_success_rate_gt_all_events": true,
+    "exact_one_sided_enrichment_p_max": 0.05,
+    "day_block_bootstrap_95ci_lift_lower_gt": 0.0,
+    "BUY_lift_nonnegative": true,
+    "SELL_lift_nonnegative": true,
+    "2021_lift_nonnegative": true,
+    "2022_materialized_lift_nonnegative": true,
+    "score_bin_spearman_rho_gt": 0.0,
+    "bootstrap_reps": 10000,
+    "bootstrap_seed": 2026091405
+  },
+  "secondary_locked_benchmark": {
+    "IPS_v1_weights": [20, 15, 20, 20, 15, 10],
+    "comparison_only": true,
+    "cannot_change_v2_decision": true
+  },
+  "decision": {
+    "PASS_MATERIALIZED_OOS": "all hard gates pass after parity PASS",
+    "FAIL_MATERIALIZED_OOS": "sample gates met and any hard effect/stability gate fails",
+    "INCONCLUSIVE": "sample-size gate not met"
+  },
+  "exposure_policy": {
+    "2021_to_materialized_2022_after_scoring": "EXPOSED_FOR_ENTIRE_IPS_GENEALOGY",
+    "no_reuse_as_clean_holdout": true,
+    "no_retuning_after_result": true
+  }
+}
