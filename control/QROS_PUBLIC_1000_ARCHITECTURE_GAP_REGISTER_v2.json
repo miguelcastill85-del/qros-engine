@@ -1,0 +1,91 @@
+{
+  "schema": "QROS_PUBLIC1000_ARCHITECTURE_GAP_REGISTER_2.0",
+  "version": "2.0",
+  "status": "FROZEN_ACTIVE_CANDIDATE",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "supersedes": "control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v1.json",
+  "purpose": "Expose every known architectural or scientific-evidence gap so no chat may silently bridge it.",
+  "gaps": [
+    {
+      "id": "GAP-A01",
+      "area": "Version-hardcoded external validator",
+      "previous_condition": "workflow v3 hardcodes V244/V245 and the V245 target path",
+      "status": "CLOSURE_CANDIDATE_V246",
+      "closure_required": ["generic candidate pointer", "generic mode resolver", "generic workflow with no frontier version literals", "external PASS"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-A02",
+      "area": "Stale validation dependency reference",
+      "previous_condition": "workflow v3 syntax-checks decision ledger v2 while V245 pins v3",
+      "status": "CLOSURE_CANDIDATE_V246",
+      "closure_required": ["dynamic dependency validation from candidate/stable target pins", "external PASS"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-A03",
+      "area": "Compiler execution authorization latch",
+      "previous_condition": "compiler v2 can compile the scientific ticket without independently requiring active-validation PASS and stable authorization latch",
+      "status": "CLOSURE_CANDIDATE_V246",
+      "closure_required": ["compiler v3 internal execution latch", "independent oracle v3 latch", "negative adversarial tests", "external PASS"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-A04",
+      "area": "Master workgraph evidence binding",
+      "previous_condition": "W02-W06 included closed assertions without exact evidence pins",
+      "status": "PARTIALLY_CLOSED_CANDIDATE_V246",
+      "closure_required": ["exact evidence pins for W02/W03/W06", "explicit non-closure for W04/W05 if exact evidence is absent"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-A05",
+      "area": "Legacy validator workflow noise",
+      "previous_condition": "historical v2/v3 workflows may still trigger even when no longer authoritative",
+      "status": "OPEN_NON_SCIENTIFIC_NOISE",
+      "closure_required": ["disable historical workflows through GitHub Actions control when supported without modifying historically pinned bytes, or retain them as explicitly non-authoritative"],
+      "scientific_execution_blocking": false,
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-S01",
+      "area": "Seed0076 POST_EXPANSION_RISE fixed-point evidence",
+      "status": "OPEN_BLOCKING_EVIDENCE_REQUIRED",
+      "reason": "governance/QROS_SEED_UNIVERSE_COMPILER_POLICY_v1.1.json requires post-expansion RISE fixed point PASS before a factorized universe is fully frozen, but no exact Seed0076 fixed-point receipt was recovered in the durable repository searches performed during the V246 architecture audit",
+      "blocking_class": "EVIDENCE_BINDING_REQUIRED",
+      "closure_options": [
+        "recover and exact-pin the original Seed0076 fixed-point receipt",
+        "or perform a non-economic RISE fixed-point revalidation against the already frozen machine universe without changing configs or reading PnL, with independent external validation"
+      ],
+      "forbidden_while_open": ["BUILD_FIRST_GATE_SCORER", "READ_ECONOMIC_PNL", "OPEN_GA2", "OPEN_HOLDOUT", "START_NEW_GA1"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-S02",
+      "area": "Seed0076 ontology-freeze evidence binding",
+      "status": "OPEN_DEPENDS_ON_GAP-S01",
+      "reason": "QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json is FROZEN_MACHINE_CANONICAL, but that label alone is not accepted as proof that the policy-required post-expansion RISE fixed point was completed",
+      "depends_on": "GAP-S01",
+      "closure_required": ["bind exact original ontology/fixed-point evidence or bind the new non-economic revalidation receipt"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-S03",
+      "area": "FIRST_GATE scorer implementation",
+      "status": "OPEN_BLOCKED_BY_GAP-S01",
+      "blocking_state_after_upstream_closure": "FG_SCORER_NOT_BUILT",
+      "closure_required": ["primary scorer source", "tests", "independent scorer oracle", "parity receipt"],
+      "may_be_filled_by_chat_inference": false
+    },
+    {
+      "id": "GAP-F01",
+      "area": "Post-60-shard exact machine transition and downstream GA3/GA4/holdout/supergate/MT5/portfolio/final routing",
+      "status": "FUTURE_POLICY_REQUIRED",
+      "closure_required": ["versioned contracts for each downstream stage", "state transitions", "external validation"],
+      "may_be_filled_by_chat_inference": false
+    }
+  ],
+  "current_blocking_gap": "GAP-S01",
+  "closure_rule": "A gap closes only by exact durable evidence and machine validation. A chat statement, summary, memory item or prose recommendation cannot close a gap.",
+  "decision": "AUDIT_V2: ARCHITECTURE GAPS EXPLICIT; GAP-S01 PREEMPTS FIRST_GATE SCORER UNTIL RECOVERED OR NON-ECONOMICALLY REVALIDATED"
+}
