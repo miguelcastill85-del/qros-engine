@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_XAU_M1_IPS_CONFIRMATION_GATE_A_RESULT_1.0",
+  "campaign_id": "QROS_STRATEGY_002_XAU_M1_IPS_CONFIRMATION_v1",
+  "prereg_git_commit": "a90f55ce0f93d000983cc2c781a6b1df735eba40",
+  "base_reproduction_git_commit": "d982f73e5b9c60699db435043c7acda4188f9027",
+  "execution_supplement_git_commit": "dbc28f9346f89a500bf80c1f6189e8d49bf3c8b1",
+  "ips_2020_parity_git_commit": "7b3812a9ff26786e2a0d9ff9928f7684ba44b3ca",
+  "period": "2018-01-25 through 2024-12-31 exposed development",
+  "base": {"n":61,"net_R":29.468388839986474,"expectancy_R":0.4830883416391225,"PF_numeric":2.510163406959253,"PF_label":null,"win_rate":0.5901639344262295,"max_DD_R":2.4406451612903233},
+  "filtered": {"n":5,"net_R":5.3728835102984895,"expectancy_R":1.074576702059698,"PF_numeric":null,"PF_label":"INF_NO_LOSSES","win_rate":1.0,"max_DD_R":0.0},
+  "coverage_fraction": 0.08196721311475409,
+  "filtered_by_year": [
+    {"year":2020,"n":2,"net_R":1.686537626968224,"expectancy_R":0.843268813484112,"PF_numeric":null,"PF_label":"INF_NO_LOSSES","win_rate":1.0,"max_DD_R":0.0},
+    {"year":2022,"n":1,"net_R":0.435565142364096,"expectancy_R":0.435565142364096,"PF_numeric":null,"PF_label":"INF_NO_LOSSES","win_rate":1.0,"max_DD_R":0.0},
+    {"year":2024,"n":2,"net_R":3.25078074096617,"expectancy_R":1.625390370483085,"PF_numeric":null,"PF_label":"INF_NO_LOSSES","win_rate":1.0,"max_DD_R":0.0}
+  ],
+  "positive_years_with_trades": 3,
+  "years_with_filtered_trades": 3,
+  "positive_years_fraction": 1.0,
+  "year_2023_expectancy_R": null,
+  "year_2024_expectancy_R": 1.625390370483085,
+  "top3_filtered_trades_net_share": 0.8044667554042793,
+  "qualified_ips_events_by_source": {"2021_2024":2012,"2018_2019":885,"2020":526},
+  "base_trades_matched_by_year": {"2020":2,"2022":1,"2024":2},
+  "gates": {
+    "minimum_filtered_trades_8": false,
+    "minimum_coverage_fraction_0_10": false,
+    "filtered_total_R_gt_0": true,
+    "filtered_expectancy_gt_base": true,
+    "filtered_PF_gt_base": true,
+    "filtered_max_DD_le_base": true,
+    "positive_years_with_trades_fraction_ge_0_60": true,
+    "2023_expectancy_nonnegative_if_any": true,
+    "2024_expectancy_nonnegative_if_any": true,
+    "top3_net_share_le_0_70": false
+  },
+  "decision": "INCONCLUSIVE_SUPPORT",
+  "2025_2026": "SEALED_NOT_OPENED",
+  "parent_states": {"M1":"UNCHANGED","IPS_v2":"APPROVED_RESEARCH_UNCHANGED"},
+  "no_retuning": true,
+  "crosswalk_sha256": "a1a4abad545d01d877b65283b49298204891b63bec2634d814066305eddb5d88",
+  "filtered_ledger_sha256": "6a3c5cae059e70d8d05882b3c3634cc3f45ace05068d833a19f138ba5d557b4e"
+}
