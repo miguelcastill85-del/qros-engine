@@ -1,0 +1,46 @@
+{
+  "schema":"QROS_DETERMINISTIC_KERNEL_V251_CANDIDATE_VALIDATION_PASS_1.0",
+  "status":"PASS_EXTERNAL_INDEPENDENT_VALIDATION",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "candidate_version":"V251",
+  "candidate_target_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V251_v1.json",
+  "candidate_target_git_blob_sha1":"1420d5d15439e39399c70ac05c013c0fed19db42",
+  "external_workflow":".github/workflows/qros-deterministic-execution-kernel-v6.yml",
+  "external_workflow_git_blob_sha1":"c760f03320a7d29fb5134670e6bc80fca739c549",
+  "external_run_id":34888906100,
+  "external_job_id":104126342481,
+  "runner":"GitHub Actions ubuntu-24.04",
+  "mode":"CANDIDATE_VALIDATION",
+  "checks":{
+    "exact_trigger_commit_checkout":"PASS",
+    "generic_mode_resolution":"PASS",
+    "direct_authority_exact_pins":"PASS",
+    "dynamic_component_syntax":"PASS",
+    "primary_ticket":"PASS",
+    "independent_oracle":"PASS",
+    "adversarial_suite":"PASS",
+    "generic_future_version_test":true,
+    "frontier_version_hardcoded":false,
+    "component_version_hardcoded":false
+  },
+  "ticket":{
+    "ticket_id":"aa713339ae4f67451342a24c72585520a2a01e6b27ce9a399b4248d9d50ed69b",
+    "state_id":"PRE_SCIENTIFIC_BLOCKER",
+    "guard_profile":"P00_RISE_FIXED_POINT_EVIDENCE_REQUIRED",
+    "action_type":"RECOVER_OR_REVALIDATE_RISE_FIXED_POINT_NO_PNL",
+    "subject":{"campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA","seed":"WEB_SEED_0076","stage":"POST_EXPANSION_RISE_FIXED_POINT"}
+  },
+  "independent_oracle_receipt_sha256":"fb61f2e1fdba4b2a21d3facad9acff561429e82818cb84d83518fa59c01cbf76",
+  "adversarial":{
+    "status":"PASS",
+    "cases":14,
+    "negative_mutations":11,
+    "positive_non_authority_tests":1,
+    "receipt_schema_cases":3,
+    "receipt_sha256":"15df2fc790a0338409137b2b01f5c76c59b0bb66b5af9365340f8f8833fa0eab"
+  },
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false,
+  "decision":"CANDIDATE_VALIDATION_PASS; MAY PROMOTE BY CAS ONLY IF STABLE V245 PARENT BLOB IS UNCHANGED, WITH ACTIVE VALIDATION LOCK CLOSED."
+}
