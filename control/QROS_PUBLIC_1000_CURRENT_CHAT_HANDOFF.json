@@ -1,0 +1,11 @@
+{
+  "schema": "QROS_PUBLIC1000_CURRENT_CHAT_HANDOFF_POINTER_1.0",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "ACTIVE",
+  "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_V252_EXECUTION_CAPSULE_PENDING_20260914_v1.json",
+  "handoff_git_blob_sha1": "08fee9fda6567d7c3486ded1e0afb079021c6f8a",
+  "stable_scientific_pointer": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+  "stable_scientific_pointer_expected_version_at_creation": "V252",
+  "resume_rule": "Read this pointer first, verify the handoff blob exactly, then read the stable scientific pointer. If the scientific pointer has advanced beyond V252, use the newer durable authority and reconcile without forcing V252. Do not use chat memory as authority.",
+  "next_automatic_action": "IMPLEMENT_AND_EXTERNALLY_VALIDATE_EXECUTION_CAPSULE_LAYER_FOR_CURRENT_MACHINE_TICKET_THEN_CONTINUE_THE_MACHINE_ACTION"
+}
