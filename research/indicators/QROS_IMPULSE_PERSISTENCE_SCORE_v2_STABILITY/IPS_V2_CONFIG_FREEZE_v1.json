@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_IPS_V2_CONFIG_FREEZE_1.0",
+  "campaign_id": "QROS_INDICATOR_004_XAU_IPS_V2_STABILITY",
+  "indicator": "QROS_IMPULSE_PERSISTENCE_SCORE_v2_STABILITY",
+  "parent": "QROS_IMPULSE_PERSISTENCE_SCORE_v1",
+  "freeze_date": "2026-09-14",
+  "state": "FROZEN_CANDIDATE",
+  "selection_prereg_sha256": "22256522505a743e946a6f8619402cdaff3a99711e8e204da5bbd90663d98690",
+  "selection_commit": "039c27d0fbd81919964dc58ef5d625f5d2b3a569",
+  "N_TESTS": 1125,
+  "hard_gate_survivors": 68,
+  "weights_percent": {
+    "disp_q": 15,
+    "eff_q": 5,
+    "pullback_q": 10,
+    "recovery_q": 20,
+    "micro_q": 30,
+    "spread_q": 20
+  },
+  "score_formula": "15*disp_q + 5*eff_q + 10*pullback_q + 20*recovery_q + 30*micro_q + 20*spread_q",
+  "threshold": 65,
+  "event_ontology": "IDENTICAL_TO_IPS_V1",
+  "component_transforms": "IDENTICAL_TO_IPS_V1",
+  "outcome_contract": "IDENTICAL_TO_IPS_V1",
+  "development_selection_metrics": {
+    "high_n": 1728,
+    "high_successes": 560,
+    "high_rate": 0.324074074074074,
+    "overall_lift": 0.085606465206867,
+    "p_exact": 4.742412439506738e-19,
+    "q_BY": 5.098038348744293e-15,
+    "quarter_positive_count": 8,
+    "worst_quarter_lift": 0.0489640788407173,
+    "median_quarter_lift": 0.0830992665078033,
+    "min_side_year_lift": 0.0581610583701774,
+    "score_bin_spearman_rho": 0.9999999999999999,
+    "l1_parent_weight_distance": 50
+  },
+  "post_freeze_rules": {
+    "no_weight_changes": true,
+    "no_threshold_changes": true,
+    "no_event_rule_changes": true,
+    "no_feature_changes": true,
+    "OOS1_2020": "EXPOSED_DIAGNOSTIC_ONLY",
+    "IPS_v1_OOS2": "DO_NOT_CONSUME_FOR_V2",
+    "clean_v2_OOS": "MUST_BE_PREREGISTERED_SEPARATELY"
+  }
+}
