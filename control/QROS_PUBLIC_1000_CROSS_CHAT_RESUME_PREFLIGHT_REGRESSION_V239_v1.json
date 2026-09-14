@@ -1,0 +1,22 @@
+{
+  "schema":"QROS_PUBLIC1000_CROSS_CHAT_RESUME_PREFLIGHT_REGRESSION_5.0",
+  "status":"PASS",
+  "script":"scripts/qros_cross_chat_resume_preflight_v239.py",
+  "script_commit":"cab3f9c658a606211829e37f372b3abcd9236c4c",
+  "script_git_blob_sha1":"9f7ccfac3de2458383550a4f686d155f54f26cfe",
+  "test":"tests/test_qros_cross_chat_resume_preflight_v239.py",
+  "test_commit":"cbf606bd6c05adb8e54a7c8c9cf2730e30259235",
+  "test_git_blob_sha1":"5f4fa91eb63e49450291e98f0a49140ae26a4626",
+  "executed_regressions":[
+    {"case":"actual_coherent_graph","expected":"PASS","observed":"PASS","checks":120},
+    {"case":"mutate_m10_alias_root","expected":"FAIL_CLOSED","observed":"FAIL_CLOSED"},
+    {"case":"mutate_m12_config_root","expected":"FAIL_CLOSED","observed":"FAIL_CLOSED"},
+    {"case":"mutate_ledger_count","expected":"FAIL_CLOSED","observed":"FAIL_CLOSED"},
+    {"case":"mutate_runner_blob","expected":"FAIL_CLOSED","observed":"FAIL_CLOSED"}
+  ],
+  "coverage":["stable-to-V239-target binding","seven completed shards equal promotion ledger v5","completion shard/config/semantic/alias roots","M10 group reconciliation 24/24","M10 global pack and lossless compaction","M10 cleanup preservation","M12 independent config-stream parity","V236 portable wrapper blob pin","economic PnL holdout and GA2 firewalls"],
+  "decision":"ADOPT_V239_AS_MANDATORY_CROSS_CHAT_RESUME_GATE_AFTER_ACTUAL_GRAPH_REGRESSION_PASS",
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false
+}
