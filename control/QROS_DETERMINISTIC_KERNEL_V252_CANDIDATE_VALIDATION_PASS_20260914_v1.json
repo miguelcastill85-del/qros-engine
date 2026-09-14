@@ -1,0 +1,19 @@
+{
+  "schema":"QROS_DETERMINISTIC_KERNEL_CANDIDATE_VALIDATION_PASS_1.0",
+  "status":"PASS",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "frontier_version":"V252",
+  "candidate_target":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V252_v1.json","git_blob_sha1":"8b7857f34b8de5b88d8eff0f57f25d659b0aeb8f"},
+  "parent_stable":{"version":"V251","git_blob_sha1":"0ebb0a0b3d338cf1ac6f228164b3c640fd90bdd6"},
+  "external_validation":{"workflow":"qros-deterministic-execution-kernel-v6","run_id":34896239412,"job_id":104150880341,"trigger_commit":"5ff06917a5a2796924a5da5a2824347cb451c101","conclusion":"success","mode":"CANDIDATE_VALIDATION"},
+  "ticket":{"ticket_id":"cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552","state_id":"FG_SCORER_NOT_BUILT","guard_profile":"P01_PRE_ECONOMIC_SCORER_NOT_BUILT","action_type":"BUILD_FIRST_GATE_SCORER","subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","first_gate_order":1,"distinct_mask_classes":303572},"resolved_success_state":"FG_SCORER_PRIMARY_BUILT"},
+  "oracle":{"status":"PASS","independent_implementation":true,"receipt_sha256":"eeecb5176f8ae204ad4b494cf99031314dd3908eeb08bfa13c7d0051a89752f3","ticket_id":"cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552"},
+  "adversarial":{"path":"scripts/qros_execution_kernel_adversarial_v7.py","git_blob_sha1":"a8b6851c3c46e0ac6b25b5dc5e87fe8b636fc75b","status":"PASS","cases":14,"negative_mutations":11,"receipt_sha256":"68ed9c4c053932ae9529183658c40d395fe2cc300ac9e03ebd40289d41b2fa6e","generic_future_version_test":true,"authority_string_path_pin_tested_via_real_compiler":true},
+  "direct_authority_exact_pins":"PASS",
+  "dynamic_component_syntax":"PASS",
+  "frontier_version_hardcoded":false,
+  "component_version_hardcoded":false,
+  "firewalls":{"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"new_ga1_authorized":false,"first_gate_execution_authorized":false},
+  "scientific_universe_changed":false,
+  "decision":"V252 candidate validation PASS. Promotion to stable is authorized only by compare-and-swap against exact V251 stable pointer blob; active validation remains mandatory before scientific execution."
+}
