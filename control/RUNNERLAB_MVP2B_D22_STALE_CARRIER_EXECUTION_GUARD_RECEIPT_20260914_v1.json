@@ -1,0 +1,46 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2B_D22_STALE_CARRIER_EXECUTION_GUARD_1",
+  "status": "DEVELOPMENT_RUNNING_NATIVE_RERUN_REQUIRED",
+  "parent_branch": "design/runnerlab-v3-mvp2b-d21-20260914",
+  "parent_commit": "fcb7e7351ac2f8df465c7c39338d369cb0f81b0b",
+  "cause": "The user-visible rerun still emitted the D20-only selftest set and the obsolete fatal PORTABLE_MODE_FAILED_CLONE_MAPPED_TO_ROAMING_DATA after D21 had been issued. This is classified as stale/mixed carrier execution, not a new MT5 failure.",
+  "evidence": {
+    "visible_d20_selftest_present": true,
+    "visible_d21_selftests_absent": true,
+    "obsolete_d20_fatal_present": true,
+    "clone_mt5_launched": true,
+    "candidate3_executed": false,
+    "trades_sent_by_runnerlab": false
+  },
+  "correction": [
+    "Unique launcher RUN_MVP2B_D21.cmd",
+    "Pre-build SHA-256 guard over Mvp2B.cs and Mvp2BSelfTests.cs",
+    "Guard requires all three D21 selftest markers",
+    "Guard rejects obsolete PORTABLE_MODE_FAILED_CLONE_MAPPED_TO_ROAMING_DATA source",
+    "Standard BUILD_AND_RUN_MVP2B.cmd also runs the same source guard"
+  ],
+  "expected_source_sha256": {
+    "src/RunnerLab.Core/Mvp2B.cs": "c1bb00c90460b107ec08ae913bcd8ee70c819636bdf137da833c48955f90aabd",
+    "src/RunnerLab.Core/Mvp2BSelfTests.cs": "7285eb5217f4984b28f78e2cb2f41a8d1b710629e8e0b78481fd99d5aec2ca6f"
+  },
+  "carrier": {
+    "name": "QROS_RUNNERLAB_v3_1_MVP2B_4_D21_ENFORCED_D22_GUARD.zip",
+    "sha256": "5325f1a3670e88c5869329d4406ca4a31e953190ffabfbf9cbc5c88f29dbcef3",
+    "bytes": 77283,
+    "zip_entries": 45,
+    "crc": "PASS",
+    "manifest_missing": 0,
+    "manifest_extra": 0,
+    "manifest_mismatches": 0,
+    "d22_guard_checks": 12,
+    "d22_guard_pass": true
+  },
+  "safety": {
+    "mt5_launch_on_guard_failure": false,
+    "candidate3_allowed": false,
+    "trades_allowed": false,
+    "cert_arm_allowed": false,
+    "deployment_allowed": false
+  },
+  "next_action": "Run only RUN_MVP2B_D21.cmd from a freshly extracted D22 carrier. If the source guard does not print QROS_D21_SOURCE_GUARD_PASS, do not proceed."
+}
