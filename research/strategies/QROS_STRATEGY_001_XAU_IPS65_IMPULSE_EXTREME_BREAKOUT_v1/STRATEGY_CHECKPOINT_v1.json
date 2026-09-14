@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_XAU_IPS_BREAKOUT_STRATEGY_CHECKPOINT_1.0",
+  "OBJETIVO":"Create and backtest the first trading strategy using frozen IPS v2 as an active signal layer.",
+  "AUTORIDAD":["control/QROS_INDICATOR_RESEARCH_CURRENT_FRONTIER_POINTER.json v1.9","QROS_XAU_IPS_BREAKOUT_STRATEGY_v1_PREREG.json","IPS_EVENT_SOURCE_PARITY_RECEIPT_v1.json","TRADES_MAIN_v1.csv","TRADES_ORACLE_v1.csv"],
+  "DATOS":{"period":"2021-01-01 through 2024-12-31 source-clock","status":"EXPOSED_DEVELOPMENT_ONLY","stream_records":259057574,"stream_sha256":"a3068e4bb6714c253d5b4714e97be59cff56c3070631fc68efbf64716ab2f296","future_2025_2026":"SEALED"},
+  "TRABAJO_EJECUTADO":["single preregistered strategy configuration","continuous tick stream reconstruction with warm-up","IPS main/oracle source parity","independent Python/Numba and C++ strategy engines","trade-by-trade exact parity","Gate A backtest"],
+  "RESULTADOS_VERIFICADOS":{"strategy_trades":2549,"trade_parity":"PASS_EXACT_BYTE_IDENTICAL","total_R":-561.8630091010959,"expectancy_R":-0.22042487606947664,"PF":0.6926281051045963,"severe_PF":0.6710165309167533,"max_DD_R":565.4030626017161,"win_rate":0.3158101216163201,"positive_years":0},
+  "GATES":{"minimum_trades_total":true,"minimum_trades_each_side":true,"expectancy_R_central_gt_0":false,"profit_factor_central_ge_1_25":false,"profit_factor_severe_ge_1_10":false,"BUY_expectancy_R_nonnegative":false,"SELL_expectancy_R_nonnegative":false,"positive_calendar_years_min_3":false,"max_drawdown_R_le_30":false,"top_10_days_abs_pnl_share_max_0_35":true,"max_entries_day_rule_zero_violations":true,"overnight_zero_violations":true,"one_position_at_a_time_zero_violations":true},
+  "PROBLEMAS":"Economic failure despite exact implementation parity.",
+  "CAUSA_RAÍZ":"The breakout+1.5R transformation requires a materially higher win rate than the observed 31.58%; both BUY and SELL are negative and all four years lose.",
+  "CORRECCIONES":"No rescue permitted. Preserve IPS v2 unchanged and reject this exact strategy identity.",
+  "ESTADO_CIENTÍFICO":"REJECTED",
+  "IMPACTO_PORTAFOLIO":"NONE; strategy receives no risk and is not eligible for integration.",
+  "SIGUIENTE_ACCIÓN_AUTOMÁTICA":"Any next attempt must be a new causal descendant. Preferred next hypothesis: use IPS v2 as a confirmation/filter on an independent XAU base alpha rather than as a standalone impulse-breakout entry. Keep 2025-2026 sealed."
+}
