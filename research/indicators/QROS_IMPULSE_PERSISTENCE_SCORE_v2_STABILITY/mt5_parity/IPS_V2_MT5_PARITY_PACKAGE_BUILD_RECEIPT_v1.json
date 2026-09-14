@@ -1,0 +1,12 @@
+{
+  "schema":"QROS_IPS_V2_MT5_PARITY_PACKAGE_BUILD_1.0",
+  "static_checks":{"balanced_braces":true,"frozen_formula_present":true,"threshold65_present":true,"export_header_present":true,"exact_replay_inputs_present":true,"no_trade_functions":true},
+  "reference_events":12245,
+  "reference_sha256":"63c443bdc6d18ea63d28420adafe9cbbf05ea7210ebdd5f0c61e541198432fd1",
+  "frozen_mq5_sha256":"b5d1a92334c75546091f08bb0a169b833f01d76452d154f01d9f879bad451c31",
+  "parity_harness_sha256":"46e733773054c1569969563a80bad65171c67f1ea981f91fe17f4c0146eeea79",
+  "comparator_sha256":"79f6bd432075bb90e1895655fc74315f09951ca625a20b76a82c54b001c274ea",
+  "package_sha256":"9b7cd11587bd8d092a7daac3a0402a1589b6164458f7a5331276dd3d9b710100",
+  "MetaEditor_compile":"NOT_AVAILABLE_IN_THIS_RUNTIME",
+  "MT5_runtime_parity":"PENDING_EXTERNAL_MT5"
+}
