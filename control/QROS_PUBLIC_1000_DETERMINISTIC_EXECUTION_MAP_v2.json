@@ -1,0 +1,158 @@
+{
+  "schema": "QROS_PUBLIC1000_DETERMINISTIC_EXECUTION_MAP_2.0",
+  "version": "2.0",
+  "status": "FROZEN_ACTIVE",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "principle": "Every declared runtime state has one explicit guard profile, one subject selector and one authorized action. The compiler and independent oracle must prove coverage of every declared guard profile before any action ticket is valid.",
+  "state_machine_contract": {
+    "zero_actions": "FAIL_CLOSED",
+    "multiple_actions": "FAIL_CLOSED",
+    "unknown_state": "FAIL_CLOSED",
+    "unknown_guard_profile": "FAIL_CLOSED",
+    "unknown_subject_selector": "FAIL_CLOSED",
+    "missing_structured_precondition": "FAIL_CLOSED",
+    "free_text_may_select_action": false,
+    "economic_results_may_select_order": false,
+    "branching_is_allowed_only_when_the_selector_is_machine_resolved_from_frozen_ledger_facts": true
+  },
+  "states": {
+    "FG_SCORER_NOT_BUILT": {
+      "guard_profile": "P01_PRE_ECONOMIC_SCORER_NOT_BUILT",
+      "subject_selector": "OLDEST_PENDING_FIRST_GATE",
+      "authorized_action": "BUILD_FIRST_GATE_SCORER",
+      "success_state": "FG_SCORER_PRIMARY_BUILT",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["primary scorer source", "primary scorer tests", "primary build receipt"],
+      "forbidden_actions": ["READ_ECONOMIC_PNL", "OPEN_GA2", "OPEN_HOLDOUT", "START_NEW_GA1", "CHANGE_MULTIPLICITY_CONTRACT"]
+    },
+    "FG_SCORER_PRIMARY_BUILT": {
+      "guard_profile": "P02_PRE_ECONOMIC_SCORER_PRIMARY_BUILT",
+      "subject_selector": "OLDEST_PENDING_FIRST_GATE",
+      "authorized_action": "VERIFY_FIRST_GATE_SCORER_WITH_INDEPENDENT_ORACLE",
+      "success_state": "FG_SCORER_PARITY_PASS",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["independent scorer source", "primary-vs-oracle parity receipt"],
+      "forbidden_actions": ["READ_ECONOMIC_PNL", "OPEN_GA2", "OPEN_HOLDOUT", "START_NEW_GA1"]
+    },
+    "FG_SCORER_PARITY_PASS": {
+      "guard_profile": "P03_PRE_ECONOMIC_SCORER_PARITY_PASS",
+      "subject_selector": "OLDEST_PENDING_FIRST_GATE",
+      "authorized_action": "EXECUTE_FIRST_GATE_FIFO_CURRENT",
+      "success_state": "FG_EXECUTION_COMPLETE_UNVALIDATED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["trade-by-trade execution receipt", "canonical mask result table", "economic exposure receipt"],
+      "forbidden_actions": ["OPEN_HOLDOUT", "START_NEW_GA1", "SKIP_FIFO", "RETUNE_AFTER_RESULTS"]
+    },
+    "FG_EXECUTION_COMPLETE_UNVALIDATED": {
+      "guard_profile": "P04_ECONOMIC_EXECUTION_COMPLETE_UNVALIDATED",
+      "subject_selector": "OLDEST_PENDING_FIRST_GATE",
+      "authorized_action": "RUN_INDEPENDENT_FIRST_GATE_RESULT_ORACLE",
+      "success_state": "FG_RESULT_ORACLE_PASS",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["independent trade/result parity receipt", "independent multiplicity recomputation receipt"],
+      "forbidden_actions": ["OPEN_HOLDOUT", "START_NEW_GA1", "SELECT_WINNER_BY_MAX_PF", "RETUNE_AFTER_RESULTS"]
+    },
+    "FG_RESULT_ORACLE_PASS": {
+      "guard_profile": "P05_ECONOMIC_RESULT_ORACLE_PASS",
+      "subject_selector": "OLDEST_PENDING_FIRST_GATE",
+      "authorized_action": "PERSIST_FIRST_GATE_TERMINAL_DECISION",
+      "success_state": "FG_TERMINAL_PERSISTED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["immutable first-gate result receipt", "updated FIFO ledger", "versioned frontier"],
+      "forbidden_actions": ["OPEN_HOLDOUT", "START_NEW_GA1_BEFORE_LEDGER_COMMIT", "REORDER_FIFO"]
+    },
+    "FG_TERMINAL_PERSISTED": {
+      "guard_profile": "P06_TERMINAL_PERSISTED",
+      "subject_selector": "LAST_TERMINAL_FIRST_GATE",
+      "authorized_action": "ADVANCE_FIFO_OR_RELEASE_NEXT_GA1",
+      "success_state_selector": "SEL01_LEDGER_AFTER_TERMINAL",
+      "allowed_success_states": ["FG_NEXT_PENDING_READY", "FIRST_GATE_BACKLOG_DRAINED", "GA1_ALL_60_COMPLETE"],
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["next immutable frontier target", "stable pointer CAS receipt"],
+      "forbidden_actions": ["RESULT_DEPENDENT_REORDERING", "SKIP_PENDING_FIRST_GATE"]
+    },
+    "FG_NEXT_PENDING_READY": {
+      "guard_profile": "P07_FIFO_PENDING_SCORER_REUSABLE",
+      "subject_selector": "OLDEST_PENDING_FIRST_GATE",
+      "authorized_action": "EXECUTE_FIRST_GATE_FIFO_CURRENT",
+      "success_state": "FG_EXECUTION_COMPLETE_UNVALIDATED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["trade-by-trade execution receipt", "canonical mask result table", "economic exposure receipt"],
+      "forbidden_actions": ["OPEN_HOLDOUT", "START_NEW_GA1", "SKIP_FIFO"]
+    },
+    "FIRST_GATE_BACKLOG_DRAINED": {
+      "guard_profile": "P08_BACKLOG_DRAINED_NEXT_GA1_FROZEN",
+      "subject_selector": "NEXT_PREREGISTERED_GA1",
+      "authorized_action": "AUTHORIZE_PREREGISTERED_NEXT_GA1",
+      "success_state": "GA1_SHARD_AUTHORIZED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["frontier binding exact preregistered shard", "new action ticket"],
+      "forbidden_actions": ["CHOOSE_DIFFERENT_SHARD", "OPEN_HOLDOUT"]
+    },
+    "GA1_SHARD_AUTHORIZED": {
+      "guard_profile": "P09_GA1_AUTHORIZED_NO_PENDING_FIRST_GATE",
+      "subject_selector": "CURRENT_GA1",
+      "authorized_action": "EXECUTE_GA1_TRANSACTION",
+      "success_state": "GA1_SHARD_COMPLETE_UNPROMOTED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["group receipts", "primary merge", "independent merge oracle", "global mask preservation oracle", "lossless preservation receipt"],
+      "forbidden_actions": ["READ_ECONOMIC_PNL_DURING_GA1", "OPEN_HOLDOUT"]
+    },
+    "GA1_SHARD_COMPLETE_UNPROMOTED": {
+      "guard_profile": "P10_GA1_COMPLETE_UNPROMOTED",
+      "subject_selector": "CURRENT_GA1",
+      "authorized_action": "PROMOTE_GA1_SHARD_TO_FIFO_FIRST_GATE",
+      "success_state": "FG_NEXT_PENDING_READY",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["immutable GA1 completion receipt", "updated promotion ledger", "versioned frontier", "stable pointer CAS receipt"],
+      "forbidden_actions": ["START_NEXT_GA1_BEFORE_FIRST_GATE_TERMINAL"]
+    },
+    "GA1_ALL_60_COMPLETE": {
+      "guard_profile": "P11_ALL_GA1_AND_FIRST_GATE_TERMINAL",
+      "subject_selector": "CAMPAIGN",
+      "authorized_action": "FREEZE_POST_GA1_TRANSITION_POLICY",
+      "success_state": "POST_GA1_POLICY_REQUIRED",
+      "failure_state": "FAIL_CLOSED",
+      "required_outputs": ["new preregistered machine-readable downstream transition contract"],
+      "forbidden_actions": ["INFER_UNFROZEN_THRESHOLDS", "OPEN_HOLDOUT_WITHOUT_POLICY", "RETUNE"]
+    },
+    "POST_GA1_POLICY_REQUIRED": {
+      "guard_profile": "P12_EXPLICIT_POLICY_REQUIRED_BLOCK",
+      "subject_selector": "CAMPAIGN",
+      "authorized_action": "BLOCK_UNTIL_EXPLICIT_PREREGISTRATION",
+      "success_state": "POST_GA1_POLICY_REQUIRED",
+      "failure_state": "FAIL_CLOSED",
+      "blocking_state": true,
+      "required_outputs": ["future versioned execution map and frozen downstream contract before any scientific execution resumes"],
+      "forbidden_actions": ["USE_CHAT_TO_FILL_POLICY_GAP", "OPEN_HOLDOUT", "RETUNE", "READ_NEW_ECONOMIC_RESULTS"]
+    },
+    "FAIL_CLOSED": {
+      "guard_profile": "P13_INTEGRITY_INCIDENT_ONLY",
+      "subject_selector": "CAMPAIGN",
+      "authorized_action": "DIAGNOSE_AND_PERSIST_INTEGRITY_INCIDENT_ONLY",
+      "success_state": "FAIL_CLOSED",
+      "failure_state": "FAIL_CLOSED",
+      "blocking_state": true,
+      "required_outputs": ["integrity incident receipt", "root cause", "minimal invalidation scope", "repair validation", "new versioned map if semantics change"],
+      "forbidden_actions": ["SCIENTIFIC_EXECUTION", "OPEN_HOLDOUT", "READ_NEW_ECONOMIC_RESULTS"]
+    }
+  },
+  "success_state_selectors": {
+    "SEL01_LEDGER_AFTER_TERMINAL": {
+      "rules_in_order": [
+        "if one or more first_gate_status=PENDING rows exist: FG_NEXT_PENDING_READY with the smallest pending first_gate_order",
+        "else if ga1_formally_completed_shards==60 and first_gate_terminal==60: GA1_ALL_60_COMPLETE",
+        "else if next_preregistered_ga1 is explicitly frozen: FIRST_GATE_BACKLOG_DRAINED",
+        "else FAIL_CLOSED"
+      ],
+      "economic_metrics_may_not_be_inputs": true
+    }
+  },
+  "compiler_coverage_requirement": {
+    "declared_guard_profiles_must_equal_compiler_supported_guard_profiles": true,
+    "declared_subject_selectors_must_be_subset_of_compiler_supported_subject_selectors": true,
+    "declared_success_state_selectors_must_equal_compiler_supported_success_state_selectors": true,
+    "same_requirements_apply_independently_to_oracle": true
+  },
+  "decision": "FROZEN_TOTAL_OVER_DECLARED_RUNTIME_STATES; ANY UNDECLARED FUTURE SEMANTIC REQUIRES A NEW VERSIONED MAP BEFORE EXECUTION"
+}
