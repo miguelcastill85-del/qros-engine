@@ -1,0 +1,56 @@
+{
+  "schema":"QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_2.1",
+  "version":"2.1",
+  "status":"FROZEN_ACTIVE",
+  "scope":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA; reusable only through explicit campaign binding",
+  "supersedes":"governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v2.0.json",
+  "purpose":"Eliminate chat-context, frontier-version and workflow-version interpretation from operational state transitions.",
+  "chat_runtime_role":"EPHEMERAL_EXECUTOR_ONLY",
+  "no_memory_as_authority":true,
+  "authority":{
+    "stable_pointer":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "candidate_pointer":"control/QROS_PUBLIC_1000_EXECUTION_KERNEL_CANDIDATE_POINTER.json",
+    "chat_memory_authoritative":false,
+    "free_text_next_action_authoritative":false,
+    "file_recency_overrides_exact_pin":false
+  },
+  "mode_machine":{
+    "modes":["CANDIDATE_VALIDATION","ACTIVE_VALIDATION","ACTIVE_EXECUTION"],
+    "mode_must_be_derived_only_from_stable_and_candidate_pointers":true,
+    "frontier_versions_may_not_be_hardcoded_in_validator":true,
+    "target_paths_may_not_be_hardcoded_in_validator":true,
+    "zero_matching_modes":"FAIL_CLOSED",
+    "multiple_matching_modes":"FAIL_CLOSED"
+  },
+  "execution_latch":{
+    "executable_ticket_requires_all":["stable target Git blob matches stable pointer pin","active_validation_status=PASS","scientific_execution_authorized=true","authorized_action_scope=MACHINE_ACTION_TICKET_ONLY","active validation receipt exists and matches exact Git blob pin","compiled ticket id/type/state/subject match stable pointer binding","independent oracle reproduces the ticket"],
+    "validation_only_ticket_is_never_execution_authority":true
+  },
+  "state_transition_contract":{
+    "exactly_one_machine_ticket":true,
+    "completed_valid_work_is_not_recomputed_due_to_chat_change":true,
+    "every_transition_requires_immutable_receipt":true,
+    "stable_pointer_update_requires_compare_and_swap":true,
+    "historical_receipts_and_versioned_targets_are_immutable":true,
+    "unknown_future_semantics":"POLICY_REQUIRED"
+  },
+  "external_validation":{
+    "clean_github_actions_runner_required":true,
+    "primary_and_oracle_are_independent_source_files":true,
+    "candidate_validation_required_before_promotion":true,
+    "active_validation_required_after_promotion_before_execution":true,
+    "active_execution_revalidation_required_after_authorization_latch_opens":true,
+    "adversarial_suite_requires_exact_expected_failure_codes":true,
+    "free_text_non_authority_positive_test_required":true,
+    "generic_future_version_simulation_required":true
+  },
+  "scientific_firewalls":{
+    "economic_pnl":"CLOSED_UNLESS_EXPLICIT_FROZEN_TRANSITION",
+    "holdout":"CLOSED_UNLESS_EXPLICIT_FROZEN_TRANSITION",
+    "ga2":"CLOSED_UNLESS_EXPLICIT_FROZEN_TRANSITION",
+    "result_dependent_reordering":false,
+    "first_gate_fifo_preserved":true,
+    "zip_upload_dependency_for_current_scorer_build":false
+  },
+  "decision":"GENERIC_KERNEL_V2_1_FROZEN_ACTIVE: VERSION-INDEPENDENT RESUME; INTERNAL EXECUTION LATCH; EXACT FIFO; NO ZIP DEPENDENCY FOR CURRENT NON_ECONOMIC ENGINEERING"
+}
