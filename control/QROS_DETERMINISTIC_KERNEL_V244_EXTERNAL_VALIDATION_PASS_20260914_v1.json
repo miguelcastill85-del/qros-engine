@@ -1,0 +1,79 @@
+{
+  "schema": "QROS_DETERMINISTIC_KERNEL_EXTERNAL_VALIDATION_PASS_1.0",
+  "date": "2026-09-14",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "candidate_version": "V244",
+  "candidate_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V244_v1.json",
+  "candidate_git_blob_sha1": "525413ef65a4af477de89832cf245420dcedcfb7",
+  "candidate_creation_commit": "cab64f125bd84bf97d40977ab32b041537cb3244",
+  "stable_parent_version": "V242",
+  "stable_parent_blob_sha1": "1aa5fe484c55ed45a91bfc002a2c908df87e004d",
+  "external_runner": {
+    "provider": "GitHub Actions hosted runner",
+    "workflow": ".github/workflows/qros-deterministic-execution-kernel-v2.yml",
+    "workflow_git_blob_sha1": "54f1c8193f4b9b60983c899f9a038224db01e47f",
+    "run_id": 34883125505,
+    "job_id": 104107032967,
+    "head_sha": "214b142c36af67d7e3144a88dbc0083bf3155fee",
+    "runner_version": "2.337.0",
+    "os": "Ubuntu 24.04.5 LTS",
+    "conclusion": "success"
+  },
+  "checks": {
+    "exact_trigger_commit_checkout": "PASS",
+    "python_syntax": "PASS",
+    "frozen_json_parse": "PASS",
+    "primary_action_compiler": "PASS",
+    "independent_action_oracle": "PASS",
+    "primary_oracle_ticket_equality": "PASS",
+    "execution_map_state_count": 13,
+    "declared_guard_profiles_covered": 13,
+    "guard_profile_coverage_exact": true,
+    "subject_selector_coverage": "PASS",
+    "success_state_selector_coverage": "PASS",
+    "adversarial_suite": "PASS",
+    "adversarial_cases_total": 12,
+    "negative_mutations": 9,
+    "negative_mutations_required_expected_error_code": true,
+    "adversarial_fixture_contains_all_pinned_dependencies": true,
+    "free_text_non_authority": "PASS_IDENTICAL_TICKET",
+    "candidate_pre_promotion_integration": "PASS"
+  },
+  "compiled_action": {
+    "ticket_id": "7cfc69839002378f66aa27c9c139445b6dc2597c68dfa545e37f9cfae4e20d6c",
+    "state_id": "FG_SCORER_NOT_BUILT",
+    "guard_profile": "P01_PRE_ECONOMIC_SCORER_NOT_BUILT",
+    "action_type": "BUILD_FIRST_GATE_SCORER",
+    "resolved_success_state": "FG_SCORER_PRIMARY_BUILT",
+    "subject": {
+      "asset": "XAUUSD",
+      "side": "BUY",
+      "timeframe": "M1",
+      "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+      "first_gate_order": 1,
+      "distinct_mask_classes": 303572
+    }
+  },
+  "independent_oracle_receipt_sha256": "16346dcfe25cd20c2bbb3ed91d025ec5c78390c2a528ea691ddb62d00a6db497",
+  "adversarial_receipt_sha256": "dfccd38a3b7e713700788c6abc7a415e2d05b38d1d89de0bd791658b5c8ca273",
+  "negative_mutations_verified": [
+    "candidate parent version mismatch",
+    "scientific authority blob mutation",
+    "economic firewall contradiction",
+    "DEV binding semantic contradiction with updated pin",
+    "current FIFO subject mismatch",
+    "unknown state",
+    "duplicate FIFO order",
+    "undeclared guard profile",
+    "multiple-action shape"
+  ],
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_ga1_authorized": false
+  },
+  "status": "PASS_EXTERNAL_INDEPENDENT_VALIDATION",
+  "promotion_allowed": true,
+  "decision": "V244_MAY_BE_PROMOTED_BY_COMPARE_AND_SWAP_ONLY_IF_STABLE_POINTER_IS_STILL_EXACT_V242_PARENT_BLOB"
+}
