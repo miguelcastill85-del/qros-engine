@@ -1,0 +1,16 @@
+{
+  "schema": "QROS_V3801_V6026_V6116_CURRENT_RUNTIME_BLOCKER_RECEIPT_1.0",
+  "date": "2026-09-14",
+  "campaign_id": "QROS_XAU_ALL_FAILED_STRATEGIES_IPS_RETEST_v1",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "candidates": [
+    {"id":"BUY_pair_v3801-416","historical_classification":"REJECTED","portfolio_action":"DO_NOT_INTEGRATE","reported_findings":"2024 -2.258R; stress PF 0.921; generic block complement exhausted"},
+    {"id":"BUY_DENSITY_v6026","historical_classification":"REJECTED","portfolio_action":"DO_NOT_INTEGRATE","reported_findings":"2024/cost survives; conditioned placebo PF percentile 55.8%; MC PF P05 0.850"},
+    {"id":"XAU_DENSITY_v6116","historical_classification":"PRIORITY_DIAGNOSTIC_RESERVE_NOT_APPROVED","portfolio_action":"DO_NOT_INTEGRATE","reported_findings":"2019-2024 40 trades +19.772R PF1.823 DD5.616R 6/6 positive; fails conditioned placebo and Monte Carlo"}
+  ],
+  "historical_authorities": ["CANDIDATE_REGISTER_v3920.csv","CHECKPOINT_v3920.md"],
+  "current_runtime_exact_bytes": {"class":"NO_DISPONIBLE","required":"exact rules plus generator/ledger sufficient for exact 2018-2024 replay","approximate_reconstruction":"FORBIDDEN"},
+  "searches_performed": ["local /mnt/data","GitHub main","File Library","Dropbox"],
+  "ips_retest": {"executed":false,"reason":"exact executable identities not currently materialized"},
+  "next_action": "continue serial queue"
+}
