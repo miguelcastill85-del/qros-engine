@@ -1,0 +1,14 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_GA1_PARTIAL_CHECKPOINT_1.0",
+  "status":"PASS",
+  "domain":{"asset":"NQX","side":"BUY","timeframe":"M12"},
+  "shard_id":"280066aa7fa5fee847fb533be58f986f5181bb5b211abc643b4cfa46226f4ea3",
+  "expected_config_root_sha256":"07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714",
+  "groups_pass":16,
+  "groups_total":24,
+  "processed_signal_configs":536448,
+  "group_receipts_root_sha256":"de9ad4115f83d6f02d8ffb382da0492ecc59bac170e6d888c7af10aa0b2b27f4",
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false
+}
