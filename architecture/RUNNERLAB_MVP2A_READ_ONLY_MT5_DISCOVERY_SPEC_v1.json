@@ -1,0 +1,31 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2A_SPEC_1",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "objective": "Discover and fingerprint the Darwinex MT5 environment read-only, then materialize an isolated clone without launching MT5 or Candidate3.",
+  "hard_prohibitions": [
+    "NO_TRADES",
+    "NO_CANDIDATE3",
+    "NO_CERT_ARM",
+    "NO_DEPLOYMENT",
+    "NO_WRITE_TO_ACTIVE_MT5",
+    "NO_CREDENTIAL_EXPORT",
+    "NO_ACCOUNT_PASSWORD_READ",
+    "NO_LIVE_ACCOUNT_ACTIONS"
+  ],
+  "stages": [
+    "M2A0_DISCOVER_TERMINAL_INSTALLATIONS_READ_ONLY",
+    "M2A1_MAP_DATA_ROOT_USING_ORIGIN_METADATA_ONLY",
+    "M2A2_FINGERPRINT_TERMINAL64_METAEDITOR64_SHA256_VERSION",
+    "M2A3_SECRET_GUARD_AND_EXPORT_ALLOWLIST",
+    "M2A4_CLONE_SOURCE_MANIFEST",
+    "M2A5_MATERIALIZE_ISOLATED_CLONE_WITHOUT_LAUNCH",
+    "M2A6_CLONE_HASH_PARITY",
+    "M2A7_DERIVED_EVIDENCE_BUNDLE"
+  ],
+  "auto_selection_policy": "Only auto-select if exactly one installation has a deterministic Darwinex marker in installation/origin metadata; otherwise stop with AMBIGUOUS_MT5_TARGET and modify nothing.",
+  "active_environment_policy": "The active Darwinex installation and data directory are read-only inputs. Clone output must be outside Program Files and outside the active data directory.",
+  "reparse_policy": "Reject symbolic links, junctions, and reparse points that escape approved roots during clone materialization.",
+  "secret_policy": "Allowlist-only export. Do not read account credential stores, certificates, saved passwords, community credentials, or unrelated terminal databases.",
+  "promotion_gate": "MVP2A_PASS requires exact source->clone hash parity for the allowlisted installation bytes plus independent manifest reconstruction. It does not authorize MT5 launch.",
+  "next_after_pass": "MVP2B_ISOLATED_MT5_PROBE_WITH_ALLOWLIVETRADING_0_AND_NO_CANDIDATE3"
+}
