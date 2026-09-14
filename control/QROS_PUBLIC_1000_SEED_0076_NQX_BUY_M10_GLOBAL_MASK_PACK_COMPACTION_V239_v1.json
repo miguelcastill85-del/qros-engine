@@ -1,0 +1,11 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_NQX_BUY_M10_GLOBAL_PACK_COMPACTION_1.0",
+  "status": "PASS",
+  "domain": {"asset":"NQX","side":"BUY","timeframe":"M10"},
+  "original_pack": {"bytes":2815781113,"sha256":"5bfb3952be97e828dae802eb71d0b01d93435ba149c73a7d90b9a65f5feb12fd"},
+  "compressed_pack": {"bytes":787859511,"sha256":"7e9c882d8633335828df45a0efa416cf72e17a39913bd186e02caa2aa77ce8fa","codec":"zstd","level":3,"decompressed_sha256":"5bfb3952be97e828dae802eb71d0b01d93435ba149c73a7d90b9a65f5feb12fd","identity_verified":true},
+  "scientific_content_changed": false,
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false
+}
