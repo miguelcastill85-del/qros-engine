@@ -1,0 +1,30 @@
+{
+  "schema": "QROS_XAU_M1_IPS_FILTER_EXECUTION_SUPPLEMENT_1.0",
+  "created_date": "2026-09-14",
+  "campaign_id": "QROS_STRATEGY_002_XAU_M1_IPS_CONFIRMATION_v1",
+  "purpose": "Freeze execution/metric semantics left implicit by preregistration before any IPS-filter PnL is computed.",
+  "indicator_event_rule": {
+    "score_v2": "15*disp_q + 5*eff_q + 10*pullback_q + 20*recovery_q + 30*micro_q + 20*spread_q",
+    "threshold": 65.0,
+    "side": "BUY",
+    "risk_filter": "NONE; all causally valid frozen IPS events qualify regardless of experimental outcome-contract risk_cents",
+    "same_day": "integer raw timestamp day_id = floor(entry_ts_ms / 86400000)",
+    "time_relation": "0 < M1_entry_ts - IPS_entry_ts <= 3600000",
+    "multiple_events": "most recent qualifying IPS event"
+  },
+  "base_trade_rule": {
+    "entry_timestamp": "first executable tick timestamp of the already-frozen M1 entry bar",
+    "R": "unchanged M1 frozen trade R including its 0.02R central cost",
+    "no_trade_modification": true
+  },
+  "metric_definitions": {
+    "coverage_fraction": "filtered_n / base_n",
+    "PF": "sum(R>0) / abs(sum(R<0)); +inf if no negative trades",
+    "max_DD_R": "maximum peak-to-trough drawdown of chronological cumulative filtered R",
+    "positive_years_fraction": "among calendar years containing >=1 filtered trade, fraction with yearly net R > 0",
+    "top_3_filtered_trades_net_share": "if filtered total net R > 0: sum of the three largest trade R values divided by filtered total net R; if <=0 the total-R hard gate already fails and concentration gate is treated as failed/undefined",
+    "2023_2024_expectancy": "mean R in the year if >=1 filtered trade"
+  },
+  "multiplicity": "N_TESTS remains 1; no alternate window, threshold, base alpha, exit, or risk rule will be evaluated under this identity.",
+  "filter_PnL_read": false
+}
