@@ -1,0 +1,12 @@
+{
+  "schema": "QROS_R2T_V2_2_PACKAGE_CHECKPOINT_1.0",
+  "package": "QROS_RUNNER_ACTUAL_TERMINAL_FENCE_QUALIFIER_v2_2_PS51_RUNTIME_FIXED.zip",
+  "sha256": "52fb864b5f85a410109bc52403acfdb33f8a77b4f74cbd594cd47ffd0a39d976",
+  "bytes": 21736,
+  "status": "PREDELIVERY_STATIC_PASS_MT5_EXTERNAL_PENDING",
+  "failed_parent_run_id": "20260913_235512_e21cbe08",
+  "candidate3_executed": false,
+  "deployment_allowed": false,
+  "cert_arm_allowed": false,
+  "next_action": "Run EJECUTAR_QROS_RUNNER_ACTUAL_TERMINAL_FENCE_QUALIFIER_v2.bat on Windows after full extraction. Require native receipt PASS ACTUAL_TERMINAL_FENCE_QUALIFIED_V2 before R2 promotion."
+}
