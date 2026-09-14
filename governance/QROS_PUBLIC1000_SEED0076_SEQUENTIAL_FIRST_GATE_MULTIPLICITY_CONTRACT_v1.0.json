@@ -1,0 +1,143 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_1.0",
+  "version": "1.0",
+  "status": "FROZEN_PRE_PNL",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "seed": "WEB_SEED_0076",
+  "purpose": "Permit deterministic per-shard first economic Gate-A execution without order-adaptive selection while preserving the frozen 60-shard universe and multiplicity discipline.",
+  "source_gate_plan": "control/QROS_PUBLIC_1000_SEED_0076_GATE_A_SHARD_PLAN_V213_v1.json",
+  "preregistration_guards": {
+    "economic_pnl_read_before_freeze": false,
+    "holdout_open_before_freeze": false,
+    "ga1_universe_change": false,
+    "config_id_change": false,
+    "shard_count": 60,
+    "signal_configs_per_shard": 804672,
+    "raw_signal_configs_total": 48280320
+  },
+  "first_gate_execution": {
+    "stage": "GA2_SIGNAL_ALPHA_SCORING_FIRST_GATE",
+    "development_only": true,
+    "holdout": "CLOSED",
+    "management_anchor": {
+      "stop": "OPPOSITE_FRACTAL",
+      "target": "NONE",
+      "breakeven": "OFF",
+      "trailing": "OFF",
+      "partial": "OFF",
+      "same_day_exit": true
+    },
+    "execution_profile": "CENTRAL",
+    "unit": "R",
+    "signal_observability": "signal must be causally observable before entry",
+    "buy_execution": "Ask entry / Bid exit",
+    "sell_execution": "Bid entry / Ask exit",
+    "ambiguous_sl_tp": "SL_FIRST",
+    "gap_execution": "FIRST_REALLY_EXECUTABLE_PRICE"
+  },
+  "hypothesis_unit": {
+    "unit": "one distinct exact GA1 event-mask class per shard",
+    "representative": "lexicographically smallest SIGNAL_CONFIG_ID in the exact-mask alias class",
+    "aliases_add_tests": false,
+    "aliases_inherit_representative_first_gate_result": true,
+    "zero_event_class": "retained with p_value=1 and cannot survive first gate"
+  },
+  "cross_shard_error_budget": {
+    "method": "FIXED_EQUAL_PARTITION_NO_RECYCLING",
+    "campaign_q": "0.05",
+    "frozen_shard_count": 60,
+    "per_shard_q_exact": "1/1200",
+    "per_shard_q_decimal": "0.0008333333333333333333333333333333333333",
+    "allocation_depends_on_results": false,
+    "unused_budget_recycled": false,
+    "execution_order_changes_budget": false,
+    "reason": "Every frozen shard receives the same ex-ante budget, so FIFO sequential opening cannot make later thresholds depend on earlier economic outcomes."
+  },
+  "candidate_test": {
+    "null": "mean daily anchored net_R <= 0",
+    "alternative": "mean daily anchored net_R > 0",
+    "daily_axis": "all eligible frozen DEV trading dates in chronological order; days with no trade contribute daily_R=0",
+    "daily_value": "sum of realized anchored trade R for that canonical mask on that DEV trading date",
+    "minimum_trades_for_valid_asymptotic_test": 30,
+    "insufficient_trades_rule": "p_value=1",
+    "variance_estimator": "Newey-West HAC with Bartlett weights",
+    "hac_lag_rule": "L=min(D-1,floor(4*(D/100)^(2/9))) where D is the number of DEV daily observations",
+    "gamma_rule": "gamma_l=(1/D)*sum_{t=l+1..D}((r_t-mean_r)*(r_{t-l}-mean_r))",
+    "long_run_variance_rule": "Omega=gamma_0+2*sum_{l=1..L}((1-l/(L+1))*gamma_l)",
+    "standard_error_rule": "SE=sqrt(max(Omega,0)/D)",
+    "degenerate_variance_rule": "if SE is non-finite or <=0 then p_value=1",
+    "test_statistic": "t_HAC=mean_r/SE",
+    "one_sided_p_value": "0.5*erfc(t_HAC/sqrt(2))",
+    "numeric_comparison": "no metric rounding before hypothesis comparisons"
+  },
+  "within_shard_multiplicity": {
+    "method": "BENJAMINI_YEKUTIELI",
+    "dependence_assumption": "arbitrary dependence allowed",
+    "q": "per_shard_q_exact=1/1200",
+    "m": "number of distinct exact GA1 event-mask classes in the shard, including zero-event class",
+    "harmonic_constant": "c_m=sum_{j=1..m}(1/j)",
+    "ordering": "ascending raw p_value, ties by canonical SIGNAL_CONFIG_ID lexicographically",
+    "critical_rule": "find largest k such that p_(k) <= (k*q)/(m*c_m); reject hypotheses 1..k; if no k exists reject none",
+    "adaptive_q": false,
+    "storey_pi0": false,
+    "alpha_recycling": false
+  },
+  "candidate_survival_rule": {
+    "required_all": [
+      "BY_REJECTED_NULL",
+      "trades>=30",
+      "net_R>0",
+      "expectancy_R>0",
+      "PF>1"
+    ],
+    "forbidden": [
+      "max-PF winner picking",
+      "post-result parameter changes",
+      "rescue by management overlays",
+      "changing GA1 masks after seeing economic results"
+    ]
+  },
+  "shard_decision": {
+    "PASS_FIRST_GATE": "one or more canonical mask classes satisfy candidate_survival_rule",
+    "REJECTED_FIRST_GATE": "zero canonical mask classes satisfy candidate_survival_rule after complete scoring and BY correction",
+    "INVALID_FIRST_GATE": "data, execution, parity, or receipt integrity failure prevents a valid decision",
+    "all_distinct_masks_must_be_scored_before_decision": true
+  },
+  "reported_metrics": [
+    "trades",
+    "net_R",
+    "PF",
+    "expectancy_R",
+    "win_rate",
+    "DD_R",
+    "recovery",
+    "Sharpe",
+    "Sortino",
+    "year/month concentration",
+    "underwater",
+    "frequency",
+    "HAC_t",
+    "raw_p",
+    "BY_rejected"
+  ],
+  "downstream_controls": {
+    "deflated_sharpe": "diagnostic/downstream validation; cannot rescue first-gate failure",
+    "White_SPA": "downstream robustness/multiplicity diagnostic when computationally applicable; cannot rescue first-gate failure",
+    "permutation_bootstrap": "downstream adversarial validation; cannot rescue first-gate failure",
+    "GA3_management": "CLOSED until first-gate eligibility; cannot rescue a failed signal",
+    "holdout": "CLOSED until later frozen gate explicitly authorizes it"
+  },
+  "exposure_rule": {
+    "first_first_gate_execution_marks_DEV_economic_period_EXPOSED": true,
+    "exposure_propagates_to_related_genealogy": true,
+    "exposed_period_can_never_be_reclassified_as_clean_holdout": true
+  },
+  "determinism": {
+    "no_random_seed_required_for_primary_first_gate": true,
+    "same_inputs_same_outputs": true,
+    "trade_by_trade_execution_receipt_required": true,
+    "canonical_candidate_result_sort": "SIGNAL_CONFIG_ID ascending",
+    "first_gate_shard_order": "immutable FIFO promotion order"
+  },
+  "decision": "FROZEN_AND_AUTHORIZED_FOR_USE_ONLY_AFTER_PRIMARY_SEQUENTIAL_POLICY_AND_FRONTIER_PREFLIGHT_PASS"
+}
