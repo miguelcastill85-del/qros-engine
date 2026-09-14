@@ -1,0 +1,31 @@
+{
+  "schema":"QROS_PUBLIC1000_DETERMINISTIC_DECISION_LEDGER_6.0",
+  "version":"6.0",
+  "status":"FROZEN_ACTIVE_CANDIDATE",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "supersedes":"control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v5.json",
+  "inherits_rules_from":"control/QROS_PUBLIC_1000_DETERMINISTIC_DECISION_LEDGER_v5.json except where later verified evidence supersedes prior open-gap state",
+  "entries":[
+    {"id":"D039","rule":"User-supplied XAU/NQX ZIP carriers are not treated as durable cross-chat storage and are not required for the current Seed0076 validation/scorer-construction path."},
+    {"id":"D040","rule":"Seed0076 POST_EXPANSION_RISE_FIXED_POINT is VERIFIED PASS only within the frozen genealogy radius and canonical V209 information; this is not global exhaustion of all possible trading concepts."},
+    {"id":"D041","rule":"The durable fixed-point authority is control/QROS_SEED0076_POST_EXPANSION_RISE_FIXED_POINT_PASS_20260914_v1.json, Git blob 4196b71533097b66ddb0965e8b9a29cda3f72dd8, backed by GitHub Actions run 34893335551."},
+    {"id":"D042","rule":"RISE fixed-point requires two consecutive zero-delta rounds; Seed0076 passed exactly 2/2 with delta_count=0 in both rounds."},
+    {"id":"D043","rule":"Independent enumerator semantic parity is exact: base 4320, filters 11176, management 3710, with zero symmetric difference in all three sets."},
+    {"id":"D044","rule":"Enumerator B_v2 root mismatch was caused solely by root aggregation order, not by universe membership. B_v3 retains the independent enumeration and uses canonical row-byte ordering before leaf hashing."},
+    {"id":"D045","rule":"The root-definition correction does not change signal configurations, management profiles, completed GA1 masks, economic exposure or holdout state."},
+    {"id":"D046","rule":"Canonical revalidated roots are base 1c1b8a6d2c458be3389886f56d41471cd9556f0fa8f84a44bbd51fbfa883d4c9; filters 3c0dfe0adf69c2fd0e82f36df15fc3a0537cb0a90646008b2f7a95408394e5e9; management 2ca72abbd712917769528720422c2399adb8939d2585ca83c519d839afb46b1d."},
+    {"id":"D047","rule":"The exact revalidated signal-universe root is 992dd88e3cf505eb4d6170f6e292cd47af85b4a319cb3c3dc51ec55267205938; ontology root e22d1a428bcb3e1f868f1cfb6161766ab0fdf22ce08e6c7e527767264d186200; full-freeze descriptor root f31acde9416397cc081fedb636ac52a60db04b65743a5975992440f7c736a60c."},
+    {"id":"D048","rule":"The V213 legacy signal_factorized_root is preserved as an immutable historical anchor; its undocumented aggregation formula is not reverse-inferred or silently redefined."},
+    {"id":"D049","rule":"W04 RISE_FIXED_POINT and W05 UNIVERSE_ONTOLOGY_FROZEN are closed by exact external evidence; the next open node is W09 FIRST_GATE_SCORER_BUILD_AND_PARITY."},
+    {"id":"D050","rule":"FIRST_GATE scorer construction is non-economic engineering: it may not read economic outputs, open GA2, open holdout or alter the frozen Seed0076 universe."},
+    {"id":"D051","rule":"Eight completed GA1 shards remain valid and must not be recomputed solely because the fixed-point evidence was rebound or Enumerator B root aggregation was corrected."},
+    {"id":"D052","rule":"At the close of validation, economic_pnl_read=false, ga2_open=false and holdout_open=false remain mandatory."}
+  ],
+  "bound_artifacts":{
+    "rise_fixed_point_pass":"control/QROS_SEED0076_POST_EXPANSION_RISE_FIXED_POINT_PASS_20260914_v1.json",
+    "enumerator_root_correction":"control/QROS_SEED0076_ENUMERATOR_B_ROOT_DEFINITION_CORRECTION_20260914_v1.json",
+    "workgraph":"control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.json",
+    "gap_register":"control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.json"
+  },
+  "decision":"V6_FROZEN_CANDIDATE: VALIDATION GAPS CLOSED; NEXT AUTHORIZED ENGINEERING STATE IS FIRST_GATE_SCORER_BUILD_WITH_ECONOMIC_FIREWALLS_CLOSED."
+}
