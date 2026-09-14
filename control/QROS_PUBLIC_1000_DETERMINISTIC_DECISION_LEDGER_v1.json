@@ -1,0 +1,59 @@
+{
+  "append_model": "NEW_VERSION_ONLY; historical versions immutable",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "decision": "BIND THESE RULES BEFORE ANY FURTHER SCIENTIFIC ACTION",
+  "entries": [
+    {
+      "entry_sha256": "9c959f8f0d244bbd87d7e2f76c72b4859861d59447ac69a1b8a80cd3737510d6",
+      "id": "D001",
+      "reason": "prevents cross-chat reconstruction drift",
+      "rule": "Chat context, summaries and model memory are never operational authority; only durable pinned repository bytes are."
+    },
+    {
+      "entry_sha256": "c0dad35e471e15bb258c3061bd8bd67d47c73ff6b5ccdbccbd514cad31a145df",
+      "id": "D002",
+      "reason": "eliminates ambiguous next-step interpretation",
+      "rule": "Exactly one structured action ticket may be valid at a time; zero or multiple actions fail closed."
+    },
+    {
+      "entry_sha256": "466a10b3afbb7e94c321b41e13f04d595fd79d50b0e0a8c6d03967efa4cde2a3",
+      "id": "D003",
+      "reason": "natural language is not sufficiently deterministic",
+      "rule": "Free-text next_action fields are advisory only after kernel activation."
+    },
+    {
+      "entry_sha256": "e39837662592eb472972693fd3501ba502a1d2a0ac0384f0c617d8548e89a405",
+      "id": "D004",
+      "reason": "verified exact-prefix carrier binding",
+      "rule": "XAU parts 001-008 and NQX parts 001-003 are sufficient exact DEV prefixes for FIRST_GATE; remaining full-history parts are not prerequisites for this gate."
+    },
+    {
+      "entry_sha256": "6c3fa6b0abda7dc61fd982d38cf574661afc0a4455ccbaafaae9133f3564f936",
+      "id": "D005",
+      "reason": "active primary sequential policy v2",
+      "rule": "The eight already-promoted shards are drained in immutable FIFO order before any new GA1 shard."
+    },
+    {
+      "entry_sha256": "d6c52d3e5c3a664a6a2d1b90b4bdfed5e9f02814904c42dbbb0e8b139498d8c0",
+      "id": "D006",
+      "reason": "model self-validation is insufficient",
+      "rule": "A state transition is not promotable until an independent source implementation validates it on an external GitHub Actions runner."
+    },
+    {
+      "entry_sha256": "f8e33e6bb41802a88ccfb793f999c3d87fde1d253e9d3923cf9cd2e3880e5771",
+      "id": "D007",
+      "reason": "turns gaps into deterministic blockers instead of ambiguity",
+      "rule": "Undefined future scientific criteria become explicit POLICY_REQUIRED blocking states; they may never be inferred from chat history."
+    },
+    {
+      "entry_sha256": "2182e587625e167c9d3777085150e4032ddff504a3d69b03638d1418e6c4a530",
+      "id": "D008",
+      "reason": "resume must use durable receipts and hashes",
+      "rule": "Completed valid scientific work is never recomputed solely because a new chat starts."
+    }
+  ],
+  "ledger_root_sha256": "09a4b9c5f05891ac06c639f74d12a1880ab2c6d04d350bbe9b7c7cafc2aa1cad",
+  "schema": "QROS_PUBLIC1000_DETERMINISTIC_DECISION_LEDGER_1.0",
+  "status": "FROZEN_ACTIVE",
+  "version": "1.0"
+}
