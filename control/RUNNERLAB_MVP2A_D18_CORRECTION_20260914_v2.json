@@ -1,0 +1,38 @@
+{
+  "schema": "QROS_RUNNERLAB_MVP2A_CORRECTION_RECEIPT_2",
+  "id": "MVP2A_D18_CLONE_CLEANUP_MASKS_PRIMARY_AND_RENAME_FRAGILITY",
+  "date": "2026-09-14",
+  "status": "SOURCE_CORRECTED_NATIVE_RETEST_PENDING",
+  "evidence_image_sha256": "6deee632c24c19d58cc9d96c45c8f666127c9f3d0f3d5521dd6930b6da950b2c",
+  "native_observation": {
+    "m2a0": "PASS candidates=1",
+    "m2a1": "PASS origin_mappings=18",
+    "m2a2": "PASS",
+    "m2a3": "PASS",
+    "m2a4": "PASS files=19",
+    "m2a5": "FAIL IOException access denied to clone staging directory",
+    "promotion_allowed": false,
+    "mt5_launched": false,
+    "candidate3_executed": false
+  },
+  "root_cause": {
+    "verified": "The old MaterializeClone finally block could throw Directory.Delete(temp,true), replacing any primary exception and making the reported access-denied path non-diagnostic.",
+    "not_yet_verified": "Whether the primary Windows trigger was Directory.Move, antivirus scanning, another transient handle, ACL, or a specific file copy cannot be recovered from the old run because the primary exception may have been masked."
+  },
+  "corrections": [
+    "Directory.Move removed from clone validity semantics.",
+    "A unique MT5_A directory is invalid until source/clone parity succeeds and CLONE_READY.json is written outside the clone tree.",
+    "CLONE_INCOMPLETE.marker identifies partial materialization.",
+    "Copy uses bounded retry for transient IOException/UnauthorizedAccessException and durable CreateNew+WriteThrough+Flush(true).",
+    "Cleanup is bounded best-effort and never replaces the primary exception.",
+    "MVP2A_FATAL_DIAGNOSTIC.json records exception type, HResult, inner exception, materialization phase, exact relative/source/destination paths, and cleanup diagnostics.",
+    "Synthetic self-tests cover ready-marker ordering and D18 cleanup non-masking."
+  ],
+  "safety": {
+    "no_mt5_launch": true,
+    "no_candidate3": true,
+    "no_trades": true,
+    "cert_arm": false,
+    "deployment": false
+  }
+}
