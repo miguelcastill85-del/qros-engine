@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_PUBLIC1000_SEED0076_FIRST_GATE_SCORER_BUILD_VALIDATION_PASS_1.0",
+  "date":"2026-09-14",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status":"PASS_EXTERNAL_SYNTHETIC_BUILD_AND_INDEPENDENT_PARITY",
+  "subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","first_gate_order":1,"distinct_mask_classes":303572},
+  "machine_action_ticket_id":"cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552",
+  "build_spec":{"path":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_BUILD_SPEC_v2.json","creation_commit":"6bf2d95bae036dafbc72e6f04d4e56c939f287de"},
+  "external_validation":{"workflow_path":".github/workflows/qros-first-gate-scorer-w09-v2.yml","workflow_git_blob_sha1":"082ca9b9cd3ea89b47db85430a79b2db17a1b9fc","run_id":34901493411,"job_id":104168250438,"head_sha":"8ed7fc534c84b13fc173abbed83ea101c899fa73","status":"completed","conclusion":"success","runner":"ubuntu-latest","steps_verified_success":["Checkout exact commit","Verify V252 authorization and firewalls","Verify corrected exact pins","Compile sources","Run corrected synthetic parity and adversarial suite","Final W09 build validation"]},
+  "validated_claims":{"primary_source_materialized":true,"independent_oracle_materialized":true,"python_compile_pass":true,"exact_pins_pass":true,"primary_oracle_byte_parity_on_synthetic_fixture":true,"adversarial_v2_pass":true,"degenerate_full_axis_hac_p1_pass":true,"synthetic_output_cannot_authorize_economic_decision":true},
+  "scientific_guards":{"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"first_gate_executed":false,"first_gate_execution_authorized":false},
+  "state_reconciliation":{"declared_v252_scorer_state":"NOT_BUILT","evidence_state":"BUILT_SYNTHETIC_PARITY_PASS","divergence":"STATE_ARTIFACT_DIVERGENCE","required_resolution":"PROMOTE_DECLARED_STATE; DO_NOT_REBUILD_SCORER"},
+  "next_required_layer":"NORMALIZED_EXECUTION_BUNDLE_AND_INDEPENDENT_TRADE_BY_TRADE_EXECUTION_PARITY_BEFORE_PRODUCTION_FIRST_GATE",
+  "decision":"W09_SCORER_BUILD_CLOSED; RECONCILE_FRONTIER_FORWARD_WITHOUT_REPEATING_BUILD"
+}
