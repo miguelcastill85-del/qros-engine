@@ -1,0 +1,27 @@
+{
+  "decompressed_pack_sha256": "340e67029924fb148ca6136e155c204239624e8c532267ad8f116f751a68baef",
+  "deleted_merge_sqlite": true,
+  "deleted_redundant_group_mask_blobs": 24,
+  "deleted_uncompressed_global_pack": true,
+  "domain": {
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M12"
+  },
+  "economic_pnl_read": false,
+  "freed_bytes": 5328414181,
+  "ga2_open": false,
+  "holdout_open": false,
+  "retained_global_index_sha256": "6b421453e9828149a753cc8d0038c14d81f31b54bbc4301c214e661169579291",
+  "retained_global_mapping_sha256": "c5bec36e0b78c896f81578de5a69b42fd6f673a54630efbb8311f33e7e09c0a7",
+  "retained_global_pack_zst_bytes": 683104903,
+  "retained_global_pack_zst_sha256": "69dac36f5468243a9cefe9f6d304ed4f420602996973d507765f087de82d014f",
+  "retained_group_compressed_mask_blobs": 24,
+  "retained_group_duplicate_alias_files": 24,
+  "retained_group_indexes": 24,
+  "retained_group_receipts": 24,
+  "schema": "QROS_PUBLIC1000_SEED0076_NQX_BUY_M12_STORAGE_CLEANUP_1.0",
+  "scientific_content_changed": false,
+  "shard_id": "280066aa7fa5fee847fb533be58f986f5181bb5b211abc643b4cfa46226f4ea3",
+  "status": "PASS"
+}
