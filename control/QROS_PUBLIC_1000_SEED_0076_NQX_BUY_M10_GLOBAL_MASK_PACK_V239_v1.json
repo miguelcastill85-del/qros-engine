@@ -41,7 +41,7 @@
   "seed": "WEB_SEED_0076",
   "semantic_class_root_sha256": "717c682c950414b7e0c2d31ee1610bcf0cbb15c0cbbe6345b5090afa07d01ee8",
   "shard_id": "6b33d3ed8c7efe6579bff5a65a6c77b852b2ed991cd862731ba32fe3def4def6",
-  "source_merge_oracle_receipt_sha256": "c1d2a6f98dd7af109c244d49e37537d0a3ad7e265defffa3cf46b1d7a8a4ff0a",
+  "source_merge_oracle_receipt_sha256": "22e5535303f027a39caaa6c72a1d63bce19c3753be104420bb7fc908222a42da",
   "source_merge_receipt_sha256": "f2ab71087de7873adf2a4f40ddb69cc44926b09bc684c61098ceb09356c8c61d",
   "state": "PASS",
   "zero_event_class_alias_count": 59515
