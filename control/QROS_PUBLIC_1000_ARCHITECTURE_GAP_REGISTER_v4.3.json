@@ -1,0 +1,22 @@
+{
+  "schema":"QROS_PUBLIC1000_ARCHITECTURE_GAP_REGISTER_4.3",
+  "version":"4.3",
+  "status":"CANDIDATE_PENDING_EXTERNAL_VALIDATION",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "supersedes":{"path":"control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.2.json","git_blob_sha1":"68ef19675b7a3d509bf34f4c341a4e8a05f59b55"},
+  "closed_gaps":[
+    {"id":"GAP-S01","status":"CLOSED_EXTERNAL_INDEPENDENT_PASS","evidence":{"path":"control/QROS_SEED0076_POST_EXPANSION_RISE_FIXED_POINT_PASS_20260914_v1.json","git_blob_sha1":"4196b71533097b66ddb0965e8b9a29cda3f72dd8"}},
+    {"id":"GAP-S02","status":"CLOSED_EVIDENCE_BOUND","evidence":{"path":"control/QROS_SEED0076_POST_EXPANSION_RISE_FIXED_POINT_PASS_20260914_v1.json","git_blob_sha1":"4196b71533097b66ddb0965e8b9a29cda3f72dd8"}},
+    {"id":"GAP-S03","status":"CLOSED_EXTERNAL_SYNTHETIC_PARITY_PASS","evidence":{"path":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_SCORER_BUILD_VALIDATION_PASS_20260914_v1.json","git_blob_sha1":"ba9310879c4f7028c98cf5ea615696777aba8919","run_id":34901493411,"job_id":104168250438}},
+    {"id":"GAP-S04","status":"CLOSED_EXTERNAL_SYNTHETIC_PARITY_PASS","evidence":{"path":"control/QROS_PUBLIC_1000_W09B_NORMALIZED_EXECUTION_PARITY_PASS_20260914_v1.json","git_blob_sha1":"3350d49f2e814f53d2261dc1d81f59a181966bb3","run_id":34922227265,"job_id":104232681664},"closure_scope":"synthetic execution primitive + independent parity + fail-closed production guard; production bundle and real parity remain W09C prerequisites"},
+    {"id":"GAP-A09","area":"Declared state behind durable artifacts","status":"CLOSED_BY_RECONCILIATION_POLICY","evidence":{"path":"governance/QROS_STATE_ARTIFACT_RECONCILIATION_AND_EXECUTION_CAPSULE_POLICY_v1.0.json","git_blob_sha1":"b2213253180805da56d02068164bf5c74749232d"}}
+  ],
+  "open_gaps":[
+    {"id":"GAP-A05","area":"Legacy validator workflow noise","status":"OPEN_NON_SCIENTIFIC_NOISE","scientific_execution_blocking":false},
+    {"id":"GAP-S05","area":"W10 production prerequisite bindings, normalized production bundle and independent real trade-by-trade parity","status":"OPEN_CURRENT_ENGINEERING_GAP","blocking_class":"PRODUCTION_BINDING_AND_PARITY_REQUIRED","closure_required":["exact broker/session clock authority","exact same-candidate overlapping-signal admission policy","execution-unit binding PASS","exact semantic-rematerializer source hashes","exact active-runtime XAUUSD DEV bytes binding","production normalized input bundle","independent production trade-by-trade parity receipt","compatible explicit economic exposure transition"],"forbidden_while_open":["EXECUTE_FIRST_GATE_ECONOMIC_SCORING","OPEN_HOLDOUT","START_NEW_GA1","OPEN_GA2"],"economic_read_policy":"No aggregate or candidate economic selection/scoring. Production execution parity outputs, if materialized, must remain mechanically sealed/hash-compared until a compatible economic exposure transition is durable."},
+    {"id":"GAP-D01","area":"Physical DEV market bytes are runtime-scoped rather than repository-durable","status":"BOUNDED_RECOVERY_REQUIRED_AT_W09C","resolution_rule":"Recover exact active-runtime bytes by canonical identity. If unavailable after File Library/connected durable stores/repository manifests and exact carrier recovery paths are exhausted, persist BLOCKED_BY_INFRASTRUCTURE with searched locations and missing identity; never infer availability."},
+    {"id":"GAP-F01","area":"Post-60-shard downstream deterministic contracts","status":"FUTURE_POLICY_REQUIRED"}
+  ],
+  "current_blocking_gap":"GAP-S05",
+  "decision":"GAP-S04 RECONCILED CLOSED BY EXACT EXTERNAL PASS; W09C/GAP-S05 IS THE ONLY CURRENT SCIENTIFIC ENGINEERING GAP BEFORE W10"
+}
