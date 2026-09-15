@@ -47,7 +47,8 @@ jobs:
           g = json.loads(pathlib.Path('control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.2.json').read_text())
           assert c['status'] == 'FROZEN_PRE_PNL'
           assert w['current_node'] == 'W09B_FIRST_GATE_NORMALIZED_EXECUTION_AND_PARITY'
-          assert w['nodes'][10]['status'] == 'PREREGISTERED_BLOCKED_BY_W09B'
+          w10 = next(x for x in w['nodes'] if x['id'] == 'W10_FIRST_GATE')
+          assert w10['status'] == 'PREREGISTERED_BLOCKED_BY_W09B'
           assert g['current_blocking_gap'] == 'GAP-S04'
           s04 = next(x for x in g['open_gaps'] if x['id'] == 'GAP-S04')
           assert 'READ_ECONOMIC_PNL' in s04['forbidden_while_open']
