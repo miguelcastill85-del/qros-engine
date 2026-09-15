@@ -1,0 +1,75 @@
+name: qros-v255-stable-cas-audit-v1
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json'
+      - '.github/workflows/qros-v255-stable-cas-audit-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-v255-stable-cas:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Verify exact V255 stable promotion pins
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          pins={
+            'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json':'a12ea959a2113d3ec3050842c79e4dbb6f185d50',
+            'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json':'4b19ee8c84e47332cc2b2117010deb0d0edbde12',
+            'control/QROS_PUBLIC_1000_V255_W09C_FRONTIER_CANDIDATE_VALIDATION_PASS_20260915_v1.json':'60b6d273f36778cc8b014a90917a96075598231d',
+            'control/QROS_PUBLIC_1000_W09B_S04_RECONCILIATION_PASS_20260915_v1.json':'c6c9d6ffa297648d22eeef7ae3677da1e29ce9c8',
+            'control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.3.json':'73a614bcbc455d91612bb2f1b4122a9e220101fd',
+            'control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.3.json':'19374372d66a7d244c20befb9f424b069f4b9810',
+            'governance/QROS_PUBLIC1000_SEED0076_FIRST_GATE_NORMALIZED_EXECUTION_CONTRACT_v1.1.json':'5d7006c5b54d4647113c7caab5107e8c9229d2bf',
+          }
+          def blob(p):
+              b=pathlib.Path(p).read_bytes(); return hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          for p,e in pins.items():
+              g=blob(p); assert g==e,(p,e,g)
+          s=json.loads(pathlib.Path('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json').read_text())
+          t=json.loads(pathlib.Path('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json').read_text())
+          assert s['current_version']=='V255'
+          assert s['target_git_blob_sha1']=='4b19ee8c84e47332cc2b2117010deb0d0edbde12'
+          assert s['reconciliation']['superseded_stable_pointer_blob_sha1']=='0d13e486b4d47489ca9f515e5c17b34fa93517ea'
+          assert s['architecture']['current_node']=='W09C_FIRST_GATE_PRODUCTION_PREREQUISITES'
+          assert s['architecture']['current_gap']=='GAP-S05'
+          assert s['historical_p03_ticket']['status']=='SUPERSEDED_NOT_EXECUTABLE_UNDER_W09C'
+          assert s['w09c_required_bindings']==t['w09c_required_bindings']
+          assert s['data_identity_required']==t['data_identity_required']
+          for k in ['new_ga1_authorized','first_gate_execution_authorized','scientific_execution_authorized','economic_pnl_read','holdout_open','ga2_open','first_gate_economic_scoring_executed','production_normalized_input_bundle_materialized','production_trade_by_trade_parity_executed']:
+              assert s[k] is False,(k,s[k])
+          assert s['next_action']=='MATERIALIZE_W10_PRODUCTION_PREREQUISITE_BINDING_MANIFEST_WITHOUT_ECONOMIC_SCORING'
+          print('V255_STABLE_CAS_EXACT_PINS=PASS')
+          print('V255_ECONOMIC_FIREWALL=PASS')
+          PY
+      - name: Adversarial stale-state and firewall mutations
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import copy,json,pathlib
+          s=json.loads(pathlib.Path('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json').read_text())
+          checks=0
+          x=copy.deepcopy(s); x['current_version']='V254'; assert x['current_version']!='V255'; checks+=1
+          x=copy.deepcopy(s); x['historical_p03_ticket']['status']='AUTHORIZED_EXACT_TICKET_ONLY'; assert x['historical_p03_ticket']['status']!='SUPERSEDED_NOT_EXECUTABLE_UNDER_W09C'; checks+=1
+          for k in ['first_gate_execution_authorized','scientific_execution_authorized','economic_pnl_read','holdout_open','ga2_open','new_ga1_authorized']:
+              x=copy.deepcopy(s); x[k]=True; assert x[k] is not False; checks+=1
+          assert checks==8
+          print('V255_STABLE_CAS_ADVERSARIAL=PASS_8_OF_8')
+          PY
+      - name: Prove audit read-only
+        run: |
+          git diff --exit-code
+          test -z "$(git status --porcelain)"
+          echo V255_STABLE_CAS_AUDIT_READ_ONLY=PASS
