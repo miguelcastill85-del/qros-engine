@@ -1,0 +1,57 @@
+name: qros-v253-first-gate-oracle-parity-v1
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'scripts/qros_first_gate_scorer_oracle_v2.py'
+      - 'tests/test_qros_first_gate_scorer_oracle_parity_v1.py'
+      - '.github/workflows/qros-v253-first-gate-oracle-parity-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  oracle-parity:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Verify exact V253 authority and closed firewalls
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, pathlib
+          def blob(path):
+              b=path.read_bytes()
+              return hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          hp=pathlib.Path('control/QROS_PUBLIC_1000_CURRENT_CHAT_HANDOFF.json')
+          sp=pathlib.Path('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json')
+          h=json.loads(hp.read_text()); s=json.loads(sp.read_text())
+          assert blob(sp)=='b9ad269c40e3719ce00c3e60483de54cded1f236'
+          assert s['current_version']=='V253'
+          assert h['stable_scientific_pointer']['expected_git_blob_sha1']==blob(sp)
+          assert h['machine_ticket_id']=='3c4acd2b22daf849e0dd4f3b5bffb327058aa92f3cb63a3902e06f605bf10854'
+          assert h['machine_action']=='VERIFY_FIRST_GATE_SCORER_WITH_INDEPENDENT_ORACLE'
+          assert h['economic_pnl_read'] is False
+          assert h['first_gate_execution_authorized'] is False
+          assert h['ga2_open'] is False and h['holdout_open'] is False and h['new_ga1_authorized'] is False
+          print('V253_AUTHORITY_AND_FIREWALLS=PASS')
+          PY
+      - name: Compile primary and independent oracle
+        run: python3 -m py_compile scripts/qros_first_gate_scorer_v1.py scripts/qros_first_gate_scorer_oracle_v2.py tests/test_qros_first_gate_scorer_oracle_parity_v1.py
+      - name: Primary scorer baseline tests
+        run: python3 -m unittest tests.test_qros_first_gate_scorer_v1 -v
+      - name: Independent oracle parity and adversarial suite
+        run: python3 -m unittest tests.test_qros_first_gate_scorer_oracle_parity_v1 -v
+      - name: Prove no economic fixtures or repository mutation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --exit-code
+          git status --porcelain
+          test -z "$(git status --porcelain)"
+          echo ORACLE_PARITY_READ_ONLY=PASS
