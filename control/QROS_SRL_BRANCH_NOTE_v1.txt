@@ -1,1 +1,0 @@
-SRL v1.3 implementation is intentionally isolated on branch srl-v1.3-hardening-20260914-final. This file is branch-only evidence and must not be interpreted as main approval.
