@@ -1,0 +1,14 @@
+{
+  "schema":"QROS_PUBLIC1000_V255_STABLE_CAS_AUDIT_PASS_1.0",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "version":"V255",
+  "status":"PASS_EXTERNAL_STABLE_CAS_AUDIT",
+  "economic":false,
+  "economic_pnl_read":false,
+  "cas":{"expected_parent_stable_blob_sha1":"0d13e486b4d47489ca9f515e5c17b34fa93517ea","promoted_stable_pointer_blob_sha1":"a12ea959a2113d3ec3050842c79e4dbb6f185d50","target":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json","git_blob_sha1":"4b19ee8c84e47332cc2b2117010deb0d0edbde12"}},
+  "candidate_validation_receipt":{"path":"control/QROS_PUBLIC_1000_V255_W09C_FRONTIER_CANDIDATE_VALIDATION_PASS_20260915_v1.json","git_blob_sha1":"60b6d273f36778cc8b014a90917a96075598231d"},
+  "external_audit":{"pull_request":47,"workflow":"qros-v255-stable-cas-audit-v1","head_commit_sha":"fe268b0896706c701aa1293291ae3d1bd26cad45","run_id":34926202989,"job_id":104244679685,"runner":"ubuntu-24.04","conclusion":"success","exact_pins":"PASS","stale_state_and_firewall_mutations":"PASS_8_OF_8","repository_read_only":"PASS"},
+  "validated_state":{"current_node":"W09C_FIRST_GATE_PRODUCTION_PREREQUISITES","current_gap":"GAP-S05","historical_p03_status":"SUPERSEDED_NOT_EXECUTABLE_UNDER_W09C","scientific_execution_authorized":false,"first_gate_execution_authorized":false,"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"new_ga1_authorized":false},
+  "decision":"V255_STABLE_CAS_VALIDATED_FOR_MERGE_WITH_ECONOMIC_SCORING_CLOSED",
+  "next_action":"MERGE_PR47_THEN_VERIFY_MAIN_STABLE_POINTER_AND_MATERIALIZE_W10_PRODUCTION_PREREQUISITE_BINDING_MANIFEST"
+}
