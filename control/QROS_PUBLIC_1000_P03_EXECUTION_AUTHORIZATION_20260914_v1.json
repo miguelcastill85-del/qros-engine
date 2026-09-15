@@ -1,0 +1,56 @@
+{
+  "schema":"QROS_PUBLIC1000_P03_EXECUTION_AUTHORIZATION_1.0",
+  "date":"2026-09-14",
+  "status":"AUTHORIZED_EXACT_TICKET_ONLY",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "authority":{
+    "stable_pointer_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "stable_pointer_git_blob_sha1":"02c9f594aa45befaf7a01e4c18716f1a19b177aa",
+    "stable_version":"V254",
+    "target_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V254_v1.json",
+    "target_git_blob_sha1":"832d141e370e7d8c0c5bfc65f330a3570ddead82",
+    "current_chat_handoff_path":"control/QROS_PUBLIC_1000_CURRENT_CHAT_HANDOFF.json",
+    "current_chat_handoff_git_blob_sha1":"be9da599f1f5aa694b3e8de31db69fba2c7fc1fa"
+  },
+  "machine_ticket":{
+    "ticket_id":"8f56d8e39fb3edd0b7ecf45bb26bb94d7266db4f96f5d093eb26f674b48d20cd",
+    "action":"EXECUTE_FIRST_GATE_FIFO_CURRENT",
+    "state_id":"FG_SCORER_PARITY_PASS",
+    "guard_profile":"P03_PRE_ECONOMIC_SCORER_PARITY_PASS",
+    "subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","first_gate_order":1,"distinct_mask_classes":303572}
+  },
+  "authorization_source":{
+    "type":"EXPLICIT_INTERACTIVE_USER_INSTRUCTION",
+    "instruction":"Continua sin quedarte congelado",
+    "context":"Issued after the assistant explicitly stated that continuing from V254 would open only the exact P03 economic latch while keeping holdout and new GA1 closed.",
+    "cryptographic_external_attestation":false
+  },
+  "authorized_scope":[
+    "OPEN_ACTIVE_EXECUTION_VALIDATION_LATCH_FOR_EXACT_P03_TICKET",
+    "AFTER_ACTIVE_EXECUTION_VALIDATION_PASS_EXECUTE_FIRST_GATE_FIFO_CURRENT_FOR_EXACT_SUBJECT",
+    "READ_ONLY_DEV_ECONOMIC_INPUTS_REQUIRED_BY_FROZEN_FIRST_GATE_CONTRACT",
+    "SET_ECONOMIC_PNL_READ_TRUE_ONLY_WHEN_VALID_FIRST_GATE_EXECUTION_ACTUALLY_STARTS",
+    "SET_GA2_OPEN_TRUE_ONLY_WHEN_VALID_FIRST_GATE_EXECUTION_ACTUALLY_STARTS",
+    "RUN_REQUIRED_P04_INDEPENDENT_FIRST_GATE_RESULT_ORACLE_AFTER_P03_COMPLETES",
+    "PERSIST_RESULT_THROUGH_P05_AND_ADVANCE_FIFO_THROUGH_P06_IF_ALL_REQUIRED_GATES_PASS"
+  ],
+  "not_authorized":[
+    "OPEN_HOLDOUT",
+    "START_NEW_GA1_WHILE_FIRST_GATE_BACKLOG_PENDING",
+    "SKIP_FIFO",
+    "RETUNE_AFTER_RESULTS",
+    "CHANGE_MULTIPLICITY_CONTRACT",
+    "CHANGE_FROZEN_GA1_UNIVERSE",
+    "CHANGE_EXECUTION_SEMANTICS",
+    "RESULT_DEPENDENT_REORDERING"
+  ],
+  "pre_execution_flags":{
+    "economic_pnl_read":false,
+    "ga2_open":false,
+    "holdout_open":false,
+    "new_ga1_authorized":false
+  },
+  "required_pre_execution_gate":"ACTIVE_EXECUTION_KERNEL_REVALIDATION_PASS_FOR_EXACT_TICKET",
+  "failure_semantics":"FAIL_CLOSED_ON_ANY_AUTHORITY_TICKET_SUBJECT_PIN_OR_DATA_INTEGRITY_MISMATCH",
+  "decision":"USER_AUTHORIZATION_SATISFIES_V254_P03_STANDING_FIREWALL_FOR_EXACT_MACHINE_TICKET_ONLY"
+}
