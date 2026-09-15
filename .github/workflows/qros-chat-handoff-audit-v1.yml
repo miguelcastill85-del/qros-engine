@@ -1,0 +1,55 @@
+name: qros-chat-handoff-audit-v1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'control/QROS_PUBLIC_1000_CHAT_HANDOFF_CANDIDATE.json'
+      - 'control/QROS_PUBLIC_1000_CURRENT_CHAT_HANDOFF.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Python syntax
+        run: |
+          python3 -m py_compile scripts/qros_chat_handoff_validate_v1.py scripts/qros_chat_handoff_validate_v2.py scripts/qros_chat_handoff_oracle_v2.py scripts/qros_chat_handoff_adversarial_v1.py
+      - name: Primary validator
+        run: |
+          python3 scripts/qros_chat_handoff_validate_v2.py | tee /tmp/primary.json
+      - name: Independent oracle
+        run: |
+          python3 scripts/qros_chat_handoff_oracle_v2.py | tee /tmp/oracle.json
+      - name: Primary oracle parity
+        run: |
+          python3 - <<'PY'
+          import json
+          a=json.load(open('/tmp/primary.json')); b=json.load(open('/tmp/oracle.json'))
+          assert a['status']=='PASS' and b['status']=='PASS'
+          for k in ('mode','handoff_git_blob_sha1','stable_version','ticket_id'):
+              assert a[k]==b[k], (k,a[k],b[k])
+          assert a['bootstrap_dependency_count']==b['dependency_count']==24
+          print('HANDOFF_PRIMARY_ORACLE_PARITY=PASS')
+          PY
+      - name: Adversarial suite
+        run: |
+          python3 scripts/qros_chat_handoff_adversarial_v1.py | tee /tmp/adversarial.json
+      - name: Gate
+        run: |
+          python3 - <<'PY'
+          import hashlib,json
+          p=json.load(open('/tmp/primary.json')); o=json.load(open('/tmp/oracle.json')); a=json.load(open('/tmp/adversarial.json'))
+          assert p['status']==o['status']==a['status']=='PASS'
+          assert a['negative_mutations']>=10
+          body={'primary':p,'oracle':o,'adversarial_receipt_sha256':a['receipt_sha256'],'negative_mutations':a['negative_mutations']}
+          print('HANDOFF_AUDIT_PASS')
+          print('HANDOFF_AUDIT_RECEIPT_SHA256='+hashlib.sha256(json.dumps(body,sort_keys=True,separators=(',',':')).encode()).hexdigest())
+          PY
