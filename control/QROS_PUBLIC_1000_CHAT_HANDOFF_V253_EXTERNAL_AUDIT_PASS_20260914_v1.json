@@ -1,0 +1,12 @@
+{
+  "schema":"QROS_PUBLIC1000_CHAT_HANDOFF_EXTERNAL_AUDIT_PASS_1.0",
+  "date":"2026-09-14",
+  "status":"PASS",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "handoff":{"path":"control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_V253_20260914_v1.json","git_blob_sha1":"e36b996c93aae4062da80f8ad8a62baf5bce57e5"},
+  "stable_scientific_pointer":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","git_blob_sha1":"b9ad269c40e3719ce00c3e60483de54cded1f236","version":"V253"},
+  "external_audit":{"workflow":".github/workflows/qros-v253-chat-handoff-audit-v1.yml","run_id":34913773286,"job_id":104206824247,"validated_head_sha":"ea2df27eefcdff6310b9ea5852f0e5617d7314fa","runner":"ubuntu-24.04","bootstrap_pins":"PASS_30_OF_30","machine_ticket_binding":"PASS","firewalls":"PASS","read_only_git_diff":"PASS"},
+  "machine_ticket":{"ticket_id":"3c4acd2b22daf849e0dd4f3b5bffb327058aa92f3cb63a3902e06f605bf10854","action":"VERIFY_FIRST_GATE_SCORER_WITH_INDEPENDENT_ORACLE","state_id":"FG_SCORER_PRIMARY_BUILT","guard_profile":"P02_PRE_ECONOMIC_SCORER_PRIMARY_BUILT"},
+  "scientific_guards":{"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"new_ga1_authorized":false,"first_gate_executed":false},
+  "decision":"V253_CHAT_HANDOFF_CANDIDATE_AUDIT_PASS_ELIGIBLE_FOR_CURRENT_CHAT_HANDOFF_ACTIVATION"
+}
