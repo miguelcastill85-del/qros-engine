@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_PUBLIC1000_CHAT_HANDOFF_EXTERNAL_AUDIT_RECEIPT_1.0",
+  "status":"PASS",
+  "mode":"ACTIVE",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "handoff":{"path":"control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_V252_AUDITED_BOOTSTRAP_20260914_v2.json","git_blob_sha1":"4d94ab7cbc93233ad15b4e07e85b3ed79e2c652a"},
+  "stable_scientific_pointer":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","git_blob_sha1":"84fdb25f6af18b4b118e7425f2a5427cfb5c0207","version":"V252"},
+  "machine_ticket":{"ticket_id":"cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552","action":"BUILD_FIRST_GATE_SCORER"},
+  "external_validation":{"workflow":"qros-chat-handoff-audit-v1","workflow_path":".github/workflows/qros-chat-handoff-audit-v1.yml","workflow_git_blob_sha1":"dd3ca8abbf98ba16065d45b5644888c393f15a2b","run_id":34911668343,"job_id":104200301440,"trigger_commit":"3aaaa806902e44d3f9a8a519cbd4625ca9f5e3bb","conclusion":"success"},
+  "results":{"mode_observed":"ACTIVE","bootstrap_dependencies":"24/24 PASS","primary":"PASS","independent_oracle":"PASS","primary_oracle_parity":"PASS","negative_mutations":10,"negative_mutations_passed":10,"adversarial_receipt_sha256":"489878a57e2d8a5ceab01383721a1f50e2ec7a89f90e9211def86420dd74dd8b","external_gate_receipt_sha256":"3ab6ce8d6c44f93b1418a44f451ea18d35598cb98e1aa7df4a9c1dd1e5e4c7dc"},
+  "economic_pnl_read":false,
+  "ga2_open":false,
+  "holdout_open":false,
+  "decision":"ACTIVE_HANDOFF_V2_EXTERNAL_AUDIT_PASS; POINTER_MAY_BE_MARKED ACTIVE_AUDITED. FINAL_POINTER_REVALIDATION_REQUIRED AFTER RECEIPT_PINNING."
+}
