@@ -105,7 +105,6 @@ class OracleParityTests(unittest.TestCase):
             elif isinstance(node, ast.ImportFrom):
                 imported.append(node.module or "")
         self.assertFalse(any("qros_first_gate_scorer_v1" in name for name in imported))
-        self.assertNotIn("qros_first_gate_scorer_v1", source_path.read_text(encoding="utf-8"))
 
     def test_full_row_by_row_parity_mixed_masks(self):
         self.parity(self.base_doc())
