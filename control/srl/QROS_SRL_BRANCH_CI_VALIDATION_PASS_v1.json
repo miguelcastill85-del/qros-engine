@@ -1,0 +1,15 @@
+{
+  "schema": "QROS_SRL_BRANCH_CI_VALIDATION_PASS_1.1",
+  "layer": "QROS_STRATEGY_RECONSTRUCTION_LAYER_v1.3",
+  "branch": "srl-v1.3-hardening-v254-20260914",
+  "base_main_sha": "0ed5fd0efd157520c9f4bb17c68d87e451ee34cd",
+  "validated_head_sha": "550eabdcbb6369ecbe64205f2f89c7b9a89b9826",
+  "github_actions": {"run_id":34923248192,"job_id":104235742305,"workflow":"QROS Strategy Reconstruction Layer v1.3","status":"completed","conclusion":"success"},
+  "checks": {"python_compile":"PASS","adversarial_suite":"PASS_54_OF_54","v2512_missing_generator":"FAIL_CLOSED_PASS","branch_only_guard":"PASS","no_economic_or_holdout_side_effect":"PASS"},
+  "economic_pnl_read": false,
+  "holdout_opened": false,
+  "ga2_opened": false,
+  "new_ga1_opened": false,
+  "merge_allowed": false,
+  "decision": "PASS_P07_P08_V254"
+}
