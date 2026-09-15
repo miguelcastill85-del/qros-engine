@@ -8,6 +8,7 @@ on:
       - 'governance/QROS_STRATEGY_RECONSTRUCTION_LAYER_SPEC_v1.3.json'
       - 'scripts/qros_strategy_reconstruction_core_v1.py'
       - 'scripts/qros_strategy_reconstruction_adversarial_v1.py'
+      - 'scripts/qros_srl_v2512_missing_bytes_simulation_v1.py'
       - '.github/workflows/qros-strategy-reconstruction-layer-v1.yml'
   workflow_dispatch:
 
@@ -28,7 +29,8 @@ jobs:
           python3 --version
           python3 -m py_compile \
             scripts/qros_strategy_reconstruction_core_v1.py \
-            scripts/qros_strategy_reconstruction_adversarial_v1.py
+            scripts/qros_strategy_reconstruction_adversarial_v1.py \
+            scripts/qros_srl_v2512_missing_bytes_simulation_v1.py
           echo SRL_PYTHON_COMPILE=PASS
 
       - name: Run adversarial suite
@@ -44,6 +46,20 @@ jobs:
           assert r['passed'] == r['test_count'], r
           print('SRL_ADVERSARIAL=PASS')
           print('SRL_TEST_COUNT='+str(r['test_count']))
+          PY
+
+      - name: Simulate v2512 missing-generator pathology
+        run: |
+          PYTHONPATH=scripts python3 scripts/qros_srl_v2512_missing_bytes_simulation_v1.py | tee /tmp/v2512.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/v2512.json'))
+          assert r['status']=='PASS', r
+          assert r['generator_hash_identity_preserved'] is True, r
+          assert r['generator_bytes_available'] is False, r
+          assert r['reconstruction_certification']=='FAIL_CLOSED', r
+          assert r['main_merge_authorized'] is False, r
+          print('SRL_V2512_MISSING_BYTES_FAIL_CLOSED=PASS')
           PY
 
       - name: Enforce branch-only premerge state
@@ -62,7 +78,11 @@ jobs:
         run: |
           python3 - <<'PY'
           from pathlib import Path
-          for p in [Path('scripts/qros_strategy_reconstruction_core_v1.py'), Path('scripts/qros_strategy_reconstruction_adversarial_v1.py')]:
+          for p in [
+              Path('scripts/qros_strategy_reconstruction_core_v1.py'),
+              Path('scripts/qros_strategy_reconstruction_adversarial_v1.py'),
+              Path('scripts/qros_srl_v2512_missing_bytes_simulation_v1.py')
+          ]:
               t=p.read_text()
               assert 'OPEN_HOLDOUT' not in t
               assert 'READ_ECONOMIC_PNL' not in t
