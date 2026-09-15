@@ -1,0 +1,29 @@
+{
+  "schema":"QROS_V253_CANDIDATE_COMPATIBILITY_FAILURE_RECEIPT_1.0",
+  "date":"2026-09-14",
+  "status":"FAIL_CLOSED_PRESERVED",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "candidate_version":"V253",
+  "failed_candidate_target":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V253_v1.json","git_blob_sha1":"67a33c4d8116f0175e25f7a76c5c5836346c5f1a"},
+  "stable_parent":{"version":"V252","pointer_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","git_blob_sha1":"84fdb25f6af18b4b118e7425f2a5427cfb5c0207"},
+  "external_validation":{"workflow":".github/workflows/qros-deterministic-execution-kernel-v6.yml","run_id":34913269679,"job_id":104205270813,"trigger_commit":"6e93934ee1e8f86d18d5cdd22381354d0901fb10","result":"FAIL_CLOSED","last_successful_stage":"DYNAMIC_COMPONENT_SYNTAX=PASS","failing_stage":"Compile deterministic action in resolved mode","error":"CORE_COMPILER_FAIL: KERNEL_NOT_ACTIVE_SINGLE"},
+  "root_cause":{
+    "classification":"CANDIDATE_TARGET_COMPATIBILITY_MISMATCH",
+    "wrapper_v3_accepts":["ACTIVE_CANDIDATE","ACTIVE"],
+    "pinned_transitive_core_v2_requires":"ACTIVE",
+    "failed_value":"ACTIVE_CANDIDATE",
+    "scientific_logic_affected":false,
+    "primary_scorer_affected":false,
+    "economic_data_exposed":false
+  },
+  "minimal_correction":{
+    "preserve_failed_target":true,
+    "new_target_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V253_v2.json",
+    "only_execution_kernel_status_change":{"from":"ACTIVE_CANDIDATE","to":"ACTIVE"},
+    "all_scientific_flags_unchanged":true,
+    "all_fifo_fields_unchanged":true,
+    "all_scorer_source_pins_unchanged":true
+  },
+  "scientific_guards":{"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"new_ga1_authorized":false,"first_gate_executed":false},
+  "decision":"REJECT_V253_V1_AS_RUNTIME_INCOMPATIBLE; VALIDATE_CORRECTED_V253_V2_FROM_SAME_V252_PARENT"
+}
