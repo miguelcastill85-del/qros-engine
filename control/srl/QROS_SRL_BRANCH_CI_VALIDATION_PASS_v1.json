@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_SRL_BRANCH_CI_VALIDATION_PASS_1.0",
+  "status": "PASS",
+  "branch": "srl-v1.3-hardening-20260914-final",
+  "base_main_sha": "7a22404271a3051b1ff72d0e08e0f05ac351e6b3",
+  "validated_code_sha": "010f63f81195d7902011be1c0d3a16ad90344bca",
+  "workflow_run_id": 34914313532,
+  "workflow_conclusion": "success",
+  "checks": {
+    "python_compile": "PASS",
+    "adversarial_suite": "PASS_54_OF_54",
+    "v2512_missing_generator_fail_closed": "PASS",
+    "branch_only_guard": "PASS",
+    "no_economic_or_holdout_side_effect": "PASS"
+  },
+  "post_validation_branch_head_at_receipt_creation": "a8e97798f38183203ba0e25412129f649801815f",
+  "post_validation_compare": {
+    "base": "010f63f81195d7902011be1c0d3a16ad90344bca",
+    "head": "a8e97798f38183203ba0e25412129f649801815f",
+    "executable_or_governance_source_changed": false,
+    "only_control_cleanup_and_premerge_ledger_changed": true
+  },
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "main_merge_allowed": false,
+  "remaining_premerge_blockers": [
+    "P09_REAL_APPROVED_STRATEGY_CAPSULE",
+    "P12_MT5_PATH",
+    "P14_CONTROLLER_TRANSITION_INTEGRATION",
+    "P15_CLEAN_ROOM_INDEPENDENT_VALIDATION"
+  ]
+}
