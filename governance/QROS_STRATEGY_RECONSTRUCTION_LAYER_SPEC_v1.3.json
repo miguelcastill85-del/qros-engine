@@ -1,0 +1,71 @@
+{
+  "schema": "QROS_STRATEGY_RECONSTRUCTION_LAYER_SPEC_1.3",
+  "status": "IMPLEMENTATION_BRANCH_DRAFT",
+  "authority": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "base_commit": "7a22404271a3051b1ff72d0e08e0f05ac351e6b3",
+    "implementation_branch": "srl-v1.3-hardening-20260914-final"
+  },
+  "separation_of_concerns": {
+    "scientific_state": "Scientific verdict only; never changed by storage or reconstruction incidents.",
+    "reconstruction_capability": "Whether exact reconstruction can be executed now from currently available verified dependencies.",
+    "reconstruction_certification": "Immutable proof that R00-R19 passed at a specified capsule root and locator-registry root.",
+    "recovery_health": "Current operational redundancy and availability: HEALTHY, DEGRADED, FAILED."
+  },
+  "strategy_capsule": "Immutable semantic/content-addressed authority. Provider paths are forbidden.",
+  "locator_registry": "Separate append-only operational authority with monotonically increasing generation and canonical SHA-256 root.",
+  "execution_binding": "Every reconstruction run pins exact strategy capsule root, exact locator registry root, resolver contract and fetch-TTL policy.",
+  "artifact_identity": {
+    "canonical": "sha256 exact stored bytes",
+    "git_sha1": "transport pin only; never canonical scientific identity",
+    "compressed": "storage_sha256 + decoder_sha256 + payload_sha256"
+  },
+  "redundancy": {
+    "strict_certification": "Every critical artifact requires >=2 verified independent failure domains OR one verified copy plus a closed, exact, acyclic rematerialization path.",
+    "ordinary_reconstruction": "One verified copy can reconstruct now but recovery_health becomes DEGRADED and R17 cannot certify."
+  },
+  "terminal_states_requiring_fresh_certification": [
+    "FROZEN_CANDIDATE",
+    "REJECTED",
+    "OBSERVATIONAL_RESERVE",
+    "BRANCH_EXHAUSTED",
+    "APPROVED_RESEARCH",
+    "APPROVED_FINAL"
+  ],
+  "critical_rule": "Failure of reconstructability never rewrites scientific_state. It blocks or degrades reconstruction certification only.",
+  "gates": [
+    "R00_IDENTITY_CANONICAL",
+    "R01_SCHEMA_COMPLETE",
+    "R02_RULES_FULLY_RESOLVED",
+    "R03_CONFIG_FULLY_RESOLVED",
+    "R04_CODE_CONTENT_ADDRESSED",
+    "R05_DATA_CONTENT_ADDRESSED",
+    "R06_REGISTRY_TRUSTED_AND_FETCH_FRESH",
+    "R07_ENVIRONMENT_REBUILDABLE",
+    "R08_RUNNER_INVOCATION_FROZEN",
+    "R09_GOLDEN_VECTOR_PASS",
+    "R10_PRIMARY_ORACLE_PARITY_OR_EXPLICIT_WAIVER",
+    "R11_LEDGER_REGENERATED_UNDER_COMPARISON_CONTRACT",
+    "R12_METRICS_REDERIVED",
+    "R13_DECISION_REDERIVED",
+    "R14_EXPOSURE_MONOTONICITY_PRESERVED",
+    "R15_DEPENDENCY_GRAPH_CLOSED_ACYCLIC",
+    "R16_RETENTION_GUARD_ACTIVE_TOCTOU_SAFE",
+    "R17_REDUNDANCY_ACROSS_FAILURE_DOMAINS_OR_CLOSED_REMATERIALIZATION",
+    "R18_CLEAN_ROOM_ZERO_CACHE_PASS",
+    "R19_CAPSULE_ROOT_SEALED_AND_CERTIFICATE_PERSISTED"
+  ],
+  "merge_policy": {
+    "main_direct_write": false,
+    "branch_validation_required": true,
+    "clean_room_required": true,
+    "adversarial_suite_required": true,
+    "real_strategy_fixtures_required": [
+      "approved_strategy",
+      "rejected_strategy",
+      "large_shared_carrier_strategy",
+      "mt5_strategy"
+    ],
+    "v2512_missing_bytes_simulation_must_fail_certification": true
+  }
+}

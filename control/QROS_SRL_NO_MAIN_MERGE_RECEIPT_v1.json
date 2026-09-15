@@ -1,0 +1,14 @@
+{
+  "schema": "QROS_SRL_NO_MAIN_MERGE_RECEIPT_1.1",
+  "branch": "srl-v1.3-hardening-v254-20260914",
+  "base_main_sha": "0ed5fd0efd157520c9f4bb17c68d87e451ee34cd",
+  "main_modified_by_srl": false,
+  "merge_allowed": false,
+  "blocked_until": ["P07", "P08", "P09", "P12", "P14", "P15"],
+  "scientific_state_changes": false,
+  "economic_pnl_read": false,
+  "holdout_opened": false,
+  "ga2_opened": false,
+  "new_ga1_opened": false,
+  "decision": "FAIL_CLOSED_NO_MAIN_MERGE"
+}

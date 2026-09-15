@@ -1,0 +1,32 @@
+{
+  "schema": "QROS_SRL_IMPLEMENTATION_BRANCH_AUTHORITY_1.1",
+  "created_at": "2026-09-14T23:52:00-03:00",
+  "layer": "QROS_STRATEGY_RECONSTRUCTION_LAYER_v1.3",
+  "branch": "srl-v1.3-hardening-v254-20260914",
+  "base": {
+    "branch": "main",
+    "version": "V254",
+    "commit_sha": "0ed5fd0efd157520c9f4bb17c68d87e451ee34cd",
+    "tree_sha": "2b0e69c80cacdf4b1219e0d399a350f555e6a1f5",
+    "verified": true
+  },
+  "migration": {
+    "previous_implementation_branch": "srl-v1.3-hardening-20260914-final",
+    "previous_head_sha": "b0da3bf372d54e51d3ecdf21ef8087b40084e1f5",
+    "policy": "copy only immutable code/spec/neutral pilot receipts by Git blob identity; regenerate all base-dependent authority and CI evidence",
+    "v253_to_v254_delta_review": "ORTHOGONAL_PATHS_VERIFIED",
+    "previous_ci_is_current_certification": false
+  },
+  "scope_guards": {
+    "economic_pnl": "CLOSED",
+    "first_gate_economic_execution": "WITHHELD_BY_MAIN_V254",
+    "ga2": "CLOSED",
+    "holdout": "CLOSED",
+    "new_ga1": "CLOSED",
+    "alpha_changes": false
+  },
+  "merge_allowed": false,
+  "main_direct_write": false,
+  "status": "DEVELOPMENT_RUNNING",
+  "next_automatic_action": "materialize V254 branch atomically, run fresh SRL CI, then continue P09/P12/P14/P15 without waiting on blocked external gates"
+}
