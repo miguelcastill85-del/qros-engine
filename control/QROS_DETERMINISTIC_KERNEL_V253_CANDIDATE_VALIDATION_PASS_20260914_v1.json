@@ -1,0 +1,37 @@
+{
+  "schema":"QROS_DETERMINISTIC_KERNEL_CANDIDATE_VALIDATION_PASS_1.0",
+  "date":"2026-09-14",
+  "status":"PASS",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "candidate_version":"V253",
+  "candidate_target":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V253_v2.json","git_blob_sha1":"b0b1e638ca9a760ec14b38272f7fc37d1f75d3e0"},
+  "stable_parent":{"version":"V252","pointer_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","git_blob_sha1":"84fdb25f6af18b4b118e7425f2a5427cfb5c0207"},
+  "candidate_pointer":{"path":"control/QROS_PUBLIC_1000_EXECUTION_KERNEL_CANDIDATE_POINTER.json","git_blob_sha1":"9cf3aed359260224e516e1b67274935deb6d0e87"},
+  "external_validation":{
+    "workflow":".github/workflows/qros-deterministic-execution-kernel-v6.yml",
+    "run_id":34913369040,
+    "job_id":104205575197,
+    "trigger_commit":"339e486aace3298bed5260fec42f4c992dedadb3",
+    "mode":"CANDIDATE_VALIDATION",
+    "direct_authority_exact_pins":"PASS",
+    "dynamic_component_syntax":"PASS",
+    "compiler":"PASS",
+    "independent_kernel_oracle":"PASS",
+    "adversarial_suite":"PASS",
+    "generic_future_version_test":true
+  },
+  "machine_ticket":{
+    "ticket_id":"3c4acd2b22daf849e0dd4f3b5bffb327058aa92f3cb63a3902e06f605bf10854",
+    "state_id":"FG_SCORER_PRIMARY_BUILT",
+    "guard_profile":"P02_PRE_ECONOMIC_SCORER_PRIMARY_BUILT",
+    "action_type":"VERIFY_FIRST_GATE_SCORER_WITH_INDEPENDENT_ORACLE",
+    "action_sequence":4,
+    "subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","first_gate_order":1,"distinct_mask_classes":303572},
+    "resolved_success_state":"FG_SCORER_PARITY_PASS"
+  },
+  "kernel_oracle":{"status":"PASS","independent_implementation":true,"imports_primary_compiler":false,"receipt_sha256":"cc0d662d1a21d21335a34975f0aef8dc7ebd6ae7d37700fc79799c7bbae9dcac"},
+  "adversarial":{"status":"PASS","cases":14,"negative_mutations":11,"receipt_sha256":"9f94478528fc325741b4d0fa261c74a51fbd6ab52b641de1a6faadb9737c8075"},
+  "correction_history":{"preserved_failed_candidate":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V253_v1.json","git_blob_sha1":"67a33c4d8116f0175e25f7a76c5c5836346c5f1a"},"failure_receipt":{"path":"control/QROS_V253_CANDIDATE_KERNEL_STATUS_COMPATIBILITY_FAILURE_20260914_v1.json","git_blob_sha1":"f9083352004904bdbfc088660c6cc1c9b0d3b278"},"correction":"execution_kernel.status ACTIVE_CANDIDATE -> ACTIVE only"},
+  "scientific_guards":{"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"new_ga1_authorized":false,"first_gate_executed":false},
+  "decision":"V253_V2_CANDIDATE_VALIDATED_FOR_STABLE_PROMOTION_TO_ACTIVE_VALIDATION_PENDING"
+}
