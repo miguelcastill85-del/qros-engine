@@ -1,0 +1,7 @@
+{
+  "schema": "QROS_SRL_NO_MAIN_MERGE_RECEIPT_1.0",
+  "branch": "srl-v1.3-hardening-20260914-final",
+  "main_merge_performed": false,
+  "reason": "Premerge gates P07-P15 are not yet all PASS.",
+  "fail_closed": true
+}
