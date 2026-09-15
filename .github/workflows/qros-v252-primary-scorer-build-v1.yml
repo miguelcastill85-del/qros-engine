@@ -1,0 +1,53 @@
+name: qros-v252-primary-scorer-build-v1
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/qros_first_gate_scorer_v1.py'
+      - 'tests/test_qros_first_gate_scorer_v1.py'
+      - 'control/QROS_PUBLIC_1000_FIRST_GATE_SCORER_PRIMARY_BUILD_RECEIPT_20260914_v1.json'
+      - '.github/workflows/qros-v252-primary-scorer-build-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  primary-scorer-build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile scorer and tests
+        run: python -m py_compile scripts/qros_first_gate_scorer_v1.py tests/test_qros_first_gate_scorer_v1.py
+      - name: Run synthetic non-economic tests
+        run: python tests/test_qros_first_gate_scorer_v1.py -v
+      - name: Validate build receipt pins when present
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f control/QROS_PUBLIC_1000_FIRST_GATE_SCORER_PRIMARY_BUILD_RECEIPT_20260914_v1.json ]; then
+            python - <<'PY'
+          import hashlib, json, pathlib
+          p=pathlib.Path
+          r=json.load(open('control/QROS_PUBLIC_1000_FIRST_GATE_SCORER_PRIMARY_BUILD_RECEIPT_20260914_v1.json'))
+          def blob(path):
+              b=p(path).read_bytes(); return hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          assert r['status']=='PASS_EXTERNAL_BUILD'
+          assert blob(r['primary_source']['path'])==r['primary_source']['git_blob_sha1']
+          assert blob(r['primary_tests']['path'])==r['primary_tests']['git_blob_sha1']
+          assert blob(r['execution_capsule']['path'])==r['execution_capsule']['git_blob_sha1']
+          assert r['scientific_guards']=={'economic_pnl_read':False,'ga2_open':False,'holdout_open':False,'new_ga1_authorized':False,'first_gate_executed':False}
+          assert r['next_state']=='FG_SCORER_PRIMARY_BUILT'
+          assert r['next_action']=='VERIFY_FIRST_GATE_SCORER_WITH_INDEPENDENT_ORACLE'
+          print('PRIMARY_BUILD_RECEIPT_PINS=PASS')
+          PY
+          else
+            echo BUILD_RECEIPT_NOT_YET_PRESENT=EXPECTED_FIRST_PASS
+          fi
+      - name: Prove build gate is read-only
+        run: git diff --exit-code
