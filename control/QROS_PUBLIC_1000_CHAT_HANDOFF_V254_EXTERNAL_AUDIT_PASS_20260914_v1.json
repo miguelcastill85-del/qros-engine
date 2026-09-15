@@ -1,0 +1,14 @@
+{
+  "schema":"QROS_PUBLIC1000_CHAT_HANDOFF_EXTERNAL_AUDIT_RECEIPT_1.0",
+  "date":"2026-09-14",
+  "status":"PASS",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "handoff":{"path":"control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_V254_20260914_v1.json","git_blob_sha1":"dcc9bbe5e32eedd054a12c8c694e18fdd2f9dfcc"},
+  "stable_pointer":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","git_blob_sha1":"02c9f594aa45befaf7a01e4c18716f1a19b177aa","version":"V254"},
+  "external_validation":{"workflow":".github/workflows/qros-v254-chat-handoff-audit-v1.yml","run_id":34915876760,"job_id":104213237873,"runner":"ubuntu-24.04","bootstrap_pins":"PASS_31_OF_31","machine_ticket_binding":"PASS","economic_firewall":"PASS","read_only":"PASS"},
+  "machine_ticket_id":"8f56d8e39fb3edd0b7ecf45bb26bb94d7266db4f96f5d093eb26f674b48d20cd",
+  "machine_action":"EXECUTE_FIRST_GATE_FIFO_CURRENT",
+  "economic_execution_status":"WITHHELD",
+  "scientific_guards":{"scientific_execution_authorized":false,"first_gate_execution_authorized":false,"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"new_ga1_authorized":false},
+  "decision":"HANDOFF_V254_EXTERNAL_AUDIT_PASS_ACTIVATION_ALLOWED_WITH_ECONOMIC_FIREWALL_CLOSED"
+}
