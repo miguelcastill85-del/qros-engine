@@ -1,8 +1,0 @@
-{
-  "schema": "QROS_SRL_ACTION_POINTER_1.0",
-  "branch": "srl-v1.3-hardening-20260914-final",
-  "current_action": "VALIDATE_BRANCH_IMPLEMENTATION",
-  "next_on_pass": "RUN_REAL_STRATEGY_CAPSULE_PILOTS",
-  "next_on_fail": "REPAIR_ONLY_FAILED_SRL_COMPONENT",
-  "main_merge_allowed": false
-}
