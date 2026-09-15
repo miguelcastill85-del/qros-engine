@@ -1,0 +1,156 @@
+name: qros-w09b-s04-normalizer-parity-v1
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/qros-w09b-s04-normalizer-parity-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  w09b-s04-normalizer-parity:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Verify exact frozen S04 authority and pins
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, pathlib
+
+          PINS = {
+            'governance/QROS_PUBLIC1000_SEED0076_FIRST_GATE_NORMALIZED_EXECUTION_CONTRACT_v1.1.json': '5d7006c5b54d4647113c7caab5107e8c9229d2bf',
+            'control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.2.json': 'a75f72a45dd66d4916812113dad9721073b8e175',
+            'control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.2.json': '68ef19675b7a3d509bf34f4c341a4e8a05f59b55',
+            'scripts/qros_first_gate_execution_normalizer_primary_v1.py': '7774745805999db2faa59ff5f318c1e3072eeea5',
+            'scripts/qros_first_gate_execution_normalizer_oracle_v1.py': '347ff69ab1ffd85f99a0905701b47659ea324444',
+            'scripts/qros_first_gate_execution_normalizer_primary_v2.py': '323937c4c591c4531d3ebde2d20fa695e48a5067',
+            'scripts/qros_first_gate_execution_normalizer_oracle_v2.py': '9581a725d4f2c0d590763fe97743dd8c21948b8f',
+            'scripts/qros_first_gate_execution_normalizer_adversarial_v1.py': '28ec3b0cb99c831c884295f5eae5b6bee99ff76e',
+          }
+          def blob(path):
+              b = pathlib.Path(path).read_bytes()
+              return hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          for path, expected in PINS.items():
+              got = blob(path)
+              assert got == expected, (path, expected, got)
+
+          c = json.loads(pathlib.Path('governance/QROS_PUBLIC1000_SEED0076_FIRST_GATE_NORMALIZED_EXECUTION_CONTRACT_v1.1.json').read_text())
+          w = json.loads(pathlib.Path('control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.2.json').read_text())
+          g = json.loads(pathlib.Path('control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.2.json').read_text())
+          assert c['status'] == 'FROZEN_PRE_PNL'
+          assert w['current_node'] == 'W09B_FIRST_GATE_NORMALIZED_EXECUTION_AND_PARITY'
+          w10 = next(x for x in w['nodes'] if x['id'] == 'W10_FIRST_GATE')
+          assert w10['status'] == 'PREREGISTERED_BLOCKED_BY_W09B'
+          assert g['current_blocking_gap'] == 'GAP-S04'
+          s04 = next(x for x in g['open_gaps'] if x['id'] == 'GAP-S04')
+          assert 'READ_ECONOMIC_PNL' in s04['forbidden_while_open']
+          assert 'EXECUTE_FIRST_GATE_ECONOMIC_SCORING' in s04['forbidden_while_open']
+          print('S04_EXACT_PINS_AND_FIREWALL=PASS')
+          PY
+
+      - name: Compile frozen normalizers and adversarial harness
+        run: |
+          python3 -m py_compile \
+            scripts/qros_first_gate_execution_normalizer_primary_v1.py \
+            scripts/qros_first_gate_execution_normalizer_oracle_v1.py \
+            scripts/qros_first_gate_execution_normalizer_primary_v2.py \
+            scripts/qros_first_gate_execution_normalizer_oracle_v2.py \
+            scripts/qros_first_gate_execution_normalizer_adversarial_v1.py
+
+      - name: Prove independent primary and oracle implementations
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import ast, pathlib
+          p = pathlib.Path('scripts/qros_first_gate_execution_normalizer_primary_v1.py')
+          o = pathlib.Path('scripts/qros_first_gate_execution_normalizer_oracle_v1.py')
+          assert p.read_bytes() != o.read_bytes()
+          for path, forbidden in [(p, 'qros_first_gate_execution_normalizer_oracle'), (o, 'qros_first_gate_execution_normalizer_primary')]:
+              tree = ast.parse(path.read_text())
+              names=[]
+              for n in ast.walk(tree):
+                  if isinstance(n, ast.Import): names += [x.name for x in n.names]
+                  elif isinstance(n, ast.ImportFrom): names.append(n.module or '')
+              assert all(forbidden not in x for x in names), (path, names)
+          print('PRIMARY_ORACLE_SOURCE_INDEPENDENCE=PASS')
+          PY
+
+      - name: Synthetic trade-by-trade parity and fail-closed adversarial suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/qros_first_gate_execution_normalizer_adversarial_v1.py | tee /tmp/w09b_receipt.json
+          python3 - <<'PY'
+          import json, pathlib
+          r=json.loads(pathlib.Path('/tmp/w09b_receipt.json').read_text().strip().splitlines()[-1])
+          assert r['schema']=='QROS_FIRST_GATE_EXECUTION_NORMALIZER_ADVERSARIAL_RECEIPT_1.0'
+          assert r['status']=='PASS'
+          assert r['synthetic_only'] is True
+          assert r['economic_pnl_read'] is False
+          assert r['check_count'] == len(r['checks'])
+          assert r['check_count'] >= 20
+          for required in [
+            'PRIMARY_ORACLE_BYTE_PARITY',
+            'SYNTHETIC_ECONOMIC_FIREWALL',
+            'PRODUCTION_OVERLAP_BINDING_FAIL',
+            'CONTRACT_PIN_FAIL',
+          ]:
+              assert required in r['checks'], required
+          print('W09B_SYNTHETIC_PARITY_AND_ADVERSARIAL=PASS')
+          print('W09B_RECEIPT_SHA256='+r['receipt_sha256'])
+          print('NORMALIZED_TRADES_SHA256='+r['primary_oracle_normalized_trades_sha256'])
+          print('SUMMARY_SHA256='+r['primary_oracle_summary_sha256'])
+          PY
+
+      - name: Prove production mode remains fail closed
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, pathlib, subprocess, sys, tempfile
+          contract='5d7006c5b54d4647113c7caab5107e8c9229d2bf'
+          fixture={
+            'schema':'QROS_FIRST_GATE_EXECUTION_FIXTURE_1.0',
+            'mode':'PRODUCTION',
+            'campaign':'PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA',
+            'execution_contract_git_blob_sha1':contract,
+            'synthetic_fixture':False,
+          }
+          scenario={
+            'scenario_id':'PRODUCTION_MUST_FAIL_CLOSED',
+            'event_anchor':{
+              'canonical_signal_config_id':'CFG_PROD','event_mask_sha256':'0'*64,'event_id':'EV_PROD','side':'BUY',
+              'signal_observable_timestamp':900,'entry_trigger_timestamp':1000,'opposite_fractal_stop':'99','session_close_timestamp':5000,
+            },
+            'ticks':[{'carrier_sequence':1,'timestamp':1000,'bid':'100','ask':'101'}],
+          }
+          with tempfile.TemporaryDirectory() as td:
+              root=pathlib.Path(td); inp=root/'in'; inp.mkdir()
+              inp.joinpath('manifest.json').write_text(json.dumps(fixture,separators=(',',':'),sort_keys=True)+'\n')
+              inp.joinpath('scenarios.jsonl').write_text(json.dumps(scenario,separators=(',',':'),sort_keys=True)+'\n')
+              for script in ['scripts/qros_first_gate_execution_normalizer_primary_v2.py','scripts/qros_first_gate_execution_normalizer_oracle_v2.py']:
+                  out=root/pathlib.Path(script).stem
+                  p=subprocess.run([sys.executable,script,'--input',str(inp),'--output',str(out)],text=True,capture_output=True)
+                  assert p.returncode==2,(script,p.stdout,p.stderr)
+                  r=json.loads(p.stdout.strip().splitlines()[-1])
+                  assert r['status']=='FAIL_CLOSED',r
+                  assert r['error']=='OVERLAPPING_EVENT_POLICY_UNBOUND_IN_PRODUCTION',r
+          print('PRODUCTION_FAIL_CLOSED=PASS')
+          PY
+
+      - name: Prove validation is read-only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --exit-code
+          test -z "$(git status --porcelain)"
+          echo W09B_VALIDATION_READ_ONLY=PASS
