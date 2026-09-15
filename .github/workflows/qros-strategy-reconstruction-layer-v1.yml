@@ -1,0 +1,70 @@
+name: QROS Strategy Reconstruction Layer v1.3
+
+on:
+  push:
+    branches:
+      - srl-v1.3-hardening-20260914-final
+    paths:
+      - 'governance/QROS_STRATEGY_RECONSTRUCTION_LAYER_SPEC_v1.3.json'
+      - 'scripts/qros_strategy_reconstruction_core_v1.py'
+      - 'scripts/qros_strategy_reconstruction_adversarial_v1.py'
+      - '.github/workflows/qros-strategy-reconstruction-layer-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-srl-v1-3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout exact branch commit
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Compile SRL sources
+        run: |
+          python3 --version
+          python3 -m py_compile \
+            scripts/qros_strategy_reconstruction_core_v1.py \
+            scripts/qros_strategy_reconstruction_adversarial_v1.py
+          echo SRL_PYTHON_COMPILE=PASS
+
+      - name: Run adversarial suite
+        run: |
+          PYTHONPATH=scripts python3 scripts/qros_strategy_reconstruction_adversarial_v1.py | tee /tmp/srl.json
+          python3 - <<'PY'
+          import json
+          r=json.load(open('/tmp/srl.json'))
+          assert r['status']=='PASS', r
+          assert r['synthetic_only'] is True, r
+          assert r['economic_pnl_read'] is False, r
+          assert r['test_count'] >= 54, r
+          assert r['passed'] == r['test_count'], r
+          print('SRL_ADVERSARIAL=PASS')
+          print('SRL_TEST_COUNT='+str(r['test_count']))
+          PY
+
+      - name: Enforce branch-only premerge state
+        run: |
+          python3 - <<'PY'
+          import json
+          s=json.load(open('governance/QROS_STRATEGY_RECONSTRUCTION_LAYER_SPEC_v1.3.json'))
+          assert s['status']=='IMPLEMENTATION_BRANCH_DRAFT', s
+          assert s['merge_policy']['main_direct_write'] is False, s
+          assert s['merge_policy']['clean_room_required'] is True, s
+          assert s['merge_policy']['adversarial_suite_required'] is True, s
+          print('SRL_BRANCH_ONLY_GUARD=PASS')
+          PY
+
+      - name: No economic or holdout side effects
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          for p in [Path('scripts/qros_strategy_reconstruction_core_v1.py'), Path('scripts/qros_strategy_reconstruction_adversarial_v1.py')]:
+              t=p.read_text()
+              assert 'OPEN_HOLDOUT' not in t
+              assert 'READ_ECONOMIC_PNL' not in t
+          print('SRL_NO_ECONOMIC_SIDE_EFFECT=PASS')
+          PY
