@@ -1,0 +1,95 @@
+name: qros-v254-chat-handoff-audit-v1
+
+on:
+  pull_request:
+    paths:
+      - 'control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_V254_20260914_v1.json'
+      - 'control/QROS_PUBLIC_1000_CURRENT_CHAT_HANDOFF.json'
+      - 'control/QROS_PUBLIC_1000_CHAT_HANDOFF_V254_EXTERNAL_AUDIT_PASS_20260914_v1.json'
+      - '.github/workflows/qros-v254-chat-handoff-audit-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-v254-handoff:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Verify V254 handoff bytes, 31 pins, ticket and economic firewall
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          H='control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_V254_20260914_v1.json'
+          C='control/QROS_PUBLIC_1000_CURRENT_CHAT_HANDOFF.json'
+          def blob(path):
+              b=pathlib.Path(path).read_bytes()
+              return hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          h=json.load(open(H,encoding='utf-8'))
+          assert h['schema']=='QROS_PUBLIC1000_CHAT_MIGRATION_HANDOFF_4.0'
+          assert h['campaign']=='PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA'
+          assert h['stable_scientific_pointer']['expected_version']=='V254'
+          assert h['stable_scientific_pointer']['expected_git_blob_sha1']=='02c9f594aa45befaf7a01e4c18716f1a19b177aa'
+          assert blob(h['stable_scientific_pointer']['path'])==h['stable_scientific_pointer']['expected_git_blob_sha1']
+          deps=h['bootstrap_dependencies']
+          assert h['bootstrap_dependency_count']==31==len(deps)
+          assert len({x['role'] for x in deps})==31
+          assert len({x['path'] for x in deps})==31
+          for x in deps:
+              got=blob(x['path'])
+              assert got==x['git_blob_sha1'],(x['role'],got,x['git_blob_sha1'])
+          s=json.load(open(h['stable_scientific_pointer']['path'],encoding='utf-8'))
+          t=h['machine_ticket']
+          assert s['current_version']=='V254'
+          assert s['target_path']==h['stable_target']['path']
+          assert s['target_git_blob_sha1']==h['stable_target']['git_blob_sha1']
+          assert s['machine_action_ticket_id']==t['ticket_id']
+          assert s['machine_action_type']==t['action']
+          assert s['machine_state_id']==t['state_id']
+          assert s['machine_guard_profile']==t['guard_profile']
+          assert s['machine_subject']==t['subject']
+          assert t['execution_status']=='ECONOMIC_EXECUTION_WITHHELD'
+          assert s['candidate_validation_status']=='PASS'
+          assert s['active_validation_status']=='PASS'
+          assert s['active_execution_validation_status']=='NOT_AUTHORIZED'
+          assert s['scientific_execution_authorized'] is False
+          assert s['first_gate_scorer_status']=='PARITY_PASS'
+          assert s['first_gate_execution_authorized'] is False
+          assert s['economic_pnl_read'] is False
+          assert s['ga2_open'] is False
+          assert s['holdout_open'] is False
+          assert s['new_ga1_authorized'] is False
+          st=h['scientific_state']
+          assert st['scientific_execution_authorized'] is False
+          assert st['first_gate_execution_authorized'] is False
+          assert st['economic_pnl_read'] is False
+          assert st['ga2_open'] is False and st['holdout_open'] is False and st['new_ga1_authorized'] is False
+          closed=set(h['closed_actions'])
+          assert {'READ_ECONOMIC_PNL','EXECUTE_FIRST_GATE_FIFO_CURRENT','OPEN_GA2','OPEN_HOLDOUT','START_NEW_GA1','ACTIVE_EXECUTION'} <= closed
+          if pathlib.Path(C).exists():
+              p=json.load(open(C,encoding='utf-8'))
+              if p.get('handoff_path')==H:
+                  assert p['handoff_git_blob_sha1']==blob(H)
+                  assert p['stable_scientific_pointer']['expected_git_blob_sha1']==blob('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json')
+                  assert p['stable_scientific_pointer']['expected_version']=='V254'
+                  assert p['machine_ticket_id']==t['ticket_id']
+                  assert p['machine_action']==t['action']
+                  assert p['economic_execution_status']=='WITHHELD'
+                  assert p['economic_pnl_read'] is False
+                  assert p['first_gate_execution_authorized'] is False
+                  assert p['scientific_execution_authorized'] is False
+                  assert p['ga2_open'] is False and p['holdout_open'] is False and p['new_ga1_authorized'] is False
+          print('V254_CHAT_HANDOFF_AUDIT=PASS')
+          print('BOOTSTRAP_PINS=31/31')
+          print('P03_EXECUTION=WITHHELD')
+          print('MACHINE_TICKET='+t['ticket_id'])
+          PY
+      - name: Prove audit is read-only
+        run: |
+          git diff --exit-code
+          test -z "$(git status --porcelain)"
