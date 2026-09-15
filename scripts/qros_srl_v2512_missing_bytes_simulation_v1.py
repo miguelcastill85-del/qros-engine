@@ -5,12 +5,11 @@ The expected result is FAIL_CLOSED, never reconstructability PASS.
 from __future__ import annotations
 
 import copy
-import json
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
 
-from qros_strategy_reconstruction_adversarial_v1 import make_fixture, _seal_registry
+from qros_strategy_reconstruction_adversarial_v1 import make_fixture, _seal_capsule, _seal_registry
 from qros_strategy_reconstruction_core_v1 import SRLError, canonical_json, certify_reconstruction
 
 NOW = datetime(2026, 9, 14, 12, 0, 0, tzinfo=timezone.utc)
@@ -22,6 +21,7 @@ def main() -> int:
         capsule = copy.deepcopy(capsule)
         capsule["strategy_id"] = "XAU_BUY_MULTIWEEK_PULLBACK_v2512_SIMULATION"
         capsule["scientific_state"] = "OBSERVATIONAL_RESERVE"
+        _seal_capsule(capsule)
 
         # Simulate exactly the historical pathology: the capsule still knows the
         # generator/content identity, but every locator for that indispensable
