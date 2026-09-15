@@ -1,0 +1,104 @@
+{
+  "schema": "QROS_PUBLIC1000_W09B_NORMALIZED_EXECUTION_PARITY_PASS_1.0",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "PASS_EXTERNAL_SYNTHETIC_PARITY",
+  "scientific_scope": "W09B_FIRST_GATE_NORMALIZED_EXECUTION_AND_PARITY",
+  "economic": false,
+  "synthetic_only": true,
+  "economic_pnl_read": false,
+  "subject": {
+    "instrument": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "first_gate_order": 1,
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "expected_distinct_mask_classes": 303572
+  },
+  "authority_pins": {
+    "normalized_execution_contract": {
+      "path": "governance/QROS_PUBLIC1000_SEED0076_FIRST_GATE_NORMALIZED_EXECUTION_CONTRACT_v1.1.json",
+      "git_blob_sha1": "5d7006c5b54d4647113c7caab5107e8c9229d2bf"
+    },
+    "master_workgraph": {
+      "path": "control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.2.json",
+      "git_blob_sha1": "a75f72a45dd66d4916812113dad9721073b8e175"
+    },
+    "architecture_gap_register": {
+      "path": "control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.2.json",
+      "git_blob_sha1": "68ef19675b7a3d509bf34f4c341a4e8a05f59b55"
+    },
+    "primary_normalizer_v1": {
+      "path": "scripts/qros_first_gate_execution_normalizer_primary_v1.py",
+      "git_blob_sha1": "7774745805999db2faa59ff5f318c1e3072eeea5"
+    },
+    "independent_oracle_v1": {
+      "path": "scripts/qros_first_gate_execution_normalizer_oracle_v1.py",
+      "git_blob_sha1": "347ff69ab1ffd85f99a0905701b47659ea324444"
+    },
+    "primary_contract_adapter_v2": {
+      "path": "scripts/qros_first_gate_execution_normalizer_primary_v2.py",
+      "git_blob_sha1": "323937c4c591c4531d3ebde2d20fa695e48a5067"
+    },
+    "oracle_contract_adapter_v2": {
+      "path": "scripts/qros_first_gate_execution_normalizer_oracle_v2.py",
+      "git_blob_sha1": "9581a725d4f2c0d590763fe97743dd8c21948b8f"
+    },
+    "adversarial_harness": {
+      "path": "scripts/qros_first_gate_execution_normalizer_adversarial_v1.py",
+      "git_blob_sha1": "28ec3b0cb99c831c884295f5eae5b6bee99ff76e"
+    }
+  },
+  "external_validation": {
+    "pull_request": 43,
+    "head_commit_sha": "ca7c5e565f350c3df7fbd9e238ea458f177546d8",
+    "workflow": "qros-w09b-s04-normalizer-parity-v1",
+    "run_id": 34922227265,
+    "job_id": 104232681664,
+    "runner": "ubuntu-24.04",
+    "conclusion": "success",
+    "exact_pins_and_firewall": "PASS",
+    "compile": "PASS",
+    "primary_oracle_source_independence": "PASS",
+    "synthetic_trade_by_trade_byte_parity": "PASS",
+    "adversarial_fail_closed_suite": "PASS",
+    "production_mode_fail_closed": "PASS",
+    "repository_read_only": "PASS"
+  },
+  "synthetic_adversarial_receipt": {
+    "schema": "QROS_FIRST_GATE_EXECUTION_NORMALIZER_ADVERSARIAL_RECEIPT_1.0",
+    "status": "PASS",
+    "check_count": 20,
+    "receipt_sha256": "14098d38f1150df3d7b8407b1625fb7bb2b2d1054ffbd121db106c97f1a6688e",
+    "primary_oracle_normalized_trades_sha256": "725987ecacd3ecb5e34705d4174eac10afb08e67ae44d0a6c1577e590e82d566",
+    "primary_oracle_summary_sha256": "6c09deeea5e36cf8e9f8198673d5a741183a6e6a44c487fdf0b8f46cb4a0fd3f",
+    "economic_pnl_read": false,
+    "synthetic_only": true
+  },
+  "correction_provenance": {
+    "first_run_id": 34922174522,
+    "first_job_id": 104232522391,
+    "classification": "NON_SCIENTIFIC_VALIDATOR_FALSE_POSITIVE",
+    "root_cause": "Workflow addressed nodes[10] as W10; nodes[10] is W09B. Frozen scientific pins had not failed.",
+    "correction": "Locate W10 by node id instead of positional index.",
+    "scientific_code_changed": false
+  },
+  "W09B_closure_evidence": {
+    "frozen_normalized_execution_contract": "PASS",
+    "primary_execution_normalizer_source": "PASS",
+    "independent_execution_oracle_source": "PASS",
+    "synthetic_trade_by_trade_parity": "PASS",
+    "fail_closed_execution_mutation_suite": "PASS",
+    "production_rematerialization_contract_without_invented_raw_mask_encoding": "PASS_CONTRACT_FROZEN_NOT_YET_MATERIALIZED_FOR_PRODUCTION"
+  },
+  "firewalls": {
+    "economic_pnl_read": false,
+    "first_gate_economic_scoring_executed": false,
+    "production_normalized_input_bundle_materialized": false,
+    "production_trade_by_trade_parity_executed": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_ga1_started": false
+  },
+  "decision": "W09B_SYNTHETIC_ENGINEERING_CLOSURE_EVIDENCE_COMPLETE; W10 REMAINS LOCKED UNTIL PRODUCTION NORMALIZED INPUT BUNDLE + INDEPENDENT REAL TRADE-BY-TRADE PARITY + EXPLICIT ECONOMIC EXPOSURE TRANSITION",
+  "next_action": "RECONCILE_W09B_GAP_S04_TO_TERMINAL_PASS_THEN_MATERIALIZE_W10_PRODUCTION_PREREQUISITES_WITHOUT_ECONOMIC_SCORING"
+}
