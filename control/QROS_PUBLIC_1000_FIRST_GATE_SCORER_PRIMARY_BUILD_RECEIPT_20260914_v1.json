@@ -1,0 +1,88 @@
+{
+  "schema": "QROS_PUBLIC1000_FIRST_GATE_SCORER_PRIMARY_BUILD_RECEIPT_1.0",
+  "date": "2026-09-14",
+  "status": "PASS_EXTERNAL_BUILD",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "machine_ticket": {
+    "ticket_id": "cbac25c78b1b4ac20af8563ba4dd0630515368404ba5cb06ff94a83432679552",
+    "action": "BUILD_FIRST_GATE_SCORER",
+    "source_state": "FG_SCORER_NOT_BUILT",
+    "guard_profile": "P01_PRE_ECONOMIC_SCORER_NOT_BUILT"
+  },
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "first_gate_order": 1,
+    "distinct_mask_classes": 303572
+  },
+  "execution_capsule": {
+    "path": "control/QROS_PUBLIC_1000_EXECUTION_CAPSULE_FG_SCORER_CBAC25C7_20260914_v2.json",
+    "git_blob_sha1": "407d50553f381eb8627587bae0b2453f3701e10e",
+    "external_validation_run_id": 34912793823,
+    "external_validation_job_id": 104203794832,
+    "validation_status": "PASS_24_OF_24_PINS"
+  },
+  "primary_source": {
+    "path": "scripts/qros_first_gate_scorer_v1.py",
+    "git_blob_sha1": "5a63ba35ed432760ff92c2f6d27dbd829435844b"
+  },
+  "primary_tests": {
+    "path": "tests/test_qros_first_gate_scorer_v1.py",
+    "git_blob_sha1": "f7d14214d19dfe2182a3a15d057ff9f5da5df861",
+    "synthetic_test_count": 7
+  },
+  "external_build_validation": {
+    "workflow": ".github/workflows/qros-v252-primary-scorer-build-v1.yml",
+    "run_id": 34913093727,
+    "job_id": 104204731486,
+    "validated_head_sha": "3aa79058167338c10f394da10124506a39c437ab",
+    "runner": "ubuntu-24.04",
+    "python": "3.12",
+    "compile": "PASS",
+    "synthetic_tests": "PASS_7_OF_7",
+    "read_only_git_diff": "PASS"
+  },
+  "implemented_contract": {
+    "one_sided_hac_newey_west": true,
+    "bartlett_weights": true,
+    "frozen_hac_lag_rule": true,
+    "degenerate_variance_p_value_one": true,
+    "minimum_trades_30": true,
+    "benjamini_yekutieli": true,
+    "per_shard_q": "1/1200",
+    "zero_event_class_p_value_one": true,
+    "candidate_survival_requires": ["BY_REJECTED_NULL", "trades>=30", "net_R>0", "expectancy_R>0", "PF>1"],
+    "canonical_output_sort": "SIGNAL_CONFIG_ID ascending",
+    "all_distinct_masks_required_before_decision": true
+  },
+  "construction_exposure": {
+    "economic_inputs_used": false,
+    "real_DEV_PnL_used": false,
+    "holdout_used": false,
+    "GA2_executed": false,
+    "first_gate_executed": false,
+    "test_data": "SYNTHETIC_ONLY"
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_executed": false
+  },
+  "known_build_incident": {
+    "initial_run_id": 34912988508,
+    "initial_job_id": 104204402002,
+    "classification": "NON_SCIENTIFIC_TEST_BOOTSTRAP_FAILURE",
+    "root_cause": "direct test execution did not place repository root on sys.path",
+    "correction": "tests/test_qros_first_gate_scorer_v1.py explicitly prepends repository root before importing scripts",
+    "scientific_logic_changed": false,
+    "primary_scorer_bytes_changed_by_correction": false
+  },
+  "decision": "PRIMARY_SCORER_BUILD_PASS_PENDING_RECEIPT_SELF_VALIDATION_AND_DURABLE_STATE_PROMOTION",
+  "next_state": "FG_SCORER_PRIMARY_BUILT",
+  "next_action": "VERIFY_FIRST_GATE_SCORER_WITH_INDEPENDENT_ORACLE",
+  "economic_execution_authorized": false
+}
