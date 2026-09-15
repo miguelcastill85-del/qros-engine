@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_DETERMINISTIC_KERNEL_ACTIVE_VALIDATION_RECEIPT_1.0",
+  "date":"2026-09-14",
+  "status":"PASS",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "frontier_version":"V254",
+  "validated_stable_pointer_git_blob_sha1":"a73d449d316d0ecc287f4cd7e87cc314aefc6efa",
+  "target":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V254_v1.json","git_blob_sha1":"832d141e370e7d8c0c5bfc65f330a3570ddead82"},
+  "external_validation":{"workflow":".github/workflows/qros-deterministic-execution-kernel-v6.yml","run_id":34915710979,"job_id":104212749090,"mode":"ACTIVE_VALIDATION","validation_only":true,"kernel_validation":"PASS","independent_oracle":"PASS","active_pointer_ticket_binding":"PASS","direct_authority_exact_pins":"PASS","dynamic_component_syntax":"PASS","oracle_receipt_sha256":"09b6b59c6a527481440b478ee102ee1bef42b009100c79c243e4cd996940b544"},
+  "machine_ticket":{"ticket_id":"8f56d8e39fb3edd0b7ecf45bb26bb94d7266db4f96f5d093eb26f674b48d20cd","action":"EXECUTE_FIRST_GATE_FIFO_CURRENT","state_id":"FG_SCORER_PARITY_PASS","guard_profile":"P03_PRE_ECONOMIC_SCORER_PARITY_PASS","subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","first_gate_order":1,"distinct_mask_classes":303572}},
+  "machine_action_executed":false,
+  "active_execution_authorized":false,
+  "scientific_guards":{"scientific_execution_authorized":false,"first_gate_execution_authorized":false,"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"new_ga1_authorized":false},
+  "decision":"ACTIVE_VALIDATION_PASS_P03_EXECUTION_WITHHELD"
+}

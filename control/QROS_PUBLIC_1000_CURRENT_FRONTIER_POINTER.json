@@ -7,7 +7,7 @@
   "target_creation_commit":"6bdc1ca28d82b746e3ce8d44d64c5296facabbf2",
   "state":"DEVELOPMENT_RUNNING",
   "scientific_state":"PREREGISTERED_NO_RESULTS",
-  "phase":"V254_SCORER_PARITY_PASS_ACTIVE_VALIDATION_PENDING_ECONOMIC_LATCH_CLOSED",
+  "phase":"V254_SCORER_PARITY_PASS_ACTIVE_VALIDATED_ECONOMIC_LATCH_CLOSED",
   "architecture_kernel_active":true,
   "kernel_epoch":8,
   "action_sequence":5,
@@ -20,8 +20,10 @@
   "candidate_validation_run_id":34915575378,
   "candidate_validation_job_id":104212338109,
   "candidate_validation_status":"PASS",
-  "active_validation_receipt":null,
-  "active_validation_status":"PENDING",
+  "active_validation_receipt":{"path":"control/QROS_DETERMINISTIC_KERNEL_V254_ACTIVE_VALIDATION_PASS_20260914_v1.json","git_blob_sha1":"f63598802ab28ca4fa8ff42449c9f7282da54a29"},
+  "active_validation_run_id":34915710979,
+  "active_validation_job_id":104212749090,
+  "active_validation_status":"PASS",
   "active_execution_validation_receipt":null,
   "active_execution_validation_status":"NOT_AUTHORIZED",
   "scientific_execution_authorized":false,
@@ -50,6 +52,6 @@
   "holdout_open":false,
   "ga2_open":false,
   "remaining_full_history_zips_required_for_current_action":false,
-  "resume_contract":"V254 is the scorer-parity PASS checkpoint candidate promoted to stable active-validation pending. Exact machine ticket 8f56d8e39fb3edd0b7ecf45bb26bb94d7266db4f96f5d093eb26f674b48d20cd resolves P03 EXECUTE_FIRST_GATE_FIFO_CURRENT for FIFO #1 XAUUSD/BUY/M1, but the economic action is explicitly NOT authorized. Only ACTIVE_VALIDATION of the ticket/pins is permitted. Economic PnL, FIRST_GATE execution, GA2, holdout and new GA1 remain closed.",
-  "next_action":"ADVISORY_ONLY: complete ACTIVE_VALIDATION of V254/P03 and persist the scorer-parity durable checkpoint while withholding the economic execution latch."
+  "resume_contract":"V254 is the durable ACTIVE_VALIDATED scorer-parity PASS checkpoint. Exact P03 machine ticket 8f56d8e39fb3edd0b7ecf45bb26bb94d7266db4f96f5d093eb26f674b48d20cd is machine-resolved for FIFO #1 XAUUSD/BUY/M1 but explicitly not executable under the standing firewall. Economic PnL, FIRST_GATE execution, GA2, holdout and new GA1 remain closed. A later explicit durable authorization is required before opening the P03 execution latch.",
+  "next_action":"ADVISORY_ONLY: STOP_AT_ECONOMIC_FIREWALL_P03; preserve V254 authority and do not execute FIRST_GATE until an explicit durable authorization opens the economic latch."
 }
