@@ -1,0 +1,31 @@
+name: qros-v252-execution-capsule-v1
+
+on:
+  pull_request:
+    paths:
+      - 'control/QROS_PUBLIC_1000_EXECUTION_CAPSULE_FG_SCORER_CBAC25C7_20260914_v2.json'
+      - 'scripts/qros_execution_capsule_validate_v2.py'
+      - '.github/workflows/qros-v252-execution-capsule-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-capsule:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile validator
+        run: python -m py_compile scripts/qros_execution_capsule_validate_v2.py
+      - name: Validate exact V252 capsule and 24 pins
+        run: >-
+          python scripts/qros_execution_capsule_validate_v2.py
+          --capsule control/QROS_PUBLIC_1000_EXECUTION_CAPSULE_FG_SCORER_CBAC25C7_20260914_v2.json
+      - name: Prove validation is read-only
+        run: git diff --exit-code
