@@ -1,0 +1,14 @@
+{
+  "schema":"QROS_PUBLIC1000_V255_W09C_FRONTIER_CANDIDATE_VALIDATION_PASS_1.0",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "version":"V255",
+  "status":"PASS_EXTERNAL_CANDIDATE_VALIDATION",
+  "economic":false,
+  "economic_pnl_read":false,
+  "candidate_target":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json","git_blob_sha1":"4b19ee8c84e47332cc2b2117010deb0d0edbde12"},
+  "authority":{"reconciliation_receipt":{"path":"control/QROS_PUBLIC_1000_W09B_S04_RECONCILIATION_PASS_20260915_v1.json","git_blob_sha1":"c6c9d6ffa297648d22eeef7ae3677da1e29ce9c8"},"workgraph":{"path":"control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.3.json","git_blob_sha1":"73a614bcbc455d91612bb2f1b4122a9e220101fd"},"gap_register":{"path":"control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.3.json","git_blob_sha1":"19374372d66a7d244c20befb9f424b069f4b9810"}},
+  "external_validation":{"pull_request":45,"workflow":"qros-v255-w09c-frontier-candidate-v1","head_commit_sha":"36175ffd7ac41f45bbb6fafd58d243372ce6f166","run_id":34923269650,"job_id":104235807224,"runner":"ubuntu-24.04","conclusion":"success","exact_pins_forward_reconciliation":"PASS","authorization_firewall_mutations":"PASS_8_OF_8","repository_read_only":"PASS"},
+  "validated_state":{"current_node":"W09C_FIRST_GATE_PRODUCTION_PREREQUISITES","current_gap":"GAP-S05","historical_p03_status":"SUPERSEDED_NOT_EXECUTABLE_UNDER_W09C","scientific_execution_authorized":false,"first_gate_execution_authorized":false,"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"new_ga1_authorized":false},
+  "decision":"V255_CANDIDATE_VALIDATED_FOR_STABLE_PROMOTION_WITH_ECONOMIC_SCORING_CLOSED",
+  "next_action":"MERGE_V255_TARGET_THEN_CAS_PROMOTE_STABLE_POINTER_AND_EXTERNALLY_AUDIT"
+}
