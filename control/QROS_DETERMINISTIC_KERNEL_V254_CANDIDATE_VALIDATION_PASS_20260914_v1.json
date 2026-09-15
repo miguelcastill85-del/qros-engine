@@ -1,0 +1,16 @@
+{
+  "schema":"QROS_DETERMINISTIC_KERNEL_CANDIDATE_VALIDATION_RECEIPT_1.0",
+  "date":"2026-09-14",
+  "status":"PASS",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "frontier_version":"V254",
+  "candidate_target":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V254_v1.json","git_blob_sha1":"832d141e370e7d8c0c5bfc65f330a3570ddead82"},
+  "candidate_pointer":{"path":"control/QROS_PUBLIC_1000_EXECUTION_KERNEL_CANDIDATE_POINTER.json","git_blob_sha1":"4a7365439b644a1bd11bcb6a9836feab796281dd"},
+  "expected_parent":{"version":"V253","stable_pointer_git_blob_sha1":"b9ad269c40e3719ce00c3e60483de54cded1f236"},
+  "external_validation":{"workflow":".github/workflows/qros-deterministic-execution-kernel-v6.yml","run_id":34915575378,"job_id":104212338109,"mode":"CANDIDATE_VALIDATION","validation_only":true,"kernel_validation":"PASS","independent_oracle":"PASS","adversarial_suite":"PASS","adversarial_cases":14,"negative_mutations":11,"direct_authority_exact_pins":"PASS","dynamic_component_syntax":"PASS","generic_future_version_test":true,"oracle_receipt_sha256":"09b6b59c6a527481440b478ee102ee1bef42b009100c79c243e4cd996940b544","adversarial_receipt_sha256":"57f07787ac3b893e2e66cdf3edf86dc1796e25784e6406604224d6547d12f89c"},
+  "machine_ticket":{"ticket_id":"8f56d8e39fb3edd0b7ecf45bb26bb94d7266db4f96f5d093eb26f674b48d20cd","action":"EXECUTE_FIRST_GATE_FIFO_CURRENT","state_id":"FG_SCORER_PARITY_PASS","guard_profile":"P03_PRE_ECONOMIC_SCORER_PARITY_PASS","subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","first_gate_order":1,"distinct_mask_classes":303572}},
+  "machine_action_executed":false,
+  "economic_execution_authorized":false,
+  "scientific_guards":{"economic_pnl_read":false,"first_gate_execution_authorized":false,"ga2_open":false,"holdout_open":false,"new_ga1_authorized":false},
+  "decision":"V254_CANDIDATE_VALIDATION_PASS_PROMOTION_ALLOWED_WITH_ECONOMIC_LATCH_CLOSED"
+}
