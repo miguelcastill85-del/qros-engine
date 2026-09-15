@@ -1,0 +1,81 @@
+name: qros-v253-chat-handoff-audit-v1
+
+on:
+  pull_request:
+    paths:
+      - 'control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_V253_20260914_v1.json'
+      - 'control/QROS_PUBLIC_1000_CURRENT_CHAT_HANDOFF.json'
+      - 'control/QROS_PUBLIC_1000_CHAT_HANDOFF_V253_EXTERNAL_AUDIT_PASS_20260914_v1.json'
+      - '.github/workflows/qros-v253-chat-handoff-audit-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit-v253-handoff:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - name: Verify handoff bytes, 30 pins, ticket and firewalls
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib
+          H='control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_V253_20260914_v1.json'
+          C='control/QROS_PUBLIC_1000_CURRENT_CHAT_HANDOFF.json'
+          def blob(path):
+              b=pathlib.Path(path).read_bytes()
+              return hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          h=json.load(open(H,encoding='utf-8'))
+          assert h['schema']=='QROS_PUBLIC1000_CHAT_MIGRATION_HANDOFF_3.0'
+          assert h['campaign']=='PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA'
+          assert h['stable_scientific_pointer']['expected_version']=='V253'
+          assert h['stable_scientific_pointer']['expected_git_blob_sha1']=='b9ad269c40e3719ce00c3e60483de54cded1f236'
+          assert blob(h['stable_scientific_pointer']['path'])==h['stable_scientific_pointer']['expected_git_blob_sha1']
+          deps=h['bootstrap_dependencies']
+          assert h['bootstrap_dependency_count']==30==len(deps)
+          assert len({x['role'] for x in deps})==30
+          assert len({x['path'] for x in deps})==30
+          for x in deps:
+              got=blob(x['path'])
+              assert got==x['git_blob_sha1'],(x['role'],got,x['git_blob_sha1'])
+          s=json.load(open(h['stable_scientific_pointer']['path'],encoding='utf-8'))
+          t=h['machine_ticket']
+          assert s['current_version']=='V253'
+          assert s['target_path']==h['stable_target']['path']
+          assert s['target_git_blob_sha1']==h['stable_target']['git_blob_sha1']
+          assert s['machine_action_ticket_id']==t['ticket_id']
+          assert s['machine_action_type']==t['action']
+          assert s['machine_state_id']==t['state_id']
+          assert s['machine_guard_profile']==t['guard_profile']
+          assert s['machine_subject']==t['subject']
+          assert s['candidate_validation_status']=='PASS'
+          assert s['active_validation_status']=='PASS'
+          assert s['active_execution_validation_status']=='PASS'
+          assert s['first_gate_scorer_status']=='PRIMARY_BUILT'
+          assert s['first_gate_execution_authorized'] is False
+          assert s['economic_pnl_read'] is False
+          assert s['ga2_open'] is False
+          assert s['holdout_open'] is False
+          assert s['new_ga1_authorized'] is False
+          assert h['scientific_state']['economic_pnl_read'] is False
+          assert h['scientific_state']['ga2_open'] is False
+          assert h['scientific_state']['holdout_open'] is False
+          assert h['scientific_state']['new_ga1_authorized'] is False
+          if pathlib.Path(C).exists():
+              p=json.load(open(C,encoding='utf-8'))
+              if p.get('handoff_path')==H:
+                  assert p['handoff_git_blob_sha1']==blob(H)
+                  assert p['stable_scientific_pointer']['expected_git_blob_sha1']==blob('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json')
+                  assert p['stable_scientific_pointer']['expected_version']=='V253'
+                  assert p['machine_ticket_id']==t['ticket_id']
+                  assert p['machine_action']==t['action']
+                  assert p['economic_pnl_read'] is False and p['ga2_open'] is False and p['holdout_open'] is False
+          print('V253_CHAT_HANDOFF_AUDIT=PASS')
+          print('BOOTSTRAP_PINS=30/30')
+          print('MACHINE_TICKET='+t['ticket_id'])
+          PY
+      - name: Prove audit is read-only
+        run: git diff --exit-code
