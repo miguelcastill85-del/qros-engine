@@ -1,0 +1,37 @@
+{
+  "schema": "QROS_AUTHORITY_BRANCH_LEASE_1.0",
+  "lease_id": "QROS_SRL_V1_3_LEASE_20260915",
+  "lane_id": "SRL_V1_3_PRODUCTION_HARDENING",
+  "campaign_id": "QROS_STRATEGY_RECONSTRUCTION_LAYER_v1_3",
+  "base_head_sha": "4190ac2209470fb30e2818814122e48561efd4c6",
+  "branch": "srl-v1.3-lease-20260915",
+  "dependency_paths": [
+    "control/QROS_AUTHORITY_BRANCH_LEASE_POLICY_v1.json",
+    "scripts/qros_nonstall_execution_governor_v1.py",
+    "scripts/qros_strategy_reconstruction_core_v1.py",
+    "scripts/qros_strategy_reconstruction_adversarial_v1.py",
+    "control/srl/",
+    "schemas/strategy_reconstruction/",
+    "tests/reconstruction/",
+    ".github/workflows/qros-srl-v1.3-hardening.yml"
+  ],
+  "started_at": "2026-09-16T02:42:00Z",
+  "expires_at": "2026-09-16T08:42:00Z",
+  "last_progress_at": "2026-09-16T02:42:00Z",
+  "progress_fingerprint": "LEASE_ACQUIRED_BASE_4190ac2209470fb30e2818814122e48561efd4c6_BRANCH_CREATED",
+  "state": "ACTIVE",
+  "inputs_frozen": {
+    "lease_policy_sha256_git_blob": "75a8174475b8140cb44190295349e4655bdf9947",
+    "source_srl_branch": "srl-v1.3-hardening-20260914-final",
+    "source_srl_commit": "3531c4016f4d965a1611b5369492d7c98673af99",
+    "neutral_blob_reuse": "CONTENT_SHA_ONLY",
+    "old_pass_reuse": "FORBIDDEN_UNLESS_BASE_NEUTRAL_AND_CONTENT_IDENTITIES_UNCHANGED"
+  },
+  "writer": "CHATGPT_QROS_EXECUTION_LANE",
+  "evidence_scope": {
+    "allowed": ["SRL code", "SRL schemas", "SRL tests", "SRL workflow", "SRL controller integration", "reconstruction receipts"],
+    "forbidden": ["economic PnL changes", "alpha changes", "GA2", "holdout opening", "scorer changes"]
+  },
+  "terminal_premerge": "RECONCILE_TO_LIVE_MAIN_REQUIRED",
+  "merge_allowed": false
+}
