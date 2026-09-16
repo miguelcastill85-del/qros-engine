@@ -1,0 +1,15 @@
+{
+  "schema":"QROS_PUBLIC1000_W09C_SEMANTIC_SOURCE_TRANSITIVE_CLOSURE_CORRECTION_1.0",
+  "date":"2026-09-16",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status":"PASS_TRANSITIVE_SOURCE_CLOSURE_CORRECTED",
+  "scientific_state":"PREREGISTERED_NO_RESULTS",
+  "authority":{"stable_frontier_version":"V255","w09c_binding_manifest":{"path":"control/QROS_PUBLIC_1000_W09C_PRODUCTION_PREREQUISITE_BINDING_MANIFEST_20260915_v1.json","git_blob_sha1":"41f53130ed8f0cea1fe4ae3d86c1c25840d5898c"}},
+  "problem":"W09C semantic_rematerializer_sources pinned scripts/qros_seed0076_build_indicator_cache_v220.py but omitted its local transitive dependency scripts/qros_seed0076_indicators_v220.py.",
+  "evidence":{"builder":{"path":"scripts/qros_seed0076_build_indicator_cache_v220.py","git_blob_sha1":"21a50b167e791f4474e3c358b81e40065c048280","import":"from qros_seed0076_indicators_v220 import compute_all, EMA_PERIODS"},"missing_transitive_dependency":{"path":"scripts/qros_seed0076_indicators_v220.py","git_blob_sha1":"b3575c061607aaae9f4062ad623ff7083e2e0ffe"}},
+  "transitive_import_audit":{"qros_seed0076_config_stream.py":"stdlib only","qros_seed0076_structural_v220.py":"numpy+numba only","qros_seed0076_gate_engine_v221.py":"stdlib+numpy only","qros_seed0076_carrier_masks_v221.py":"depends on already pinned qros_seed0076_gate_engine_v221.py","qros_seed0076_build_bar_cache_v220.py":"stdlib+numpy only","qros_seed0076_bar_cache_oracle_v220.py":"depends on already pinned qros_seed0076_build_bar_cache_v220.py","qros_seed0076_build_indicator_cache_v220.py":"depends on previously omitted qros_seed0076_indicators_v220.py"},
+  "correction":"Extend the W09C semantic-rematerializer source closure with scripts/qros_seed0076_indicators_v220.py at blob b3575c061607aaae9f4062ad623ff7083e2e0ffe. Historical manifest remains immutable.",
+  "scientific_impact":"NONE. No formulas, alpha rules, periods, data, gates or execution semantics changed; this closes an authority pin omission before production use.",
+  "binding_effect":{"semantic_rematerializer_sources":"PASS_SOURCE_HASHES_FROZEN_WITH_TRANSITIVE_CLOSURE_CORRECTION","economic_transition_authorized":false},
+  "guards":{"economic_pnl_read":false,"holdout_open":false,"ga2_open":false,"new_ga1_authorized":false,"first_gate_economic_scoring_executed":false}
+}
