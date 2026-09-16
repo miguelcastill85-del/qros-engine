@@ -1,0 +1,78 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_XAU_SEMANTIC_REMATERIALIZATION_PASS_1.0",
+  "date": "2026-09-16",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "PASS_INDEPENDENT_ORACLE",
+  "scope": "PRE_PNL_SEMANTIC_REMATERIALIZATION_ONLY",
+  "base_authority": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "main_commit": "c5c44af04e457fa3f131630e6babeba10ff3ba96",
+    "frontier_version": "V255",
+    "current_node": "W09C_FIRST_GATE_PRODUCTION_PREREQUISITES",
+    "binding_manifest": {
+      "path": "control/QROS_PUBLIC_1000_W09C_PRODUCTION_PREREQUISITE_BINDING_MANIFEST_20260915_v1.json",
+      "git_blob_sha1": "41f53130ed8f0cea1fe4ae3d86c1c25840d5898c"
+    }
+  },
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+  },
+  "verified_inputs": {
+    "dev_records": 151382388,
+    "dev_bytes": 2573500596,
+    "dev_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "processed_signal_configs": 804672,
+    "ordered_config_id_stream_root_sha256": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3",
+    "source_group_count": 24,
+    "configs_per_group": 33528
+  },
+  "primary_merge": {
+    "status": "PASS",
+    "processed_signal_configs": 804672,
+    "distinct_mask_class_count": 303572,
+    "duplicate_config_count": 501100,
+    "local_distinct_class_sum_before_cross_group_merge": 304069,
+    "semantic_class_root_sha256": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+    "full_alias_mapping_root_sha256": "4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458",
+    "distributed_physical_index_root_sha256": "e48200ac229252315e63e4c1d52b18aaea39d81719186bf9dfe5d41965fc87da",
+    "zero_event_class_alias_count": 13148,
+    "merge_embedded_receipt_sha256": "0fef556e0c7566aed9e97237567d9ea16ea4810013fc7195c12e27d17c1cded2",
+    "merge_receipt_file_sha256": "7d211a0de787d0dd0d629859aad23c71ec85435b942ebc21af70ce7d0ba22dc9",
+    "global_mask_class_index_sha256": "28124d8cfdf86ff97f52ffe202daeaa230b11a79574604e1a4b351d1fda0a632",
+    "global_duplicate_alias_pairs_sha256": "3740aaccc6d4f00c9e033a5dffb34b663bf0223bf20eed302278eb75498d31d2"
+  },
+  "independent_merge_oracle": {
+    "status": "PASS",
+    "reconstructed_processed_signal_configs": 804672,
+    "reconstructed_distinct_mask_class_count": 303572,
+    "reconstructed_semantic_class_root_sha256": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+    "reconstructed_full_alias_mapping_root_sha256": "4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458",
+    "oracle_embedded_receipt_sha256": "562f6fe56e16d40e77967ef8c9d66a97eaaf5c727e0f4402fcbacb48645d678c",
+    "oracle_file_sha256": "3135169ae0bc972b772171d5b45df37a458af394cdfe3ba1b86e294940f59da5",
+    "failures": []
+  },
+  "group_execution": {
+    "groups_pass": 24,
+    "groups_expected": 24,
+    "processed_signal_configs_sum": 804672,
+    "all_worker_status": "PASS",
+    "note": "Group receipts and distributed mask blobs are runtime artifacts; exact primary and independent global roots are recorded above."
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "gap_nomenclature_correction": {
+    "official_gap_id": "GAP-S05",
+    "official_area": "W10 production prerequisite bindings, normalized production bundle and independent real trade-by-trade parity",
+    "non_authoritative_label_to_discard": "GAP-S06",
+    "reason": "The durable architecture gap register v4.3 contains no GAP-S06. The prior working label must not be promoted into authority."
+  },
+  "decision": "SEMANTIC_MASK_ROOT_REMATERIALIZATION_CLOSED_PASS_CONTINUE_GAP_S05_PRODUCTION_BUNDLE_AND_REAL_PARITY"
+}
