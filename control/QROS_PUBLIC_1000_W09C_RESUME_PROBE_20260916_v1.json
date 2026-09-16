@@ -1,0 +1,122 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_RESUME_PROBE_1.0",
+  "date": "2026-09-16",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "objective": "Revalidate the W09C/GAP-S05 infrastructure blocker after chat migration without repeating closed scientific work or opening economic exposure.",
+  "authority": {
+    "prewrite_main_head": "4190ac2209470fb30e2818814122e48561efd4c6",
+    "stable_frontier": {
+      "version": "V255",
+      "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json",
+      "git_blob_sha1": "4b19ee8c84e47332cc2b2117010deb0d0edbde12",
+      "creation_commit": "7cc763a418c76aae6c6da04fd29ce33108079ec6"
+    },
+    "workgraph": {
+      "path": "control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.3.json",
+      "git_blob_sha1": "73a614bcbc455d91612bb2f1b4122a9e220101fd"
+    },
+    "gap_register": {
+      "path": "control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.3.json",
+      "git_blob_sha1": "19374372d66a7d244c20befb9f424b069f4b9810"
+    },
+    "w09b_terminal_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09B_NORMALIZED_EXECUTION_PARITY_PASS_20260914_v1.json",
+      "git_blob_sha1": "3350d49f2e814f53d2261dc1d81f59a181966bb3"
+    },
+    "w09c_binding_manifest": {
+      "path": "control/QROS_PUBLIC_1000_W09C_PRODUCTION_PREREQUISITE_BINDING_MANIFEST_20260915_v1.json",
+      "git_blob_sha1": "41f53130ed8f0cea1fe4ae3d86c1c25840d5898c",
+      "creation_commit": "8392df6ed72fcf6108349c9ba98a657af9351f0c"
+    },
+    "parent_execution_checkpoint": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
+      "git_blob_sha1": "eb24d0f001d84e7141c52ebc5f65d866634bb573"
+    }
+  },
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "first_gate_order": 1,
+    "distinct_mask_classes": 303572
+  },
+  "closed_bindings_revalidated": {
+    "broker_server_clock": {
+      "status": "PASS_UNCHANGED",
+      "path": "control/DARWINEX_MT5_DATA_PROVENANCE_TIME_REFERENCE_v1.json",
+      "git_blob_sha1": "6f3b00c7b55f663398300cfaa05cda15c7d23f60"
+    },
+    "session_execution_engine": {
+      "status": "PASS_UNCHANGED",
+      "path": "scripts/qros_seed0076_gate_engine_v221.py",
+      "git_blob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2"
+    },
+    "same_candidate_overlap_policy": {
+      "status": "PASS_UNCHANGED",
+      "path": "governance/QROS_SEED0076_SAME_CANDIDATE_OVERLAP_ADMISSION_POLICY_v1.0.json",
+      "git_blob_sha1": "690e0b82233b22fb800693741eede53ce223f5c2"
+    },
+    "execution_unit_contract": {
+      "status": "PASS_UNCHANGED",
+      "path": "governance/QROS_SEED0076_MANAGEMENT_UNIT_CONTRACT_v1.0.json",
+      "git_blob_sha1": "d13849d922150b092c24078d5886a2f7da48df56"
+    },
+    "canonical_semantic_rematerializer": {
+      "status": "PASS_UNCHANGED",
+      "path": "scripts/qros_seed0076_materialize_minimal_dev.py",
+      "git_blob_sha1": "b543c8585258b21a007af84a53a944bba58678e6"
+    },
+    "carrier_binding": {
+      "status": "PASS_UNCHANGED",
+      "path": "control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_MINIMAL_DEV_CARRIER_BINDING_20260914_v1.json",
+      "git_blob_sha1": "d5de576cd4c81f80931418d40f9f7877c114d03d"
+    },
+    "manifest_source_set_drift_check": {
+      "status": "PASS_NO_BOUND_SOURCE_CHANGED",
+      "method": "Compare manifest creation commit 8392df6ed72fcf6108349c9ba98a657af9351f0c to prewrite main HEAD 4190ac2209470fb30e2818814122e48561efd4c6.",
+      "result": "Five later commits add only checkpoint/blocker/anti-stall governance files; no source or contract frozen by the W09C binding manifest changed."
+    }
+  },
+  "required_xau_dev_identity": {
+    "format": "PACKED17",
+    "parts": "001-008 of 035",
+    "records": 151382388,
+    "bytes": 2573500596,
+    "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
+  },
+  "bounded_resume_probe": {
+    "github_repository_and_receipts": "PASS_IDENTITIES_RECOVERED_NO_PHYSICAL_DEV_BYTES_IN_REPOSITORY",
+    "github_actions": {
+      "status": "NO_RECOVERABLE_BINARY_ARTIFACT",
+      "checked_run_id": 35044431417,
+      "artifact_count": 0
+    },
+    "file_library": "CATALOG_IDENTITY_RECOVERED_BUT_NO_EXECUTABLE_CARRIER_BYTES_EXPOSED_TO_ACTIVE_RUNTIME",
+    "dropbox": "ZERO_MATCHES_FOR_EXACT_PART001_NAME_AND_PART00_PREFIX",
+    "active_runtime": "NO_XAU_CARRIER_OR_EXACT_PACKED17_DEV_PREFIX_PRESENT",
+    "deterministic_rematerialization": "AVAILABLE_ONLY_AFTER_AUTHENTIC_PHYSICAL_CARRIER_BYTES_ARE_RUNTIME_ACCESSIBLE"
+  },
+  "w09c": {
+    "status": "PARTIAL_PASS_PHYSICAL_DATA_RECOVERY_PENDING",
+    "gap": "GAP-S05_PHYSICAL_DEV_BYTES",
+    "bindings_1_to_4": "PASS_PRESERVED",
+    "binding_5_physical_dev_bytes": "BLOCKED_BY_INFRASTRUCTURE",
+    "binding_6_production_normalized_input_bundle": "NOT_MATERIALIZED",
+    "binding_7_independent_production_trade_by_trade_parity": "NOT_EXECUTED",
+    "binding_8_compatible_economic_transition": "NOT_AUTHORIZED"
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "first_gate_economic_scoring_executed": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_started": false,
+    "valid_ga1_shards_preserved": 8,
+    "historical_p03_ticket": "SUPERSEDED_NOT_EXECUTABLE_UNDER_W09C"
+  },
+  "decision": "BLOCKED_BY_INFRASTRUCTURE_REVALIDATED",
+  "root_cause": "Exact XAUUSD DEV physical bytes have a frozen identity and deterministic materialization path, but are not exposed as executable bytes to the active runtime through GitHub, Actions, File Library, Dropbox, or local runtime.",
+  "portfolio_impact": "NONE_NO_ECONOMIC_EXPOSURE",
+  "next_automatic_action": "When authentic executable XAU parts 001-008 or the exact PACKED17 DEV prefix becomes runtime-accessible, verify all part payload hashes and the frozen DEV prefix SHA256, execute the frozen materializer and data-execution-ready preflight, build the sealed production normalized input bundle, execute independent production trade-by-trade parity, then and only then create a new normalized-compatible economic transition/ticket and execute W10 FIFO #1 exactly once."
+}
