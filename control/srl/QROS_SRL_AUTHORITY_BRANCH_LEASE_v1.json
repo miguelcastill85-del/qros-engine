@@ -17,9 +17,9 @@
   ],
   "started_at": "2026-09-16T02:42:00Z",
   "expires_at": "2026-09-16T08:42:00Z",
-  "last_progress_at": "2026-09-16T02:42:00Z",
-  "progress_fingerprint": "LEASE_ACQUIRED_BASE_4190ac2209470fb30e2818814122e48561efd4c6_BRANCH_CREATED",
-  "state": "ACTIVE",
+  "last_progress_at": "2026-09-16T03:11:44Z",
+  "progress_fingerprint": "MIGRATED_NONSTALL_TO_LEASE_CI_35050856881_PASS_CHECKPOINT_236f9d2465b1cbd1b9dcdb13c2dab93bff501aad",
+  "state": "BLOCKED",
   "inputs_frozen": {
     "lease_policy_sha256_git_blob": "75a8174475b8140cb44190295349e4655bdf9947",
     "source_srl_branch": "srl-v1.3-hardening-20260914-final",
@@ -27,11 +27,27 @@
     "neutral_blob_reuse": "CONTENT_SHA_ONLY",
     "old_pass_reuse": "FORBIDDEN_UNLESS_BASE_NEUTRAL_AND_CONTENT_IDENTITIES_UNCHANGED"
   },
+  "reconciliation": {
+    "migrated_source_branch": "srl-v1.3-nonstall-e075f421-20260915",
+    "migrated_source_head": "f9392cdabb3817f214884b1708ef80c828ea0d1e",
+    "migration_pr": 53,
+    "migration_merge_commit": "a52a091b4f9e6b938b79d7612992e84a1f13994e",
+    "lease_ci_head": "ad3505e2f89722fbbae664e2e343ab3d1cb0eae5",
+    "lease_ci_run": 35050856881,
+    "lease_ci_conclusion": "success",
+    "durable_checkpoint": "control/srl/QROS_SRL_LEASE_MIGRATION_CHECKPOINT_v1.json",
+    "durable_checkpoint_commit": "236f9d2465b1cbd1b9dcdb13c2dab93bff501aad"
+  },
+  "blocked_lanes": {
+    "P09_REAL_APPROVED_STRATEGY": "BLOCKED_BY_INFRASTRUCTURE_EXACT_FULL_XAU_M1_PAYLOAD_NOT_RECOVERABLE",
+    "P12_REAL_MT5_PATH": "MT5_EXTERNAL_PENDING_NO_FRESH_CURRENT_AUTHORITY_RUNTIME",
+    "P15_TERMINAL_LEASE_REBIND": "DEFERRED_UNTIL_PRODUCTIVE_FIXTURES_AVAILABLE_OR_FULL_BASE_NEUTRAL_BINDING_IS_PROVEN"
+  },
   "writer": "CHATGPT_QROS_EXECUTION_LANE",
   "evidence_scope": {
     "allowed": ["SRL code", "SRL schemas", "SRL tests", "SRL workflow", "SRL controller integration", "reconstruction receipts"],
     "forbidden": ["economic PnL changes", "alpha changes", "GA2", "holdout opening", "scorer changes"]
   },
-  "terminal_premerge": "RECONCILE_TO_LIVE_MAIN_REQUIRED",
+  "terminal_premerge": "RECONCILE_TO_LIVE_MAIN_REQUIRED_AFTER_ALL_MANDATORY_PRODUCTIVE_GATES_PASS",
   "merge_allowed": false
 }
