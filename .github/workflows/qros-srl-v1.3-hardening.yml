@@ -1,0 +1,49 @@
+name: qros-srl-v1.3-hardening
+on:
+  push:
+    branches:
+      - 'srl-v1.3-lease-*'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile SRL and authority-lease governance
+        run: |
+          python -m py_compile scripts/qros_strategy_reconstruction_core_v1.py
+          python -m py_compile scripts/qros_strategy_reconstruction_adversarial_v1.py
+          python -m py_compile scripts/qros_srl_v2512_missing_bytes_simulation_v1.py
+          python -m py_compile scripts/qros_nonstall_execution_governor_v1.py
+          python -m py_compile scripts/qros_nonstall_execution_governor_tests_v1.py
+          python -m py_compile scripts/qros_srl_terminal_state_guard_v1.py
+          python -m py_compile scripts/qros_srl_terminal_state_guard_tests_v1.py
+          python -m py_compile scripts/qros_srl_terminal_document_guard_v1.py
+          python -m py_compile scripts/qros_srl_terminal_document_guard_tests_v1.py
+      - name: SRL adversarial suite
+        working-directory: scripts
+        run: python qros_strategy_reconstruction_adversarial_v1.py
+      - name: v2512 missing-generator fail-closed
+        working-directory: scripts
+        run: python qros_srl_v2512_missing_bytes_simulation_v1.py
+      - name: Non-stall authority lease tests
+        working-directory: scripts
+        run: python qros_nonstall_execution_governor_tests_v1.py
+      - name: Terminal transition guard tests
+        working-directory: scripts
+        run: python qros_srl_terminal_state_guard_tests_v1.py
+      - name: Terminal document enforcement tests
+        working-directory: scripts
+        run: python qros_srl_terminal_document_guard_tests_v1.py
+      - name: Branch-only merge guard
+        run: |
+          test "$GITHUB_REF_NAME" != "main"
+          python - <<'PY'
+          import json
+          p=json.load(open('control/QROS_SRL_PREMERGE_GATES_v2.json'))
+          assert p['merge_allowed'] is False
+          print('BRANCH_ONLY_GUARD PASS')
+          PY
