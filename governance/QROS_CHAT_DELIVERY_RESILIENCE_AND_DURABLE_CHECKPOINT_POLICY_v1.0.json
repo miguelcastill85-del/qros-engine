@@ -1,0 +1,73 @@
+{
+  "schema": "QROS_CHAT_DELIVERY_RESILIENCE_AND_DURABLE_CHECKPOINT_POLICY_1.0",
+  "status": "ACTIVE",
+  "date": "2026-09-16",
+  "scope": "all QROS/RISE conversational execution, research and engineering continuations",
+  "purpose": "Make scientific progress independent of ChatGPT client rendering, message-delivery retries, reconnects, long-thread failures or volatile runtime loss.",
+  "failure_model": {
+    "transport_or_ui_failure_examples": [
+      "user message appears unsent or is offered for retry after execution began",
+      "assistant/tool progress disappears from the client after reconnect",
+      "secure WebSocket or network interruption",
+      "server-side transient conversation/work error",
+      "long-thread rendering or generation failure",
+      "volatile runtime/container loss"
+    ],
+    "rule": "TRANSPORT_STATE_IS_NEVER_SCIENTIFIC_STATE"
+  },
+  "mandatory_protocol": [
+    "RECOVER_NEWEST_DURABLE_AUTHORITY",
+    "VERIFY_POINTERS_AND_HASHES",
+    "CREATE_OR_REFRESH_EXECUTION_CAPSULE_BEFORE_HEAVY_WORK",
+    "EXECUTE_ONE_BOUNDED_RESTARTABLE_UNIT",
+    "VALIDATE_UNIT_RECEIPT",
+    "PERSIST_UNIT_RECEIPT_OR_DURABLE_CHECKPOINT_BEFORE_NEXT_EXPENSIVE_UNIT",
+    "CONTINUE_AUTOMATICALLY_FROM_FIRST_UNCLOSED_UNIT"
+  ],
+  "durability_rules": {
+    "durable_definition": "A result is closed only when recoverable from a durable store by exact identity/hash, not merely visible in chat or present in a volatile runtime.",
+    "expensive_unit_boundary": "Each shard/group/chunk independently expensive enough to be undesirable to recompute must have its own receipt/checkpoint before the next such unit starts.",
+    "max_unpersisted_expensive_units": 1,
+    "volatile_only_result": "REPORTADO_OR_PROVISIONAL_NOT_VERIFIED_DURABLE",
+    "lost_volatile_runtime": "RECOMPUTE_ONLY_THE_FIRST_UNCLOSED_UNIT_FROM_THE_LAST_DURABLE_CHECKPOINT",
+    "closed_unit_reexecution": "FORBIDDEN_UNLESS_HASH_VALIDATION_FAILS"
+  },
+  "idempotent_retry_rules": {
+    "client_retry_or_duplicate_user_order": "Treat as continuation, not a fresh execution request, when durable authority and next action are unchanged.",
+    "execution_capsule_identity": "Bind campaign + stable authority blob/version + current checkpoint blob + exact next action + target/shard/group identity.",
+    "duplicate_detection": "If a PASS/FAIL receipt for the same execution capsule already exists and hashes validate, reuse it and advance; do not rerun.",
+    "stale_handoff": "FAIL_CLOSED_AND_REGENERATE_FROM_CURRENT_STABLE_AUTHORITY"
+  },
+  "heavy_execution_rules": {
+    "require_chunking": true,
+    "require_atomic_or_transactional_local_receipts": true,
+    "require_hashes": true,
+    "require_resume_cursor": true,
+    "require_durable_persist_before_next_expensive_unit": true,
+    "background_or_detached_worker": "May continue only if its progress is recoverable from receipts; chat visibility is informational only."
+  },
+  "chat_handoff_rules": {
+    "current_chat_handoff_must_pin_current_stable_pointer": true,
+    "current_chat_handoff_must_pin_current_execution_checkpoint": true,
+    "handoff_must_not_contain_executable_stale_ticket": true,
+    "recovery_source_order": [
+      "CURRENT_CHAT_HANDOFF",
+      "CURRENT_FRONTIER_POINTER",
+      "current execution checkpoint",
+      "receipts/manifests/hashes",
+      "frozen artifacts",
+      "GitHub durable state",
+      "other durable stores",
+      "volatile/runtime evidence",
+      "memory only as clue"
+    ]
+  },
+  "scientific_firewalls": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "note": "This policy changes durability/execution control only and grants no scientific or economic authorization."
+  },
+  "supersedes_nothing": "Additive hardening over QROS_CHECKPOINT_RECOVERY_CONTRACT_v2 and QROS_EXECUTION_ANTI_STALL_LIVENESS_POLICY_v1.0."
+}

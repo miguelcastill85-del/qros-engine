@@ -1,0 +1,78 @@
+{
+  "schema": "QROS_CHAT_DELIVERY_FAILURE_AUDIT_1.0",
+  "date": "2026-09-16",
+  "project": "Trading algoritmico / qros-engine",
+  "scope": "ChatGPT transport/rendering failure vs durable QROS execution continuity",
+  "reported_symptom": {
+    "evidence_class": "REPORTADO",
+    "description": "After a user continuation order begins executing, visible progress disappears and the client returns to the user's order showing that it could not be sent, preventing apparent forward progress."
+  },
+  "external_service_evidence": [
+    {
+      "evidence_class": "VERIFICADO_EXTERNAL",
+      "source": "OpenAI Status",
+      "url": "https://status.openai.com/history",
+      "finding": "Recent September 2026 incidents included elevated errors affecting GPT-5.6 paid plans and ChatGPT Work; those incidents were reported resolved."
+    },
+    {
+      "evidence_class": "VERIFICADO_EXTERNAL",
+      "source": "OpenAI Help Center",
+      "url": "https://help.openai.com/es-419/articles/7996703-troubleshooting-chatgpt-error-messages",
+      "finding": "OpenAI documents transient server, network/WebSocket, and long-conversation failure modes that can cause generation, connection, freezing or rendering failures."
+    }
+  ],
+  "repository_findings": [
+    {
+      "evidence_class": "VERIFICADO",
+      "finding": "Stable scientific authority is V255.",
+      "authority_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+      "authority_blob_sha1": "a12ea959a2113d3ec3050842c79e4dbb6f185d50"
+    },
+    {
+      "evidence_class": "VERIFICADO",
+      "finding": "Current chat handoff is stale: it pins V254 and explicitly requires fail-closed if the stable pointer differs.",
+      "path": "control/QROS_PUBLIC_1000_CURRENT_CHAT_HANDOFF.json",
+      "blob_sha1": "be9da599f1f5aa694b3e8de31db69fba2c7fc1fa"
+    },
+    {
+      "evidence_class": "VERIFICADO",
+      "finding": "Current durable W09C checkpoint still records semantic mask rematerialization IN_PROGRESS rather than closed.",
+      "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
+      "blob_sha1": "34eb5153474baea877dd8ab1ab370273e2b5464e"
+    },
+    {
+      "evidence_class": "REPORTADO",
+      "finding": "A later volatile chat/runtime execution reached 24/24 semantic groups plus merge/oracle PASS, but those receipts are no longer recoverable in the active runtime and were not durably committed before the UI/transport interruption."
+    }
+  ],
+  "root_cause_assessment": {
+    "exact_transport_root_cause": "NO_DISPONIBLE_WITHOUT_CLIENT_OR_SERVER_LOGS",
+    "probable_transport_contributors": [
+      "transient ChatGPT service errors",
+      "network or secure WebSocket interruption",
+      "very long existing conversation/tool stream",
+      "mobile client reconnect/rendering state"
+    ],
+    "confirmed_qros_process_defect": "Durable persistence occurred too late relative to long/heavy execution. The client conversation was still carrying state that should already have been committed to durable authority.",
+    "confirmed_handoff_defect": "CURRENT_CHAT_HANDOFF was not regenerated when stable scientific authority advanced from V254 to V255."
+  },
+  "impact": {
+    "scientific_result_corruption": "NOT_DEMONSTRATED",
+    "durable_progress_loss": "YES_FOR_ANY_VOLATILE_ONLY_WORK_AFTER_LAST_GITHUB_CHECKPOINT",
+    "economic_firewall_breach": false,
+    "holdout_breach": false,
+    "ga2_breach": false
+  },
+  "corrective_actions": [
+    "Install QROS_CHAT_DELIVERY_RESILIENCE_AND_DURABLE_CHECKPOINT_POLICY_v1.0.",
+    "Regenerate CURRENT_CHAT_HANDOFF from V255 and pin the current durable W09C checkpoint.",
+    "Treat duplicate/retried user continuation orders idempotently.",
+    "Persist every independently expensive shard/group/chunk receipt before launching the next expensive unit.",
+    "Do not promote volatile-only results to VERIFIED; if their receipts are lost, resume from the last durable checkpoint.",
+    "Keep economic PnL, holdout, GA2 and new GA1 closed."
+  ],
+  "policy_blob_sha1": "56e9501ea1f480bbce185edcf83f49662af2a9d8",
+  "decision": "CORRECT_DURABILITY_LAYER_NOW; DO_NOT_CLAIM_CHATGPT_TRANSPORT_BUG_FIXED_BY_QROS",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "portfolio_impact": "NONE"
+}

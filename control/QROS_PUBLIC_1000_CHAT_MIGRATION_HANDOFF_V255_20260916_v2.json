@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_PUBLIC1000_CHAT_MIGRATION_HANDOFF_5.0",
+  "date": "2026-09-16",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "ACTIVE_DELIVERY_RESILIENT_ECONOMIC_FIREWALL_CLOSED",
+  "repository": "miguelcastill85-del/qros-engine",
+  "repository_main_observed_commit": "c5c44af04e457fa3f131630e6babeba10ff3ba96",
+  "stable_scientific_pointer": {"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","expected_git_blob_sha1":"a12ea959a2113d3ec3050842c79e4dbb6f185d50","expected_version":"V255","target_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json","target_git_blob_sha1":"4b19ee8c84e47332cc2b2117010deb0d0edbde12"},
+  "execution_checkpoint": {"path":"control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json","expected_git_blob_sha1":"6f0f2ad72b59f99968798f20f4a62f90ef66f16d","node":"W09C_FIRST_GATE_PRODUCTION_PREREQUISITES","gap":"GAP-S05_PRODUCTION_SEMANTIC_REMATERIALIZATION"},
+  "delivery_resilience": {"policy":{"path":"governance/QROS_CHAT_DELIVERY_RESILIENCE_AND_DURABLE_CHECKPOINT_POLICY_v1.0.json","git_blob_sha1":"56e9501ea1f480bbce185edcf83f49662af2a9d8"},"audit":{"path":"control/QROS_CHAT_DELIVERY_FAILURE_AUDIT_20260916_v1.json","git_blob_sha1":"76b18d67578df1b8d5658138cd0014f7af27c7d4"},"max_unpersisted_expensive_units":1,"duplicate_or_retried_continue_order":"IDEMPOTENT_RESUME_FROM_DURABLE_CHECKPOINT"},
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "state": "DEVELOPMENT_RUNNING",
+  "durable_verified_closed": ["W09","W09B","execution unit binding 14/14","same-candidate overlap admission parity","broker/session bindings","exact XAU DEV physical bytes","data preflight","bar cache + 614/614 independent oracle","indicator cache","804672 exact config stream root"],
+  "volatile_reported_not_durable": {"semantic_groups":"REPORTADO_24_OF_24_PASS","merge":"REPORTADO_PASS","oracle":"REPORTADO_PASS","rule":"Do not treat these as VERIFIED durable until exact receipts/hashes are rematerialized or recovered and committed."},
+  "scientific_guards": {"economic_pnl_read":false,"first_gate_execution_authorized":false,"first_gate_economic_scoring_executed":false,"holdout_open":false,"ga2_open":false,"new_ga1_authorized":false},
+  "stale_rule": "IF_STABLE_POINTER_OR_EXECUTION_CHECKPOINT_BLOB_DIFFERS FAIL_CLOSED; RECOVER_NEWEST_DURABLE_AUTHORITY; NEVER_MERGE_STALE_HANDOFF_WITH_NEW_STATE",
+  "normal_execution_repository_search_allowed": false,
+  "next_automatic_action": "Use the pinned W09C execution checkpoint. Resume semantic FIFO1 from the first expensive unit lacking a durable receipt, persist each closed unit before starting the next, require exact 303572 classes and exact semantic/alias roots, then production bundle and independent trade-by-trade parity. Do not read economic PnL.",
+  "do_not_repeat": ["closed W09/W09B work","physical carrier recovery unless bound data hash fails","bar cache unless hash fails","indicator cache unless hash fails","config stream enumeration unless root fails","historical P03 ticket"]
+}
