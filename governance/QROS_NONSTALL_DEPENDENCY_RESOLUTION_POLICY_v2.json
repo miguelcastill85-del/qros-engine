@@ -1,0 +1,66 @@
+{
+  "schema": "QROS_NONSTALL_DEPENDENCY_RESOLUTION_POLICY_2.0",
+  "policy_id": "QROS_NONSTALL_DEPENDENCY_RESOLUTION_POLICY_v2",
+  "status": "ACTIVE_CANDIDATE",
+  "objective": "Prevent dependency-resolution loops while preserving exact authority, fail-closed identity checks, scientific gates and resumable execution.",
+  "scope": "QROS/RISE chats, runners and engineering lanes that must recover an exact dependency, runner, manifest, receipt, carrier or checkpoint before execution.",
+  "root_cause_closed": "The v1 non-stall lease governor bounded main-branch drift but did not persist query fingerprints, cap unique dependency-resolution attempts, or force a durable transition when evidence stopped changing.",
+  "authority_order": [
+    "CURRENT_FRONTIER_POINTER_or_HEAD",
+    "referenced_checkpoint_or_handoff",
+    "manifest_receipt_hash_registry",
+    "frozen_scientific_artifacts",
+    "exact_repository_tree_or_blob_lookup",
+    "durable_external_storage_by_exact_identity",
+    "conversation_files_or_library",
+    "history_as_clue_only"
+  ],
+  "rules": {
+    "exact_identity_only": true,
+    "similar_file_substitution": "FORBIDDEN",
+    "duplicate_query": "SKIP_AND_CHECKPOINT",
+    "identical_query_counts_as_progress": false,
+    "progress_requires": "new durable evidence identity, completed execution unit, new validated hash, or state transition",
+    "default_unique_query_budget_per_dependency": 6,
+    "same_source_reentry_without_new_authority": "FORBIDDEN",
+    "search_order": "authority_order_only; no open-ended exploratory reset",
+    "budget_exhausted_with_orthogonal_work": "FREEZE_BLOCKER_CONTINUE_ORTHOGONAL",
+    "budget_exhausted_essential_no_orthogonal_work": "BLOCKED_BY_INFRASTRUCTURE",
+    "blocked_by_infrastructure_requires": [
+      "exact missing dependency identity",
+      "authority SHA",
+      "attempted sources",
+      "query fingerprints",
+      "evidence fingerprint",
+      "why dependency is indispensable",
+      "why deterministic rematerialization or another exact route is unavailable",
+      "reanudable next_action"
+    ],
+    "completed_work_reuse": "MANDATORY_BY_RECEIPT_OR_CONTENT_HASH",
+    "recompute_closed_units": "FORBIDDEN_UNLESS_EXACT_REMATERIALIZATION_IS_REQUIRED",
+    "checkpoint_on_no_progress": true,
+    "checkpoint_on_duplicate_query": true,
+    "checkpoint_on_budget_exhaustion": true
+  },
+  "state_machine": [
+    "READ_AUTHORITY",
+    "RESOLVE_EXACT_IDENTITY",
+    "VERIFY_IDENTITY",
+    "EXECUTE_OR_REMATERIALIZE",
+    "VALIDATE",
+    "PERSIST",
+    "CONTINUE",
+    "FREEZE_BLOCKER_CONTINUE_ORTHOGONAL",
+    "BLOCKED_BY_INFRASTRUCTURE"
+  ],
+  "forbidden_transitions": [
+    "NO_PROGRESS -> REPEAT_IDENTICAL_QUERY",
+    "IDENTITY_MISMATCH -> SUBSTITUTE_SIMILAR_FILE",
+    "BUDGET_EXHAUSTED -> RESET_BUDGET_WITHOUT_NEW_AUTHORITY",
+    "DURABLE_PASS -> RECOMPUTE_FOR_CONVENIENCE"
+  ],
+  "implementation": {
+    "resolver": "scripts/qros_nonstall_dependency_resolver_v2.py",
+    "tests": "scripts/qros_nonstall_dependency_resolver_tests_v2.py"
+  }
+}
