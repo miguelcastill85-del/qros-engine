@@ -1,0 +1,24 @@
+{
+  "schema":"QROS_SEED0076_SAME_CANDIDATE_OVERLAP_ADMISSION_POLICY_1.0",
+  "status":"FROZEN_PRE_PNL",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "subject":"FIFO #1 XAUUSD/BUY/M1",
+  "purpose":"Bind same-candidate overlapping-signal admission prospectively before any W10 economic read.",
+  "policy_id":"SERIAL_SAME_CANDIDATE_REJECT_WHILE_ACTIVE_V1",
+  "scope":"per canonical_signal_config_id",
+  "ordering":["entry_trigger_timestamp ascending","entry_timestamp ascending","event_id lexical ascending","scenario_id lexical ascending"],
+  "rules":[
+    "When the candidate is flat, admit the first event in deterministic ordering.",
+    "A candidate remains active through and including the admitted trade exit_timestamp.",
+    "Reject every later event whose entry_trigger_timestamp is <= the active admitted trade exit_timestamp.",
+    "The first event whose entry_trigger_timestamp is strictly greater than the prior active exit_timestamp may be admitted.",
+    "Events from different canonical_signal_config_id values are evaluated independently at FIRST_GATE; portfolio-level asset concurrency is downstream and is not inferred here.",
+    "An event rejected for overlap is never delayed or re-entered after the active position closes.",
+    "Equal-timestamp ambiguity is fail-conservative: no same-candidate re-entry at the exact exit timestamp."
+  ],
+  "inputs":"independently normalized per-event trades under the frozen W09B execution contract",
+  "output":"deterministic admitted trade set plus deterministic rejected-event ledger",
+  "economic_guards":{"economic_pnl_read":false,"holdout_open":false,"ga2_open":false,"new_ga1_open":false},
+  "rationale":"The W09B contract explicitly left production overlap unbound and fail-closed. This policy is frozen prospectively before W10 and therefore is not selected from economic results.",
+  "authority":{"normalized_execution_contract":{"path":"governance/QROS_PUBLIC1000_SEED0076_FIRST_GATE_NORMALIZED_EXECUTION_CONTRACT_v1.1.json","git_blob_sha1":"5d7006c5b54d4647113c7caab5107e8c9229d2bf"}}
+}
