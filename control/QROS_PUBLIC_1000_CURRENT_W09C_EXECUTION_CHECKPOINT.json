@@ -6,17 +6,18 @@
   "state":"DEVELOPMENT_RUNNING",
   "scientific_state":"PREREGISTERED_NO_RESULTS",
   "current_node":"W09C_FIRST_GATE_PRODUCTION_PREREQUISITES",
-  "current_gap":"GAP-S05_PRODUCTION_SEMANTIC_REMATERIALIZATION",
+  "current_gap":"GAP-S05_PRODUCTION_BUNDLE_AND_REAL_PARITY",
   "authority":{
-    "stable_frontier":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","version":"V255"},
+    "stable_frontier":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","version":"V255","base_main_commit":"c5c44af04e457fa3f131630e6babeba10ff3ba96"},
     "binding_manifest":{"path":"control/QROS_PUBLIC_1000_W09C_PRODUCTION_PREREQUISITE_BINDING_MANIFEST_20260915_v1.json","git_blob_sha1":"41f53130ed8f0cea1fe4ae3d86c1c25840d5898c"},
     "physical_dev_pass":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_PHYSICAL_DEV_MATERIALIZATION_PASS_20260916_v1.json","git_blob_sha1":"046a1f8a988a171c632ce3f5fc71673bc976e481"},
     "runtime_manifest":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_RUNTIME_MATERIALIZATION_MANIFEST_20260916_v1.json","git_blob_sha1":"622f21a62c532daaa824eafb202cf00a1c2b1a5d"},
     "metadata_correction":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_ZIP_BYTES_METADATA_CORRECTION_20260916_v1.json","git_blob_sha1":"72e5f79d82e4f34b50100f45d46177815205cb36"},
-    "semantic_progress":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_SEMANTIC_REMATERIALIZATION_PROGRESS_20260916_v1.json","git_blob_sha1":"c1b04e889243993197f5fa3f92460432d04accff"},
+    "semantic_pass":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_SEMANTIC_REMATERIALIZATION_PASS_20260916_v1.json","git_blob_sha1":"f1f1e3c3e144411d46032192d1a81ed48041dea2"},
+    "production_scale_audit":{"path":"control/QROS_PUBLIC_1000_W09C_PRODUCTION_BUNDLE_SCALE_AUDIT_20260916_v1.json","git_blob_sha1":"2e4b5ef0051dfd7d7c7d63aa83f23af729532ff3"},
     "anti_stall_policy":{"path":"governance/QROS_EXECUTION_ANTI_STALL_LIVENESS_POLICY_v1.0.json"}
   },
-  "objective":"Finish W09C and W10 without repeating closed engineering or relaxing scientific gates.",
+  "objective":"Close W09C production prerequisites without opening economic scoring, then permit only an explicit compatible transition to W10.",
   "data":{"asset":"XAUUSD","development_period":"2018-2019","records":151382388,"bytes":2573500596,"sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53","parts":"001-008 of 035","runtime_status":"PASS_EXECUTABLE"},
   "verified_closed":{
     "W09":"PASS",
@@ -31,10 +32,14 @@
     "bar_cache":"PASS",
     "bar_cache_independent_oracle":"PASS_614_OF_614",
     "indicator_cache":"PASS",
-    "config_stream_root":"PASS_EXACT_804672_ROOT_REPRODUCED"
+    "config_stream_root":"PASS_EXACT_804672_ROOT_REPRODUCED",
+    "semantic_mask_root_rematerialization":"PASS_INDEPENDENT_ORACLE_303572_CLASSES",
+    "semantic_class_root_sha256":"cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+    "alias_root_sha256":"4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458"
   },
   "pending":{
-    "semantic_mask_root_rematerialization":"IN_PROGRESS",
+    "production_anchor_identity_binding":"NOT_DURABLY_BOUND",
+    "production_same_day_session_close_binding":"NOT_DURABLY_BOUND",
     "production_normalized_input_bundle":"NOT_MATERIALIZED",
     "production_real_trade_by_trade_parity":"NOT_EXECUTED",
     "compatible_economic_transition":"NOT_AUTHORIZED",
@@ -42,10 +47,10 @@
   },
   "historical_p03_ticket":"SUPERSEDED_NOT_EXECUTABLE_UNDER_W09C",
   "scientific_guards":{"economic_pnl_read":false,"holdout_open":false,"ga2_open":false,"new_ga1_authorized":false,"first_gate_execution_authorized":false},
-  "problem":"Physical data infrastructure block is resolved. Remaining W09C work is deterministic semantic mask rematerialization, production anchor/tick bundle construction and independent real trade-by-trade parity.",
-  "root_cause":"Previous block was DATA_CAPABILITY_ABSENT_IN_ACTIVE_RUNTIME. That cause is resolved by authenticated parts 001-008. A separate metadata defect in historical zip_bytes and a missing transitive source pin were corrected without changing scientific semantics.",
-  "corrections_applied":["authenticated XAU parts 001-008 by frozen ZIP hashes","materialized exact DEV prefix","ran subject-specific frozen data preflight","recorded zip_bytes metadata correction without mutating historical binding","closed omitted qros_seed0076_indicators_v220.py transitive source pin","rebuilt bar and indicator caches from exact DEV bytes","independent bar oracle PASS 614/614","reproduced exact 804672 config stream root"],
+  "problem":"The semantic layer is closed with independent exact-root parity. The remaining GAP-S05 production layer has no durable real-production materializer in main, and the frozen v1.1 execution contract requires event_id plus an exact session_close_timestamp but does not durably define their production derivation. A naive fully expanded candidate-event transport would contain 2734853776 class-event memberships; the verified GA1 factorization permits shared-carrier sharded materialization without changing semantic identity.",
+  "root_cause":"W09B intentionally froze and validated only a synthetic execution primitive and a production fail-closed guard. W09C subsequently bound clock, overlap, units, source hashes and physical data, but no versioned production-anchor identity/time derivation contract or real production materializer was added before this checkpoint.",
+  "corrections_applied":["authenticated XAU parts 001-008 by frozen ZIP hashes","materialized exact DEV prefix","ran subject-specific frozen data preflight","recorded zip_bytes metadata correction without mutating historical binding","closed omitted qros_seed0076_indicators_v220.py transitive source pin","rebuilt bar and indicator caches from exact DEV bytes","independent bar oracle PASS 614/614","reproduced exact 804672 config stream root","completed 24/24 FIFO1 semantic groups","primary global merge PASS 303572 classes","independent semantic merge oracle reproduced exact semantic and alias roots","discarded non-authoritative working label GAP-S06; official remaining gap is GAP-S05","persisted production bundle scale audit and required shared-carrier sharded architecture"],
   "portfolio_impact":"NONE; no economic scoring, holdout exposure, GA2, new GA1 or portfolio allocation changed.",
-  "next_automatic_action":"Rematerialize FIFO1 XAUUSD/BUY/M1 GA1 event-mask classes using frozen runners and require exact 303572 distinct classes, semantic root cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4 and alias root 4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458; then materialize production anchors/ticks, run independent trade-by-trade parity, and only after PASS create compatible economic transition.",
-  "do_not_repeat":["W09 scorer build","W09B synthetic parity","unit binding","overlap policy/parity","physical carrier recovery","bar cache rebuild unless hash validation fails","indicator cache rebuild unless hash validation fails","config stream enumeration unless root validation fails","historical P03 ticket","new GA1","holdout","GA2 before compatible transition"]
+  "next_automatic_action":"Recover any durable prior definition for production event_id and exact same-day/session_close_timestamp. If none exists, freeze a prospective pre-PnL production-anchor identity/time contract without inspecting economic outcomes; then implement independent sharded shared-carrier production materializers, validate parity, materialize the production normalized input bundle and execute real trade-by-trade parity before any compatible economic transition.",
+  "do_not_repeat":["W09 scorer build","W09B synthetic parity","unit binding","overlap policy/parity","physical carrier recovery","bar cache rebuild unless hash validation fails","indicator cache rebuild unless hash validation fails","config stream enumeration unless root validation fails","FIFO1 semantic rematerialization unless exact root/hash validation fails","historical P03 ticket","new GA1","holdout","GA2 before compatible transition"]
 }
