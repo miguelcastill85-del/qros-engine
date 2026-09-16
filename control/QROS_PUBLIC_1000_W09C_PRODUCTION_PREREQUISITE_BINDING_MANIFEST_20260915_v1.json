@@ -1,0 +1,40 @@
+{
+  "schema":"QROS_PUBLIC1000_W09C_PRODUCTION_PREREQUISITE_BINDING_MANIFEST_1.0",
+  "status":"PARTIAL_PASS_PHYSICAL_DATA_RECOVERY_PENDING",
+  "date":"2026-09-15",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","first_gate_order":1,"distinct_mask_classes":303572},
+  "authority":{"stable_frontier":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json","git_blob_sha1":"4b19ee8c84e47332cc2b2117010deb0d0edbde12","version":"V255"},"workgraph":{"path":"control/QROS_PUBLIC_1000_MASTER_WORKGRAPH_v4.3.json","git_blob_sha1":"73a614bcbc455d91612bb2f1b4122a9e220101fd"},"gap_register":{"path":"control/QROS_PUBLIC_1000_ARCHITECTURE_GAP_REGISTER_v4.3.json","git_blob_sha1":"19374372d66a7d244c20befb9f424b069f4b9810"}},
+  "bindings":{
+    "broker_server_clock":{"status":"PASS_EVIDENCE_BOUND","authority":{"path":"control/DARWINEX_MT5_DATA_PROVENANCE_TIME_REFERENCE_v1.json","git_blob_sha1":"6f3b00c7b55f663398300cfaa05cda15c7d23f60"},"semantics":["DARWINEX_MT5_SERVER_TIME_AS_STORED_IN_TICKS","timestamp_transformation=NONE","assume_utc=false","external_dst_inference=false"]},
+    "session_clock_execution":{"status":"PASS_FROZEN_ENGINE_BINDING","engine":{"path":"scripts/qros_seed0076_gate_engine_v221.py","git_blob_sha1":"74290f11e7a95a25f54c5c9989af110de7dde4e2"},"windows":["NY_RTH 09:30-16:00 America/New_York","NY_OPEN_120 09:30-11:30 America/New_York","NY_MIDDAY 11:30-14:00 America/New_York","NY_CLOSE_120 14:00-16:00 America/New_York","LONDON 08:00-16:30 Europe/London","LONDON_NY_OVERLAP 14:30-16:30 Europe/London"],"note":"The executable frozen engine is the binding authority. A separate historical V219 receipt was not recovered in the bounded lookup and is not inferred."},
+    "same_candidate_overlap_admission":{"status":"PASS_INDEPENDENT_SYNTHETIC_PARITY","policy":{"path":"governance/QROS_SEED0076_SAME_CANDIDATE_OVERLAP_ADMISSION_POLICY_v1.0.json","git_blob_sha1":"690e0b82233b22fb800693741eede53ce223f5c2"},"receipt":{"path":"control/QROS_SEED0076_OVERLAP_ADMISSION_PARITY_PASS_20260915_v1.json"},"primary":{"path":"scripts/qros_seed0076_overlap_admission_primary_v1.py","git_blob_sha1":"df27b9a0abb1f7b030955558e2d9c6d81ac9ccb2"},"independent_oracle":{"path":"scripts/qros_seed0076_overlap_admission_oracle_v1.py","git_blob_sha1":"fdedc47e82e4a4ea060f23345473b19950c12c16"}},
+    "execution_unit_binding":{"status":"PASS_INDEPENDENT_DIMENSIONAL_PARITY","contract":{"path":"governance/QROS_SEED0076_MANAGEMENT_UNIT_CONTRACT_v1.0.json"},"receipt":{"path":"control/QROS_SEED0076_UNIT_BINDING_PREFLIGHT_PASS_20260915_v1.json","receipt_sha256":"1ff80825cfe0d92b65a17b6033148b3613dc9af0dcb376ccce60bde91f6af8ba"},"primary":{"path":"scripts/qros_seed0076_execution_units_primary.py","git_blob_sha1":"f4c0db4950adbe100f1ebc2d57dd5c37b5a5a558"},"independent":{"path":"scripts/qros_seed0076_execution_units_independent.py","git_blob_sha1":"706ad4f5e2f04a5bb05d66c2b8dc98e3be5ac560"},"checks_passed":14,"checks_failed":0},
+    "semantic_rematerializer_sources":{"status":"PASS_SOURCE_HASHES_FROZEN","sources":[
+      {"path":"scripts/qros_seed0076_materialize_minimal_dev.py","git_blob_sha1":"b543c8585258b21a007af84a53a944bba58678e6"},
+      {"path":"scripts/qros_seed0076_data_execution_ready_preflight.py","git_blob_sha1":"581fcd35617582d9c7703efda16b33282343c633"},
+      {"path":"scripts/qros_seed0076_build_bar_cache_v220.py","git_blob_sha1":"987ef26aca2507a94247bed7663493e6682aa869"},
+      {"path":"scripts/qros_seed0076_bar_cache_oracle_v220.py","git_blob_sha1":"b25f49273706d26ed04ad410c6ebbf89eb940af9"},
+      {"path":"scripts/qros_seed0076_build_indicator_cache_v220.py","git_blob_sha1":"21a50b167e791f4474e3c358b81e40065c048280"},
+      {"path":"scripts/qros_seed0076_carrier_masks_v221.py","git_blob_sha1":"0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25"},
+      {"path":"scripts/qros_seed0076_config_stream.py","git_blob_sha1":"a01268bd8bab639977b22c419926d94306754bba"},
+      {"path":"scripts/qros_seed0076_config_stream_oracle.py","git_blob_sha1":"1eba8939f6095571bfb5bf90facacbadc1bd21c9"},
+      {"path":"scripts/qros_seed0076_tick_raw_cache_v225.py","git_blob_sha1":"50784e14b63c8082c760b02effd0f2b71aa591a9"},
+      {"path":"scripts/qros_seed0076_ga1_group_worker_v222.py","git_blob_sha1":"ec8d143e284727b1bd98a0dd10e9c349a62f2cd8"},
+      {"path":"scripts/qros_seed0076_ga1_shard_worker_v223.py","git_blob_sha1":"c77e0a5156c5bb1a874d3c33fde49f162a2a3041"},
+      {"path":"scripts/qros_seed0076_ga1_merge_groups_v223.py","git_blob_sha1":"f62cab487e2e04735c46143addd5ad34a31171c7"},
+      {"path":"scripts/qros_seed0076_ga1_merge_oracle_v223.py","git_blob_sha1":"45889bec090dca3b070e888f382683662f0c6356"},
+      {"path":"scripts/qros_seed0076_gate_engine_v221.py","git_blob_sha1":"74290f11e7a95a25f54c5c9989af110de7dde4e2"},
+      {"path":"scripts/qros_seed0076_structural_v220.py","git_blob_sha1":"805044c9918a87456a95e150a1c9a1292112cf4c"},
+      {"path":"scripts/qros_seed0076_event_kernel.py","git_blob_sha1":"663b5e8ab20986ec11f273ada3bd32880bee7e68"}
+    ]},
+    "active_runtime_xau_dev_bytes":{"status":"CATALOG_REFERENCED_NOT_EXECUTABLE_PENDING_RECOVERY","binding":{"path":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_MINIMAL_DEV_CARRIER_BINDING_20260914_v1.json","git_blob_sha1":"d5de576cd4c81f80931418d40f9f7877c114d03d"},"required":{"parts":"001-008 of 035","records":151382388,"bytes":2573500596,"sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"},"repository_contains_physical_bytes":false},
+    "production_normalized_input_bundle":{"status":"PENDING_PHYSICAL_DEV_BYTES"},
+    "independent_production_trade_by_trade_parity":{"status":"PENDING_PRODUCTION_BUNDLE"},
+    "economic_exposure_transition":{"status":"PENDING_ALL_W09C_NON_ECONOMIC_PREREQUISITES","historical_p03_ticket":"SUPERSEDED_NOT_EXECUTABLE"}
+  },
+  "scientific_guards":{"economic_pnl_read":false,"first_gate_economic_scoring_executed":false,"holdout_open":false,"ga2_open":false,"new_ga1_authorized":false},
+  "closed_without_repetition":["W09_FIRST_GATE_SCORER_BUILD","W09B_FIRST_GATE_NORMALIZED_EXECUTION_AND_PARITY"],
+  "next_action":"RECOVER_EXACT_XAU_DEV_PHYSICAL_BYTES_BY_CANONICAL_IDENTITY_THEN_MATERIALIZE_AND_VERIFY_PRODUCTION_BUNDLE",
+  "decision":"W09C_PARTIAL_PASS_CONTINUE_PHYSICAL_DATA_RECOVERY"
+}
