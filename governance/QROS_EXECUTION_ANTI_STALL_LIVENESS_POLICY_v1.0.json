@@ -1,0 +1,66 @@
+{
+  "schema": "QROS_EXECUTION_ANTI_STALL_LIVENESS_POLICY_1.0",
+  "status": "ACTIVE_GOVERNANCE_CANDIDATE",
+  "scope": "all QROS/RISE research and engineering continuations",
+  "purpose": "Prevent conversational or tooling loops from stalling an already-authorized workflow while preserving scientific firewalls and exact authority precedence.",
+  "authority_precedence": [
+    "stable HEAD/CURRENT_FRONTIER_POINTER/checkpoint",
+    "manifests/receipts/hashes",
+    "frozen scientific artifacts",
+    "GitHub durable state",
+    "connected durable stores",
+    "File Library/current-chat files",
+    "verifiable history",
+    "memory only as clue"
+  ],
+  "mandatory_cycle": ["RECOVER", "VERIFY", "EXECUTE", "VALIDATE", "PERSIST", "CONTINUE"],
+  "anti_loop_rules": {
+    "same_failed_action_max_retries": 1,
+    "same_equivalent_retrieval_route_max_attempts": 2,
+    "on_repeat_failure": "SWITCH_TO_EQUIVALENT_VALID_ROUTE",
+    "on_missing_artifact": "BOUNDED_RECOVERY_THEN_MATERIALIZE_IF_DETERMINISTICALLY_DERIVABLE",
+    "on_stale_pointer": "RECONCILE_FORWARD_TO_NEWEST_DURABLE_AUTHORITY",
+    "on_partial_success": "PRESERVE_VALID_OUTPUTS_AND_RESUME_FROM_FIRST_UNCLOSED_GATE",
+    "on_tool_unavailability": "USE_ANOTHER_AVAILABLE_TOOL_OR_DURABLE_STORE_WITHOUT_CHANGING_SCIENTIFIC_SEMANTICS",
+    "forbid_repeating_closed_work": true,
+    "forbid_waiting_for_user_when_next_action_is_already_authorized": true,
+    "forbid_invented_completion": true
+  },
+  "progress_watchdog": {
+    "definition_of_progress": [
+      "new verified authority recovered",
+      "new required binding closed",
+      "new deterministic artifact materialized",
+      "new independent validation PASS or explicit FAIL",
+      "new durable checkpoint persisted",
+      "scientifically justified terminal BLOCKED_BY_INFRASTRUCTURE receipt"
+    ],
+    "no_progress_trigger": "two consecutive equivalent actions without new evidence",
+    "required_response": "change route immediately and record the failed route in the next checkpoint"
+  },
+  "blocker_policy": {
+    "allowed_terminal_blocker": "BLOCKED_BY_INFRASTRUCTURE",
+    "requirements": [
+      "exact missing identity stated",
+      "why indispensable stated",
+      "locations/routes searched recorded",
+      "deterministic rematerialization alternatives attempted",
+      "valid independent work preserved",
+      "resume action frozen"
+    ],
+    "prohibited": [
+      "generic missing-file claims",
+      "repeated search loops",
+      "asking user to re-upload before durable recovery paths are exhausted",
+      "relaxing gates to escape a blocker"
+    ]
+  },
+  "scientific_firewalls": {
+    "never_override_holdout_lock": true,
+    "never_override_GA2_lock": true,
+    "never_override_new_GA1_lock": true,
+    "never_read_economic_PnL_without_current_explicit_transition": true,
+    "never_change_execution_semantics_to_make_progress": true
+  },
+  "continuation_contract": "When the user says continua/adelante/sigue/ejecuta/termina, reconstruct the newest durable authority and advance automatically until the next durable PASS/FAIL/BLOCKED checkpoint. Do not stop merely because one retrieval or tool route failed."
+}
