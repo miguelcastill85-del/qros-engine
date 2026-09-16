@@ -1,0 +1,25 @@
+{
+  "schema":"QROS_PUBLIC1000_W09C_XAU_ZIP_BYTES_METADATA_CORRECTION_1.0",
+  "date":"2026-09-16",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status":"PASS_CORRECTION_SCOPED_TO_NONSCIENTIFIC_ZIP_LENGTH_METADATA",
+  "scientific_state":"PREREGISTERED_NO_RESULTS",
+  "authority":{"stable_frontier_version":"V255","historical_binding":{"path":"control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_MINIMAL_DEV_CARRIER_BINDING_20260914_v1.json","git_blob_sha1":"d5de576cd4c81f80931418d40f9f7877c114d03d"},"runtime_manifest":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_RUNTIME_MATERIALIZATION_MANIFEST_20260916_v1.json"}},
+  "subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"},
+  "corrections":[
+    {"part":1,"historical_zip_bytes":102025545,"runtime_verified_zip_bytes":102025545,"changed":false},
+    {"part":2,"historical_zip_bytes":100388081,"runtime_verified_zip_bytes":100422805,"changed":true},
+    {"part":3,"historical_zip_bytes":100191422,"runtime_verified_zip_bytes":99870071,"changed":true},
+    {"part":4,"historical_zip_bytes":101615157,"runtime_verified_zip_bytes":101825467,"changed":true},
+    {"part":5,"historical_zip_bytes":101074945,"runtime_verified_zip_bytes":101538275,"changed":true},
+    {"part":6,"historical_zip_bytes":102955655,"runtime_verified_zip_bytes":102849303,"changed":true},
+    {"part":7,"historical_zip_bytes":104531384,"runtime_verified_zip_bytes":104515054,"changed":true},
+    {"part":8,"historical_zip_bytes":104463758,"runtime_verified_zip_bytes":104291866,"changed":true}
+  ],
+  "cryptographic_preservation":{"zip_sha256_8_of_8_match_historical_binding":true,"full_payload_sha256_parts_001_007_match_historical_binding":true,"part008_full_zip_sha256_match_historical_binding":true,"dev_prefix_records":151382388,"dev_prefix_bytes":2573500596,"dev_prefix_sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53","dev_prefix_matches_frozen_identity":true},
+  "problem":"Historical binding contains scalar zip_bytes values inconsistent with the currently accessible carriers for parts 002-008, while the frozen ZIP SHA-256 identities match exactly.",
+  "root_cause":"Historical scalar ZIP length metadata is inconsistent; no cause beyond the observable metadata defect is asserted.",
+  "correction":"Do not mutate the historical binding. Use the successor runtime manifest with observed ZIP lengths while retaining the historical frozen ZIP hashes, payload hashes, member identities, take_records and DEV target identity.",
+  "scientific_impact":"NONE. Cryptographic carrier identity and exact DEV prefix identity are unchanged; this receipt does not change alpha, ontology, masks, execution semantics, costs, gates or periods.",
+  "guards":{"economic_pnl_read":false,"holdout_open":false,"ga2_open":false,"new_ga1_authorized":false,"first_gate_economic_scoring_executed":false}
+}
