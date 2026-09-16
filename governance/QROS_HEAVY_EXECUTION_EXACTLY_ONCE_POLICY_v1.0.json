@@ -1,0 +1,66 @@
+{
+  "schema": "QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_1.0",
+  "version": "v1.0",
+  "date": "2026-09-16",
+  "status": "ACTIVE",
+  "objective": "Prevent duplicate heavy-worker launches when client/tool transport times out, retries, disconnects, or the bootstrap process dies while the worker remains alive.",
+  "scope": {
+    "required_for": [
+      "heavy jobs whose runtime can exceed one client/tool request",
+      "GA1/semantic rematerialization groups and shards",
+      "development backtests and parity jobs when launched from chat/runtime surfaces",
+      "other transactional jobs with expensive non-idempotent or storage-heavy execution"
+    ],
+    "scientific_semantics_changed": false,
+    "economic_gates_changed": false
+  },
+  "implementation": {
+    "path": "scripts/qros_heavy_job_supervisor_v1.py",
+    "git_blob_sha1": "991860cb4cb6e1f4d322127fd4417324dc8cbbaf",
+    "sha256": "170c1d6b010c23abbe6ebd2349b64516ca1ee0758c1f22e99889da85121bc41d",
+    "tests_path": "scripts/qros_heavy_job_supervisor_tests_v1.py",
+    "tests_git_blob_sha1": "3d10c2adfdf1cedcee100d31faef2bf1822e9abb",
+    "tests_sha256": "10b316c4597461475413d633672e52c22abeb10446e6b68f1a1a52d8c385bb28"
+  },
+  "mandatory_invariants": [
+    "A client/tool timeout is transport state only and MUST NOT be interpreted as worker failure.",
+    "Each job is identified by job_id plus canonical job-spec SHA-256 and an atomic claim_token.",
+    "A retry MUST inspect durable claim, process identity, receipt and artifacts before any relaunch.",
+    "A live bootstrap with exact PID plus process-birth identity MUST be adopted and MUST NOT be relaunched.",
+    "If bootstrap is dead but its worker is alive with exact PID plus process-birth identity, the worker MUST be adopted as ADOPT_ORPHAN_WORKER and MUST NOT be relaunched.",
+    "PID alone is never proof of process identity; process birth identity is mandatory.",
+    "Linux zombie processes are dead for liveness purposes and MUST NOT block receipt promotion.",
+    "An active attempt directory MUST NEVER be deleted or replaced by a retry.",
+    "A failed attempt is archived immutably before any permitted retry.",
+    "Relaunch is allowed only after positive proof that neither bootstrap nor worker of the current claim is alive and no valid completed receipt can be promoted.",
+    "Default max_attempts is 2: one initial launch plus at most one proven-death retry.",
+    "Capsule/spec drift for an existing job_id MUST fail closed.",
+    "Receipt promotion requires exact expected fields and exact artifact byte sizes plus SHA-256.",
+    "Promotion to done is atomic and only occurs after the worker is no longer live.",
+    "A receipt written before process exit MUST NOT be promoted while the worker/bootstrap is still live.",
+    "Unsafe job_id/path traversal MUST fail closed.",
+    "A live controller lock MUST NOT be stolen because of wall-clock age.",
+    "If process-birth identity cannot be established on the current OS/runtime, execution MUST fail closed rather than guess liveness.",
+    "One expensive scientific unit must be durably validated and persisted before the next expensive unit begins."
+  ],
+  "state_machine": {
+    "states": ["PREPARED", "RUNNING", "PASS", "FAIL"],
+    "running_actions": ["LAUNCHED", "PREPARED_WAIT_IDENTITY", "ADOPT_LIVE_PROCESS", "ADOPT_ORPHAN_WORKER", "RELAUNCHED_AFTER_PROVEN_DEATH"],
+    "terminal_pass_actions": ["PROMOTE_ATOMIC_DONE", "REUSE_VALID_DONE"],
+    "terminal_fail_actions": ["CAPSULE_MISMATCH_FAIL_CLOSED", "IDENTITY_MISMATCH_FAIL_CLOSED", "WORKER_IDENTITY_INVALID_FAIL_CLOSED", "CLAIM_PATH_INVALID_FAIL_CLOSED", "RETRY_BUDGET_EXHAUSTED", "SUPERVISOR_EXCEPTION_FAIL_CLOSED"]
+  },
+  "legacy": {
+    "path": "scripts/qros_transactional_shard_supervisor.py",
+    "git_blob_sha1": "a4d93cb3e620bff5f6e75f5af0a23bee50fcfc13",
+    "classification": "LEGACY_FOREGROUND_ONLY",
+    "reason": "It uses blocking subprocess.run and deletes prior temporary directories before proving that a prior worker is dead; therefore it is not authorized for transport-resilient heavy execution.",
+    "historical_artifacts_remain_valid": true
+  },
+  "scientific_firewalls": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "changes_alpha_or_strategy_logic": false
+  }
+}
