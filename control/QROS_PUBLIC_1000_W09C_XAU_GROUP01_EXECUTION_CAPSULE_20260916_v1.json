@@ -1,0 +1,24 @@
+{
+  "schema":"QROS_PUBLIC1000_W09C_SEMANTIC_GROUP_EXECUTION_CAPSULE_1.0",
+  "capsule_id":"W09C_XAUUSD_BUY_M1_FIFO1_GROUP01_20260916_v1",
+  "machine_state_id":"W09C_FIFO1_SEMANTIC_GROUP_01_PENDING",
+  "single_action":"REMATERIALIZE_AND_VALIDATE_STRUCTURAL_GROUP_01_ONLY",
+  "subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","structural_group_index":1},
+  "preconditions":{"stable_frontier_version":"V255","stable_frontier_blob_sha1":"a12ea959a2113d3ec3050842c79e4dbb6f185d50","previous_group_receipt":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_GROUP00_SEMANTIC_RECEIPT_20260916_v1.json","git_blob_sha1":"5695fe0117f77d2613dfb42ae59df63aece7ae1c","status":"PASS"},"dev_prefix_sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53","config_root_sha256":"96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3","bar_M1_content_sha256":"55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4","indicator_M1_content_root_sha256":"2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c"},
+  "exact_inputs":[
+    {"path":"research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json","git_blob_sha1":"c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf"},
+    {"path":"scripts/qros_seed0076_config_stream.py","git_blob_sha1":"a01268bd8bab639977b22c419926d94306754bba"},
+    {"path":"scripts/qros_seed0076_structural_v220.py","git_blob_sha1":"805044c9918a87456a95e150a1c9a1292112cf4c"},
+    {"path":"scripts/qros_seed0076_gate_engine_v221.py","git_blob_sha1":"74290f11e7a95a25f54c5c9989af110de7dde4e2"},
+    {"path":"scripts/qros_seed0076_carrier_masks_v221.py","git_blob_sha1":"0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25"},
+    {"path":"scripts/qros_seed0076_ga1_group_worker_v222.py","git_blob_sha1":"ec8d143e284727b1bd98a0dd10e9c349a62f2cd8"}
+  ],
+  "exact_commands":["python scripts/qros_seed0076_ga1_group_worker_v222.py --shard-json XAUUSD_BUY_M1_SHARD.json --spec QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json --out-dir group01 --receipt group01/worker_receipt.json --ticks XAU_PACKED17_DEV_PREFIX_151382388.bin --bar-root BARS --ind-root INDICATORS --point 0.01 --expected-config-root 96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3 --structural-group-index 1"],
+  "expected_outputs":["group01 worker_receipt.json","mask_classes.delta_u32.bin","mask_class_index.jsonl","duplicate_alias_pairs.bin","full_alias_mapping.bin"],
+  "pass_criteria":{"status":"PASS","processed_signal_configs":33528,"structural_group_index":1,"ordered_config_id_stream_root_sha256":"96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3","economic_pnl_read":false,"holdout_open":false,"artifact_hashes_required":true},
+  "fail_closed_codes":["AUTHORITY_DRIFT","PREVIOUS_RECEIPT_MISMATCH","INPUT_HASH_MISMATCH","RUNNER_HASH_MISMATCH","CONFIG_ROOT_MISMATCH","GROUP_CONFIG_COUNT_MISMATCH","WORKER_FAIL","ARTIFACT_HASH_MISMATCH"],
+  "forbidden_actions":["READ_ECONOMIC_PNL","OPEN_HOLDOUT","OPEN_GA2","START_NEW_GA1","EXECUTE_FIRST_GATE_ECONOMIC_SCORING","START_GROUP02_BEFORE_GROUP01_DURABLE_RECEIPT"],
+  "terminal_receipt_path":"control/QROS_PUBLIC_1000_W09C_XAU_GROUP01_SEMANTIC_RECEIPT_20260916_v1.json",
+  "next_state_on_pass":"W09C_FIFO1_SEMANTIC_GROUP_02_PENDING_CAPSULE",
+  "scientific_effect":"DETERMINISTIC_REMATERIALIZATION_ONLY_NO_ECONOMIC_SCORING"
+}

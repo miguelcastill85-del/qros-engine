@@ -1,34 +1,20 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_CHAT_HANDOFF_POINTER_5.0",
-  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
-  "status": "ACTIVE_AUDITED_DELIVERY_RESILIENT_ECONOMIC_FIREWALL_CLOSED",
-  "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_V255_20260916_v2.json",
-  "handoff_git_blob_sha1": "e1a59485af8ad77ce944925df37ced88901172a9",
-  "stable_scientific_pointer": {
-    "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
-    "expected_git_blob_sha1": "a12ea959a2113d3ec3050842c79e4dbb6f185d50",
-    "expected_version": "V255"
-  },
-  "execution_checkpoint": {
-    "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-    "expected_git_blob_sha1": "6f0f2ad72b59f99968798f20f4a62f90ef66f16d"
-  },
-  "delivery_resilience_policy": {
-    "path": "governance/QROS_CHAT_DELIVERY_RESILIENCE_AND_DURABLE_CHECKPOINT_POLICY_v1.0.json",
-    "git_blob_sha1": "56e9501ea1f480bbce185edcf83f49662af2a9d8"
-  },
-  "delivery_failure_audit": {
-    "path": "control/QROS_CHAT_DELIVERY_FAILURE_AUDIT_20260916_v1.json",
-    "git_blob_sha1": "76b18d67578df1b8d5658138cd0014f7af27c7d4"
-  },
-  "stale_rule": "IF_STABLE_POINTER_OR_EXECUTION_CHECKPOINT_DIFFERS_FROM_EXPECTED FAIL_CLOSED; REGENERATE FROM NEWEST DURABLE AUTHORITY; DO NOT EXECUTE STALE TICKET OR MERGE AUTHORITIES",
-  "normal_execution_repository_search_allowed": false,
-  "scientific_execution_authorized": false,
-  "economic_pnl_read": false,
-  "first_gate_execution_authorized": false,
-  "ga2_open": false,
-  "holdout_open": false,
-  "new_ga1_authorized": false,
-  "duplicate_or_retried_continue_order": "IDEMPOTENT_RESUME_FROM_DURABLE_CHECKPOINT",
-  "next_automatic_action": "RECOVER_PINNED_W09C_CHECKPOINT_AND_RESUME_FIRST_SEMANTIC_UNIT_WITHOUT_DURABLE_RECEIPT; PERSIST_BEFORE_NEXT_EXPENSIVE_UNIT"
+  "schema":"QROS_PUBLIC1000_CURRENT_CHAT_HANDOFF_POINTER_5.1",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status":"ACTIVE_AUDITED_DELIVERY_RESILIENT_ECONOMIC_FIREWALL_CLOSED",
+  "stable_scientific_pointer":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","expected_git_blob_sha1":"a12ea959a2113d3ec3050842c79e4dbb6f185d50","expected_version":"V255"},
+  "execution_checkpoint":{"path":"control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json","expected_git_blob_sha1":"0a42c152e06938f4a86c7e08d80d533436e4fd41"},
+  "active_execution_capsule":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_GROUP01_EXECUTION_CAPSULE_20260916_v1.json","expected_git_blob_sha1":"46726a05ba0fe9f32c9e432afa466d2b9679304d","capsule_id":"W09C_XAUUSD_BUY_M1_FIFO1_GROUP01_20260916_v1"},
+  "last_durable_unit":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_GROUP00_SEMANTIC_RECEIPT_20260916_v1.json","expected_git_blob_sha1":"5695fe0117f77d2613dfb42ae59df63aece7ae1c","status":"PASS","structural_group_index":0},
+  "delivery_resilience_policy":{"path":"governance/QROS_CHAT_DELIVERY_RESILIENCE_AND_DURABLE_CHECKPOINT_POLICY_v1.0.json","git_blob_sha1":"56e9501ea1f480bbce185edcf83f49662af2a9d8"},
+  "stale_rule":"IF_STABLE_POINTER_OR_EXECUTION_CHECKPOINT_OR_ACTIVE_CAPSULE_DIFFERS_FROM_EXPECTED FAIL_CLOSED; REGENERATE FROM NEWEST DURABLE AUTHORITY; DO NOT EXECUTE STALE TICKET OR MERGE AUTHORITIES",
+  "duplicate_or_retried_continue_order":"IDEMPOTENT_RESUME_FROM_DURABLE_CHECKPOINT",
+  "normal_execution_repository_search_allowed":false,
+  "scientific_execution_authorized":false,
+  "economic_pnl_read":false,
+  "first_gate_execution_authorized":false,
+  "ga2_open":false,
+  "holdout_open":false,
+  "new_ga1_authorized":false,
+  "next_automatic_action":"VERIFY_GROUP01_CAPSULE_PINS_THEN_EXECUTE_GROUP01_ONLY; VALIDATE_AND_PERSIST_GROUP01_RECEIPT_AND_NEXT_CURSOR_BEFORE_GROUP02"
 }
