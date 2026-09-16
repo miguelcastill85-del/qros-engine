@@ -1,0 +1,13 @@
+{
+  "schema":"QROS_PUBLIC1000_W09C_SEMANTIC_GROUP_RECEIPT_1.0",
+  "status":"PASS",
+  "date":"2026-09-16",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "capsule":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_GROUP02_EXECUTION_CAPSULE_20260916_v1.json","git_blob_sha1":"924fa49acfe7c11fa72ef7577eff69fbf2b797b1","capsule_id":"W09C_XAUUSD_BUY_M1_FIFO1_GROUP02_20260916_v1"},
+  "subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070","structural_group_index":2,"structural_group_key":[11,"STRICT_ALL_NEIGHBORS","CLOSE_BREAK"]},
+  "worker_receipt":{"status":"PASS","processed_signal_configs":33528,"distinct_mask_class_count":11229,"duplicate_config_count":22299,"zero_event_class_alias_count":217,"zero_event_representative_config_id":"010ab6b8f7d08082623a8eeb37cbc9d3594e0d489aeaa5dbfd7fc24ebd7e221e","class_root_sha256":"294313d78354bd5ff6ed8924981dbc3deed7ffe43bdd65c9c500b820f7897f48","semantic_class_root_sha256":"ea8a59ca48d953b40b2eb2a776041abe4c1eca3164901912963295a8d3bcc3bb","full_alias_mapping_root_sha256":"8a885a0f4227e35e80fe54c98ba85278a44ee5f89582e3b3d58a1c6a2e5bf01c","group_config_root_sha256":"c1de195074a2c514e841896e89252b2a90f0a3fd0775a9e206a794d39df0a5af","ordered_config_id_stream_root_sha256":"96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3","elapsed_seconds":35.179438,"receipt_sha256":"09dd5f7a21759e65be97446c8acbd602416e7b7d605e947f51623eecfcaf8dde","economic_pnl_read":false,"holdout_open":false},
+  "artifacts":[{"path":"mask_classes.delta_u32.bin","bytes":92367168,"sha256":"d786d5a1a70de3b398a96e645988e17232c35b56e1b940ab055d3f3c4e5477df"},{"path":"mask_class_index.jsonl","bytes":3825151,"sha256":"7d326f0187d7d7dd3ece5eccb10c5952a7746fdbd94dbf5f14ee615903ff12d1"},{"path":"duplicate_alias_pairs.bin","bytes":1427136,"sha256":"6dabd4d7ef8dc1d9f6ed13f20cd6c9af5aeed31631df619da2b55137cb9c747b"},{"path":"full_alias_mapping.bin","bytes":2145792,"sha256":"8a885a0f4227e35e80fe54c98ba85278a44ee5f89582e3b3d58a1c6a2e5bf01c"}],
+  "artifact_recovery_contract":{"mode":"DETERMINISTIC_REMATERIALIZATION_IF_VOLATILE_BYTES_LOST","inputs_bound_by_hash":true,"runner_git_blob_sha1":"ec8d143e284727b1bd98a0dd10e9c349a62f2cd8","group_index":2,"require_exact_artifact_sha256_on_recovery":true,"scientific_result_must_not_be_reselected_or_reinterpreted":true},
+  "validation":{"worker_status_pass":true,"processed_count_exact":true,"group_index_exact":true,"artifact_hashes_verified_local":true,"economic_pnl_read":false,"holdout_open":false,"ga2_open":false,"new_ga1_authorized":false},
+  "decision":"GROUP02_DURABLY_CLOSED_ADVANCE_TO_GROUP03"
+}
