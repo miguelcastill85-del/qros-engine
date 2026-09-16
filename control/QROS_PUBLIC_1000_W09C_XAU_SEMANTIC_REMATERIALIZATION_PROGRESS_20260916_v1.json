@@ -1,0 +1,21 @@
+{
+  "schema":"QROS_PUBLIC1000_W09C_XAU_SEMANTIC_REMATERIALIZATION_PROGRESS_1.0",
+  "date":"2026-09-16",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status":"DEVELOPMENT_RUNNING_NON_ECONOMIC_REMATERIALIZATION",
+  "scientific_state":"PREREGISTERED_NO_RESULTS",
+  "subject":{"asset":"XAUUSD","side":"BUY","timeframe":"M1","first_gate_order":1,"shard_id":"aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"},
+  "authorities":{"stable_frontier_version":"V255","ga1_completion":{"path":"control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_XAUUSD_BUY_M1_COMPLETION_V224_v1.json","git_blob_sha1":"19e47f7a25fb88eac1ba871dccfc56f79b9d9647"},"runtime_data_manifest":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_RUNTIME_MATERIALIZATION_MANIFEST_20260916_v1.json","git_blob_sha1":"622f21a62c532daaa824eafb202cf00a1c2b1a5d"},"physical_dev_pass":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_PHYSICAL_DEV_MATERIALIZATION_PASS_20260916_v1.json"},"transitive_source_correction":{"path":"control/QROS_PUBLIC_1000_W09C_SEMANTIC_SOURCE_TRANSITIVE_CLOSURE_CORRECTION_20260916_v1.json"}},
+  "verified_runtime_steps":{
+    "dev_prefix":{"status":"PASS","records":151382388,"bytes":2573500596,"sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"},
+    "data_preflight":{"status":"PASS","out_of_order":0,"crossed_spread_preserved":74,"zero_spread_preserved":942184,"nonpositive_bid":0,"nonpositive_ask":0},
+    "bar_cache":{"status":"PASS","runner_git_blob_sha1":"987ef26aca2507a94247bed7663493e6682aa869","M1_bars":681772,"M1_content_sha256":"55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4","M1_file_sha256":"35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59","receipt_sha256":"78e9b47df72a4c2c38dafacbb6a330cff85b6f7e3644c22405be8c0678af32e7"},
+    "bar_cache_independent_oracle":{"status":"PASS","runner_git_blob_sha1":"b25f49273706d26ed04ad410c6ebbf89eb940af9","checks":614,"failures":0,"receipt_sha256":"2f3a7e57e8de7419468c069501f3fedc2f3dcd9557a469d0ecebecf39a65b8c8"},
+    "indicator_cache":{"status":"PASS","builder_git_blob_sha1":"21a50b167e791f4474e3c358b81e40065c048280","indicator_formula_git_blob_sha1":"b3575c061607aaae9f4062ad623ff7083e2e0ffe","M1_content_root_sha256":"2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c","receipt_sha256":"ceee52e265840313a0259bd9ceca332a37f9592401674861044b36558f2103f4"},
+    "config_stream":{"status":"PASS_EXACT_ROOT_REPRODUCED","runner_git_blob_sha1":"a01268bd8bab639977b22c419926d94306754bba","signal_config_count":804672,"base_tuple_count":72,"filter_package_count":11176,"ordered_config_id_stream_root_sha256":"96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3","matches_frozen_ga1_completion":true,"receipt_sha256":"92d813beabb66e191dea50b429c7f65c69b65ab3f540000daea83bde30b9b68a"}
+  },
+  "frozen_semantic_targets":{"distinct_mask_class_count":303572,"semantic_class_root_sha256":"cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4","alias_root_sha256":"4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458"},
+  "pending":["rematerialize GA1 event-mask classes and reproduce 303572/cf28be12.../4151cccd...","materialize production event anchors + ordered Bid/Ask tick bundles","execute independent production trade-by-trade parity","issue compatible economic transition"],
+  "guards":{"economic_pnl_read":false,"holdout_open":false,"ga2_open":false,"new_ga1_authorized":false,"first_gate_economic_scoring_executed":false},
+  "decision":"CONTINUE_FROM_GA1_EVENT_MASK_REMATERIALIZATION; DO_NOT_REPEAT_PHYSICAL_DEV_BAR_INDICATOR_OR_CONFIG_STREAM_STEPS_UNLESS_HASH_VALIDATION_FAILS"
+}
