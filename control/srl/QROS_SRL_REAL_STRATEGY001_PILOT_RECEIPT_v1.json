@@ -1,0 +1,18 @@
+{
+  "schema": "QROS_SRL_REAL_STRATEGY_PILOT_RECEIPT_1.0",
+  "strategy_id": "QROS_STRATEGY_001_XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+  "scientific_state_preserved": "REJECTED",
+  "primary_sha256": "05921d58102e9a53ec4e506248ac6374980c175cec118c393b9d4cf40ab381f3",
+  "oracle_sha256": "05921d58102e9a53ec4e506248ac6374980c175cec118c393b9d4cf40ab381f3",
+  "expected_sha256": "05921d58102e9a53ec4e506248ac6374980c175cec118c393b9d4cf40ab381f3",
+  "primary_rows": 2549,
+  "oracle_rows": 2549,
+  "expected_rows": 2549,
+  "exact_primary_oracle": true,
+  "exact_expected": true,
+  "clean_workspace": true,
+  "oracle_recompiled_from_source": true,
+  "carrier_sha256": "a3068e4bb6714c253d5b4714e97be59cff56c3070631fc68efbf64716ab2f296",
+  "decision": "PASS",
+  "receipt_sha256_local": "a3182d2b3587c0f05bba0947a8e46f2f863d49f3f5faeb4facb10a8a96d4990c"
+}

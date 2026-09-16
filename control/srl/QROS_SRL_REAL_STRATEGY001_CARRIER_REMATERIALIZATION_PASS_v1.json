@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_SRL_REAL_CARRIER_REMATERIALIZATION_RECEIPT_1.0",
+  "strategy_id": "QROS_STRATEGY_001_XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+  "artifact": "XAU_2021_2024_STRATEGY_WARMUP_STREAM.bin",
+  "source_parts": [
+    "QROS_XAU_FULL_HISTORY_v2_part014-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part015-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part016-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part017-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part018-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part019-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part020-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part021-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part022-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part023-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part024-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part025-of-035.zip",
+    "QROS_XAU_FULL_HISTORY_v2_part026-of-035.zip"
+  ],
+  "global_record_range": [260000000, 519057574],
+  "records": 259057574,
+  "bytes": 4403978758,
+  "expected_sha256": "a3068e4bb6714c253d5b4714e97be59cff56c3070631fc68efbf64716ab2f296",
+  "rematerialized_sha256": "a3068e4bb6714c253d5b4714e97be59cff56c3070631fc68efbf64716ab2f296",
+  "source_stream_used_for_hash": false,
+  "decision": "PASS_EXACT_REMATERIALIZATION",
+  "scientific_state_changed": false,
+  "receipt_sha256_local": "a725dc28a88ebfe3666cf763790944f27e005474b59bb89690dd3c7dd3b394aa"
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_SRL_BRANCH_CI_RECEIPT_2.0",
+  "branch": "srl-v1.3-nonstall-e075f421-20260915",
+  "head_sha": "9601cb47a8672c74fd670619cd789cc72540b214",
+  "workflow_run_id": 35043595617,
+  "workflow": "qros-srl-v1.3-nonstall-ci",
+  "status": "PASS",
+  "conclusion": "success",
+  "validated": [
+    "SRL core compiles",
+    "SRL adversarial suite passes",
+    "v2512 missing-generator simulation fails certification closed",
+    "authority-lease non-stall tests pass",
+    "terminal transition guard tests pass",
+    "branch-only merge guard pass"
+  ],
+  "economic_pnl_read": false,
+  "holdout_opened": false,
+  "ga2_opened": false,
+  "merge_authorized": false
+}
