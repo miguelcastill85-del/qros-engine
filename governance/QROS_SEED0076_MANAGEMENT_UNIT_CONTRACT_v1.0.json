@@ -1,0 +1,58 @@
+{
+  "authority": {
+    "independent_engine": {
+      "git_blob_sha1": "706ad4f5e2f04a5bb05d66c2b8dc98e3be5ac560",
+      "path": "scripts/qros_seed0076_execution_units_independent.py"
+    },
+    "machine_universe_spec": {
+      "git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+      "path": "research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json"
+    },
+    "preflight": {
+      "git_blob_sha1": "9789028cf111d363fc60511546daf328e83d5316",
+      "path": "scripts/qros_seed0076_unit_binding_preflight.py"
+    },
+    "primary_engine": {
+      "git_blob_sha1": "f4c0db4950adbe100f1ebc2d57dd5c37b5a5a558",
+      "path": "scripts/qros_seed0076_execution_units_primary.py"
+    },
+    "unit_firewall": {
+      "git_blob_sha1": "efe3677663f9e68a83ff4bab1ee828fc5179c32f",
+      "path": "governance/QROS_EXECUTION_UNIT_BINDING_FIREWALL_v1.0.json"
+    }
+  },
+  "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "guards": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_ga1_open": false,
+    "physical_data_schema_verified": false
+  },
+  "management_units": {
+    "ATR_MULTIPLE": "EXECUTABLE_QUOTE_DISTANCE",
+    "BREAKEVEN_TRIGGER_R": "DIMENSIONLESS_MULTIPLE_OF_R",
+    "OPPOSITE_FRACTAL": "EXECUTABLE_QUOTE_DISTANCE",
+    "PARTIAL_R": "DIMENSIONLESS_MULTIPLE_OF_R",
+    "R": "INITIAL_EXECUTABLE_STOP_DISTANCE",
+    "TARGET_R": "DIMENSIONLESS_MULTIPLE_OF_R",
+    "TIGHTER_STRUCT_OR_ATR": "EXECUTABLE_QUOTE_DISTANCE",
+    "TRAIL_ATR": "EXECUTABLE_QUOTE_DISTANCE",
+    "TRAIL_FAST_EMA": "EXECUTABLE_QUOTE_PRICE_LEVEL",
+    "WIDER_STRUCT_OR_ATR": "EXECUTABLE_QUOTE_DISTANCE"
+  },
+  "purpose": "Bind V209 management semantics to dimensional units before W10 without reading economic PnL.",
+  "schema": "QROS_SEED0076_MANAGEMENT_UNIT_CONTRACT_1.0",
+  "seed": "WEB_SEED_0076",
+  "status": "FROZEN_NON_ECONOMIC_BINDING",
+  "test_vector_unit_bindings": {
+    "NQX": {
+      "contract_size": "10",
+      "packed_price_unit": "0.1"
+    },
+    "XAUUSD": {
+      "contract_size": "100",
+      "packed_price_unit": "0.01"
+    }
+  }
+}
