@@ -1,0 +1,45 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_PRODUCTION_BUNDLE_SCALE_AUDIT_1.0",
+  "date": "2026-09-16",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "PASS_ARCHITECTURE_SCALE_AUDIT_PRE_PNL",
+  "scope": "NON_ECONOMIC_TRANSPORT_AND_MATERIALIZATION_ONLY",
+  "authority": {
+    "base_main_commit": "c5c44af04e457fa3f131630e6babeba10ff3ba96",
+    "semantic_pass": "control/QROS_PUBLIC_1000_W09C_XAU_SEMANTIC_REMATERIALIZATION_PASS_20260916_v1.json",
+    "normalized_execution_contract": {
+      "path": "governance/QROS_PUBLIC1000_SEED0076_FIRST_GATE_NORMALIZED_EXECUTION_CONTRACT_v1.1.json",
+      "git_blob_sha1": "5d7006c5b54d4647113c7caab5107e8c9229d2bf"
+    },
+    "scorer_contract": {
+      "path": "governance/QROS_PUBLIC1000_SEED0076_FIRST_GATE_SCORER_IMPLEMENTATION_CONTRACT_v1.0.json",
+      "git_blob_sha1": "bc7f859c31f7de0584b8abecbe22641fdac2ceab"
+    }
+  },
+  "verified_scale": {
+    "distinct_mask_classes": 303572,
+    "sum_eligible_events_across_distinct_classes": 2734853776,
+    "structural_trigger_groups": 24,
+    "transform_carriers": 672,
+    "base_transform_rearm_evaluations": 2016,
+    "candidate_union_total_before_rearm_and_gate_filters": 29822856,
+    "local_gate_groups_total": 162925,
+    "expanded_class_event_to_candidate_union_ratio": "91.70328207331987"
+  },
+  "finding": "Persisting one fully expanded JSON trade list per distinct mask class would repeat shared structural executions at very large scale. The frozen GA1 worker already exposes a semantics-preserving carrier factorization: 24 structural groups x 28 transform carriers per group, with three rearm evaluations per transform. Production normalization should execute shared carrier events once and reuse those exact normalized executions when materializing candidate rows.",
+  "constraints": [
+    "Do not change the 303572 class universe, semantic root or alias root.",
+    "Do not change event admission, Bid/Ask execution, stop/gap/same-day semantics, overlap policy or management units.",
+    "Do not read economic PnL while designing or validating the transport.",
+    "Do not replace the frozen scorer economic formulas or multiplicity rule.",
+    "Any transport optimization must have an independent reconstruction oracle proving byte-equivalent candidate semantics on validation fixtures and exact identity preservation on production inputs."
+  ],
+  "architecture_decision": "REQUIRE_SHARDED_SHARED_CARRIER_PRODUCTION_MATERIALIZATION_BEFORE_REAL_TRADE_BY_TRADE_PARITY",
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "W10_authorized": false
+  }
+}
