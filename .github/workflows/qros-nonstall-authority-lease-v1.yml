@@ -1,0 +1,31 @@
+name: qros-nonstall-authority-lease-v1
+on:
+  push:
+    branches:
+      - 'qros-nonstall-authority-lease-*'
+  pull_request:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile governor
+        run: |
+          python -m py_compile scripts/qros_nonstall_execution_governor_v1.py
+          python -m py_compile scripts/qros_nonstall_execution_governor_tests_v1.py
+      - name: Authority lease and liveness tests
+        working-directory: scripts
+        run: python qros_nonstall_execution_governor_tests_v1.py
+      - name: Governance identity check
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('control/QROS_AUTHORITY_BRANCH_LEASE_POLICY_v1.json'))
+          assert p['policy_id']=='QROS_AUTHORITY_BRANCH_LEASE_POLICY_v1'
+          assert p['rules']['terminal_premerge']=='ALWAYS_RECONCILE_TO_LIVE_MAIN'
+          assert p['rules']['blocked_lane']=='freeze durable blocker and continue orthogonal valid lanes'
+          print('QROS_AUTHORITY_BRANCH_LEASE_POLICY=PASS')
+          PY
