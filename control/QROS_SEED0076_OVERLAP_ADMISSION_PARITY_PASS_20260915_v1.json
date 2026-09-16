@@ -1,0 +1,12 @@
+{
+  "schema":"QROS_SEED0076_OVERLAP_ADMISSION_PARITY_RECEIPT_1.0",
+  "status":"PASS",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "subject":"FIFO #1 XAUUSD/BUY/M1",
+  "policy":{"path":"governance/QROS_SEED0076_SAME_CANDIDATE_OVERLAP_ADMISSION_POLICY_v1.0.json","git_blob_sha1":"690e0b82233b22fb800693741eede53ce223f5c2","policy_id":"SERIAL_SAME_CANDIDATE_REJECT_WHILE_ACTIVE_V1"},
+  "implementations":{"primary":{"path":"scripts/qros_seed0076_overlap_admission_primary_v1.py","git_blob_sha1":"df27b9a0abb1f7b030955558e2d9c6d81ac9ccb2"},"independent_oracle":{"path":"scripts/qros_seed0076_overlap_admission_oracle_v1.py","git_blob_sha1":"fdedc47e82e4a4ea060f23345473b19950c12c16"}},
+  "validation":{"mode":"NON_ECONOMIC_SYNTHETIC_ADMISSION_PARITY","fixture_sha256":"c58183135cfbd832cd0b792a3fc3db6e637b7094c5115ad237fbe1304314f4e8","input_events":7,"admitted_events":4,"rejected_events":3,"admitted_sha256":"7f8d70fc427137e3629a58ba0cef683cea1cfe873e4e6f2e848a73620ba88e9c","rejected_sha256":"7f43f0979170e7707739283d3040f9d9b0cb40680bf93c80addf22db04067c38","primary_oracle_byte_identical":true,"cases":["overlap while active rejected","trigger exactly at prior exit rejected","strictly later trigger admitted","same-trigger deterministic event-id ordering","different candidate independently admitted"]},
+  "guards":{"economic_pnl_read":false,"holdout_open":false,"ga2_open":false,"new_ga1_open":false},
+  "decision":"SAME_CANDIDATE_OVERLAP_ADMISSION_BINDING_PASS",
+  "next_dependency":"exact production DEV bytes and production rematerialization/parity"
+}
