@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_SRL_PREMERGE_GATES_3.0",
+  "schema": "QROS_SRL_PREMERGE_GATES_4.0",
   "layer": "QROS_STRATEGY_RECONSTRUCTION_LAYER_v1.3",
   "branch": "srl-v1.3-nonstall-e075f421-20260915",
   "base_head_sha": "e075f421a7977a3ad5950f5483efa0f2d20072ce",
@@ -16,13 +16,13 @@
     "P08B_LARGE_CARRIER_REMATERIALIZATION": "PASS_EXACT",
     "P09_REAL_APPROVED_STRATEGY": "BLOCKED_BY_INFRASTRUCTURE_FULL_M1_BYTES_NOT_MATERIALIZED",
     "P12_REAL_MT5_PATH": "MT5_EXTERNAL_PENDING_RUNTIME_NOT_AVAILABLE",
-    "P14_TERMINAL_STATE_GUARD": "PARTIAL_PASS_GUARD_7_OF_7_UNIVERSAL_WIRING_PENDING",
-    "P15_INDEPENDENT_FINAL_CLEAN_ROOM": "PENDING"
+    "P14_TERMINAL_STATE_ENFORCEMENT": "IMPLEMENTED_GENERIC_DOCUMENT_GUARD_AND_WORKFLOW_PENDING_CI",
+    "P15_INDEPENDENT_FINAL_CLEAN_ROOM": "PASS_REAL_STRATEGY001_2549_OF_2549_EXACT"
   },
   "blocked_lane_policy": {
-    "P09": "frozen with blocker receipt; does not block P14/P15 work",
-    "P12": "frozen MT5_EXTERNAL_PENDING; does not block P14/P15 work"
+    "P09": "frozen with blocker receipt; no approximate substitution",
+    "P12": "frozen MT5_EXTERNAL_PENDING; no fabricated fresh parity"
   },
-  "hard_merge_requirements": ["P09","P12","P14","P15","TERMINAL_MAIN_RECONCILIATION"],
+  "hard_merge_requirements": ["P09","P12","P14","TERMINAL_MAIN_RECONCILIATION"],
   "anti_stall_rule": "An isolated lane continues on its authority lease through orthogonal main drift. Blocked gates are frozen durably and orthogonal gates continue."
 }

@@ -1,0 +1,26 @@
+name: qros-srl-terminal-state-enforcement
+on:
+  pull_request:
+  push:
+jobs:
+  terminal-state-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit tests
+        working-directory: scripts
+        run: python qros_srl_terminal_document_guard_tests_v1.py
+      - name: Validate newly changed JSON terminal states
+        shell: bash
+        run: |
+          if git rev-parse HEAD^ >/dev/null 2>&1; then
+            mapfile -t files < <(git diff --name-only HEAD^ HEAD -- '*.json')
+          else
+            mapfile -t files < <(git ls-files '*.json')
+          fi
+          python scripts/qros_srl_terminal_document_guard_v1.py "${files[@]}"
