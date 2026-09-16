@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_HEAVY_EXECUTION_LOOP_HARDENING_RECEIPT_1.0",
+  "date": "2026-09-16",
+  "status": "PASS",
+  "problem": "Heavy workers could outlive the initiating client/tool call. The legacy transactional supervisor could then delete an active temporary directory and relaunch because it did not prove worker death before cleanup.",
+  "root_cause": {
+    "legacy_supervisor_path": "scripts/qros_transactional_shard_supervisor.py",
+    "legacy_supervisor_git_blob_sha1": "a4d93cb3e620bff5f6e75f5af0a23bee50fcfc13",
+    "failure_mechanism": [
+      "blocking subprocess.run ties worker observation to one client invocation",
+      "retry path classifies prior temporary directories as abandoned without live process identity proof",
+      "transport timeout can therefore be confused with worker failure"
+    ]
+  },
+  "correction": {
+    "supervisor_path": "scripts/qros_heavy_job_supervisor_v1.py",
+    "supervisor_git_blob_sha1": "991860cb4cb6e1f4d322127fd4417324dc8cbbaf",
+    "supervisor_sha256": "170c1d6b010c23abbe6ebd2349b64516ca1ee0758c1f22e99889da85121bc41d",
+    "tests_path": "scripts/qros_heavy_job_supervisor_tests_v1.py",
+    "tests_git_blob_sha1": "3d10c2adfdf1cedcee100d31faef2bf1822e9abb",
+    "tests_sha256": "10b316c4597461475413d633672e52c22abeb10446e6b68f1a1a52d8c385bb28",
+    "policy_path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.0.json",
+    "policy_git_blob_sha1": "9cd8aca07d9321063299e3348568a37d1c6ea26f",
+    "policy_sha256": "558b41da0f4d49f7b4f74aea679191cb80f4835528aa6b2bf1d71dbeea4491d7"
+  },
+  "validation": {
+    "test_suite_status": "PASS",
+    "test_count": 11,
+    "test_result_sha256": "3db216ecaa0929ce758311cb9dde979d0196cb10771c5f90e4ed5a05db67306d",
+    "tests": [
+      "PASS_transport_retry_exactly_once",
+      "PASS_concurrent_controller_exactly_once",
+      "PASS_orphan_worker_adopted_no_relaunch",
+      "PASS_proven_death_one_retry_only",
+      "PASS_tampered_artifact_fail_closed",
+      "PASS_capsule_drift_fail_closed",
+      "PASS_no_early_promotion_while_live",
+      "PASS_pid_birth_identity_required",
+      "PASS_active_attempt_never_deleted",
+      "PASS_job_id_traversal_fail_closed",
+      "PASS_live_controller_lock_not_time_stolen"
+    ],
+    "persisted_blobs_match_locally_tested_bytes": true,
+    "test_environment": "Linux runtime",
+    "native_windows_execution": "NOT_EXECUTED",
+    "windows_safety_behavior": "Process creation-time identity implemented through GetProcessTimes; if process-birth identity cannot be established, execution fails closed."
+  },
+  "operational_decision": {
+    "heavy_execution_supervisor": "AUTHORIZED",
+    "legacy_transactional_supervisor_for_transport_resilient_heavy_jobs": "NOT_AUTHORIZED",
+    "retry_semantics": "ADOPT_LIVE_OR_ORPHAN_WORKER_BEFORE_RELAUNCH; RELAUNCH_ONLY_AFTER_PROVEN_DEATH; DEFAULT_ONE_RETRY",
+    "active_temp_deletion": "FORBIDDEN"
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "strategy_or_alpha_changed": false
+  },
+  "next_action": "Bind this hardening receipt and policy into the current W09C checkpoint, then execute structural group03 through the exactly-once heavy supervisor and persist its receipt before group04."
+}
