@@ -1,0 +1,16 @@
+{
+  "schema": "QROS_SRL_P14_TERMINAL_GUARD_RECEIPT_1.0",
+  "gate": "P14_GENERIC_CONTROLLER_STATE_TRANSITION_INTEGRATION",
+  "state": "DEVELOPMENT_RUNNING",
+  "implemented": {
+    "guard_module": "scripts/qros_srl_terminal_state_guard_v1.py",
+    "tests": "scripts/qros_srl_terminal_state_guard_tests_v1.py",
+    "ci_result": "PASS_7_OF_7",
+    "protected_states": ["FROZEN_CANDIDATE","REJECTED","OBSERVATIONAL_RESERVE","BRANCH_EXHAUSTED","APPROVED_RESEARCH","APPROVED_FINAL"],
+    "binding": ["certificate status PASS","capsule root exact","registry root exact","R00-R19 all pass"]
+  },
+  "repository_audit": "No single generic scientific-state transition controller entrypoint was recovered from the current scripts surface during this lane. Therefore the guard library is implemented and CI-verified but universal wiring is not yet demonstrated.",
+  "decision": "PARTIAL_PASS_GUARD_IMPLEMENTED_UNIVERSAL_WIRING_PENDING",
+  "merge_gate": "FAIL_CLOSED_UNTIL_UNIVERSAL_WIRING_OR_EQUIVALENT_ENFORCEMENT_IS_DEMONSTRATED",
+  "lane_action": "CONTINUE_P15_AND_KEEP_P14_OPEN"
+}

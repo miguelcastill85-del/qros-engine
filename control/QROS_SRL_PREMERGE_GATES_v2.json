@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_SRL_PREMERGE_GATES_2.0",
+  "schema": "QROS_SRL_PREMERGE_GATES_3.0",
   "layer": "QROS_STRATEGY_RECONSTRUCTION_LAYER_v1.3",
   "branch": "srl-v1.3-nonstall-e075f421-20260915",
   "base_head_sha": "e075f421a7977a3ad5950f5483efa0f2d20072ce",
@@ -8,17 +8,21 @@
     "P01_DESIGN_AUDIT": "PASS",
     "P02_AMBIGUITY_AUDIT": "PASS_55",
     "P03_PROTOTYPE_ADVERSARIAL": "PASS_50_OF_50",
-    "P04_BRANCH_IMPLEMENTATION": "MATERIALIZING_ON_AUTHORITY_LEASE",
-    "P05_BRANCH_CI": "PENDING_NEW_BRANCH_RUN",
-    "P06_V2512_MISSING_BYTES_FAIL_CLOSED": "PENDING_NEW_BRANCH_RUN",
-    "P07_NONSTALL_AUTHORITY_LEASE": "LOCAL_PASS_16_OF_16_PENDING_CI",
+    "P04_BRANCH_IMPLEMENTATION": "PASS_MATERIALIZED",
+    "P05_BRANCH_CI": "PASS_RUN_35043595617",
+    "P06_V2512_MISSING_BYTES_FAIL_CLOSED": "PASS_CI",
+    "P07_NONSTALL_AUTHORITY_LEASE": "PASS_16_OF_16_LOCAL_AND_CI",
     "P08_REAL_REJECTED_STRATEGY": "PASS_STRATEGY001_2549_OF_2549",
     "P08B_LARGE_CARRIER_REMATERIALIZATION": "PASS_EXACT",
-    "P09_REAL_APPROVED_STRATEGY": "PENDING",
-    "P12_REAL_MT5_PATH": "PENDING_OR_EXTERNAL",
-    "P14_TERMINAL_STATE_GUARD": "LOCAL_PASS_7_OF_7_PENDING_CI_AND_GENERIC_WIRING",
+    "P09_REAL_APPROVED_STRATEGY": "BLOCKED_BY_INFRASTRUCTURE_FULL_M1_BYTES_NOT_MATERIALIZED",
+    "P12_REAL_MT5_PATH": "MT5_EXTERNAL_PENDING_RUNTIME_NOT_AVAILABLE",
+    "P14_TERMINAL_STATE_GUARD": "PARTIAL_PASS_GUARD_7_OF_7_UNIVERSAL_WIRING_PENDING",
     "P15_INDEPENDENT_FINAL_CLEAN_ROOM": "PENDING"
   },
-  "hard_merge_requirements": ["P05","P06","P07","P09","P12","P14","P15","TERMINAL_MAIN_RECONCILIATION"],
-  "anti_stall_rule": "A blocked gate is checkpointed and orthogonal gates continue; repeated main drift does not restart the leased lane unless dependencies overlap."
+  "blocked_lane_policy": {
+    "P09": "frozen with blocker receipt; does not block P14/P15 work",
+    "P12": "frozen MT5_EXTERNAL_PENDING; does not block P14/P15 work"
+  },
+  "hard_merge_requirements": ["P09","P12","P14","P15","TERMINAL_MAIN_RECONCILIATION"],
+  "anti_stall_rule": "An isolated lane continues on its authority lease through orthogonal main drift. Blocked gates are frozen durably and orthogonal gates continue."
 }
