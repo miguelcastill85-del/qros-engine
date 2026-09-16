@@ -1,0 +1,102 @@
+{
+  "schema": "QROS_SRL_LEASE_MIGRATION_CHECKPOINT_1.0",
+  "objective": "Finish QROS Strategy Reconstruction Layer v1.3 under authority-branch-lease anti-stall governance without reopening closed scientific work or merging to main while mandatory productive gates remain open.",
+  "authority": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "live_main_sha_verified": "4190ac2209470fb30e2818814122e48561efd4c6",
+    "live_main_governance_commit": "QROS governance: authority branch lease anti-stall v1",
+    "lease_branch": "srl-v1.3-lease-20260915",
+    "lease_commit": "463956ebf59871cbe54eeba301602240836cfd01",
+    "source_branch": "srl-v1.3-nonstall-e075f421-20260915",
+    "source_head_migrated": "f9392cdabb3817f214884b1708ef80c828ea0d1e",
+    "migration_pr": 53,
+    "migration_merge_commit": "a52a091b4f9e6b938b79d7612992e84a1f13994e",
+    "validated_lease_head": "ad3505e2f89722fbbae664e2e343ab3d1cb0eae5"
+  },
+  "data": {
+    "economic_pnl_read": false,
+    "holdout_opened": false,
+    "ga2_opened": false,
+    "alpha_modified": false,
+    "strategy_rules_modified": false,
+    "sealed_periods_modified": false
+  },
+  "work_executed": [
+    "Verified live main equals migration reference SHA and contains authority branch lease anti-stall v1 governance.",
+    "Verified lease branch is exactly one commit ahead of live main at acquisition and lease commit is 463956ebf59871cbe54eeba301602240836cfd01.",
+    "Verified historical main drift from e075f421a7977a3ad5950f5483efa0f2d20072ce overlaps SRL only at lease policy/governor dependencies and both overlap blobs are content-identical between main and source branch.",
+    "Merged PR 53 from nonstall source into the active lease branch only; main was not modified.",
+    "Added the lease-declared hardening workflow and executed it on validated_lease_head.",
+    "Searched File Library and Dropbox for exact P09 XAU M1 approved-strategy payloads; exact full ledger/spec/replay bytes were not recoverable as executable payloads.",
+    "Searched File Library for current P12 MT5 evidence; only historical MT5 evidence was recoverable, not a fresh SRL reconstruction run under the current authority."
+  ],
+  "verified_results": {
+    "lease_policy_blob_sha": "75a8174475b8140cb44190295349e4655bdf9947",
+    "nonstall_governor_blob_sha": "6be60e24c9758ec9ef15cb056ba8544c62ba07d0",
+    "lease_hardening_workflow_run": {
+      "id": 35050856881,
+      "head_sha": "ad3505e2f89722fbbae664e2e343ab3d1cb0eae5",
+      "conclusion": "success",
+      "completed_at": "2026-09-16T03:11:44Z",
+      "validated": ["compile", "adversarial suite", "v2512 missing-bytes fail-closed", "authority lease tests", "terminal transition guard", "terminal document guard", "branch-only merge guard"]
+    },
+    "terminal_state_workflow": {
+      "id": 35050856620,
+      "head_sha": "ad3505e2f89722fbbae664e2e343ab3d1cb0eae5",
+      "conclusion": "success"
+    },
+    "rejected_strategy_source_receipt": {
+      "strategy": "QROS_STRATEGY_001_XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+      "scientific_state": "REJECTED",
+      "rows": 2549,
+      "ledger_sha256": "05921d58102e9a53ec4e506248ac6374980c175cec118c393b9d4cf40ab381f3",
+      "primary_oracle_byte_identical": true
+    },
+    "large_carrier_source_receipt": {
+      "bytes": 4403978758,
+      "records": 259057574,
+      "sha256": "a3068e4bb6714c253d5b4714e97be59cff56c3070631fc68efbf64716ab2f296",
+      "exact_rematerialization": true
+    },
+    "p15_source_receipt": {
+      "source_head": "1644caf5e4f1ed3947982f008b39e3f0e7df68bf",
+      "decision": "PASS_INDEPENDENT_REAL_CLEANROOM",
+      "source_to_migrated_head_delta": "GATE_METADATA_AND_P14_RECEIPT_ONLY"
+    }
+  },
+  "gates": {
+    "P01_P07_ENGINEERING_AND_FAIL_CLOSED": "PASS_LEASE_CI_35050856881",
+    "P08_REAL_REJECTED_STRATEGY": "VERIFIED_DURABLE_SOURCE_RECEIPT_PASS",
+    "P08B_LARGE_CARRIER_REMATERIALIZATION": "VERIFIED_DURABLE_SOURCE_RECEIPT_PASS_EXACT",
+    "P09_REAL_APPROVED_STRATEGY": "BLOCKED_BY_INFRASTRUCTURE_EXACT_FULL_XAU_M1_PAYLOAD_NOT_RECOVERABLE",
+    "P12_REAL_MT5_PATH": "MT5_EXTERNAL_PENDING_NO_FRESH_CURRENT_AUTHORITY_RUNTIME",
+    "P14_TERMINAL_STATE_ENFORCEMENT": "PASS_LEASE_CI_AND_TERMINAL_WORKFLOW",
+    "P15_INDEPENDENT_FINAL_CLEAN_ROOM": "VERIFIED_DURABLE_SOURCE_RECEIPT_PASS__TERMINAL_LEASE_REBIND_DEFERRED",
+    "TERMINAL_MAIN_RECONCILIATION": "NOT_ELIGIBLE_WHILE_P09_P12_OPEN"
+  },
+  "problems": [
+    "P09 exact 79-trade approved-strategy ledger plus frozen spec and replay bytes are referenced by exact hashes but not recoverable as executable payloads from currently accessible storage.",
+    "P12 requires a fresh real MT5/MetaEditor reconstruction/parity path under current authority; no MT5 runtime is available to this execution environment.",
+    "Prior P15 receipt is verified durable evidence but is not promoted as a cross-lease merge certificate because the lease policy forbids old-pass reuse unless explicitly base-neutral and content identities are fully bound."
+  ],
+  "root_cause": {
+    "P09": "EXACT_EXTERNAL_PAYLOAD_AVAILABILITY",
+    "P12": "EXTERNAL_MT5_RUNTIME_UNAVAILABLE",
+    "P15_rebind": "CROSS_LEASE_REUSE_REQUIRES_EXPLICIT_BASE_NEUTRAL_BINDING_OR_FRESH_RUN"
+  },
+  "corrections": [
+    "Reconciled source work once into the authority lease rather than chasing main or restarting SRL.",
+    "Re-ran base-dependent engineering/adversarial/terminal guards under the live-main lease.",
+    "Preserved source receipts as verified evidence without falsely upgrading them to cross-lease merge certificates.",
+    "Froze P09 and P12 instead of substituting truncated strategy bytes or historical MT5 results."
+  ],
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "execution_state": "BLOCKED_BY_INFRASTRUCTURE",
+  "reconstruction_capability": "PARTIAL_CURRENT_AUTHORITY",
+  "reconstruction_certification": "NOT_TERMINAL_ALL_PRODUCTIVE_GATES",
+  "recovery_health": "DEGRADED",
+  "portfolio_impact": "NONE",
+  "merge_allowed": false,
+  "hard_merge_requirements_remaining": ["P09_REAL_APPROVED_STRATEGY", "P12_REAL_MT5_PATH", "P15_TERMINAL_LEASE_REBIND_OR_FRESH_CLEANROOM", "TERMINAL_MAIN_RECONCILIATION"],
+  "next_automatic_action": "Resume P09 immediately if exact XAU M1 full ledger/spec/replay payload bytes become hash-verifiable; resume P12 immediately when an executable MT5/MetaEditor environment is available. Until then do not merge to main, do not open economic PnL/holdout/GA2, and do not reinterpret historical receipts as fresh certification."
+}
