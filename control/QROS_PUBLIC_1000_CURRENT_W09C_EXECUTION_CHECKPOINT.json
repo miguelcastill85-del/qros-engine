@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.2",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.3",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -129,7 +129,7 @@
   "problem": "NONE_CURRENT_GROUP03_RUNNING",
   "root_cause": "N/A",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "ADOPT_GROUP03_EXISTING_JOB_EXACTLY_ONCE; IF RUNNING PERSIST STATUS WITHOUT RELAUNCH; IF PASS VALIDATE ARTIFACTS_AND_PERSIST_DURABLE_GROUP03_RECEIPT; ONLY_AFTER_DURABLE_PASS_CREATE_GROUP04_CAPSULE",
+  "next_automatic_action": "NEW_BOUNDED_BLOCK: ADOPT_EXISTING_GROUP03_JOB_EXACTLY_ONCE_USING_IDENTICAL_SPEC_C745DF; IF PASS VALIDATE_AND_PERSIST_GROUP03_DURABLE_RECEIPT; IF RUNNING DO_NOT_RELAUNCH_AND_FREEZE_STATUS",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -164,15 +164,16 @@
     "REQUIRE_CONTROLLER_SMOKE_LIFECYCLE_BEFORE_GROUP03"
   ],
   "last_execution_block": {
-    "status": "RUNNING_ADOPTED_EXACTLY_ONCE",
+    "status": "RUNNING_ADOPTED_EXACTLY_ONCE_CACHES_COMPLETE",
     "receipt": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP03_LIVE_EXECUTION_CHECKPOINT_20260918_v1.json",
-      "git_blob_sha1": "96ce0c28907e6abb1c345e3bcd2bbed9da902e9d"
+      "git_blob_sha1": "1ecafa532ef9c1e696c27143cfc6267ea769884b"
     },
     "job_spec_sha256": "c745dffc9b018b415e3778e28a52ea802cc185e61b8bc76faa786741e038ad74",
     "attempt": 1,
     "group03_launched": true,
     "expensive_unit_open": true,
-    "orphan_worker": false
+    "orphan_worker": false,
+    "cache_stage": "DEV_BAR_INDICATOR_COMPLETE_GROUP03_RUNNING"
   }
 }
