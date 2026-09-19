@@ -1,0 +1,23 @@
+{
+  "schema": "QROS_CWS_CONTROL_PLANE_ACTIVATION_GUARD_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_EXTERNAL_CLEAN_RUNNER",
+  "workflow_run_id": 35475478836,
+  "job_id": 105983879624,
+  "conclusion": "success",
+  "traceback_present": false,
+  "exact_blobs": {
+    "guard": "33bb378ce8116c11ad139cc695caf4b991e07f49",
+    "tests": "61b34f0d6aacbb5cbd92b5e7f3194bf887c5d621"
+  },
+  "evidence": {
+    "activation_spec_pass": true,
+    "adversarial_cases": 100000,
+    "blocked_or_pending": 100000,
+    "unsafe_eligible": 0,
+    "guard_pass": true
+  },
+  "decision": "PASS_PENDING_W09C_SHADOW",
+  "activation_allowed": false,
+  "scientific_effect": "NONE"
+}
