@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "PENDING_NEXT_ACTION_NOT_STARTED: VERIFY_GROUP06_CAPSULE_PINS; LAUNCH_GROUP06_ONCE THROUGH SUPERVISOR_V2; BEFORE ANY TURN END PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED",
+  "next_action": "PENDING_GROUP06_NOT_STARTED: PRECOMMIT_GROUP06_INTENT_DURABLY; INIT_NO_FREEZE_BARRIER; LAUNCH_OR_ADOPT_WITH_5S_HARD_TIMEOUT; IMMEDIATELY_PERSIST_PASS/RUNNING_ADOPTABLE/FAIL_CLOSED; NO_SLEEP_OR_BLOCKING_POLL",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "76af37701ab8fa9e9f9d3f13c573dbade3fc44e0",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.7"
+      "git_blob_sha1": "cc947e8a3f9dd1c2fc0b196f54de6e7ab0067052",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.8"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_EXECUTION_CAPSULE_20260918_v1.json",
@@ -152,6 +152,14 @@
     "user_visible_freeze_correction": {
       "path": "control/QROS_USER_VISIBLE_FREEZE_CORRECTION_PASS_20260918_v1.json",
       "git_blob_sha1": "99acc3bc0edbc0f4893439dcbc98657dd8266cac"
+    },
+    "no_freeze_barrier_policy": {
+      "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+      "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e"
+    },
+    "no_freeze_barrier_gate": {
+      "path": "control/QROS_NO_FREEZE_BARRIER_GATE_PASS_20260918_v1.json",
+      "git_blob_sha1": "7c2f0d5e363d222d957c18ccc33c11378833eb90"
     }
   },
   "closed_w09c_bindings": {
