@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP09_LEGACY_AUTHORITY_TOMBSTONE_1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "group_index": 9,
+  "capsule_blob_sha1": "4b8bf850d118eb31f6165f0fe7d3412204396bc3",
+  "legacy_job_id": "W09C_XAUUSD_BUY_M1_GROUP09_20260919_v1",
+  "legacy_job_spec_sha256": "55aefb4fe1d48439570399fa4d269e2edd813c5be09168938b9b2d81f76337fe",
+  "legacy_claim_token": "9eb8eb767df64af18ae0b13081603c28",
+  "legacy_bootstrap_birth": "linux:0c73b366-03e7-4963-8aef-010de628a318:1212757",
+  "legacy_worker_birth": "linux:0c73b366-03e7-4963-8aef-010de628a318:1212804",
+  "legacy_running_receipt": {
+    "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RUNNING_ADOPTABLE_20260919_v1.json",
+    "git_blob_sha1": "5da26353c2ea18834e023bf775476670e5179fa3"
+  },
+  "legacy_promotion_revoked": true,
+  "terminal_receipt_absent_at_cutover": true,
+  "terminal_receipt_path_checked": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_SEMANTIC_RECEIPT_20260919_v1.json",
+  "death_claim": false,
+  "late_legacy_receipt_action": "QUARANTINE_AND_REJECT_FOREVER",
+  "recovery_job_id": "W09C_XAUUSD_BUY_M1_GROUP09_RECOVERY_E1_20260919_v1",
+  "authority_policy": {
+    "path": "governance/QROS_LEGACY_UNFENCED_RECOVERY_POLICY_v1.0.json",
+    "git_blob_sha1": "56707a005af08452f6154bb99a01168a60c51d73"
+  },
+  "cutover_observation": {
+    "pointer_blob_sha1": "44045afb9af037390368e5a2d482910966df5d95",
+    "checkpoint_blob_sha1": "5eaaca9dd17efd4862d2538453333be2510f2d1e"
+  },
+  "scientific_identity": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "config_root_sha256": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3",
+    "bar_M1_root_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_M1_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c"
+  },
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group10_opened": false
+  }
+}
