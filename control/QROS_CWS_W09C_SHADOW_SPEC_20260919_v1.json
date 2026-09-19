@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_CWS_W09C_SHADOW_SPEC_1.0",
+  "date": "2026-09-19",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "source_main": "86027712edcd9cfc1044c2e1a64bcd13cd1852aa",
+  "authority_pins": {
+    "frontier": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+      "git_blob_sha1": "01dee712122b1b5a2b9724a541e77cc25b56cb40"
+    },
+    "checkpoint": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
+      "git_blob_sha1": "6dcbad16b2f871d2c9f4c59a644327a187a3027c"
+    },
+    "cws_current": {
+      "path": "control/QROS_CWS_CURRENT.json",
+      "git_blob_sha1": "8690b821e7760e5a18aa616ac248bc1c8443e391"
+    },
+    "dek_v3": {
+      "path": "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json",
+      "git_blob_sha1": "21f838ced8ec8a6c21a596acaf2a949582c200fa"
+    }
+  },
+  "allowed_capabilities": [
+    "CAP_NON_ECONOMIC_CONTROL"
+  ],
+  "forbidden_flags": [
+    "economic_pnl_read",
+    "holdout_open",
+    "ga2_open",
+    "new_ga1_authorized",
+    "first_gate_execution_authorized"
+  ],
+  "expected_frontier_schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.9",
+  "expected_checkpoint_schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.26",
+  "expected_scientific_state": "PREREGISTERED_NO_RESULTS",
+  "expected_dek_status": "FROZEN_ACTIVE",
+  "expected_cws_status": "VALIDATED_DESIGN_AUTOCHAIN_SHADOW_PASS",
+  "expected_decision": "INVOKE_DEK",
+  "shadow_effects_allowed": 0,
+  "w09c_writes_allowed": 0
+}
