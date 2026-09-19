@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.20",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.21",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -387,10 +387,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "DEK_V3_GROUP11_EPOCH2_DIRECT_LOCATOR_MATERIALIZATION_CHUNK_2_OF_2_PASS",
-  "root_cause": "CURRENT_RUNTIME CARRIER REHYDRATION COMPLETED IN TWO BOUNDED DIRECT-LOCATOR CHUNKS; ALL 8 SOURCE ZIPS NOW EXACT.",
+  "problem": "DEK_V3_GROUP11_EPOCH2_DEV_MATERIALIZATION_PASS",
+  "root_cause": "NONE_OPEN FOR DEV: USER-UPLOADED XAU ZIP PART001-PART008 WERE VERIFIED 8/8 AND FROZEN MATERIALIZER REPRODUCED THE EXACT DEV TARGET.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "DEK_V3_ACTIVE: VERIFY ALL 8 LOCAL XAU SOURCE ZIP HASHES AS ONE LOCAL BUNDLE; MATERIALIZE/VERIFY DEV ONLY IF LOCAL DEV IS ABSENT; EXECUTE NO GROUP11 LAUNCH IN SAME INVOCATION; WRITE ONE COMMIT BUNDLE; EXIT.",
+  "next_automatic_action": "DEK_V3_ACTIVE: BUILD/VERIFY ONLY THE M1 BAR CACHE FROM THE EXACT DEV USING THE FROZEN BAR-CACHE BUILDER; EXPECT bars=681772 AND content_sha256=55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4; PERSIST; EXIT. DO NOT BUILD INDICATORS OR LAUNCH GROUP11 IN SAME INVOCATION.",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -472,32 +472,30 @@
     "DEK_V3_TRANSPORT_LIMIT_MAX5_HANDLED_AS_BOUNDED_CHUNKING",
     "GROUP11_REHYDRATION_CHUNK1_PASS_5_OF_5",
     "GROUP11_REHYDRATION_CHUNK2_PASS_3_OF_3",
-    "GROUP11_ALL_8_SOURCE_ZIPS_EXACT_READY"
+    "GROUP11_ALL_8_SOURCE_ZIPS_EXACT_READY",
+    "USER_UPLOADED_XAU_SOURCE_ZIPS_VERIFIED_8_OF_8",
+    "FROZEN_DEV_MATERIALIZER_BYTE_IDENTITY_PASS",
+    "XAU_DEV_EXACT_SHA256_PASS"
   ],
   "last_execution_block": {
-    "status": "DEK_V3_SINGLE_EFFECT_PASS_DIRECT_MATERIALIZE_CHUNK_2_OF_2",
+    "status": "DEK_V3_SINGLE_EFFECT_PASS_DEV_MATERIALIZATION",
     "external_effects_this_transition": 1,
-    "current_runtime_boot_id": "68f2221b-eaf0-4613-99e1-0c9828cfa5eb",
     "group11": {
       "current_epoch": 2,
       "terminal_receipt_present": false,
       "launch_started_epoch2": false,
-      "carrier_rehydration": {
-        "chunks_total": 2,
-        "chunks_durably_completed": 2,
-        "chunk_1_status": "PASS_5_OF_5_SHA256",
-        "chunk_2_parts": [
-          6,
-          7,
-          8
-        ],
-        "chunk_2_status": "PASS_3_OF_3_SHA256",
-        "all_source_zips_ready": true,
-        "hashes": {
-          "part006": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8",
-          "part007": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185",
-          "part008": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b"
-        }
+      "source_zips": {
+        "count": 8,
+        "status": "PASS_8_OF_8_SHA256"
+      },
+      "dev": {
+        "status": "PASS",
+        "records": 151382388,
+        "bytes": 2573500596,
+        "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+        "receipt_sha256": "6366625666aabd17e0f96c732abc6f83143129d5dae6989c4096acfc0a3cdaa9",
+        "materializer_git_blob_sha1": "b543c8585258b21a007af84a53a944bba58678e6",
+        "manifest_git_blob_sha1": "622f21a62c532daaa824eafb202cf00a1c2b1a5d"
       }
     },
     "group12_opened": false,
