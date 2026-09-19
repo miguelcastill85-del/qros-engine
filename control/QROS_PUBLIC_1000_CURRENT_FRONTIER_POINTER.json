@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "GROUP08_PRECOMMITTED_BINDING_PASS: INIT_NO_FREEZE_BARRIER; LAUNCH_OR_ADOPT <=5S; IMMEDIATELY_PERSIST RETURNED STATE",
+  "next_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP08 <=5S; IF PASS VALIDATE_ARTIFACTS_AND_PERSIST_GROUP08; IF RUNNING KEEP RUNNING_ADOPTABLE; DO_NOT_POLL_OR_RELAUNCH",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "53baa441c2726a5f56460c22de0bb3e841a513fe",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.6"
+      "git_blob_sha1": "f881d53a894419b3c7bf1c8ba8a16ef95e634440",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.7"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_EXECUTION_CAPSULE_20260919_v1.json",
@@ -184,6 +184,10 @@
     "group08_prelaunch_intent": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_PRELAUNCH_INTENT_20260919_v1.json",
       "git_blob_sha1": "b9c5e85ead1b88d8dbe4cb6d873cf1ca60bf75dd"
+    },
+    "group08_running_adoptable": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_RUNNING_ADOPTABLE_20260919_v1.json",
+      "git_blob_sha1": "0465dfb1ec5035811c9cab45cff7d168ce755b2c"
     }
   },
   "closed_w09c_bindings": {
