@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "CURRENT RUNTIME ONLY: VERIFY GROUP11 EPOCH2 CARRIER RECOVERY CLAIM ONCE; COMPLETE EXACT DEV/BAR/INDICATOR IDENTITIES; MATERIALIZE EXACT FROZEN SCIENTIFIC BLOBS; VALIDATE GROUP11 PACKAGE; PRECOMMIT AND LAUNCH EPOCH2 NONBLOCKING; GROUP12 REMAINS CLOSED",
+  "next_action": "DO NOT POLL CARRIERS YET. MATERIALIZE/VERIFY EXACT FROZEN GROUP11 SCIENTIFIC BLOBS AND SHARD DESCRIPTOR; THEN ONE STATUS CHECK OF CARRIER CLAIM; IF EXACT HASH PASS, VALIDATE PACKAGE + PRECOMMIT + LAUNCH GROUP11 EPOCH2 NONBLOCKING; GROUP12 CLOSED",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "21fb9df015f2d9589da6da1457ba9a5c42253f43",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.13"
+      "git_blob_sha1": "8147e49b2edb6fca734d7fc6081409925d6c7ba7",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.14"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
@@ -208,7 +208,7 @@
       "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
       "status": "RUNNING_ADOPTABLE"
     },
-    "execution_state": "DEVELOPMENT_RUNNING",
+    "execution_state": "GROUP11_EPOCH2_CARRIER_REBUILD_RUNNING_ADOPTABLE",
     "group09_infrastructure_blocker": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
       "git_blob_sha1": "3713ecff5724f7b298d4e4cda4f50ebb60936dbe",
