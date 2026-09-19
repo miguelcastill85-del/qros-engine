@@ -1,0 +1,102 @@
+{
+  "schema": "QROS_CWS_V1_1_EXTERNAL_VALIDATION_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_EXTERNAL_CLEAN_RUNNER",
+  "candidate": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
+  "validated_commit": "d15ed3f0cdbee9ec3473345c5090ccdd8054cfc1",
+  "workflow_run_id": 35474462584,
+  "run_attempt": 1,
+  "workflow_conclusion": "success",
+  "exact_blobs": {
+    "scheduler": "692f5d496705495850981987616218ccf9bd750b",
+    "tests": "21cee0c786932950f1963433e0a2f9c3cf67fddf",
+    "workflow": "b8c2b739a3d6f9bdf93b37212f69321ed1906142",
+    "governance": "5adc902849954499d1d3e0e72709cd7f50e089ba"
+  },
+  "validate_job": {
+    "id": 105981194693,
+    "conclusion": "success",
+    "traceback_present": false
+  },
+  "runner_jobs": [
+    {
+      "id": 105981275266,
+      "name": "runner1",
+      "conclusion": "success"
+    },
+    {
+      "id": 105981296282,
+      "name": "runner2",
+      "conclusion": "success"
+    },
+    {
+      "id": 105981313708,
+      "name": "runner3",
+      "conclusion": "success"
+    },
+    {
+      "id": 105981336922,
+      "name": "runner4",
+      "conclusion": "success"
+    }
+  ],
+  "gates": {
+    "G0_single_reducer": "PASS",
+    "G1_split_brain": "PASS",
+    "G2_false_progress": "PASS",
+    "G3_bounded_liveness": "PASS",
+    "G4_segmentation_transparency": "PASS",
+    "G5_crash_replay": "PASS_CHAOS",
+    "G6_state_resurrection": "PASS_4_RUNNERS",
+    "G7_lost_ack_exactly_once": "PASS_EFFECT_BOUND_PROOF",
+    "G8_user_preemption": "PASS",
+    "G9_scientific_firewall": "PASS",
+    "G10_state_integrity": "PASS_PENDING_PLUS_OPEN_REJECTED",
+    "G11_controller_race": "PASS",
+    "G12_environment_multi_runner": "PASS",
+    "G13_closure_proof": "PASS",
+    "G14_independent_oracle": "PASS",
+    "G15_long_run_resource": "PASS_10000_UNITS_648_BYTES"
+  },
+  "supergates": {
+    "SG1_state_space_oracle": "PASS_6912_STATES",
+    "SG2_massive_chaos": {
+      "episodes": 100000,
+      "transitions": 455571,
+      "duplicate_effects": 0,
+      "invalid_completion": 0,
+      "firewall_breaches": 0
+    },
+    "SG3_metamorphic_continuity": "PASS_SEGMENTATION_1_2_10_100_1000",
+    "SG4_real_multi_runner_soak": {
+      "runners": 4,
+      "progress_units": 10000,
+      "state_bytes": 648,
+      "state_hash": "307d540b5bc48f8eb85e686b15c74c9d8b2341db08260bc519ce2424cf1ccf62"
+    },
+    "SG5_independent_oracle_and_exact_pins": "PASS"
+  },
+  "fixed_point": {
+    "rounds": 2,
+    "cases_per_round": 100000,
+    "new_critical": 0,
+    "new_high": 0
+  },
+  "completion_certificate": {
+    "sha256": "c107092375fb56d13a5a87fb94b19517149361e18ee4e54697ced8d9c5727677",
+    "task_spec_hash": "8a9c19170758bc75fa4b81b04362a5c777ff25b3041e3a66a5a251c02843f125",
+    "terminal_root": "6666666666666666666666666666666666666666666666666666666666666666"
+  },
+  "self_application_gate": {
+    "isolated_branch": "PASS",
+    "repository_native_transport": "PASS",
+    "durable_checkpoints": "PASS",
+    "no_poll_loop": "PASS",
+    "false_green_detected_and_fail_closed": "PASS",
+    "validation_harness_hardened": "PASS",
+    "full_revalidation_after_fix": "PASS",
+    "main_untouched_during_validation": "PASS"
+  },
+  "activation": "SHADOW_INACTIVE_ONLY",
+  "scientific_effect": "NONE"
+}

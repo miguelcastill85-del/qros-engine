@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_CWS_V1_1_PROMOTION_GUARD_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "validated_commit": "d15ed3f0cdbee9ec3473345c5090ccdd8054cfc1",
+  "candidate_head_before_receipts": "295d01f5fdc5e40df49d24e96246b72cfcee87e4",
+  "post_validation_diff": {
+    "status": "PASS_CONTROL_ONLY",
+    "files": [
+      "control/QROS_CWS_V1_1_EXTERNAL_REVALIDATION_PENDING_20260919_v2.json"
+    ],
+    "executable_drift": false,
+    "test_drift": false,
+    "workflow_drift": false,
+    "governance_drift": false
+  },
+  "promotion_allowed": "MAIN_SHADOW_INACTIVE_ONLY",
+  "activation_requires_separate_autochain_validation": true,
+  "scientific_effect": "NONE"
+}

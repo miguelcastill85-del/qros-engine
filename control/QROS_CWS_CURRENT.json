@@ -1,0 +1,14 @@
+{
+  "schema": "QROS_CWS_CURRENT_1.0",
+  "date": "2026-09-19",
+  "version": "v1.1",
+  "status": "VALIDATED_DESIGN_SHADOW_INACTIVE",
+  "scheduler_blob": "692f5d496705495850981987616218ccf9bd750b",
+  "tests_blob": "21cee0c786932950f1963433e0a2f9c3cf67fddf",
+  "workflow_blob": "b8c2b739a3d6f9bdf93b37212f69321ed1906142",
+  "governance_blob": "5adc902849954499d1d3e0e72709cd7f50e089ba",
+  "validation_receipt": "control/QROS_CWS_V1_1_EXTERNAL_VALIDATION_PASS_20260919_v1.json",
+  "autochain_active": false,
+  "w09c_connected": false,
+  "next_automatic_action": "VALIDATE SYNTHETIC AUTOCHAIN DRIVER ON ISOLATED BRANCH BEFORE ANY W09C CONNECTION."
+}
