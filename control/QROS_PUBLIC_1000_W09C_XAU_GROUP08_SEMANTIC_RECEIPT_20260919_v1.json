@@ -1,0 +1,110 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_SEMANTIC_GROUP_RECEIPT_1.0",
+  "date": "2026-09-19",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "PASS",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "structural_group_index": 8
+  },
+  "authority": {
+    "execution_capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "03cc56e67cae99e30d861ed9d2fa1895fc67269c"
+    },
+    "previous_group_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "b7abcd59f40b18274aa3c8eb0b04f0ce4daf393e",
+      "status": "PASS"
+    },
+    "heavy_execution_policy": {
+      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+      "git_blob_sha1": "74e4d884a7018825ed67f0218f82f1d3fd543db3"
+    },
+    "no_freeze_policy": {
+      "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+      "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e"
+    },
+    "runtime_binding_policy": {
+      "path": "governance/QROS_GROUP_RUNTIME_BINDING_POLICY_v1.0.json",
+      "git_blob_sha1": "c3371d4099c4dae624cf6a672814582ebd795a32"
+    }
+  },
+  "execution": {
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP08_20260919_v1",
+    "job_spec_sha256": "0aa1d4512216cafaa39304d0004ab6d07f6821001642671f05dd2cceaac94eea",
+    "attempt": 1,
+    "retry_count": 0,
+    "supervisor_terminal_action": "PROMOTE_ATOMIC_DONE",
+    "worker_receipt_file_sha256": "3c1425ad83e3b44f73225cc82d81a321e5d037b5a95a5fedfa15df67f1a06d07",
+    "group_worker_receipt_file_sha256": "2f3f7b4d44f48201efe8ad43ef6b56c0c67e0f53126a8b9b6cba4b9726662438",
+    "supervisor_receipt_file_sha256": "0c59b9be0d713c87552a2c23f8ac368beec6386ee7278a2c799f9e03e0b73b62"
+  },
+  "result": {
+    "processed_signal_configs": 33528,
+    "distinct_mask_class_count": 14148,
+    "duplicate_config_count": 19380,
+    "zero_event_class_alias_count": 30,
+    "zero_event_representative_config_id": "01005ff15169f398ae34fb37d32b0223dc5aeee4161e5a00cd51f50ac8f4bedd",
+    "class_root_sha256": "a3b1a6751ad1b1f4cd78864b09467d80f38572815e37d313206004244b305784",
+    "semantic_class_root_sha256": "fdc07460d7c39b19ed76dd34d6ed463419127b839cc1b61f65288a5b34af2410",
+    "full_alias_mapping_root_sha256": "9286bd00daa2cc1cc33c54705cb2a67f80151268a6dd0c008dfed04586604afc",
+    "ordered_config_id_stream_root_sha256": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3",
+    "group_config_root_sha256": "0ae412d9febd5808f43023429dafba01cf41e24ea3a1bb2716634601f6f4057b",
+    "structural_group_key": [
+      3,
+      "SOURCE_ASYMMETRIC",
+      "CLOSE_BREAK"
+    ],
+    "metrics": {
+      "base_transform_rearm_evaluations": 84,
+      "candidate_union_total": 571038,
+      "local_gate_groups_total": 7132,
+      "structural_trigger_groups": 1,
+      "transform_carriers": 28
+    },
+    "artifact_rehash": "PASS_5_OF_5",
+    "artifacts": [
+      {
+        "path": "mask_classes.delta_u32.bin",
+        "bytes": 310395464,
+        "sha256": "2acfad271ea7b74091b7b62d857a2b83d2fa3795a22bdededacc96d1b2de9160"
+      },
+      {
+        "path": "mask_class_index.jsonl",
+        "bytes": 4849091,
+        "sha256": "e927a43e3488dd337a73f5b24475562f6af48d8799a651c48056563bae2eba9f"
+      },
+      {
+        "path": "duplicate_alias_pairs.bin",
+        "bytes": 1240320,
+        "sha256": "de03b8be94efbd7f3f476a4138ea5ad90fec6044c3e69be56bc4752a85fdbb6b"
+      },
+      {
+        "path": "full_alias_mapping.bin",
+        "bytes": 2145792,
+        "sha256": "9286bd00daa2cc1cc33c54705cb2a67f80151268a6dd0c008dfed04586604afc"
+      }
+    ]
+  },
+  "preconditions_reverified": {
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "bar_M1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_M1_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+    "capsule_source_pins": "PASS_EXACT",
+    "runtime_binding_gate": "PASS",
+    "shard_descriptor_sha256": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+  },
+  "gates": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "GROUP08_DURABLY_CLOSED_PASS; AUTHORIZE_NON_ECONOMIC_GROUP09_CAPSULE_ONLY"
+}
