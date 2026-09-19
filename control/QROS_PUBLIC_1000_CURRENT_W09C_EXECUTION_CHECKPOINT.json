@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.10",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.11",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -207,6 +207,15 @@
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP10_RUNNING_ADOPTABLE_20260919_v1.json",
       "git_blob_sha1": "ce86326e9c3c3dcd3a14838ef4abd406c7b8cf54",
       "status": "RUNNING_ADOPTABLE"
+    },
+    "group10_terminal_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP10_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "af10d3367059efa008ef195901c75616aff9523a",
+      "status": "PASS"
+    },
+    "group11_capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "ec56e9cae15a640002e96c61fad2b691b5bb2b92"
     }
   },
   "data": {
@@ -217,7 +226,7 @@
   },
   "semantic_progress": {
     "groups_total": 24,
-    "groups_durably_closed": 10,
+    "groups_durably_closed": 11,
     "closed_indices": [
       0,
       1,
@@ -228,17 +237,18 @@
       6,
       7,
       8,
-      9
+      9,
+      10
     ],
-    "processed_signal_configs_durable": 335280,
+    "processed_signal_configs_durable": 368808,
     "last_receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_SEMANTIC_RECEIPT_20260919_v1.json",
-      "git_blob_sha1": "1706b60aa172edfad49a861181207748d658884d"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP10_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "af10d3367059efa008ef195901c75616aff9523a"
     },
-    "next_group_index": 10,
+    "next_group_index": 11,
     "next_capsule": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP10_EXECUTION_CAPSULE_20260919_v1.json",
-      "git_blob_sha1": "50a806e9dcada6c989643ffcf030877cece9206c"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "ec56e9cae15a640002e96c61fad2b691b5bb2b92"
     },
     "global_targets": {
       "processed_signal_configs": 804672,
@@ -298,10 +308,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP10_RUNNING_ADOPTABLE_ATTEMPT_1; NO_TERMINAL_RECEIPT_YET",
-  "root_cause": "NONE_OPEN; CURRENT SAME-RUNTIME HEAVY UNIT ACTIVE UNDER FENCED EPOCH1",
+  "problem": "GROUP10_CLOSED_PASS; GROUP11_CAPSULE_READY",
+  "root_cause": "NONE_OPEN_FOR_GROUP10; SERIAL_FIFO_ADVANCE_TO_GROUP11",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP10 ATTEMPT_1 <=5S; IF PASS VALIDATE LEASE ECHO + CAPSULE + ARTIFACT HASHES THEN PERSIST GROUP10 TERMINAL RECEIPT AND ADVANCE TO GROUP11; IF RUNNING PRESERVE; NEVER RELAUNCH; GROUP11 REMAINS CLOSED",
+  "next_automatic_action": "VERIFY GROUP11 CAPSULE + PRIOR GROUP10 RECEIPT + CURRENT RUNTIME CARRIERS; CREATE CURRENT-RUNTIME FENCED LEASE; PRECOMMIT; LAUNCH GROUP11 NONBLOCKING; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED; GROUP12 REMAINS CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -366,21 +376,21 @@
     "GROUP09_RECOVERY_ATTEMPT1_LAUNCHED_NONBLOCKING"
   ],
   "last_execution_block": {
-    "status": "RUNNING_ADOPTABLE",
-    "expensive_unit_open": true,
+    "status": "GROUP10_TERMINAL_PASS_GROUP11_PENDING_LAUNCH",
+    "expensive_unit_open": false,
     "group10": {
-      "job_id": "W09C_XAUUSD_BUY_M1_GROUP10_20260919_v1",
-      "lease_epoch": 1,
+      "status": "PASS",
       "attempt": 1,
-      "bootstrap_pid": 1680,
-      "bootstrap_birth": "linux:12a54489-1877-43f8-88f0-923c8973b198:612305",
-      "worker_pid": 1693,
-      "worker_birth": "linux:12a54489-1877-43f8-88f0-923c8973b198:612435",
-      "duplicate_launch": false,
-      "terminal_receipt_present": false
+      "retry_count": 0,
+      "terminal_receipt_blob_sha1": "af10d3367059efa008ef195901c75616aff9523a"
     },
-    "group11_opened": false,
+    "group11": {
+      "opened": false,
+      "capsule_blob_sha1": "ec56e9cae15a640002e96c61fad2b691b5bb2b92"
+    },
     "economic_pnl_read": false,
-    "blocking_poll_used": false
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
   }
 }
