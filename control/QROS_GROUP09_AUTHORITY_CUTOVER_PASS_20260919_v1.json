@@ -1,0 +1,52 @@
+{
+  "schema": "QROS_GROUP09_AUTHORITY_CUTOVER_GATE_RECEIPT_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "physical_tests": {
+    "legacy_authority_fence": "PASS_13_OF_13",
+    "migration_epoch_fence": "PASS_8_OF_8",
+    "actual_group09_cutover_identity": "PASS",
+    "late_legacy_receipt_simulation": "FAIL_CLOSED_AS_REQUIRED",
+    "recovery_receipt_simulation": "PASS"
+  },
+  "exact_git_bytes": {
+    "legacy_guard": {
+      "path": "scripts/qros_legacy_authority_fence_v1.py",
+      "git_blob_sha1": "f695580f25e63a467c17bccf7f06548bda094fd4",
+      "sha256": "89c8783d64f27f94142f2073d4e0b9c518fdde79ecf26ceedab4966132160009"
+    },
+    "legacy_tests": {
+      "path": "scripts/qros_legacy_authority_fence_tests_v1.py",
+      "git_blob_sha1": "cb572852fcd3fc75838d49b513b1d3614c91c964",
+      "sha256": "baa4c3e4d7204d9783665c0559fc4cadceb79d19dc85df88d967d7c26ae0102b"
+    },
+    "lease_guard_v2": {
+      "path": "scripts/qros_fenced_runtime_lease_guard_v2.py",
+      "git_blob_sha1": "b819fd8aafa18e42ca0aeaaee2c6e8c208a0dfa3",
+      "sha256": "452605b17b2d13be6875646c5f7f495a831c136b47ca321f9dab5d5293425903"
+    },
+    "lease_tests_v2": {
+      "path": "scripts/qros_fenced_runtime_lease_guard_tests_v2.py",
+      "git_blob_sha1": "7a3d508c942584c103be29f7884cb4385e0649b2",
+      "sha256": "bb30cf0066bf4cb06ee1a75b0c96f15e95a3cda94a61979344b0175fdf455f12"
+    }
+  },
+  "policies": {
+    "legacy_recovery": "56707a005af08452f6154bb99a01168a60c51d73",
+    "fenced_lease_v2": "c1eb772f0768e81be75fdeff38580b80e2d07935",
+    "cross_runtime_v11": "a123470526d239b3a1b7836b8ddadf1d7774ad09"
+  },
+  "authority": {
+    "tombstone_blob_sha1": "1bfee425f49fbbd4247476cd032c4274a4ccd6dc",
+    "lease_blob_sha1": "7471a26fb382889bd6fd2fd75f86e50c149bbb04",
+    "recovery_authority_blob_sha1": "c721e88cec8dec7ecda89061145ee0a4e4c124f0"
+  },
+  "decision": "GROUP09_INFRASTRUCTURE_BLOCKER_SUPERSEDED_BY_FENCED_RECOVERY_AUTHORITY; LEGACY_ATTEMPT_MAY_NOT_PROMOTE; RECOVERY_EPOCH1_MAY_BE_MATERIALIZED_AND_LAUNCHED",
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group10_opened": false
+  }
+}
