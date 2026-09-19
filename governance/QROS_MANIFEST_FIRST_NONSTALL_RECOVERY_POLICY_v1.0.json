@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_MANIFEST_FIRST_NONSTALL_RECOVERY_POLICY_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE_MANDATORY",
+  "purpose": "Eliminate chat stalls caused by exploratory recovery and synchronous heavy calls when exact manifests, hashes, or durable locators already exist.",
+  "rules": {
+    "authority_first": true,
+    "manifest_first": true,
+    "direct_locator_before_search": true,
+    "broad_recursive_listing_for_known_exact_filename": false,
+    "repeated_discovery_after_exact_locator_success": false,
+    "heavy_work_sync_call_max_seconds": 5,
+    "heavy_work_launch_requires_durable_claim": true,
+    "heavy_work_status_check_nonblocking": true,
+    "deliberate_wait_or_poll_loop_in_chat": false,
+    "controller_timeout_is_worker_death": false,
+    "controller_timeout_requires_same_runtime_identity_check": true,
+    "partial_temp_after_controller_timeout": "QUARANTINE_AND_AUDIT; DO_NOT_COUNT_AS_SCIENTIFIC_RESULT",
+    "immutable_source_recovery_is_same_scientific_unit": true,
+    "one_expensive_unit_open": true,
+    "persist_before_next_expensive_unit": true
+  },
+  "guard": {
+    "path": "scripts/qros_manifest_first_recovery_guard_v1.py",
+    "expected_git_blob_sha1": "8f15c73e96505a2bdc3f88b768bc3f882d726971",
+    "sha256": "572ebf18cfcfedb632d91703f8a8204001c4b17c658a31f68cdf17c4640bf0b2"
+  },
+  "tests": {
+    "path": "scripts/qros_manifest_first_recovery_guard_tests_v1.py",
+    "expected_git_blob_sha1": "6f7622bdc4e43e8832fc490312f52643df78fe3d",
+    "sha256": "c70d7b636dadf31d2c7c395ef08b1f838fbd86614ee1b4eb10fb23eb9590d128",
+    "result": "PASS_8_OF_8",
+    "physically_executed": true
+  },
+  "relationship": {
+    "exactly_once": "COMPLEMENTARY",
+    "no_freeze": "COMPLEMENTARY",
+    "fenced_lease_v2": "COMPLEMENTARY"
+  },
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY"
+}
