@@ -1,0 +1,39 @@
+{
+  "schema": "QROS_GROUP09_AUTHORITY_FENCE_IMPLEMENTATION_PROGRESS_1.0",
+  "date": "2026-09-19",
+  "status": "PARTIAL_PERSISTED_SAFE_NO_SCIENTIFIC_TRANSITION",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "verified": {
+    "legacy_authority_guard": {
+      "path": "scripts/qros_legacy_authority_fence_v1.py",
+      "git_blob_sha1": "f695580f25e63a467c17bccf7f06548bda094fd4",
+      "local_sha256": "89c8783d64f27f94142f2073d4e0b9c518fdde79ecf26ceedab4966132160009",
+      "tests_local": "PASS_13_OF_13"
+    },
+    "legacy_authority_tests": {
+      "path": "scripts/qros_legacy_authority_fence_tests_v1.py",
+      "git_blob_sha1": "cb572852fcd3fc75838d49b513b1d3614c91c964",
+      "local_sha256": "baa4c3e4d7204d9783665c0559fc4cadceb79d19dc85df88d967d7c26ae0102b"
+    },
+    "lease_v2_local_tests": "PASS_8_OF_8",
+    "group09_terminal_receipt_present": false,
+    "legacy_group09_promotion_revoked": false,
+    "recovery_epoch_created": false,
+    "group09_recovery_launched": false
+  },
+  "missing_durable": [
+    "scripts/qros_fenced_runtime_lease_guard_v2.py",
+    "scripts/qros_fenced_runtime_lease_guard_tests_v2.py",
+    "active recovery policies",
+    "GROUP09 legacy authority tombstone",
+    "GROUP09 recovery epoch lease"
+  ],
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group10_opened": false
+  },
+  "next_automatic_action": "NEW_BOUNDED_BLOCK: PERSIST_LEASE_GUARD_V2_AND_TESTS; VERIFY_GIT_BYTES; PROMOTE_LEGACY_RECOVERY_AND_FENCED_LEASE_POLICIES; RECHECK_GROUP09_TERMINAL_RECEIPT; ONLY_IF_ABSENT PERSIST_LEGACY_AUTHORITY_TOMBSTONE_AND_RECOVERY_EPOCH"
+}
