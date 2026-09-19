@@ -1,0 +1,38 @@
+{
+  "schema": "QROS_CWS_W09C_SHADOW_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_EXTERNAL_CLEAN_RUNNER",
+  "workflow_run_id": 35475386754,
+  "job_id": 105983636210,
+  "validated_commit": "aad17c804ecb22cc6cba7eb4dff8005b2248d1a3",
+  "conclusion": "success",
+  "traceback_present": false,
+  "exact_pins": {
+    "spec": "19dc7c084d505c91d378e26f1c859e5bc3c56df6",
+    "observer": "36f024d050b492fb1afbb73909572cde41d0c056",
+    "tests": "b4388fda1dd32eefe321160f639e5f22e16c4781",
+    "frontier": "01dee712122b1b5a2b9724a541e77cc25b56cb40",
+    "checkpoint": "6dcbad16b2f871d2c9f4c59a644327a187a3027c",
+    "cws_current": "8690b821e7760e5a18aa616ac248bc1c8443e391",
+    "dek_v3": "21f838ced8ec8a6c21a596acaf2a949582c200fa"
+  },
+  "evidence": {
+    "baseline_status": "PASS",
+    "mode": "SHADOW_READ_ONLY",
+    "decision": "INVOKE_DEK",
+    "authority_objective_hash": "77c2f749072f7c0c999cc071c402abbbfebb7bf9c3b721ac0e6fc379082596f9",
+    "would_effect_id": "65d45283398044588a5bece31ee28527b86e49078fb8d1710ce02fd9f21b72c5",
+    "mutation_cases": 100000,
+    "mutation_rejected": 100000,
+    "external_effects_executed": 0,
+    "w09c_writes": 0,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "PASS_PENDING_MAIN_REVALIDATION",
+  "activation_allowed": false,
+  "scientific_effect": "NONE"
+}

@@ -1,31 +1,23 @@
 {
-  "schema": "QROS_CWS_LAYER_COMPLETION_PENDING_1.0",
+  "schema": "QROS_CWS_LAYER_COMPLETION_PENDING_1.1",
   "date": "2026-09-19",
-  "status": "VALIDATION_IN_PROGRESS",
+  "status": "MAIN_SHADOW_REVALIDATION_PENDING",
   "layer": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
   "completed": {
     "core_external_validation": "PASS",
     "self_application_gate": "PASS",
-    "autochain_static_validation": "PASS",
     "autochain_16_generation_terminal": "PASS",
-    "manual_intervention_rate": 0
+    "manual_intervention_rate": 0,
+    "w09c_branch_shadow": "PASS",
+    "control_plane_activation_guard": "PASS"
   },
   "pending": {
-    "w09c_shadow": {
-      "run_id": 35475386754,
-      "observed_status": "queued",
-      "required": "PASS_100000_MUTATIONS_ZERO_EFFECTS"
-    },
-    "control_plane_activation_guard": {
-      "run_id": 35475478836,
-      "observed_status": "in_progress",
-      "required": "PASS_100000_ADVERSARIAL_UNSAFE_ELIGIBLE_0"
-    }
+    "main_w09c_shadow_revalidation": "PENDING_PROMOTION_TRIGGER"
   },
   "activation_state": {
     "cws_active": false,
     "w09c_connected": false,
-    "allowed_scope": "NONE_UNTIL_BOTH_PENDING_GATES_PASS"
+    "allowed_scope": "NONE_UNTIL_MAIN_SHADOW_REVALIDATION_PASS"
   },
-  "next_automatic_action": "ADOPT RUN 35475478836 ONCE WHEN TERMINAL; IF PASS, PERSIST GUARD RECEIPT. DO NOT POLL 35475386754 REPEATEDLY; ADOPT IT ONLY AFTER NEW EVIDENCE/OTHER WORK. WHEN BOTH PASS, RUN PROMOTION GUARD AGAINST CURRENT MAIN AND ENABLE CONTROL_PLANE_SHADOW_ACTIVE ONLY."
+  "next_automatic_action": "FAST-FORWARD MAIN TO CANDIDATE WITHOUT CHANGING PINNED CWS_CURRENT; ADOPT MAIN SHADOW WORKFLOW ONCE; REQUIRE ZERO EFFECTS + 100000 MUTATIONS REJECTED; ONLY THEN UPDATE CWS_CURRENT."
 }

@@ -1,0 +1,30 @@
+{
+  "schema": "QROS_CWS_W09C_SHADOW_PROMOTION_GUARD_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "validated_commit": "aad17c804ecb22cc6cba7eb4dff8005b2248d1a3",
+  "main_base": "86027712edcd9cfc1044c2e1a64bcd13cd1852aa",
+  "current_authority_pins": {
+    "frontier": "01dee712122b1b5a2b9724a541e77cc25b56cb40",
+    "checkpoint": "6dcbad16b2f871d2c9f4c59a644327a187a3027c",
+    "cws_current": "8690b821e7760e5a18aa616ac248bc1c8443e391",
+    "dek_v3": "21f838ced8ec8a6c21a596acaf2a949582c200fa"
+  },
+  "post_validation_diff": {
+    "status": "PASS_ORTHOGONAL_ONLY",
+    "files": [
+      ".github/workflows/qros-cws-control-plane-activation-guard-v1.yml",
+      "control/QROS_CWS_CONTROL_PLANE_ACTIVATION_GUARD_PASS_20260919_v1.json",
+      "control/QROS_CWS_LAYER_COMPLETION_PENDING_20260919_v1.json",
+      "control/QROS_CWS_W09C_SHADOW_VALIDATION_PENDING_20260919_v1.json",
+      "governance/QROS_CWS_CONTROL_PLANE_ACTIVATION_SPEC_v1.0.json",
+      "scripts/qros_cws_control_plane_activation_guard_tests_v1.py",
+      "scripts/qros_cws_control_plane_activation_guard_v1.py"
+    ],
+    "shadow_code_drift": false,
+    "authority_pin_drift": false
+  },
+  "promotion_allowed": "MAIN_READ_ONLY_SHADOW_REVALIDATION",
+  "activation_allowed": false,
+  "scientific_effect": "NONE"
+}
