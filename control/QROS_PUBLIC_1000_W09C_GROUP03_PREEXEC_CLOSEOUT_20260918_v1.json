@@ -1,0 +1,46 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP03_PREEXEC_CLOSEOUT_1.0",
+  "date": "2026-09-18",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "PREEXEC_VALIDATED_NOT_EXECUTED_BUDGET_CLOSED",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 3,
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+  },
+  "authority": {
+    "pointer_blob_sha1": "835b2cf8161c89296ac14ed2cb15cfffb28aae5d",
+    "checkpoint_blob_sha1": "bed69435a95e9037ebaf37b6d440d5b2913b3dc6",
+    "group03_capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP03_EXECUTION_CAPSULE_20260916_v1.json",
+      "git_blob_sha1": "e9b1002c6064b1d5c366ee8df6953e3fcf0de93f"
+    }
+  },
+  "verified": [
+    "CURRENT_FRONTIER_POINTER still targets V255/W09C and group03",
+    "checkpoint 1.7 has groups 0,1,2 durably closed and next_group_index=3",
+    "group03 durable receipt is absent on main",
+    "group04 execution capsule is absent on main",
+    "runtime contains XAU carrier ZIP parts 001-008 in /mnt/data/qros_inputs",
+    "local anti-stall patch bytes remain present; v2 guard/supervisor hashes were verified in the preceding transversal audit"
+  ],
+  "not_claimed": [
+    "group03 was not launched",
+    "group03 artifacts were not produced",
+    "no new semantic masks were accepted",
+    "no economic PnL was read",
+    "no holdout/GA2/new GA1 was opened"
+  ],
+  "close_reason": "Execution block reached closeout reserve before exact frozen runtime source materialization completed. Starting the heavy worker in closeout would violate the active non-stall policy. No expensive unit was opened, so there is no orphan worker.",
+  "next_automatic_action": "NEW_BOUNDED_BLOCK: RECOVER_EXACT_FROZEN_GROUP03_RUNTIME_SOURCES_BY_PINNED_BLOBS; MATERIALIZE_DEV/BAR/INDICATOR_CACHES_ONLY_IF_LOCAL_HASHED_CACHES_ABSENT; LAUNCH_GROUP03_ONLY_THROUGH_HEAVY_SUPERVISOR_V2; PERSIST_GROUP03_RECEIPT_BY_CALL_11",
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  }
+}
