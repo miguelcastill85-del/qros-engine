@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_NO_FREEZE_BARRIER_GATE_RECEIPT_1.0",
+  "date": "2026-09-18",
+  "status": "PASS",
+  "finding": "Previous freeze was caused by blocking/unfinished chat orchestration, not by a live scientific worker. group06 remains not started.",
+  "gate_results": {
+    "local_adversarial_tests": "PASS_12_OF_12",
+    "nonblocking_timeout_gate": "PASS",
+    "max_control_call_seconds": 5,
+    "exactly_once_compatibility": "PASS_BY_COMPOSITION_WITH_POLICY_V1_2",
+    "turn_commit_compatibility": "PASS",
+    "economic_firewall": "PASS_UNCHANGED"
+  },
+  "authoritative_policy": {
+    "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+    "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e"
+  },
+  "implementation": {
+    "path": "scripts/qros_no_freeze_barrier_v1.py",
+    "git_blob_sha1": "aa5b8182feea3082a5fc30ea5525369514ea9399"
+  },
+  "tests": {
+    "path": "scripts/qros_no_freeze_barrier_tests_v1.py",
+    "git_blob_sha1": "219f429e6e2e326807c90cbcb97c230ed1f7b9a5"
+  },
+  "current_scientific_state": {
+    "groups_durably_closed": 6,
+    "processed_signal_configs_durable": 201168,
+    "next_group_index": 6,
+    "group06_launched": false
+  },
+  "decision": "NO_FREEZE_BARRIER_ACTIVE_BEFORE_GROUP06"
+}
