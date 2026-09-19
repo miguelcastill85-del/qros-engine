@@ -1,0 +1,109 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_SEMANTIC_GROUP_RECEIPT_1.0",
+  "date": "2026-09-18",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "PASS",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "structural_group_index": 6
+  },
+  "authority": {
+    "execution_capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_EXECUTION_CAPSULE_20260918_v1.json",
+      "git_blob_sha1": "b62a0443b227e238237b010e14789767b41edae9"
+    },
+    "previous_group_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP05_SEMANTIC_RECEIPT_20260918_v1.json",
+      "git_blob_sha1": "b207b66c202bcb4cc97f4505ba9bb4417f7d917a",
+      "status": "PASS"
+    },
+    "heavy_execution_policy": {
+      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+      "git_blob_sha1": "74e4d884a7018825ed67f0218f82f1d3fd543db3"
+    },
+    "no_freeze_policy": {
+      "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+      "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e"
+    },
+    "local_control_correction": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_LOCAL_CONTROL_QUERY_CORRECTION_20260918_v1.json",
+      "git_blob_sha1": "11235fa4b88ac501ef3a7b29f3c8b99b99e50a18"
+    }
+  },
+  "execution": {
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP06_20260918_v1",
+    "job_spec_sha256": "520a8dd55def22a3026830e7a4027e376ee2ffed19a1c6b157acecccc8767c35",
+    "attempt": 1,
+    "retry_count": 0,
+    "supervisor_terminal_action": "PROMOTE_ATOMIC_DONE",
+    "worker_receipt_sha256": "5509d1d7dae3853cd7759c266ddbb3ed556bf2686cf4f68a1bfcfa75b18a1885",
+    "group_worker_receipt_file_sha256": "1ac160cf517e0523f6c6a34db01433b3d3f0898e8e90608fabe5f1110df38fbc",
+    "supervisor_receipt_sha256": "040c3a390bd3ab927301deae72ff707be1b9ba4ab1688e5f65c9ff3da6492b61"
+  },
+  "result": {
+    "processed_signal_configs": 33528,
+    "distinct_mask_class_count": 11143,
+    "duplicate_config_count": 22385,
+    "zero_event_class_alias_count": 425,
+    "zero_event_representative_config_id": "0058ef537749e48972f4dd07cdec793fc476a3b09689bffd1a9631f162fc8673",
+    "class_root_sha256": "50008e7eefa710e11156fc67ad65dc8bd2cbc9d312a2987db24422ceeb3da6bb",
+    "semantic_class_root_sha256": "ea96700214f68478c90ea22f11ef713ff637edd505eb5bda0bcbe70605c7fe58",
+    "full_alias_mapping_root_sha256": "cc77270f42b679d52f526aece0e0fe217ad71d12c7d693c456037b3dc935ddd4",
+    "ordered_config_id_stream_root_sha256": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3",
+    "group_config_root_sha256": "0d76e98583ddf0d1cbafd8259b8d2b022f2df5b9a983536542552365bc48abee",
+    "structural_group_key": [
+      13,
+      "STRICT_ALL_NEIGHBORS",
+      "CLOSE_BREAK"
+    ],
+    "metrics": {
+      "base_transform_rearm_evaluations": 84,
+      "candidate_union_total": 273588,
+      "local_gate_groups_total": 6444,
+      "structural_trigger_groups": 1,
+      "transform_carriers": 28
+    },
+    "artifact_rehash": "PASS_4_OF_4",
+    "artifacts": [
+      {
+        "path": "mask_classes.delta_u32.bin",
+        "bytes": 81630144,
+        "sha256": "c6a706eee31b4c0613e35d7d8b5f75326f9e69b3eefb4849c276cb5b2eba0daa"
+      },
+      {
+        "path": "mask_class_index.jsonl",
+        "bytes": 3793268,
+        "sha256": "c8e48595eaa10f4bb4884c772c28b4d08d7c4ac54153fd9566c5b74da104f2f5"
+      },
+      {
+        "path": "duplicate_alias_pairs.bin",
+        "bytes": 1432640,
+        "sha256": "f464fbc447e2e51e99441304098bb2464bda54e4120ac34e1ed020aef81cfc33"
+      },
+      {
+        "path": "full_alias_mapping.bin",
+        "bytes": 2145792,
+        "sha256": "cc77270f42b679d52f526aece0e0fe217ad71d12c7d693c456037b3dc935ddd4"
+      }
+    ]
+  },
+  "preconditions_reverified": {
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "bar_M1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_M1_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+    "capsule_source_pins": "PASS_EXACT",
+    "shard_descriptor_sha256": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+  },
+  "gates": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "GROUP06_DURABLY_CLOSED_PASS; AUTHORIZE_NON_ECONOMIC_GROUP07_CAPSULE_ONLY"
+}
