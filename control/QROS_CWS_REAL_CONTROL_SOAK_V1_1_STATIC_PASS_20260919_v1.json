@@ -1,0 +1,28 @@
+{
+  "schema": "QROS_CWS_REAL_CONTROL_SOAK_V1_1_STATIC_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "workflow_run_id": 35476756691,
+  "validate_job_id": 105987203997,
+  "validated_commit": "ad63cb1f0cb0d84a383716dc87c5fb62ca550f15",
+  "exact_blobs": {
+    "driver": "258378ca2656a0774a92b5cf8840f90521583962",
+    "tests": "6ba512d9c4d19be48a1e022ee414258a2be16cee",
+    "governance": "5ad1b7fa54c25555ba6ea8e127e1befceb7eb680",
+    "workflow": "8e8b0c787479c8626c9176b431ad7c71255184a8"
+  },
+  "adversarial": {
+    "cases": 100000,
+    "rejected": 100000,
+    "unsafe_accepts": 0,
+    "intent_matrix_cases": 3
+  },
+  "effect_jobs_on_candidate": "SKIPPED_AS_DESIGNED",
+  "resume_authority": {
+    "main_commit": "0510152bbb419b1b8e3221d05ce6106f059c80c7",
+    "stage": 1,
+    "lease_epoch": 3,
+    "repeat_stage0": false
+  },
+  "scientific_effect": "NONE"
+}
