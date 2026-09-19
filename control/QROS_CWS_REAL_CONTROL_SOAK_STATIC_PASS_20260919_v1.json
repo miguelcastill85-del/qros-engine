@@ -1,0 +1,24 @@
+{
+  "schema": "QROS_CWS_REAL_CONTROL_SOAK_STATIC_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "workflow_run_id": 35476555659,
+  "validate_job_id": 105986682100,
+  "validated_commit": "d49a8f9b4b9bae6b5924b241d708b16b6132c113",
+  "exact_blobs": {
+    "workflow": "4fa6a13711e0a0743c2df7eccc94b99c28efd870",
+    "driver": "9e41255a06496446a3b400e83b486e7c516ef869",
+    "tests": "cec0b947c43a5a31ea8237458affa0e54690415b",
+    "governance": "0cce3fbbd27616472a51acf89efed57995cf809c",
+    "cutover": "e8a420f9da230729e53e8d1735f1f08d4775deb9",
+    "initial_state": "3053ca9845ae1ee4b364c3a29b51714f33d4b39f"
+  },
+  "adversarial": {
+    "cases": 100000,
+    "rejected": 100000,
+    "unsafe_accepts": 0
+  },
+  "effect_jobs_on_candidate": "SKIPPED_AS_DESIGNED",
+  "activation_allowed": "MAIN_REAL_CONTROL_SOAK_ONLY",
+  "scientific_effect": "NONE"
+}

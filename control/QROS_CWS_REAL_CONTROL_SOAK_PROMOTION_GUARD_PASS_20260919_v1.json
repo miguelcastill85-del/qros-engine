@@ -1,0 +1,12 @@
+{
+  "schema": "QROS_CWS_REAL_CONTROL_SOAK_PROMOTION_GUARD_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "main_base": "de047af95913c958599b9cf3642ba4a7026d9d26",
+  "validated_commit": "d49a8f9b4b9bae6b5924b241d708b16b6132c113",
+  "expected_old_lease_blob": "14851cd5a547c239288228f08d80f0684ff72ae3",
+  "expected_new_epoch": 3,
+  "manual_intervention_required": false,
+  "promotion_allowed": "FAST_FORWARD_MAIN_AND_TRIGGER_STAGE0",
+  "scientific_effect": "NONE"
+}
