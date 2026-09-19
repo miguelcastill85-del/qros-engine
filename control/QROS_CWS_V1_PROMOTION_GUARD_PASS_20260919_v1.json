@@ -1,0 +1,32 @@
+{
+  "schema": "QROS_CWS_V1_PROMOTION_GUARD_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "candidate_branch": "cws-v1-selfhost-20260919",
+  "validated_commit": "d7df30922794af48b8f0aeca7e905c5ae55f9d1e",
+  "current_candidate_head": "32701ab401be9bd0ab8b86690f449eca95035f24",
+  "main_base": "01f507d427e99e770665a3f159a2670eae9191b7",
+  "exact_blobs": {
+    "scheduler": "c577b84d15ba50a34f49c66befbe9f26bb2b83bb",
+    "tests": "ce4b0883deb644f2aed553c279ad7aa564fe393b",
+    "governance": "db20d9c773461891fee7f980c92caf9f5365e6c3",
+    "workflow": "813e550a8bf7bea79c96fe92a010ae95ffdd386f"
+  },
+  "post_validation_diff": {
+    "status": "PASS_CONTROL_ONLY",
+    "files": [
+      "control/QROS_CWS_V1_BUILD_MANIFEST_20260919_v1.json",
+      "control/QROS_CWS_V1_EXTERNAL_VALIDATION_PASS_20260919_v1.json"
+    ],
+    "executable_drift": false,
+    "governance_drift": false,
+    "workflow_drift": false
+  },
+  "external_validation": {
+    "run_id": 35473960905,
+    "conclusion": "success",
+    "completion_certificate_sha256": "c107092375fb56d13a5a87fb94b19517149361e18ee4e54697ced8d9c5727677"
+  },
+  "promotion_allowed": "MAIN_SHADOW_INACTIVE_ONLY",
+  "scientific_effect": "NONE"
+}
