@@ -1,0 +1,29 @@
+{
+  "carrier_materialization_required": true,
+  "carriers_present": {
+    "dev": false,
+    "indicators": false,
+    "m1": false
+  },
+  "current_runtime_id": "github-actions:35476823797:1:stage1",
+  "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "economic_pnl_read": false,
+  "fence_token": "c45c34c8a432143046e961ad4c75cecf64c3254f9792f4d034554f917b3b63c2",
+  "first_gate_execution_authorized": false,
+  "ga2_open": false,
+  "group12_opened": false,
+  "group_index": 11,
+  "holdout_open": false,
+  "indicator_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+  "job_id": "W09C_XAUUSD_BUY_M1_GROUP11_20260919_v1",
+  "lease_epoch": 3,
+  "lease_id": "3ded70f116e6442aabc4b0284b836c36",
+  "m1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+  "new_ga1_authorized": false,
+  "owner_runtime_id": "github-actions:35476612542:1:stage0",
+  "runtime_cutover_required": true,
+  "schema": "QROS_CWS_GROUP11_EXECUTION_INTENT_1.1",
+  "source_package_status": "PASS_9_OF_9",
+  "spawn_authorized": false,
+  "status": "CARRIER_MATERIALIZATION_REQUIRED"
+}

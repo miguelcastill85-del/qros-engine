@@ -1,0 +1,21 @@
+{
+  "carrier_materialization_required": true,
+  "date": "2026-09-19",
+  "decision": "PASS_CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE_ELIGIBLE",
+  "economic_pnl_read": false,
+  "first_gate_execution_authorized": false,
+  "ga2_open": false,
+  "group12_opened": false,
+  "holdout_open": false,
+  "intent_status": "CARRIER_MATERIALIZATION_REQUIRED",
+  "lease_epoch": 3,
+  "manual_interventions": 0,
+  "new_ga1_authorized": false,
+  "runtime_cutover_required": true,
+  "schema": "QROS_CWS_REAL_CONTROL_PLANE_SOAK_TERMINAL_RECEIPT_1.1",
+  "spawn_started": false,
+  "stage0_run_id": "35476612542",
+  "stage1_run_id": "35476823797",
+  "status": "PASS",
+  "terminal_stage": 2
+}
