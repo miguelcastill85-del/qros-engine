@@ -13,10 +13,11 @@
   },
   "current_lease": {
     "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_CURRENT_FENCED_LEASE.json",
-    "git_blob_sha1": "7471a26fb382889bd6fd2fd75f86e50c149bbb04",
-    "lease_epoch": 1,
-    "lease_id": "ffe1a45cf3e81c6022271dbfc2c051bb76ca0d203e084f4eabb77165c1022311",
-    "fence_token": "e1815accbf2b23ea0dc358d7c0cec37b5d71ff8fec93aa31618bdb468c0341cf"
+    "git_blob_sha1": "718f31083fd7bacf8f643226a638531d5b51b910",
+    "lease_epoch": 2,
+    "lease_id": "3d9309b848a7414bb3b69cc8cc2c3f09",
+    "fence_token": "b772d4ff521ad35bb1493fc98c7021728a2fccc5385ed335d372a29a59673c1a",
+    "owner_runtime_id": "linux:12a54489-1877-43f8-88f0-923c8973b198"
   },
   "recovery_job_id": "W09C_XAUUSD_BUY_M1_GROUP09_RECOVERY_E1_20260919_v1",
   "authoritative_job_ids": [
@@ -33,5 +34,16 @@
     "capsule identity exact",
     "artifact hashes exact",
     "economic firewall unchanged"
-  ]
+  ],
+  "runtime_migration": {
+    "status": "PASS",
+    "cutover": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_LEASE_EPOCH2_MIGRATION_CUTOVER_20260919_v1.json",
+      "git_blob_sha1": "fdc04ede4fde9f37521f1fd656696aa3690167fd"
+    },
+    "old_epoch": 1,
+    "new_epoch": 2,
+    "scientific_unit_same": true,
+    "old_epoch_promotion_revoked": true
+  }
 }
