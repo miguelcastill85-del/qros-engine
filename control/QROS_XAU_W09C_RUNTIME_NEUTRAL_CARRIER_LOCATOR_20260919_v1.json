@@ -1,0 +1,85 @@
+{
+  "schema": "QROS_RUNTIME_NEUTRAL_CARRIER_LOCATOR_1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE_RECOVERY_LOCATOR",
+  "scope": "XAUUSD DEV 2018-2019 carriers required by W09C GROUP09 recovery",
+  "resolution_mode": "MANIFEST_FIRST_DIRECT_MATERIALIZE",
+  "broad_recursive_search_allowed": false,
+  "manifest": {
+    "path": "control/QROS_PUBLIC_1000_W09C_XAU_RUNTIME_MATERIALIZATION_MANIFEST_20260916_v1.json",
+    "git_blob_sha1": "622f21a62c532daaa824eafb202cf00a1c2b1a5d"
+  },
+  "entries": [
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip",
+      "file_id": "file_0000000021d4820e80f3aa345575af92",
+      "library_file_id": "libfile_1bb1a1972f2081919a23e5ad03b6c53b",
+      "path": "/QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip",
+      "expected_bytes": 102025545,
+      "expected_sha256": "d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part002-of-035.zip",
+      "file_id": "file_00000000d3dc820e93a8aa45c40dfe25",
+      "library_file_id": "libfile_2ba4a09c96c0819183e8f4827da9abcb",
+      "path": "/QROS_XAU_FULL_HISTORY_v2_part002-of-035.zip",
+      "expected_bytes": 100422805,
+      "expected_sha256": "159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part003-of-035.zip",
+      "file_id": "file_000000005ff0820e8605374c907910dc",
+      "library_file_id": "libfile_1fb166a1f2848191bd13952b13089f86",
+      "path": "/QROS_XAU_FULL_HISTORY_v2_part003-of-035.zip",
+      "expected_bytes": 99870071,
+      "expected_sha256": "ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part004-of-035.zip",
+      "file_id": "file_000000003448820ea44b33495212fbf1",
+      "library_file_id": "libfile_5709899b95cc81919a333bc13aecdc90",
+      "path": "/QROS_XAU_FULL_HISTORY_v2_part004-of-035.zip",
+      "expected_bytes": 101825467,
+      "expected_sha256": "241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part005-of-035.zip",
+      "file_id": "file_000000003fa8820eba7721b80f699027",
+      "library_file_id": "libfile_4b89d852aba48191810c6c8d0b07d6e0",
+      "path": "/QROS_XAU_FULL_HISTORY_v2_part005-of-035.zip",
+      "expected_bytes": 101538275,
+      "expected_sha256": "3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part006-of-035.zip",
+      "file_id": "file_000000001ea8820e99ef32875be33b47",
+      "library_file_id": "libfile_8227e271c2d48191801b5c9fc6d19b88",
+      "path": "/QROS_XAU_FULL_HISTORY_v2_part006-of-035.zip",
+      "expected_bytes": 102849303,
+      "expected_sha256": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part007-of-035.zip",
+      "file_id": "file_0000000059d8820eb3205def36211189",
+      "library_file_id": "libfile_cb8c72f62a7881919c1a6072b9ccbc75",
+      "path": "/QROS_XAU_FULL_HISTORY_v2_part007-of-035.zip",
+      "expected_bytes": 104515054,
+      "expected_sha256": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part008-of-035.zip",
+      "file_id": "file_00000000992c820eaf2b0f3a5444ebe5",
+      "library_file_id": "libfile_5181633960f0819181282f6db3ff4aca",
+      "path": "/QROS_XAU_FULL_HISTORY_v2_part008-of-035.zip",
+      "expected_bytes": 104291866,
+      "expected_sha256": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b"
+    }
+  ],
+  "recovery_limits": {
+    "metadata_discovery_when_registry_valid": 0,
+    "materialization_batches_max": 2,
+    "broad_library_listing_for_known_manifest_names": false,
+    "hash_verify_after_materialization": true
+  },
+  "scientific_effect": "NONE_RECOVERY_LOCATOR_ONLY"
+}
