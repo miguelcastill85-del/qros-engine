@@ -1,0 +1,58 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP09_RECOVERY_PRELAUNCH_INTENT_1.0",
+  "date": "2026-09-19",
+  "status": "PRECOMMITTED_PENDING_LAUNCH",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 9
+  },
+  "scientific_capsule": {
+    "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
+    "git_blob_sha1": "4b8bf850d118eb31f6165f0fe7d3412204396bc3"
+  },
+  "recovery_package": {
+    "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_RECOVERY_PACKAGE_PASS_20260919_v1.json",
+    "git_blob_sha1": "8379c3031261cf76e486a327125e3ab13ed334f5",
+    "status": "PASS"
+  },
+  "recovery_authority": {
+    "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_RECOVERY_AUTHORITY_20260919_v1.json",
+    "git_blob_sha1": "d954d3c0d5889778912dd833468e90a7fedfc0f9"
+  },
+  "lease": {
+    "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_CURRENT_FENCED_LEASE.json",
+    "git_blob_sha1": "718f31083fd7bacf8f643226a638531d5b51b910",
+    "lease_epoch": 2,
+    "lease_id": "3d9309b848a7414bb3b69cc8cc2c3f09",
+    "fence_token": "b772d4ff521ad35bb1493fc98c7021728a2fccc5385ed335d372a29a59673c1a",
+    "owner_runtime_id": "linux:12a54489-1877-43f8-88f0-923c8973b198"
+  },
+  "runtime": {
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP09_RECOVERY_E1_20260919_v1",
+    "job_spec_sha256": "184c31f7e02787207052ee066203dc95b4b1eadffe25e2a51e01fe8b04e154e8",
+    "wrapper": {
+      "path": "scripts/qros_public1000_w09c_group09_recovery_wrapper_v1.py",
+      "git_blob_sha1": "aeb0ff44412a519725fb718d5a1921868922f145",
+      "sha256": "8ee6326325bbdbf9d70223289ca82e8e892d601fddcdb0ed433ab4b223eeebee"
+    },
+    "max_attempts": 1,
+    "control_call_max_seconds": 5,
+    "launch_mode": "NONBLOCKING_SUPERVISOR_V2"
+  },
+  "exactly_once": {
+    "legacy_job_promotion_revoked": true,
+    "recovery_epoch2_authoritative": true,
+    "duplicate_launch_forbidden": true,
+    "group10_closed_until_terminal_pass": true
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "next_action": "LAUNCH_GROUP09_RECOVERY_EPOCH2_EXACTLY_ONCE_NONBLOCKING_AND_PERSIST_POST_CONTROL_STATE"
+}
