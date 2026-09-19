@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.24",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.25",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -290,6 +290,14 @@
       "path": "control/QROS_DEK_V3_GROUP11_M1_INDICATOR_CACHE_PASS_20260919_v1.json",
       "git_blob_sha1": "60b03eb236dc89653789d0312004cb16dc8d75a8",
       "status": "PASS"
+    },
+    "runtime_source_export": {
+      "workflow_path": ".github/workflows/qros-runtime-source-export-v1.yml",
+      "trigger_commit": "dbfbab475c7ae2563623be06ce486c58f61e7b60",
+      "run_id": 35467656777,
+      "run_attempt": 1,
+      "status": "RUNNING_ADOPTABLE",
+      "artifact_name": "qros-runtime-source-package"
     }
   },
   "data": {
@@ -397,10 +405,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_FOR_M1_INDICATORS: GROUP11_M1_INDICATOR_CACHE_EXACT_PASS",
-  "root_cause": "RESOLVED: FROZEN INDICATOR FORMULAS AND BUILDER, RESTRICTED TO M1 RUNTIME SCOPE ONLY, REPRODUCED THE PREREGISTERED M1 INDICATOR ROOT.",
+  "problem": "DEK_V3_GROUP11_RUNTIME_SOURCE_EXPORT_RUNNING_ADOPTABLE",
+  "root_cause": "LOCAL RUNTIME HAS EXACT DEV/M1/INDICATORS BUT NOT FROZEN SCIENTIFIC SOURCE FILES; LOCAL GITHUB NETWORK IS UNAVAILABLE. A REUSABLE GITHUB ACTION NOW EXPORTS THE EXACT REPOSITORY BYTES AS A DOWNLOADABLE ARTIFACT.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "DEK_V3_ACTIVE: VERIFY GROUP11 EPOCH2 CAPSULE + LEASE + FROZEN SOURCE BLOBS AGAINST DEV/M1/INDICATOR ROOTS; BUILD RUNTIME PACKAGE/PRELAUNCH LOCALLY; EXECUTE AT MOST ONE EFFECT: LAUNCH GROUP11 EPOCH2 EXACTLY ONCE NONBLOCKING; PERSIST RUNNING_ADOPTABLE OR TERMINAL; EXIT. GROUP12 REMAINS CLOSED.",
+  "next_automatic_action": "DEK_V3_ACTIVE: QUERY WORKFLOW RUN 35467656777 ONCE. IF SUCCESS, FETCH ARTIFACT qros-runtime-source-package, MATERIALIZE LOCALLY, VERIFY MANIFEST + EXACT GIT BLOBS, THEN PERSIST SOURCE_PACKAGE_PASS AND EXIT. IF RUNNING, PRESERVE RUNNING_ADOPTABLE AND EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -488,10 +496,13 @@
     "XAU_DEV_EXACT_SHA256_PASS",
     "BAR_BUILDER_LOCAL_COPY_REPAIRED_TO_EXACT_GIT_BLOB_BEFORE_EXECUTION",
     "STREAMING_EXEC_ROUTE_CIRCUIT_BROKEN_TO_NONBLOCKING_NOHUP",
-    "M1_STAGE_RUNNING_ADOPTABLE_PID737"
+    "M1_STAGE_RUNNING_ADOPTABLE_PID737",
+    "MANUAL_BASE64_SOURCE_RECONSTRUCTION_REJECTED_ON_BLOB_MISMATCH",
+    "REUSABLE_GITHUB_ACTION_RUNTIME_SOURCE_EXPORT_CREATED",
+    "SOURCE_EXPORT_RUN_35467656777_RUNNING_ADOPTABLE_NO_POLL"
   ],
   "last_execution_block": {
-    "status": "DEK_V3_SINGLE_EFFECT_PASS_M1_INDICATORS",
+    "status": "RUNNING_ADOPTABLE",
     "external_effects_this_transition": 1,
     "group11": {
       "current_epoch": 2,
@@ -509,10 +520,12 @@
       "indicators_m1": {
         "status": "PASS_EXACT",
         "bars": 681772,
-        "content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
-        "file_bytes": 196359134,
-        "file_sha256": "f30da86f6c11b5a6573b3571ffd3c3621bbe4d51134258c89d956d6f9ab115b5",
-        "receipt_blob_sha1": "60b03eb236dc89653789d0312004cb16dc8d75a8"
+        "content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c"
+      },
+      "runtime_source_export": {
+        "run_id": 35467656777,
+        "status": "RUNNING_ADOPTABLE",
+        "poll_count_this_transition": 1
       }
     },
     "group12_opened": false,
