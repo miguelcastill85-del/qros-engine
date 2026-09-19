@@ -1,0 +1,103 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_1.0",
+  "date": "2026-09-19",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "execution_state": "BLOCKED_BY_INFRASTRUCTURE",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 9
+  },
+  "objective": "Resolve GROUP09 exactly-once continuation without duplicate execution or false death classification.",
+  "authority": {
+    "current_frontier_pointer": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+      "git_blob_sha1": "687ff61992776748e3966514ffe95145a67ca40c"
+    },
+    "current_checkpoint": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
+      "git_blob_sha1": "debbf042bf3b4c1b9bf174a242f07108320773ad",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.2"
+    },
+    "running_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RUNNING_ADOPTABLE_20260919_v1.json",
+      "git_blob_sha1": "5da26353c2ea18834e023bf775476670e5179fa3"
+    },
+    "latest_status_observation": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v2.json",
+      "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad"
+    },
+    "heavy_exactly_once": {
+      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+      "git_blob_sha1": "74e4d884a7018825ed67f0218f82f1d3fd543db3"
+    },
+    "no_freeze": {
+      "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+      "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e"
+    },
+    "cross_runtime_policy": {
+      "path": "governance/QROS_CROSS_RUNTIME_ACTIVE_CLAIM_POLICY_v1.0.json",
+      "git_blob_sha1": "838bb873f888d2cb0acc20e254d22f46e8aae157"
+    },
+    "cross_runtime_validation": {
+      "path": "control/QROS_CROSS_RUNTIME_ACTIVE_CLAIM_GUARD_PASS_20260919_v1.json",
+      "git_blob_sha1": "0d3c546aab052bb31486f10fa823d8d8bd4819af",
+      "status": "PASS_6_OF_6"
+    }
+  },
+  "exact_missing_identity": "Addressable original GROUP09 runtime namespace containing /mnt/data/qros_group03_runtime and process identities bootstrap linux:0c73b366-03e7-4963-8aef-010de628a318:1212757 / worker linux:0c73b366-03e7-4963-8aef-010de628a318:1212804, or an independently durable terminal GROUP09 receipt.",
+  "why_indispensable": "Exactly-once requires adoption of the active attempt or proven death before relaunch. A different host cannot infer death from local PID absence.",
+  "searched_routes": [
+    "GitHub stable frontier pointer and current W09C checkpoint",
+    "GitHub exact GROUP09 capsule, prelaunch intent, RUNNING_ADOPTABLE receipt and status observations",
+    "GitHub exact terminal receipt path and alternate repository path inspection",
+    "Current executor /mnt/data/qros_group03_runtime",
+    "Current executor PID 5295 namespace",
+    "Current executor Linux boot_id compared with durable process-birth boot_id",
+    "Heavy execution exactly-once policy v1.2 and supervisor v1/v2 source",
+    "No-freeze barrier policy and implementation",
+    "Cross-chat continuity policy and runtime scope documentation",
+    "Repository workflow inventory for W09C/heavy/runtime adoption",
+    "Authority-lease and anti-stall governance routes"
+  ],
+  "alternatives_attempted": [
+    "Nonblocking durable-receipt checks: no terminal receipt found",
+    "Matching-runtime adoption route: unavailable in current executor",
+    "Local process-death test rejected because current boot_id differs from original boot_id",
+    "Deterministic rematerialization evaluated but not executed because active attempt_1 remains unclosed and exactly-once forbids a duplicate expensive unit",
+    "GitHub workflow adoption route evaluated: no W09C workflow can address the original local runtime"
+  ],
+  "verified_preserved_progress": {
+    "groups_total": 24,
+    "groups_durably_closed": 9,
+    "closed_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "processed_signal_configs_durable": 301752,
+    "group09": "RUNNING_ADOPTABLE_ATTEMPT_1_UNRESOLVED",
+    "group10_opened": false
+  },
+  "guards": {
+    "economic_pnl_read": false,
+    "W10_economic_gate_a_open": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "economic_scoring_executed": false,
+    "duplicate_launch": false
+  },
+  "root_cause": "Execution ownership is local-runtime scoped, while the durable control plane records identity but provides no remote process-control/heartbeat channel capable of proving liveness or death after runtime migration.",
+  "correction": "Cross-runtime active claim guard added and validated. Foreign boot scope now fails closed and cannot be used as death proof.",
+  "resume_action": "FIRST check for a durable GROUP09 terminal receipt. Otherwise recover/address the original runtime namespace and adopt/status attempt_1. Relaunch is forbidden until authoritative death is proven. GROUP10 remains closed.",
+  "portfolio_impact": "NONE"
+}
