@@ -1,0 +1,108 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_SEMANTIC_GROUP_RECEIPT_1.0",
+  "date": "2026-09-19",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "PASS",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "structural_group_index": 10
+  },
+  "authority": {
+    "execution_capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP10_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "50a806e9dcada6c989643ffcf030877cece9206c"
+    },
+    "previous_group_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "1706b60aa172edfad49a861181207748d658884d",
+      "status": "PASS"
+    },
+    "runtime_package": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP10_RUNTIME_PACKAGE_PASS_20260919_v1.json",
+      "git_blob_sha1": "b73ec597763f7ddd50122ae1175dfc21344b26fd",
+      "status": "PASS"
+    },
+    "fenced_lease": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP10_CURRENT_FENCED_LEASE.json",
+      "git_blob_sha1": "c903b0a4e7e7ccbfb8e6a9ef5af3cebb94120484",
+      "lease_epoch": 1
+    }
+  },
+  "execution": {
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP10_20260919_v1",
+    "job_spec_sha256": "cc1a8b6f1c9ca3b4c4129a965d83148d9b4610e9ae87eb1225f14aabb8019d41",
+    "attempt": 1,
+    "retry_count": 0,
+    "supervisor_terminal_action": "PROMOTE_ATOMIC_DONE",
+    "worker_receipt_file_sha256": "fd96c951533a5d9bb4af4b25cc6e4cb222c51414bc88adee21a840b04cecb5e3",
+    "group_worker_receipt_file_sha256": "20c61a0c6e41a56808ce5f7c6d0c01282026a29cbbae2c5174aeeddc5d40a113",
+    "supervisor_receipt_file_sha256": "44debc13e6b1ad9110c882ebe76c32ebdf82e3f61663f3137837ef10d2643feb"
+  },
+  "result": {
+    "processed_signal_configs": 33528,
+    "distinct_mask_class_count": 14349,
+    "duplicate_config_count": 19179,
+    "zero_event_class_alias_count": 47,
+    "zero_event_representative_config_id": "0cb235526a9524fa3693d8aa41943f142d6e98df4808f6decce3f6424ffb16a1",
+    "class_root_sha256": "b25b0c3f93d717f3de43e0240e821ee11efac7e0984f5daf5efd903d6a41e14e",
+    "semantic_class_root_sha256": "72f2742cbd040806821c27999bb3df2e15c71da139c4b8caac8f337dc680bb90",
+    "full_alias_mapping_root_sha256": "d6c8b5f9d94c1fc3968a3918f1c00071e3c77ad940e6289114cd0db3f97b9c0b",
+    "ordered_config_id_stream_root_sha256": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3",
+    "group_config_root_sha256": "b06552322bc92be91ab0253f4e94c2c803f443ef0094464d7c43e4d8c307ae13",
+    "structural_group_key": [
+      3,
+      "STRICT_ALL_NEIGHBORS",
+      "CLOSE_BREAK"
+    ],
+    "metrics": {
+      "base_transform_rearm_evaluations": 84,
+      "candidate_union_total": 555535,
+      "local_gate_groups_total": 7330,
+      "structural_trigger_groups": 1,
+      "transform_carriers": 28
+    },
+    "artifact_validation": "PASS_4_OF_4_BY_SUPERVISOR_PHYSICAL_REHASH",
+    "artifacts": [
+      {
+        "path": "mask_classes.delta_u32.bin",
+        "bytes": 287987684,
+        "sha256": "beb94a57b7ad59425ce286606428a7c3cbf2b413458cbe5734d44389407ebf65"
+      },
+      {
+        "path": "mask_class_index.jsonl",
+        "bytes": 4916467,
+        "sha256": "1ec5033c04015ad5e2abfd5fe94fe948c9db7b736a87078d4978314d16f34534"
+      },
+      {
+        "path": "duplicate_alias_pairs.bin",
+        "bytes": 1227456,
+        "sha256": "d0ae6e575422718c82558e2252304bce42308db6d74759c9620752e7c74a7122"
+      },
+      {
+        "path": "full_alias_mapping.bin",
+        "bytes": 2145792,
+        "sha256": "d6c8b5f9d94c1fc3968a3918f1c00071e3c77ad940e6289114cd0db3f97b9c0b"
+      }
+    ]
+  },
+  "preconditions_reverified": {
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "bar_M1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_M1_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+    "runtime_binding_gate": "PASS",
+    "fenced_lease_echo": "PASS_EPOCH1_EXACT_BLOB",
+    "shard_descriptor_sha256": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+  },
+  "gates": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "GROUP10_DURABLY_CLOSED_PASS; AUTHORIZE_NON_ECONOMIC_GROUP11_CAPSULE_ONLY"
+}
