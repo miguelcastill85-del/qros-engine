@@ -1,0 +1,24 @@
+{
+  "schema": "QROS_CWS_SELF_APPLICATION_GATE_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "subject": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
+  "evidence": [
+    "candidate construction isolated from main",
+    "repository-native transport",
+    "durable build checkpoints",
+    "false-green workflow detected and fail-closed",
+    "validation harness hardened with pipefail",
+    "full external revalidation passed",
+    "synthetic autochain reached 16 generations",
+    "manual_interventions=0",
+    "terminal certificate exact",
+    "no generation after terminal"
+  ],
+  "prior_failures_preserved": [
+    "control/QROS_CWS_V1_SELF_APPLICATION_GATE_FAIL_20260919_v1.json",
+    "control/QROS_CWS_V1_1_FALSE_GREEN_VALIDATION_FAIL_20260919_v1.json"
+  ],
+  "decision": "PASS_FOR_SHADOW_W09C_OBSERVATION_ONLY",
+  "activation_scope": "NO_SCIENTIFIC_EFFECTS"
+}

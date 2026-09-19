@@ -1,13 +1,17 @@
 {
   "schema": "QROS_CWS_AUTOCHAIN_CURRENT_1.0",
   "date": "2026-09-19",
-  "status": "STATIC_VALIDATED_PRELAUNCH",
+  "status": "TERMINAL_PASS",
   "driver_blob": "62b7862f047f0a6d17b3e3cef199e103c2d39e70",
   "tests_blob": "f1234225dfd17b3c8d74e989c527553eea98bac1",
   "workflow_run_static": 35474742395,
   "state_branch": "cws-autochain-state-v1-20260919",
-  "generation": 0,
+  "generation": 16,
   "target": 16,
   "w09c_connected": false,
-  "next_automatic_action": "PROMOTE TO MAIN SYNTHETIC SHADOW; VERIFY SELF-DISPATCH CHAIN REACHES GENERATION 16 WITH MANUAL_INTERVENTIONS=0."
+  "next_automatic_action": "SHADOW OBSERVE W09C THROUGH CWS WITHOUT EXECUTING EFFECTS OR WRITING SCIENTIFIC AUTHORITY.",
+  "manual_interventions": 0,
+  "final_chain_root": "caec370c9f0ebad0625d917e355fd0bde97446897b1ef5ad53352f64252a237c",
+  "completion_certificate_sha256": "ed445890780cd81e0bf6e7b58beb5ceac413a6c6af877fb16a657c334720ade1",
+  "terminal_run_id": 35475221408
 }
