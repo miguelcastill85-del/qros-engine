@@ -1,0 +1,56 @@
+{
+  "schema": "QROS_NO_FREEZE_PRELAUNCH_INTENT_1.1_WITH_RUNTIME_BINDING_GATE",
+  "date": "2026-09-19",
+  "status": "PRECOMMITTED_PENDING_LAUNCH",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 8
+  },
+  "authority": {
+    "checkpoint_blob_sha1": "dcbf02fed4479fc7b9afc0c12a15feb81818a38f",
+    "capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "03cc56e67cae99e30d861ed9d2fa1895fc67269c"
+    },
+    "previous_group_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "b7abcd59f40b18274aa3c8eb0b04f0ce4daf393e",
+      "status": "PASS"
+    },
+    "no_freeze_policy": {
+      "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+      "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e"
+    },
+    "runtime_binding_policy": {
+      "path": "governance/QROS_GROUP_RUNTIME_BINDING_POLICY_v1.0.json",
+      "git_blob_sha1": "c3371d4099c4dae624cf6a672814582ebd795a32"
+    }
+  },
+  "runtime_binding": {
+    "wrapper_path": "/mnt/data/qros_group03_runtime/run_group08_wrapper.py",
+    "wrapper_sha256": "a00cd10f4d74ef4f2cefe35f5cdaa5fdf7572507d68627a331fe2e9530bf53e3",
+    "job_spec_path": "/mnt/data/qros_group03_runtime/job_spec_group08.json",
+    "job_spec_file_sha256": "d6dbd79f1e2a5fb3444e4ce09fd90893d81a39cca5f88faaf26c725cac26e028",
+    "job_spec_semantic_sha256": "0aa1d4512216cafaa39304d0004ab6d07f6821001642671f05dd2cceaac94eea",
+    "work_root": "/mnt/data/qros_group03_runtime/jobs_group08",
+    "expected_wrapper_schema": "QROS_W09C_GROUP08_WRAPPER_RECEIPT_1.0",
+    "group_runtime_binding_gate": "PASS_ALL_CHECKS",
+    "local_capsule_semantic_reconstruction_sha256": "ed53fabc3dd0b8a3ff17cd7649516b2e74584546a4a1065e5399a0fd3150e245",
+    "max_control_call_seconds": 5
+  },
+  "gates": {
+    "capsule_wrapper_jobspec_binding": "PASS",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "next_state_required": [
+    "PASS",
+    "RUNNING_ADOPTABLE",
+    "FAIL_CLOSED"
+  ]
+}
