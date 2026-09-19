@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_1.7",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_1.8",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -125,10 +125,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "TRANSVERSAL_AUDIT_FOUND_AND_CORRECTED_CONTROL_PLANE_HOLES",
-  "root_cause": "Authority overlay was not pointer-pinned; budget guard v1 encoded policy intent incompletely; controller-lock takeover used no age barrier for fresh ownerless/unreadable locks. Scientific semantics were not the root cause.",
+  "problem": "NONE_SCIENTIFIC; EXECUTION_BLOCK_CLOSED_BY_NONSTALL_BUDGET_BEFORE_HEAVY_LAUNCH",
+  "root_cause": "Exact frozen runtime sources were not yet materialized locally when the bounded call block entered closeout reserve. Policy correctly prevented late heavy launch.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "START_BOUNDED_EXECUTION_BLOCK_MAX_15_CALLS_USING_GUARD_V2; VERIFY_GROUP03_CAPSULE_PINS; EXECUTE_GROUP03_ONLY_THROUGH_HEAVY_SUPERVISOR_V2; DURABLY_PERSIST_GROUP03_RECEIPT_BY_CALL_11; CALLS_12_TO_15_CLOSEOUT_ONLY",
+  "next_automatic_action": "NEW_BOUNDED_BLOCK: RECOVER_EXACT_FROZEN_GROUP03_RUNTIME_SOURCES_BY_PINNED_BLOBS; MATERIALIZE_DEV/BAR/INDICATOR_CACHES_ONLY_IF_LOCAL_HASHED_CACHES_ABSENT; LAUNCH_GROUP03_ONLY_THROUGH_HEAVY_SUPERVISOR_V2; PERSIST_GROUP03_RECEIPT_BY_CALL_11",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -158,5 +158,14 @@
     "DURABLE_TYPE_RESTRICTION",
     "HEAVY_SUPERVISOR_V2_FRESH_LOCK_RACE_HARDENING",
     "CURRENT_BINDING_CONSOLIDATION"
-  ]
+  ],
+  "last_execution_block": {
+    "status": "PREEXEC_VALIDATED_NOT_EXECUTED_BUDGET_CLOSED",
+    "receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_PREEXEC_CLOSEOUT_20260918_v1.json",
+      "git_blob_sha1": "a9a553cbc5a9f86e55596f92e4c9494d89713733"
+    },
+    "group03_launched": false,
+    "expensive_unit_open": false
+  }
 }
