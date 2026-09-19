@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "FIRST CHECK FOR DURABLE GROUP09 TERMINAL RECEIPT; OTHERWISE RECOVER/ADDRESS ORIGINAL RUNTIME AND ADOPT/STATUS ATTEMPT_1; NEVER RELAUNCH WITHOUT AUTHORITATIVE DEATH PROOF; GROUP10 REMAINS CLOSED",
+  "next_action": "FIRST CHECK FOR DURABLE GROUP09 TERMINAL RECEIPT; OTHERWISE BLOCKER REMAINS. DO NOT APPLY FENCED LEASE RETROACTIVELY TO GROUP09. BEFORE ANY FUTURE GROUP10+ PRODUCTION LAUNCH, COMPLETE AND PROMOTE FENCED LEASE INTEGRATION OR USE AN EQUIVALENT VALIDATED MIGRATION-SAFE OWNERSHIP CONTRACT.",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "8e0aba4e7b38ae87a4fc701c29202411a251126e",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.3"
+      "git_blob_sha1": "77815e6ba3c934560b67913ad7031472ab45d642",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.4"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
@@ -223,6 +223,31 @@
       "path": "control/QROS_CROSS_RUNTIME_ACTIVE_CLAIM_GUARD_PASS_20260919_v1.json",
       "git_blob_sha1": "0d3c546aab052bb31486f10fa823d8d8bd4819af",
       "status": "PASS_6_OF_6"
+    },
+    "cross_runtime_active_claim_guard_revalidation": {
+      "path": "control/QROS_CROSS_RUNTIME_ACTIVE_CLAIM_GUARD_REVALIDATION_PASS_20260919_v1.json",
+      "git_blob_sha1": "60f22e876e51d0a8a9166abc26bd90c54c094aa8",
+      "status": "PASS_6_OF_6_PHYSICALLY_EXECUTED"
+    },
+    "group09_current_runtime_direct_probe": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_CURRENT_RUNTIME_DIRECT_PROBE_20260919_v1.json",
+      "git_blob_sha1": "69e28d9bbbebf9b12b0e8ee7244953bc33f3dd3a",
+      "status": "FOREIGN_RUNTIME_CONFIRMED"
+    },
+    "fenced_runtime_lease_candidate": {
+      "path": "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v1.0.json",
+      "git_blob_sha1": "627ef3f7e7ce68042ef541306c502fe12184c0e1",
+      "status": "PREREGISTERED_CONTROL_PLANE_CANDIDATE"
+    },
+    "fenced_runtime_lease_guard_validation": {
+      "path": "control/QROS_FENCED_RUNTIME_LEASE_GUARD_PASS_20260919_v1.json",
+      "git_blob_sha1": "708802dd871930a3aef845721e8c63173a40a2d8",
+      "status": "PASS_8_OF_8"
+    },
+    "fenced_heavy_supervisor_binding_validation": {
+      "path": "control/QROS_FENCED_HEAVY_SUPERVISOR_BINDING_PASS_20260919_v1.json",
+      "git_blob_sha1": "6713ac0062d5843cfdb90f56c129482c6bcaacaf",
+      "status": "PASS_8_OF_8"
     }
   },
   "closed_w09c_bindings": {
