@@ -1,0 +1,30 @@
+{
+  "schema": "QROS_CWS_AUTOCHAIN_STATIC_VALIDATION_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "validated_commit": "ff46a7eef107dd75d69f22ed5f0e8c2faaa9aab0",
+  "workflow_run_id": 35474742395,
+  "validate_job_id": 105981933082,
+  "chain_job_on_candidate": "SKIPPED_AS_DESIGNED",
+  "exact_blobs": {
+    "driver": "62b7862f047f0a6d17b3e3cef199e103c2d39e70",
+    "tests": "f1234225dfd17b3c8d74e989c527553eea98bac1"
+  },
+  "evidence": {
+    "governance": "PASS",
+    "chaos_cases": 100000,
+    "chaos_advances": 1000,
+    "chaos_stale_noops": 1506,
+    "chaos_certificate": "15c52b607e7c2fb2bd2b1d8b96f195c21877a12dd023059a4eb999239f963d59",
+    "fixed_point_rounds": 2,
+    "fixed_point_cases_per_round": 100000,
+    "new_critical": 0,
+    "new_high": 0,
+    "runner_id_independent_root": "PASS",
+    "duplicate_stale_noop": "PASS",
+    "manual_intervention_forbidden": "PASS"
+  },
+  "activation_allowed": "SYNTHETIC_SHADOW_MAIN_ONLY",
+  "w09c_connection_allowed": false,
+  "scientific_effect": "NONE"
+}

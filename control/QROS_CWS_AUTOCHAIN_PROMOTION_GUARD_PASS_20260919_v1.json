@@ -1,0 +1,16 @@
+{
+  "schema": "QROS_CWS_AUTOCHAIN_PROMOTION_GUARD_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "candidate_head": "ff46a7eef107dd75d69f22ed5f0e8c2faaa9aab0",
+  "state_branch": "cws-autochain-state-v1-20260919",
+  "state_commit": "0c5d00bff5544e10ba6efd23bc96bcdf5e2e4dc4",
+  "initial_generation": 0,
+  "initial_status": "ACTIVE",
+  "target_generation": 16,
+  "promotion_allowed": "MAIN_SYNTHETIC_SHADOW",
+  "initial_trigger": "PUSH_TO_MAIN",
+  "subsequent_trigger": "SELF_WORKFLOW_DISPATCH",
+  "manual_continue_between_generations": false,
+  "scientific_effect": "NONE"
+}

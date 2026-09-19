@@ -1,0 +1,13 @@
+{
+  "schema": "QROS_CWS_AUTOCHAIN_CURRENT_1.0",
+  "date": "2026-09-19",
+  "status": "STATIC_VALIDATED_PRELAUNCH",
+  "driver_blob": "62b7862f047f0a6d17b3e3cef199e103c2d39e70",
+  "tests_blob": "f1234225dfd17b3c8d74e989c527553eea98bac1",
+  "workflow_run_static": 35474742395,
+  "state_branch": "cws-autochain-state-v1-20260919",
+  "generation": 0,
+  "target": 16,
+  "w09c_connected": false,
+  "next_automatic_action": "PROMOTE TO MAIN SYNTHETIC SHADOW; VERIFY SELF-DISPATCH CHAIN REACHES GENERATION 16 WITH MANUAL_INTERVENTIONS=0."
+}
