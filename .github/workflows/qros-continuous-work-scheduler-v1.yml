@@ -1,11 +1,11 @@
 name: qros-continuous-work-scheduler-v1
 on:
   push:
-    branches: [cws-v1-selfhost-20260919]
+    branches: [cws-v1.1-effect-proof-20260919]
     paths:
       - 'scripts/qros_continuous_work_scheduler_v1.py'
       - 'scripts/qros_continuous_work_scheduler_tests_v1.py'
-      - 'governance/QROS_CONTINUOUS_WORK_SCHEDULER_GOVERNANCE_v1.0.json'
+      - 'governance/QROS_CONTINUOUS_WORK_SCHEDULER_GOVERNANCE_v1.1.json'
       - '.github/workflows/qros-continuous-work-scheduler-v1.yml'
   workflow_dispatch:
 
@@ -21,16 +21,19 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git hash-object scripts/qros_continuous_work_scheduler_v1.py)" = "c577b84d15ba50a34f49c66befbe9f26bb2b83bb"
-          test "$(git hash-object scripts/qros_continuous_work_scheduler_tests_v1.py)" = "ce4b0883deb644f2aed553c279ad7aa564fe393b"
+          test "$(git hash-object scripts/qros_continuous_work_scheduler_v1.py)" = "692f5d496705495850981987616218ccf9bd750b"
+          test "$(git hash-object scripts/qros_continuous_work_scheduler_tests_v1.py)" = "cf75fa3acb4f6ac24d28d2b4dd360e40a436af9a"
           python3 - <<'PY'
           import json
-          g=json.load(open('governance/QROS_CONTINUOUS_WORK_SCHEDULER_GOVERNANCE_v1.0.json'))
+          g=json.load(open('governance/QROS_CONTINUOUS_WORK_SCHEDULER_GOVERNANCE_v1.1.json'))
           assert g['status']=='PREREGISTERED_NO_RESULTS'
           assert g['activation']['active'] is False
-          assert g['architecture']['single_scientific_reducer']=='DEK_V3'
-          assert g['bpc_self_application_gate']['manual_base64_forbidden'] is True
-          print('EXACT_PINS_AND_ISOLATION=PASS')
+          assert 'DEK_V3_ONLY_SCIENTIFIC_REDUCER' in g['invariants']
+          assert g['bpc_self_application_gate']['repository_native_transport'] is True
+          assert g['version']=='v1.1'
+          assert g['implementation']['scheduler']['git_blob_sha1']=='692f5d496705495850981987616218ccf9bd750b'
+          assert g['implementation']['validation_oracle']['git_blob_sha1']=='cf75fa3acb4f6ac24d28d2b4dd360e40a436af9a'
+          print('EXACT_V1_1_PINS_AND_ISOLATION=PASS')
           PY
       - name: Compile
         run: python3 -m py_compile scripts/qros_continuous_work_scheduler_v1.py scripts/qros_continuous_work_scheduler_tests_v1.py
