@@ -2,7 +2,7 @@
   "schema": "QROS_PUBLIC1000_W09C_GROUP03_LIVE_EXECUTION_CHECKPOINT_1.0",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
-  "status": "RUNNING_ADOPTED_EXACTLY_ONCE",
+  "status": "RUNNING_ADOPTED_EXACTLY_ONCE_CACHES_COMPLETE",
   "scientific_state": "PREREGISTERED_NO_RESULTS",
   "subject": {
     "asset": "XAUUSD",
@@ -24,7 +24,14 @@
     "worker_pid": 3198,
     "worker_birth": "linux:0c73b366-03e7-4963-8aef-010de628a318:483573",
     "command_sha256": "4457090046aea910c3dc5d083921d0adee546352f140bb48c1ed535f6e0a989a",
-    "observed_dev_tmp_bytes": 1385165824
+    "observed_dev_tmp_bytes": null,
+    "dev_materialized_bytes": 2573500596,
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "bar_M1_materialized": true,
+    "bar_M1_expected_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_M1_materialized": true,
+    "indicator_M1_expected_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+    "group_worker_stage": "RUNNING_NO_RECEIPT_YET"
   },
   "gates": {
     "capsule_sources": "PASS_6_OF_6_EXACT",
@@ -32,7 +39,11 @@
     "job_directory_created": true,
     "worker_identity_durable": true,
     "duplicate_launch": false,
-    "receipt_present_at_checkpoint": false
+    "receipt_present_at_checkpoint": false,
+    "dev_materialization": "PASS_BY_WRAPPER_CONTINUATION_TO_GROUP_STAGE",
+    "bar_cache": "PASS_BY_WRAPPER_CONTINUATION_TO_GROUP_STAGE",
+    "indicator_cache": "PASS_BY_WRAPPER_CONTINUATION_TO_GROUP_STAGE",
+    "group03_receipt_present": false
   },
   "guards": {
     "economic_pnl_read": false,
@@ -41,6 +52,6 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "rule": "A subsequent block MUST invoke supervisor v2 with the identical job spec and adopt this exact live/orphan worker before any consideration of relaunch.",
-  "next_automatic_action": "ADOPT_GROUP03_EXISTING_JOB_EXACTLY_ONCE; IF RUNNING PERSIST STATUS WITHOUT RELAUNCH; IF PASS VALIDATE ARTIFACTS_AND_PERSIST_DURABLE_GROUP03_RECEIPT; ONLY_AFTER_DURABLE_PASS_CREATE_GROUP04_CAPSULE"
+  "rule": "Next block must ADOPT this exact existing job. Do not relaunch. If supervisor returns PASS, validate/promote group03 receipt. If RUNNING, persist status and close.",
+  "next_automatic_action": "NEW_BOUNDED_BLOCK: ADOPT_EXISTING_GROUP03_JOB_EXACTLY_ONCE_USING_IDENTICAL_SPEC_C745DF; IF PASS VALIDATE_AND_PERSIST_GROUP03_DURABLE_RECEIPT; IF RUNNING DO_NOT_RELAUNCH_AND_FREEZE_STATUS"
 }
