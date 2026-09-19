@@ -28,7 +28,7 @@
     "job_id": "W09C_XAUUSD_BUY_M1_GROUP09_20260919_v1",
     "job_spec_sha256": "55aefb4fe1d48439570399fa4d269e2edd813c5be09168938b9b2d81f76337fe",
     "barrier_status": "RUNNING_ADOPTABLE",
-    "barrier_supervisor_calls": 1,
+    "barrier_supervisor_calls": 2,
     "control_elapsed_seconds": 0.616901,
     "launch_action": "LAUNCHED",
     "attempt": 1,
@@ -39,7 +39,9 @@
     "claim_token": "9eb8eb767df64af18ae0b13081603c28",
     "command_sha256": "6fa713bfa7f39dcb2469c9902cd3f98e634b838b9533ee10c382073b43a320d0",
     "wrapper_sha256": "1c7d06496e3d9966500f7c6d3fd63aeed7e59e67c4a0d908c6515337ee5330d5",
-    "job_spec_file_sha256": "1543428e4b463359ee858a0041fae000f057c9fba2be684d60cad9aa771830b0"
+    "job_spec_file_sha256": "1543428e4b463359ee858a0041fae000f057c9fba2be684d60cad9aa771830b0",
+    "last_control_elapsed_seconds": 0.743616,
+    "last_control_action": "ADOPT_LIVE_PROCESS"
   },
   "gates": {
     "runtime_binding": "PASS",
@@ -56,5 +58,5 @@
     "ga2_open": false,
     "new_ga1_authorized": false
   },
-  "decision": "GROUP09_RUNNING_ADOPTABLE; NEXT INTERACTION NONBLOCKING STATUS <=5S; DO_NOT RELAUNCH"
+  "decision": "GROUP09_STILL_RUNNING_ADOPTABLE; SAME ATTEMPT_1 ADOPTED; NO RELAUNCH; NEXT INTERACTION NONBLOCKING STATUS ONLY"
 }
