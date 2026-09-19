@@ -1,0 +1,15 @@
+{
+  "schema": "QROS_BEST_PROPOSAL_COMPILER_ACTIVATION_RECEIPT_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_GOVERNANCE_ACTIVATED",
+  "governance_path": "governance/QROS_BEST_PROPOSAL_COMPILER_GOVERNANCE_v1.0.json",
+  "persistence_scope": [
+    "CURRENT_CHAT",
+    "FUTURE_CHATS_RECOVERING_QROS_AUTHORITY",
+    "QROS_PROJECT_REPOSITORY"
+  ],
+  "activation_effect": "PROCESS_GOVERNANCE_ONLY",
+  "scientific_effect": "NONE",
+  "note": "Persistence is durable through repository governance and bootstrap recovery; no claim of immutable or literally eternal storage is made.",
+  "governance_git_blob_sha1": "f31c028a1cd3f5b5b4bce56244839b14c8918eab"
+}

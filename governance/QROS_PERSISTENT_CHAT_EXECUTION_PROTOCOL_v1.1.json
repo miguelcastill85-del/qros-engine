@@ -11,6 +11,7 @@
     "READ_governance/QROS_HUMAN_INTERFACE_v1.json",
     "READ_governance/QROS_HUMAN_REPORTING_ENFORCEMENT_v1.json",
     "READ_THIS_PROTOCOL",
+    "READ_governance/QROS_BEST_PROPOSAL_COMPILER_GOVERNANCE_v1.0.json",
     "READ_RUN_QUEUE_STATE_FOREGROUND",
     "VERIFY_HOLDOUT_AND_AUTHORITY",
     "THEN_EXECUTE_OR_REPORT"
@@ -19,7 +20,15 @@
     "human_interface_ref": "governance/QROS_HUMAN_INTERFACE_v1.json",
     "enforcement_ref": "governance/QROS_HUMAN_REPORTING_ENFORCEMENT_v1.json",
     "required_before_any_user_facing_QROS_message": true,
-    "applies_to": ["MANUAL_CHAT", "FUTURE_CHAT", "AUTOMATION_NOTIFICATION", "CHECKPOINT", "MILESTONE", "BLOCKER", "DECISION"],
+    "applies_to": [
+      "MANUAL_CHAT",
+      "FUTURE_CHAT",
+      "AUTOMATION_NOTIFICATION",
+      "CHECKPOINT",
+      "MILESTONE",
+      "BLOCKER",
+      "DECISION"
+    ],
     "primary_layer_required": [
       "QUE_ESTAMOS_HACIENDO",
       "PARA_QUE",
@@ -36,19 +45,28 @@
   "continuation_behavior": {
     "when_user_says_continue": "Recover latest verifiable checkpoint, explain the resumed point in simple language, then execute automatically without asking again.",
     "when_user_is_active": "Interactive foreground has priority; continue research to the maximum safe boundary and report in human-first format.",
-    "when_user_is_idle": "Hourly automation may fill idle gaps and must use the same human-first format for any notification."
+    "when_user_is_idle": "Hourly automation may fill idle gaps and must use the same human-first format for any notification.",
+    "material_proposal_behavior": "Before presenting any material architecture/system/improvement, run the Best Proposal Compiler pipeline to DESIGN_FIXED_POINT; do not rely on the user to request a separate audit."
   },
   "audit_preservation": {
     "scientific_rigor_unchanged": true,
     "hashes_commits_ledgers_receipts_preserved": true,
     "technical_detail_not_deleted": true,
-    "technical_detail_default_visibility": "COMPACT_SECONDARY_LAYER"
+    "technical_detail_default_visibility": "COMPACT_SECONDARY_LAYER",
+    "best_proposal_fixed_point_required": true
   },
   "turn_end": {
     "checkpoint_required": true,
     "owned_lease_release_required": true,
     "verify_STATE_lease_null": true
   },
-  "revision": 4,
-  "scientific_effect": "NONE_OPERATIONAL_AND_COMMUNICATION_CONTROL_ONLY"
+  "revision": 5,
+  "scientific_effect": "NONE_OPERATIONAL_AND_COMMUNICATION_CONTROL_ONLY",
+  "best_proposal_compiler": {
+    "path": "governance/QROS_BEST_PROPOSAL_COMPILER_GOVERNANCE_v1.0.json",
+    "status": "ACTIVE_MANDATORY_PROCESS_GOVERNANCE",
+    "required_for_material_proposals": true,
+    "bootstrap_position": "AFTER_READ_THIS_PROTOCOL_BEFORE_DESIGNING_ANY_MATERIAL_PROPOSAL",
+    "presentation_rule": "DO_NOT_SHOW_RAW_IDEA; PRESENT_AUDITED_CANDIDATE_ONLY; EXPLICITLY_SEPARATE_REASONING_AUDIT_FROM_EMPIRICAL_VALIDATION"
+  }
 }

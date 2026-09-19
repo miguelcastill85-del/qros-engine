@@ -1,0 +1,134 @@
+{
+  "schema": "QROS_BEST_PROPOSAL_COMPILER_GOVERNANCE_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE_MANDATORY_PROCESS_GOVERNANCE",
+  "persistence_rule": "REMAINS_ACTIVE_UNTIL_EXPLICITLY_SUPERSEDED_BY_A_NEWER_DURABLE_GOVERNANCE_ARTIFACT",
+  "purpose": "Ensure that material QROS architectures, systems, improvements and solution proposals shown to the user are already internally synthesized, adversarially audited, simplified, oracle-checked and converged before presentation, so the user does not receive raw first-pass designs.",
+  "scope": [
+    "QROS architecture",
+    "RISE/Q scientific workflow architecture",
+    "execution/control-plane systems",
+    "anti-freeze/continuity systems",
+    "data/research infrastructure",
+    "MQL5/MT5 architecture",
+    "portfolio infrastructure",
+    "material software/system improvements"
+  ],
+  "non_scope": [
+    "simple factual answers",
+    "minor wording changes",
+    "small deterministic patches with already-frozen requirements"
+  ],
+  "core_rule": "DO_NOT_SHOW_RAW_IDEA_FOR_MATERIAL_PROPOSALS",
+  "mandatory_internal_pipeline": [
+    "RECOVER_CURRENT_AUTHORITY",
+    "FREEZE_REQUIREMENTS_AND_NON_NEGOTIABLES",
+    "GENERATE_MULTIPLE_CANDIDATE_DESIGNS_WHEN_MATERIALLY_DISTINCT",
+    "ELIMINATE_DOMINATED_CANDIDATES",
+    "PRE_MORTEM",
+    "ADVERSARIAL_RED_TEAM",
+    "INTERACTION_AND_FAILURE_MODE_AUDIT",
+    "COMPLEXITY_AND_MINIMALITY_AUDIT",
+    "INDEPENDENT_ORACLE_REVIEW",
+    "DEFINE_INVARIANTS",
+    "DEFINE_FALSIFICATION_TESTS",
+    "DEFINE_GATES_AND_SUPERGATES",
+    "IDENTIFY_RESIDUAL_RISKS",
+    "REPEAT_AUDIT_UNTIL_DESIGN_FIXED_POINT",
+    "ONLY_THEN_PRESENT_AUDITED_CANDIDATE"
+  ],
+  "proposal_states": [
+    "RAW_IDEA",
+    "ADVERSARIAL_CANDIDATE",
+    "AUDITED_CANDIDATE",
+    "VALIDATED_DESIGN",
+    "FROZEN_DESIGN"
+  ],
+  "visibility_contract": {
+    "user_normally_sees_from_state": "AUDITED_CANDIDATE",
+    "raw_idea_hidden_by_default": true,
+    "audited_candidate_must_not_be_called_validated": true,
+    "validated_requires_executed_gates": true,
+    "frozen_requires_executed_supergates_or_explicitly_defined_equivalent_evidence": true
+  },
+  "audit_reopen_classification": {
+    "MISSED_DEFECT": "A material defect that should have been discovered previously. May reopen the affected component/design when reproducible.",
+    "NEW_EVIDENCE": "New verifiable evidence unavailable to the prior audit. May reopen only the affected assumptions/components.",
+    "CHANGED_REQUIREMENT": "The user or authority changed requirements. Recompile from the smallest affected scope.",
+    "OPTIONAL_IMPROVEMENT": "A possible enhancement that does not violate current invariants. Must not reopen a frozen design by itself."
+  },
+  "frozen_design_reopen_rule": {
+    "allowed_only_if": [
+      "REPRODUCIBLE_MISSED_DEFECT_MATERIAL",
+      "NEW_MATERIAL_EVIDENCE",
+      "CHANGED_REQUIREMENT",
+      "GATE_OR_SUPERGATE_FAILURE"
+    ],
+    "prohibited": [
+      "NEWLY_IMAGINED_ELEGANT_ALTERNATIVE_ONLY",
+      "NON_MATERIAL_LOW_SEVERITY_FINDING_ONLY",
+      "PERSONAL_PREFERENCE_OF_THE_CURRENT_REASONING_PASS",
+      "REDESIGN_WITHOUT_EVIDENCE_DELTA"
+    ],
+    "scope_rule": "INVALIDATE_ONLY_THE_MINIMUM_AFFECTED COMPONENTS_AND_PRESERVE_VALIDATED_EVIDENCE"
+  },
+  "design_fixed_point": {
+    "minimum_consecutive_independent_adversarial_rounds": 2,
+    "requirements": [
+      "ZERO_NEW_CRITICAL_DEFECTS",
+      "ZERO_NEW_HIGH_DEFECTS",
+      "ZERO_REQUIRED_INVARIANT_CHANGES",
+      "ZERO_REQUIRED_ARCHITECTURAL_REWRITES"
+    ],
+    "medium_low_rule": "MEDIUM/LOW findings remain in the residual-risk ledger and do not automatically block freeze unless they combine into a material failure mode.",
+    "no_infinite_audit_rule": true
+  },
+  "complexity_gate": {
+    "default": "STRENGTHEN_EXISTING_LAYER_BEFORE_ADDING_NEW_LAYER",
+    "new_layer_requires": [
+      "REPRODUCIBLE_FAILURE_NOT_ADEQUATELY_SOLVABLE_IN_EXISTING_LAYER",
+      "MEASURABLE_RISK_REDUCTION",
+      "NO_DUPLICATE_AUTHORITY_OR_SECOND_REDUCER",
+      "REGRESSION_TESTS_FOR_NEW_INTERACTIONS"
+    ],
+    "anti_pattern": "POLICY_GUARD_SUPERVISOR_WATCHDOG_META_WATCHDOG_CHAIN_WITHOUT_NET_RISK_REDUCTION"
+  },
+  "independent_oracle": {
+    "required_for_material_architecture": true,
+    "role": "VERIFY_INVARIANTS_CONTRADICTIONS_EDGE_CASES_AND_COVERAGE_WITHOUT_OPTIMIZING_OR_REDESIGNING_THE_CANDIDATE",
+    "same_implementation_as_primary_forbidden_when_independence_is_material": true
+  },
+  "evidence_contract": {
+    "labels": [
+      "VERIFICADO",
+      "REPORTADO",
+      "INFERIDO",
+      "NO_DISPONIBLE"
+    ],
+    "reasoning_only_cannot_be_promoted_to_verified": true,
+    "proposal_quality_must_distinguish": "AUDITED_BY_REASONING_VS_EMPIRICALLY_VALIDATED"
+  },
+  "gates_contract": {
+    "every_material_design_must_define_falsifiers": true,
+    "every_material_design_must_define_promotion_criteria": true,
+    "every_material_design_must_define_regression_suite": true,
+    "no_production_promotion_without_required_gate_receipts": true
+  },
+  "anti_loop_contract": {
+    "second_audit_does_not_restart_from_zero": true,
+    "compare_against_frozen_invariants_and_prior_defect_ledger": true,
+    "every_new_finding_must_be_classified": true,
+    "optional_improvements_cannot_force_redesign": true,
+    "repeated_same_root_cause_without_new_evidence_forbidden": true
+  },
+  "scientific_firewall": {
+    "changes_scientific_semantics": false,
+    "changes_holdout": false,
+    "changes_economic_pnl_access": false,
+    "changes_ga2": false,
+    "changes_alpha": false,
+    "role": "META_GOVERNANCE_FOR_PROPOSAL_QUALITY_ONLY"
+  },
+  "user_contract": "When Miguel requests a material QROS architecture, system, improvement or solution, perform synthesis + adversarial audit + independent oracle + simplification + fixed-point internally before presenting it. Present only the audited candidate, explicitly stating what remains empirically unvalidated."
+}
