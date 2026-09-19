@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_1.6",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_1.7",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -16,12 +16,14 @@
     "previous_checkpoint_blob_sha1": "3f560b872a812bf6e2fec35407ee50fc784b1f6f",
     "delivery_policy_blob_sha1": "56e9501ea1f480bbce185edcf83f49662af2a9d8",
     "heavy_execution_policy": {
-      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.0.json",
-      "git_blob_sha1": "9cd8aca07d9321063299e3348568a37d1c6ea26f"
+      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.1.json",
+      "git_blob_sha1": "e77cb928aaa62cc62bba56cb6b79beb53e3c7a87",
+      "status": "ACTIVE"
     },
     "heavy_execution_supervisor": {
-      "path": "scripts/qros_heavy_job_supervisor_v1.py",
-      "git_blob_sha1": "991860cb4cb6e1f4d322127fd4417324dc8cbbaf"
+      "path": "scripts/qros_heavy_job_supervisor_v2.py",
+      "git_blob_sha1": "91f6ccb18587c7f30ad6525c70cfa2f13fb17eeb",
+      "status": "AUTHORIZED_LOCK_RACE_HARDENED_WRAPPER"
     },
     "heavy_execution_hardening_receipt": {
       "path": "control/QROS_HEAVY_EXECUTION_LOOP_HARDENING_PASS_20260916_v1.json",
@@ -30,20 +32,25 @@
       "tests_passed": 11
     },
     "external_call_budget_policy": {
-      "path": "governance/QROS_EXTERNAL_CALL_BUDGET_NONSTALL_POLICY_v1.0.json",
-      "git_blob_sha1": "6456cf4cca36c347bf17c5ade789c67bb67cad39",
+      "path": "governance/QROS_EXTERNAL_CALL_BUDGET_NONSTALL_POLICY_v2.0.json",
+      "git_blob_sha1": "62d054382b98d7c212128518f79930f7a9b9beb9",
       "status": "ACTIVE",
       "hard_cap": 15
     },
     "external_call_budget_guard": {
-      "path": "scripts/qros_external_call_budget_guard_v1.py",
-      "git_blob_sha1": "78f46e6bed825b778638974bc8d73c2166910ecc"
+      "path": "scripts/qros_external_call_budget_guard_v2.py",
+      "git_blob_sha1": "57e40966729d207f7434c0f5fde741dccbfd9877"
     },
     "external_call_budget_hardening_receipt": {
       "path": "control/QROS_EXTERNAL_CALL_BUDGET_HARDENING_PASS_20260918_v1.json",
       "git_blob_sha1": "f9caea0fac732c060e1f3a029d678a0a7b577ae3",
       "status": "PASS",
       "tests_passed": 20
+    },
+    "transversal_audit": {
+      "path": "control/QROS_TRANSVERSAL_AUDIT_HARDENING_PASS_20260918_v1.json",
+      "git_blob_sha1": "bc5d2c372d4b547c5bb9d733d3b3ecf811606314",
+      "status": "PASS_WITH_CONTROL_PLANE_CORRECTIONS"
     }
   },
   "data": {
@@ -105,7 +112,11 @@
       15
     ],
     "unbounded_polling_forbidden": true,
-    "freeze_reanudable_checkpoint_before_budget_exhaustion": true
+    "freeze_reanudable_checkpoint_before_budget_exhaustion": true,
+    "max_expensive_units_started_per_block": 1,
+    "checkpoint_deadline_enforced": true,
+    "durable_flag_restricted_to_checkpoint_or_persist": true,
+    "fresh_ownerless_or_unreadable_controller_lock_reclaim_forbidden": true
   },
   "scientific_guards": {
     "economic_pnl_read": false,
@@ -114,8 +125,38 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_CURRENT",
-  "root_cause": "Prior volatile-progress loss, transport-timeout relaunch loop, and excessive external-call/polling exposure corrected by per-group durable persistence, exactly-once heavy-worker supervision, and a hard 15-call execution budget with checkpoint at call 11 and closeout-only reserve 12-15.",
+  "problem": "TRANSVERSAL_AUDIT_FOUND_AND_CORRECTED_CONTROL_PLANE_HOLES",
+  "root_cause": "Authority overlay was not pointer-pinned; budget guard v1 encoded policy intent incompletely; controller-lock takeover used no age barrier for fresh ownerless/unreadable locks. Scientific semantics were not the root cause.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "START_BOUNDED_EXECUTION_BLOCK_MAX_15_CALLS; VERIFY_GROUP03_CAPSULE_PINS_THEN_EXECUTE_GROUP03_ONLY_THROUGH_EXACTLY_ONCE_HEAVY_SUPERVISOR; PERSIST_RECEIPT_BY_CALL_11; VALIDATE/CLOSEOUT_ONLY_CALLS_12_TO_15"
+  "next_automatic_action": "START_BOUNDED_EXECUTION_BLOCK_MAX_15_CALLS_USING_GUARD_V2; VERIFY_GROUP03_CAPSULE_PINS; EXECUTE_GROUP03_ONLY_THROUGH_HEAVY_SUPERVISOR_V2; DURABLY_PERSIST_GROUP03_RECEIPT_BY_CALL_11; CALLS_12_TO_15_CLOSEOUT_ONLY",
+  "w09c_closed_bindings": {
+    "clock_session": {
+      "status": "PASS",
+      "path": "control/QROS_PUBLIC_1000_SEED_0076_GLOBAL_CLOCK_SESSION_BINDING_V219_v1.json",
+      "git_blob_sha1": "c16d561b66a51d3735960470ba893e53e6913d40"
+    },
+    "same_candidate_overlap": {
+      "status": "PASS",
+      "path": "control/QROS_SEED0076_OVERLAP_ADMISSION_PARITY_PASS_20260915_v1.json",
+      "git_blob_sha1": "32556fe476f62104b3c5aa08a7d8e5fb64847009"
+    },
+    "physical_dev_bytes": {
+      "status": "PASS",
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_PHYSICAL_DEV_MATERIALIZATION_PASS_20260916_v1.json",
+      "git_blob_sha1": "046a1f8a988a171c632ce3f5fc71673bc976e481"
+    },
+    "transitive_source_closure": {
+      "status": "PASS",
+      "path": "control/QROS_PUBLIC_1000_W09C_SEMANTIC_SOURCE_TRANSITIVE_CLOSURE_CORRECTION_20260916_v1.json",
+      "git_blob_sha1": "2a17f14946089623c77430b6ec99a47d18bea787"
+    }
+  },
+  "corrections": [
+    "POINTER_PIN_CURRENT_CHECKPOINT_AND_GROUP03_CAPSULE",
+    "EXTERNAL_CALL_GUARD_V2_HARD_DEADLINE",
+    "ONE_EXPENSIVE_UNIT_START_PER_BLOCK",
+    "DURABLE_TYPE_RESTRICTION",
+    "HEAVY_SUPERVISOR_V2_FRESH_LOCK_RACE_HARDENING",
+    "CURRENT_BINDING_CONSOLIDATION"
+  ]
 }
