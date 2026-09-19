@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "FIRST CHECK FOR DURABLE GROUP09 TERMINAL RECEIPT; OTHERWISE BLOCKER REMAINS. DO NOT APPLY FENCED LEASE RETROACTIVELY TO GROUP09. BEFORE ANY FUTURE GROUP10+ PRODUCTION LAUNCH, COMPLETE AND PROMOTE FENCED LEASE INTEGRATION OR USE AN EQUIVALENT VALIDATED MIGRATION-SAFE OWNERSHIP CONTRACT.",
+  "next_action": "NEW_BOUNDED_BLOCK: PERSIST_LEASE_GUARD_V2_AND_TESTS; VERIFY_GIT_BYTES; PROMOTE_LEGACY_RECOVERY_AND_FENCED_LEASE_POLICIES; RECHECK_GROUP09_TERMINAL_RECEIPT; ONLY_IF_ABSENT PERSIST_LEGACY_AUTHORITY_TOMBSTONE_AND_RECOVERY_EPOCH",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "77815e6ba3c934560b67913ad7031472ab45d642",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.4"
+      "git_blob_sha1": "5eaaca9dd17efd4862d2538453333be2510f2d1e",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.5"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
@@ -248,6 +248,9 @@
       "path": "control/QROS_FENCED_HEAVY_SUPERVISOR_BINDING_PASS_20260919_v1.json",
       "git_blob_sha1": "6713ac0062d5843cfdb90f56c129482c6bcaacaf",
       "status": "PASS_8_OF_8"
+    },
+    "group09_authority_fence_progress": {
+      "path": "control/QROS_GROUP09_AUTHORITY_FENCE_IMPLEMENTATION_PROGRESS_20260919_v1.json"
     }
   },
   "closed_w09c_bindings": {
