@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_CWS_REAL_CONTROL_SOAK_STAGE1_FAIL_1.0",
+  "date": "2026-09-19",
+  "status": "FAIL_CLOSED_CORRECTED_CANDIDATE_PENDING",
+  "run_id": 35476625364,
+  "job_id": 105986892262,
+  "stage0_run_id": 35476612542,
+  "durable_epoch3_commit": "0510152bbb419b1b8e3221d05ce6106f059c80c7",
+  "evidence": {
+    "stage1_epoch3_adoption": "PASS",
+    "lease_guard": "PASS",
+    "intent_driver_status": "PASS",
+    "intent_status": "CARRIER_MATERIALIZATION_REQUIRED",
+    "spawn_authorized": false,
+    "failure": "KeyError:runtime_cutover_required"
+  },
+  "root_cause": "DRIVER_V1_0_FUNCTION_SIGNATURE_CHANGED_BUT_INTENT_SERIALIZATION_DID_NOT_INCLUDE_OWNER_MATCH_AND_RUNTIME_CUTOVER_FIELDS",
+  "correction": {
+    "driver_blob": "258378ca2656a0774a92b5cf8840f90521583962",
+    "tests_blob": "6ba512d9c4d19be48a1e022ee414258a2be16cee",
+    "intent_matrix_cases": 3,
+    "resume_stage1_only": true
+  },
+  "preserves": {
+    "lease_epoch3": true,
+    "manual_interventions": 0,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false
+  }
+}
