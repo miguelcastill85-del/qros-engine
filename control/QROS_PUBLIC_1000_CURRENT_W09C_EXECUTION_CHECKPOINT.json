@@ -82,6 +82,11 @@
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_CROSS_CHAT_RUNTIME_RECONCILIATION_20260919_v1.json",
       "git_blob_sha1": "1545eee77e6850e99673394ee5e43396ff46c293",
       "status": "RUNNING_ADOPTABLE_NO_RELAUNCH"
+    },
+    "group09_status_observation": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v1.json",
+      "git_blob_sha1": "95202c79268f50ea7776f724b7f4e80b5ec3b76d",
+      "status": "RUNNING_ADOPTABLE"
     }
   },
   "data": {
@@ -172,10 +177,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP09_RUNNING_ADOPTABLE_ORIGINAL_RUNTIME_NOT_ADDRESSABLE_FROM_CURRENT_CHAT_EXECUTOR",
-  "root_cause": "Cross-chat executor boundary: durable GROUP09 attempt_1 claim exists, but the original /mnt/data runtime is not mounted in this execution context. This is not proof of worker death.",
+  "problem": "GROUP09_RUNNING_ADOPTABLE_NO_TERMINAL_RECEIPT; ORIGINAL_RUNTIME_NOT_ADDRESSABLE_FROM_CURRENT_EXECUTOR",
+  "root_cause": "Cross-chat runtime boundary persists. Durable claim remains authoritative; absence of terminal receipt is not death evidence.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NONBLOCKING_ONLY: CHECK FOR DURABLE GROUP09 TERMINAL RECEIPT; OTHERWISE ADOPT/STATUS SAME GROUP09 ATTEMPT_1 FROM A MATCHING_RUNTIME_CONTEXT <=5S; NEVER RELAUNCH WITHOUT PROVEN DEATH",
+  "next_automatic_action": "NONBLOCKING_ONLY: CHECK FOR DURABLE GROUP09 TERMINAL RECEIPT; IF ABSENT PRESERVE SAME ATTEMPT_1 RUNNING_ADOPTABLE; ADOPT/STATUS ONLY FROM MATCHING_RUNTIME_CONTEXT <=5S; NEVER RELAUNCH WITHOUT PROVEN DEATH",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -241,6 +246,13 @@
       "terminal_receipt_present": false,
       "original_worker_death_proven": false,
       "relaunch_allowed": false
+    },
+    "status_observation": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v1.json",
+      "git_blob_sha1": "95202c79268f50ea7776f724b7f4e80b5ec3b76d",
+      "terminal_receipt_present": false,
+      "worker_control_invoked": false,
+      "relaunch_performed": false
     }
   }
 }
