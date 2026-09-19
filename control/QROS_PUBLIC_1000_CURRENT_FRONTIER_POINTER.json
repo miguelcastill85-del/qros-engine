@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "NEW_BOUNDED_BLOCK: WRITE_EXACT_FORMATTED_SPEC_PLUS_REMAINING_PINNED_SOURCES; VERIFY_ALL_GIT_BLOB_SHA1_PINS; ONLY_THEN_LAUNCH_GROUP03_THROUGH_HEAVY_SUPERVISOR_V2",
+  "next_action": "NEW_BOUNDED_BLOCK: MATERIALIZE_AUTHORITATIVE_SUPERVISOR_V1_FULL_BLOB_991860_AND_V2_BLOB_91F6CC_IN_FRESH_RUNTIME; VERIFY_EXACT_BYTES; RUN V1+V2 TESTS PLUS REAL CONTROLLER_SMOKE_LIFECYCLE; IF PASS LAUNCH GROUP03 ONCE; PERSIST LIVE/PASS STATE BY CALL_11",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "379c4274d404d3518cc2124690aa01cdaaf98a6f",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_1.9"
+      "git_blob_sha1": "50443d3a909fe2ac0a7ec916f650e6904aa690c1",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.0"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP03_EXECUTION_CAPSULE_20260916_v1.json",
@@ -126,7 +126,12 @@
       "git_blob_sha1": "a9a553cbc5a9f86e55596f92e4c9494d89713733"
     },
     "source_gate_fail_closed": {
-      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SOURCE_GATE_FAIL_CLOSED_20260918_v1.json"
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SOURCE_GATE_FAIL_CLOSED_20260918_v1.json",
+      "git_blob_sha1": "fad1521fa9b33148079e9905fe07867869ea7715"
+    },
+    "supervisor_runtime_identity_fail_closed": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SUPERVISOR_RUNTIME_IDENTITY_FAIL_CLOSED_20260918_v1.json",
+      "git_blob_sha1": "a261d30bff52ca52e457e75f4d291c9498fcdd17"
     }
   },
   "closed_w09c_bindings": {
