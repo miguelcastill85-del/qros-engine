@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.3",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.4",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -70,7 +70,7 @@
     },
     "no_freeze_running_receipt": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_RUNNING_ADOPTABLE_20260918_v1.json",
-      "git_blob_sha1": "431a653de3fd51863327fbc2b40752aa49f42a40",
+      "git_blob_sha1": "0b6cf57ca4484ae0f0ce932e9fa0f9a24907555a",
       "status": "RUNNING_ADOPTABLE"
     }
   },
@@ -163,7 +163,7 @@
   "problem": "NONE_CURRENT_NO_FREEZE_BARRIER_ACTIVE",
   "root_cause": "N/A",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP07 WITH QROS_NO_FREEZE_BARRIER <=5S; IF PASS VALIDATE_AND_PERSIST GROUP07 RECEIPT; IF RUNNING PERSIST/REPORT RUNNING_ADOPTABLE; NEVER SLEEP/POLL/WAIT",
+  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP07 <=5S; IF PASS VALIDATE_ARTIFACTS_AND_PERSIST_GROUP07; IF RUNNING KEEP RUNNING_ADOPTABLE; DO_NOT_POLL_OR_RELAUNCH",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -208,12 +208,15 @@
     "status": "RUNNING_ADOPTABLE",
     "receipt": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_RUNNING_ADOPTABLE_20260918_v1.json",
-      "git_blob_sha1": "431a653de3fd51863327fbc2b40752aa49f42a40"
+      "git_blob_sha1": "0b6cf57ca4484ae0f0ce932e9fa0f9a24907555a"
     },
     "group07_launched": true,
     "attempt": 1,
+    "adopt_action": "ADOPT_LIVE_PROCESS",
+    "supervisor_calls": 2,
+    "duplicate_launch": false,
     "expensive_unit_open": true,
     "orphan_worker": false,
-    "control_elapsed_seconds": 0.623899
+    "last_control_elapsed_seconds": 0.601308
   }
 }
