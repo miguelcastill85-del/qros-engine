@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.0",
+  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.1",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "current_version": "V255",
   "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json",
@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "DEK_V3_VALIDATION_BARRIER: READ WORKFLOW RUN 35456496303 ONCE. IF SUCCESS, VERIFY JOB STEPS + EXACT COMMIT 09bc8f59... AND PROMOTE DEK_V3 TO FROZEN_ACTIVE; IF STILL RUNNING, CHECKPOINT EXIT WITHOUT POLLING; GROUP11/12 SCIENCE UNCHANGED.",
-  "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
+  "next_action": "DEK_V3_ACTIVE: READ ONE DURABLE AUTHORITY BUNDLE; COMPILE GROUP11 EPOCH2 NEXT TRANSITION LOCALLY; EXECUTE AT MOST ONE IDEMPOTENT EFFECT; WRITE ONE COMMIT BUNDLE; EXIT. GROUP12 REMAINS CLOSED UNTIL GROUP11 TERMINAL PASS.",
+  "resume_contract": "V255 remains the stable scientific frontier. DEK v3 is the frozen active control-plane authority. Each invocation is one durable authority bundle -> local deterministic transition -> at most one idempotent external effect -> one durable commit bundle -> exit. Chat/runtime never owns continuity.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "6d29bc7b52b2b7267bf6bc1dfaaf536b14599d9f",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.17"
+      "git_blob_sha1": "0a3fb2fa3ab634610cb5fce827565c4a4c7352b9",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.18"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
@@ -208,7 +208,7 @@
       "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
       "status": "RUNNING_ADOPTABLE"
     },
-    "execution_state": "GROUP11_EPOCH2_CARRIER_REBUILD_RUNNING_ADOPTABLE",
+    "execution_state": "DEK_V3_FROZEN_ACTIVE_GROUP11_READY",
     "group09_infrastructure_blocker": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
       "git_blob_sha1": "3713ecff5724f7b298d4e4cda4f50ebb60936dbe",
@@ -365,6 +365,11 @@
       "git_blob_sha1": "dab585e195e424f41898f03438c190ae57754a2e",
       "run_id": 35456496303,
       "status": "EXTERNAL_VALIDATION_PENDING"
+    },
+    "recursive_dek_v3_active": {
+      "path": "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json",
+      "git_blob_sha1": "21f838ced8ec8a6c21a596acaf2a949582c200fa",
+      "status": "FROZEN_ACTIVE"
     }
   },
   "closed_w09c_bindings": {
