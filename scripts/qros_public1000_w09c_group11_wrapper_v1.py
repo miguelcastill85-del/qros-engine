@@ -50,7 +50,7 @@ def main()->int:
     r=json.loads(inner.read_text(encoding='utf-8'))
     checks={
       'status':r.get('status')=='PASS',
-      'structural_group_index':r.get('structural_group_index')==10,
+      'structural_group_index':r.get('structural_group_index')==11,
       'processed_signal_configs':r.get('processed_signal_configs')==33528,
       'ordered_config_id_stream_root_sha256':r.get('ordered_config_id_stream_root_sha256')==CONFIG_ROOT,
       'economic_pnl_read':r.get('economic_pnl_read') is False,
