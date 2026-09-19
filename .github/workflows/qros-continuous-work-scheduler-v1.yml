@@ -1,0 +1,112 @@
+name: qros-continuous-work-scheduler-v1
+on:
+  push:
+    branches: [cws-v1-selfhost-20260919]
+    paths:
+      - 'scripts/qros_continuous_work_scheduler_v1.py'
+      - 'scripts/qros_continuous_work_scheduler_tests_v1.py'
+      - 'governance/QROS_CONTINUOUS_WORK_SCHEDULER_GOVERNANCE_v1.0.json'
+      - '.github/workflows/qros-continuous-work-scheduler-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact pins and candidate isolation
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object scripts/qros_continuous_work_scheduler_v1.py)" = "c577b84d15ba50a34f49c66befbe9f26bb2b83bb"
+          test "$(git hash-object scripts/qros_continuous_work_scheduler_tests_v1.py)" = "ce4b0883deb644f2aed553c279ad7aa564fe393b"
+          python3 - <<'PY'
+          import json
+          g=json.load(open('governance/QROS_CONTINUOUS_WORK_SCHEDULER_GOVERNANCE_v1.0.json'))
+          assert g['status']=='PREREGISTERED_NO_RESULTS'
+          assert g['activation']['active'] is False
+          assert g['architecture']['single_scientific_reducer']=='DEK_V3'
+          assert g['bpc_self_application_gate']['manual_base64_forbidden'] is True
+          print('EXACT_PINS_AND_ISOLATION=PASS')
+          PY
+      - name: Compile
+        run: python3 -m py_compile scripts/qros_continuous_work_scheduler_v1.py scripts/qros_continuous_work_scheduler_tests_v1.py
+      - name: Gates oracle chaos fixed-point
+        working-directory: scripts
+        run: python3 qros_continuous_work_scheduler_tests_v1.py | tee ../cws_validation.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cws-validation
+          path: cws_validation.json
+          retention-days: 1
+
+  runner1:
+    needs: validate
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 1 --state cws_state.json | tee stage1.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cws-state-1
+          path: cws_state.json
+          retention-days: 1
+
+  runner2:
+    needs: runner1
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: cws-state-1
+          path: .
+      - run: python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 2 --state cws_state.json | tee stage2.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cws-state-2
+          path: cws_state.json
+          retention-days: 1
+
+  runner3:
+    needs: runner2
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: cws-state-2
+          path: .
+      - run: python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 3 --state cws_state.json | tee stage3.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cws-state-3
+          path: cws_state.json
+          retention-days: 1
+
+  runner4:
+    needs: runner3
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: cws-state-3
+          path: .
+      - run: python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 4 --state cws_state.json | tee stage4.json
+      - name: Verify terminal long-run state
+        run: |
+          python3 - <<'PY'
+          import json,os
+          s=json.load(open('cws_state.json'))
+          assert s['phase']=='COMPLETE'
+          assert s['progress_count']==10000
+          assert s['terminal_root']=='6'*64
+          assert os.path.getsize('cws_state.json') < 8192
+          out=json.load(open('stage4.json'))
+          assert out['certificate'] is not None
+          print('MULTI_RUNNER_10000_UNITS=PASS')
+          PY
