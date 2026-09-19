@@ -1,0 +1,12 @@
+{
+  "schema": "QROS_CWS_AUTOCHAIN_STATE_1.0",
+  "task_id": "CWS_AUTOCHAIN_SHADOW_20260919",
+  "objective_hash": "7777777777777777777777777777777777777777777777777777777777777777",
+  "target": 16,
+  "task_spec_hash": "83983f0c19f366a939e3a1646a14e7b78ed21036e687b38dbe217a4def33a50b",
+  "generation": 0,
+  "status": "ACTIVE",
+  "chain_root": "3512f9aadf166f20ca693c941a4913ea2e0c894f9859cda254623ffd237e0b50",
+  "last_run_id": null,
+  "manual_interventions": 0
+}
