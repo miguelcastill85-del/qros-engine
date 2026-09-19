@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.0",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.1",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -82,24 +82,25 @@
   },
   "semantic_progress": {
     "groups_total": 24,
-    "groups_durably_closed": 6,
+    "groups_durably_closed": 7,
     "closed_indices": [
       0,
       1,
       2,
       3,
       4,
-      5
+      5,
+      6
     ],
-    "processed_signal_configs_durable": 201168,
+    "processed_signal_configs_durable": 234696,
     "last_receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP05_SEMANTIC_RECEIPT_20260918_v1.json",
-      "git_blob_sha1": "b207b66c202bcb4cc97f4505ba9bb4417f7d917a"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_SEMANTIC_RECEIPT_20260918_v1.json",
+      "git_blob_sha1": "e885294e39f4e38b050e4beb66c3166ef22b0295"
     },
-    "next_group_index": 6,
+    "next_group_index": 7,
     "next_capsule": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_EXECUTION_CAPSULE_20260918_v1.json",
-      "git_blob_sha1": "b62a0443b227e238237b010e14789767b41edae9"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_EXECUTION_CAPSULE_20260918_v1.json",
+      "git_blob_sha1": "afec4154384284cc6e7f52e42cf6f9e7db1aa846"
     },
     "global_targets": {
       "processed_signal_configs": 804672,
@@ -110,7 +111,7 @@
     }
   },
   "pending": {
-    "semantic_mask_root_rematerialization": "IN_PROGRESS_6_OF_24_DURABLY_CLOSED",
+    "semantic_mask_root_rematerialization": "IN_PROGRESS_7_OF_24_DURABLY_CLOSED",
     "production_normalized_input_bundle": "NOT_MATERIALIZED",
     "production_real_trade_by_trade_parity": "NOT_EXECUTED",
     "compatible_economic_transition": "NOT_AUTHORIZED",
@@ -159,10 +160,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_CURRENT_NO_FREEZE_BARRIER_ACTIVE",
-  "root_cause": "Prior user-visible freezes were caused by blocking chat-side observation. Current control interaction is hard-bounded to <=5s and returned RUNNING_ADOPTABLE with exact identities.",
+  "problem": "NONE_CURRENT",
+  "root_cause": "N/A",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP06 WITH QROS_NO_FREEZE_BARRIER <=5S; IF PASS VALIDATE_AND_PERSIST GROUP06 RECEIPT; IF RUNNING PERSIST/REPORT RUNNING_ADOPTABLE; NEVER SLEEP/POLL/WAIT",
+  "next_automatic_action": "PENDING_GROUP07_NOT_STARTED: PRECOMMIT_GROUP07; INIT_NO_FREEZE_BARRIER; LAUNCH_OR_ADOPT <=5S; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED; NO_BLOCKING_WAIT",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -204,15 +205,13 @@
     "RUNNING_REQUIRES_DURABLE_CLAIM"
   ],
   "last_execution_block": {
-    "status": "RUNNING_ADOPTABLE",
+    "status": "PASS_GROUP06_DURABLY_CLOSED",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_RUNNING_ADOPTABLE_20260918_v1.json",
-      "git_blob_sha1": "c7117de1c3dd321a60dbd990ff7d33a3d67386a8"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_SEMANTIC_RECEIPT_20260918_v1.json",
+      "git_blob_sha1": "e885294e39f4e38b050e4beb66c3166ef22b0295"
     },
-    "group06_launched": true,
     "attempt": 1,
-    "expensive_unit_open": true,
-    "orphan_worker": false,
-    "control_elapsed_seconds": 0.595765
+    "retry_count": 0,
+    "expensive_unit_open": false
   }
 }
