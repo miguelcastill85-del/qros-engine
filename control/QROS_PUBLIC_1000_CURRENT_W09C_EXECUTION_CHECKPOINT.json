@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.11",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.12",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -216,6 +216,21 @@
     "group11_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_EXECUTION_CAPSULE_20260919_v1.json",
       "git_blob_sha1": "ec56e9cae15a640002e96c61fad2b691b5bb2b92"
+    },
+    "group11_current_fenced_lease": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json",
+      "git_blob_sha1": "01a9dfe33515b3ee3873a53f1010e8b312701c3d",
+      "lease_epoch": 1
+    },
+    "group11_runtime_package": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_RUNTIME_PACKAGE_PASS_20260919_v1.json",
+      "git_blob_sha1": "505bbd5c9fb467c326a1d620b426369f43269a32",
+      "status": "PASS"
+    },
+    "group11_running": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_RUNNING_ADOPTABLE_20260919_v1.json",
+      "git_blob_sha1": "a196c59859a99efd2fa67f4addc3e812a45ee197",
+      "status": "RUNNING_ADOPTABLE"
     }
   },
   "data": {
@@ -308,10 +323,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP10_CLOSED_PASS; GROUP11_CAPSULE_READY",
-  "root_cause": "NONE_OPEN_FOR_GROUP10; SERIAL_FIFO_ADVANCE_TO_GROUP11",
+  "problem": "GROUP11_RUNNING_ADOPTABLE_ATTEMPT_1; NO_TERMINAL_RECEIPT_YET",
+  "root_cause": "NONE_OPEN; CURRENT SAME-RUNTIME HEAVY UNIT ACTIVE UNDER FENCED EPOCH1",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "VERIFY GROUP11 CAPSULE + PRIOR GROUP10 RECEIPT + CURRENT RUNTIME CARRIERS; CREATE CURRENT-RUNTIME FENCED LEASE; PRECOMMIT; LAUNCH GROUP11 NONBLOCKING; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED; GROUP12 REMAINS CLOSED",
+  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP11 ATTEMPT_1 <=5S; IF PASS VALIDATE LEASE ECHO + CAPSULE + ARTIFACT HASHES THEN PERSIST GROUP11 TERMINAL RECEIPT AND ADVANCE TO GROUP12; IF RUNNING PRESERVE; NEVER RELAUNCH; GROUP12 REMAINS CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -376,21 +391,21 @@
     "GROUP09_RECOVERY_ATTEMPT1_LAUNCHED_NONBLOCKING"
   ],
   "last_execution_block": {
-    "status": "GROUP10_TERMINAL_PASS_GROUP11_PENDING_LAUNCH",
-    "expensive_unit_open": false,
-    "group10": {
-      "status": "PASS",
-      "attempt": 1,
-      "retry_count": 0,
-      "terminal_receipt_blob_sha1": "af10d3367059efa008ef195901c75616aff9523a"
-    },
+    "status": "RUNNING_ADOPTABLE",
+    "expensive_unit_open": true,
     "group11": {
-      "opened": false,
-      "capsule_blob_sha1": "ec56e9cae15a640002e96c61fad2b691b5bb2b92"
+      "job_id": "W09C_XAUUSD_BUY_M1_GROUP11_20260919_v1",
+      "lease_epoch": 1,
+      "attempt": 1,
+      "bootstrap_pid": 1923,
+      "bootstrap_birth": "linux:12a54489-1877-43f8-88f0-923c8973b198:768452",
+      "worker_pid": 1935,
+      "worker_birth": "linux:12a54489-1877-43f8-88f0-923c8973b198:768585",
+      "duplicate_launch": false,
+      "terminal_receipt_present": false
     },
+    "group12_opened": false,
     "economic_pnl_read": false,
-    "holdout_open": false,
-    "ga2_open": false,
-    "new_ga1_authorized": false
+    "blocking_poll_used": false
   }
 }
