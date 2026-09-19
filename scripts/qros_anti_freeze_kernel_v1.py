@@ -25,7 +25,7 @@ FORBIDDEN_ACTIONS = {'WAIT','SLEEP','POLL_LOOP','RELAUNCH_BLIND','BROAD_SEARCH',
 @dataclass(frozen=True)
 class Snapshot:
     authority_ok: bool = True
-    terminal: Optional[str] = None
+    terminal: Optional[str] = None  # PASS / FAIL / None
     current_runtime_claim: bool = False
     foreign_runtime_claim: bool = False
     economic_unit: bool = False
@@ -53,6 +53,7 @@ class Decision:
     durable_required: bool
     reason: str
     expensive_start_allowed: bool = False
+
 
 def decide(s: Snapshot) -> Decision:
     if s.external_calls >= s.checkpoint_call:
@@ -93,6 +94,7 @@ def decide(s: Snapshot) -> Decision:
         return Decision('LAUNCH_NONBLOCKING_EXACTLY_ONCE', True, 'READY_NONBLOCKING_LAUNCH', True)
     return Decision('PERSIST_BLOCKED_BY_INFRASTRUCTURE', True, 'NO_ADMISSIBLE_ROUTE')
 
+
 def validate_decision(s: Snapshot, d: Decision) -> list[str]:
     e=[]
     if d.action not in SAFE_ACTIONS: e.append('UNSAFE_OR_UNKNOWN_ACTION')
@@ -104,12 +106,15 @@ def validate_decision(s: Snapshot, d: Decision) -> list[str]:
     if s.external_calls >= s.checkpoint_call and d.action != 'PERSIST_CHECKPOINT_BUDGET_BARRIER': e.append('BUDGET_BARRIER_BYPASSED')
     return e
 
+
 def progress_fingerprint(state: dict) -> tuple:
     keys=('authority_blob','checkpoint_blob','unit_id','unit_state','attempt','lease_epoch','artifact_root','next_action')
     return tuple(state.get(k) for k in keys)
 
+
 def evidence_delta(before: dict, after: dict) -> bool:
     return progress_fingerprint(before) != progress_fingerprint(after)
+
 
 def classify_repeat(before: dict, after: dict, repeat_count: int) -> str:
     if evidence_delta(before, after): return 'PROGRESS'
