@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_FENCED_RUNTIME_LEASE_POLICY_2.0",
+  "version": "v2.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE_MANDATORY",
+  "supersedes": {
+    "path": "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v1.0.json",
+    "git_blob_sha1": "627ef3f7e7ce68042ef541306c502fe12184c0e1"
+  },
+  "purpose": "Make heavy non-economic execution migration-safe across chat/runtime changes using monotonic epochs and promotion fencing.",
+  "implementation": {
+    "path": "scripts/qros_fenced_runtime_lease_guard_v2.py",
+    "git_blob_sha1": "b819fd8aafa18e42ca0aeaaee2c6e8c208a0dfa3",
+    "sha256": "452605b17b2d13be6875646c5f7f495a831c136b47ca321f9dab5d5293425903"
+  },
+  "tests": {
+    "path": "scripts/qros_fenced_runtime_lease_guard_tests_v2.py",
+    "git_blob_sha1": "7a3d508c942584c103be29f7884cb4385e0649b2",
+    "sha256": "bb30cf0066bf4cb06ee1a75b0c96f15e95a3cda94a61979344b0175fdf455f12",
+    "status": "PASS",
+    "count": 8,
+    "physically_executed": true
+  },
+  "contract": {
+    "durable_current_lease_required": true,
+    "github_blob_sha_compare_and_swap_required_for_epoch_change": true,
+    "receipt_must_echo": [
+      "job_id",
+      "group_index",
+      "lease_epoch",
+      "lease_id",
+      "fence_token"
+    ],
+    "stale_epoch_receipt_rejected_forever": true,
+    "active_epoch_may_be_superseded_for_runtime_migration_without_death_proof": true,
+    "migration_supersession_requires": [
+      "durable cutover authorization",
+      "old epoch promotion revoked first",
+      "scientific_unit_same=true",
+      "new_epoch=old_epoch+1"
+    ],
+    "old_worker_may_continue_but_may_not_promote": true,
+    "timeout_or_foreign_pid_absence_is_not_death_proof": true
+  },
+  "scope": "NON_ECONOMIC_W09C_REMATERIALIZATION_AND_FUTURE_NON_ECONOMIC_HEAVY_UNITS; ECONOMIC_USE_REQUIRES_SEPARATE_PREREGISTRATION",
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY"
+}
