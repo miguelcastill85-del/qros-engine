@@ -2,7 +2,7 @@
   "schema": "QROS_CWS_CURRENT_1.0",
   "date": "2026-09-19",
   "version": "v1.1",
-  "status": "CONTROL_PLANE_SHADOW_ACTIVE_REAL_SOAK_STEP2_PASS",
+  "status": "FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE",
   "scheduler_blob": "692f5d496705495850981987616218ccf9bd750b",
   "tests_blob": "21cee0c786932950f1963433e0a2f9c3cf67fddf",
   "workflow_blob": "b8c2b739a3d6f9bdf93b37212f69321ed1906142",
@@ -10,7 +10,7 @@
   "validation_receipt": "control/QROS_CWS_V1_1_EXTERNAL_VALIDATION_PASS_20260919_v1.json",
   "autochain_active": true,
   "w09c_connected": true,
-  "next_automatic_action": "CWS CONTROL-PLANE: PREPARE ONE BOUNDED GROUP11 EXECUTION INTENT FROM THE VERIFIED SOURCE PACKAGE + EXISTING EXACT DEV/M1/INDICATOR ARTIFACTS + CURRENT FENCED AUTHORITY. PERSIST INTENT BEFORE ANY SPAWN. DO NOT START GROUP12. STOP AT SCIENTIFIC/ECONOMIC BOUNDARY.",
+  "next_automatic_action": "CWS FULL ACTIVE NON-ECONOMIC CONTROL-PLANE: MATERIALIZE VERIFIED GROUP11 CARRIERS ON ACTIVE RUNNER, REVERIFY EXACT DEV/M1/INDICATOR IDENTITIES, THEN DEK MAY PRECOMMIT ONE BOUNDED GROUP11 SPAWN INTENT. STOP BEFORE ANY ECONOMIC/SCIENTIFIC BOUNDARY.",
   "autochain_shadow_validated": true,
   "autochain_terminal_receipt": "control/QROS_CWS_AUTOCHAIN_TERMINAL_PASS_20260919_v1.json",
   "self_application_gate": "PASS",
@@ -24,10 +24,15 @@
   "new_ga1_authorized": false,
   "first_gate_execution_authorized": false,
   "real_control_plane_soak": {
-    "step": 2,
+    "step": "TERMINAL",
     "status": "PASS",
-    "source_package_receipt": "control/QROS_CWS_W09C_SOURCE_PACKAGE_PASS_20260919_v1.json",
-    "artifact_id": 10591846067,
-    "files_verified": 9
-  }
+    "stage0_run_id": 35476612542,
+    "stage1_run_id": 35476823797,
+    "terminal_receipt": "control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_TERMINAL_RECEIPT_20260919_v1.json",
+    "manual_interventions": 0,
+    "spawn_started": false
+  },
+  "activation": "APPROVED_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE",
+  "validation_complete": true,
+  "final_validation_receipt": "control/QROS_CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE_PASS_20260919_v1.json"
 }

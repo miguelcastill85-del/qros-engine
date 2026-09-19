@@ -1,7 +1,7 @@
 {
-  "schema": "QROS_CWS_LAYER_COMPLETION_PENDING_1.4",
+  "schema": "QROS_CWS_LAYER_COMPLETION_1.0",
   "date": "2026-09-19",
-  "status": "REAL_CONTROL_PLANE_SOAK_STEP2_PASS_STEP3_PENDING",
+  "status": "PASS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE",
   "layer": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
   "completed": {
     "core_external_validation": "PASS",
@@ -13,17 +13,19 @@
     "main_w09c_shadow_revalidation": "PASS",
     "chat_non_blocking_handoff_gate": "PASS_ACTIVE",
     "real_non_economic_control_plane_soak_step1": "PASS",
-    "real_non_economic_control_plane_soak_step2": "PASS_SOURCE_PACKAGE_9_OF_9"
+    "real_non_economic_control_plane_soak_step2": "PASS_SOURCE_PACKAGE_9_OF_9",
+    "real_non_economic_control_plane_soak_step3": "PASS_TERMINAL",
+    "final_validation": "PASS",
+    "full_active_non_economic_control_plane": "PASS"
   },
-  "pending": {
-    "real_non_economic_control_plane_soak_step3": "GROUP11_EXECUTION_INTENT_PENDING"
-  },
+  "pending": {},
   "activation_state": {
     "cws_active": true,
-    "mode": "CONTROL_PLANE_SHADOW_ACTIVE",
+    "mode": "FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE",
     "w09c_connected": true,
     "scientific_effects_allowed": false,
     "economic_effects_allowed": false
   },
-  "next_automatic_action": "CWS CONTROL-PLANE: PREPARE ONE BOUNDED GROUP11 EXECUTION INTENT FROM THE VERIFIED SOURCE PACKAGE + EXISTING EXACT DEV/M1/INDICATOR ARTIFACTS + CURRENT FENCED AUTHORITY. PERSIST INTENT BEFORE ANY SPAWN. DO NOT START GROUP12. STOP AT SCIENTIFIC/ECONOMIC BOUNDARY."
+  "next_automatic_action": "CWS FULL ACTIVE NON-ECONOMIC CONTROL-PLANE: MATERIALIZE VERIFIED GROUP11 CARRIERS ON ACTIVE RUNNER, REVERIFY EXACT DEV/M1/INDICATOR IDENTITIES, THEN DEK MAY PRECOMMIT ONE BOUNDED GROUP11 SPAWN INTENT. STOP BEFORE ANY ECONOMIC/SCIENTIFIC BOUNDARY.",
+  "final_receipt": "control/QROS_CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE_PASS_20260919_v1.json"
 }

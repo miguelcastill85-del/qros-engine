@@ -1,0 +1,105 @@
+{
+  "schema": "QROS_CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "subject": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
+  "promotion": "FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE",
+  "validated_evidence": {
+    "core_external_validation": {
+      "workflow_run_id": 35474462584,
+      "chaos_episodes": 100000,
+      "chaos_transitions": 455571,
+      "oracle_states": 6912,
+      "fixed_point_rounds": 2,
+      "fixed_point_cases_per_round": 100000
+    },
+    "self_application_gate": "PASS",
+    "autochain": {
+      "generations": 16,
+      "autonomous_dispatches": 15,
+      "manual_interventions": 0,
+      "terminal_certificate_sha256": "ed445890780cd81e0bf6e7b58beb5ceac413a6c6af877fb16a657c334720ade1"
+    },
+    "w09c_shadow": {
+      "mutation_cases": 100000,
+      "mutation_rejected": 100000,
+      "external_effects_executed": 0,
+      "w09c_writes": 0
+    },
+    "activation_guard": {
+      "adversarial_cases": 100000,
+      "unsafe_eligible": 0
+    },
+    "real_control_plane_soak": {
+      "static_validation_run_id": 35476756691,
+      "stage0_run_id": 35476612542,
+      "stage1_run_id": 35476823797,
+      "lease_epoch": 3,
+      "manual_interventions": 0,
+      "spawn_started": false,
+      "terminal_stage": 2,
+      "intent_status": "CARRIER_MATERIALIZATION_REQUIRED",
+      "unsafe_accepts": 0
+    }
+  },
+  "gates": {
+    "CWS-G0_CORE": "PASS",
+    "CWS-G1_EXACTLY_ONCE": "PASS",
+    "CWS-G2_FALSE_PROGRESS": "PASS",
+    "CWS-G3_BOUNDED_LIVENESS": "PASS",
+    "CWS-G4_SEGMENTATION_TRANSPARENCY": "PASS",
+    "CWS-G5_CRASH_RESUME": "PASS",
+    "CWS-G6_MULTI_RUNNER_STATE_RESURRECTION": "PASS",
+    "CWS-G7_LOST_ACK": "PASS",
+    "CWS-G8_USER_PREEMPTION": "PASS",
+    "CWS-G9_SCIENTIFIC_FIREWALL": "PASS",
+    "CWS-G10_STATE_INTEGRITY": "PASS",
+    "CWS-G11_CONTROLLER_RACE": "PASS",
+    "CWS-G12_ENVIRONMENT_MULTI_RUNNER": "PASS",
+    "CWS-G13_COMPLETION_CERTIFICATE": "PASS",
+    "CWS-G14_INDEPENDENT_ORACLE": "PASS",
+    "CWS-G15_LONG_RUN_RESOURCE": "PASS",
+    "AUTOCHAIN": "PASS",
+    "SELF_APPLICATION": "PASS",
+    "CHAT_NON_BLOCKING_HANDOFF": "PASS",
+    "W09C_SHADOW": "PASS",
+    "REAL_CONTROL_PLANE_SOAK": "PASS"
+  },
+  "supergates": {
+    "STATE_SPACE_ORACLE": "PASS",
+    "MASSIVE_CHAOS": "PASS",
+    "METAMORPHIC_CONTINUITY": "PASS",
+    "REAL_MULTI_RUNNER_SOAK": "PASS",
+    "INDEPENDENT_PARITY": "PASS",
+    "REAL_W09C_NON_ECONOMIC_SOAK": "PASS"
+  },
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false,
+    "group12_opened": false
+  },
+  "activation_scope": {
+    "allowed": [
+      "NON_ECONOMIC_CONTROL_PLANE",
+      "DURABLE_HANDOFF",
+      "AUTOCHAIN",
+      "DEK_SCHEDULING",
+      "RECOVERY",
+      "CHECKPOINTING",
+      "FENCED_CUTOVER"
+    ],
+    "forbidden": [
+      "ECONOMIC_PNL",
+      "HOLDOUT",
+      "GA2",
+      "NEW_GA1",
+      "FIRST_GATE_ECONOMIC_SCORING",
+      "SCIENTIFIC_SEMANTIC_CHANGE_WITHOUT_SEPARATE_AUTHORITY"
+    ]
+  },
+  "residual_boundary": "GROUP11 requires carrier materialization on the active runner before any spawn. This is an execution prerequisite, not a CWS validation failure.",
+  "decision": "APPROVED_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE"
+}
