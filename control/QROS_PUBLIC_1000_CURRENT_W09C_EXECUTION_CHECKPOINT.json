@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.15",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.16",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -252,6 +252,11 @@
       "path": "control/QROS_ANTI_FREEZE_FAILURE_ROUTE_LEDGER_20260919_v1.json",
       "git_blob_sha1": "6a6bf53199f32bdb796589611857249f02ffdd31",
       "status": "ACTIVE"
+    },
+    "group11_epoch2_artifact_first": {
+      "path": "control/QROS_GROUP11_EPOCH2_ARTIFACT_FIRST_PASS_20260919_v1.json",
+      "git_blob_sha1": "26057a14a2d25e29915bf31e8d03e076845ee3fa",
+      "status": "PASS_ARTIFACTS_READY_LAUNCHER_ROUTE_SWITCH"
     }
   },
   "data": {
@@ -351,10 +356,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP11_EPOCH2_CARRIER_REBUILD_RUNNING_ADOPTABLE; AFEL_V1_NOW_GOVERNS_GLOBAL_PROGRESS_AND_ROUTE_SWITCHING",
-  "root_cause": "SCIENTIFIC UNIT UNCHANGED. PRIOR ANTI-STALL CONTROLS WERE FRAGMENTED; AFEL_V1 NOW PROVIDES SINGLE GLOBAL LIVENESS CONTROLLER WITH CIRCUIT BREAKER, ROUTE LEDGER AND BOUNDED CHECKPOINT BUDGET.",
+  "problem": "GROUP11_EPOCH2_ARTIFACTS_AND_FROZEN_BLOBS_EXACT; LARGE_SUPERVISOR_V1_MANUAL_TRANSFER_FAILED_BYTE_IDENTITY_AND_WAS_QUARANTINED",
+  "root_cause": "CONNECTOR_RETURNS_EXACT SUPERVISOR TEXT BUT CURRENT RUNTIME LACKS A DIRECT CONNECTOR-TO-FILESYSTEM HANDOFF; MANUAL RECONSTRUCTION IS NOT BYTE-SAFE.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "AFEL_V1: DO NOT USE LOCAL GIT NETWORK OR BROAD SEARCH. MATERIALIZE/VERIFY EXACT FROZEN GROUP11 BLOBS VIA GITHUB CONNECTOR; THEN ARTIFACT-FIRST CHECK; AT MOST ONE CURRENT-CLAIM STATUS CHECK. ON SECOND NO-EVIDENCE-DELTA, CIRCUIT-BREAK ROUTE AND PERSIST. IF CARRIERS EXACT PASS, VALIDATE PACKAGE + PRECOMMIT + LAUNCH GROUP11 EPOCH2 NONBLOCKING. GROUP12 CLOSED.",
+  "next_automatic_action": "AFEL_NEW_BLOCK: BUILD MINIMAL GROUP11 SINGLE-ATTEMPT NONBLOCKING LAUNCHER; ADVERSARIAL TEST DURABLE CLAIM/PID-BIRTH/NO-RETRY/ARTIFACT REHASH/LEASE ECHO; PERSIST EXACT BYTES; LAUNCH GROUP11 EPOCH2 ONCE; GROUP12 CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -428,32 +433,25 @@
     "CALL6_CHECKPOINT_ABSOLUTE_PRECEDENCE",
     "FAILED_ROUTE_LEDGER_ACTIVE",
     "ONE_REPAIR_PATCH_PER_ROOT_CAUSE_PER_BLOCK",
-    "LOCAL_GITHUB_NETWORK_DENIED_ROUTE_REPLACED_BY_CONNECTOR_EXACT_BLOB_FETCH"
+    "LOCAL_GITHUB_NETWORK_DENIED_ROUTE_REPLACED_BY_CONNECTOR_EXACT_BLOB_FETCH",
+    "AFEL_ARTIFACT_FIRST_GROUP11_PASS",
+    "BAD_SUPERVISOR_V1_LOCAL_COPY_QUARANTINED_BEFORE_EXECUTION",
+    "CIRCUIT_BREAKER_LARGE_SUPERVISOR_TRANSFER_ROUTE",
+    "SWITCH_TO_MINIMAL_SINGLE_ATTEMPT_LAUNCHER_PENDING_VALIDATION"
   ],
   "last_execution_block": {
-    "status": "GROUP11_EPOCH2_CARRIER_REBUILD_RUNNING_ADOPTABLE",
-    "expensive_unit_open": true,
+    "status": "CHECKPOINT_BUDGET_BARRIER_ROUTE_SWITCH",
+    "expensive_unit_open": false,
     "group11": {
-      "scientific_unit_same": true,
       "current_epoch": 2,
-      "current_owner_runtime_id": "linux:6aef733c-2ea3-47e2-853d-9f9758020509",
-      "dev_recovery": {
-        "status": "PASS",
-        "records": 151382388,
-        "bytes": 2573500596,
-        "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
-      },
-      "carrier_rebuild": {
-        "state": "RUNNING_ADOPTABLE",
-        "pid": 707,
-        "birth": "linux:6aef733c-2ea3-47e2-853d-9f9758020509:83197",
-        "expected_bar_m1": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
-        "expected_indicator_m1": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c"
-      },
-      "epoch1_promotion_revoked": true,
-      "epoch1_death_proven": false,
-      "terminal_receipt_present": false
+      "artifacts_exact": true,
+      "frozen_scientific_blobs_exact": "6_OF_6",
+      "wrapper_exact": true,
+      "terminal_receipt_present": false,
+      "launch_started_epoch2": false
     },
+    "failed_route": "MANUAL_LARGE_SUPERVISOR_TRANSFER",
+    "next_route": "MINIMAL_VALIDATED_AFEL_SINGLE_ATTEMPT_LAUNCHER",
     "group12_opened": false,
     "economic_pnl_read": false,
     "holdout_open": false,
