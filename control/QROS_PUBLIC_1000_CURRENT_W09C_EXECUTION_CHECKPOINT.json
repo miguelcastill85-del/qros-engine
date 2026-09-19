@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.2",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.3",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -69,8 +69,8 @@
       "status": "PASS_12_OF_12"
     },
     "no_freeze_running_receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_RUNNING_ADOPTABLE_20260918_v1.json",
-      "git_blob_sha1": "c7117de1c3dd321a60dbd990ff7d33a3d67386a8",
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_RUNNING_ADOPTABLE_20260918_v1.json",
+      "git_blob_sha1": "431a653de3fd51863327fbc2b40752aa49f42a40",
       "status": "RUNNING_ADOPTABLE"
     }
   },
@@ -160,10 +160,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_CURRENT",
+  "problem": "NONE_CURRENT_NO_FREEZE_BARRIER_ACTIVE",
   "root_cause": "N/A",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "GROUP07_PRECOMMITTED: INIT_NO_FREEZE_BARRIER_AND_LAUNCH_OR_ADOPT_WITH_5S_HARD_TIMEOUT; IMMEDIATELY_PERSIST_RETURNED_STATE",
+  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP07 WITH QROS_NO_FREEZE_BARRIER <=5S; IF PASS VALIDATE_AND_PERSIST GROUP07 RECEIPT; IF RUNNING PERSIST/REPORT RUNNING_ADOPTABLE; NEVER SLEEP/POLL/WAIT",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -205,12 +205,15 @@
     "RUNNING_REQUIRES_DURABLE_CLAIM"
   ],
   "last_execution_block": {
-    "status": "PRECOMMITTED_PENDING_LAUNCH",
+    "status": "RUNNING_ADOPTABLE",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_PRELAUNCH_INTENT_20260918_v1.json",
-      "git_blob_sha1": "db7d9ac5651b33ba53cb7ece34f4078c4e1eee1c"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_RUNNING_ADOPTABLE_20260918_v1.json",
+      "git_blob_sha1": "431a653de3fd51863327fbc2b40752aa49f42a40"
     },
-    "group07_launched": false,
-    "expensive_unit_open": false
+    "group07_launched": true,
+    "attempt": 1,
+    "expensive_unit_open": true,
+    "orphan_worker": false,
+    "control_elapsed_seconds": 0.623899
   }
 }
