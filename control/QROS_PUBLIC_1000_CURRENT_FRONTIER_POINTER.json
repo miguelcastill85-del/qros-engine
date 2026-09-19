@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "START_NEW_BOUNDED_BLOCK; EXECUTE_GROUP06_ONLY_THROUGH_SUPERVISOR_V2_USING_VERIFIED_CACHES; PERSIST_RECEIPT_BEFORE_GROUP07",
+  "next_action": "PENDING_NEXT_ACTION_NOT_STARTED: VERIFY_GROUP06_CAPSULE_PINS; LAUNCH_GROUP06_ONCE THROUGH SUPERVISOR_V2; BEFORE ANY TURN END PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "5f14ed1ca94eb6dcf3626f629734a94c7a3b80b2",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.6"
+      "git_blob_sha1": "76af37701ab8fa9e9f9d3f13c573dbade3fc44e0",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.7"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_EXECUTION_CAPSULE_20260918_v1.json",
@@ -144,6 +144,14 @@
     "last_durable_group_receipt": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP05_SEMANTIC_RECEIPT_20260918_v1.json",
       "git_blob_sha1": "b207b66c202bcb4cc97f4505ba9bb4417f7d917a"
+    },
+    "turn_commit_nonstall_policy": {
+      "path": "governance/QROS_TURN_COMMIT_NONSTALL_POLICY_v1.0.json",
+      "git_blob_sha1": "8fbf62e62c76d521fd33a330cada7152b4f553dc"
+    },
+    "user_visible_freeze_correction": {
+      "path": "control/QROS_USER_VISIBLE_FREEZE_CORRECTION_PASS_20260918_v1.json",
+      "git_blob_sha1": "99acc3bc0edbc0f4893439dcbc98657dd8266cac"
     }
   },
   "closed_w09c_bindings": {
