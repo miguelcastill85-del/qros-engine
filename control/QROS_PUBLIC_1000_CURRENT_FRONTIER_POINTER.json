@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.10",
+  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.11",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "current_version": "V255",
   "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json",
@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "CWS CONTROL-PLANE: FETCH ARTIFACT qros-runtime-source-package FROM RUN 35467656777 ONCE; VERIFY MANIFEST + EXACT GIT BLOBS; PERSIST SOURCE_PACKAGE_PASS; EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
+  "next_action": "CWS CONTROL-PLANE: PREPARE ONE BOUNDED GROUP11 EXECUTION INTENT FROM THE VERIFIED SOURCE PACKAGE + EXISTING EXACT DEV/M1/INDICATOR ARTIFACTS + CURRENT FENCED AUTHORITY. PERSIST INTENT BEFORE ANY SPAWN. DO NOT START GROUP12. STOP AT SCIENTIFIC/ECONOMIC BOUNDARY.",
   "resume_contract": "V255 remains the stable scientific frontier. DEK v3 is the frozen active control-plane authority. Each invocation is one durable authority bundle -> local deterministic transition -> at most one idempotent external effect -> one durable commit bundle -> exit. Chat/runtime never owns continuity.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "2091545b45e9e6e2e738609799b1a489759fb10f",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.27"
+      "git_blob_sha1": "cb1d77f98478a6e47ee2da7eec2cbb24d28d7fa7",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.28"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_EXECUTION_CAPSULE_20260919_v1.json",
@@ -208,7 +208,7 @@
       "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
       "status": "RUNNING_ADOPTABLE"
     },
-    "execution_state": "CWS_CONTROL_PLANE_SHADOW_ACTIVE_SOURCE_ARTIFACT_FETCH_PENDING",
+    "execution_state": "CWS_CONTROL_PLANE_SHADOW_ACTIVE_GROUP11_EXECUTION_INTENT_PENDING",
     "group09_infrastructure_blocker": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
       "git_blob_sha1": "3713ecff5724f7b298d4e4cda4f50ebb60936dbe",
@@ -393,11 +393,13 @@
       "git_blob_sha1": "8a74945680e1e2a9836d536197ccdeebb4eb5917"
     },
     "cws_control_plane_soak": {
-      "status": "STEP1_PASS",
-      "receipt_path": "control/QROS_CWS_W09C_REAL_CONTROL_PLANE_SOAK_STEP1_PASS_20260919_v1.json",
-      "run_id": 35467656777,
-      "next": "FETCH_ARTIFACT_AND_VERIFY",
-      "receipt_git_blob_sha1": "5fae5e68962c2ea02253ae87eb5290c2617d963c"
+      "status": "STEP2_SOURCE_PACKAGE_PASS",
+      "step1_receipt": "control/QROS_CWS_W09C_REAL_CONTROL_PLANE_SOAK_STEP1_PASS_20260919_v1.json",
+      "step2_receipt": "control/QROS_CWS_W09C_SOURCE_PACKAGE_PASS_20260919_v1.json",
+      "source_run_id": 35467656777,
+      "artifact_id": 10591846067,
+      "next": "PREPARE_DURABLE_GROUP11_EXECUTION_INTENT",
+      "step2_receipt_git_blob_sha1": "b0b479c22261dc9fc0136ae7f795ca6d60170813"
     }
   },
   "closed_w09c_bindings": {

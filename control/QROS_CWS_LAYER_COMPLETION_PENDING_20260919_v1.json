@@ -1,7 +1,7 @@
 {
-  "schema": "QROS_CWS_LAYER_COMPLETION_PENDING_1.3",
+  "schema": "QROS_CWS_LAYER_COMPLETION_PENDING_1.4",
   "date": "2026-09-19",
-  "status": "REAL_CONTROL_PLANE_SOAK_STEP1_PASS_STEP2_PENDING",
+  "status": "REAL_CONTROL_PLANE_SOAK_STEP2_PASS_STEP3_PENDING",
   "layer": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
   "completed": {
     "core_external_validation": "PASS",
@@ -12,10 +12,11 @@
     "control_plane_activation_guard": "PASS",
     "main_w09c_shadow_revalidation": "PASS",
     "chat_non_blocking_handoff_gate": "PASS_ACTIVE",
-    "real_non_economic_control_plane_soak_step1": "PASS"
+    "real_non_economic_control_plane_soak_step1": "PASS",
+    "real_non_economic_control_plane_soak_step2": "PASS_SOURCE_PACKAGE_9_OF_9"
   },
   "pending": {
-    "real_non_economic_control_plane_soak_step2": "FETCH_ARTIFACT_AND_VERIFY_PENDING"
+    "real_non_economic_control_plane_soak_step3": "GROUP11_EXECUTION_INTENT_PENDING"
   },
   "activation_state": {
     "cws_active": true,
@@ -24,5 +25,5 @@
     "scientific_effects_allowed": false,
     "economic_effects_allowed": false
   },
-  "next_automatic_action": "CWS CONTROL-PLANE: FETCH ARTIFACT qros-runtime-source-package FROM RUN 35467656777 ONCE; VERIFY MANIFEST + EXACT GIT BLOBS; PERSIST SOURCE_PACKAGE_PASS; EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION."
+  "next_automatic_action": "CWS CONTROL-PLANE: PREPARE ONE BOUNDED GROUP11 EXECUTION INTENT FROM THE VERIFIED SOURCE PACKAGE + EXISTING EXACT DEV/M1/INDICATOR ARTIFACTS + CURRENT FENCED AUTHORITY. PERSIST INTENT BEFORE ANY SPAWN. DO NOT START GROUP12. STOP AT SCIENTIFIC/ECONOMIC BOUNDARY."
 }

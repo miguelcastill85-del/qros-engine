@@ -2,7 +2,7 @@
   "schema": "QROS_CWS_CURRENT_1.0",
   "date": "2026-09-19",
   "version": "v1.1",
-  "status": "CONTROL_PLANE_SHADOW_ACTIVE_REAL_SOAK_STEP1_PASS",
+  "status": "CONTROL_PLANE_SHADOW_ACTIVE_REAL_SOAK_STEP2_PASS",
   "scheduler_blob": "692f5d496705495850981987616218ccf9bd750b",
   "tests_blob": "21cee0c786932950f1963433e0a2f9c3cf67fddf",
   "workflow_blob": "b8c2b739a3d6f9bdf93b37212f69321ed1906142",
@@ -10,7 +10,7 @@
   "validation_receipt": "control/QROS_CWS_V1_1_EXTERNAL_VALIDATION_PASS_20260919_v1.json",
   "autochain_active": true,
   "w09c_connected": true,
-  "next_automatic_action": "CWS CONTROL-PLANE: FETCH ARTIFACT qros-runtime-source-package FROM RUN 35467656777 ONCE; VERIFY MANIFEST + EXACT GIT BLOBS; PERSIST SOURCE_PACKAGE_PASS; EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
+  "next_automatic_action": "CWS CONTROL-PLANE: PREPARE ONE BOUNDED GROUP11 EXECUTION INTENT FROM THE VERIFIED SOURCE PACKAGE + EXISTING EXACT DEV/M1/INDICATOR ARTIFACTS + CURRENT FENCED AUTHORITY. PERSIST INTENT BEFORE ANY SPAWN. DO NOT START GROUP12. STOP AT SCIENTIFIC/ECONOMIC BOUNDARY.",
   "autochain_shadow_validated": true,
   "autochain_terminal_receipt": "control/QROS_CWS_AUTOCHAIN_TERMINAL_PASS_20260919_v1.json",
   "self_application_gate": "PASS",
@@ -24,9 +24,10 @@
   "new_ga1_authorized": false,
   "first_gate_execution_authorized": false,
   "real_control_plane_soak": {
-    "step": 1,
+    "step": 2,
     "status": "PASS",
-    "receipt": "control/QROS_CWS_W09C_REAL_CONTROL_PLANE_SOAK_STEP1_PASS_20260919_v1.json",
-    "workflow_run_id": 35467656777
+    "source_package_receipt": "control/QROS_CWS_W09C_SOURCE_PACKAGE_PASS_20260919_v1.json",
+    "artifact_id": 10591846067,
+    "files_verified": 9
   }
 }

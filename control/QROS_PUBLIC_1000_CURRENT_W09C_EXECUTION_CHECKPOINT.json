@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.27",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.28",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -412,10 +412,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "DEK_V3_GROUP11_RUNTIME_SOURCE_EXPORT_SUCCESS_ARTIFACT_FETCH_PENDING",
-  "root_cause": "RESOLVED_SOURCE_EXPORT_RUN_SUCCESS; NEXT BOUNDED CONTROL-PLANE STEP IS ARTIFACT FETCH_AND_VERIFY.",
+  "problem": "DEK_V3_GROUP11_SOURCE_PACKAGE_PASS_EXECUTION_INTENT_PENDING",
+  "root_cause": "RESOLVED: EXACT RUNTIME SOURCE PACKAGE FETCHED AND VERIFIED 9_OF_9 AGAINST ARTIFACT MANIFEST AND CURRENT MAIN BLOBS.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "CWS CONTROL-PLANE: FETCH ARTIFACT qros-runtime-source-package FROM RUN 35467656777 ONCE; VERIFY MANIFEST + EXACT GIT BLOBS; PERSIST SOURCE_PACKAGE_PASS; EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
+  "next_automatic_action": "CWS CONTROL-PLANE: PREPARE ONE BOUNDED GROUP11 EXECUTION INTENT FROM THE VERIFIED SOURCE PACKAGE + EXISTING EXACT DEV/M1/INDICATOR ARTIFACTS + CURRENT FENCED AUTHORITY. PERSIST INTENT BEFORE ANY SPAWN. DO NOT START GROUP12. STOP AT SCIENTIFIC/ECONOMIC BOUNDARY.",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -507,19 +507,22 @@
     "MANUAL_BASE64_SOURCE_RECONSTRUCTION_REJECTED_ON_BLOB_MISMATCH",
     "REUSABLE_GITHUB_ACTION_RUNTIME_SOURCE_EXPORT_CREATED",
     "SOURCE_EXPORT_RUN_35467656777_RUNNING_ADOPTABLE_NO_POLL",
-    "CWS_REAL_SOAK_STEP1_QUERY_ONCE_HANDOFF_PASS"
+    "CWS_REAL_SOAK_STEP1_QUERY_ONCE_HANDOFF_PASS",
+    "CWS_REAL_SOAK_STEP2_SOURCE_PACKAGE_9_OF_9_PASS"
   ],
   "last_execution_block": {
-    "status": "PASS_CONTROL_PLANE_STEP1_HANDOFF",
+    "status": "PASS_CONTROL_PLANE_STEP2_SOURCE_PACKAGE_VERIFIED",
     "external_effects_this_transition": 0,
-    "workflow_query": {
+    "source_package": {
       "run_id": 35467656777,
-      "status": "completed",
-      "conclusion": "success"
+      "artifact_id": 10591846067,
+      "zip_sha256": "866eb1db63faf31eb1e41b52299c9e663a35629bb675deb216c6d7b3c4a7425c",
+      "files_verified": 9,
+      "status": "PASS"
     },
-    "chat_non_blocking_handoff": true,
-    "next_step_executed": false,
+    "group11_launch_started": false,
     "group12_opened": false,
+    "chat_non_blocking_handoff": true,
     "economic_pnl_read": false,
     "holdout_open": false,
     "ga2_open": false,

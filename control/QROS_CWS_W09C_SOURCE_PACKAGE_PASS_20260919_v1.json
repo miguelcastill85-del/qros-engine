@@ -1,0 +1,125 @@
+{
+  "schema": "QROS_CWS_W09C_SOURCE_PACKAGE_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "mode": "REAL_NON_ECONOMIC_CONTROL_PLANE",
+  "source_run": {
+    "id": 35467656777,
+    "conclusion": "success",
+    "head_sha": "dbfbab475c7ae2563623be06ce486c58f61e7b60"
+  },
+  "artifact": {
+    "id": 10591846067,
+    "name": "qros-runtime-source-package",
+    "size_in_bytes": 28135,
+    "zip_sha256": "866eb1db63faf31eb1e41b52299c9e663a35629bb675deb216c6d7b3c4a7425c",
+    "manifest_schema": "QROS_RUNTIME_SOURCE_EXPORT_1.0",
+    "manifest_commit": "dbfbab475c7ae2563623be06ce486c58f61e7b60",
+    "files_count": 9,
+    "files": [
+      {
+        "path": "research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json",
+        "bytes": 5291,
+        "sha256": "8edd65844e7b65376baffe0615d2671e9bae18804f713c53f3fa3357ba38c233",
+        "git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+        "zip_match": true,
+        "manifest_match": true,
+        "main_match": true
+      },
+      {
+        "path": "scripts/qros_heavy_job_supervisor_v1.py",
+        "bytes": 18313,
+        "sha256": "170c1d6b010c23abbe6ebd2349b64516ca1ee0758c1f22e99889da85121bc41d",
+        "git_blob_sha1": "991860cb4cb6e1f4d322127fd4417324dc8cbbaf",
+        "zip_match": true,
+        "manifest_match": true,
+        "main_match": true
+      },
+      {
+        "path": "scripts/qros_heavy_job_supervisor_v2.py",
+        "bytes": 1653,
+        "sha256": "ee1563996aeeda42a449fe37de54de308de5b9525b5aeb218d87cbbdc45b31b4",
+        "git_blob_sha1": "91f6ccb18587c7f30ad6525c70cfa2f13fb17eeb",
+        "zip_match": true,
+        "manifest_match": true,
+        "main_match": true
+      },
+      {
+        "path": "scripts/qros_public1000_w09c_group11_wrapper_v1.py",
+        "bytes": 4160,
+        "sha256": "f8c1001e1abbfe100a1b1146a151502803397bf432b5a4ab46d720398af2f850",
+        "git_blob_sha1": "ede3977fb4fc27939d52fba4af54ef936782b0d4",
+        "zip_match": true,
+        "manifest_match": true,
+        "main_match": true
+      },
+      {
+        "path": "scripts/qros_seed0076_carrier_masks_v221.py",
+        "bytes": 2947,
+        "sha256": "e568ab0f2306d73e6e3a126da7caced89e2885a8441dfd66a36f5ec636682991",
+        "git_blob_sha1": "0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25",
+        "zip_match": true,
+        "manifest_match": true,
+        "main_match": true
+      },
+      {
+        "path": "scripts/qros_seed0076_config_stream.py",
+        "bytes": 3935,
+        "sha256": "ca7d30880a9fa808d6e62e9828f158dc7bfae693cf72267162c260f1dae05ad7",
+        "git_blob_sha1": "a01268bd8bab639977b22c419926d94306754bba",
+        "zip_match": true,
+        "manifest_match": true,
+        "main_match": true
+      },
+      {
+        "path": "scripts/qros_seed0076_ga1_group_worker_v222.py",
+        "bytes": 18364,
+        "sha256": "b965ab2adbd90d524e1befe90e2d439cb020d8007b6651c72e42afd78020dd77",
+        "git_blob_sha1": "ec8d143e284727b1bd98a0dd10e9c349a62f2cd8",
+        "zip_match": true,
+        "manifest_match": true,
+        "main_match": true
+      },
+      {
+        "path": "scripts/qros_seed0076_gate_engine_v221.py",
+        "bytes": 8890,
+        "sha256": "5007116f4bab1ff17b4c871165359978ffe7e2f191f82a25494b305cf0af3184",
+        "git_blob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+        "zip_match": true,
+        "manifest_match": true,
+        "main_match": true
+      },
+      {
+        "path": "scripts/qros_seed0076_structural_v220.py",
+        "bytes": 13242,
+        "sha256": "bc488a967dc79de705a137c26e2a7ae86d35f55838a7cf18b0d3385590df7334",
+        "git_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+        "zip_match": true,
+        "manifest_match": true,
+        "main_match": true
+      }
+    ]
+  },
+  "verification": {
+    "zip_digest_match": true,
+    "all_bytes_match": true,
+    "all_sha256_match": true,
+    "all_manifest_git_blobs_match": true,
+    "all_current_main_git_blobs_match": true,
+    "count_verified": 9
+  },
+  "chat_non_blocking_gate": {
+    "artifact_fetches_this_invocation": 1,
+    "group11_launch_started": false,
+    "next_heavy_effect_started": false,
+    "handoff_after_verification": true
+  },
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "next_action": "CWS CONTROL-PLANE: PREPARE ONE BOUNDED GROUP11 EXECUTION INTENT FROM THE VERIFIED SOURCE PACKAGE + EXISTING EXACT DEV/M1/INDICATOR ARTIFACTS + CURRENT FENCED AUTHORITY. PERSIST INTENT BEFORE ANY SPAWN. DO NOT START GROUP12. STOP AT SCIENTIFIC/ECONOMIC BOUNDARY."
+}
