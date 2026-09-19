@@ -1,7 +1,7 @@
 {
-  "chain_root": "3c41a3a491242717b62b3fcb0a4f41aea84c01c91fac7caeccfb95a6af92ab17",
-  "generation": 1,
-  "last_run_id": "35474880972",
+  "chain_root": "4c3df678c1eff1686a3ebaeb6fb6740ffe4c067c0e88967985425d2bdd571622",
+  "generation": 2,
+  "last_run_id": "35474905305",
   "manual_interventions": 0,
   "objective_hash": "7777777777777777777777777777777777777777777777777777777777777777",
   "schema": "QROS_CWS_AUTOCHAIN_STATE_1.0",
