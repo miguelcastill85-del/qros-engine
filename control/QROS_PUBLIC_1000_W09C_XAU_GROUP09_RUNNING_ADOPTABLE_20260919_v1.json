@@ -1,0 +1,60 @@
+{
+  "schema": "QROS_NO_FREEZE_RUNNING_ADOPTABLE_RECEIPT_1.1_BINDING_GUARD",
+  "date": "2026-09-19",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "RUNNING_ADOPTABLE",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 9
+  },
+  "authority": {
+    "prelaunch_intent": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_PRELAUNCH_INTENT_20260919_v1.json",
+      "git_blob_sha1": "81b7d3b5b85a3fa8687acfb95c95a495ab618cfb"
+    },
+    "no_freeze_policy": {
+      "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+      "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e"
+    },
+    "runtime_binding_policy": {
+      "path": "governance/QROS_GROUP_RUNTIME_BINDING_POLICY_v1.0.json",
+      "git_blob_sha1": "c3371d4099c4dae624cf6a672814582ebd795a32"
+    }
+  },
+  "runtime": {
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP09_20260919_v1",
+    "job_spec_sha256": "55aefb4fe1d48439570399fa4d269e2edd813c5be09168938b9b2d81f76337fe",
+    "barrier_status": "RUNNING_ADOPTABLE",
+    "barrier_supervisor_calls": 1,
+    "control_elapsed_seconds": 0.616901,
+    "launch_action": "LAUNCHED",
+    "attempt": 1,
+    "bootstrap_pid": 5285,
+    "bootstrap_birth": "linux:0c73b366-03e7-4963-8aef-010de628a318:1212757",
+    "worker_pid": 5295,
+    "worker_birth": "linux:0c73b366-03e7-4963-8aef-010de628a318:1212804",
+    "claim_token": "9eb8eb767df64af18ae0b13081603c28",
+    "command_sha256": "6fa713bfa7f39dcb2469c9902cd3f98e634b838b9533ee10c382073b43a320d0",
+    "wrapper_sha256": "1c7d06496e3d9966500f7c6d3fd63aeed7e59e67c4a0d908c6515337ee5330d5",
+    "job_spec_file_sha256": "1543428e4b463359ee858a0041fae000f057c9fba2be684d60cad9aa771830b0"
+  },
+  "gates": {
+    "runtime_binding": "PASS",
+    "prelaunch_durable_intent": "PASS",
+    "max_control_call_seconds": 5,
+    "launch_returned_before_timeout": true,
+    "durable_claim_present": true,
+    "bootstrap_identity_present": true,
+    "worker_identity_present": true,
+    "duplicate_launch": false,
+    "blocking_poll_used": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "decision": "GROUP09_RUNNING_ADOPTABLE; NEXT INTERACTION NONBLOCKING STATUS <=5S; DO_NOT RELAUNCH"
+}
