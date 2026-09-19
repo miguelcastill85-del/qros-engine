@@ -31,7 +31,7 @@ def main():
     m1={"status":"PASS","dev":{"sha256":"d"*64},"m1":{"content_sha256":"b"*64}}
     ind={"status":"PASS","m1_indicators":{"content_root_sha256":"i"*64}}
     with tempfile.TemporaryDirectory() as td:
-        intent,term=prepare_intent(new,source,capsule,m1,ind,td,"2026-09-19T21:00:02Z")
+        intent,term=prepare_intent(new,source,capsule,m1,ind,td,"2026-09-19T21:00:02Z","gha:stage2")
         assert intent["status"]=="CARRIER_MATERIALIZATION_REQUIRED" and intent["spawn_authorized"] is False
         assert term["status"]=="PASS" and term["spawn_started"] is False
     rng=random.Random(20260919); rejected=0
