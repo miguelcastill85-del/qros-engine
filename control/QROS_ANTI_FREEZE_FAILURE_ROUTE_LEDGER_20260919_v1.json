@@ -1,0 +1,68 @@
+{
+  "schema": "QROS_ANTI_FREEZE_FAILURE_ROUTE_LEDGER_1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE",
+  "entries": [
+    {
+      "failure": "SYNCHRONOUS_HEAVY_TIMEOUT",
+      "failed_route": "SYNC_HEAVY",
+      "replacement": "NONBLOCKING_CLAIMED_LAUNCH",
+      "reuse_same_block": false
+    },
+    {
+      "failure": "FOREIGN_RUNTIME_ACTIVE_UNIT",
+      "failed_route": "LOCAL_PID_DEATH_INFERENCE",
+      "replacement": "FENCED_EPOCH_CUTOVER_NON_ECONOMIC_ONLY",
+      "reuse_same_block": false
+    },
+    {
+      "failure": "KNOWN_CARRIER_MISSING",
+      "failed_route": "BROAD_LIBRARY_SEARCH",
+      "replacement": "DIRECT_MANIFEST_LOCATOR",
+      "reuse_same_block": false
+    },
+    {
+      "failure": "LOCAL_GITHUB_NETWORK_DENIED",
+      "failed_route": "GIT_CLONE_OR_RAW_NETWORK",
+      "replacement": "GITHUB_CONNECTOR_EXACT_BLOB_FETCH",
+      "reuse_same_block": false
+    },
+    {
+      "failure": "CONNECTOR_WRITE_SAFETY_BLOCK",
+      "failed_route": "REDUNDANT_LARGE_PAYLOAD",
+      "replacement": "REFERENCE_ONLY_MINIMAL_PAYLOAD_RETRY_ONCE",
+      "reuse_same_block": false
+    },
+    {
+      "failure": "GITHUB_CAS_CONFLICT",
+      "failed_route": "BLIND_RETRY",
+      "replacement": "REFRESH_EXACT_BLOB_THEN_CAS_ONCE",
+      "reuse_same_block": false
+    },
+    {
+      "failure": "NO_EVIDENCE_DELTA_REPEAT",
+      "failed_route": "REPEATED_STATUS_OR_DISCOVERY",
+      "replacement": "CIRCUIT_BREAKER_ROUTE_SWITCH",
+      "reuse_same_block": false
+    },
+    {
+      "failure": "PARTIAL_OUTPUT_AFTER_CONTROLLER_LOSS",
+      "failed_route": "COUNT_OR_PROMOTE_PARTIAL",
+      "replacement": "QUARANTINE_VALIDATE_OR_REMATERIALIZE_SAME_UNIT",
+      "reuse_same_block": false
+    },
+    {
+      "failure": "CALL_BUDGET_REACHED",
+      "failed_route": "CONTINUE_DIAGNOSTICS",
+      "replacement": "PERSIST_CHECKPOINT_BUDGET_BARRIER",
+      "reuse_same_block": false
+    },
+    {
+      "failure": "EXACT_OUTPUT_EXISTS",
+      "failed_route": "RERUN_WORKER",
+      "replacement": "VALIDATE_EXISTING_OUTPUTS_FIRST",
+      "reuse_same_block": false
+    }
+  ],
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY"
+}
