@@ -1,0 +1,16 @@
+{
+  "schema": "QROS_FENCED_RUNTIME_LEASE_2.0",
+  "job_id": "W09C_XAUUSD_BUY_M1_GROUP10_20260919_v1",
+  "group_index": 10,
+  "lease_epoch": 1,
+  "lease_id": "7b01920c74b645a5a773c621221557a8",
+  "owner_runtime_id": "linux:12a54489-1877-43f8-88f0-923c8973b198",
+  "issued_at": "2026-09-19T06:49:00Z",
+  "expires_at": "2026-09-19T08:49:00Z",
+  "state": "ACTIVE",
+  "fence_token": "8091ff94fd0c3803d75e930d9b3b3a45cc055fc2f358c6c78b398cc10f3e11c6",
+  "policy": {
+    "path": "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v2.0.json",
+    "git_blob_sha1": "c1eb772f0768e81be75fdeff38580b80e2d07935"
+  }
+}
