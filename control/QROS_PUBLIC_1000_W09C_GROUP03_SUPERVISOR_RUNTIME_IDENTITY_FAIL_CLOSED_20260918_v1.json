@@ -1,0 +1,52 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP03_SUPERVISOR_RUNTIME_IDENTITY_FAIL_CLOSED_1.0",
+  "date": "2026-09-18",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "FAIL_CLOSED_NO_HEAVY_JOB_CREATED",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 3
+  },
+  "verified": {
+    "capsule_source_pins": "PASS_6_OF_6_EXACT_GIT_BLOBS",
+    "group03_job_directory_created": false,
+    "group03_worker_launched": false,
+    "orphan_worker": false,
+    "group03_receipt_created": false,
+    "group04_capsule_created": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "root_cause": {
+    "class": "LOCAL_RUNTIME_CONTROL_PLANE_SOURCE_IDENTITY_SUBSTITUTION",
+    "bad_runtime_path": "/mnt/data/qros_transversal_patch/qros_heavy_job_supervisor_v1.py",
+    "observed_behavior": "test stub defines main(): return 0; v2 wrapper imported it and exited successfully without controller/bootstrap execution",
+    "durable_authoritative_v1": {
+      "path": "scripts/qros_heavy_job_supervisor_v1.py",
+      "git_blob_sha1": "991860cb4cb6e1f4d322127fd4417324dc8cbbaf",
+      "sha256": "170c1d6b010c23abbe6ebd2349b64516ca1ee0758c1f22e99889da85121bc41d"
+    },
+    "durable_authoritative_v2": {
+      "path": "scripts/qros_heavy_job_supervisor_v2.py",
+      "git_blob_sha1": "91f6ccb18587c7f30ad6525c70cfa2f13fb17eeb"
+    }
+  },
+  "correction_required": [
+    "DO_NOT_REUSE_/mnt/data/qros_transversal_patch_FOR_REAL_EXECUTION",
+    "MATERIALIZE_FULL_DURABLE_V1_EXACT_BYTES_IN_FRESH_SUPERVISOR_DIRECTORY",
+    "MATERIALIZE_V2_WRAPPER_EXACT_BYTES_IN_SAME_DIRECTORY",
+    "VERIFY_V1_AND_V2_GIT_BLOB_SHA1_BEFORE_EXECUTION",
+    "RUN_FULL_V1_PLUS_V2_ADVERSARIAL_TESTS_AND_SMOKE_LIFECYCLE_GATE",
+    "ONLY_THEN_LAUNCH_GROUP03"
+  ],
+  "prior_source_gate_fail_receipt": {
+    "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SOURCE_GATE_FAIL_CLOSED_20260918_v1.json",
+    "git_blob_sha1": "fad1521fa9b33148079e9905fe07867869ea7715"
+  },
+  "next_automatic_action": "NEW_BOUNDED_BLOCK: MATERIALIZE_AUTHORITATIVE_SUPERVISOR_V1_FULL_BLOB_991860_AND_V2_BLOB_91F6CC_IN_FRESH_RUNTIME; VERIFY_EXACT_BYTES; RUN V1+V2 TESTS PLUS REAL CONTROLLER_SMOKE_LIFECYCLE; IF PASS LAUNCH GROUP03 ONCE; PERSIST LIVE/PASS STATE BY CALL_11"
+}
