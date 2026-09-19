@@ -1,0 +1,61 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP10_RUNTIME_PACKAGE_VALIDATION_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 10,
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+  },
+  "authority": {
+    "capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP10_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "50a806e9dcada6c989643ffcf030877cece9206c"
+    },
+    "previous_group_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "1706b60aa172edfad49a861181207748d658884d",
+      "status": "PASS"
+    },
+    "lease": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP10_CURRENT_FENCED_LEASE.json",
+      "git_blob_sha1": "c903b0a4e7e7ccbfb8e6a9ef5af3cebb94120484",
+      "lease_epoch": 1
+    },
+    "wrapper": {
+      "path": "scripts/qros_public1000_w09c_group10_wrapper_v1.py",
+      "git_blob_sha1": "2520db30de1d7c2363f0f2c6f90ce8229f4a6c4c",
+      "sha256": "22f444f0cfae1be00abf01bcf8e3ac9bc8447325a718adee18af2cc344971ed4"
+    },
+    "runtime_binding_guard": {
+      "path": "scripts/qros_group_runtime_binding_guard_v1.py",
+      "git_blob_sha1": "9ec73412251dfcc1a967a8982e37273078b1c88e"
+    }
+  },
+  "runtime_validation": {
+    "wrapper_git_blob_match": "PASS",
+    "lease_validate": "PASS",
+    "capsule_semantic_sha256": "36a647c4086ca3c2a8974747a7845ea243489b17d4f21b165d4740e5a4ca1a6e",
+    "job_spec_file_sha256": "aecdfb06189e1e4c841745cf4236aa266d1cc71a2e875ef3b3cc923215cdc64d",
+    "job_spec_canonical_sha256": "cc1a8b6f1c9ca3b4c4129a965d83148d9b4610e9ae87eb1225f14aabb8019d41",
+    "runtime_binding_gate": "PASS_ALL_CHECKS"
+  },
+  "exact_inputs": {
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "bar_M1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_M1_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+    "ordered_config_id_stream_root_sha256": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3",
+    "point": 0.01
+  },
+  "gates": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group11_opened": false
+  },
+  "decision": "GROUP10_PACKAGE_PASS; PRELAUNCH_ALLOWED"
+}
