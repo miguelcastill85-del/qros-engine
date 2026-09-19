@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.16",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.17",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -257,6 +257,17 @@
       "path": "control/QROS_GROUP11_EPOCH2_ARTIFACT_FIRST_PASS_20260919_v1.json",
       "git_blob_sha1": "26057a14a2d25e29915bf31e8d03e076845ee3fa",
       "status": "PASS_ARTIFACTS_READY_LAUNCHER_ROUTE_SWITCH"
+    },
+    "recursive_dek_v3_candidate": {
+      "path": "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json",
+      "git_blob_sha1": "cafaa4e82c103361cf9ce95d10734cf2ac7c8422",
+      "status": "CANDIDATE_VALIDATION"
+    },
+    "recursive_dek_v3_external_pending": {
+      "path": "control/QROS_DEK_V3_EXTERNAL_VALIDATION_PENDING_20260919_v1.json",
+      "git_blob_sha1": "dab585e195e424f41898f03438c190ae57754a2e",
+      "run_id": 35456496303,
+      "status": "EXTERNAL_VALIDATION_PENDING"
     }
   },
   "data": {
@@ -356,10 +367,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP11_EPOCH2_ARTIFACTS_AND_FROZEN_BLOBS_EXACT; LARGE_SUPERVISOR_V1_MANUAL_TRANSFER_FAILED_BYTE_IDENTITY_AND_WAS_QUARANTINED",
-  "root_cause": "CONNECTOR_RETURNS_EXACT SUPERVISOR TEXT BUT CURRENT RUNTIME LACKS A DIRECT CONNECTOR-TO-FILESYSTEM HANDOFF; MANUAL RECONSTRUCTION IS NOT BYTE-SAFE.",
+  "problem": "DEK_V3_RECURSIVE_TRANSACTIONAL_KERNEL_PLUS_GENERIC_EFFECT_EXECUTOR_CANDIDATE_COMPLETE; CLEAN_GITHUB_RUN_35456496303_IN_PROGRESS",
+  "root_cause": "STRUCTURAL_CORRECTION: CHAT_RUNTIME MUST NOT OWN CONTINUITY. DEK_V3 MOVES CONTINUITY TO DURABLE RECURSIVE STATE + IDEMPOTENT SINGLE-EFFECT EXECUTOR.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "AFEL_NEW_BLOCK: BUILD MINIMAL GROUP11 SINGLE-ATTEMPT NONBLOCKING LAUNCHER; ADVERSARIAL TEST DURABLE CLAIM/PID-BIRTH/NO-RETRY/ARTIFACT REHASH/LEASE ECHO; PERSIST EXACT BYTES; LAUNCH GROUP11 EPOCH2 ONCE; GROUP12 CLOSED",
+  "next_automatic_action": "DEK_V3_VALIDATION_BARRIER: READ WORKFLOW RUN 35456496303 ONCE. IF SUCCESS, VERIFY JOB STEPS + EXACT COMMIT 09bc8f59... AND PROMOTE DEK_V3 TO FROZEN_ACTIVE; IF STILL RUNNING, CHECKPOINT EXIT WITHOUT POLLING; GROUP11/12 SCIENCE UNCHANGED.",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -440,18 +451,17 @@
     "SWITCH_TO_MINIMAL_SINGLE_ATTEMPT_LAUNCHER_PENDING_VALIDATION"
   ],
   "last_execution_block": {
-    "status": "CHECKPOINT_BUDGET_BARRIER_ROUTE_SWITCH",
+    "status": "DEK_V3_EXTERNAL_VALIDATION_PENDING",
     "expensive_unit_open": false,
+    "recursive_candidate_commit": "09bc8f59edc2425a0ea8fda230f311d1da9ec2a7",
+    "workflow_run_id": 35456496303,
+    "external_effects_this_transition": 0,
     "group11": {
       "current_epoch": 2,
       "artifacts_exact": true,
-      "frozen_scientific_blobs_exact": "6_OF_6",
-      "wrapper_exact": true,
-      "terminal_receipt_present": false,
-      "launch_started_epoch2": false
+      "launch_started_epoch2": false,
+      "terminal_receipt_present": false
     },
-    "failed_route": "MANUAL_LARGE_SUPERVISOR_TRANSFER",
-    "next_route": "MINIMAL_VALIDATED_AFEL_SINGLE_ATTEMPT_LAUNCHER",
     "group12_opened": false,
     "economic_pnl_read": false,
     "holdout_open": false,
