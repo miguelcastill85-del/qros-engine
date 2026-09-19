@@ -1,0 +1,75 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_CROSS_CHAT_RUNTIME_RECONCILIATION_1.0",
+  "date": "2026-09-19",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "RUNNING_ADOPTABLE",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "authority": {
+    "observed_main_commit": "1461fc7caaa572573aedb3d62c256c756752dcc5",
+    "current_frontier_pointer": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+      "git_blob_sha1": "985def2355c3d7bd1e220d10ddb75a336de0c0ee"
+    },
+    "current_checkpoint": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
+      "git_blob_sha1": "a399ccd6519f42d1485e4a09cca555ae1283173b",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.1"
+    },
+    "running_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RUNNING_ADOPTABLE_20260919_v1.json",
+      "git_blob_sha1": "5da26353c2ea18834e023bf775476670e5179fa3",
+      "status": "RUNNING_ADOPTABLE"
+    },
+    "capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "4b8bf850d118eb31f6165f0fe7d3412204396bc3"
+    },
+    "previous_group_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "21dff1ce24dbcf1530053a0420720d69204011a7",
+      "status": "PASS"
+    },
+    "runtime_binding_policy": {
+      "path": "governance/QROS_GROUP_RUNTIME_BINDING_POLICY_v1.0.json",
+      "git_blob_sha1": "c3371d4099c4dae624cf6a672814582ebd795a32",
+      "status": "ACTIVE_MANDATORY"
+    },
+    "no_freeze_policy": {
+      "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+      "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e",
+      "status": "ACTIVE_MANDATORY"
+    }
+  },
+  "migration_reverification": {
+    "supplied_frontier_pointer_blob_sha1": "598682f6a7d88882ad429664c62786bf0e7350f1",
+    "supplied_checkpoint_blob_sha1": "75e9d1de560826cf4c840e493ffb5fd45ca64dbe",
+    "both_blobs_recovered_from_git": true,
+    "supplied_state_superseded_by_newer_durable_authority": true
+  },
+  "current_observation": {
+    "group09_terminal_receipt_path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_SEMANTIC_RECEIPT_20260919_v1.json",
+    "group09_terminal_receipt_present_on_main": false,
+    "durable_running_claim_present": true,
+    "original_runtime_job_id": "W09C_XAUUSD_BUY_M1_GROUP09_20260919_v1",
+    "original_attempt": 1,
+    "duplicate_launch": false,
+    "current_chat_runtime_path_present": false,
+    "runtime_path": "/mnt/data/qros_group03_runtime",
+    "current_executor_host_is_not_original_runtime_proof": false,
+    "original_worker_death_proven": false,
+    "relaunch_allowed": false,
+    "control_call_to_original_worker_performed": false,
+    "github_durable_status_observation_only": true
+  },
+  "decision": "PRESERVE_GROUP09_RUNNING_ADOPTABLE; DO_NOT_RELAUNCH; DO_NOT_OPEN_GROUP10; NEXT CONTROL MUST ADOPT_OR_STATUS THE SAME ATTEMPT ON A MATCHING_RUNTIME_CONTEXT_OR_CONSUME_A_DURABLE_TERMINAL_RECEIPT",
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "W10_economic_gate_a_open": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "economic_scoring_executed": false
+  },
+  "portfolio_impact": "NONE",
+  "next_automatic_action": "NONBLOCKING_ONLY: CHECK FOR DURABLE GROUP09 TERMINAL RECEIPT; OTHERWISE ADOPT/STATUS SAME GROUP09 ATTEMPT_1 ONLY FROM A RUNTIME CONTEXT THAT CAN ADDRESS THE DURABLE CLAIM; NEVER RELAUNCH WITHOUT PROVEN DEATH; MAX_CONTROL_CALL_SECONDS=5"
+}
