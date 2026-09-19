@@ -11,7 +11,7 @@
     "READ_governance/QROS_HUMAN_INTERFACE_v1.json",
     "READ_governance/QROS_HUMAN_REPORTING_ENFORCEMENT_v1.json",
     "READ_THIS_PROTOCOL",
-    "READ_governance/QROS_BEST_PROPOSAL_COMPILER_GOVERNANCE_v1.0.json",
+    "READ_governance/QROS_BEST_PROPOSAL_COMPILER_GOVERNANCE_v1.1.json",
     "READ_RUN_QUEUE_STATE_FOREGROUND",
     "VERIFY_HOLDOUT_AND_AUTHORITY",
     "THEN_EXECUTE_OR_REPORT"
@@ -60,13 +60,13 @@
     "owned_lease_release_required": true,
     "verify_STATE_lease_null": true
   },
-  "revision": 5,
+  "revision": 6,
   "scientific_effect": "NONE_OPERATIONAL_AND_COMMUNICATION_CONTROL_ONLY",
   "best_proposal_compiler": {
-    "path": "governance/QROS_BEST_PROPOSAL_COMPILER_GOVERNANCE_v1.0.json",
+    "path": "governance/QROS_BEST_PROPOSAL_COMPILER_GOVERNANCE_v1.1.json",
     "status": "ACTIVE_MANDATORY_PROCESS_GOVERNANCE",
     "required_for_material_proposals": true,
-    "bootstrap_position": "AFTER_READ_THIS_PROTOCOL_BEFORE_DESIGNING_ANY_MATERIAL_PROPOSAL",
-    "presentation_rule": "DO_NOT_SHOW_RAW_IDEA; PRESENT_AUDITED_CANDIDATE_ONLY; EXPLICITLY_SEPARATE_REASONING_AUDIT_FROM_EMPIRICAL_VALIDATION"
+    "self_application_gate_required_for_liveness_and_continuity_systems": true,
+    "presentation_rule": "DO_NOT_SHOW_RAW_IDEA; PRESENT_AUDITED_CANDIDATE_ONLY; LIVENESS/CONTINUITY DESIGNS MUST PASS SELF_APPLICATION_GATE"
   }
 }

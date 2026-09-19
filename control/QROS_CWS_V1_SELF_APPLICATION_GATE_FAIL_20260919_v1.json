@@ -1,0 +1,31 @@
+{
+  "schema": "QROS_CWS_V1_SELF_APPLICATION_GATE_FAIL_1.0",
+  "date": "2026-09-19",
+  "status": "FAIL_CLOSED_CANDIDATE",
+  "candidate": "QROS_CONTINUOUS_WORK_SCHEDULER_v1",
+  "classification": "MISSED_DEFECT_MATERIAL",
+  "evidence": {
+    "main_clean": true,
+    "main_sha": "af15a5ce42dad8d2cb57fc9bc2e09b4953ec8eed",
+    "cws_files_persisted": 0,
+    "failure_mode": "Candidate construction/persistence drifted into manual large-payload/base64 transport and ceased making useful durable progress.",
+    "scientific_state_changed": false
+  },
+  "invalidates": [
+    "ANY CLAIM THAT CWS V1 IS VALIDATED OR READY",
+    "THE STALLED MANUAL PERSISTENCE ROUTE"
+  ],
+  "preserves": [
+    "DEK_V3_FROZEN_ACTIVE",
+    "AFEL_ACTIVE",
+    "BPC_EXISTING_VALID_EVIDENCE",
+    "W09C_SCIENTIFIC_STATE"
+  ],
+  "correction": "RECOMPILE CWS V1 FROM LAST CLEAN AUTHORITY UNDER BPC SELF_APPLICATION_GATE; USE SMALL REPOSITORY-NATIVE COMPONENTS AND EXTERNAL CLEAN-RUNNER VALIDATION.",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
