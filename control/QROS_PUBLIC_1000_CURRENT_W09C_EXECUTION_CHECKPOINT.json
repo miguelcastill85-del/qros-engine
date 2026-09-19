@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.7",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.8",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -87,7 +87,7 @@
   },
   "semantic_progress": {
     "groups_total": 24,
-    "groups_durably_closed": 8,
+    "groups_durably_closed": 9,
     "closed_indices": [
       0,
       1,
@@ -96,17 +96,18 @@
       4,
       5,
       6,
-      7
+      7,
+      8
     ],
-    "processed_signal_configs_durable": 268224,
+    "processed_signal_configs_durable": 301752,
     "last_receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_SEMANTIC_RECEIPT_20260919_v1.json",
-      "git_blob_sha1": "b7abcd59f40b18274aa3c8eb0b04f0ce4daf393e"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "21dff1ce24dbcf1530053a0420720d69204011a7"
     },
-    "next_group_index": 8,
+    "next_group_index": 9,
     "next_capsule": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_EXECUTION_CAPSULE_20260919_v1.json",
-      "git_blob_sha1": "03cc56e67cae99e30d861ed9d2fa1895fc67269c"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "4b8bf850d118eb31f6165f0fe7d3412204396bc3"
     },
     "global_targets": {
       "processed_signal_configs": 804672,
@@ -117,7 +118,7 @@
     }
   },
   "pending": {
-    "semantic_mask_root_rematerialization": "IN_PROGRESS_8_OF_24_DURABLY_CLOSED",
+    "semantic_mask_root_rematerialization": "IN_PROGRESS_9_OF_24_DURABLY_CLOSED",
     "production_normalized_input_bundle": "NOT_MATERIALIZED",
     "production_real_trade_by_trade_parity": "NOT_EXECUTED",
     "compatible_economic_transition": "NOT_AUTHORIZED",
@@ -166,10 +167,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_CURRENT_NO_FREEZE_BARRIER_ACTIVE",
+  "problem": "NONE_CURRENT",
   "root_cause": "Group07 supervisor false-negative corrected; mandatory group runtime binding guard prevents recurrence.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP08 <=5S; IF PASS VALIDATE_ARTIFACTS_AND_PERSIST_GROUP08; IF RUNNING KEEP RUNNING_ADOPTABLE; DO_NOT_POLL_OR_RELAUNCH",
+  "next_automatic_action": "PENDING_GROUP09_NOT_STARTED: BUILD_WRAPPER_AND_JOB_SPEC; REQUIRE GROUP_RUNTIME_BINDING_GUARD_PASS; PRECOMMIT; LAUNCH_OR_ADOPT <=5S; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -214,16 +215,14 @@
     "DUPLICATE_ATTEMPT_NOT_COUNTED_AS_HYPOTHESIS"
   ],
   "last_execution_block": {
-    "status": "RUNNING_ADOPTABLE",
+    "status": "PASS_GROUP08_DURABLY_CLOSED",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_RUNNING_ADOPTABLE_20260919_v1.json",
-      "git_blob_sha1": "0465dfb1ec5035811c9cab45cff7d168ce755b2c"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "21dff1ce24dbcf1530053a0420720d69204011a7"
     },
-    "group08_launched": true,
     "attempt": 1,
-    "expensive_unit_open": true,
-    "orphan_worker": false,
-    "control_elapsed_seconds": 0.680196,
+    "retry_count": 0,
+    "expensive_unit_open": false,
     "runtime_binding_gate": "PASS"
   }
 }
