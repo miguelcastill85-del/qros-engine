@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.2",
+  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.3",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "current_version": "V255",
   "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json",
@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "DEK_V3_ACTIVE: MATERIALIZE ONLY XAU ZIP PART006-PART008 BY EXACT DIRECT LOCATORS; VERIFY 3/3 SHA256 LOCALLY; PERSIST CHECKPOINT+POINTER; EXIT. DO NOT REBUILD DEV OR LAUNCH GROUP11 IN SAME INVOCATION.",
+  "next_action": "DEK_V3_ACTIVE: VERIFY ALL 8 LOCAL XAU SOURCE ZIP HASHES AS ONE LOCAL BUNDLE; MATERIALIZE/VERIFY DEV ONLY IF LOCAL DEV IS ABSENT; EXECUTE NO GROUP11 LAUNCH IN SAME INVOCATION; WRITE ONE COMMIT BUNDLE; EXIT.",
   "resume_contract": "V255 remains the stable scientific frontier. DEK v3 is the frozen active control-plane authority. Each invocation is one durable authority bundle -> local deterministic transition -> at most one idempotent external effect -> one durable commit bundle -> exit. Chat/runtime never owns continuity.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "abb4e019fc5ad6fdf52477785260b59551d646d6",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.19"
+      "git_blob_sha1": "5782743d456ed2b3c7b2c7ad9b1d3d9df4d8f953",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.20"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
@@ -208,7 +208,7 @@
       "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
       "status": "RUNNING_ADOPTABLE"
     },
-    "execution_state": "DEK_V3_GROUP11_EPOCH2_DIRECT_LOCATOR_CHUNK_1_OF_2_PASS",
+    "execution_state": "DEK_V3_GROUP11_EPOCH2_SOURCE_ZIPS_8_OF_8_READY",
     "group09_infrastructure_blocker": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
       "git_blob_sha1": "3713ecff5724f7b298d4e4cda4f50ebb60936dbe",

@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.19",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.20",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -387,10 +387,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "DEK_V3_GROUP11_EPOCH2_DIRECT_LOCATOR_MATERIALIZATION_CHUNK_1_OF_2_PASS",
-  "root_cause": "CURRENT_RUNTIME_CHANGED; LOCAL CARRIERS REQUIRE BOUNDED REHYDRATION. DEK_V3 USES FIXED CHUNKS RATHER THAN OPEN-ENDED RECOVERY.",
+  "problem": "DEK_V3_GROUP11_EPOCH2_DIRECT_LOCATOR_MATERIALIZATION_CHUNK_2_OF_2_PASS",
+  "root_cause": "CURRENT_RUNTIME CARRIER REHYDRATION COMPLETED IN TWO BOUNDED DIRECT-LOCATOR CHUNKS; ALL 8 SOURCE ZIPS NOW EXACT.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "DEK_V3_ACTIVE: MATERIALIZE ONLY XAU ZIP PART006-PART008 BY EXACT DIRECT LOCATORS; VERIFY 3/3 SHA256 LOCALLY; PERSIST CHECKPOINT+POINTER; EXIT. DO NOT REBUILD DEV OR LAUNCH GROUP11 IN SAME INVOCATION.",
+  "next_automatic_action": "DEK_V3_ACTIVE: VERIFY ALL 8 LOCAL XAU SOURCE ZIP HASHES AS ONE LOCAL BUNDLE; MATERIALIZE/VERIFY DEV ONLY IF LOCAL DEV IS ABSENT; EXECUTE NO GROUP11 LAUNCH IN SAME INVOCATION; WRITE ONE COMMIT BUNDLE; EXIT.",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -470,10 +470,12 @@
     "CIRCUIT_BREAKER_LARGE_SUPERVISOR_TRANSFER_ROUTE",
     "SWITCH_TO_MINIMAL_SINGLE_ATTEMPT_LAUNCHER_PENDING_VALIDATION",
     "DEK_V3_TRANSPORT_LIMIT_MAX5_HANDLED_AS_BOUNDED_CHUNKING",
-    "GROUP11_REHYDRATION_CHUNK1_PASS_5_OF_5"
+    "GROUP11_REHYDRATION_CHUNK1_PASS_5_OF_5",
+    "GROUP11_REHYDRATION_CHUNK2_PASS_3_OF_3",
+    "GROUP11_ALL_8_SOURCE_ZIPS_EXACT_READY"
   ],
   "last_execution_block": {
-    "status": "DEK_V3_SINGLE_EFFECT_PASS_DIRECT_MATERIALIZE_CHUNK_1_OF_2",
+    "status": "DEK_V3_SINGLE_EFFECT_PASS_DIRECT_MATERIALIZE_CHUNK_2_OF_2",
     "external_effects_this_transition": 1,
     "current_runtime_boot_id": "68f2221b-eaf0-4613-99e1-0c9828cfa5eb",
     "group11": {
@@ -482,21 +484,19 @@
       "launch_started_epoch2": false,
       "carrier_rehydration": {
         "chunks_total": 2,
-        "chunks_durably_completed": 1,
-        "chunk_1_parts": [
-          1,
-          2,
-          3,
-          4,
-          5
-        ],
+        "chunks_durably_completed": 2,
         "chunk_1_status": "PASS_5_OF_5_SHA256",
+        "chunk_2_parts": [
+          6,
+          7,
+          8
+        ],
+        "chunk_2_status": "PASS_3_OF_3_SHA256",
+        "all_source_zips_ready": true,
         "hashes": {
-          "part001": "d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70",
-          "part002": "159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a",
-          "part003": "ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9",
-          "part004": "241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241",
-          "part005": "3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad"
+          "part006": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8",
+          "part007": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185",
+          "part008": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b"
         }
       }
     },
