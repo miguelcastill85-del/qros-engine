@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_CWS_W09C_SHADOW_GOVERNANCE_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "purpose": "Read-only validation that CWS v1.1 can observe current W09C authority and would wake DEK v3 without executing effects, mutating authority, or crossing scientific/economic gates.",
+  "parent_cws": {
+    "current": "control/QROS_CWS_CURRENT.json",
+    "required_status": "VALIDATED_DESIGN_AUTOCHAIN_SHADOW_PASS",
+    "self_application_gate": "PASS"
+  },
+  "implementation": {
+    "spec": {
+      "path": "control/QROS_CWS_W09C_SHADOW_SPEC_20260919_v1.json",
+      "git_blob_sha1": "19dc7c084d505c91d378e26f1c859e5bc3c56df6"
+    },
+    "observer": {
+      "path": "scripts/qros_cws_w09c_shadow_observer_v1.py",
+      "git_blob_sha1": "36f024d050b492fb1afbb73909572cde41d0c056"
+    },
+    "tests": {
+      "path": "scripts/qros_cws_w09c_shadow_tests_v1.py",
+      "git_blob_sha1": "b4388fda1dd32eefe321160f639e5f22e16c4781"
+    }
+  },
+  "invariants": [
+    "READ_ONLY",
+    "ZERO_EXTERNAL_EFFECTS",
+    "ZERO_W09C_WRITES",
+    "ZERO_ECONOMIC_PNL_READ",
+    "ZERO_HOLDOUT_OPEN",
+    "ZERO_GA2_OPEN",
+    "ZERO_NEW_GA1",
+    "ZERO_FIRST_GATE_EXECUTION",
+    "DEK_V3_REMAINS_ONLY_REDUCER",
+    "ACTION_PARITY_REQUIRED",
+    "ANY_AUTHORITY_OR_FIREWALL_DRIFT_FAILS_CLOSED"
+  ],
+  "gates": {
+    "WS-G0": "exact pins and compile",
+    "WS-G1": "baseline W09C observation PASS",
+    "WS-G2": "CWS decision = INVOKE_DEK",
+    "WS-G3": "external effects executed = 0",
+    "WS-G4": "W09C writes = 0",
+    "WS-G5": "all scientific/economic guards closed",
+    "WS-G6": "100000 adversarial mutations rejected",
+    "WS-G7": "DEK status drift fails closed",
+    "WS-G8": "CWS status drift fails closed",
+    "WS-G9": "next-action parity drift fails closed"
+  },
+  "promotion_rule": "SHADOW PASS MAY ENABLE CONTROL-PLANE ACTIVATION ONLY. IT MUST NOT AUTHORIZE SCIENTIFIC OR ECONOMIC TRANSITIONS.",
+  "activation": false,
+  "w09c_effects_allowed": 0
+}
