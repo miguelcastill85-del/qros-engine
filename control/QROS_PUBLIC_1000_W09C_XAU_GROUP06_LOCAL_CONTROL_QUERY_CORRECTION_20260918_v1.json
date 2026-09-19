@@ -1,0 +1,22 @@
+{
+  "schema": "QROS_GROUP06_LOCAL_CONTROL_QUERY_CORRECTION_1.0",
+  "date": "2026-09-18",
+  "status": "PASS_CORRECTED_NO_SCIENTIFIC_IMPACT",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "error": "A status query used work-root /mnt/data/qros_group03_runtime/jobs instead of the identity-bound /mnt/data/qros_group03_runtime/jobs_group06.",
+  "effect": {
+    "local_barrier_state": "FAIL_CLOSED_BY_WORK_ROOT_DRIFT",
+    "scientific_worker": "UNAFFECTED",
+    "duplicate_launch": false,
+    "recomputation_required": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false
+  },
+  "recovery": "Invoke exact supervisor/job-spec with the original identity-bound work-root jobs_group06; supervisor returned PROMOTE_ATOMIC_DONE attempt 1.",
+  "last_clean_durable_checkpoint": {
+    "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.0",
+    "git_blob_sha1": "efe978e07f5a3547a83f512d0e5c8151a0955b6d"
+  },
+  "decision": "INVALIDATE_ONLY_LOCAL_BARRIER_QUERY_STATE; ACCEPT_GROUP06_ONLY_AFTER_SUPERVISOR_PASS_AND_ARTIFACT_REHASH"
+}
