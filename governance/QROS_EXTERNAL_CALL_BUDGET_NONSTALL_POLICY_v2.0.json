@@ -1,0 +1,41 @@
+{
+  "schema": "QROS_EXTERNAL_CALL_BUDGET_NONSTALL_POLICY_2.0",
+  "version": "v2.0",
+  "date": "2026-09-18",
+  "status": "ACTIVE",
+  "supersedes": {
+    "path": "governance/QROS_EXTERNAL_CALL_BUDGET_NONSTALL_POLICY_v1.0.json",
+    "git_blob_sha1": "6456cf4cca36c347bf17c5ade789c67bb67cad39"
+  },
+  "objective": "Close enforcement holes in the 15-call anti-stall budget without changing scientific scope.",
+  "hard_cap_external_calls_per_block": 15,
+  "normal_execution_calls": "1-10",
+  "checkpoint_deadline_call": 11,
+  "closeout_only_calls": [
+    12,
+    13,
+    14,
+    15
+  ],
+  "corrections": [
+    "An open expensive unit makes call 11 checkpoint/persist-only and requires durable=true+success.",
+    "No open expensive unit may survive beyond call 11.",
+    "durable=true is legal only for checkpoint or persist.",
+    "At most one expensive unit may be started per execution block, even if the first is persisted early.",
+    "Block close is forbidden whenever an expensive unit remains open.",
+    "Hard-cap reason remains explicit at/after call 15."
+  ],
+  "implementation": {
+    "path": "scripts/qros_external_call_budget_guard_v2.py",
+    "git_blob_sha1": "57e40966729d207f7434c0f5fde741dccbfd9877"
+  },
+  "tests": {
+    "path": "scripts/qros_external_call_budget_guard_tests_v2.py",
+    "git_blob_sha1": "6ceb4643675c61109af2d0f622a758fd5cd6bf31",
+    "local_adversarial_status": "PASS",
+    "assertions": 12,
+    "sha256": "6cd90aa8c1b1abec055b8c57abb04c581ba07a4a55c7b1008d277c9e6c0ee44f"
+  },
+  "implementation_sha256": "2f7c644e42cbd751da2af28290a527964ed8343e68643e8eaca3a8ec64407324",
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY"
+}
