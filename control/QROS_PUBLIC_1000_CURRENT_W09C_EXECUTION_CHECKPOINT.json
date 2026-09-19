@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.7",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.8",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -57,6 +57,16 @@
       "path": "governance/QROS_TURN_COMMIT_NONSTALL_POLICY_v1.0.json",
       "git_blob_sha1": "8fbf62e62c76d521fd33a330cada7152b4f553dc",
       "status": "ACTIVE_MANDATORY"
+    },
+    "no_freeze_barrier_policy": {
+      "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+      "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e",
+      "status": "ACTIVE_MANDATORY"
+    },
+    "no_freeze_barrier_gate": {
+      "path": "control/QROS_NO_FREEZE_BARRIER_GATE_PASS_20260918_v1.json",
+      "git_blob_sha1": "7c2f0d5e363d222d957c18ccc33c11378833eb90",
+      "status": "PASS_12_OF_12"
     }
   },
   "data": {
@@ -125,7 +135,17 @@
     "max_expensive_units_started_per_block": 1,
     "checkpoint_deadline_enforced": true,
     "durable_flag_restricted_to_checkpoint_or_persist": true,
-    "fresh_ownerless_or_unreadable_controller_lock_reclaim_forbidden": true
+    "fresh_ownerless_or_unreadable_controller_lock_reclaim_forbidden": true,
+    "max_control_call_seconds": 5,
+    "deliberate_sleep_or_poll_wait_in_chat_forbidden": true,
+    "prelaunch_durable_intent_required": true,
+    "post_control_durable_state_required": true,
+    "allowed_post_control_states": [
+      "PASS",
+      "RUNNING_ADOPTABLE",
+      "FAIL_CLOSED",
+      "PENDING_NOT_STARTED"
+    ]
   },
   "scientific_guards": {
     "economic_pnl_read": false,
@@ -134,10 +154,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "USER_VISIBLE_TURN_FREEZE_AFTER_ANNOUNCED_BUT_UNSTARTED_GROUP06",
-  "root_cause": "Turn boundary occurred after announcing the next block but before group06 launch. Existing anti-stall protected scientific state but did not transactionally bind user-visible execution claims to durable launch state.",
+  "problem": "FREEZE_ROOT_CAUSE_CORRECTED_BY_NONBLOCKING_CONTROL_BARRIER",
+  "root_cause": "Chat orchestration could still block while observing a heavy worker. No-freeze v1 makes the control plane nonblocking and identity-bound.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "PENDING_NEXT_ACTION_NOT_STARTED: VERIFY_GROUP06_CAPSULE_PINS; LAUNCH_GROUP06_ONCE THROUGH SUPERVISOR_V2; BEFORE ANY TURN END PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED",
+  "next_automatic_action": "PENDING_GROUP06_NOT_STARTED: PRECOMMIT_GROUP06_INTENT_DURABLY; INIT_NO_FREEZE_BARRIER; LAUNCH_OR_ADOPT_WITH_5S_HARD_TIMEOUT; IMMEDIATELY_PERSIST_PASS/RUNNING_ADOPTABLE/FAIL_CLOSED; NO_SLEEP_OR_BLOCKING_POLL",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -172,13 +192,17 @@
     "REQUIRE_CONTROLLER_SMOKE_LIFECYCLE_BEFORE_GROUP03",
     "TURN_COMMIT_BARRIER_V1",
     "NO_EXECUTION_CLAIM_WITHOUT_EVIDENCE",
-    "UNSTARTED_ACTION_LABEL_PENDING_ONLY"
+    "UNSTARTED_ACTION_LABEL_PENDING_ONLY",
+    "NO_FREEZE_BARRIER_V1_NONBLOCKING_CONTROL",
+    "MAX_CONTROL_CALL_5S",
+    "NO_CHAT_SLEEP_POLLING",
+    "RUNNING_REQUIRES_DURABLE_CLAIM"
   ],
   "last_execution_block": {
-    "status": "PENDING_NEXT_ACTION_NOT_STARTED",
+    "status": "PENDING_NOT_STARTED",
     "receipt": {
-      "path": "control/QROS_USER_VISIBLE_FREEZE_CORRECTION_PASS_20260918_v1.json",
-      "git_blob_sha1": "99acc3bc0edbc0f4893439dcbc98657dd8266cac"
+      "path": "control/QROS_NO_FREEZE_BARRIER_GATE_PASS_20260918_v1.json",
+      "git_blob_sha1": "7c2f0d5e363d222d957c18ccc33c11378833eb90"
     },
     "group06_launched": false,
     "expensive_unit_open": false,
