@@ -1,0 +1,45 @@
+{
+  "schema": "QROS_FENCED_HEAVY_SUPERVISOR_BINDING_VALIDATION_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "policy": {
+    "path": "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v1.0.json",
+    "git_blob_sha1": "627ef3f7e7ce68042ef541306c502fe12184c0e1",
+    "status": "PREREGISTERED_CONTROL_PLANE_CANDIDATE"
+  },
+  "implementation": {
+    "path": "scripts/qros_fenced_heavy_job_supervisor_v1.py",
+    "git_blob_sha1": "d82d21b9ee54391ceab002c1515458f379a2ea71",
+    "sha256": "3be08466790fb101fe2247ce636fce66b03148b9f83d9f1cc18a045545a85244"
+  },
+  "tests": {
+    "path": "scripts/qros_fenced_heavy_job_supervisor_tests_v1.py",
+    "git_blob_sha1": "87ba8be8cc5388920b32b1dc5516752cd6b0bbb9",
+    "sha256": "3c1240bfd8fca16a622360be6c734930dec6e3f3df89cfaebc0dce8bd9aa6dc0",
+    "result": "PASS_8_OF_8"
+  },
+  "execution": {
+    "environment_boot_id": "12a54489-1877-43f8-88f0-923c8973b198",
+    "stdout": "PASS 8/8",
+    "exit_code": 0,
+    "git_blob_recomputation": "PASS_2_OF_2",
+    "sha256_recomputation": "PASS_2_OF_2"
+  },
+  "coverage": [
+    "job-id lease binding",
+    "group-index lease binding",
+    "lease epoch binding",
+    "lease id binding",
+    "fence token binding",
+    "expired lease fail-closed",
+    "invalid expected receipt fail-closed"
+  ],
+  "effect": "Future job-specs can be forced to echo current lease epoch/token before delegation to supervisor v2. No retroactive effect on GROUP09.",
+  "activation_status": "NOT_ACTIVE",
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
