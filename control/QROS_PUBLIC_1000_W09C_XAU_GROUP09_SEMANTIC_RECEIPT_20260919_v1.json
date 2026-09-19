@@ -1,0 +1,111 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_SEMANTIC_GROUP_RECEIPT_1.0",
+  "date": "2026-09-19",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "PASS",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "structural_group_index": 9
+  },
+  "authority": {
+    "execution_capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "4b8bf850d118eb31f6165f0fe7d3412204396bc3"
+    },
+    "previous_group_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "21dff1ce24dbcf1530053a0420720d69204011a7",
+      "status": "PASS"
+    },
+    "recovery_package": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_RECOVERY_PACKAGE_PASS_20260919_v1.json",
+      "git_blob_sha1": "8379c3031261cf76e486a327125e3ab13ed334f5",
+      "status": "PASS"
+    },
+    "current_fenced_lease": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_CURRENT_FENCED_LEASE.json",
+      "git_blob_sha1": "718f31083fd7bacf8f643226a638531d5b51b910",
+      "lease_epoch": 2,
+      "lease_id": "3d9309b848a7414bb3b69cc8cc2c3f09"
+    }
+  },
+  "execution": {
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP09_RECOVERY_E1_20260919_v1",
+    "job_spec_sha256": "407ee2569112f6dce294b73577c673711e01f9ca8819b990670c59c527e46061",
+    "attempt": 1,
+    "retry_count": 0,
+    "lease_epoch": 2,
+    "supervisor_terminal_action": "PROMOTE_ATOMIC_DONE",
+    "worker_receipt_file_sha256": "743a18b4cbcb8251f7703931c2f51623a1f50122b2462025cfebb503f9ba80eb",
+    "group_worker_receipt_file_sha256": "9998d4686d557bbc5c9f1fc936a048e56102eb82f8b728ec5f07fc1fcc38ff42",
+    "supervisor_receipt_file_sha256": "e0fd0113750d0256d46df27897b175cb2f21698d2e5539dd105dfd3634b00a2c"
+  },
+  "result": {
+    "processed_signal_configs": 33528,
+    "distinct_mask_class_count": 14661,
+    "duplicate_config_count": 18867,
+    "zero_event_class_alias_count": 114,
+    "zero_event_representative_config_id": "09c0a1e85cec1dac8f7c0b8f10c7bd26604e40fa5cee1fa6446813ed530a099d",
+    "class_root_sha256": "a811a780d855ed7cd51e56528db89b8ed4e41518fd43fb66ad8d56ca94bdc685",
+    "semantic_class_root_sha256": "129885aace08c872ca06f882b56f699c34367a1649a15166b8f5eaef9f33b642",
+    "full_alias_mapping_root_sha256": "39782dadaf24e2cc8b10b6736e859efbb5170ee283e35a9d9f3f7f69b214adf7",
+    "ordered_config_id_stream_root_sha256": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3",
+    "group_config_root_sha256": "d280c2b7cc22947222a9b55c2d1563b4189fa4469786311699ba3a3334661713",
+    "structural_group_key": [
+      3,
+      "SOURCE_ASYMMETRIC",
+      "TICK_BREAK"
+    ],
+    "metrics": {
+      "base_transform_rearm_evaluations": 84,
+      "candidate_union_total": 3188319,
+      "local_gate_groups_total": 7422,
+      "structural_trigger_groups": 1,
+      "transform_carriers": 28
+    },
+    "artifact_validation": "PASS_4_OF_4_BY_SUPERVISOR_PHYSICAL_REHASH",
+    "artifacts": [
+      {
+        "path": "mask_classes.delta_u32.bin",
+        "bytes": 1322219088,
+        "sha256": "0e82a29c1173af28809f3cff76914fc65fb2b4e079a7a705029ab87df3e074c5"
+      },
+      {
+        "path": "mask_class_index.jsonl",
+        "bytes": 5044759,
+        "sha256": "57a5996f7944d038bd83a4ddb3797c157a9119372b1c63956aa843f249d9ec38"
+      },
+      {
+        "path": "duplicate_alias_pairs.bin",
+        "bytes": 1207488,
+        "sha256": "a20f191be732ad736dce6b69e134e60aba658499aee723d67031198b04e36d18"
+      },
+      {
+        "path": "full_alias_mapping.bin",
+        "bytes": 2145792,
+        "sha256": "39782dadaf24e2cc8b10b6736e859efbb5170ee283e35a9d9f3f7f69b214adf7"
+      }
+    ]
+  },
+  "preconditions_reverified": {
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "bar_M1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_M1_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+    "capsule_source_pins": "PASS_EXACT_6_OF_6",
+    "runtime_binding_gate": "PASS",
+    "fenced_lease_echo": "PASS_EPOCH2_EXACT_BLOB",
+    "shard_descriptor_sha256": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+  },
+  "gates": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "GROUP09_DURABLY_CLOSED_PASS; AUTHORIZE_NON_ECONOMIC_GROUP10_CAPSULE_ONLY"
+}
