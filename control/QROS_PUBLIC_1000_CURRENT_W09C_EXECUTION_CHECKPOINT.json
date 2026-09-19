@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.17",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.18",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -268,6 +268,18 @@
       "git_blob_sha1": "dab585e195e424f41898f03438c190ae57754a2e",
       "run_id": 35456496303,
       "status": "EXTERNAL_VALIDATION_PENDING"
+    },
+    "recursive_dek_v3_active": {
+      "path": "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json",
+      "git_blob_sha1": "21f838ced8ec8a6c21a596acaf2a949582c200fa",
+      "status": "FROZEN_ACTIVE"
+    },
+    "recursive_dek_v3_external_validation": {
+      "workflow_run_id": 35456496303,
+      "workflow_job_id": 105932596142,
+      "exact_candidate_commit": "09bc8f59edc2425a0ea8fda230f311d1da9ec2a7",
+      "conclusion": "success",
+      "status": "PASS"
     }
   },
   "data": {
@@ -358,7 +370,15 @@
     "same_failed_route_reuse_in_same_block": false,
     "repair_patches_per_root_cause_per_block": 1,
     "exact_output_validation_before_rerun": true,
-    "local_repo_network_dependency_forbidden": true
+    "local_repo_network_dependency_forbidden": true,
+    "recursive_kernel_authority": "DEK_V3_FROZEN_ACTIVE",
+    "chat_runtime_role": "EPHEMERAL_EXECUTOR_ONLY",
+    "authority_read_bundle_max_per_invocation": 1,
+    "durable_commit_bundle_max_per_invocation": 1,
+    "total_control_transactions_max_per_invocation": 2,
+    "one_external_effect_per_invocation": true,
+    "group_specific_continuity_launcher_forbidden": true,
+    "file_by_file_known_authority_chatter_forbidden": true
   },
   "scientific_guards": {
     "economic_pnl_read": false,
@@ -367,10 +387,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "DEK_V3_RECURSIVE_TRANSACTIONAL_KERNEL_PLUS_GENERIC_EFFECT_EXECUTOR_CANDIDATE_COMPLETE; CLEAN_GITHUB_RUN_35456496303_IN_PROGRESS",
-  "root_cause": "STRUCTURAL_CORRECTION: CHAT_RUNTIME MUST NOT OWN CONTINUITY. DEK_V3 MOVES CONTINUITY TO DURABLE RECURSIVE STATE + IDEMPOTENT SINGLE-EFFECT EXECUTOR.",
+  "problem": "NONE_CONTROL_PLANE: DEK_V3_FROZEN_ACTIVE; GROUP11_ARTIFACTS_EXACT_READY_FOR_SINGLE_EFFECT_TRANSITION",
+  "root_cause": "RESOLVED_STRUCTURALLY: CONTINUITY OWNERSHIP MOVED FROM CHAT/RUNTIME TO DURABLE RECURSIVE TRANSACTIONAL STATE MACHINE.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "DEK_V3_VALIDATION_BARRIER: READ WORKFLOW RUN 35456496303 ONCE. IF SUCCESS, VERIFY JOB STEPS + EXACT COMMIT 09bc8f59... AND PROMOTE DEK_V3 TO FROZEN_ACTIVE; IF STILL RUNNING, CHECKPOINT EXIT WITHOUT POLLING; GROUP11/12 SCIENCE UNCHANGED.",
+  "next_automatic_action": "DEK_V3_ACTIVE: READ ONE DURABLE AUTHORITY BUNDLE; COMPILE GROUP11 EPOCH2 NEXT TRANSITION LOCALLY; EXECUTE AT MOST ONE IDEMPOTENT EFFECT; WRITE ONE COMMIT BUNDLE; EXIT. GROUP12 REMAINS CLOSED UNTIL GROUP11 TERMINAL PASS.",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -451,16 +471,17 @@
     "SWITCH_TO_MINIMAL_SINGLE_ATTEMPT_LAUNCHER_PENDING_VALIDATION"
   ],
   "last_execution_block": {
-    "status": "DEK_V3_EXTERNAL_VALIDATION_PENDING",
+    "status": "DEK_V3_FROZEN_ACTIVE_GROUP11_READY",
     "expensive_unit_open": false,
-    "recursive_candidate_commit": "09bc8f59edc2425a0ea8fda230f311d1da9ec2a7",
-    "workflow_run_id": 35456496303,
+    "recursive_kernel_candidate_commit": "09bc8f59edc2425a0ea8fda230f311d1da9ec2a7",
+    "recursive_kernel_validation_run_id": 35456496303,
     "external_effects_this_transition": 0,
     "group11": {
       "current_epoch": 2,
       "artifacts_exact": true,
       "launch_started_epoch2": false,
-      "terminal_receipt_present": false
+      "terminal_receipt_present": false,
+      "next_transition": "COMPILE_SINGLE_EFFECT"
     },
     "group12_opened": false,
     "economic_pnl_read": false,
