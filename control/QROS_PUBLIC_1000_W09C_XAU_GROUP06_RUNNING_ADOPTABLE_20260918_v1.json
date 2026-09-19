@@ -1,0 +1,60 @@
+{
+  "schema": "QROS_NO_FREEZE_RUNNING_ADOPTABLE_RECEIPT_1.0",
+  "date": "2026-09-18",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "RUNNING_ADOPTABLE",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 6
+  },
+  "authority": {
+    "prelaunch_intent": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_PRELAUNCH_INTENT_20260918_v1.json",
+      "git_blob_sha1": "e197da93eb0ca700c029e8f366d40346691883a5"
+    },
+    "no_freeze_policy": {
+      "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+      "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e"
+    },
+    "no_freeze_gate": {
+      "path": "control/QROS_NO_FREEZE_BARRIER_GATE_PASS_20260918_v1.json",
+      "git_blob_sha1": "7c2f0d5e363d222d957c18ccc33c11378833eb90"
+    }
+  },
+  "runtime": {
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP06_20260918_v1",
+    "job_spec_sha256": "520a8dd55def22a3026830e7a4027e376ee2ffed19a1c6b157acecccc8767c35",
+    "barrier_status": "RUNNING_ADOPTABLE",
+    "barrier_supervisor_calls": 1,
+    "control_elapsed_seconds": 0.595765,
+    "launch_action": "LAUNCHED",
+    "attempt": 1,
+    "bootstrap_pid": 4259,
+    "bootstrap_birth": "linux:0c73b366-03e7-4963-8aef-010de628a318:773775",
+    "worker_pid": 4271,
+    "worker_birth": "linux:0c73b366-03e7-4963-8aef-010de628a318:773821",
+    "claim_token": "45fe53a0592f4033ad8c7e0979334fe1",
+    "command_sha256": "b5b499243662f9a83d3754709ccdc4d546b6081bd6a34feb5f03a4f78487a852",
+    "wrapper_sha256": "a28ff8b30606b893cebe34a5a19a4232057ca566e71ce706690f02c2419e9ae1",
+    "supervisor_sha256": "ee1563996aeeda42a449fe37de54de308de5b9525b5aeb218d87cbbdc45b31b4",
+    "barrier_sha256": "2f4b19a5b9347c8592484b337fe31703a5faea4ce85121fcab1e5d5a9d3e0b52"
+  },
+  "gates": {
+    "prelaunch_durable_intent": "PASS",
+    "max_control_call_seconds": 5,
+    "launch_returned_before_timeout": true,
+    "durable_claim_present": true,
+    "bootstrap_identity_present": true,
+    "worker_identity_present": true,
+    "duplicate_launch": false,
+    "blocking_poll_used": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "decision": "GROUP06_RUNNING_ADOPTABLE_UNDER_NO_FREEZE_BARRIER; DO_NOT_RELAUNCH; NEXT CONTROL INTERACTION MUST BE NONBLOCKING STATUS/ADOPT <=5S"
+}
