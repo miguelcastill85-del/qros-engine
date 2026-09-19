@@ -1,0 +1,26 @@
+{
+  "schema": "QROS_GROUP_RUNTIME_BINDING_POLICY_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE_MANDATORY",
+  "purpose": "Fail closed before heavy launch unless capsule group index, previous receipt, wrapper CLI index, wrapper receipt schema, job id and expected_receipt all bind to the same structural group.",
+  "implementation": {
+    "path": "scripts/qros_group_runtime_binding_guard_v1.py",
+    "git_blob_sha1": "9ec73412251dfcc1a967a8982e37273078b1c88e"
+  },
+  "tests": {
+    "path": "scripts/qros_group_runtime_binding_guard_tests_v1.py",
+    "git_blob_sha1": "42343b9e3bc46119b13f6d8521c0d1d37e86b6c5",
+    "status": "PASS",
+    "count": 10
+  },
+  "mandatory_before_launch": true,
+  "current_defect_caught": "GROUP07 job-spec expected_receipt.schema was GROUP06 while wrapper and capsule were GROUP07.",
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY",
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
