@@ -1,0 +1,71 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP11_RUNNING_ADOPTABLE_1.0",
+  "date": "2026-09-19",
+  "status": "RUNNING_ADOPTABLE",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 11,
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+  },
+  "authority": {
+    "capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "ec56e9cae15a640002e96c61fad2b691b5bb2b92"
+    },
+    "previous_group_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP10_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "af10d3367059efa008ef195901c75616aff9523a",
+      "status": "PASS"
+    },
+    "package": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_RUNTIME_PACKAGE_PASS_20260919_v1.json",
+      "git_blob_sha1": "505bbd5c9fb467c326a1d620b426369f43269a32",
+      "status": "PASS"
+    },
+    "prelaunch": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_PRELAUNCH_INTENT_20260919_v1.json",
+      "git_blob_sha1": "d7e81f20ae04837542cca6d0627f95ce5eed8f2a"
+    },
+    "lease": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json",
+      "git_blob_sha1": "01a9dfe33515b3ee3873a53f1010e8b312701c3d",
+      "lease_epoch": 1
+    }
+  },
+  "runtime": {
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP11_20260919_v1",
+    "attempt": 1,
+    "job_spec_file_sha256": "ed557abb1a25b54235dea1e798f17b749ddae692151343ac2c8b3f5b949d7208",
+    "job_spec_canonical_sha256": "6096d43799accf222d94da5d64d27c0dfc2f26e3bbba6f534c61cc6ddee05884",
+    "command_sha256": "1c3be4e0198c5290b845126a65193724bdeda7e39b6d245f0c44e21d12aaaacb",
+    "bootstrap_pid": 1923,
+    "bootstrap_birth": "linux:12a54489-1877-43f8-88f0-923c8973b198:768452",
+    "worker_pid": 1935,
+    "worker_birth": "linux:12a54489-1877-43f8-88f0-923c8973b198:768585",
+    "owner_runtime_id": "linux:12a54489-1877-43f8-88f0-923c8973b198",
+    "launch_action": "LAUNCHED_THEN_ADOPT_LIVE_PROCESS",
+    "terminal_exit_present": false
+  },
+  "exactly_once": {
+    "duplicate_launch": false,
+    "max_attempts": 1,
+    "current_epoch_only_promotable": true
+  },
+  "control": {
+    "blocking_poll_used": false,
+    "deliberate_wait_used": false,
+    "next_control_action": "ADOPT_STATUS_SAME_ATTEMPT_ONLY_MAX_5S"
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false,
+    "group12_opened": false
+  },
+  "decision": "PRESERVE_RUNNING_ADOPTABLE_DO_NOT_RELAUNCH_DO_NOT_OPEN_GROUP12"
+}
