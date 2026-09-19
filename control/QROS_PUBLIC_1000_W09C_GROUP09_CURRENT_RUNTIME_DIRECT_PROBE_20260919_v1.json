@@ -1,0 +1,38 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP09_CURRENT_RUNTIME_DIRECT_PROBE_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_OBSERVATION_ONLY",
+  "subject": {
+    "group_index": 9,
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP09_20260919_v1",
+    "attempt": 1
+  },
+  "current_runtime": {
+    "boot_id": "12a54489-1877-43f8-88f0-923c8973b198",
+    "qros_group03_runtime_path_present": false,
+    "pid_5295_present": false
+  },
+  "durable_original_identity": {
+    "bootstrap_birth": "linux:0c73b366-03e7-4963-8aef-010de628a318:1212757",
+    "worker_birth": "linux:0c73b366-03e7-4963-8aef-010de628a318:1212804",
+    "claim_token": "9eb8eb767df64af18ae0b13081603c28"
+  },
+  "interpretation": {
+    "same_boot_namespace": false,
+    "current_pid_absence_is_death_proof": false,
+    "original_worker_death_proven": false,
+    "relaunch_allowed": false
+  },
+  "command_evidence": [
+    "cat /proc/sys/kernel/random/boot_id",
+    "find /mnt/data for qros_group03_runtime/job_spec_group09/GROUP09",
+    "test /proc/5295/stat"
+  ],
+  "decision": "FOREIGN_RUNTIME_CONFIRMED; PRESERVE BLOCKED_BY_INFRASTRUCTURE AND RUNNING_ADOPTABLE ATTEMPT_1",
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
