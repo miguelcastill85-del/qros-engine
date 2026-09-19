@@ -31,6 +31,9 @@ def main()->int:
       'capsule_blob_sha1':CAPSULE_BLOB,'processed_signal_configs':0,
       'ordered_config_id_stream_root_sha256':CONFIG_ROOT,'economic_pnl_read':False,'holdout_open':False,'artifacts':[]
     }
+    binding={'structural_group_index':9}
+    if binding['structural_group_index']!=9:
+        pre['reason']='WRAPPER_GROUP_BINDING_INVALID';write_receipt(rp,pre);return 2
     required={'job_id':JOB_ID,'group_index':9,'state':'ACTIVE'}
     for k,v in required.items():
         if lease.get(k)!=v:
