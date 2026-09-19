@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_1.9",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.0",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -125,10 +125,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "EXACT_SOURCE_BYTE_PIN_MISMATCH_ON_LOCAL_SPEC_MATERIALIZATION",
-  "root_cause": "The machine spec was compact-reserialized locally; scientific JSON meaning was unchanged but Git blob identity changed. Capsule requires exact frozen bytes, so launch was correctly blocked.",
+  "problem": "LOCAL_RUNTIME_SUPERVISOR_V1_STUB_SUBSTITUTED_FOR_DURABLE_FULL_V1",
+  "root_cause": "The v2 wrapper imported a local audit-test stub named qros_heavy_job_supervisor_v1.py. Its main() returned 0, so no job directory/controller/bootstrap/worker existed. Durable GitHub supervisor sources remain authoritative and unchanged.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NEW_BOUNDED_BLOCK: WRITE_EXACT_FORMATTED_SPEC_PLUS_REMAINING_PINNED_SOURCES; VERIFY_ALL_GIT_BLOB_SHA1_PINS; ONLY_THEN_LAUNCH_GROUP03_THROUGH_HEAVY_SUPERVISOR_V2",
+  "next_automatic_action": "NEW_BOUNDED_BLOCK: MATERIALIZE_AUTHORITATIVE_SUPERVISOR_V1_FULL_BLOB_991860_AND_V2_BLOB_91F6CC_IN_FRESH_RUNTIME; VERIFY_EXACT_BYTES; RUN V1+V2 TESTS PLUS REAL CONTROLLER_SMOKE_LIFECYCLE; IF PASS LAUNCH GROUP03 ONCE; PERSIST LIVE/PASS STATE BY CALL_11",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -157,14 +157,24 @@
     "ONE_EXPENSIVE_UNIT_START_PER_BLOCK",
     "DURABLE_TYPE_RESTRICTION",
     "HEAVY_SUPERVISOR_V2_FRESH_LOCK_RACE_HARDENING",
-    "CURRENT_BINDING_CONSOLIDATION"
+    "CURRENT_BINDING_CONSOLIDATION",
+    "BAN_TRANSVERSAL_PATCH_STUB_DIRECTORY_FROM_REAL_EXECUTION",
+    "REQUIRE_RUNTIME_SUPERVISOR_SOURCE_IDENTITY_GATE",
+    "REQUIRE_CONTROLLER_SMOKE_LIFECYCLE_BEFORE_GROUP03"
   ],
   "last_execution_block": {
-    "status": "FAIL_CLOSED_NO_HEAVY_LAUNCH",
+    "status": "FAIL_CLOSED_NO_HEAVY_JOB_CREATED",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SOURCE_GATE_FAIL_CLOSED_20260918_v1.json"
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SUPERVISOR_RUNTIME_IDENTITY_FAIL_CLOSED_20260918_v1.json",
+      "git_blob_sha1": "a261d30bff52ca52e457e75f4d291c9498fcdd17"
     },
+    "prior_source_gate_fail_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SOURCE_GATE_FAIL_CLOSED_20260918_v1.json",
+      "git_blob_sha1": "fad1521fa9b33148079e9905fe07867869ea7715"
+    },
+    "capsule_source_pins": "PASS_6_OF_6",
     "group03_launched": false,
-    "expensive_unit_open": false
+    "expensive_unit_open": false,
+    "orphan_worker": false
   }
 }
