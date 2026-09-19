@@ -1,0 +1,31 @@
+{
+  "schema": "QROS_CWS_V1_1_FALSE_GREEN_VALIDATION_FAIL_1.0",
+  "date": "2026-09-19",
+  "status": "FAIL_CLOSED",
+  "candidate": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
+  "run_id": 35474255510,
+  "run_head": "a9aa02f3587bd073722e0e0594348b706dcf4168",
+  "github_run_conclusion": "success",
+  "authoritative_validation_conclusion": "FAIL",
+  "validate_job_id": 105980643751,
+  "runner4_job_id": 105980731434,
+  "evidence": {
+    "exact_pins_passed": true,
+    "compile_passed": true,
+    "traceback": "ValueError:PENDING_AND_OPEN_EFFECT",
+    "traceback_stage": "oracle_exhaustive",
+    "runner4_10000_units_passed": true
+  },
+  "root_causes": [
+    "ORACLE_INVALID_STATE_ENUMERATION_AFTER_V1_1_INVARIANT_HARDENING",
+    "PIPELINE_TO_TEE_WITHOUT_PIPEFAIL_MASKED_VALIDATOR_FAILURE"
+  ],
+  "corrections": {
+    "oracle_invalid_state_removed": true,
+    "explicit_invalid_state_gate_added": true,
+    "pipefail_on_all_validation_pipelines": true,
+    "prior_green_reused_for_promotion": false
+  },
+  "activation_allowed": false,
+  "scientific_effect": "NONE"
+}

@@ -24,7 +24,7 @@
     },
     "validation_oracle": {
       "path": "scripts/qros_continuous_work_scheduler_tests_v1.py",
-      "git_blob_sha1": "cf75fa3acb4f6ac24d28d2b4dd360e40a436af9a"
+      "git_blob_sha1": "21cee0c786932950f1963433e0a2f9c3cf67fddf"
     }
   },
   "invariants": [
@@ -77,5 +77,20 @@
     "ga2_open": false,
     "new_ga1_authorized": false
   },
-  "decision": "V1.1_CANDIDATE_ONLY"
+  "decision": "V1.1_CANDIDATE_ONLY",
+  "validation_harness_hardening": {
+    "false_green_run_id": 35474255510,
+    "github_reported_conclusion": "success",
+    "authoritative_conclusion": "FAIL_CLOSED",
+    "root_causes": [
+      "ORACLE_ENUMERATED_SCHEMA_INVALID_PENDING_PLUS_OPEN_STATE",
+      "TEE_PIPELINE_MASKED_PYTHON_NONZERO_EXIT_WITHOUT_PIPEFAIL"
+    ],
+    "corrections": [
+      "ORACLE_ENUMERATES_ONLY_SCHEMA_VALID_PERSISTED_STATES",
+      "EXPLICIT_PENDING_PLUS_OPEN_REJECTION_TEST",
+      "SET_EUO_PIPEFAIL_ON_ALL_TEE_VALIDATION_STEPS"
+    ],
+    "full_external_revalidation_required": true
+  }
 }

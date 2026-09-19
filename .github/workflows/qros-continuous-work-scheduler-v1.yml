@@ -22,7 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           test "$(git hash-object scripts/qros_continuous_work_scheduler_v1.py)" = "692f5d496705495850981987616218ccf9bd750b"
-          test "$(git hash-object scripts/qros_continuous_work_scheduler_tests_v1.py)" = "cf75fa3acb4f6ac24d28d2b4dd360e40a436af9a"
+          test "$(git hash-object scripts/qros_continuous_work_scheduler_tests_v1.py)" = "21cee0c786932950f1963433e0a2f9c3cf67fddf"
           python3 - <<'PY'
           import json
           g=json.load(open('governance/QROS_CONTINUOUS_WORK_SCHEDULER_GOVERNANCE_v1.1.json'))
@@ -32,14 +32,17 @@ jobs:
           assert g['bpc_self_application_gate']['repository_native_transport'] is True
           assert g['version']=='v1.1'
           assert g['implementation']['scheduler']['git_blob_sha1']=='692f5d496705495850981987616218ccf9bd750b'
-          assert g['implementation']['validation_oracle']['git_blob_sha1']=='cf75fa3acb4f6ac24d28d2b4dd360e40a436af9a'
+          assert g['implementation']['validation_oracle']['git_blob_sha1']=='21cee0c786932950f1963433e0a2f9c3cf67fddf'
           print('EXACT_V1_1_PINS_AND_ISOLATION=PASS')
           PY
       - name: Compile
         run: python3 -m py_compile scripts/qros_continuous_work_scheduler_v1.py scripts/qros_continuous_work_scheduler_tests_v1.py
       - name: Gates oracle chaos fixed-point
         working-directory: scripts
-        run: python3 qros_continuous_work_scheduler_tests_v1.py | tee ../cws_validation.json
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 qros_continuous_work_scheduler_tests_v1.py | tee ../cws_validation.json
       - uses: actions/upload-artifact@v4
         with:
           name: cws-validation
@@ -51,7 +54,13 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
-      - run: python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 1 --state cws_state.json | tee stage1.json
+      - shell: bash
+
+        run: |
+
+          set -euo pipefail
+
+          python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 1 --state cws_state.json | tee stage1.json
       - uses: actions/upload-artifact@v4
         with:
           name: cws-state-1
@@ -67,7 +76,13 @@ jobs:
         with:
           name: cws-state-1
           path: .
-      - run: python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 2 --state cws_state.json | tee stage2.json
+      - shell: bash
+
+        run: |
+
+          set -euo pipefail
+
+          python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 2 --state cws_state.json | tee stage2.json
       - uses: actions/upload-artifact@v4
         with:
           name: cws-state-2
@@ -83,7 +98,13 @@ jobs:
         with:
           name: cws-state-2
           path: .
-      - run: python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 3 --state cws_state.json | tee stage3.json
+      - shell: bash
+
+        run: |
+
+          set -euo pipefail
+
+          python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 3 --state cws_state.json | tee stage3.json
       - uses: actions/upload-artifact@v4
         with:
           name: cws-state-3
@@ -99,7 +120,13 @@ jobs:
         with:
           name: cws-state-3
           path: .
-      - run: python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 4 --state cws_state.json | tee stage4.json
+      - shell: bash
+
+        run: |
+
+          set -euo pipefail
+
+          python3 scripts/qros_continuous_work_scheduler_tests_v1.py --stage 4 --state cws_state.json | tee stage4.json
       - name: Verify terminal long-run state
         run: |
           python3 - <<'PY'

@@ -116,6 +116,13 @@ def gate_suite():
         raise AssertionError("POISON_STATE_ACCEPTED")
     except ValueError:
         pass
+    # G10b impossible pending+open effect state must fail closed
+    try:
+        validate_state(sp,replace(s,pending_effect_id="e"*64,open_segment_id="seg",open_segment_epoch=1,open_segment_effect_id="a"*64))
+        raise AssertionError("PENDING_AND_OPEN_EFFECT_ACCEPTED")
+    except ValueError as e:
+        assert str(e)=="PENDING_AND_OPEN_EFFECT"
+
 
     # G11 CAS conflict does not manufacture sequence progress
     cas=compile_step(sp,s,ob(cas_conflict=True))
@@ -155,6 +162,8 @@ def oracle_exhaustive():
         [False,True],[False,True],[1,4],
         [None,"CAP_HOLDOUT_OPEN"],[None,2],[None,"PASS","FAIL"]
     ):
+        if pending and opened:
+            continue
         base=initial_state(sp)
         st=replace(
             base,phase=phase,
