@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.1",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.2",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -86,6 +86,11 @@
     "group09_status_observation": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v1.json",
       "git_blob_sha1": "95202c79268f50ea7776f724b7f4e80b5ec3b76d",
+      "status": "RUNNING_ADOPTABLE"
+    },
+    "group09_status_observation_v2": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v2.json",
+      "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
       "status": "RUNNING_ADOPTABLE"
     }
   },
@@ -178,9 +183,9 @@
     "first_gate_execution_authorized": false
   },
   "problem": "GROUP09_RUNNING_ADOPTABLE_NO_TERMINAL_RECEIPT; ORIGINAL_RUNTIME_NOT_ADDRESSABLE_FROM_CURRENT_EXECUTOR",
-  "root_cause": "Cross-chat runtime boundary persists. Durable claim remains authoritative; absence of terminal receipt is not death evidence.",
+  "root_cause": "Cross-chat runtime boundary persists. Repo-wide verification found no durable terminal receipt; current runtime lacks the original job directory/spec/supervisor. Absence of runtime is not proof of worker death.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NONBLOCKING_ONLY: CHECK FOR DURABLE GROUP09 TERMINAL RECEIPT; IF ABSENT PRESERVE SAME ATTEMPT_1 RUNNING_ADOPTABLE; ADOPT/STATUS ONLY FROM MATCHING_RUNTIME_CONTEXT <=5S; NEVER RELAUNCH WITHOUT PROVEN DEATH",
+  "next_automatic_action": "CHECK_FOR_DURABLE_GROUP09_TERMINAL_RECEIPT_ON_NEXT_CONTROL_INTERACTION; IF ABSENT, ONLY ADOPT_OR_STATUS SAME ATTEMPT_1 FROM MATCHING_RUNTIME_CONTEXT; NEVER RELAUNCH WITHOUT PROVEN_DEATH",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -252,6 +257,13 @@
       "git_blob_sha1": "95202c79268f50ea7776f724b7f4e80b5ec3b76d",
       "terminal_receipt_present": false,
       "worker_control_invoked": false,
+      "relaunch_performed": false
+    },
+    "status_observation_v2": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v2.json",
+      "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
+      "terminal_receipt_present": false,
+      "matching_runtime_context_available_here": false,
       "relaunch_performed": false
     }
   }
