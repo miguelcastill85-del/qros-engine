@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.25",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.26",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -9,11 +9,12 @@
   "current_gap": "GAP-S05_PRODUCTION_SEMANTIC_REMATERIALIZATION",
   "authority": {
     "stable_frontier": {
-      "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+      "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json",
       "version": "V255",
-      "git_blob_sha1": "a12ea959a2113d3ec3050842c79e4dbb6f185d50"
+      "git_blob_sha1": "4b19ee8c84e47332cc2b2117010deb0d0edbde12",
+      "reference_role": "IMMUTABLE_SCIENTIFIC_TARGET_NO_BACK_EDGE"
     },
-    "previous_checkpoint_blob_sha1": "3f560b872a812bf6e2fec35407ee50fc784b1f6f",
+    "previous_checkpoint_blob_sha1": "f1d1b30e104673a6299c5c54799ca0de91af5327",
     "delivery_policy_blob_sha1": "56e9501ea1f480bbce185edcf83f49662af2a9d8",
     "heavy_execution_policy": {
       "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
@@ -261,7 +262,9 @@
     "recursive_dek_v3_candidate": {
       "path": "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json",
       "git_blob_sha1": "cafaa4e82c103361cf9ce95d10734cf2ac7c8422",
-      "status": "CANDIDATE_VALIDATION"
+      "status": "CANDIDATE_VALIDATION",
+      "ref": "09bc8f59edc2425a0ea8fda230f311d1da9ec2a7",
+      "reference_scope": "HISTORICAL_CANDIDATE_SUPERSEDED_BY_RECURSIVE_DEK_V3_ACTIVE"
     },
     "recursive_dek_v3_external_pending": {
       "path": "control/QROS_DEK_V3_EXTERNAL_VALIDATION_PENDING_20260919_v1.json",
@@ -298,6 +301,10 @@
       "run_attempt": 1,
       "status": "RUNNING_ADOPTABLE",
       "artifact_name": "qros-runtime-source-package"
+    },
+    "operational_reference_reconciliation": {
+      "path": "control/QROS_OPERATIONAL_POINTER_RECONCILIATION_20260919_v1.json",
+      "git_blob_sha1": "8a74945680e1e2a9836d536197ccdeebb4eb5917"
     }
   },
   "data": {
@@ -341,7 +348,7 @@
     }
   },
   "pending": {
-    "semantic_mask_root_rematerialization": "IN_PROGRESS_9_OF_24_DURABLY_CLOSED",
+    "semantic_mask_root_rematerialization": "IN_PROGRESS_11_OF_24_DURABLY_CLOSED",
     "production_normalized_input_bundle": "NOT_MATERIALIZED",
     "production_real_trade_by_trade_parity": "NOT_EXECUTED",
     "compatible_economic_transition": "NOT_AUTHORIZED",

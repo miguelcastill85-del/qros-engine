@@ -1,0 +1,99 @@
+{
+  "validation": {
+    "status": "PASS_OPERATIONAL_REFERENCE_RECONCILIATION",
+    "checked_references": 128,
+    "receipt_metadata_count": 11,
+    "reported_configs_preserved": 368808,
+    "capsule_source_pins": 6,
+    "scientific_execution": false,
+    "runtime_or_artifact_reexecution": false,
+    "adversarial_cases": 14,
+    "adversarial_passed": 14,
+    "cases": [
+      {
+        "case": "stale_checkpoint",
+        "status": "PASS_REJECTED",
+        "error": "REFERENCE_HASH_MISMATCH:control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json"
+      },
+      {
+        "case": "wrong_receipt_subject",
+        "status": "PASS_REJECTED",
+        "error": "RECEIPT_SUBJECT_MISMATCH"
+      },
+      {
+        "case": "missing_terminal_receipt",
+        "status": "PASS_REJECTED",
+        "error": "RECEIPT_COVERAGE_MISMATCH"
+      },
+      {
+        "case": "failed_terminal_receipt",
+        "status": "PASS_REJECTED",
+        "error": "RECEIPT_STATUS_OR_CAMPAIGN_MISMATCH"
+      },
+      {
+        "case": "wrong_source_pin",
+        "status": "PASS_REJECTED",
+        "error": "CAPSULE_SOURCE_PIN_MISMATCH"
+      },
+      {
+        "case": "pnl_open",
+        "status": "PASS_REJECTED",
+        "error": "ECONOMIC_GUARD_CHANGED"
+      },
+      {
+        "case": "holdout_open",
+        "status": "PASS_REJECTED",
+        "error": "ECONOMIC_GUARD_CHANGED"
+      },
+      {
+        "case": "ga2_open",
+        "status": "PASS_REJECTED",
+        "error": "ECONOMIC_GUARD_CHANGED"
+      },
+      {
+        "case": "wrong_scientific_target",
+        "status": "PASS_REJECTED",
+        "error": "SCIENTIFIC_TARGET_HASH_MISMATCH"
+      },
+      {
+        "case": "stale_next_capsule",
+        "status": "PASS_REJECTED",
+        "error": "STALE_NEXT_CAPSULE"
+      },
+      {
+        "case": "stale_last_receipt",
+        "status": "PASS_REJECTED",
+        "error": "STALE_LAST_RECEIPT"
+      },
+      {
+        "case": "workflow_action_changed",
+        "status": "PASS_REJECTED",
+        "error": "SCIENTIFIC_OR_WORKFLOW_STATE_CHANGED:next_action"
+      },
+      {
+        "case": "historical_ref_missing",
+        "status": "PASS_REJECTED",
+        "error": "REFERENCE_HASH_MISMATCH:governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json"
+      },
+      {
+        "case": "count_inflation",
+        "status": "PASS_REJECTED",
+        "error": "COVERAGE_COUNT_MISMATCH"
+      }
+    ]
+  },
+  "final": {
+    "status": "PASS_OPERATIONAL_REFERENCE_RECONCILIATION",
+    "checked_references": 128,
+    "receipt_metadata_count": 11,
+    "reported_configs_preserved": 368808,
+    "capsule_source_pins": 6,
+    "scientific_execution": false,
+    "runtime_or_artifact_reexecution": false
+  },
+  "outputs": {
+    "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json": "01dee712122b1b5a2b9724a541e77cc25b56cb40",
+    "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json": "6dcbad16b2f871d2c9f4c59a644327a187a3027c",
+    "control/QROS_OPERATIONAL_POINTER_RECONCILIATION_20260919_v1.json": "8a74945680e1e2a9836d536197ccdeebb4eb5917"
+  }
+}

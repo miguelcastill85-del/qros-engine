@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.8",
+  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.9",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "current_version": "V255",
   "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json",
@@ -109,12 +109,12 @@
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "f1d1b30e104673a6299c5c54799ca0de91af5327",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.25"
+      "git_blob_sha1": "6dcbad16b2f871d2c9f4c59a644327a187a3027c",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.26"
     },
     "next_capsule": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
-      "git_blob_sha1": "4b8bf850d118eb31f6165f0fe7d3412204396bc3"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "ec56e9cae15a640002e96c61fad2b691b5bb2b92"
     },
     "transversal_audit": {
       "path": "control/QROS_TRANSVERSAL_AUDIT_HARDENING_PASS_20260918_v1.json",
@@ -142,8 +142,8 @@
       "git_blob_sha1": "74e4d884a7018825ed67f0218f82f1d3fd543db3"
     },
     "last_durable_group_receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_SEMANTIC_RECEIPT_20260919_v1.json",
-      "git_blob_sha1": "21dff1ce24dbcf1530053a0420720d69204011a7"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP10_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "af10d3367059efa008ef195901c75616aff9523a"
     },
     "turn_commit_nonstall_policy": {
       "path": "governance/QROS_TURN_COMMIT_NONSTALL_POLICY_v1.0.json",
@@ -264,8 +264,8 @@
     },
     "group09_recovery_authority": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_RECOVERY_AUTHORITY_20260919_v1.json",
-      "git_blob_sha1": "c721e88cec8dec7ecda89061145ee0a4e4c124f0",
-      "status": "RECOVERY_EPOCH_AUTHORIZED_NOT_STARTED"
+      "git_blob_sha1": "6a7ab0e85d72eea91b11b3de5f46bccda233599e",
+      "status": "RECOVERY_EPOCH_TERMINAL_PASS"
     },
     "group09_authority_cutover_gate": {
       "path": "control/QROS_GROUP09_AUTHORITY_CUTOVER_PASS_20260919_v1.json",
@@ -358,7 +358,9 @@
     "recursive_dek_v3_candidate": {
       "path": "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json",
       "git_blob_sha1": "cafaa4e82c103361cf9ce95d10734cf2ac7c8422",
-      "status": "CANDIDATE_VALIDATION"
+      "status": "CANDIDATE_VALIDATION",
+      "ref": "09bc8f59edc2425a0ea8fda230f311d1da9ec2a7",
+      "reference_scope": "HISTORICAL_CANDIDATE_SUPERSEDED_BY_RECURSIVE_DEK_V3_ACTIVE"
     },
     "recursive_dek_v3_external_validation": {
       "path": "control/QROS_DEK_V3_EXTERNAL_VALIDATION_PENDING_20260919_v1.json",
@@ -385,6 +387,10 @@
       "run_id": 35467656777,
       "status": "RUNNING_ADOPTABLE",
       "trigger_commit": "dbfbab475c7ae2563623be06ce486c58f61e7b60"
+    },
+    "operational_reference_reconciliation": {
+      "path": "control/QROS_OPERATIONAL_POINTER_RECONCILIATION_20260919_v1.json",
+      "git_blob_sha1": "8a74945680e1e2a9836d536197ccdeebb4eb5917"
     }
   },
   "closed_w09c_bindings": {

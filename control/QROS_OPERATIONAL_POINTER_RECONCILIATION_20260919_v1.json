@@ -1,0 +1,161 @@
+{
+  "schema": "QROS_OPERATIONAL_POINTER_RECONCILIATION_1.0",
+  "status": "PASS_OPERATIONAL_REFERENCE_RECONCILIATION",
+  "objective": "Reconcile operational references against current authority without scientific dispatch",
+  "authority": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "base_commit": "70cff9e16983319ac42d36f69906fb6af7f5e1ce",
+    "base_tree": "93a4b281ee5014e1e17bce9e1399a0f24bea3d5e",
+    "source_pointer_blob": "500ea25e937e08644c808bb0434c3b95a77144e3",
+    "source_checkpoint_blob": "f1d1b30e104673a6299c5c54799ca0de91af5327",
+    "original_reported_base": "ede867afa821bd7b7ee86e259b87c42ae782f4a3",
+    "original_checkpoint_mismatch": "SUPERSEDED_BY_MAIN_ADVANCE_TO_4.25_BEFORE_THIS_REPAIR"
+  },
+  "source_bytes_verified": 21,
+  "corrections": [
+    "BIND_CHECKPOINT_TO_IMMUTABLE_V255_TARGET_INSTEAD_OF_MUTABLE_POINTER",
+    "VERSION_HISTORICAL_DEK_CANDIDATE_BY_EXACT_COMMIT",
+    "BIND_GROUP09_RECOVERY_AUTHORITY_TO_TERMINAL_RECEIPT_VERSION",
+    "ALIGN_NEXT_CAPSULE_TO_EXISTING_GROUP11_AUTHORIZATION",
+    "ALIGN_LAST_TERMINAL_RECEIPT_TO_GROUP10",
+    "ALIGN_PENDING_LABEL_TO_ELEVEN_CLOSED_GROUPS",
+    "UPDATE_POINTER_AND_CHECKPOINT_AS_ONE_ATOMIC_GIT_TREE"
+  ],
+  "history_preserved": {
+    "old_stable_frontier_reference": {
+      "version": "V255",
+      "git_blob_sha1": "a12ea959a2113d3ec3050842c79e4dbb6f185d50",
+      "historical_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json"
+    },
+    "old_group09_recovery_reference": {
+      "git_blob_sha1": "c721e88cec8dec7ecda89061145ee0a4e4c124f0",
+      "status": "RECOVERY_EPOCH_AUTHORIZED_NOT_STARTED",
+      "historical_path": "control/QROS_PUBLIC_1000_W09C_GROUP09_RECOVERY_AUTHORITY_20260919_v1.json"
+    },
+    "history_resolution": "Historical refs in this section describe source snapshot, not current-path pins"
+  },
+  "data": "No market payload opened; receipt metadata only",
+  "verified_results": {
+    "status": "PASS_OPERATIONAL_REFERENCE_RECONCILIATION",
+    "checked_references": 128,
+    "receipt_metadata_count": 11,
+    "reported_configs_preserved": 368808,
+    "capsule_source_pins": 6,
+    "scientific_execution": false,
+    "runtime_or_artifact_reexecution": false,
+    "adversarial_cases": 14,
+    "adversarial_passed": 14,
+    "cases": [
+      {
+        "case": "stale_checkpoint",
+        "status": "PASS_REJECTED",
+        "error": "REFERENCE_HASH_MISMATCH:control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json"
+      },
+      {
+        "case": "wrong_receipt_subject",
+        "status": "PASS_REJECTED",
+        "error": "RECEIPT_SUBJECT_MISMATCH"
+      },
+      {
+        "case": "missing_terminal_receipt",
+        "status": "PASS_REJECTED",
+        "error": "RECEIPT_COVERAGE_MISMATCH"
+      },
+      {
+        "case": "failed_terminal_receipt",
+        "status": "PASS_REJECTED",
+        "error": "RECEIPT_STATUS_OR_CAMPAIGN_MISMATCH"
+      },
+      {
+        "case": "wrong_source_pin",
+        "status": "PASS_REJECTED",
+        "error": "CAPSULE_SOURCE_PIN_MISMATCH"
+      },
+      {
+        "case": "pnl_open",
+        "status": "PASS_REJECTED",
+        "error": "ECONOMIC_GUARD_CHANGED"
+      },
+      {
+        "case": "holdout_open",
+        "status": "PASS_REJECTED",
+        "error": "ECONOMIC_GUARD_CHANGED"
+      },
+      {
+        "case": "ga2_open",
+        "status": "PASS_REJECTED",
+        "error": "ECONOMIC_GUARD_CHANGED"
+      },
+      {
+        "case": "wrong_scientific_target",
+        "status": "PASS_REJECTED",
+        "error": "SCIENTIFIC_TARGET_HASH_MISMATCH"
+      },
+      {
+        "case": "stale_next_capsule",
+        "status": "PASS_REJECTED",
+        "error": "STALE_NEXT_CAPSULE"
+      },
+      {
+        "case": "stale_last_receipt",
+        "status": "PASS_REJECTED",
+        "error": "STALE_LAST_RECEIPT"
+      },
+      {
+        "case": "workflow_action_changed",
+        "status": "PASS_REJECTED",
+        "error": "SCIENTIFIC_OR_WORKFLOW_STATE_CHANGED:next_action"
+      },
+      {
+        "case": "historical_ref_missing",
+        "status": "PASS_REJECTED",
+        "error": "REFERENCE_HASH_MISMATCH:governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json"
+      },
+      {
+        "case": "count_inflation",
+        "status": "PASS_REJECTED",
+        "error": "COVERAGE_COUNT_MISMATCH"
+      }
+    ]
+  },
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "scientific_state_changed": false,
+  "scientific_target_blob": "4b19ee8c84e47332cc2b2117010deb0d0edbde12",
+  "closed_group_indices_preserved": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "reported_config_count_preserved": 368808,
+  "real_worker_artifacts_rehashed": false,
+  "closed_work_repeated": false,
+  "capsule_activation_changed": false,
+  "supervisor_v3_activated": false,
+  "PR54_merged": false,
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "portfolio_impact": "NONE",
+  "root_cause": "Incremental edits left current-path pins and cached labels stale; mutable pointer/checkpoint back-edge cannot be content-addressed consistently.",
+  "next_automatic_action": "DEK_V3_ACTIVE: QUERY WORKFLOW RUN 35467656777 ONCE. IF SUCCESS, FETCH ARTIFACT qros-runtime-source-package, MATERIALIZE LOCALLY, VERIFY MANIFEST + EXACT GIT BLOBS, THEN PERSIST SOURCE_PACKAGE_PASS AND EXIT. IF RUNNING, PRESERVE RUNNING_ADOPTABLE AND EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
+  "workflow_state_preserved": "DEK_V3_GROUP11_RUNTIME_SOURCE_EXPORT_RUNNING_ADOPTABLE",
+  "execution_scope": "RECONCILIATION_ONLY_NO_EXTERNAL_WORKFLOW_OR_WORKER_DISPATCH",
+  "gates": {
+    "operational_references": "PASS",
+    "scientific_or_data_validation": "NOT_REEXECUTED",
+    "P09_P12": "UNCHANGED"
+  },
+  "limitations": [
+    "Historical PASS claims preserved; original worker artifacts not rehashed",
+    "This receipt does not certify workflow liveness or runtime-local data availability",
+    "DEK v3 stays active; PR54 remains an unactivated engineering candidate"
+  ]
+}
