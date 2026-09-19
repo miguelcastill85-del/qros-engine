@@ -1,0 +1,105 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_SEMANTIC_GROUP_RECEIPT_1.0",
+  "date": "2026-09-18",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "PASS",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "structural_group_index": 3
+  },
+  "authority": {
+    "execution_capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP03_EXECUTION_CAPSULE_20260916_v1.json",
+      "git_blob_sha1": "e9b1002c6064b1d5c366ee8df6953e3fcf0de93f"
+    },
+    "previous_group_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP02_SEMANTIC_RECEIPT_20260916_v1.json",
+      "git_blob_sha1": "833502b8824789acac06d66e24b7ae84a96e4423"
+    },
+    "heavy_execution_policy": {
+      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+      "git_blob_sha1": "74e4d884a7018825ed67f0218f82f1d3fd543db3"
+    },
+    "runtime_gate": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SUPERVISOR_FULL_RUNTIME_GATE_PASS_20260918_v1.json",
+      "git_blob_sha1": "e5bd10def7b534586df659b95995e370e070e730"
+    }
+  },
+  "execution": {
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP03_20260918_v1",
+    "job_spec_sha256": "c745dffc9b018b415e3778e28a52ea802cc185e61b8bc76faa786741e038ad74",
+    "attempt": 1,
+    "supervisor_terminal_action": "PROMOTE_ATOMIC_DONE",
+    "duplicate_launch": false,
+    "retry_count": 0,
+    "worker_receipt_sha256": "bcf30d8f7260124b4d2420082600c48ff26c8e3f64b75fe5244fb22068062064",
+    "group_worker_receipt_file_sha256": "363944dc1572956c11902a9dc137a6c03d4615f6674bdae4a3c01ee99af5e48f",
+    "supervisor_receipt_sha256": "836769721976d2379b1009e2e41a176ba2500c8beb884a734d683a11edb11c36"
+  },
+  "result": {
+    "processed_signal_configs": 33528,
+    "distinct_mask_class_count": 12798,
+    "duplicate_config_count": 20730,
+    "zero_event_class_alias_count": 568,
+    "zero_event_representative_config_id": "009c83062ca7ff119e41800558f943e62699cd344f9e7b2502abd02380a310b3",
+    "class_root_sha256": "7a2bc5685f7dda66a4869dc554f5089d94e47b75890f599e9d4ecdeca8b85ae6",
+    "semantic_class_root_sha256": "45b5c8e62afaf32fbd3a880f9a30189c4f8f3aa6e3c9ff46b52ae8a976dc84b6",
+    "full_alias_mapping_root_sha256": "16f29cd9c86ebac95153a958293e762fe51e9368f7bd3d8a9f526fa1edb9abab",
+    "ordered_config_id_stream_root_sha256": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3",
+    "group_config_root_sha256": "abe078c338213994d4f7e1274c643bb5fe4bf8736b1d95ecb79324c5d2a02968",
+    "structural_group_key": [
+      11,
+      "STRICT_ALL_NEIGHBORS",
+      "TICK_BREAK"
+    ],
+    "metrics": {
+      "base_transform_rearm_evaluations": 84,
+      "candidate_union_total": 1618256,
+      "local_gate_groups_total": 6863,
+      "structural_trigger_groups": 1,
+      "transform_carriers": 28
+    },
+    "artifact_rehash": "PASS_4_OF_4",
+    "artifacts": [
+      {
+        "path": "mask_classes.delta_u32.bin",
+        "bytes": 538303976,
+        "sha256": "ab398dbbedd1a58f7f53e9063a8684f660b211b8bb6ad93c968077f16e82c2c0"
+      },
+      {
+        "path": "mask_class_index.jsonl",
+        "bytes": 4382444,
+        "sha256": "9ef50c1295e6c6d6fc4ce21b3007784b8bc60e91f758dd03f5c45991aa32242a"
+      },
+      {
+        "path": "duplicate_alias_pairs.bin",
+        "bytes": 1326720,
+        "sha256": "770f810cc003d6268c401c1688d13714c8ecf8c83871640f88156212b99a5306"
+      },
+      {
+        "path": "full_alias_mapping.bin",
+        "bytes": 2145792,
+        "sha256": "16f29cd9c86ebac95153a958293e762fe51e9368f7bd3d8a9f526fa1edb9abab"
+      }
+    ]
+  },
+  "preconditions_reverified": {
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "bar_M1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_M1_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+    "capsule_source_pins": "PASS_EXACT",
+    "shard_descriptor_sha256": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+  },
+  "gates": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "GROUP03_DURABLY_CLOSED_PASS; AUTHORIZE_NON_ECONOMIC_GROUP04_CAPSULE_ONLY"
+}
