@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_DEK_V3_EXTERNAL_VALIDATION_PENDING_1.0",
+  "date": "2026-09-19",
+  "status": "EXTERNAL_VALIDATION_PENDING",
+  "candidate_commit": "09bc8f59edc2425a0ea8fda230f311d1da9ec2a7",
+  "workflow_run_id": 35456496303,
+  "workflow": "qros-recursive-progress-kernel-v1",
+  "candidate_governance": {
+    "path": "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json",
+    "git_blob_sha1": "cafaa4e82c103361cf9ce95d10734cf2ac7c8422",
+    "status": "CANDIDATE_VALIDATION"
+  },
+  "components": {
+    "recursive_kernel": "891cfc148c5104dc676dea326c8f802ec24c9cc9",
+    "exhaustive_tests": "06a9087aa9494239e71ab72472ddd17ea0292daa",
+    "chaos_tests": "bb3fd6774cfd13b67278d760ad2f8281b6fdce57",
+    "effect_executor": "0f6cb0ba5da03577b8b043192d0ac5e9752fb9fa",
+    "effect_executor_tests": "17da410426b7335266750d9fd812beab5aa3525d"
+  },
+  "local_validation": {
+    "reducer_exhaustive": "PASS_393238_ASSERTION_STATES",
+    "chaos": "PASS_10000_EPISODES_17770_SIMULATED_CRASHES",
+    "effect_executor": "PASS_LIFECYCLE_DUPLICATE_CRASH_RESUME_TAMPER_TRAVERSAL"
+  },
+  "activation_allowed": false,
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY",
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false
+  },
+  "next_action": "ON_NEXT_INVOCATION_READ_RUN_35456496303_ONCE; IF COMPLETED_SUCCESS_VERIFY_JOB_STEPS_AND_EXACT_COMMIT_THEN_PROMOTE_DEK_V3_FROZEN_ACTIVE; ELSE PERSIST_FAIL_OR_PENDING_WITHOUT_POLLING"
+}
