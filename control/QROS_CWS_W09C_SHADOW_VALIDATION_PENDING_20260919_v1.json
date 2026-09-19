@@ -1,0 +1,28 @@
+{
+  "schema": "QROS_CWS_W09C_SHADOW_VALIDATION_PENDING_1.0",
+  "date": "2026-09-19",
+  "status": "RUNNING_ADOPTABLE",
+  "branch": "cws-w09c-shadow-v1-20260919",
+  "candidate_head": "aad17c804ecb22cc6cba7eb4dff8005b2248d1a3",
+  "workflow_run": {
+    "id": 35475386754,
+    "run_attempt": 1,
+    "observed_status": "queued",
+    "observations_this_transition": 1
+  },
+  "exact_blobs": {
+    "spec": "19dc7c084d505c91d378e26f1c859e5bc3c56df6",
+    "observer": "36f024d050b492fb1afbb73909572cde41d0c056",
+    "tests": "b4388fda1dd32eefe321160f639e5f22e16c4781"
+  },
+  "zero_effect_contract": {
+    "external_effects_allowed": 0,
+    "w09c_writes_allowed": 0,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "next_automatic_action": "QUERY RUN 35475386754 ONCE. IF SUCCESS, VERIFY EXACT PINS + BASELINE PASS + 100000 MUTATIONS REJECTED + ZERO EFFECTS, THEN RUN PROMOTION GUARD AGAINST CURRENT MAIN AUTHORITY. IF RUNNING/QUEUED, PRESERVE RUNNING_ADOPTABLE. IF FAIL, FETCH FAILED JOB LOG ONCE AND FAIL CLOSED."
+}
