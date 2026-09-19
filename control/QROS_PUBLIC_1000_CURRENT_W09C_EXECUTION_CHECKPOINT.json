@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.9",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.0",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -67,6 +67,11 @@
       "path": "control/QROS_NO_FREEZE_BARRIER_GATE_PASS_20260918_v1.json",
       "git_blob_sha1": "7c2f0d5e363d222d957c18ccc33c11378833eb90",
       "status": "PASS_12_OF_12"
+    },
+    "no_freeze_running_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_RUNNING_ADOPTABLE_20260918_v1.json",
+      "git_blob_sha1": "c7117de1c3dd321a60dbd990ff7d33a3d67386a8",
+      "status": "RUNNING_ADOPTABLE"
     }
   },
   "data": {
@@ -154,10 +159,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "FREEZE_ROOT_CAUSE_CORRECTED_BY_NONBLOCKING_CONTROL_BARRIER",
-  "root_cause": "Chat orchestration could still block while observing a heavy worker. No-freeze v1 makes the control plane nonblocking and identity-bound.",
+  "problem": "NONE_CURRENT_NO_FREEZE_BARRIER_ACTIVE",
+  "root_cause": "Prior user-visible freezes were caused by blocking chat-side observation. Current control interaction is hard-bounded to <=5s and returned RUNNING_ADOPTABLE with exact identities.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "GROUP06_PRECOMMITTED: INIT_NO_FREEZE_BARRIER_AND_LAUNCH_OR_ADOPT_WITH_5S_HARD_TIMEOUT; IMMEDIATELY_PERSIST_RETURNED_STATE",
+  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP06 WITH QROS_NO_FREEZE_BARRIER <=5S; IF PASS VALIDATE_AND_PERSIST GROUP06 RECEIPT; IF RUNNING PERSIST/REPORT RUNNING_ADOPTABLE; NEVER SLEEP/POLL/WAIT",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -199,12 +204,15 @@
     "RUNNING_REQUIRES_DURABLE_CLAIM"
   ],
   "last_execution_block": {
-    "status": "PRECOMMITTED_PENDING_LAUNCH",
+    "status": "RUNNING_ADOPTABLE",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_PRELAUNCH_INTENT_20260918_v1.json",
-      "git_blob_sha1": "e197da93eb0ca700c029e8f366d40346691883a5"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_RUNNING_ADOPTABLE_20260918_v1.json",
+      "git_blob_sha1": "c7117de1c3dd321a60dbd990ff7d33a3d67386a8"
     },
-    "group06_launched": false,
-    "expensive_unit_open": false
+    "group06_launched": true,
+    "attempt": 1,
+    "expensive_unit_open": true,
+    "orphan_worker": false,
+    "control_elapsed_seconds": 0.595765
   }
 }
