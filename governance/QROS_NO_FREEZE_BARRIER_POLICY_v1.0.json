@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_NO_FREEZE_BARRIER_POLICY_1.0",
+  "version": "v1.0",
+  "date": "2026-09-18",
+  "status": "ACTIVE_MANDATORY",
+  "purpose": "Prevent user-visible freezes by making all heavy-job control interactions nonblocking, identity-bound and transactionally closeable.",
+  "root_cause": "Exactly-once protected worker identity, and turn-commit protected narrative correctness, but chat orchestration still used blocking observation/wait loops. A control call could therefore hold the turn long enough to appear frozen or end before the next durable transition.",
+  "hard_rules": {
+    "max_control_call_seconds": 5,
+    "deliberate_sleep_or_poll_wait_in_chat_forbidden": true,
+    "unbounded_observation_forbidden": true,
+    "prelaunch_durable_intent_required": true,
+    "post_control_durable_state_required": true,
+    "allowed_post_control_states": [
+      "PASS",
+      "RUNNING_ADOPTABLE",
+      "FAIL_CLOSED",
+      "PENDING_NOT_STARTED"
+    ],
+    "running_requires_durable_claim": true,
+    "pass_or_fail_is_terminal_no_relaunch": true,
+    "job_spec_semantic_drift_fail_closed": true,
+    "supervisor_byte_drift_fail_closed": true,
+    "second_expensive_unit_before_durable_close_forbidden": true,
+    "commentary_may_not_claim_execution_before_launch_evidence": true
+  },
+  "implementation": {
+    "path": "scripts/qros_no_freeze_barrier_v1.py",
+    "git_blob_sha1": "aa5b8182feea3082a5fc30ea5525369514ea9399",
+    "sha256": "2f4b19a5b9347c8592484b337fe31703a5faea4ce85121fcab1e5d5a9d3e0b52"
+  },
+  "tests": {
+    "path": "scripts/qros_no_freeze_barrier_tests_v1.py",
+    "git_blob_sha1": "219f429e6e2e326807c90cbcb97c230ed1f7b9a5",
+    "sha256": "85ca9f792715c43f514af25707316b844dcf12ecfa1a88c74f2e4d94be3eb393",
+    "status": "PASS",
+    "count": 12,
+    "cases": [
+      "RUNNING becomes RUNNING_ADOPTABLE only with durable claim",
+      "PASS terminal",
+      "FAIL fail-closed",
+      "RUNNING without claim fails closed",
+      "bad JSON fails closed",
+      "silent supervisor fails closed",
+      "hard nonblocking timeout",
+      "semantic job-spec drift fails closed",
+      "supervisor byte drift fails closed",
+      "pending explicit state is closeable",
+      "PASS never relaunches",
+      "FAIL never relaunches"
+    ]
+  },
+  "integration": {
+    "turn_commit_policy": {
+      "path": "governance/QROS_TURN_COMMIT_NONSTALL_POLICY_v1.0.json",
+      "git_blob_sha1": "8fbf62e62c76d521fd33a330cada7152b4f553dc"
+    },
+    "external_call_budget": {
+      "path": "governance/QROS_EXTERNAL_CALL_BUDGET_NONSTALL_POLICY_v2.0.json",
+      "git_blob_sha1": "62d054382b98d7c212128518f79930f7a9b9beb9"
+    },
+    "heavy_exactly_once": {
+      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+      "git_blob_sha1": "74e4d884a7018825ed67f0218f82f1d3fd543db3"
+    }
+  },
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY",
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "new_ga1_authorized": false
+}
