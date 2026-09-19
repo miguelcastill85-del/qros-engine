@@ -1,0 +1,63 @@
+{
+  "schema": "QROS_CWS_AUTOCHAIN_SHADOW_GOVERNANCE_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "purpose": "Validate autonomous chained execution across disposable GitHub runners without user intervention, before connecting CWS to W09C.",
+  "parent_cws": {
+    "status": "VALIDATED_DESIGN_SHADOW_INACTIVE",
+    "current_pointer": "control/QROS_CWS_CURRENT.json",
+    "scheduler_blob": "692f5d496705495850981987616218ccf9bd750b"
+  },
+  "implementation": {
+    "driver": {
+      "path": "scripts/qros_cws_autochain_shadow_v1.py",
+      "git_blob_sha1": "62b7862f047f0a6d17b3e3cef199e103c2d39e70"
+    },
+    "tests": {
+      "path": "scripts/qros_cws_autochain_shadow_tests_v1.py",
+      "git_blob_sha1": "f1234225dfd17b3c8d74e989c527553eea98bac1"
+    }
+  },
+  "synthetic_task": {
+    "task_id": "CWS_AUTOCHAIN_SHADOW_20260919",
+    "objective_hash": "7777777777777777777777777777777777777777777777777777777777777777",
+    "target_generations": 16,
+    "state_branch": "cws-autochain-state-v1-20260919",
+    "scientific_effect": "NONE"
+  },
+  "invariants": [
+    "ONE_GENERATION_PER_ACCEPTED_WORKFLOW_RUN",
+    "EXPECTED_GENERATION_MUST_MATCH_DURABLE_STATE",
+    "STALE_OR_DUPLICATE_RUN_IS_NOOP",
+    "CHAIN_ROOT_INDEPENDENT_OF_RUNNER_ID",
+    "TASK_SPEC_AND_TARGET_IMMUTABLE",
+    "MANUAL_INTERVENTIONS_MUST_REMAIN_ZERO",
+    "STATE_PERSISTS_ON_DEDICATED_BRANCH",
+    "SELF_DISPATCH_ONLY_AFTER_DURABLE_STATE_COMMIT",
+    "NO_W09C_OR_ECONOMIC_ACCESS"
+  ],
+  "gates": {
+    "AC-G0": "driver exact pins + compile",
+    "AC-G1": "deterministic transition parity",
+    "AC-G2": "duplicate/stale no-op",
+    "AC-G3": "100000 adversarial cases",
+    "AC-G4": "two fixed-point rounds of 100000",
+    "AC-G5": "state branch durable CAS/serial execution",
+    "AC-G6": "16 autonomous workflow generations",
+    "AC-G7": "manual intervention rate = 0",
+    "AC-G8": "terminal completion certificate",
+    "AC-G9": "state remains bounded",
+    "AC-G10": "no science/W09C touch"
+  },
+  "self_application_gate": {
+    "branch_isolated": true,
+    "initial_trigger": "PROMOTION_PUSH_TO_MAIN",
+    "subsequent_trigger": "SELF_WORKFLOW_DISPATCH",
+    "user_continue_between_generations_forbidden": true,
+    "polling_loop_forbidden": true,
+    "state_checkpoint_every_generation": true
+  },
+  "promotion_rule": "DO NOT CONNECT CWS TO W09C UNTIL SYNTHETIC AUTOCHAIN REACHES GENERATION 16 WITH ZERO MANUAL INTERVENTIONS AND VERIFIED TERMINAL CERTIFICATE.",
+  "activation": false
+}
