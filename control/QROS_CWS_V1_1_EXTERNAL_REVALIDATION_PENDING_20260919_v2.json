@@ -31,5 +31,12 @@
     "holdout_open": false,
     "ga2_open": false,
     "new_ga1_authorized": false
+  },
+  "last_adoption": {
+    "run_id": 35474462584,
+    "status": "in_progress",
+    "head_sha": "d15ed3f0cdbee9ec3473345c5090ccdd8054cfc1",
+    "run_attempt": 1,
+    "relaunch_count": 0
   }
 }
