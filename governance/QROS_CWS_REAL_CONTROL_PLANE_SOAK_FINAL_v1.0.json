@@ -34,11 +34,11 @@
     },
     "cutover_authorization": {
       "path": "control/QROS_CWS_GROUP11_EPOCH3_CUTOVER_AUTHORIZATION_20260919_v1.json",
-      "git_blob_sha1": "e75c24bd04904eb23ce71ec3fd75400904dd003f"
+      "git_blob_sha1": "e8a420f9da230729e53e8d1735f1f08d4775deb9"
     },
     "state": {
       "path": "control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_STATE.json",
-      "initial_git_blob_sha1": "9f39cd04c364a86e6d9233c469a7676b3a4d2d7a"
+      "initial_git_blob_sha1": "3053ca9845ae1ee4b364c3a29b51714f33d4b39f"
     }
   },
   "gates": {
