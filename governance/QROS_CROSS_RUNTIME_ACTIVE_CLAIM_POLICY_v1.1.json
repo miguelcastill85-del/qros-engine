@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_CROSS_RUNTIME_ACTIVE_CLAIM_POLICY_1.1",
+  "version": "v1.1",
+  "date": "2026-09-19",
+  "status": "ACTIVE_MANDATORY",
+  "supersedes": {
+    "path": "governance/QROS_CROSS_RUNTIME_ACTIVE_CLAIM_POLICY_v1.0.json",
+    "git_blob_sha1": "838bb873f888d2cb0acc20e254d22f46e8aae157"
+  },
+  "default_rule": "FOREIGN_RUNTIME_RUNNING_ADOPTABLE_FAIL_CLOSED; LOCAL_PID_ABSENCE_IS_NOT_DEATH_PROOF; NO_RELAUNCH_UNDER_SAME_AUTHORITY",
+  "recovery_exception": {
+    "allowed_only_when_policy": {
+      "path": "governance/QROS_LEGACY_UNFENCED_RECOVERY_POLICY_v1.0.json"
+    },
+    "conditions": [
+      "non-economic deterministic rematerialization",
+      "terminal receipt absent at cutover",
+      "legacy promotion revoked before recovery",
+      "same frozen scientific capsule",
+      "distinct recovery job id",
+      "fenced recovery epoch active"
+    ],
+    "semantic_meaning": "This is authority supersession, not a death claim and not a retry under the old authority."
+  },
+  "future_runtime_migration": {
+    "policy": "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v2.0.json",
+    "effect": "new epoch may fence an old still-running epoch; only current epoch can promote"
+  },
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
