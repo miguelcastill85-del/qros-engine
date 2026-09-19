@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "DO NOT POLL CARRIERS YET. MATERIALIZE/VERIFY EXACT FROZEN GROUP11 SCIENTIFIC BLOBS AND SHARD DESCRIPTOR; THEN ONE STATUS CHECK OF CARRIER CLAIM; IF EXACT HASH PASS, VALIDATE PACKAGE + PRECOMMIT + LAUNCH GROUP11 EPOCH2 NONBLOCKING; GROUP12 CLOSED",
+  "next_action": "AFEL_V1: DO NOT USE LOCAL GIT NETWORK OR BROAD SEARCH. MATERIALIZE/VERIFY EXACT FROZEN GROUP11 BLOBS VIA GITHUB CONNECTOR; THEN ARTIFACT-FIRST CHECK; AT MOST ONE CURRENT-CLAIM STATUS CHECK. ON SECOND NO-EVIDENCE-DELTA, CIRCUIT-BREAK ROUTE AND PERSIST. IF CARRIERS EXACT PASS, VALIDATE PACKAGE + PRECOMMIT + LAUNCH GROUP11 EPOCH2 NONBLOCKING. GROUP12 CLOSED.",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "8147e49b2edb6fca734d7fc6081409925d6c7ba7",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.14"
+      "git_blob_sha1": "22f1c8fed5dd8bf63f17f72754edf180a734f95e",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.15"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
@@ -339,6 +339,21 @@
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_LEASE_EPOCH2_MIGRATION_CUTOVER_20260919_v1.json",
       "git_blob_sha1": "b60eb3701dc699e5b51779099567cc9fa8b6ecc8",
       "status": "AUTHORIZED_MIGRATION_CUTOVER"
+    },
+    "anti_freeze_execution_layer": {
+      "path": "governance/QROS_ANTI_FREEZE_EXECUTION_LAYER_v1.0.json",
+      "git_blob_sha1": "294feb32e8cbbe7dd0ac8c21ad25e25c63d3859f",
+      "status": "ACTIVE_MANDATORY"
+    },
+    "anti_freeze_validation": {
+      "path": "control/QROS_ANTI_FREEZE_EXECUTION_LAYER_PASS_20260919_v1.json",
+      "git_blob_sha1": "b193352147bce66d2f72ead882adc00fba4eb663",
+      "status": "PASS_65558_PLUS_CHAOS_12"
+    },
+    "anti_freeze_failure_route_ledger": {
+      "path": "control/QROS_ANTI_FREEZE_FAILURE_ROUTE_LEDGER_20260919_v1.json",
+      "git_blob_sha1": "6a6bf53199f32bdb796589611857249f02ffdd31",
+      "status": "ACTIVE"
     }
   },
   "closed_w09c_bindings": {
