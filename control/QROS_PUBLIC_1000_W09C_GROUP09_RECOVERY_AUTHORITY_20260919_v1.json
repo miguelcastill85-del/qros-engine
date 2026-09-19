@@ -1,0 +1,37 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP09_RECOVERY_AUTHORITY_1.0",
+  "date": "2026-09-19",
+  "status": "RECOVERY_EPOCH_AUTHORIZED_NOT_STARTED",
+  "group_index": 9,
+  "scientific_capsule": {
+    "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
+    "git_blob_sha1": "4b8bf850d118eb31f6165f0fe7d3412204396bc3"
+  },
+  "legacy_tombstone": {
+    "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_LEGACY_AUTHORITY_TOMBSTONE_20260919_v1.json",
+    "git_blob_sha1": "1bfee425f49fbbd4247476cd032c4274a4ccd6dc"
+  },
+  "current_lease": {
+    "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_CURRENT_FENCED_LEASE.json",
+    "git_blob_sha1": "7471a26fb382889bd6fd2fd75f86e50c149bbb04",
+    "lease_epoch": 1,
+    "lease_id": "ffe1a45cf3e81c6022271dbfc2c051bb76ca0d203e084f4eabb77165c1022311",
+    "fence_token": "e1815accbf2b23ea0dc358d7c0cec37b5d71ff8fec93aa31618bdb468c0341cf"
+  },
+  "recovery_job_id": "W09C_XAUUSD_BUY_M1_GROUP09_RECOVERY_E1_20260919_v1",
+  "authoritative_job_ids": [
+    "W09C_XAUUSD_BUY_M1_GROUP09_RECOVERY_E1_20260919_v1"
+  ],
+  "permanently_revoked_job_ids": [
+    "W09C_XAUUSD_BUY_M1_GROUP09_20260919_v1"
+  ],
+  "duplicate_compute_accounting": "SAME_FROZEN_SCIENTIFIC_UNIT; NOT_A_NEW_HYPOTHESIS_OR_TEST",
+  "group10_open_allowed": false,
+  "promotion_requirements": [
+    "legacy authority fence PASS",
+    "current lease receipt echo PASS",
+    "capsule identity exact",
+    "artifact hashes exact",
+    "economic firewall unchanged"
+  ]
+}
