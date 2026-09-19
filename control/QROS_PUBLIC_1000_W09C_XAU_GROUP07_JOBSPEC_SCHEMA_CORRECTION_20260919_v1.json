@@ -1,0 +1,66 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP07_JOBSPEC_SCHEMA_FALSE_NEGATIVE_CORRECTION_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_CORRECTED_CONTROL_PLANE_FALSE_NEGATIVE",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "defect": {
+    "job_spec_semantic_sha256": "86a466224759d85c8f8d2294428e5d34e628539438185a62509da7f347b345b8",
+    "expected_receipt_schema_observed": "QROS_W09C_GROUP06_WRAPPER_RECEIPT_1.0",
+    "actual_wrapper_schema": "QROS_W09C_GROUP07_WRAPPER_RECEIPT_1.0",
+    "supervisor_terminal_state": "FAIL_CLOSED",
+    "supervisor_terminal_reason": "WORKER_EXIT_0:RECEIPT_EXPECTATION_MISMATCH:schema",
+    "retry_budget_exhausted_after_attempt": 2
+  },
+  "root_cause": "Ad-hoc group wrapper/job-spec derivation changed group index and job id but failed to update expected_receipt.schema from GROUP06 to GROUP07.",
+  "scientific_validation": {
+    "attempt_1": {
+      "exit_code": 0,
+      "worker_receipt_file_sha256": "1a38351c1003c71e4451a10b50e5e3a6a0e43cb97e2005c704d93886ab3b1544",
+      "group_worker_receipt_file_sha256": "136e6d9eae99e6c04633b49af7b94d9a0100947e928761552d0c1b9fd7e2927b",
+      "artifact_rehash": "PASS_5_OF_5"
+    },
+    "attempt_2": {
+      "exit_code": 0,
+      "worker_receipt_file_sha256": "cacefb85f49f7da0ca4755a46a0ae45906c5f0de48b73f82701e44e34ea74e87",
+      "group_worker_receipt_file_sha256": "2a2a490be5412ae542aaafac14e6094389536f365c37eaabfe7fd56772719cc9"
+    },
+    "duplicate_determinism": {
+      "same_processed_signal_configs": true,
+      "same_distinct_mask_class_count": true,
+      "same_duplicate_config_count": true,
+      "same_zero_event_class_alias_count": true,
+      "same_class_root_sha256": true,
+      "same_semantic_class_root_sha256": true,
+      "same_full_alias_mapping_root_sha256": true,
+      "same_group_config_root_sha256": true,
+      "same_structural_group_key": true,
+      "same_metrics": true,
+      "same_four_scientific_artifact_hashes": true,
+      "receipt_bytes_differ_only_due_runtime_specific_receipt_fields": true
+    }
+  },
+  "correction": {
+    "binding_policy": {
+      "path": "governance/QROS_GROUP_RUNTIME_BINDING_POLICY_v1.0.json",
+      "git_blob_sha1": "c3371d4099c4dae624cf6a672814582ebd795a32"
+    },
+    "binding_guard": {
+      "path": "scripts/qros_group_runtime_binding_guard_v1.py",
+      "git_blob_sha1": "9ec73412251dfcc1a967a8982e37273078b1c88e"
+    },
+    "tests": {
+      "path": "scripts/qros_group_runtime_binding_guard_tests_v1.py",
+      "git_blob_sha1": "42343b9e3bc46119b13f6d8521c0d1d37e86b6c5",
+      "status": "PASS",
+      "count": 10
+    }
+  },
+  "decision": "INVALIDATE_SUPERVISOR_FALSE_NEGATIVE_ONLY; ACCEPT_GROUP07_SCIENTIFIC_OUTPUT_FROM_ATTEMPT_1_AFTER_INDEPENDENT_REHASH_AND_DUPLICATE_DETERMINISM_PARITY; DO_NOT_COUNT_ATTEMPT_2_AS_ADDITIONAL_HYPOTHESIS",
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
