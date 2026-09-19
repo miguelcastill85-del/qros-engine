@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_CWS_GROUP11_EPOCH3_CUTOVER_AUTHORIZATION_1.0",
+  "date": "2026-09-19",
+  "status": "AUTHORIZED_MIGRATION_CUTOVER",
+  "job_id": "W09C_XAUUSD_BUY_M1_GROUP11_20260919_v1",
+  "group_index": 11,
+  "old_lease_id": "bfdd814d87bd4d5aa9b0af885c1cf4a4",
+  "old_lease_epoch": 2,
+  "old_fence_token": "592c2aeace87a056851ae374b5f78530c83b506d3031fe13dc59937fc15521d8",
+  "old_owner_runtime_id": "linux:6aef733c-2ea3-47e2-853d-9f9758020509",
+  "old_epoch_promotion_revoked": true,
+  "scientific_unit_same": true,
+  "new_epoch": 3,
+  "reason": "CWS_REAL_CONTROL_PLANE_SOAK_EXPIRED_EPOCH2_TO_GITHUB_RUNNER",
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "new_ga1_authorized": false,
+  "first_gate_execution_authorized": false,
+  "group12_opened": false
+}\n
