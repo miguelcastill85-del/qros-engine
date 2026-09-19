@@ -1,7 +1,7 @@
 {
-  "schema": "QROS_CWS_LAYER_COMPLETION_PENDING_1.2",
+  "schema": "QROS_CWS_LAYER_COMPLETION_PENDING_1.3",
   "date": "2026-09-19",
-  "status": "CONTROL_PLANE_SHADOW_ACTIVE_SOAK_PENDING",
+  "status": "REAL_CONTROL_PLANE_SOAK_STEP1_PASS_STEP2_PENDING",
   "layer": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
   "completed": {
     "core_external_validation": "PASS",
@@ -11,10 +11,11 @@
     "w09c_branch_shadow": "PASS",
     "control_plane_activation_guard": "PASS",
     "main_w09c_shadow_revalidation": "PASS",
-    "chat_non_blocking_handoff_gate": "PASS_ACTIVE"
+    "chat_non_blocking_handoff_gate": "PASS_ACTIVE",
+    "real_non_economic_control_plane_soak_step1": "PASS"
   },
   "pending": {
-    "real_non_economic_control_plane_soak": "PENDING"
+    "real_non_economic_control_plane_soak_step2": "FETCH_ARTIFACT_AND_VERIFY_PENDING"
   },
   "activation_state": {
     "cws_active": true,
@@ -23,5 +24,5 @@
     "scientific_effects_allowed": false,
     "economic_effects_allowed": false
   },
-  "next_automatic_action": "EXECUTE CWS/DEK REAL NON-ECONOMIC CONTROL-PLANE SOAK. CHAT MUST HAND OFF AFTER ONE BOUNDED EFFECT/ADOPTION; CWS OWNS CONTINUATION. STOP AT SCIENTIFIC/ECONOMIC BOUNDARY."
+  "next_automatic_action": "CWS CONTROL-PLANE: FETCH ARTIFACT qros-runtime-source-package FROM RUN 35467656777 ONCE; VERIFY MANIFEST + EXACT GIT BLOBS; PERSIST SOURCE_PACKAGE_PASS; EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION."
 }

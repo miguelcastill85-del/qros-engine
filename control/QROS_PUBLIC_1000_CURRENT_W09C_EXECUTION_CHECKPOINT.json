@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.26",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.27",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -412,10 +412,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "DEK_V3_GROUP11_RUNTIME_SOURCE_EXPORT_RUNNING_ADOPTABLE",
-  "root_cause": "LOCAL RUNTIME HAS EXACT DEV/M1/INDICATORS BUT NOT FROZEN SCIENTIFIC SOURCE FILES; LOCAL GITHUB NETWORK IS UNAVAILABLE. A REUSABLE GITHUB ACTION NOW EXPORTS THE EXACT REPOSITORY BYTES AS A DOWNLOADABLE ARTIFACT.",
+  "problem": "DEK_V3_GROUP11_RUNTIME_SOURCE_EXPORT_SUCCESS_ARTIFACT_FETCH_PENDING",
+  "root_cause": "RESOLVED_SOURCE_EXPORT_RUN_SUCCESS; NEXT BOUNDED CONTROL-PLANE STEP IS ARTIFACT FETCH_AND_VERIFY.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "DEK_V3_ACTIVE: QUERY WORKFLOW RUN 35467656777 ONCE. IF SUCCESS, FETCH ARTIFACT qros-runtime-source-package, MATERIALIZE LOCALLY, VERIFY MANIFEST + EXACT GIT BLOBS, THEN PERSIST SOURCE_PACKAGE_PASS AND EXIT. IF RUNNING, PRESERVE RUNNING_ADOPTABLE AND EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
+  "next_automatic_action": "CWS CONTROL-PLANE: FETCH ARTIFACT qros-runtime-source-package FROM RUN 35467656777 ONCE; VERIFY MANIFEST + EXACT GIT BLOBS; PERSIST SOURCE_PACKAGE_PASS; EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -506,35 +506,19 @@
     "M1_STAGE_RUNNING_ADOPTABLE_PID737",
     "MANUAL_BASE64_SOURCE_RECONSTRUCTION_REJECTED_ON_BLOB_MISMATCH",
     "REUSABLE_GITHUB_ACTION_RUNTIME_SOURCE_EXPORT_CREATED",
-    "SOURCE_EXPORT_RUN_35467656777_RUNNING_ADOPTABLE_NO_POLL"
+    "SOURCE_EXPORT_RUN_35467656777_RUNNING_ADOPTABLE_NO_POLL",
+    "CWS_REAL_SOAK_STEP1_QUERY_ONCE_HANDOFF_PASS"
   ],
   "last_execution_block": {
-    "status": "RUNNING_ADOPTABLE",
-    "external_effects_this_transition": 1,
-    "group11": {
-      "current_epoch": 2,
-      "terminal_receipt_present": false,
-      "launch_started_epoch2": false,
-      "dev": {
-        "status": "PASS_EXACT",
-        "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
-      },
-      "m1": {
-        "status": "PASS_EXACT",
-        "bars": 681772,
-        "content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4"
-      },
-      "indicators_m1": {
-        "status": "PASS_EXACT",
-        "bars": 681772,
-        "content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c"
-      },
-      "runtime_source_export": {
-        "run_id": 35467656777,
-        "status": "RUNNING_ADOPTABLE",
-        "poll_count_this_transition": 1
-      }
+    "status": "PASS_CONTROL_PLANE_STEP1_HANDOFF",
+    "external_effects_this_transition": 0,
+    "workflow_query": {
+      "run_id": 35467656777,
+      "status": "completed",
+      "conclusion": "success"
     },
+    "chat_non_blocking_handoff": true,
+    "next_step_executed": false,
     "group12_opened": false,
     "economic_pnl_read": false,
     "holdout_open": false,

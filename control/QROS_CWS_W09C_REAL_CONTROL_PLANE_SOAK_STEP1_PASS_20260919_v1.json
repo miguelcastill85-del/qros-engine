@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_CWS_W09C_REAL_CONTROL_PLANE_SOAK_STEP1_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "mode": "REAL_NON_ECONOMIC_CONTROL_PLANE",
+  "authority_before": {
+    "main": "73c0a1c125793ea5961455da47274e6474f3d4a4",
+    "checkpoint_blob": "6dcbad16b2f871d2c9f4c59a644327a187a3027c",
+    "frontier_blob": "01dee712122b1b5a2b9724a541e77cc25b56cb40"
+  },
+  "action": "QUERY_WORKFLOW_RUN_ONCE",
+  "workflow_run": {
+    "id": 35467656777,
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "dbfbab475c7ae2563623be06ce486c58f61e7b60",
+    "run_attempt": 1,
+    "event": "push"
+  },
+  "chat_non_blocking_gate": {
+    "repeated_polling": false,
+    "relaunch": false,
+    "effects_started": 0,
+    "authority_advanced_to_next_step": true,
+    "next_step_executed_in_same_turn": false
+  },
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "next_action": "CWS CONTROL-PLANE: FETCH ARTIFACT qros-runtime-source-package FROM RUN 35467656777 ONCE; VERIFY MANIFEST + EXACT GIT BLOBS; PERSIST SOURCE_PACKAGE_PASS; EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION."
+}

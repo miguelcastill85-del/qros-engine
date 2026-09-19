@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.9",
+  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.10",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "current_version": "V255",
   "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json",
@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "DEK_V3_ACTIVE: QUERY WORKFLOW RUN 35467656777 ONCE. IF SUCCESS, FETCH ARTIFACT qros-runtime-source-package, MATERIALIZE LOCALLY, VERIFY MANIFEST + EXACT GIT BLOBS, THEN PERSIST SOURCE_PACKAGE_PASS AND EXIT. IF RUNNING, PRESERVE RUNNING_ADOPTABLE AND EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
+  "next_action": "CWS CONTROL-PLANE: FETCH ARTIFACT qros-runtime-source-package FROM RUN 35467656777 ONCE; VERIFY MANIFEST + EXACT GIT BLOBS; PERSIST SOURCE_PACKAGE_PASS; EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
   "resume_contract": "V255 remains the stable scientific frontier. DEK v3 is the frozen active control-plane authority. Each invocation is one durable authority bundle -> local deterministic transition -> at most one idempotent external effect -> one durable commit bundle -> exit. Chat/runtime never owns continuity.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "6dcbad16b2f871d2c9f4c59a644327a187a3027c",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.26"
+      "git_blob_sha1": "2091545b45e9e6e2e738609799b1a489759fb10f",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.27"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_EXECUTION_CAPSULE_20260919_v1.json",
@@ -208,7 +208,7 @@
       "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
       "status": "RUNNING_ADOPTABLE"
     },
-    "execution_state": "DEK_V3_GROUP11_RUNTIME_SOURCE_EXPORT_RUNNING_ADOPTABLE",
+    "execution_state": "CWS_CONTROL_PLANE_SHADOW_ACTIVE_SOURCE_ARTIFACT_FETCH_PENDING",
     "group09_infrastructure_blocker": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
       "git_blob_sha1": "3713ecff5724f7b298d4e4cda4f50ebb60936dbe",
@@ -391,6 +391,13 @@
     "operational_reference_reconciliation": {
       "path": "control/QROS_OPERATIONAL_POINTER_RECONCILIATION_20260919_v1.json",
       "git_blob_sha1": "8a74945680e1e2a9836d536197ccdeebb4eb5917"
+    },
+    "cws_control_plane_soak": {
+      "status": "STEP1_PASS",
+      "receipt_path": "control/QROS_CWS_W09C_REAL_CONTROL_PLANE_SOAK_STEP1_PASS_20260919_v1.json",
+      "run_id": 35467656777,
+      "next": "FETCH_ARTIFACT_AND_VERIFY",
+      "receipt_git_blob_sha1": "5fae5e68962c2ea02253ae87eb5290c2617d963c"
     }
   },
   "closed_w09c_bindings": {
