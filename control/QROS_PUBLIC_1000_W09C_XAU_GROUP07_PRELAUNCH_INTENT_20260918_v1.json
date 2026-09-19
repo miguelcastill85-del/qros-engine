@@ -1,0 +1,49 @@
+{
+  "schema": "QROS_NO_FREEZE_PRELAUNCH_INTENT_1.0",
+  "date": "2026-09-18",
+  "status": "PRECOMMITTED_PENDING_LAUNCH",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 7
+  },
+  "authority": {
+    "checkpoint_blob_sha1": "9e9ac2f91405972ddc969d491fc4bdcc5a2ca830",
+    "capsule_path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_EXECUTION_CAPSULE_20260918_v1.json",
+    "capsule_blob_sha1": "afec4154384284cc6e7f52e42cf6f9e7db1aa846",
+    "previous_group_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_SEMANTIC_RECEIPT_20260918_v1.json",
+      "git_blob_sha1": "e885294e39f4e38b050e4beb66c3166ef22b0295",
+      "status": "PASS"
+    },
+    "no_freeze_policy": {
+      "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+      "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e"
+    }
+  },
+  "runtime_binding": {
+    "wrapper_path": "/mnt/data/qros_group03_runtime/run_group07_wrapper.py",
+    "wrapper_sha256": "d6ad5b3de725f377036a227f0b8f4e4f080f23fd6ddc1d6226209a9a7ac3bc8a",
+    "job_spec_path": "/mnt/data/qros_group03_runtime/job_spec_group07.json",
+    "job_spec_file_sha256": "1e049a56c3ebe09bb5f877ba335291abcbc11f47d6def2589d98cacf3a580bf8",
+    "job_spec_semantic_sha256": "86a466224759d85c8f8d2294428e5d34e628539438185a62509da7f347b345b8",
+    "work_root": "/mnt/data/qros_group03_runtime/jobs_group07",
+    "supervisor_path": "/mnt/data/qros_group03_runtime/supervisor_full/qros_heavy_job_supervisor_v2.py",
+    "max_control_call_seconds": 5
+  },
+  "gates": {
+    "wrapper_old_group_reference_absent": true,
+    "group07_capsule_pin_verified": true,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "next_state_required": [
+    "PASS",
+    "RUNNING_ADOPTABLE",
+    "FAIL_CLOSED"
+  ]
+}
