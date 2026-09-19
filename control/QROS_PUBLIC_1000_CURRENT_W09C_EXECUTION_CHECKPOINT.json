@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.21",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.22",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -387,10 +387,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "DEK_V3_GROUP11_EPOCH2_DEV_MATERIALIZATION_PASS",
-  "root_cause": "NONE_OPEN FOR DEV: USER-UPLOADED XAU ZIP PART001-PART008 WERE VERIFIED 8/8 AND FROZEN MATERIALIZER REPRODUCED THE EXACT DEV TARGET.",
+  "problem": "DEK_V3_GROUP11_EPOCH2_M1_BUILD_RUNNING_ADOPTABLE",
+  "root_cause": "NONE_OPEN: EXACT DEV REBUILT FROM USER-UPLOADED 8/8 SOURCE ZIPS; FROZEN M1 BUILDER LAUNCHED AS A SINGLE NONBLOCKING LOCAL EFFECT.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "DEK_V3_ACTIVE: BUILD/VERIFY ONLY THE M1 BAR CACHE FROM THE EXACT DEV USING THE FROZEN BAR-CACHE BUILDER; EXPECT bars=681772 AND content_sha256=55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4; PERSIST; EXIT. DO NOT BUILD INDICATORS OR LAUNCH GROUP11 IN SAME INVOCATION.",
+  "next_automatic_action": "DEK_V3_ACTIVE: ADOPT/STATUS ONLY THE EXISTING M1 STAGE PROCESS PID 737 ON BOOT 996e4f03-a6b5-4464-8a8e-d8dc7171201b; IF TERMINAL PASS REQUIRE bars=681772 AND content_sha256=55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4, THEN PERSIST M1 PASS AND EXIT. IF RUNNING, PRESERVE RUNNING_ADOPTABLE AND EXIT. NEVER RELAUNCH THIS ATTEMPT.",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -475,27 +475,36 @@
     "GROUP11_ALL_8_SOURCE_ZIPS_EXACT_READY",
     "USER_UPLOADED_XAU_SOURCE_ZIPS_VERIFIED_8_OF_8",
     "FROZEN_DEV_MATERIALIZER_BYTE_IDENTITY_PASS",
-    "XAU_DEV_EXACT_SHA256_PASS"
+    "XAU_DEV_EXACT_SHA256_PASS",
+    "BAR_BUILDER_LOCAL_COPY_REPAIRED_TO_EXACT_GIT_BLOB_BEFORE_EXECUTION",
+    "STREAMING_EXEC_ROUTE_CIRCUIT_BROKEN_TO_NONBLOCKING_NOHUP",
+    "M1_STAGE_RUNNING_ADOPTABLE_PID737"
   ],
   "last_execution_block": {
-    "status": "DEK_V3_SINGLE_EFFECT_PASS_DEV_MATERIALIZATION",
+    "status": "RUNNING_ADOPTABLE",
     "external_effects_this_transition": 1,
     "group11": {
       "current_epoch": 2,
       "terminal_receipt_present": false,
       "launch_started_epoch2": false,
-      "source_zips": {
-        "count": 8,
-        "status": "PASS_8_OF_8_SHA256"
-      },
       "dev": {
-        "status": "PASS",
+        "status": "PASS_EXACT",
         "records": 151382388,
         "bytes": 2573500596,
-        "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
-        "receipt_sha256": "6366625666aabd17e0f96c732abc6f83143129d5dae6989c4096acfc0a3cdaa9",
+        "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
+      },
+      "m1_stage": {
+        "status": "RUNNING_ADOPTABLE",
+        "pid": 737,
+        "boot_id": "996e4f03-a6b5-4464-8a8e-d8dc7171201b",
+        "proc_start_ticks": 216780,
+        "expected_bars": 681772,
+        "expected_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
         "materializer_git_blob_sha1": "b543c8585258b21a007af84a53a944bba58678e6",
-        "manifest_git_blob_sha1": "622f21a62c532daaa824eafb202cf00a1c2b1a5d"
+        "manifest_git_blob_sha1": "622f21a62c532daaa824eafb202cf00a1c2b1a5d",
+        "bar_builder_git_blob_sha1": "987ef26aca2507a94247bed7663493e6682aa869",
+        "controller_prelaunch_failure": "STREAMING_EXEC_UNSUPPORTED_THEN_MISSING_RUNNER_FILE; NO SCIENTIFIC WORKER STARTED",
+        "relaunch_forbidden": true
       }
     },
     "group12_opened": false,
