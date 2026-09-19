@@ -5,8 +5,8 @@ from typing import Optional, FrozenSet
 import hashlib, json, re
 
 SPEC_SCHEMA="QROS_CWS_TASK_SPEC_1.0"
-STATE_SCHEMA="QROS_CWS_STATE_1.0"
-PROOF_SCHEMA="QROS_CWS_PROGRESS_PROOF_1.0"
+STATE_SCHEMA="QROS_CWS_STATE_1.1"
+PROOF_SCHEMA="QROS_CWS_PROGRESS_PROOF_1.1"
 CERT_SCHEMA="QROS_CWS_COMPLETION_CERT_1.0"
 
 META_ACTIONS={
@@ -46,6 +46,7 @@ class State:
     pending_effect_id:Optional[str]=None
     open_segment_id:Optional[str]=None
     open_segment_epoch:int=0
+    open_segment_effect_id:Optional[str]=None
     last_progress_seq:int=-1
     last_progress_window:int=-1
     no_progress_streak:int=0
@@ -109,6 +110,10 @@ def validate_state(spec:TaskSpec,s:State):
         raise ValueError("COUNTER")
     if s.phase=="COMPLETE" and not hex64(s.terminal_root):
         raise ValueError("COMPLETE_WITHOUT_ROOT")
+    if (s.open_segment_id is None)!=(s.open_segment_effect_id is None):
+        raise ValueError("SEGMENT_EFFECT_BINDING")
+    if s.pending_effect_id is not None and s.open_segment_effect_id is not None:
+        raise ValueError("PENDING_AND_OPEN_EFFECT")
 
 def initial_state(spec:TaskSpec):
     validate_spec(spec)
@@ -126,25 +131,28 @@ def effect_id(spec:TaskSpec,s:State):
         "seq":s.seq,"state_hash":state_hash(s)
     })
 
-def make_progress_proof(spec:TaskSpec,segment_id:str,segment_epoch:int,progress_seq:int,durable_root:str):
+def make_progress_proof(spec:TaskSpec,segment_id:str,segment_epoch:int,progress_seq:int,durable_root:str,effect_id_value:str):
+    if not hex64(effect_id_value): raise ValueError("EFFECT_ID")
     body={
         "schema":PROOF_SCHEMA,"task_spec_hash":spec_hash(spec),
         "segment_id":segment_id,"segment_epoch":segment_epoch,
-        "progress_seq":progress_seq,"durable_root":durable_root
+        "progress_seq":progress_seq,"durable_root":durable_root,"effect_id":effect_id_value
     }
     return {**body,"proof_hash":hobj(body)}
 
 def valid_progress_proof(spec:TaskSpec,s:State,p):
     if not isinstance(p,dict): return False
-    keys={"schema","task_spec_hash","segment_id","segment_epoch","progress_seq","durable_root","proof_hash"}
+    keys={"schema","task_spec_hash","segment_id","segment_epoch","progress_seq","durable_root","effect_id","proof_hash"}
     if set(p)!=keys: return False
     if p["schema"]!=PROOF_SCHEMA or p["task_spec_hash"]!=spec_hash(spec): return False
     if not isinstance(p["segment_id"],str) or not p["segment_id"]: return False
     if not isinstance(p["segment_epoch"],int) or p["segment_epoch"]<0: return False
     if not isinstance(p["progress_seq"],int) or p["progress_seq"]<=s.last_progress_seq: return False
-    if not hex64(p["durable_root"]): return False
-    body={k:p[k] for k in ("schema","task_spec_hash","segment_id","segment_epoch","progress_seq","durable_root")}
+    if not hex64(p["durable_root"]) or not hex64(p["effect_id"]): return False
+    body={k:p[k] for k in ("schema","task_spec_hash","segment_id","segment_epoch","progress_seq","durable_root","effect_id")}
     if hobj(body)!=p["proof_hash"]: return False
+    if s.pending_effect_id is not None and p["effect_id"]!=s.pending_effect_id: return False
+    if s.open_segment_effect_id is not None and p["effect_id"]!=s.open_segment_effect_id: return False
     if s.open_segment_id is not None:
         if (p["segment_id"],p["segment_epoch"])!=(s.open_segment_id,s.open_segment_epoch): return False
     return True
@@ -168,7 +176,7 @@ def compile_step(spec:TaskSpec,s:State,o:Observation):
     )
     if changed_objective:
         return dec(s,"PREEMPT","OBJECTIVE_CHANGED",phase="PREEMPTED",
-                   pending_effect_id=None,open_segment_id=None,blocked_reason=None)
+                   pending_effect_id=None,open_segment_id=None,open_segment_effect_id=None,blocked_reason=None)
 
     if s.phase=="BLOCKED":
         if s.blocked_reason=="AUTHORITY" and o.authority_ok:
@@ -195,7 +203,7 @@ def compile_step(spec:TaskSpec,s:State,o:Observation):
         if not hex64(o.dek_terminal_root) or o.dek_terminal_task_spec_hash!=s.task_spec_hash:
             return dec(s,"IGNORE_STALE","UNBOUND_DEK_TERMINAL",advance=False)
         return dec(s,"COMPLETE","TASK_TERMINAL",phase="COMPLETE",
-                   terminal_root=o.dek_terminal_root,pending_effect_id=None,open_segment_id=None,
+                   terminal_root=o.dek_terminal_root,pending_effect_id=None,open_segment_id=None,open_segment_effect_id=None,
                    no_progress_streak=0,blocked_reason=None)
 
     if o.progress_proof is not None:
@@ -205,8 +213,8 @@ def compile_step(spec:TaskSpec,s:State,o:Observation):
         win=max(s.last_progress_window,o.progress_window if o.progress_window is not None else s.last_progress_window)
         return dec(s,"RECORD_PROGRESS","DURABLE_PROGRESS",
                    last_progress_seq=p["progress_seq"],last_progress_window=win,
-                   no_progress_streak=0,progress_count=s.progress_count+1,
-                   open_segment_id=p["segment_id"],open_segment_epoch=p["segment_epoch"])
+                   no_progress_streak=0,progress_count=s.progress_count+1,pending_effect_id=None,
+                   open_segment_id=p["segment_id"],open_segment_epoch=p["segment_epoch"],open_segment_effect_id=p["effect_id"])
 
     new_window=(o.progress_window is not None and o.progress_window==s.last_progress_window+1)
 
@@ -214,9 +222,11 @@ def compile_step(spec:TaskSpec,s:State,o:Observation):
         if o.effect_ack_id is not None:
             if o.effect_ack_id!=s.pending_effect_id:
                 return dec(s,"IGNORE_STALE","ACK_MISMATCH",advance=False)
+            if not isinstance(o.segment_id,str) or not o.segment_id or not isinstance(o.segment_epoch,int) or o.segment_epoch<0:
+                return dec(s,"IGNORE_STALE","ACK_WITHOUT_SEGMENT_IDENTITY",advance=False)
+            origin_effect=s.pending_effect_id
             return dec(s,"WAIT","ACK_ACCEPTED",pending_effect_id=None,
-                       open_segment_id=o.segment_id or s.open_segment_id,
-                       open_segment_epoch=o.segment_epoch if o.segment_epoch is not None else s.open_segment_epoch,
+                       open_segment_id=o.segment_id,open_segment_epoch=o.segment_epoch,open_segment_effect_id=origin_effect,
                        no_progress_streak=0,
                        last_progress_window=max(s.last_progress_window,o.progress_window if o.progress_window is not None else s.last_progress_window))
         if not new_window:
@@ -237,7 +247,7 @@ def compile_step(spec:TaskSpec,s:State,o:Observation):
             if o.segment_terminal=="PASS":
                 eid=effect_id(spec,s)
                 return dec(s,"INVOKE_DEK","SEGMENT_PASS_REDUCE",external=True,eid=eid,
-                           open_segment_id=None,pending_effect_id=eid,no_progress_streak=0)
+                           open_segment_id=None,open_segment_effect_id=None,pending_effect_id=eid,no_progress_streak=0)
         if not new_window:
             return dec(s,"WAIT","OPEN_SEGMENT_SAME_WINDOW",advance=False)
         streak=s.no_progress_streak+1
