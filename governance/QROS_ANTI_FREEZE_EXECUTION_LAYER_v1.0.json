@@ -1,0 +1,114 @@
+{
+  "schema": "QROS_ANTI_FREEZE_EXECUTION_LAYER_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE_MANDATORY",
+  "name": "QROS Anti-Freeze Execution Layer",
+  "objective": "Guarantee bounded control-plane liveness: every execution block must produce verified progress, switch to a preregistered equivalent route, or persist a resumable safe state. Indefinite waiting/polling is forbidden.",
+  "non_guarantee": "This layer cannot make unavailable infrastructure exist; it guarantees bounded non-stalling control flow, not guaranteed scientific success.",
+  "root_cause": {
+    "prior_architecture": "Point protections existed for exactly-once, call budgets, runtime fencing, manifest-first recovery and turn commit, but no single controller owned global progress and route abandonment.",
+    "observed_failures": [
+      "blocking synchronous heavy work",
+      "runtime/boot migration while a unit is active",
+      "repeated recovery discovery despite exact identifiers",
+      "local runtime network denial for GitHub",
+      "connector safety rejection on oversized/redundant control payloads",
+      "CAS conflicts",
+      "repeated status checks with no evidence delta",
+      "fragmented policies allowing control-plane work to consume the turn"
+    ]
+  },
+  "liveness_contract": {
+    "checkpoint_call": 6,
+    "hard_cap_calls": 8,
+    "first_no_evidence_delta": "ONE_RECHECK_ALLOWED",
+    "second_consecutive_no_evidence_delta": "CIRCUIT_BREAKER_ROUTE_SWITCH",
+    "same_failed_route_reuse_in_same_block": false,
+    "repair_patches_per_root_cause_per_block": 1,
+    "heavy_work_sync": false,
+    "heavy_work_launch": "NONBLOCKING_WITH_DURABLE_CLAIM",
+    "deliberate_sleep": false,
+    "polling_loop": false,
+    "broad_search_when_exact_locator_exists": false,
+    "local_network_dependency_for_repo_blobs": false,
+    "max_expensive_units_open": 1,
+    "artifact_first_resumption": true,
+    "durable_close_required": true
+  },
+  "progress_fingerprint": [
+    "authority_blob",
+    "checkpoint_blob",
+    "unit_id",
+    "unit_state",
+    "attempt",
+    "lease_epoch",
+    "artifact_root",
+    "next_action"
+  ],
+  "evidence_delta_rule": "A control action is useful only if it changes the progress fingerprint, proves a new capability fact, creates a durable claim/receipt, or produces a durable root-cause certificate.",
+  "route_priority": [
+    "TERMINAL_RECEIPT_OR_EXACT_OUTPUTS",
+    "CURRENT_RUNTIME_CLAIM_STATUS_ONCE",
+    "FENCED_RUNTIME_CUTOVER_FOR_NON_ECONOMIC_FOREIGN_CLAIM",
+    "DIRECT_MANIFEST_LOCATOR_MATERIALIZATION",
+    "EXACT_GITHUB_CONNECTOR_BLOB_FETCH",
+    "NONBLOCKING_EXACTLY_ONCE_LAUNCH",
+    "DURABLE_BLOCKED_BY_INFRASTRUCTURE"
+  ],
+  "circuit_breakers": {
+    "no_evidence_delta_repeat": 2,
+    "route_failure_with_alternative": "SWITCH_IMMEDIATELY",
+    "local_git_network_denied": "USE_GITHUB_CONNECTOR_EXACT_BLOB_FETCH",
+    "connector_safety_block": "MINIMIZE_TO_REFERENCES_AND_HASHES_THEN_RETRY_ONCE",
+    "cas_conflict": "REFRESH_AND_RECONCILE_ONCE_NO_OVERWRITE",
+    "partial_output": "QUARANTINE_AND_VALIDATE_OR_REMATERIALIZE_SAME_UNIT",
+    "foreign_runtime": "NO_LOCAL_PID_INFERENCE; FENCED_CUTOVER_ONLY_WHEN_ALLOWED",
+    "call_budget": "CHECKPOINT_HAS_PRIORITY_OVER_OTHER_DIAGNOSTICS"
+  },
+  "anti_overengineering": {
+    "no_build_while_current_route_is_runnable": true,
+    "one_validated_repair_per_same_root_cause": true,
+    "repeated_repair_without_new_evidence_forbidden": true,
+    "new_control_plane_component_requires_fault_reproduction_and_regression_test": true
+  },
+  "scientific_firewall": {
+    "scientific_semantics_changed": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "implementation": {
+    "path": "scripts/qros_anti_freeze_kernel_v1.py",
+    "git_blob_sha1": "3cae4d58cc39bef10540da3cdd0011748d67879d",
+    "sha256": "23a76b860c6721068e2bd5e7d1e389dec8e04f9be04e99130702ffb119046939"
+  },
+  "exhaustive_tests": {
+    "path": "scripts/qros_anti_freeze_kernel_tests_v1.py",
+    "git_blob_sha1": "6fb3e7ac37401815ef7237469a42a80913410c4b",
+    "sha256": "9e0ad6fde6899dedad85f7fb7db098586a7020edd61526dd11be16d5b7959676",
+    "named_cases": 22,
+    "exhaustive_states": 65536,
+    "total_assertion_states": 65558,
+    "result": "PASS"
+  },
+  "chaos_tests": {
+    "path": "scripts/qros_anti_freeze_chaos_tests_v1.py",
+    "git_blob_sha1": "57b856a5e4950a9722e4d05c43f0a49df7774aa4",
+    "sha256": "4e7a227baa3081ab6c30c5d74715dcbff8432c6fb1907cb933b9e45479f251c3",
+    "scenarios": 12,
+    "transitions": 30,
+    "result": "PASS"
+  },
+  "composes": [
+    "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+    "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+    "governance/QROS_TURN_COMMIT_NONSTALL_POLICY_v1.0.json",
+    "governance/QROS_EXTERNAL_CALL_BUDGET_NONSTALL_POLICY_v2.0.json",
+    "governance/QROS_MANIFEST_FIRST_NONSTALL_RECOVERY_POLICY_v1.0.json",
+    "governance/QROS_CROSS_RUNTIME_ACTIVE_CLAIM_POLICY_v1.1.json",
+    "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v2.0.json"
+  ],
+  "precedence": "AFEL controls global progress/route choice; component policies remain authoritative for their local safety contracts."
+}
