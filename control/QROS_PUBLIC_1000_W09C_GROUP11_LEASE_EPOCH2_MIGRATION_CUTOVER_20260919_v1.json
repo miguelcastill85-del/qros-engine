@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_GROUP11_FENCED_LEASE_MIGRATION_CUTOVER_1.0",
+  "date": "2026-09-19",
+  "status": "AUTHORIZED_MIGRATION_CUTOVER",
+  "group_index": 11,
+  "job_id": "W09C_XAUUSD_BUY_M1_GROUP11_20260919_v1",
+  "old_lease_id": "21040ac057364b3aaf7a4bef33ad4b67",
+  "old_lease_epoch": 1,
+  "old_fence_token": "75ed9953169a4d063eeb14f69b7a80936b9a659cf895b04be63c29a4b2ad5ff7",
+  "old_owner_runtime_id": "linux:12a54489-1877-43f8-88f0-923c8973b198",
+  "new_owner_runtime_id": "linux:6aef733c-2ea3-47e2-853d-9f9758020509",
+  "old_epoch_promotion_revoked": true,
+  "scientific_unit_same": true,
+  "new_epoch": 2,
+  "old_epoch_started": true,
+  "terminal_receipt_absent_at_cutover": true,
+  "reason": "AUTHORIZED_RUNTIME_MIGRATION_WITHOUT_DEATH_CLAIM",
+  "authority": {
+    "checkpoint": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
+      "git_blob_sha1": "a499e8adf09eb850af3ccc9e446a311938463896"
+    },
+    "fenced_policy": {
+      "path": "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v2.0.json",
+      "git_blob_sha1": "c1eb772f0768e81be75fdeff38580b80e2d07935"
+    },
+    "running_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_RUNNING_ADOPTABLE_20260919_v1.json",
+      "git_blob_sha1": "a196c59859a99efd2fa67f4addc3e812a45ee197"
+    },
+    "capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "ec56e9cae15a640002e96c61fad2b691b5bb2b92"
+    }
+  },
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false
+  }
+}
