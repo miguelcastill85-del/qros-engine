@@ -1,0 +1,58 @@
+name: qros-cws-control-plane-activation-guard-v1
+
+on:
+  push:
+    branches:
+      - cws-w09c-shadow-v1-20260919
+    paths:
+      - 'scripts/qros_cws_control_plane_activation_guard_v1.py'
+      - 'scripts/qros_cws_control_plane_activation_guard_tests_v1.py'
+      - 'governance/QROS_CWS_CONTROL_PLANE_ACTIVATION_SPEC_v1.0.json'
+      - '.github/workflows/qros-cws-control-plane-activation-guard-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Exact pins
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object scripts/qros_cws_control_plane_activation_guard_v1.py)" = "33bb378ce8116c11ad139cc695caf4b991e07f49"
+          test "$(git hash-object scripts/qros_cws_control_plane_activation_guard_tests_v1.py)" = "61b34f0d6aacbb5cbd92b5e7f3194bf887c5d621"
+          python3 - <<'PY'
+          import json
+          s=json.load(open('governance/QROS_CWS_CONTROL_PLANE_ACTIVATION_SPEC_v1.0.json'))
+          assert s['status']=='PREREGISTERED_NO_RESULTS'
+          assert s['current_authorization']=='NOT_ACTIVE'
+          assert s['activation_scope']=='CONTROL_PLANE_ONLY'
+          assert s['scientific_effect']=='NONE'
+          print('ACTIVATION_SPEC=PASS')
+          PY
+      - name: Compile
+        run: |
+          python3 -m py_compile scripts/qros_cws_control_plane_activation_guard_v1.py
+          python3 -m py_compile scripts/qros_cws_control_plane_activation_guard_tests_v1.py
+      - name: Adversarial activation guard
+        working-directory: scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 qros_cws_control_plane_activation_guard_tests_v1.py | tee ../activation_guard_validation.json
+      - name: Assert adversarial PASS
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          j=json.load(open('activation_guard_validation.json'))
+          assert j['status']=='PASS'
+          assert j['adversarial_cases']==100000
+          assert j['unsafe_eligible']==0
+          print('CONTROL_PLANE_ACTIVATION_GUARD=PASS')
+          PY
