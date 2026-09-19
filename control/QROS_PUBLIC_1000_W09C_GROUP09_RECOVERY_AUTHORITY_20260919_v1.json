@@ -1,7 +1,7 @@
 {
   "schema": "QROS_PUBLIC1000_W09C_GROUP09_RECOVERY_AUTHORITY_1.0",
   "date": "2026-09-19",
-  "status": "RECOVERY_EPOCH_AUTHORIZED_NOT_STARTED",
+  "status": "RECOVERY_EPOCH_RUNNING_ADOPTABLE",
   "group_index": 9,
   "scientific_capsule": {
     "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
@@ -45,5 +45,10 @@
     "new_epoch": 2,
     "scientific_unit_same": true,
     "old_epoch_promotion_revoked": true
+  },
+  "running_receipt": {
+    "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RECOVERY_EPOCH2_RUNNING_ADOPTABLE_20260919_v1.json",
+    "git_blob_sha1": "9db9a5cab156dc75e2211ba5baf6609f6e1e22d4",
+    "status": "RUNNING_ADOPTABLE"
   }
 }
