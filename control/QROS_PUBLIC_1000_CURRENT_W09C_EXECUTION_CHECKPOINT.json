@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.5",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.6",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -62,23 +62,24 @@
   },
   "semantic_progress": {
     "groups_total": 24,
-    "groups_durably_closed": 5,
+    "groups_durably_closed": 6,
     "closed_indices": [
       0,
       1,
       2,
       3,
-      4
+      4,
+      5
     ],
-    "processed_signal_configs_durable": 167640,
+    "processed_signal_configs_durable": 201168,
     "last_receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP04_SEMANTIC_RECEIPT_20260918_v1.json",
-      "git_blob_sha1": "a437635eba59207c170e07c3bc248c61642ad40b"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP05_SEMANTIC_RECEIPT_20260918_v1.json",
+      "git_blob_sha1": "b207b66c202bcb4cc97f4505ba9bb4417f7d917a"
     },
-    "next_group_index": 5,
+    "next_group_index": 6,
     "next_capsule": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP05_EXECUTION_CAPSULE_20260918_v1.json",
-      "git_blob_sha1": "85f4bb10ff7fa38a36a228f59c02cc724f4902c2"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_EXECUTION_CAPSULE_20260918_v1.json",
+      "git_blob_sha1": "b62a0443b227e238237b010e14789767b41edae9"
     },
     "global_targets": {
       "processed_signal_configs": 804672,
@@ -89,7 +90,7 @@
     }
   },
   "pending": {
-    "semantic_mask_root_rematerialization": "IN_PROGRESS_5_OF_24_DURABLY_CLOSED",
+    "semantic_mask_root_rematerialization": "IN_PROGRESS_6_OF_24_DURABLY_CLOSED",
     "production_normalized_input_bundle": "NOT_MATERIALIZED",
     "production_real_trade_by_trade_parity": "NOT_EXECUTED",
     "compatible_economic_transition": "NOT_AUTHORIZED",
@@ -131,7 +132,7 @@
   "problem": "NONE_CURRENT",
   "root_cause": "N/A",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "START_NEW_BOUNDED_BLOCK; EXECUTE_GROUP05_ONLY_THROUGH_SUPERVISOR_V2_USING_VERIFIED_CACHES; PERSIST_RECEIPT_BEFORE_GROUP06",
+  "next_automatic_action": "START_NEW_BOUNDED_BLOCK; EXECUTE_GROUP06_ONLY_THROUGH_SUPERVISOR_V2_USING_VERIFIED_CACHES; PERSIST_RECEIPT_BEFORE_GROUP07",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -166,10 +167,10 @@
     "REQUIRE_CONTROLLER_SMOKE_LIFECYCLE_BEFORE_GROUP03"
   ],
   "last_execution_block": {
-    "status": "PASS_GROUP04_DURABLY_CLOSED",
+    "status": "PASS_GROUP05_DURABLY_CLOSED",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP04_SEMANTIC_RECEIPT_20260918_v1.json",
-      "git_blob_sha1": "a437635eba59207c170e07c3bc248c61642ad40b"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP05_SEMANTIC_RECEIPT_20260918_v1.json",
+      "git_blob_sha1": "b207b66c202bcb4cc97f4505ba9bb4417f7d917a"
     },
     "attempt": 1,
     "retry_count": 0,
