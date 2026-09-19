@@ -1,0 +1,101 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_SEMANTIC_GROUP_RECEIPT_1.0",
+  "date": "2026-09-18",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "PASS",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070",
+    "structural_group_index": 4
+  },
+  "authority": {
+    "execution_capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP04_EXECUTION_CAPSULE_20260918_v1.json",
+      "git_blob_sha1": "ce9b3d1859cd5527cee6d2f2baa9790f4c1b53f9"
+    },
+    "previous_group_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP03_SEMANTIC_RECEIPT_20260916_v1.json",
+      "git_blob_sha1": "7db8d2e566199e0ec6c13206c1301bfcfd5c232c",
+      "status": "PASS"
+    },
+    "heavy_execution_policy": {
+      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+      "git_blob_sha1": "74e4d884a7018825ed67f0218f82f1d3fd543db3"
+    }
+  },
+  "execution": {
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP04_20260918_v1",
+    "job_spec_sha256": "6a108c7c5f39882163cdaf033e199fb7e9eecb79a9dbfa4b8e95a03674b390fc",
+    "attempt": 1,
+    "retry_count": 0,
+    "supervisor_terminal_action": "PROMOTE_ATOMIC_DONE",
+    "worker_receipt_sha256": "02c91973e9322a2e24211e9ccbebb6bb79118f774c74a05dd418594ce39ec8c2",
+    "group_worker_receipt_file_sha256": "a1bce613557948edde9ffcb6e22468b151201aa5ede1b35e922437b1d10e7d20",
+    "supervisor_receipt_sha256": "3cd3e92e0722e7a7f23886b0a30bd7eaa6d03c4e339ced4a14b67ca8ae429ad3"
+  },
+  "result": {
+    "processed_signal_configs": 33528,
+    "distinct_mask_class_count": 10049,
+    "duplicate_config_count": 23479,
+    "zero_event_class_alias_count": 927,
+    "zero_event_representative_config_id": "003eaef18612d416b5106d4741c97c61ce88caace3e52d8f535bfcfafd3d8fb6",
+    "class_root_sha256": "446e883bad996d64b653cc62ae0fb706ad1a8e0afbc71ec60de5c4a1dac72b50",
+    "semantic_class_root_sha256": "fceec9ec937eba879ebe776f0bbfee3d307519daadaef6e192a1429141e82330",
+    "full_alias_mapping_root_sha256": "22f8f3f146631c151a63bb0640818a8baa4a0c362057502a7d11b1e6fb7a289e",
+    "ordered_config_id_stream_root_sha256": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3",
+    "group_config_root_sha256": "cd95d13c64d912eb77ee6732c56e87792c32a91ac73b67e58a5c6f98159c1ce0",
+    "structural_group_key": [
+      13,
+      "SOURCE_ASYMMETRIC",
+      "CLOSE_BREAK"
+    ],
+    "metrics": {
+      "base_transform_rearm_evaluations": 84,
+      "candidate_union_total": 283211,
+      "local_gate_groups_total": 5852,
+      "structural_trigger_groups": 1,
+      "transform_carriers": 28
+    },
+    "artifact_rehash": "PASS_4_OF_4",
+    "artifacts": [
+      {
+        "path": "mask_classes.delta_u32.bin",
+        "bytes": 85278684,
+        "sha256": "2de65a0e0b3f9168142c4ea795785547a2083c46db764537fe8223b3f247da9e"
+      },
+      {
+        "path": "mask_class_index.jsonl",
+        "bytes": 3422889,
+        "sha256": "672d916c9e6a80439876d2e8746f307dedb5c68a914966d15ff90694f36c422e"
+      },
+      {
+        "path": "duplicate_alias_pairs.bin",
+        "bytes": 1502656,
+        "sha256": "730cfbdb24e43760ab72cfa9b503f0e6c77bf6d0f10d1a9f0ebdd5edf3bf90c6"
+      },
+      {
+        "path": "full_alias_mapping.bin",
+        "bytes": 2145792,
+        "sha256": "22f8f3f146631c151a63bb0640818a8baa4a0c362057502a7d11b1e6fb7a289e"
+      }
+    ]
+  },
+  "preconditions_reverified": {
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "bar_M1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_M1_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+    "capsule_source_pins": "PASS_EXACT",
+    "shard_descriptor_sha256": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+  },
+  "gates": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "GROUP04_DURABLY_CLOSED_PASS; AUTHORIZE_NON_ECONOMIC_GROUP05_CAPSULE_ONLY"
+}
