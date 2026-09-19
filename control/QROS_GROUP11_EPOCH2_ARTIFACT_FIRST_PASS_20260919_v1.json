@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_GROUP11_EPOCH2_ARTIFACT_FIRST_RECOVERY_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_ARTIFACTS_READY_LAUNCHER_ROUTE_SWITCH",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "group_index": 11,
+  "lease": {
+    "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json",
+    "git_blob_sha1": "14851cd5a547c239288228f08d80f0684ff72ae3",
+    "lease_epoch": 2
+  },
+  "artifact_first": {
+    "carrier_rebuild_receipt_sha256": "ad1fbb46d68c1ed6e7ae295e0c9e8ed306996a4f72fe23e6006fe429a539af25",
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "bar_M1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_M1_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+    "carrier_status": "PASS",
+    "economic_pnl_read": false,
+    "holdout_open": false
+  },
+  "frozen_scientific_blobs": {
+    "exact_git_blob_identity": "PASS_6_OF_6",
+    "spec": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "config_stream": "a01268bd8bab639977b22c419926d94306754bba",
+    "structural": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "gate_engine": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+    "carrier_masks": "0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25",
+    "group_worker": "ec8d143e284727b1bd98a0dd10e9c349a62f2cd8"
+  },
+  "wrapper": {
+    "git_blob_sha1": "ede3977fb4fc27939d52fba4af54ef936782b0d4",
+    "sha256": "f8c1001e1abbfe100a1b1146a151502803397bf432b5a4ab46d720398af2f850",
+    "status": "PASS_EXACT_LOCAL"
+  },
+  "failed_route": {
+    "route": "MANUAL_MATERIALIZATION_OF_LARGE_SUPERVISOR_V1_FROM_CONNECTOR_TEXT",
+    "expected_sha256": "170c1d6b010c23abbe6ebd2349b64516ca1ee0758c1f22e99889da85121bc41d",
+    "observed_sha256": "8d2894b5be1640934e002043ca6c48f8c1cd7e6a7bc3d5439744747586ac880e",
+    "action": "QUARANTINED_NOT_EXECUTED",
+    "reuse_same_block": false
+  },
+  "route_switch": {
+    "next_route": "BUILD_AND_VALIDATE_MINIMAL_AFEL_SINGLE_ATTEMPT_LAUNCHER_BOUND_TO_EXISTING_WRAPPER_AND_EPOCH2_LEASE",
+    "constraints": [
+      "NO_RETRY",
+      "NO_ECONOMIC_PNL",
+      "NO_HOLDOUT",
+      "EXACT_ARTIFACT_REHASH_BEFORE_PROMOTION",
+      "DURABLE_CLAIM_BEFORE_SPAWN",
+      "SAME_RUNTIME_PID_BIRTH_IDENTITY"
+    ]
+  },
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY"
+}
