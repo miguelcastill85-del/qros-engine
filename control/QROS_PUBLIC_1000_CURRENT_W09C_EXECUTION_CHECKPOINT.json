@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.9",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.0",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -69,8 +69,8 @@
       "status": "PASS_12_OF_12"
     },
     "no_freeze_running_receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_RUNNING_ADOPTABLE_20260919_v1.json",
-      "git_blob_sha1": "0465dfb1ec5035811c9cab45cff7d168ce755b2c",
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RUNNING_ADOPTABLE_20260919_v1.json",
+      "git_blob_sha1": "18699c9611c363a60ff4f5acbf0b8253dde15a76",
       "status": "RUNNING_ADOPTABLE"
     },
     "group_runtime_binding_policy": {
@@ -167,10 +167,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_CURRENT",
+  "problem": "NONE_CURRENT_NO_FREEZE_BARRIER_ACTIVE",
   "root_cause": "Group07 supervisor false-negative corrected; mandatory group runtime binding guard prevents recurrence.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "GROUP09_PRECOMMITTED_BINDING_PASS: INIT_NO_FREEZE_BARRIER; LAUNCH_OR_ADOPT <=5S; IMMEDIATELY_PERSIST RETURNED STATE",
+  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP09 <=5S; IF PASS VALIDATE_ARTIFACTS_AND_PERSIST GROUP09; IF RUNNING KEEP RUNNING_ADOPTABLE; DO NOT_POLL_OR_RELAUNCH",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -215,13 +215,16 @@
     "DUPLICATE_ATTEMPT_NOT_COUNTED_AS_HYPOTHESIS"
   ],
   "last_execution_block": {
-    "status": "PRECOMMITTED_PENDING_LAUNCH",
+    "status": "RUNNING_ADOPTABLE",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_PRELAUNCH_INTENT_20260919_v1.json",
-      "git_blob_sha1": "81b7d3b5b85a3fa8687acfb95c95a495ab618cfb"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RUNNING_ADOPTABLE_20260919_v1.json",
+      "git_blob_sha1": "18699c9611c363a60ff4f5acbf0b8253dde15a76"
     },
-    "group09_launched": false,
-    "expensive_unit_open": false,
+    "group09_launched": true,
+    "attempt": 1,
+    "expensive_unit_open": true,
+    "orphan_worker": false,
+    "control_elapsed_seconds": 0.616901,
     "runtime_binding_gate": "PASS"
   }
 }
