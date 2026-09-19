@@ -1,0 +1,26 @@
+{
+  "schema": "QROS_CWS_REAL_CONTROL_PLANE_SOAK_FINAL_GOVERNANCE_1.0",
+  "date": "2026-09-19",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "purpose": "Final real non-economic CWS validation: real fenced epoch cutover on main, automatic second-run adoption, durable GROUP11 intent, and safe stop before spawn when exact carriers are absent on the GitHub runner.",
+  "invariants": [
+    "EPOCH2_EXPIRED_MUST_NOT_BE_USED_FOR_SPAWN",
+    "EPOCH3_CREATED_BY_ACTUAL_RUNNER_ID",
+    "OLD_EPOCH_PROMOTION_REVOKED",
+    "NEW_EPOCH=OLD+1",
+    "CAS_ON_EXPECTED_OLD_LEASE_BLOB",
+    "CUTOVER_COMMITTED_BEFORE_SELF_DISPATCH",
+    "SECOND_RUN_ADOPTS_DURABLE_EPOCH3",
+    "GROUP11_INTENT_COMMITTED_WITHOUT_SPAWN",
+    "MANUAL_INTERVENTIONS=0",
+    "GROUP12_CLOSED",
+    "ECONOMIC_PNL_CLOSED",
+    "HOLDOUT_CLOSED",
+    "GA2_CLOSED",
+    "NEW_GA1_CLOSED"
+  ],
+  "target_old_lease_blob": "14851cd5a547c239288228f08d80f0684ff72ae3",
+  "source_package_receipt_blob": "b0b479c22261dc9fc0136ae7f795ca6d60170813",
+  "activation_after_pass": "CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE",
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY"
+}\n
