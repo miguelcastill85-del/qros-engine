@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.6",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.7",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -52,6 +52,11 @@
       "path": "control/QROS_TRANSVERSAL_AUDIT_HARDENING_PASS_20260918_v1.json",
       "git_blob_sha1": "bc5d2c372d4b547c5bb9d733d3b3ecf811606314",
       "status": "PASS_WITH_CONTROL_PLANE_CORRECTIONS"
+    },
+    "turn_commit_nonstall_policy": {
+      "path": "governance/QROS_TURN_COMMIT_NONSTALL_POLICY_v1.0.json",
+      "git_blob_sha1": "8fbf62e62c76d521fd33a330cada7152b4f553dc",
+      "status": "ACTIVE_MANDATORY"
     }
   },
   "data": {
@@ -129,10 +134,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_CURRENT",
-  "root_cause": "N/A",
+  "problem": "USER_VISIBLE_TURN_FREEZE_AFTER_ANNOUNCED_BUT_UNSTARTED_GROUP06",
+  "root_cause": "Turn boundary occurred after announcing the next block but before group06 launch. Existing anti-stall protected scientific state but did not transactionally bind user-visible execution claims to durable launch state.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "START_NEW_BOUNDED_BLOCK; EXECUTE_GROUP06_ONLY_THROUGH_SUPERVISOR_V2_USING_VERIFIED_CACHES; PERSIST_RECEIPT_BEFORE_GROUP07",
+  "next_automatic_action": "PENDING_NEXT_ACTION_NOT_STARTED: VERIFY_GROUP06_CAPSULE_PINS; LAUNCH_GROUP06_ONCE THROUGH SUPERVISOR_V2; BEFORE ANY TURN END PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -164,16 +169,19 @@
     "CURRENT_BINDING_CONSOLIDATION",
     "BAN_TRANSVERSAL_PATCH_STUB_DIRECTORY_FROM_REAL_EXECUTION",
     "REQUIRE_RUNTIME_SUPERVISOR_SOURCE_IDENTITY_GATE",
-    "REQUIRE_CONTROLLER_SMOKE_LIFECYCLE_BEFORE_GROUP03"
+    "REQUIRE_CONTROLLER_SMOKE_LIFECYCLE_BEFORE_GROUP03",
+    "TURN_COMMIT_BARRIER_V1",
+    "NO_EXECUTION_CLAIM_WITHOUT_EVIDENCE",
+    "UNSTARTED_ACTION_LABEL_PENDING_ONLY"
   ],
   "last_execution_block": {
-    "status": "PASS_GROUP05_DURABLY_CLOSED",
+    "status": "PENDING_NEXT_ACTION_NOT_STARTED",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP05_SEMANTIC_RECEIPT_20260918_v1.json",
-      "git_blob_sha1": "b207b66c202bcb4cc97f4505ba9bb4417f7d917a"
+      "path": "control/QROS_USER_VISIBLE_FREEZE_CORRECTION_PASS_20260918_v1.json",
+      "git_blob_sha1": "99acc3bc0edbc0f4893439dcbc98657dd8266cac"
     },
-    "attempt": 1,
-    "retry_count": 0,
-    "expensive_unit_open": false
+    "group06_launched": false,
+    "expensive_unit_open": false,
+    "orphan_worker": false
   }
 }
