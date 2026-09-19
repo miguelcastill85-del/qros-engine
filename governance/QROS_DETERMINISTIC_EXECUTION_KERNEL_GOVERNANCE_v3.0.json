@@ -12,7 +12,7 @@
     "governance/QROS_EXTERNAL_CALL_BUDGET_NONSTALL_POLICY_v2.0.json"
   ],
   "architecture": "RECURSIVE_TRANSACTIONAL_STATE_MACHINE",
-  "purpose": "Replace chat/runtime-centric continuation with a deterministic recursive transition machine. Every invocation reads durable state, compiles exactly one idempotent transition, persists intent before any external effect, and exits at effect/checkpoint boundaries.",
+  "purpose": "Replace chat/runtime-centric continuation with a deterministic recursive transition machine plus a generic idempotent single-effect executor. Every invocation reads durable state, compiles exactly one transition, persists intent before any external effect, executes at most one effect, persists receipt/claim, and exits.",
   "authority_model": {
     "chat_runtime_role": "EPHEMERAL_EXECUTOR_ONLY",
     "memory_authoritative": false,
@@ -34,6 +34,7 @@
     "synchronous_heavy_work": false,
     "broad_search_when_exact_route_exists": false,
     "blind_relaunch": false,
+    "group_specific_continuity_launcher_forbidden": true,
     "second_no_evidence_delta": "SWITCH_ROUTE_OR_CHECKPOINT_EXIT",
     "foreign_runtime_non_economic": "FENCED_CUTOVER",
     "foreign_runtime_economic": "FAIL_CLOSED",
@@ -63,25 +64,50 @@
       "path": "scripts/qros_recursive_progress_chaos_v1.py",
       "git_blob_sha1": "bb3fd6774cfd13b67278d760ad2f8281b6fdce57",
       "sha256": "4cafd1ad6cc34aca36e75c0f34313fcba95169c69bc6878f836475a374de9900"
+    },
+    "effect_executor": {
+      "path": "scripts/qros_recursive_effect_executor_v1.py",
+      "git_blob_sha1": "0f6cb0ba5da03577b8b043192d0ac5e9752fb9fa",
+      "sha256": "7f293599ab6332be0ca45606a755563cbe881cc7195564c4130d4b47b52f4f23"
+    },
+    "effect_executor_tests": {
+      "path": "scripts/qros_recursive_effect_executor_tests_v1.py",
+      "git_blob_sha1": "17da410426b7335266750d9fd812beab5aa3525d",
+      "sha256": "356c25d3e3975689b4544ee5be176f18b598fe4c0c7d38b33ccf0cc9636580bf"
     }
   },
   "local_validation": {
-    "named_cases": 22,
-    "exhaustive_states": 393216,
-    "total_assertion_states": 393238,
-    "chaos_episodes": 10000,
-    "chaos_max_steps": 40,
-    "simulated_crashes": 17770,
-    "external_effects": 23820,
-    "terminal_episodes": 8252,
-    "result": "PASS",
-    "forbidden_actions_observed": []
+    "reducer": {
+      "named_cases": 22,
+      "exhaustive_states": 393216,
+      "total_assertion_states": 393238,
+      "result": "PASS",
+      "forbidden_actions_observed": []
+    },
+    "chaos": {
+      "episodes": 10000,
+      "max_steps": 40,
+      "simulated_crashes": 17770,
+      "external_effects": 23820,
+      "terminal_episodes": 8252,
+      "result": "PASS"
+    },
+    "effect_executor": {
+      "lifecycle": 1,
+      "duplicate_invocation": 1,
+      "crash_resume": 1,
+      "tamper_detection": 1,
+      "path_traversal_rejection": 1,
+      "result": "PASS"
+    },
+    "note": "Executor test timeout was widened only in the laboratory test harness because the local Python environment performs unrelated startup warmup; production executor contains no wait/poll loop."
   },
   "external_validation": {
     "workflow": ".github/workflows/qros-recursive-progress-kernel-v1.yml",
     "required_before_activation": true,
     "exact_blob_pins_required": true,
-    "clean_runner_required": true
+    "clean_runner_required": true,
+    "executor_tests_required": true
   },
   "scientific_firewall": {
     "scientific_semantics_changed": false,

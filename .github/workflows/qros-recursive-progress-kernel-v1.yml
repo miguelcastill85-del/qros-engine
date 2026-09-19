@@ -7,6 +7,8 @@ on:
       - 'scripts/qros_recursive_progress_kernel_v1.py'
       - 'scripts/qros_recursive_progress_kernel_tests_v1.py'
       - 'scripts/qros_recursive_progress_chaos_v1.py'
+      - 'scripts/qros_recursive_effect_executor_v1.py'
+      - 'scripts/qros_recursive_effect_executor_tests_v1.py'
       - 'governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json'
       - '.github/workflows/qros-recursive-progress-kernel-v1.yml'
   workflow_dispatch:
@@ -31,7 +33,7 @@ jobs:
           import hashlib,json,pathlib
           g=json.load(open('governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json'))
           assert g['status']=='CANDIDATE_VALIDATION'
-          for key in ('kernel','exhaustive_tests','chaos_tests'):
+          for key in ('kernel','exhaustive_tests','chaos_tests','effect_executor','effect_executor_tests'):
               n=g['implementation'][key]
               p=pathlib.Path(n['path'])
               b=p.read_bytes()
@@ -47,6 +49,8 @@ jobs:
           python3 -m py_compile scripts/qros_recursive_progress_kernel_v1.py
           python3 -m py_compile scripts/qros_recursive_progress_kernel_tests_v1.py
           python3 -m py_compile scripts/qros_recursive_progress_chaos_v1.py
+          python3 -m py_compile scripts/qros_recursive_effect_executor_v1.py
+          python3 -m py_compile scripts/qros_recursive_effect_executor_tests_v1.py
 
       - name: Exhaustive state validation
         working-directory: scripts
@@ -55,6 +59,10 @@ jobs:
       - name: Chaos crash-resume validation
         working-directory: scripts
         run: python3 qros_recursive_progress_chaos_v1.py
+
+      - name: Generic one-effect executor validation
+        working-directory: scripts
+        run: python3 qros_recursive_effect_executor_tests_v1.py
 
       - name: Machine-readable PASS
         run: |
@@ -66,8 +74,10 @@ jobs:
             'exact_pins':True,
             'exhaustive_states':393216,
             'chaos_episodes':10000,
+            'effect_executor':'PASS',
             'polling_loops':False,
             'sync_heavy':False,
-            'one_external_effect_per_invocation':True
+            'one_external_effect_per_invocation':True,
+            'group_specific_continuity_launcher_forbidden':True
           },sort_keys=True,separators=(',',':')))
           PY
