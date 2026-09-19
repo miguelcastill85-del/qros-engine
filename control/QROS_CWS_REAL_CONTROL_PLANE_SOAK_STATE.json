@@ -1,8 +1,12 @@
 {
-  "schema": "QROS_CWS_REAL_CONTROL_PLANE_SOAK_STATE_1.0",
-  "status": "PREREGISTERED_STAGE0",
-  "stage": 0,
-  "old_lease_blob": "14851cd5a547c239288228f08d80f0684ff72ae3",
   "expected_new_epoch": 3,
-  "manual_interventions": 0
+  "fence_token": "c45c34c8a432143046e961ad4c75cecf64c3254f9792f4d034554f917b3b63c2",
+  "lease_epoch": 3,
+  "lease_id": "3ded70f116e6442aabc4b0284b836c36",
+  "manual_interventions": 0,
+  "old_lease_blob": "14851cd5a547c239288228f08d80f0684ff72ae3",
+  "schema": "QROS_CWS_REAL_CONTROL_PLANE_SOAK_STATE_1.0",
+  "stage": 1,
+  "stage0_run_id": "35476612542",
+  "status": "STAGE1_CUTOVER_COMMITTED"
 }

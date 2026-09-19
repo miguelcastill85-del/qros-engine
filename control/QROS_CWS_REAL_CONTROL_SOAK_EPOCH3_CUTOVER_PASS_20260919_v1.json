@@ -1,0 +1,20 @@
+{
+  "economic_pnl_read": false,
+  "expires_at": "2026-09-20T01:37:25.312251Z",
+  "fence_token": "c45c34c8a432143046e961ad4c75cecf64c3254f9792f4d034554f917b3b63c2",
+  "first_gate_execution_authorized": false,
+  "ga2_open": false,
+  "group12_opened": false,
+  "group_index": 11,
+  "holdout_open": false,
+  "issued_at": "2026-09-19T23:37:25.312251Z",
+  "job_id": "W09C_XAUUSD_BUY_M1_GROUP11_20260919_v1",
+  "new_ga1_authorized": false,
+  "new_lease_epoch": 3,
+  "new_lease_id": "3ded70f116e6442aabc4b0284b836c36",
+  "old_lease_epoch": 2,
+  "old_lease_id": "bfdd814d87bd4d5aa9b0af885c1cf4a4",
+  "owner_runtime_id": "github-actions:35476612542:1:stage0",
+  "schema": "QROS_CWS_REAL_CONTROL_SOAK_CUTOVER_PASS_1.0",
+  "status": "PASS"
+}

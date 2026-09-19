@@ -1,26 +1,18 @@
 {
-  "schema": "QROS_FENCED_RUNTIME_LEASE_2.0",
-  "job_id": "W09C_XAUUSD_BUY_M1_GROUP11_20260919_v1",
+  "expires_at": "2026-09-20T01:37:25.312251Z",
+  "fence_token": "c45c34c8a432143046e961ad4c75cecf64c3254f9792f4d034554f917b3b63c2",
   "group_index": 11,
-  "lease_epoch": 2,
-  "lease_id": "bfdd814d87bd4d5aa9b0af885c1cf4a4",
-  "owner_runtime_id": "linux:6aef733c-2ea3-47e2-853d-9f9758020509",
-  "issued_at": "2026-09-19T14:28:33Z",
-  "expires_at": "2026-09-19T16:28:33Z",
+  "issued_at": "2026-09-19T23:37:25.312251Z",
+  "job_id": "W09C_XAUUSD_BUY_M1_GROUP11_20260919_v1",
+  "lease_epoch": 3,
+  "lease_id": "3ded70f116e6442aabc4b0284b836c36",
+  "owner_runtime_id": "github-actions:35476612542:1:stage0",
+  "schema": "QROS_FENCED_RUNTIME_LEASE_2.0",
   "state": "ACTIVE",
-  "fence_token": "592c2aeace87a056851ae374b5f78530c83b506d3031fe13dc59937fc15521d8",
   "supersedes": {
-    "lease_id": "21040ac057364b3aaf7a4bef33ad4b67",
-    "lease_epoch": 1,
-    "fence_token": "75ed9953169a4d063eeb14f69b7a80936b9a659cf895b04be63c29a4b2ad5ff7",
+    "fence_token": "592c2aeace87a056851ae374b5f78530c83b506d3031fe13dc59937fc15521d8",
+    "lease_epoch": 2,
+    "lease_id": "bfdd814d87bd4d5aa9b0af885c1cf4a4",
     "reason": "MIGRATION_FENCED_NO_DEATH_CLAIM"
-  },
-  "policy": {
-    "path": "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v2.0.json",
-    "git_blob_sha1": "c1eb772f0768e81be75fdeff38580b80e2d07935"
-  },
-  "migration_cutover": {
-    "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_LEASE_EPOCH2_MIGRATION_CUTOVER_20260919_v1.json",
-    "git_blob_sha1": "b60eb3701dc699e5b51779099567cc9fa8b6ecc8"
   }
 }
