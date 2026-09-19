@@ -1,0 +1,86 @@
+{
+  "schema": "QROS_ANTI_FREEZE_EXECUTION_LAYER_VALIDATION_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "objective": "Validate and activate a global anti-freeze controller that bounds control-plane liveness without changing frozen scientific semantics.",
+  "authority": {
+    "policy": {
+      "path": "governance/QROS_ANTI_FREEZE_EXECUTION_LAYER_v1.0.json",
+      "git_blob_sha1": "294feb32e8cbbe7dd0ac8c21ad25e25c63d3859f",
+      "status": "ACTIVE_MANDATORY"
+    },
+    "failure_route_ledger": {
+      "path": "control/QROS_ANTI_FREEZE_FAILURE_ROUTE_LEDGER_20260919_v1.json",
+      "git_blob_sha1": "6a6bf53199f32bdb796589611857249f02ffdd31",
+      "status": "ACTIVE"
+    },
+    "kernel": {
+      "path": "scripts/qros_anti_freeze_kernel_v1.py",
+      "git_blob_sha1": "3cae4d58cc39bef10540da3cdd0011748d67879d",
+      "sha256": "23a76b860c6721068e2bd5e7d1e389dec8e04f9be04e99130702ffb119046939"
+    },
+    "exhaustive_tests": {
+      "path": "scripts/qros_anti_freeze_kernel_tests_v1.py",
+      "git_blob_sha1": "6fb3e7ac37401815ef7237469a42a80913410c4b",
+      "sha256": "9e0ad6fde6899dedad85f7fb7db098586a7020edd61526dd11be16d5b7959676"
+    },
+    "chaos_tests": {
+      "path": "scripts/qros_anti_freeze_chaos_tests_v1.py",
+      "git_blob_sha1": "57b856a5e4950a9722e4d05c43f0a49df7774aa4",
+      "sha256": "4e7a227baa3081ab6c30c5d74715dcbff8432c6fb1907cb933b9e45479f251c3"
+    }
+  },
+  "byte_identity": {
+    "exact_git_blob_identity": "PASS_3_OF_3",
+    "physically_executed_same_bytes": true
+  },
+  "adversarial_validation": {
+    "named_cases": 22,
+    "exhaustive_states": 65536,
+    "total_assertion_states": 65558,
+    "result": "PASS",
+    "forbidden_actions_observed": [],
+    "chaos_scenarios": 12,
+    "chaos_transitions": 30,
+    "chaos_result": "PASS"
+  },
+  "discovered_pre_activation_defect": {
+    "status": "FOUND_AND_CORRECTED_BEFORE_ACTIVATION",
+    "defect": "When authority drift and call-budget exhaustion coincided, authority diagnosis originally outranked the budget checkpoint barrier.",
+    "risk": "Turn could close without the mandatory transactional checkpoint.",
+    "correction": "Budget checkpoint barrier now has absolute precedence.",
+    "regression_result": "PASS_65558_PLUS_CHAOS_12"
+  },
+  "proven_properties": [
+    "No modeled state emits WAIT, SLEEP, POLL_LOOP, SYNC_HEAVY, RELAUNCH_BLIND, or BROAD_SEARCH.",
+    "At call 6 the checkpoint barrier has absolute precedence.",
+    "A second consecutive no-evidence-delta observation forces circuit-breaker route switch.",
+    "Exact existing outputs are validated before any rerun.",
+    "Foreign-runtime non-economic work uses fenced cutover; economic work fails closed.",
+    "Known carriers use direct locators before discovery.",
+    "Local GitHub network denial switches to exact GitHub connector blob fetch.",
+    "Connector safety rejection uses one minimal reference-only retry.",
+    "CAS conflict refreshes authority before any write.",
+    "Partial outputs are quarantined and never counted as scientific results.",
+    "Only one expensive unit may be open."
+  ],
+  "limits": [
+    "The layer guarantees bounded non-stalling control flow, not availability of missing external infrastructure.",
+    "The exhaustive test covers the modeled control-state space; OS/tool implementations remain additionally governed by existing exactly-once, lease, manifest-first and no-freeze policies."
+  ],
+  "current_scientific_unit": {
+    "group": 11,
+    "state_before_activation": "GROUP11_EPOCH2_CARRIER_REBUILD_RUNNING_ADOPTABLE",
+    "changed_by_activation": false,
+    "group12_opened": false
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "PASS_ACTIVATE_AFEL_V1_AS_GLOBAL_CONTROL_PLANE_PRECEDENCE_LAYER"
+}
