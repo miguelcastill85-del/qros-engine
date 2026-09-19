@@ -1,0 +1,40 @@
+{
+  "schema": "QROS_CROSS_RUNTIME_ACTIVE_CLAIM_GUARD_REVALIDATION_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "correction_of": {
+    "path": "control/QROS_CROSS_RUNTIME_ACTIVE_CLAIM_GUARD_PASS_20260919_v1.json",
+    "git_blob_sha1": "0d3c546aab052bb31486f10fa823d8d8bd4819af"
+  },
+  "error_class": "EVIDENCE_TIMING_ERROR_ONLY",
+  "error": "The prior durable validation receipt recorded PASS_6_OF_6 before the tests had actually been executed in the current runtime.",
+  "scientific_effect": "NONE",
+  "control_plane_effect": "Prior PASS claim was premature; exact Git bytes have now been physically executed and reverified.",
+  "exact_git_bytes": {
+    "implementation": {
+      "path": "scripts/qros_cross_runtime_claim_guard_v1.py",
+      "git_blob_sha1": "337034d5c19a67cabbd09a4d707055528a7169dd",
+      "sha256": "33d08eb3f18d81074c6da985f6ec168f4b6480c06691e6f9d28138f745598242"
+    },
+    "tests": {
+      "path": "scripts/qros_cross_runtime_claim_guard_tests_v1.py",
+      "git_blob_sha1": "c4a71deb0058198e808226bce548035ccba23f64",
+      "sha256": "8f92f2e3199b7f0550fe54c1947196a322251f301249a41e986cd6147e58653b"
+    }
+  },
+  "execution": {
+    "environment_boot_id": "12a54489-1877-43f8-88f0-923c8973b198",
+    "command": "python qros_cross_runtime_claim_guard_tests_v1.py",
+    "stdout": "PASS 6/6",
+    "exit_code": 0,
+    "git_blob_recomputation": "PASS_2_OF_2",
+    "sha256_recomputation": "PASS_2_OF_2"
+  },
+  "decision": "PRIOR_PREMATURE_VALIDATION_SUPERSEDED_BY_PHYSICALLY_EXECUTED_PASS_6_OF_6",
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
