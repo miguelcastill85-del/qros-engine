@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.8",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.9",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -157,7 +157,7 @@
   "problem": "FREEZE_ROOT_CAUSE_CORRECTED_BY_NONBLOCKING_CONTROL_BARRIER",
   "root_cause": "Chat orchestration could still block while observing a heavy worker. No-freeze v1 makes the control plane nonblocking and identity-bound.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "PENDING_GROUP06_NOT_STARTED: PRECOMMIT_GROUP06_INTENT_DURABLY; INIT_NO_FREEZE_BARRIER; LAUNCH_OR_ADOPT_WITH_5S_HARD_TIMEOUT; IMMEDIATELY_PERSIST_PASS/RUNNING_ADOPTABLE/FAIL_CLOSED; NO_SLEEP_OR_BLOCKING_POLL",
+  "next_automatic_action": "GROUP06_PRECOMMITTED: INIT_NO_FREEZE_BARRIER_AND_LAUNCH_OR_ADOPT_WITH_5S_HARD_TIMEOUT; IMMEDIATELY_PERSIST_RETURNED_STATE",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -199,13 +199,12 @@
     "RUNNING_REQUIRES_DURABLE_CLAIM"
   ],
   "last_execution_block": {
-    "status": "PENDING_NOT_STARTED",
+    "status": "PRECOMMITTED_PENDING_LAUNCH",
     "receipt": {
-      "path": "control/QROS_NO_FREEZE_BARRIER_GATE_PASS_20260918_v1.json",
-      "git_blob_sha1": "7c2f0d5e363d222d957c18ccc33c11378833eb90"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_PRELAUNCH_INTENT_20260918_v1.json",
+      "git_blob_sha1": "e197da93eb0ca700c029e8f366d40346691883a5"
     },
     "group06_launched": false,
-    "expensive_unit_open": false,
-    "orphan_worker": false
+    "expensive_unit_open": false
   }
 }
