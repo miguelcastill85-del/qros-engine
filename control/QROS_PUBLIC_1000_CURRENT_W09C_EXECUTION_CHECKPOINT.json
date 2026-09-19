@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.5",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.6",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -169,7 +169,7 @@
   "problem": "NONE_CURRENT",
   "root_cause": "Group07 supervisor false-negative corrected; mandatory group runtime binding guard prevents recurrence.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "PENDING_GROUP08_NOT_STARTED: BUILD_WRAPPER_AND_JOB_SPEC; REQUIRE GROUP_RUNTIME_BINDING_GUARD_PASS; PRECOMMIT; LAUNCH_OR_ADOPT <=5S; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED",
+  "next_automatic_action": "GROUP08_PRECOMMITTED_BINDING_PASS: INIT_NO_FREEZE_BARRIER; LAUNCH_OR_ADOPT <=5S; IMMEDIATELY_PERSIST RETURNED STATE",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -214,13 +214,13 @@
     "DUPLICATE_ATTEMPT_NOT_COUNTED_AS_HYPOTHESIS"
   ],
   "last_execution_block": {
-    "status": "PASS_GROUP07_DURABLY_CLOSED_AFTER_CONTROL_PLANE_CORRECTION",
+    "status": "PRECOMMITTED_PENDING_LAUNCH",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_SEMANTIC_RECEIPT_20260919_v1.json",
-      "git_blob_sha1": "b7abcd59f40b18274aa3c8eb0b04f0ce4daf393e"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_PRELAUNCH_INTENT_20260919_v1.json",
+      "git_blob_sha1": "b9c5e85ead1b88d8dbe4cb6d873cf1ca60bf75dd"
     },
-    "authoritative_attempt": 1,
-    "diagnostic_duplicate_attempt": 2,
-    "expensive_unit_open": false
+    "group08_launched": false,
+    "expensive_unit_open": false,
+    "runtime_binding_gate": "PASS"
   }
 }
