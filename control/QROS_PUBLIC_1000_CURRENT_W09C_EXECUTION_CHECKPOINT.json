@@ -77,6 +77,11 @@
       "path": "governance/QROS_GROUP_RUNTIME_BINDING_POLICY_v1.0.json",
       "git_blob_sha1": "c3371d4099c4dae624cf6a672814582ebd795a32",
       "status": "ACTIVE_MANDATORY"
+    },
+    "cross_chat_runtime_reconciliation": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_CROSS_CHAT_RUNTIME_RECONCILIATION_20260919_v1.json",
+      "git_blob_sha1": "1545eee77e6850e99673394ee5e43396ff46c293",
+      "status": "RUNNING_ADOPTABLE_NO_RELAUNCH"
     }
   },
   "data": {
@@ -167,10 +172,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_CURRENT_NO_FREEZE_BARRIER_ACTIVE",
-  "root_cause": "Group07 supervisor false-negative corrected; mandatory group runtime binding guard prevents recurrence.",
+  "problem": "GROUP09_RUNNING_ADOPTABLE_ORIGINAL_RUNTIME_NOT_ADDRESSABLE_FROM_CURRENT_CHAT_EXECUTOR",
+  "root_cause": "Cross-chat executor boundary: durable GROUP09 attempt_1 claim exists, but the original /mnt/data runtime is not mounted in this execution context. This is not proof of worker death.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP09 <=5S; IF PASS VALIDATE_ARTIFACTS_AND_PERSIST GROUP09; IF RUNNING KEEP RUNNING_ADOPTABLE; DO_NOT_POLL_OR_RELAUNCH",
+  "next_automatic_action": "NONBLOCKING_ONLY: CHECK FOR DURABLE GROUP09 TERMINAL RECEIPT; OTHERWISE ADOPT/STATUS SAME GROUP09 ATTEMPT_1 FROM A MATCHING_RUNTIME_CONTEXT <=5S; NEVER RELAUNCH WITHOUT PROVEN DEATH",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -212,7 +217,8 @@
     "RUNNING_REQUIRES_DURABLE_CLAIM",
     "GROUP_RUNTIME_BINDING_GUARD_V1",
     "GROUP07_EXPECTED_RECEIPT_SCHEMA_FALSE_NEGATIVE_CORRECTED",
-    "DUPLICATE_ATTEMPT_NOT_COUNTED_AS_HYPOTHESIS"
+    "DUPLICATE_ATTEMPT_NOT_COUNTED_AS_HYPOTHESIS",
+    "CROSS_CHAT_RUNTIME_BOUNDARY_PRESERVE_RUNNING_ADOPTABLE_NO_RELAUNCH"
   ],
   "last_execution_block": {
     "status": "RUNNING_ADOPTABLE",
@@ -228,6 +234,13 @@
     "expensive_unit_open": true,
     "orphan_worker": false,
     "last_control_elapsed_seconds": 0.743616,
-    "runtime_binding_gate": "PASS"
+    "runtime_binding_gate": "PASS",
+    "cross_chat_reconciliation": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_CROSS_CHAT_RUNTIME_RECONCILIATION_20260919_v1.json",
+      "git_blob_sha1": "1545eee77e6850e99673394ee5e43396ff46c293",
+      "terminal_receipt_present": false,
+      "original_worker_death_proven": false,
+      "relaunch_allowed": false
+    }
   }
 }
