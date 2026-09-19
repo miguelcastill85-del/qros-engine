@@ -48,7 +48,7 @@ def make_cutover(old,auth,runtime_id,issued_at,expires_at):
     }
     return new,receipt
 
-def prepare_intent(lease,source,capsule,m1,ind,carrier_root,now):
+def prepare_intent(lease,source,capsule,m1,ind,carrier_root,now,current_runtime_id):
     ok,why=fence.validate_lease(lease,now=now)
     if not ok: raise RuntimeError("LEASE_NOT_CURRENT:"+why)
     if source.get("status")!="PASS" or source.get("verification",{}).get("count_verified")!=9:
@@ -91,7 +91,7 @@ def prepare_intent(lease,source,capsule,m1,ind,carrier_root,now):
       "lease_epoch":lease["lease_epoch"],
       "intent_status":intent["status"],
       "spawn_started":False,
-      "safe_stop_reason":"CARRIERS_ABSENT_ON_GITHUB_RUNNER" if not all_present else "SPAWN_EXPLICITLY_OUT_OF_SCOPE_FOR_VALIDATION",
+      "safe_stop_reason":("CARRIERS_ABSENT_ON_GITHUB_RUNNER" if not all_present else ("LEASE_OWNER_MISMATCH_REQUIRES_CUTOVER" if not owner_matches else "SPAWN_EXPLICITLY_OUT_OF_SCOPE_FOR_VALIDATION")),
       "manual_interventions":0,
       "economic_pnl_read":False,"holdout_open":False,"ga2_open":False,
       "new_ga1_authorized":False,"first_gate_execution_authorized":False,"group12_opened":False
@@ -104,7 +104,7 @@ def main():
     for a in ["old_lease","cutover_auth","runtime_id","issued_at","expires_at","out_lease","out_receipt"]:
         p.add_argument("--"+a.replace("_","-"),required=True)
     p=sub.add_parser("intent")
-    for a in ["lease","source","capsule","m1","ind","carrier_root","now","out_intent","out_terminal"]:
+    for a in ["lease","source","capsule","m1","ind","carrier_root","now","current_runtime_id","out_intent","out_terminal"]:
         p.add_argument("--"+a.replace("_","-"),required=True)
     a=ap.parse_args()
     if a.cmd=="cutover":
@@ -112,7 +112,7 @@ def main():
         dump(a.out_lease,new); dump(a.out_receipt,rec)
         print(json.dumps({"schema":SCHEMA,"status":"PASS","stage":"CUTOVER","new_epoch":new["lease_epoch"],"fence_token":new["fence_token"]},sort_keys=True))
     else:
-        intent,term=prepare_intent(load(a.lease),load(a.source),load(a.capsule),load(a.m1),load(a.ind),a.carrier_root,a.now)
+        intent,term=prepare_intent(load(a.lease),load(a.source),load(a.capsule),load(a.m1),load(a.ind),a.carrier_root,a.now,a.current_runtime_id)
         dump(a.out_intent,intent); dump(a.out_terminal,term)
         print(json.dumps({"schema":SCHEMA,"status":"PASS","stage":"INTENT","intent_status":intent["status"],"spawn_authorized":intent["spawn_authorized"]},sort_keys=True))
 if __name__=="__main__": main()
