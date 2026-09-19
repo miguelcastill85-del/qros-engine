@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.13",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.14",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -329,10 +329,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP11_EPOCH1_FOREIGN_RUNTIME_NO_TERMINAL; PROMOTION_REVOKED; EPOCH2_AUTHORIZED_ON_CURRENT_RUNTIME; CARRIER_RECOVERY_IN_PROGRESS",
+  "problem": "GROUP11_EPOCH2_CURRENT_RUNTIME; DEV_RECOVERY_PASS_EXACT; BAR_INDICATOR_REBUILD_RUNNING_ADOPTABLE; SCIENTIFIC_RUNTIME_BLOB_MATERIALIZATION_IN_PROGRESS",
   "root_cause": "RUNTIME_MIGRATION_INTERRUPTED ADDRESSABILITY OF GROUP11 EPOCH1. PID ABSENCE ON CURRENT BOOT IS NOT DEATH PROOF. FENCED MIGRATION PRESERVES SAME SCIENTIFIC UNIT.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "CURRENT RUNTIME ONLY: VERIFY GROUP11 EPOCH2 CARRIER RECOVERY CLAIM ONCE; COMPLETE EXACT DEV/BAR/INDICATOR IDENTITIES; MATERIALIZE EXACT FROZEN SCIENTIFIC BLOBS; VALIDATE GROUP11 PACKAGE; PRECOMMIT AND LAUNCH EPOCH2 NONBLOCKING; GROUP12 REMAINS CLOSED",
+  "next_automatic_action": "DO NOT POLL CARRIERS YET. MATERIALIZE/VERIFY EXACT FROZEN GROUP11 SCIENTIFIC BLOBS AND SHARD DESCRIPTOR; THEN ONE STATUS CHECK OF CARRIER CLAIM; IF EXACT HASH PASS, VALIDATE PACKAGE + PRECOMMIT + LAUNCH GROUP11 EPOCH2 NONBLOCKING; GROUP12 CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -398,20 +398,33 @@
     "GROUP11_EPOCH1_PROMOTION_REVOKED_WITHOUT_DEATH_CLAIM",
     "GROUP11_EPOCH2_CURRENT_RUNTIME_LEASE_ACTIVE",
     "MANIFEST_FIRST_DIRECT_XAU_CARRIER_RECOVERY_STARTED",
-    "GROUP12_REMAINS_CLOSED"
+    "GROUP12_REMAINS_CLOSED",
+    "GROUP11_EPOCH2_DEV_REBUILT_EXACT_SHA256",
+    "GROUP11_EPOCH2_CARRIER_REBUILD_LAUNCHED_NONBLOCKING"
   ],
   "last_execution_block": {
-    "status": "GROUP11_EPOCH2_RECOVERY_PREPARATION",
+    "status": "GROUP11_EPOCH2_CARRIER_REBUILD_RUNNING_ADOPTABLE",
     "expensive_unit_open": true,
     "group11": {
       "scientific_unit_same": true,
-      "old_epoch": 1,
-      "old_epoch_promotion_revoked": true,
-      "old_epoch_death_proven": false,
       "current_epoch": 2,
       "current_owner_runtime_id": "linux:6aef733c-2ea3-47e2-853d-9f9758020509",
-      "terminal_receipt_present": false,
-      "carrier_recovery_mode": "MANIFEST_FIRST_DIRECT_LOCATOR"
+      "dev_recovery": {
+        "status": "PASS",
+        "records": 151382388,
+        "bytes": 2573500596,
+        "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
+      },
+      "carrier_rebuild": {
+        "state": "RUNNING_ADOPTABLE",
+        "pid": 707,
+        "birth": "linux:6aef733c-2ea3-47e2-853d-9f9758020509:83197",
+        "expected_bar_m1": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+        "expected_indicator_m1": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c"
+      },
+      "epoch1_promotion_revoked": true,
+      "epoch1_death_proven": false,
+      "terminal_receipt_present": false
     },
     "group12_opened": false,
     "economic_pnl_read": false,
