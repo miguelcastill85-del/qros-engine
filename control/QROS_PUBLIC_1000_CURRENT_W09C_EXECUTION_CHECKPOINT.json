@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.12",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.13",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -151,7 +151,7 @@
     "runtime_neutral_xau_carrier_locator": {
       "path": "control/QROS_XAU_W09C_RUNTIME_NEUTRAL_CARRIER_LOCATOR_20260919_v1.json",
       "git_blob_sha1": "3a078b238c374ff4f062aff916d290ffc3c109b5",
-      "entries": 8
+      "status": "ACTIVE_RECOVERY_LOCATOR"
     },
     "manifest_first_nonstall_validation": {
       "path": "control/QROS_MANIFEST_FIRST_NONSTALL_RECOVERY_PASS_20260919_v1.json",
@@ -219,8 +219,9 @@
     },
     "group11_current_fenced_lease": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json",
-      "git_blob_sha1": "01a9dfe33515b3ee3873a53f1010e8b312701c3d",
-      "lease_epoch": 1
+      "git_blob_sha1": "14851cd5a547c239288228f08d80f0684ff72ae3",
+      "lease_epoch": 2,
+      "status": "ACTIVE_CURRENT_RUNTIME"
     },
     "group11_runtime_package": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_RUNTIME_PACKAGE_PASS_20260919_v1.json",
@@ -231,6 +232,11 @@
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_RUNNING_ADOPTABLE_20260919_v1.json",
       "git_blob_sha1": "a196c59859a99efd2fa67f4addc3e812a45ee197",
       "status": "RUNNING_ADOPTABLE"
+    },
+    "group11_epoch2_cutover": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_LEASE_EPOCH2_MIGRATION_CUTOVER_20260919_v1.json",
+      "git_blob_sha1": "b60eb3701dc699e5b51779099567cc9fa8b6ecc8",
+      "status": "AUTHORIZED_MIGRATION_CUTOVER"
     }
   },
   "data": {
@@ -323,10 +329,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP11_RUNNING_ADOPTABLE_ATTEMPT_1; NO_TERMINAL_RECEIPT_YET",
-  "root_cause": "NONE_OPEN; CURRENT SAME-RUNTIME HEAVY UNIT ACTIVE UNDER FENCED EPOCH1",
+  "problem": "GROUP11_EPOCH1_FOREIGN_RUNTIME_NO_TERMINAL; PROMOTION_REVOKED; EPOCH2_AUTHORIZED_ON_CURRENT_RUNTIME; CARRIER_RECOVERY_IN_PROGRESS",
+  "root_cause": "RUNTIME_MIGRATION_INTERRUPTED ADDRESSABILITY OF GROUP11 EPOCH1. PID ABSENCE ON CURRENT BOOT IS NOT DEATH PROOF. FENCED MIGRATION PRESERVES SAME SCIENTIFIC UNIT.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP11 ATTEMPT_1 <=5S; IF PASS VALIDATE LEASE ECHO + CAPSULE + ARTIFACT HASHES THEN PERSIST GROUP11 TERMINAL RECEIPT AND ADVANCE TO GROUP12; IF RUNNING PRESERVE; NEVER RELAUNCH; GROUP12 REMAINS CLOSED",
+  "next_automatic_action": "CURRENT RUNTIME ONLY: VERIFY GROUP11 EPOCH2 CARRIER RECOVERY CLAIM ONCE; COMPLETE EXACT DEV/BAR/INDICATOR IDENTITIES; MATERIALIZE EXACT FROZEN SCIENTIFIC BLOBS; VALIDATE GROUP11 PACKAGE; PRECOMMIT AND LAUNCH EPOCH2 NONBLOCKING; GROUP12 REMAINS CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -388,24 +394,29 @@
     "GROUP09_CONFIG_STREAM_ROOT_PASS_804672",
     "GROUP09_WRAPPER_BINDING_FAIL_CLOSED_THEN_PASS",
     "GROUP09_LEASE_MIGRATED_TO_CURRENT_RUNTIME_EPOCH2_CAS",
-    "GROUP09_RECOVERY_ATTEMPT1_LAUNCHED_NONBLOCKING"
+    "GROUP09_RECOVERY_ATTEMPT1_LAUNCHED_NONBLOCKING",
+    "GROUP11_EPOCH1_PROMOTION_REVOKED_WITHOUT_DEATH_CLAIM",
+    "GROUP11_EPOCH2_CURRENT_RUNTIME_LEASE_ACTIVE",
+    "MANIFEST_FIRST_DIRECT_XAU_CARRIER_RECOVERY_STARTED",
+    "GROUP12_REMAINS_CLOSED"
   ],
   "last_execution_block": {
-    "status": "RUNNING_ADOPTABLE",
+    "status": "GROUP11_EPOCH2_RECOVERY_PREPARATION",
     "expensive_unit_open": true,
     "group11": {
-      "job_id": "W09C_XAUUSD_BUY_M1_GROUP11_20260919_v1",
-      "lease_epoch": 1,
-      "attempt": 1,
-      "bootstrap_pid": 1923,
-      "bootstrap_birth": "linux:12a54489-1877-43f8-88f0-923c8973b198:768452",
-      "worker_pid": 1935,
-      "worker_birth": "linux:12a54489-1877-43f8-88f0-923c8973b198:768585",
-      "duplicate_launch": false,
-      "terminal_receipt_present": false
+      "scientific_unit_same": true,
+      "old_epoch": 1,
+      "old_epoch_promotion_revoked": true,
+      "old_epoch_death_proven": false,
+      "current_epoch": 2,
+      "current_owner_runtime_id": "linux:6aef733c-2ea3-47e2-853d-9f9758020509",
+      "terminal_receipt_present": false,
+      "carrier_recovery_mode": "MANIFEST_FIRST_DIRECT_LOCATOR"
     },
     "group12_opened": false,
     "economic_pnl_read": false,
-    "blocking_poll_used": false
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
   }
 }
