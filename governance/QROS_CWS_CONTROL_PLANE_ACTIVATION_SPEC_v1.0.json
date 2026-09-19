@@ -1,0 +1,64 @@
+{
+  "schema": "QROS_CWS_CONTROL_PLANE_ACTIVATION_SPEC_1.0",
+  "date": "2026-09-19",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "subject": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
+  "prerequisite_receipts": [
+    "control/QROS_CWS_V1_1_EXTERNAL_VALIDATION_PASS_20260919_v1.json",
+    "control/QROS_CWS_AUTOCHAIN_TERMINAL_PASS_20260919_v1.json",
+    "control/QROS_CWS_SELF_APPLICATION_GATE_PASS_20260919_v1.json",
+    "control/QROS_CWS_W09C_SHADOW_PASS_20260919_v1.json"
+  ],
+  "activation_scope": "CONTROL_PLANE_ONLY",
+  "allowed_capabilities": [
+    "CAP_NON_ECONOMIC_CONTROL"
+  ],
+  "forbidden_capabilities": [
+    "CAP_ECONOMIC_PNL_READ",
+    "CAP_HOLDOUT_OPEN",
+    "CAP_GA2",
+    "CAP_NEW_GA1",
+    "CAP_FIRST_GATE_EXECUTION"
+  ],
+  "invariants": [
+    "DEK_V3_REMAINS_ONLY_TRANSITION_REDUCER",
+    "CWS_ONLY_SCHEDULES_DURABLE_DEK_STEPS",
+    "ONE_EXTERNAL_EFFECT_PER_INVOCATION",
+    "DURABLE_INTENT_BEFORE_EFFECT",
+    "DURABLE_RESULT_BEFORE_NEXT_SELF_DISPATCH",
+    "AUTHORITY_HASH_RECHECK_BEFORE_EACH_STEP",
+    "ANY_AUTHORITY_DRIFT_RECOMPILES_OR_FAILS_CLOSED",
+    "ANY_FORBIDDEN_CAPABILITY_STOPS_AUTOCHAIN",
+    "NO_CHAT_OWNED_CONTINUITY",
+    "NO_POLL_LOOP",
+    "NO_BLIND_RELAUNCH",
+    "NO_USER_CONTINUE_REQUIRED_BETWEEN_NON_ECONOMIC_STEPS"
+  ],
+  "stop_conditions": [
+    "economic_pnl_read becomes true or is requested",
+    "holdout_open becomes true or is requested",
+    "ga2_open becomes true or is requested",
+    "new_ga1_authorized becomes true or is requested",
+    "first_gate_execution_authorized becomes true or is requested",
+    "DEK action cannot be represented as one idempotent bounded effect",
+    "authority CAS conflict not resolved in one bounded reconciliation step",
+    "scientific frontier changes incompatibly"
+  ],
+  "activation_gates": {
+    "CA-G0": "all prerequisite receipts exact",
+    "CA-G1": "W09C shadow zero-effect PASS",
+    "CA-G2": "authority pin freshness",
+    "CA-G3": "capability firewall PASS",
+    "CA-G4": "single-reducer parity",
+    "CA-G5": "one-effect bound",
+    "CA-G6": "durable pre/post state",
+    "CA-G7": "self-dispatch after durable commit",
+    "CA-G8": "stop at scientific/economic boundary",
+    "CA-G9": "no manual continue for non-economic chain",
+    "CA-G10": "rollback to shadow by pointer only, no science rollback"
+  },
+  "initial_mode": "CONTROL_PLANE_SHADOW_ACTIVE",
+  "full_active_mode_requires": "SEPARATE ACTIVE CONTROL-PLANE SOAK ON REAL NON-ECONOMIC W09C STEPS",
+  "scientific_effect": "NONE",
+  "current_authorization": "NOT_ACTIVE"
+}
