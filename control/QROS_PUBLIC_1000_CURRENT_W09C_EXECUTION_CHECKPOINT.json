@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.1",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.2",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -163,7 +163,7 @@
   "problem": "NONE_CURRENT",
   "root_cause": "N/A",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "PENDING_GROUP07_NOT_STARTED: PRECOMMIT_GROUP07; INIT_NO_FREEZE_BARRIER; LAUNCH_OR_ADOPT <=5S; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED; NO_BLOCKING_WAIT",
+  "next_automatic_action": "GROUP07_PRECOMMITTED: INIT_NO_FREEZE_BARRIER_AND_LAUNCH_OR_ADOPT_WITH_5S_HARD_TIMEOUT; IMMEDIATELY_PERSIST_RETURNED_STATE",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -205,13 +205,12 @@
     "RUNNING_REQUIRES_DURABLE_CLAIM"
   ],
   "last_execution_block": {
-    "status": "PASS_GROUP06_DURABLY_CLOSED",
+    "status": "PRECOMMITTED_PENDING_LAUNCH",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_SEMANTIC_RECEIPT_20260918_v1.json",
-      "git_blob_sha1": "e885294e39f4e38b050e4beb66c3166ef22b0295"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_PRELAUNCH_INTENT_20260918_v1.json",
+      "git_blob_sha1": "db7d9ac5651b33ba53cb7ece34f4078c4e1eee1c"
     },
-    "attempt": 1,
-    "retry_count": 0,
+    "group07_launched": false,
     "expensive_unit_open": false
   }
 }
