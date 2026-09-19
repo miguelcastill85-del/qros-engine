@@ -1,0 +1,81 @@
+{
+  "schema": "QROS_CONTINUOUS_WORK_SCHEDULER_GOVERNANCE_1.1",
+  "version": "v1.1",
+  "date": "2026-09-19",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "supersedes_candidate": "governance/QROS_CONTINUOUS_WORK_SCHEDULER_GOVERNANCE_v1.0.json",
+  "activation": {
+    "active": false,
+    "main_integration": false,
+    "production_use_forbidden": true
+  },
+  "purpose": "Work-like prolonged logical execution across disposable runtimes while DEK v3 remains the sole scientific reducer.",
+  "correction_receipt": {
+    "path": "control/QROS_CWS_V1_0_EFFECT_PROOF_BINDING_DEFECT_20260919_v1.json"
+  },
+  "authorities": {
+    "bpc_v11": "16aa5751b71d3259fd69916b566c1a92c1b0ed2e",
+    "dek_v3": "21f838ced8ec8a6c21a596acaf2a949582c200fa"
+  },
+  "implementation": {
+    "scheduler": {
+      "path": "scripts/qros_continuous_work_scheduler_v1.py",
+      "git_blob_sha1": "692f5d496705495850981987616218ccf9bd750b"
+    },
+    "validation_oracle": {
+      "path": "scripts/qros_continuous_work_scheduler_tests_v1.py",
+      "git_blob_sha1": "cf75fa3acb4f6ac24d28d2b4dd360e40a436af9a"
+    }
+  },
+  "invariants": [
+    "DEK_V3_ONLY_SCIENTIFIC_REDUCER",
+    "HEARTBEAT_NEVER_COUNTS_AS_PROGRESS",
+    "PROGRESS_PROOF_BINDS_TASK_SPEC_SEGMENT_AND_ORIGIN_EFFECT",
+    "VALID_PROGRESS_PROOF_RESOLVES_PENDING_EFFECT",
+    "ACK_REQUIRES_EXACT_EFFECT_AND_SEGMENT_IDENTITY",
+    "CAPABILITIES_IMMUTABLE_IN_TASK_SPEC_HASH",
+    "PREEMPTED_TASK_NEVER_REVIVES",
+    "CAS_CONFLICT_DOES_NOT_ADVANCE_STATE",
+    "COMPLETION_REQUIRES_TASK_BOUND_DEK_TERMINAL"
+  ],
+  "gates_required": [
+    "CW-G0",
+    "CW-G1",
+    "CW-G2",
+    "CW-G3",
+    "CW-G4",
+    "CW-G5",
+    "CW-G6",
+    "CW-G7",
+    "CW-G8",
+    "CW-G9",
+    "CW-G10",
+    "CW-G11",
+    "CW-G12",
+    "CW-G13",
+    "CW-G14",
+    "CW-G15"
+  ],
+  "supergates_required": [
+    "CW-SG1",
+    "CW-SG2",
+    "CW-SG3",
+    "CW-SG4",
+    "CW-SG5"
+  ],
+  "bpc_self_application_gate": {
+    "branch_isolated": true,
+    "repository_native_transport": true,
+    "main_untouched": true,
+    "no_poll_loop": true,
+    "full_revalidation_required": true
+  },
+  "promotion_rule": "NO ACTIVATION UNTIL FULL EXTERNAL REVALIDATION PASS ON EXACT V1.1 BLOBS.",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "decision": "V1.1_CANDIDATE_ONLY"
+}
