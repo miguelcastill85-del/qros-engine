@@ -1,0 +1,89 @@
+test_artifact_symlink_is_rejected (__main__.SupervisorRegressions.test_artifact_symlink_is_rejected) ... FAIL
+test_done_rejects_changed_spec (__main__.SupervisorRegressions.test_done_rejects_changed_spec) ... FAIL
+test_done_rejects_rewritten_receipt (__main__.SupervisorRegressions.test_done_rejects_rewritten_receipt) ... FAIL
+test_done_requires_supervisor_provenance (__main__.SupervisorRegressions.test_done_requires_supervisor_provenance) ... FAIL
+test_foreign_runtime_cannot_trigger_retry (__main__.SupervisorRegressions.test_foreign_runtime_cannot_trigger_retry) ... FAIL
+test_hung_worker_has_deadline (__main__.SupervisorRegressions.test_hung_worker_has_deadline) ... FAIL
+test_unknown_launch_is_not_death_proof (__main__.SupervisorRegressions.test_unknown_launch_is_not_death_proof) ... FAIL
+
+======================================================================
+FAIL: test_artifact_symlink_is_rejected (__main__.SupervisorRegressions.test_artifact_symlink_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6f103cda0069/qros-engine/scripts/qros_heavy_job_supervisor_tests_v3.py", line 72, in test_artifact_symlink_is_rejected
+    self.assertFalse(s.validate_receipt(attempt, self.spec)[0])
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_done_rejects_changed_spec (__main__.SupervisorRegressions.test_done_rejects_changed_spec)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6f103cda0069/qros-engine/scripts/qros_heavy_job_supervisor_tests_v3.py", line 52, in test_done_rejects_changed_spec
+    self.assertEqual(self.call()['state'], 'FAIL')
+AssertionError: 'PASS' != 'FAIL'
+- PASS
++ FAIL
+
+
+======================================================================
+FAIL: test_done_rejects_rewritten_receipt (__main__.SupervisorRegressions.test_done_rejects_rewritten_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6f103cda0069/qros-engine/scripts/qros_heavy_job_supervisor_tests_v3.py", line 64, in test_done_rejects_rewritten_receipt
+    self.assertEqual(self.call()['state'], 'FAIL')
+AssertionError: 'PASS' != 'FAIL'
+- PASS
++ FAIL
+
+
+======================================================================
+FAIL: test_done_requires_supervisor_provenance (__main__.SupervisorRegressions.test_done_requires_supervisor_provenance)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6f103cda0069/qros-engine/scripts/qros_heavy_job_supervisor_tests_v3.py", line 56, in test_done_requires_supervisor_provenance
+    self.assertEqual(self.call()['state'], 'FAIL')
+AssertionError: 'PASS' != 'FAIL'
+- PASS
++ FAIL
+
+
+======================================================================
+FAIL: test_foreign_runtime_cannot_trigger_retry (__main__.SupervisorRegressions.test_foreign_runtime_cannot_trigger_retry)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6f103cda0069/qros-engine/scripts/qros_heavy_job_supervisor_tests_v3.py", line 84, in test_foreign_runtime_cannot_trigger_retry
+    self.assertFalse(launch.called, result)
+AssertionError: True is not false : {'state': 'RUNNING', 'action': 'RELAUNCHED_AFTER_PROVEN_DEATH', 'job_id': 'synthetic', 'attempt': 2, 'bootstrap_pid': 123, 'previous_reason': 'ORPHANED_BOOTSTRAP_NO_VALID_RECEIPT:RECEIPT_MISSING'}
+
+======================================================================
+FAIL: test_hung_worker_has_deadline (__main__.SupervisorRegressions.test_hung_worker_has_deadline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6f103cda0069/qros-engine/scripts/qros_heavy_job_supervisor_tests_v3.py", line 105, in test_hung_worker_has_deadline
+    proc.wait(timeout=2)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 1264, in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py", line 2045, in _wait
+    raise TimeoutExpired(self.args, timeout)
+subprocess.TimeoutExpired: Command '['/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3', '/workspace/scratch/6f103cda0069/qros-engine/scripts/qros_heavy_job_supervisor_v1.py', '--bootstrap', '--job-dir', '/tmp/tmpn18_fwc9/jobs/synthetic', '--claim-token', '9a0008e98571427488de523aacd59e62']' timed out after 2 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/workspace/scratch/6f103cda0069/qros-engine/scripts/qros_heavy_job_supervisor_tests_v3.py", line 107, in test_hung_worker_has_deadline
+    self.fail('worker still alive beyond the configured deadline')
+AssertionError: worker still alive beyond the configured deadline
+
+======================================================================
+FAIL: test_unknown_launch_is_not_death_proof (__main__.SupervisorRegressions.test_unknown_launch_is_not_death_proof)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6f103cda0069/qros-engine/scripts/qros_heavy_job_supervisor_tests_v3.py", line 95, in test_unknown_launch_is_not_death_proof
+    self.assertFalse(launch.called, result)
+AssertionError: True is not false : {'state': 'RUNNING', 'action': 'RELAUNCHED_AFTER_PROVEN_DEATH', 'job_id': 'synthetic', 'attempt': 2, 'bootstrap_pid': 123, 'previous_reason': 'STALE_PREPARED_NO_IDENTITY'}
+
+----------------------------------------------------------------------
+Ran 7 tests in 2.014s
+
+FAILED (failures=7)
