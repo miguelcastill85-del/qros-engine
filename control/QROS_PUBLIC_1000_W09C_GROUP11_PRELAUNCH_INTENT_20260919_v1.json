@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP11_PRELAUNCH_INTENT_1.0",
+  "date": "2026-09-19",
+  "status": "PRECOMMITTED_PENDING_LAUNCH",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 11
+  },
+  "capsule": {
+    "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_EXECUTION_CAPSULE_20260919_v1.json",
+    "git_blob_sha1": "ec56e9cae15a640002e96c61fad2b691b5bb2b92"
+  },
+  "package": {
+    "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_RUNTIME_PACKAGE_PASS_20260919_v1.json",
+    "git_blob_sha1": "505bbd5c9fb467c326a1d620b426369f43269a32",
+    "status": "PASS"
+  },
+  "lease": {
+    "path": "control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json",
+    "git_blob_sha1": "01a9dfe33515b3ee3873a53f1010e8b312701c3d",
+    "lease_epoch": 1,
+    "owner_runtime_id": "linux:12a54489-1877-43f8-88f0-923c8973b198"
+  },
+  "runtime": {
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP11_20260919_v1",
+    "job_spec_file_sha256": "ed557abb1a25b54235dea1e798f17b749ddae692151343ac2c8b3f5b949d7208",
+    "job_spec_canonical_sha256": "6096d43799accf222d94da5d64d27c0dfc2f26e3bbba6f534c61cc6ddee05884",
+    "wrapper_git_blob_sha1": "ede3977fb4fc27939d52fba4af54ef936782b0d4",
+    "max_attempts": 1,
+    "control_call_max_seconds": 5,
+    "launch_mode": "NONBLOCKING_SUPERVISOR_V2"
+  },
+  "exactly_once": {
+    "current_epoch_authoritative": true,
+    "duplicate_launch_forbidden": true,
+    "group12_closed_until_terminal_pass": true
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "next_action": "LAUNCH_GROUP11_ATTEMPT1_NONBLOCKING_AND_PERSIST_POST_CONTROL_STATE"
+}
