@@ -1,0 +1,154 @@
+name: qros-cws-autochain-shadow-v1
+
+on:
+  push:
+    branches:
+      - cws-autochain-shadow-v1-20260919
+      - main
+    paths:
+      - 'scripts/qros_cws_autochain_shadow_v1.py'
+      - 'scripts/qros_cws_autochain_shadow_tests_v1.py'
+      - 'governance/QROS_CWS_AUTOCHAIN_SHADOW_GOVERNANCE_v1.0.json'
+      - '.github/workflows/qros-cws-autochain-shadow-v1.yml'
+  workflow_dispatch:
+    inputs:
+      task_id:
+        required: true
+        default: CWS_AUTOCHAIN_SHADOW_20260919
+      objective_hash:
+        required: true
+        default: 7777777777777777777777777777777777777777777777777777777777777777
+      target:
+        required: true
+        default: '16'
+      expected_generation:
+        required: true
+        default: '0'
+      state_branch:
+        required: true
+        default: cws-autochain-state-v1-20260919
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: qros-cws-autochain-${{ inputs.task_id || 'CWS_AUTOCHAIN_SHADOW_20260919' }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify candidate pins and governance
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object scripts/qros_cws_autochain_shadow_v1.py)" = "62b7862f047f0a6d17b3e3cef199e103c2d39e70"
+          test "$(git hash-object scripts/qros_cws_autochain_shadow_tests_v1.py)" = "f1234225dfd17b3c8d74e989c527553eea98bac1"
+          python3 - <<'PY'
+          import json
+          g=json.load(open('governance/QROS_CWS_AUTOCHAIN_SHADOW_GOVERNANCE_v1.0.json'))
+          assert g['status']=='PREREGISTERED_NO_RESULTS'
+          assert g['activation'] is False
+          assert g['synthetic_task']['target_generations']==16
+          assert g['synthetic_task']['scientific_effect']=='NONE'
+          assert g['self_application_gate']['user_continue_between_generations_forbidden'] is True
+          print('AUTOCHAIN_GOVERNANCE=PASS')
+          PY
+      - name: Compile
+        run: python3 -m py_compile scripts/qros_cws_autochain_shadow_v1.py scripts/qros_cws_autochain_shadow_tests_v1.py
+      - name: Gates chaos fixed-point
+        working-directory: scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 qros_cws_autochain_shadow_tests_v1.py | tee ../autochain_validation.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: autochain-static-validation
+          path: autochain_validation.json
+          retention-days: 1
+
+  chain:
+    needs: validate
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    env:
+      TASK_ID: ${{ inputs.task_id || 'CWS_AUTOCHAIN_SHADOW_20260919' }}
+      OBJECTIVE_HASH: ${{ inputs.objective_hash || '7777777777777777777777777777777777777777777777777777777777777777' }}
+      TARGET: ${{ inputs.target || '16' }}
+      EXPECTED_GENERATION: ${{ inputs.expected_generation || '0' }}
+      STATE_BRANCH: ${{ inputs.state_branch || 'cws-autochain-state-v1-20260919' }}
+      STATE_FILE: control/QROS_CWS_AUTOCHAIN_SHADOW_STATE.json
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: code
+      - name: Checkout durable state branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.STATE_BRANCH }}
+          path: state
+          fetch-depth: 1
+      - name: Verify synthetic task identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os
+          p=os.path.join('state',os.environ['STATE_FILE'])
+          s=json.load(open(p))
+          assert s['task_id']==os.environ['TASK_ID']
+          assert s['objective_hash']==os.environ['OBJECTIVE_HASH']
+          assert s['target']==int(os.environ['TARGET'])
+          assert s['manual_interventions']==0
+          print('AUTOCHAIN_STATE_IDENTITY=PASS')
+          PY
+      - name: Apply exactly one generation
+        id: step
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 code/scripts/qros_cws_autochain_shadow_v1.py             --state "state/$STATE_FILE"             --expected-generation "$EXPECTED_GENERATION"             --run-id "$GITHUB_RUN_ID" | tee autochain_step.json
+          python3 - <<'PY'
+          import json,os
+          o=json.load(open('autochain_step.json'))
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('action='+o['action']+'\n')
+              f.write('changed='+('true' if o['changed'] else 'false')+'\n')
+              f.write('dispatch_next='+('true' if o['dispatch_next'] else 'false')+'\n')
+              f.write('next_expected_generation='+str(o.get('next_expected_generation',''))+'\n')
+              cert=o.get('certificate') or {}
+              f.write('certificate_sha256='+str(cert.get('certificate_sha256',''))+'\n')
+          PY
+      - name: Persist state before any next dispatch
+        if: steps.step.outputs.changed == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd state
+          git config user.name qros-cws-autochain
+          git config user.email qros-cws-autochain@users.noreply.github.com
+          git add "$STATE_FILE"
+          git commit -m "CWS autochain generation ${{ steps.step.outputs.next_expected_generation }}"
+          git push origin HEAD:"$STATE_BRANCH"
+      - name: Self-dispatch next generation
+        if: steps.step.outputs.dispatch_next == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh workflow run qros-cws-autochain-shadow-v1.yml             --repo "$GITHUB_REPOSITORY"             --ref main             -f task_id="$TASK_ID"             -f objective_hash="$OBJECTIVE_HASH"             -f target="$TARGET"             -f expected_generation="${{ steps.step.outputs.next_expected_generation }}"             -f state_branch="$STATE_BRANCH"
+          echo "AUTOCHAIN_SELF_DISPATCH=PASS"
+      - name: Terminal certificate
+        if: steps.step.outputs.action == 'COMPLETE'
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${{ steps.step.outputs.certificate_sha256 }}"
+          echo "AUTOCHAIN_TERMINAL_CERTIFICATE=${{ steps.step.outputs.certificate_sha256 }}"
