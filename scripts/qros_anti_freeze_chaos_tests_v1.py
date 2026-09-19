@@ -83,6 +83,7 @@ for name, seq in SCENARIOS.items():
         assert d.durable_required,(name,d)
         actions.append(d.action); steps+=1
     assert actions[0] == allowed_first[name], (name,actions[0],allowed_first[name])
+    # Every multi-step recoverable scenario reaches terminal PASS without WAIT/SLEEP/POLL.
     if name in {'runtime_migration_mid_job','sync_timeout_left_partial','local_git_network_denied','connector_safety_block_then_reference_retry','repeated_no_delta','artifact_exists_after_controller_loss'}:
         assert actions[-1]=='ADVANCE_FROM_TERMINAL_PASS',(name,actions)
     print(name, ' -> '.join(actions))
