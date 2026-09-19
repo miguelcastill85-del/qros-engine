@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_CWS_V1_1_EXTERNAL_REVALIDATION_PENDING_1.1",
+  "date": "2026-09-19",
+  "status": "RUNNING_ADOPTABLE",
+  "candidate": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
+  "branch": "cws-v1.1-effect-proof-20260919",
+  "exact_head": "d15ed3f0cdbee9ec3473345c5090ccdd8054cfc1",
+  "exact_blobs": {
+    "scheduler": "692f5d496705495850981987616218ccf9bd750b",
+    "tests": "21cee0c786932950f1963433e0a2f9c3cf67fddf",
+    "workflow": "b8c2b739a3d6f9bdf93b37212f69321ed1906142",
+    "governance": "5adc902849954499d1d3e0e72709cd7f50e089ba"
+  },
+  "prior_false_green": {
+    "run_id": 35474255510,
+    "status": "FAIL_CLOSED",
+    "receipt": "control/QROS_CWS_V1_1_FALSE_GREEN_VALIDATION_FAIL_20260919_v1.json",
+    "reuse_for_promotion": false
+  },
+  "workflow_run": {
+    "id": 35474462584,
+    "run_attempt": 1,
+    "observed_status": "in_progress",
+    "observations_this_transition": 1,
+    "relaunch_count": 0
+  },
+  "next_automatic_action": "QUERY RUN 35474462584 ONCE. IF SUCCESS, VERIFY validate JOB LOG CONTAINS NO TRACEBACK AND REPORTS GATES+CHAOS+FIXED_POINT PASS; VERIFY runner1-4 SUCCESS AND runner4 10000-UNIT TERMINAL CERTIFICATE. THEN PERSIST EXTERNAL PASS RECEIPT AND RUN PROMOTION GUARD. IF RUNNING, PRESERVE RUNNING_ADOPTABLE. IF FAIL, FETCH FAILED JOB LOG ONCE AND FAIL CLOSED.",
+  "main_activation": false,
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
