@@ -1,0 +1,88 @@
+{
+  "schema": "QROS_MANIFEST_FIRST_NONSTALL_RECOVERY_VALIDATION_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "purpose": "Physical validation that manifest-first direct carrier recovery plus nonblocking heavy execution avoids chat/controller stalls while preserving exact W09C scientific identities.",
+  "governance": {
+    "policy": {
+      "path": "governance/QROS_MANIFEST_FIRST_NONSTALL_RECOVERY_POLICY_v1.0.json",
+      "git_blob_sha1": "9a7868e82cd1bbec49240a534036c27968609a4d",
+      "status": "ACTIVE_MANDATORY"
+    },
+    "guard": {
+      "path": "scripts/qros_manifest_first_recovery_guard_v1.py",
+      "git_blob_sha1": "8f15c73e96505a2bdc3f88b768bc3f882d726971",
+      "sha256": "572ebf18cfcfedb632d91703f8a8204001c4b17c658a31f68cdf17c4640bf0b2"
+    },
+    "tests": {
+      "path": "scripts/qros_manifest_first_recovery_guard_tests_v1.py",
+      "git_blob_sha1": "6f7622bdc4e43e8832fc490312f52643df78fe3d",
+      "sha256": "c70d7b636dadf31d2c7c395ef08b1f838fbd86614ee1b4eb10fb23eb9590d128",
+      "result": "PASS_8_OF_8",
+      "physically_executed": true
+    },
+    "locator": {
+      "path": "control/QROS_XAU_W09C_RUNTIME_NEUTRAL_CARRIER_LOCATOR_20260919_v1.json",
+      "git_blob_sha1": "3a078b238c374ff4f062aff916d290ffc3c109b5",
+      "entries": 8
+    }
+  },
+  "physical_validation": {
+    "source_zips": {
+      "verified": "PASS_8_OF_8",
+      "resolution": "DIRECT_LIBRARY_FILE_ID",
+      "broad_recursive_search_after_locator": false
+    },
+    "frozen_materializer": {
+      "path": "scripts/qros_seed0076_materialize_minimal_dev.py",
+      "git_blob_sha1": "b543c8585258b21a007af84a53a944bba58678e6",
+      "local_git_blob_sha1": "b543c8585258b21a007af84a53a944bba58678e6"
+    },
+    "dev": {
+      "records": 151382388,
+      "bytes": 2573500596,
+      "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+      "status": "PASS"
+    },
+    "point_authority": {
+      "path": "scripts/run_seed0076_xau_buy_m1_ga1_groups_v223.sh",
+      "git_blob_sha1": "6ad0675ea779c566bc5192909519d0798dc70d52",
+      "point": 0.01
+    },
+    "bars_M1": {
+      "bars": 681772,
+      "content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+      "expected_capsule_match": true,
+      "status": "PASS"
+    },
+    "indicators_M1": {
+      "bars": 681772,
+      "content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+      "expected_capsule_match": true,
+      "status": "PASS"
+    }
+  },
+  "adversarial_event": {
+    "event": "Initial synchronous DEV materialization call exceeded controller timeout and left a partial temporary file.",
+    "correction": "Same-runtime process death was checked; partial was quarantined; exact frozen unit relaunched nonblocking with durable local claim.",
+    "recovery_result": "PASS_EXACT_TARGET_SHA256",
+    "scientific_test_count_increment": false
+  },
+  "proven_behavior": {
+    "no_wait_loop": true,
+    "nonblocking_heavy_launch": true,
+    "same_runtime_identity_check": true,
+    "controller_timeout_not_worker_death": true,
+    "exact_hash_preservation": true,
+    "direct_locator_prevents_repeat_library_scan": true
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "scientific_effect": "NONE_DETERMINISTIC_RECOVERY_ONLY",
+  "decision": "PASS_ACTIVATE_MANIFEST_FIRST_NONSTALL_RECOVERY_FOR_KNOWN_CARRIERS"
+}
