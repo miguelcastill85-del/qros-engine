@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "AFEL_V1: DO NOT USE LOCAL GIT NETWORK OR BROAD SEARCH. MATERIALIZE/VERIFY EXACT FROZEN GROUP11 BLOBS VIA GITHUB CONNECTOR; THEN ARTIFACT-FIRST CHECK; AT MOST ONE CURRENT-CLAIM STATUS CHECK. ON SECOND NO-EVIDENCE-DELTA, CIRCUIT-BREAK ROUTE AND PERSIST. IF CARRIERS EXACT PASS, VALIDATE PACKAGE + PRECOMMIT + LAUNCH GROUP11 EPOCH2 NONBLOCKING. GROUP12 CLOSED.",
+  "next_action": "DEK_V3_VALIDATION_BARRIER: READ WORKFLOW RUN 35456496303 ONCE. IF SUCCESS, VERIFY JOB STEPS + EXACT COMMIT 09bc8f59... AND PROMOTE DEK_V3 TO FROZEN_ACTIVE; IF STILL RUNNING, CHECKPOINT EXIT WITHOUT POLLING; GROUP11/12 SCIENCE UNCHANGED.",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "22f1c8fed5dd8bf63f17f72754edf180a734f95e",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.15"
+      "git_blob_sha1": "6d29bc7b52b2b7267bf6bc1dfaaf536b14599d9f",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.17"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
@@ -354,6 +354,17 @@
       "path": "control/QROS_ANTI_FREEZE_FAILURE_ROUTE_LEDGER_20260919_v1.json",
       "git_blob_sha1": "6a6bf53199f32bdb796589611857249f02ffdd31",
       "status": "ACTIVE"
+    },
+    "recursive_dek_v3_candidate": {
+      "path": "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json",
+      "git_blob_sha1": "cafaa4e82c103361cf9ce95d10734cf2ac7c8422",
+      "status": "CANDIDATE_VALIDATION"
+    },
+    "recursive_dek_v3_external_validation": {
+      "path": "control/QROS_DEK_V3_EXTERNAL_VALIDATION_PENDING_20260919_v1.json",
+      "git_blob_sha1": "dab585e195e424f41898f03438c190ae57754a2e",
+      "run_id": 35456496303,
+      "status": "EXTERNAL_VALIDATION_PENDING"
     }
   },
   "closed_w09c_bindings": {
