@@ -1,9 +1,9 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.5",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.6",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
-  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "state": "DEVELOPMENT_RUNNING",
   "scientific_state": "PREREGISTERED_NO_RESULTS",
   "current_node": "W09C_FIRST_GATE_PRODUCTION_PREREQUISITES",
   "current_gap": "GAP-S05_PRODUCTION_SEMANTIC_REMATERIALIZATION",
@@ -94,8 +94,8 @@
       "status": "RUNNING_ADOPTABLE"
     },
     "cross_runtime_active_claim_policy": {
-      "path": "governance/QROS_CROSS_RUNTIME_ACTIVE_CLAIM_POLICY_v1.0.json",
-      "git_blob_sha1": "838bb873f888d2cb0acc20e254d22f46e8aae157",
+      "path": "governance/QROS_CROSS_RUNTIME_ACTIVE_CLAIM_POLICY_v1.1.json",
+      "git_blob_sha1": "a123470526d239b3a1b7836b8ddadf1d7774ad09",
       "status": "ACTIVE_MANDATORY"
     },
     "cross_runtime_active_claim_guard_validation": {
@@ -132,6 +132,16 @@
       "path": "control/QROS_FENCED_HEAVY_SUPERVISOR_BINDING_PASS_20260919_v1.json",
       "git_blob_sha1": "6713ac0062d5843cfdb90f56c129482c6bcaacaf",
       "status": "PASS_8_OF_8"
+    },
+    "legacy_unfenced_recovery_policy": {
+      "path": "governance/QROS_LEGACY_UNFENCED_RECOVERY_POLICY_v1.0.json",
+      "git_blob_sha1": "56707a005af08452f6154bb99a01168a60c51d73",
+      "status": "ACTIVE_MANDATORY"
+    },
+    "fenced_runtime_lease_policy": {
+      "path": "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v2.0.json",
+      "git_blob_sha1": "c1eb772f0768e81be75fdeff38580b80e2d07935",
+      "status": "ACTIVE_MANDATORY"
     }
   },
   "data": {
@@ -222,10 +232,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP09_LEGACY_AUTHORITY_FENCE_IMPLEMENTATION_PARTIAL_SAFE",
-  "root_cause": "Cross-chat freeze requires authority fencing; legacy authority guard persisted, lease-v2 persistence incomplete. No scientific state changed.",
+  "problem": "GROUP09_LEGACY_RUNTIME_NO_LONGER_BLOCKS_AUTHORITY; FENCED_RECOVERY_EPOCH1_AUTHORIZED_NOT_STARTED",
+  "root_cause": "Legacy attempt predates fenced leases. Authority cutover now revokes legacy promotion without asserting death and establishes a uniquely promotable fenced recovery epoch.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NEW_BOUNDED_BLOCK: PERSIST_LEASE_GUARD_V2_AND_TESTS; VERIFY_GIT_BYTES; PROMOTE_LEGACY_RECOVERY_AND_FENCED_LEASE_POLICIES; RECHECK_GROUP09_TERMINAL_RECEIPT; ONLY_IF_ABSENT PERSIST_LEGACY_AUTHORITY_TOMBSTONE_AND_RECOVERY_EPOCH",
+  "next_automatic_action": "BUILD_DURABLE_RUNTIME_NEUTRAL_GROUP09_RECOVERY_PACKAGE_FROM_FROZEN_GITHUB_INPUTS; VALIDATE_PACKAGE_AND_FENCE_BINDINGS; PRECOMMIT; LAUNCH RECOVERY_EPOCH1_NONBLOCKING; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED; GROUP10_REMAINS_CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -274,15 +284,29 @@
     "CROSS_RUNTIME_GUARD_PASS_REVALIDATED_AFTER_PREMATURE_EVIDENCE_TIMING",
     "DIRECT_RUNTIME_PROBE_FOREIGN_BOOT_SCOPE_CONFIRMED",
     "FENCED_RUNTIME_LEASE_CANDIDATE_PASS_8_OF_8",
-    "FENCED_HEAVY_SUPERVISOR_BINDING_PASS_8_OF_8"
+    "FENCED_HEAVY_SUPERVISOR_BINDING_PASS_8_OF_8",
+    "LEGACY_UNFENCED_AUTHORITY_TOMBSTONE",
+    "FENCED_RUNTIME_LEASE_V2_ACTIVE_MIGRATION_CUTOVER",
+    "GROUP09_RECOVERY_EPOCH1_AUTHORIZED",
+    "OLD_RUNTIME_DEATH_NO_LONGER_REQUIRED_FOR_AUTHORITY_CUTOVER"
   ],
   "last_execution_block": {
-    "status": "PENDING_CONTROL_PLANE_FENCE_COMPLETION",
+    "status": "PENDING_FENCED_RECOVERY_LAUNCH",
     "receipt": {
-      "path": "control/QROS_GROUP09_AUTHORITY_FENCE_IMPLEMENTATION_PROGRESS_20260919_v1.json"
+      "path": "control/QROS_GROUP09_AUTHORITY_CUTOVER_PASS_20260919_v1.json",
+      "git_blob_sha1": "dafe0b046608b5e9155a83de1dd5615073f29645"
     },
-    "group09_legacy_promotion_revoked": false,
-    "recovery_epoch_created": false,
+    "legacy_attempt_1": {
+      "execution_may_exist": true,
+      "death_proven": false,
+      "promotion_authority": false
+    },
+    "recovery_epoch_1": {
+      "authorized": true,
+      "started": false,
+      "lease_blob_sha1": "7471a26fb382889bd6fd2fd75f86e50c149bbb04",
+      "job_id": "W09C_XAUUSD_BUY_M1_GROUP09_RECOVERY_E1_20260919_v1"
+    },
     "expensive_unit_open": false
   }
 }
