@@ -1,7 +1,7 @@
 {
   "schema": "QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_3.0",
   "version": "3.0",
-  "status": "CANDIDATE_VALIDATION",
+  "status": "FROZEN_ACTIVE",
   "supersedes": "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v2.1.json",
   "absorbs": [
     "governance/QROS_ANTI_FREEZE_EXECUTION_LAYER_v1.0.json",
@@ -38,14 +38,22 @@
     "second_no_evidence_delta": "SWITCH_ROUTE_OR_CHECKPOINT_EXIT",
     "foreign_runtime_non_economic": "FENCED_CUTOVER",
     "foreign_runtime_economic": "FAIL_CLOSED",
-    "no_input_route": "BLOCK_DURABLE"
+    "no_input_route": "BLOCK_DURABLE",
+    "control_plane_budget": {
+      "authority_read_bundle_max": 1,
+      "durable_commit_bundle_max": 1,
+      "total_control_transactions_max": 2,
+      "intermediate_file_by_file_reads_for_known_authority": false,
+      "intermediate_file_by_file_writes": false
+    }
   },
   "transaction_model": [
-    "OBSERVE_DURABLE_STATE",
-    "COMPILE_DETERMINISTIC_TRANSITION",
-    "PERSIST_INTENT_AND_EVENT",
+    "READ_ONE_DURABLE_AUTHORITY_BUNDLE",
+    "COMPILE_DETERMINISTIC_TRANSITION_LOCALLY",
+    "PERSIST_INTENT_IN_TRANSACTION_STATE",
     "EXECUTE_AT_MOST_ONE_EXTERNAL_EFFECT",
-    "PERSIST_RECEIPT_OR_RUNNING_CLAIM",
+    "COLLECT_RESULT_LOCALLY",
+    "WRITE_ONE_DURABLE_COMMIT_BUNDLE",
     "EXIT",
     "NEXT_INVOCATION_REPLAYS_FROM_DURABLE_STATE"
   ],
@@ -107,7 +115,22 @@
     "required_before_activation": true,
     "exact_blob_pins_required": true,
     "clean_runner_required": true,
-    "executor_tests_required": true
+    "executor_tests_required": true,
+    "run_id": 35456496303,
+    "job_id": 105932596142,
+    "exact_candidate_commit": "09bc8f59edc2425a0ea8fda230f311d1da9ec2a7",
+    "run_attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "verified_steps": [
+      "Verify exact candidate pins",
+      "Compile",
+      "Exhaustive state validation",
+      "Chaos crash-resume validation",
+      "Generic one-effect executor validation",
+      "Machine-readable PASS"
+    ],
+    "result": "PASS"
   },
   "scientific_firewall": {
     "scientific_semantics_changed": false,
@@ -116,5 +139,6 @@
     "ga2_open": false,
     "new_ga1_authorized": false
   },
-  "activation_rule": "PROMOTE_TO_FROZEN_ACTIVE_ONLY_AFTER_EXTERNAL_WORKFLOW_PASS_ON_EXACT_COMMIT"
+  "activation_rule": "SATISFIED_EXTERNAL_WORKFLOW_PASS_ON_EXACT_COMMIT",
+  "decision": "FROZEN_ACTIVE_RECURSIVE_TRANSACTIONAL_KERNEL; CHAT_IS_NOT_CONTINUITY_OWNER"
 }
