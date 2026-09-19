@@ -22,5 +22,43 @@
   "target_old_lease_blob": "14851cd5a547c239288228f08d80f0684ff72ae3",
   "source_package_receipt_blob": "b0b479c22261dc9fc0136ae7f795ca6d60170813",
   "activation_after_pass": "CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE",
-  "scientific_effect": "NONE_CONTROL_PLANE_ONLY"
-}\n
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY",
+  "implementation": {
+    "driver": {
+      "path": "scripts/qros_cws_real_control_soak_driver_v1.py",
+      "git_blob_sha1": "9e41255a06496446a3b400e83b486e7c516ef869"
+    },
+    "tests": {
+      "path": "scripts/qros_cws_real_control_soak_driver_tests_v1.py",
+      "git_blob_sha1": "cec0b947c43a5a31ea8237458affa0e54690415b"
+    },
+    "cutover_authorization": {
+      "path": "control/QROS_CWS_GROUP11_EPOCH3_CUTOVER_AUTHORIZATION_20260919_v1.json",
+      "git_blob_sha1": "e75c24bd04904eb23ce71ec3fd75400904dd003f"
+    },
+    "state": {
+      "path": "control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_STATE.json",
+      "initial_git_blob_sha1": "9f39cd04c364a86e6d9233c469a7676b3a4d2d7a"
+    }
+  },
+  "gates": {
+    "RS-G0": "exact candidate pins + compile",
+    "RS-G1": "100000 cutover mutations rejected",
+    "RS-G2": "expired epoch2 cannot be used for spawn",
+    "RS-G3": "real epoch2->epoch3 cutover committed on main by actual runner",
+    "RS-G4": "self-dispatch to second runner with manual_interventions=0",
+    "RS-G5": "second runner adopts exact durable epoch3",
+    "RS-G6": "lease owner mismatch prevents spawn",
+    "RS-G7": "missing exact carriers prevents spawn",
+    "RS-G8": "GROUP11 intent persisted before any spawn",
+    "RS-G9": "GROUP12/economic/holdout/GA2/new-GA1 remain closed",
+    "RS-G10": "terminal control-plane receipt persisted"
+  },
+  "full_pass_criteria": {
+    "manual_interventions": 0,
+    "terminal_stage": 2,
+    "spawn_started": false,
+    "unsafe_accepts": 0,
+    "promotion": "CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE"
+  }
+}
