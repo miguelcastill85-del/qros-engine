@@ -1,12 +1,12 @@
 {
-  "schema": "QROS_CWS_AUTOCHAIN_STATE_1.0",
-  "task_id": "CWS_AUTOCHAIN_SHADOW_20260919",
+  "chain_root": "3c41a3a491242717b62b3fcb0a4f41aea84c01c91fac7caeccfb95a6af92ab17",
+  "generation": 1,
+  "last_run_id": "35474880972",
+  "manual_interventions": 0,
   "objective_hash": "7777777777777777777777777777777777777777777777777777777777777777",
-  "target": 16,
-  "task_spec_hash": "83983f0c19f366a939e3a1646a14e7b78ed21036e687b38dbe217a4def33a50b",
-  "generation": 0,
+  "schema": "QROS_CWS_AUTOCHAIN_STATE_1.0",
   "status": "ACTIVE",
-  "chain_root": "3512f9aadf166f20ca693c941a4913ea2e0c894f9859cda254623ffd237e0b50",
-  "last_run_id": null,
-  "manual_interventions": 0
+  "target": 16,
+  "task_id": "CWS_AUTOCHAIN_SHADOW_20260919",
+  "task_spec_hash": "83983f0c19f366a939e3a1646a14e7b78ed21036e687b38dbe217a4def33a50b"
 }
