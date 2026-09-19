@@ -1,9 +1,9 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.2",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.3",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
-  "state": "DEVELOPMENT_RUNNING",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
   "scientific_state": "PREREGISTERED_NO_RESULTS",
   "current_node": "W09C_FIRST_GATE_PRODUCTION_PREREQUISITES",
   "current_gap": "GAP-S05_PRODUCTION_SEMANTIC_REMATERIALIZATION",
@@ -92,6 +92,21 @@
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v2.json",
       "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
       "status": "RUNNING_ADOPTABLE"
+    },
+    "cross_runtime_active_claim_policy": {
+      "path": "governance/QROS_CROSS_RUNTIME_ACTIVE_CLAIM_POLICY_v1.0.json",
+      "git_blob_sha1": "838bb873f888d2cb0acc20e254d22f46e8aae157",
+      "status": "ACTIVE_MANDATORY"
+    },
+    "cross_runtime_active_claim_guard_validation": {
+      "path": "control/QROS_CROSS_RUNTIME_ACTIVE_CLAIM_GUARD_PASS_20260919_v1.json",
+      "git_blob_sha1": "0d3c546aab052bb31486f10fa823d8d8bd4819af",
+      "status": "PASS_6_OF_6"
+    },
+    "group09_infrastructure_blocker": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
+      "git_blob_sha1": "3713ecff5724f7b298d4e4cda4f50ebb60936dbe",
+      "status": "BLOCKED_BY_INFRASTRUCTURE"
     }
   },
   "data": {
@@ -182,10 +197,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP09_RUNNING_ADOPTABLE_NO_TERMINAL_RECEIPT; ORIGINAL_RUNTIME_NOT_ADDRESSABLE_FROM_CURRENT_EXECUTOR",
-  "root_cause": "Cross-chat runtime boundary persists. Repo-wide verification found no durable terminal receipt; current runtime lacks the original job directory/spec/supervisor. Absence of runtime is not proof of worker death.",
+  "problem": "GROUP09_ACTIVE_ATTEMPT_1_IS_FOREIGN_RUNTIME_SCOPED_AND_NO_DURABLE_TERMINAL_RECEIPT_EXISTS",
+  "root_cause": "Durable control plane preserves GROUP09 identity, but no remote runtime-control/heartbeat channel exists to prove liveness or death after migration. Current boot scope differs from the original worker boot scope.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "CHECK_FOR_DURABLE_GROUP09_TERMINAL_RECEIPT_ON_NEXT_CONTROL_INTERACTION; IF ABSENT, ONLY ADOPT_OR_STATUS SAME ATTEMPT_1 FROM MATCHING_RUNTIME_CONTEXT; NEVER RELAUNCH WITHOUT PROVEN_DEATH",
+  "next_automatic_action": "FIRST CHECK FOR DURABLE GROUP09 TERMINAL RECEIPT; OTHERWISE RECOVER/ADDRESS ORIGINAL RUNTIME AND ADOPT/STATUS ATTEMPT_1; NEVER RELAUNCH WITHOUT AUTHORITATIVE DEATH PROOF; GROUP10 REMAINS CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -228,7 +243,9 @@
     "GROUP_RUNTIME_BINDING_GUARD_V1",
     "GROUP07_EXPECTED_RECEIPT_SCHEMA_FALSE_NEGATIVE_CORRECTED",
     "DUPLICATE_ATTEMPT_NOT_COUNTED_AS_HYPOTHESIS",
-    "CROSS_CHAT_RUNTIME_BOUNDARY_PRESERVE_RUNNING_ADOPTABLE_NO_RELAUNCH"
+    "CROSS_CHAT_RUNTIME_BOUNDARY_PRESERVE_RUNNING_ADOPTABLE_NO_RELAUNCH",
+    "CROSS_RUNTIME_FOREIGN_BOOT_ID_IS_NOT_DEATH_PROOF",
+    "GROUP09_INFRASTRUCTURE_BLOCKER_FROZEN"
   ],
   "last_execution_block": {
     "status": "RUNNING_ADOPTABLE",
@@ -265,6 +282,14 @@
       "terminal_receipt_present": false,
       "matching_runtime_context_available_here": false,
       "relaunch_performed": false
+    },
+    "operational_blocker": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
+      "git_blob_sha1": "3713ecff5724f7b298d4e4cda4f50ebb60936dbe",
+      "state": "BLOCKED_BY_INFRASTRUCTURE",
+      "group09_status": "RUNNING_ADOPTABLE",
+      "relaunch_allowed": false,
+      "group10_opened": false
     }
   }
 }
