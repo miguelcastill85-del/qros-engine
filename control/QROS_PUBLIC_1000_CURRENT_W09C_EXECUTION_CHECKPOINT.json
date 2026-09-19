@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.8",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.9",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -176,13 +176,22 @@
     },
     "group09_recovery_authority": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_RECOVERY_AUTHORITY_20260919_v1.json",
-      "git_blob_sha1": "0b0d4820df59fee41239f186ad884c38b5ad8c3a",
-      "status": "RECOVERY_EPOCH_RUNNING_ADOPTABLE"
+      "git_blob_sha1": "6a7ab0e85d72eea91b11b3de5f46bccda233599e",
+      "status": "RECOVERY_EPOCH_TERMINAL_PASS"
     },
     "group09_recovery_running": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RECOVERY_EPOCH2_RUNNING_ADOPTABLE_20260919_v1.json",
       "git_blob_sha1": "9db9a5cab156dc75e2211ba5baf6609f6e1e22d4",
       "status": "RUNNING_ADOPTABLE"
+    },
+    "group09_terminal_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "1706b60aa172edfad49a861181207748d658884d",
+      "status": "PASS"
+    },
+    "group10_capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP10_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "50a806e9dcada6c989643ffcf030877cece9206c"
     }
   },
   "data": {
@@ -193,7 +202,7 @@
   },
   "semantic_progress": {
     "groups_total": 24,
-    "groups_durably_closed": 9,
+    "groups_durably_closed": 10,
     "closed_indices": [
       0,
       1,
@@ -203,17 +212,18 @@
       5,
       6,
       7,
-      8
+      8,
+      9
     ],
-    "processed_signal_configs_durable": 301752,
+    "processed_signal_configs_durable": 335280,
     "last_receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_SEMANTIC_RECEIPT_20260919_v1.json",
-      "git_blob_sha1": "21dff1ce24dbcf1530053a0420720d69204011a7"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "1706b60aa172edfad49a861181207748d658884d"
     },
-    "next_group_index": 9,
+    "next_group_index": 10,
     "next_capsule": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
-      "git_blob_sha1": "4b8bf850d118eb31f6165f0fe7d3412204396bc3"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP10_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "50a806e9dcada6c989643ffcf030877cece9206c"
     },
     "global_targets": {
       "processed_signal_configs": 804672,
@@ -273,10 +283,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP09_FENCED_RECOVERY_EPOCH2_RUNNING_ADOPTABLE; NO_TERMINAL_RECEIPT_YET",
-  "root_cause": "Previous legacy runtime ownership and inefficient recovery path were superseded by fenced epoch2 plus manifest-first direct carrier recovery. Current heavy unit is running under exact same-runtime PID/birth identity.",
+  "problem": "GROUP09_CLOSED_PASS; GROUP10_CAPSULE_READY",
+  "root_cause": "NONE_OPEN_FOR_GROUP09; SERIAL_FIFO_ADVANCE_TO_GROUP10",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP09 RECOVERY EPOCH2 ATTEMPT_1 <=5S; IF PASS VALIDATE CURRENT LEASE ECHO + ARTIFACT HASHES + CAPSULE IDENTITY THEN PERSIST AUTHORITATIVE GROUP09 TERMINAL RECEIPT; IF RUNNING PRESERVE RUNNING_ADOPTABLE; NEVER RELAUNCH; GROUP10 REMAINS CLOSED",
+  "next_automatic_action": "VERIFY GROUP10 CAPSULE + PRIOR GROUP09 RECEIPT + CURRENT RUNTIME CARRIERS; CREATE CURRENT-RUNTIME FENCED LEASE; PRECOMMIT; LAUNCH GROUP10 NONBLOCKING; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED; GROUP11 REMAINS CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -341,22 +351,21 @@
     "GROUP09_RECOVERY_ATTEMPT1_LAUNCHED_NONBLOCKING"
   ],
   "last_execution_block": {
-    "status": "RUNNING_ADOPTABLE",
-    "expensive_unit_open": true,
+    "status": "GROUP09_TERMINAL_PASS_GROUP10_PENDING_LAUNCH",
+    "expensive_unit_open": false,
     "group09": {
-      "job_id": "W09C_XAUUSD_BUY_M1_GROUP09_RECOVERY_E1_20260919_v1",
-      "lease_epoch": 2,
+      "status": "PASS",
       "attempt": 1,
-      "claim_token": "8cc5db45bcb2493fa7bd5d17478b0221",
-      "bootstrap_pid": 1446,
-      "bootstrap_birth": "linux:12a54489-1877-43f8-88f0-923c8973b198:520311",
-      "worker_pid": 1458,
-      "worker_birth": "linux:12a54489-1877-43f8-88f0-923c8973b198:520440",
-      "duplicate_launch": false,
-      "terminal_receipt_present": false
+      "retry_count": 0,
+      "terminal_receipt_blob_sha1": "1706b60aa172edfad49a861181207748d658884d"
     },
-    "group10_opened": false,
+    "group10": {
+      "opened": false,
+      "capsule_blob_sha1": "50a806e9dcada6c989643ffcf030877cece9206c"
+    },
     "economic_pnl_read": false,
-    "blocking_poll_used": false
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
   }
 }
