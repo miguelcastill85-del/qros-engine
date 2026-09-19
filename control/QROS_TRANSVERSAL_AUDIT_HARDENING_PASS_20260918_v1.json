@@ -1,0 +1,108 @@
+{
+  "schema": "QROS_TRANSVERSAL_AUDIT_HARDENING_RECEIPT_1.0",
+  "date": "2026-09-18",
+  "status": "PASS_WITH_CONTROL_PLANE_CORRECTIONS",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "objective": "Audit the end-to-end purpose, authority, scientific gates, anti-loop execution, and cross-genealogy contamination risk before resuming W09C.",
+  "findings": [
+    {
+      "id": "A01_AUTHORITY_SPLIT",
+      "status": "FAIL_CORRECTED",
+      "finding": "Mutable frontier pointer did not pin the newer W09C checkpoint/capsule, while reconciliation policy expects a pointer-pinned execution capsule. This could reopen generic W10 prerequisite work or repeat recovery across chats.",
+      "correction": "Bind current checkpoint and group03 capsule directly into mutable CURRENT_FRONTIER_POINTER."
+    },
+    {
+      "id": "A02_BUDGET_DEADLINE",
+      "status": "FAIL_CORRECTED",
+      "finding": "v1 guard allowed an open expensive unit to pass call 11 and be durably persisted later.",
+      "correction": "v2 enforces durable checkpoint/persist at call 11 or fails closed."
+    },
+    {
+      "id": "A03_DURABLE_TYPE_CONFUSION",
+      "status": "FAIL_CORRECTED",
+      "finding": "v1 accepted durable=true on non-persistence call kinds, allowing false durability.",
+      "correction": "v2 restricts durable=true to checkpoint/persist."
+    },
+    {
+      "id": "A04_MULTI_EXPENSIVE_UNIT",
+      "status": "FAIL_CORRECTED",
+      "finding": "v1 could start a second expensive unit in the same block after persisting the first.",
+      "correction": "v2 permits at most one expensive unit start per block."
+    },
+    {
+      "id": "A05_CONTROLLER_LOCK_RACE",
+      "status": "FAIL_CORRECTED",
+      "finding": "v1 could reclaim a fresh .controller.lock before owner.json existed or when owner.json was freshly unreadable.",
+      "correction": "v1.1/v2 wrapper uses lock-directory age for ownerless/unreadable locks and preserves live-owner no-steal semantics."
+    },
+    {
+      "id": "A06_CLOCK_SESSION",
+      "status": "PASS_NO_CHANGE",
+      "finding": "Fixed server=New_York+7h relation is already evidence-bound by V219 and consistent with Darwinex GMT+3 during US DST / GMT+2 outside US DST. No semantic change."
+    },
+    {
+      "id": "A07_OVERLAP_ADMISSION",
+      "status": "PASS_NO_CHANGE",
+      "finding": "Same-candidate serial overlap policy has independent synthetic parity PASS. No change."
+    },
+    {
+      "id": "A08_EXECUTION_UNITS",
+      "status": "PASS_NO_CHANGE",
+      "finding": "Execution-unit firewall and independent dimensional parity are already bound. No change."
+    },
+    {
+      "id": "A09_PHYSICAL_DEV",
+      "status": "PASS_NO_CHANGE",
+      "finding": "XAU DEV bytes are materially recovered and hash-verified; do not repeat unless hashes fail."
+    },
+    {
+      "id": "A10_TRANSITIVE_SOURCE_CLOSURE",
+      "status": "PASS_ALREADY_CORRECTED",
+      "finding": "Previously omitted indicator dependency was already corrected and frozen."
+    },
+    {
+      "id": "A11_ECONOMIC_FIREWALL",
+      "status": "PASS",
+      "finding": "Economic PnL, W10, holdout, GA2 and new GA1 remain closed."
+    },
+    {
+      "id": "A12_CROSS_GENEALOGY_REPORT",
+      "status": "QUARANTINED_REPORT_ONLY",
+      "finding": "Investigación XAUUSD.txt reports prior XAU M1-M4/portfolio results but is not current PUBLIC1000 V255 authority; its metrics must not influence Seed0076 selection or gates."
+    }
+  ],
+  "gates": {
+    "external_call_guard_v2": {
+      "status": "PASS_LOCAL_ADVERSARIAL",
+      "assertions": 12,
+      "policy_blob_sha1": "62d054382b98d7c212128518f79930f7a9b9beb9"
+    },
+    "heavy_lock_race_v2": {
+      "status": "PASS_LOCAL_ADVERSARIAL_PLUS_EXACT_BASE_STATIC_INTEGRATION",
+      "assertions": 5,
+      "policy_blob_sha1": "e77cb928aaa62cc62bba56cb6b79beb53e3c7a87",
+      "base_blob_sha1": "991860cb4cb6e1f4d322127fd4417324dc8cbbaf"
+    },
+    "scientific_scope_preservation": "PASS_NO_ALPHA_DATA_PNL_HOLDOUT_FIFO_CHANGE"
+  },
+  "verified_existing_bindings": {
+    "clock_session": {
+      "path": "control/QROS_PUBLIC_1000_SEED_0076_GLOBAL_CLOCK_SESSION_BINDING_V219_v1.json",
+      "git_blob_sha1": "c16d561b66a51d3735960470ba893e53e6913d40"
+    },
+    "overlap": {
+      "path": "control/QROS_SEED0076_OVERLAP_ADMISSION_PARITY_PASS_20260915_v1.json",
+      "git_blob_sha1": "32556fe476f62104b3c5aa08a7d8e5fb64847009"
+    },
+    "physical_dev": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_PHYSICAL_DEV_MATERIALIZATION_PASS_20260916_v1.json",
+      "git_blob_sha1": "046a1f8a988a171c632ce3f5fc71673bc976e481"
+    },
+    "transitive_source": {
+      "path": "control/QROS_PUBLIC_1000_W09C_SEMANTIC_SOURCE_TRANSITIVE_CLOSURE_CORRECTION_20260916_v1.json",
+      "git_blob_sha1": "2a17f14946089623c77430b6ec99a47d18bea787"
+    }
+  },
+  "decision": "RESUME_W09C_FROM_GROUP03_ONLY_AFTER_CONTROL_PLANE_HARDENING; NO ECONOMIC SCORING"
+}
