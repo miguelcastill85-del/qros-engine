@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "BUILD_DURABLE_RUNTIME_NEUTRAL_GROUP09_RECOVERY_PACKAGE_FROM_FROZEN_GITHUB_INPUTS; VALIDATE_PACKAGE_AND_FENCE_BINDINGS; PRECOMMIT; LAUNCH RECOVERY_EPOCH1_NONBLOCKING; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED; GROUP10_REMAINS_CLOSED",
+  "next_action": "MATERIALIZE_GROUP09_RECOVERY_RUNTIME_PACKAGE_FROM_FROZEN_GITHUB_BLOBS; VERIFY SOURCE/BINDING ROOTS; PRECOMMIT; LAUNCH RECOVERY_EPOCH1 NONBLOCKING; PERSIST TERMINAL_OR_RUNNING STATE; GROUP10 REMAINS CLOSED",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "c3a51e4e82f2cd40a4779611dc8f18054b826897",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.6"
+      "git_blob_sha1": "bae5b93d09db9d34c4cb7d3444733e32926df29d",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.7"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
@@ -276,6 +276,21 @@
       "path": "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v2.0.json",
       "git_blob_sha1": "c1eb772f0768e81be75fdeff38580b80e2d07935",
       "status": "ACTIVE_MANDATORY"
+    },
+    "manifest_first_nonstall_policy": {
+      "path": "governance/QROS_MANIFEST_FIRST_NONSTALL_RECOVERY_POLICY_v1.0.json",
+      "git_blob_sha1": "9a7868e82cd1bbec49240a534036c27968609a4d",
+      "status": "ACTIVE_MANDATORY"
+    },
+    "runtime_neutral_xau_carrier_locator": {
+      "path": "control/QROS_XAU_W09C_RUNTIME_NEUTRAL_CARRIER_LOCATOR_20260919_v1.json",
+      "git_blob_sha1": "3a078b238c374ff4f062aff916d290ffc3c109b5",
+      "entries": 8
+    },
+    "manifest_first_nonstall_validation": {
+      "path": "control/QROS_MANIFEST_FIRST_NONSTALL_RECOVERY_PASS_20260919_v1.json",
+      "git_blob_sha1": "b0726480caa0194ae818302434b0fb9c11dbf7e6",
+      "status": "PASS"
     }
   },
   "closed_w09c_bindings": {
