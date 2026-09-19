@@ -1,0 +1,74 @@
+{
+  "schema": "QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_1.2",
+  "version": "v1.2",
+  "date": "2026-09-18",
+  "status": "ACTIVE",
+  "supersedes": {
+    "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.1.json",
+    "git_blob_sha1": "e77cb928aaa62cc62bba56cb6b79beb53e3c7a87"
+  },
+  "correction_reason": "v1.1 bound the correct persisted Git blobs but recorded SHA-256 values from earlier local pre-persistence bytes for the v2 wrapper/test files. Recomputed SHA-256 from exact Git blob bytes and revalidated against the full authoritative v1 runtime.",
+  "scientific_semantics_changed": false,
+  "economic_gates_changed": false,
+  "authoritative_runtime": {
+    "v1": {
+      "path": "scripts/qros_heavy_job_supervisor_v1.py",
+      "git_blob_sha1": "991860cb4cb6e1f4d322127fd4417324dc8cbbaf",
+      "sha256": "170c1d6b010c23abbe6ebd2349b64516ca1ee0758c1f22e99889da85121bc41d"
+    },
+    "v2": {
+      "path": "scripts/qros_heavy_job_supervisor_v2.py",
+      "git_blob_sha1": "91f6ccb18587c7f30ad6525c70cfa2f13fb17eeb",
+      "sha256": "ee1563996aeeda42a449fe37de54de308de5b9525b5aeb218d87cbbdc45b31b4"
+    },
+    "tests_v1": {
+      "path": "scripts/qros_heavy_job_supervisor_tests_v1.py",
+      "git_blob_sha1": "3d10c2adfdf1cedcee100d31faef2bf1822e9abb",
+      "sha256": "10b316c4597461475413d633672e52c22abeb10446e6b68f1a1a52d8c385bb28"
+    },
+    "tests_v2": {
+      "path": "scripts/qros_heavy_job_supervisor_tests_v2.py",
+      "git_blob_sha1": "90d754e550eabc485be07e5094d646c8bb6475d4",
+      "sha256": "0c22757307c075e95399e8479a1927daec0f03cbb5fb2789fc966feb1d9ec5a7"
+    }
+  },
+  "validation": {
+    "exact_git_blob_identity": "PASS_4_OF_4",
+    "v1_adversarial_tests": {
+      "status": "PASS",
+      "count": 11
+    },
+    "v2_lock_race_tests": {
+      "status": "PASS",
+      "count": 5
+    },
+    "real_v2_controller_smoke": {
+      "status": "PASS",
+      "lifecycle": [
+        "LAUNCHED",
+        "PROMOTE_ATOMIC_DONE"
+      ],
+      "attempts": 1,
+      "artifact_sha256": "886fd0638549e82ec751dd850a75c1c1bea7428d977b1e6e9b1b7987207d8bfd"
+    },
+    "group03_launched": false,
+    "orphan_worker": false
+  },
+  "mandatory_invariants": [
+    "Use exact Git blob bytes for both v1 base supervisor and v2 wrapper in the same fresh runtime directory.",
+    "Never execute real jobs from an audit-test directory containing stubs.",
+    "Verify Git blob SHA-1 and SHA-256 before heavy launch.",
+    "Transport timeout is not worker failure.",
+    "Adopt live/orphan exact process identity before relaunch.",
+    "At most one proven-death retry.",
+    "Active attempts are never deleted.",
+    "Fresh ownerless or unreadable controller locks are not reclaimable before stale_seconds.",
+    "One expensive scientific unit must be durably persisted before another begins."
+  ],
+  "scientific_firewalls": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
