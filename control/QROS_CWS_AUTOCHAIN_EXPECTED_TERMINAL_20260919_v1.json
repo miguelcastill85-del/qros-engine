@@ -1,0 +1,14 @@
+{
+  "schema": "QROS_CWS_AUTOCHAIN_EXPECTED_TERMINAL_1.0",
+  "date": "2026-09-19",
+  "status": "PREREGISTERED_BEFORE_TERMINAL",
+  "task_id": "CWS_AUTOCHAIN_SHADOW_20260919",
+  "objective_hash": "7777777777777777777777777777777777777777777777777777777777777777",
+  "target_generation": 16,
+  "task_spec_hash": "83983f0c19f366a939e3a1646a14e7b78ed21036e687b38dbe217a4def33a50b",
+  "expected_final_chain_root": "caec370c9f0ebad0625d917e355fd0bde97446897b1ef5ad53352f64252a237c",
+  "expected_completion_certificate_sha256": "ed445890780cd81e0bf6e7b58beb5ceac413a6c6af877fb16a657c334720ade1",
+  "manual_interventions_required": 0,
+  "decision_rule": "PASS ONLY IF DURABLE STATE REACHES GENERATION 16, STATUS COMPLETE, CHAIN ROOT AND CERTIFICATE MATCH EXACTLY, AND MANUAL_INTERVENTIONS REMAINS 0.",
+  "w09c_connected": false
+}
