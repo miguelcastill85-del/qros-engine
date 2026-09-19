@@ -1,0 +1,70 @@
+{
+  "schema": "QROS_FENCED_RUNTIME_LEASE_POLICY_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "PREREGISTERED_CONTROL_PLANE_CANDIDATE",
+  "purpose": "Provide migration-safe runtime ownership for future expensive units by durable lease epochs and fencing tokens, so stale-runtime receipts cannot be promoted after an authorized epoch supersession.",
+  "provenance": {
+    "prior_persistent_execution_examples": [
+      "control/persistent_execution/recovery/G30_F10_CLUSTERING_LEASE_F15_EXPIRED_RECOVERY_20260905T001834Z.json",
+      "control/persistent_execution/recovery/G30_F10_NQX_H1_BID_LEASE_F10_EXPIRED_RECOVERY_20260904T210300Z.json"
+    ],
+    "current_blocker": "control/QROS_PUBLIC_1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json"
+  },
+  "implementation": {
+    "path": "scripts/qros_fenced_runtime_lease_guard_v1.py",
+    "git_blob_sha1": "8eed504af981529b21933ef594aef77e9b9d06a5",
+    "sha256": "85f1441e16b90a61d6607469b8dbc798e3d7d8950d9cb23c4ef66adf0c697afb"
+  },
+  "tests": {
+    "path": "scripts/qros_fenced_runtime_lease_guard_tests_v1.py",
+    "git_blob_sha1": "758efc7e318bdfb3a64f50bf5473ac21ec516814",
+    "sha256": "0a973eb9dd0cb228b0e8bfe80a2a53683e60c1422a1d2f96209a49a041fc2d4c",
+    "status": "PASS",
+    "count": 8
+  },
+  "contract": {
+    "prelaunch_lease_required": true,
+    "lease_fields": [
+      "job_id",
+      "group_index",
+      "lease_epoch",
+      "lease_id",
+      "owner_runtime_id",
+      "issued_at",
+      "expires_at",
+      "state",
+      "fence_token"
+    ],
+    "worker_receipt_must_echo": [
+      "job_id",
+      "group_index",
+      "lease_epoch",
+      "lease_id",
+      "fence_token"
+    ],
+    "expired_epoch_receipts_rejected_forever": true,
+    "supersession_increments_epoch": true,
+    "stale_worker_output_may_not_promote": true,
+    "lease_expiry_alone_is_not_worker_death": true,
+    "cross_runtime_relaunch_requires_separate_governance_transition": true
+  },
+  "retroactivity": {
+    "group09": false,
+    "reason": "GROUP09 attempt_1 launched before any fenced lease was preregistered; introducing an epoch after launch would change its control contract retrospectively."
+  },
+  "activation_requirements": [
+    "integrate lease identity into future wrapper and job-spec expected receipt",
+    "integrate promotion-time fence validation into supervisor/barrier",
+    "adversarial test stale worker completing after epoch supersession",
+    "adversarial test concurrent controller epoch race",
+    "durable policy promotion receipt before first fenced production launch"
+  ],
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY",
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
