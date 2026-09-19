@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "NEW_BOUNDED_BLOCK: MATERIALIZE_AUTHORITATIVE_SUPERVISOR_V1_FULL_BLOB_991860_AND_V2_BLOB_91F6CC_IN_FRESH_RUNTIME; VERIFY_EXACT_BYTES; RUN V1+V2 TESTS PLUS REAL CONTROLLER_SMOKE_LIFECYCLE; IF PASS LAUNCH GROUP03 ONCE; PERSIST LIVE/PASS STATE BY CALL_11",
+  "next_action": "NEW_BOUNDED_BLOCK: VERIFY_CHECKPOINT_2_1_AND_GROUP03_CAPSULE; LAUNCH_GROUP03_ONCE_USING_/mnt/data/qros_group03_runtime/supervisor_full/qros_heavy_job_supervisor_v2.py; PERSIST LIVE_OR_PASS_STATE_BY_CALL_11; DO_NOT_START_GROUP04_UNTIL_GROUP03_DURABLE_RECEIPT",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "50443d3a909fe2ac0a7ec916f650e6904aa690c1",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.0"
+      "git_blob_sha1": "73454b1e9646a312b581570f4369850aeb068ae4",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.1"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP03_EXECUTION_CAPSULE_20260916_v1.json",
@@ -132,6 +132,14 @@
     "supervisor_runtime_identity_fail_closed": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SUPERVISOR_RUNTIME_IDENTITY_FAIL_CLOSED_20260918_v1.json",
       "git_blob_sha1": "a261d30bff52ca52e457e75f4d291c9498fcdd17"
+    },
+    "supervisor_full_runtime_gate": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SUPERVISOR_FULL_RUNTIME_GATE_PASS_20260918_v1.json",
+      "git_blob_sha1": "e5bd10def7b534586df659b95995e370e070e730"
+    },
+    "heavy_execution_policy": {
+      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+      "git_blob_sha1": "74e4d884a7018825ed67f0218f82f1d3fd543db3"
     }
   },
   "closed_w09c_bindings": {
