@@ -1,0 +1,97 @@
+{
+  "schema": "QROS_CONTINUOUS_WORK_SCHEDULER_GOVERNANCE_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "activation": {
+    "active": false,
+    "main_integration": false,
+    "production_use_forbidden": true
+  },
+  "purpose": "Provide Work-like prolonged logical execution across disposable runtimes while DEK v3 remains the only scientific reducer and exactly-once/fencing authority.",
+  "authorities": {
+    "bpc_v11": {
+      "path": "governance/QROS_BEST_PROPOSAL_COMPILER_GOVERNANCE_v1.1.json",
+      "git_blob_sha1": "16aa5751b71d3259fd69916b566c1a92c1b0ed2e"
+    },
+    "dek_v3": {
+      "path": "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json",
+      "git_blob_sha1": "21f838ced8ec8a6c21a596acaf2a949582c200fa"
+    },
+    "prior_self_application_fail": {
+      "path": "control/QROS_CWS_V1_SELF_APPLICATION_GATE_FAIL_20260919_v1.json",
+      "git_blob_sha1": "63c072f0a31869cc794c556a9877a392e4ed74b9"
+    }
+  },
+  "implementation": {
+    "scheduler": {
+      "path": "scripts/qros_continuous_work_scheduler_v1.py",
+      "git_blob_sha1": "c577b84d15ba50a34f49c66befbe9f26bb2b83bb"
+    },
+    "validation_oracle": {
+      "path": "scripts/qros_continuous_work_scheduler_tests_v1.py",
+      "git_blob_sha1": "ce4b0883deb644f2aed553c279ad7aa564fe393b"
+    },
+    "build_manifest": {
+      "path": "control/QROS_CWS_V1_BUILD_MANIFEST_20260919_v1.json",
+      "git_blob_sha1": "64b26e00c7b27aa2c4ef3cc64bc7c7e6252070c6"
+    }
+  },
+  "architecture": {
+    "role": "SCHEDULER_ONLY_NOT_SCIENTIFIC_REDUCER",
+    "single_scientific_reducer": "DEK_V3",
+    "macro_task_owned_by_runtime": false,
+    "macro_lease": false,
+    "heartbeat_is_progress": false,
+    "progress_requires_task_bound_durable_proof": true,
+    "capability_tokens_bound_into_task_spec_hash": true,
+    "objective_revision_preempts_old_task": true,
+    "completion_requires_task_bound_dek_terminal_root": true,
+    "per_invocation_budget_does_not_limit_macro_task_lifetime": true
+  },
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false,
+    "scheduler_may_not_issue_scientific_actions": true
+  },
+  "gates_preregistered": {
+    "CW-G0": "single reducer / meta actions only",
+    "CW-G1": "split-brain deterministic same effect id",
+    "CW-G2": "heartbeat cannot count as progress",
+    "CW-G3": "bounded no-progress windows",
+    "CW-G4": "segmentation transparency",
+    "CW-G5": "crash/replay chaos",
+    "CW-G6": "scheduler state resurrection across ephemeral runners",
+    "CW-G7": "lost ACK exactly-once identity",
+    "CW-G8": "user objective preemption",
+    "CW-G9": "scientific capability firewall",
+    "CW-G10": "poisoned state rejection",
+    "CW-G11": "controller CAS/race safety",
+    "CW-G12": "environment/multi-runner parity",
+    "CW-G13": "completion certificate",
+    "CW-G14": "independent oracle parity",
+    "CW-G15": "long-run bounded state/resource soak"
+  },
+  "supergates_preregistered": {
+    "CW-SG1": "state-space/oracle parity",
+    "CW-SG2": "100000 deterministic chaos episodes",
+    "CW-SG3": "metamorphic segmentation parity",
+    "CW-SG4": "four clean-runner state migrations totaling 10000 progress units",
+    "CW-SG5": "independent oracle + exact Git blob pins on clean runner"
+  },
+  "bpc_self_application_gate": {
+    "candidate_branch": "cws-v1-selfhost-20260919",
+    "main_untouched": true,
+    "repository_native_transport": true,
+    "manual_base64_forbidden": true,
+    "build_manifest_durable": true,
+    "bounded_build_steps": true,
+    "no_poll_loop": true,
+    "promotion_requires_external_clean_runner_pass": true
+  },
+  "promotion_rule": "NO ACTIVATION OR MAIN MERGE UNTIL ALL EXTERNAL GATES/SUPERGATES PASS ON EXACT PINNED BLOBS AND A DURABLE PASS RECEIPT IS COMMITTED.",
+  "decision": "CANDIDATE_ONLY_EXTERNAL_VALIDATION_PENDING"
+}
