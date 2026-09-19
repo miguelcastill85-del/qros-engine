@@ -14,7 +14,7 @@
   "workflow_run": {
     "id": 35474255510,
     "run_attempt": 1,
-    "observed_status": "queued",
+    "observed_status": "in_progress",
     "observations_this_transition": 1
   },
   "previous_material_defect": "QROS_CWS_V1_0_EFFECT_PROOF_BINDING_DEFECT",
@@ -25,5 +25,12 @@
     "holdout_open": false,
     "ga2_open": false,
     "new_ga1_authorized": false
+  },
+  "last_adoption": {
+    "run_id": 35474255510,
+    "status": "in_progress",
+    "head_sha": "a9aa02f3587bd073722e0e0594348b706dcf4168",
+    "run_attempt": 1,
+    "relaunch_count": 0
   }
 }
