@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_CWS_V1_1_EXTERNAL_REVALIDATION_PENDING_1.0",
+  "date": "2026-09-19",
+  "status": "RUNNING_ADOPTABLE",
+  "candidate": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
+  "branch": "cws-v1.1-effect-proof-20260919",
+  "exact_head": "a9aa02f3587bd073722e0e0594348b706dcf4168",
+  "exact_blobs": {
+    "scheduler": "692f5d496705495850981987616218ccf9bd750b",
+    "tests": "cf75fa3acb4f6ac24d28d2b4dd360e40a436af9a",
+    "workflow": "369f508e739c17f89f5552c2af207c5231fd7498",
+    "governance": "c2e90f01207b2804b01cd3818c66fc8aa5d428e3"
+  },
+  "workflow_run": {
+    "id": 35474255510,
+    "run_attempt": 1,
+    "observed_status": "queued",
+    "observations_this_transition": 1
+  },
+  "previous_material_defect": "QROS_CWS_V1_0_EFFECT_PROOF_BINDING_DEFECT",
+  "next_automatic_action": "QUERY RUN 35474255510 ONCE. IF SUCCESS, VERIFY ALL JOBS + LOST-ACK REGRESSION + 100000 CHAOS + TWO FIXED-POINT ROUNDS + 10000-UNIT MULTI-RUNNER SOAK. IF RUNNING/QUEUED, PRESERVE RUNNING_ADOPTABLE. IF FAIL, FETCH FAILED JOB LOGS ONCE AND FAIL CLOSED.",
+  "main_activation": false,
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
