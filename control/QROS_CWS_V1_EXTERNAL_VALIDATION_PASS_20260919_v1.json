@@ -1,0 +1,98 @@
+{
+  "schema": "QROS_CWS_V1_EXTERNAL_VALIDATION_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_EXTERNAL_CLEAN_RUNNER",
+  "candidate": "QROS_CONTINUOUS_WORK_SCHEDULER_v1",
+  "validated_commit": "d7df30922794af48b8f0aeca7e905c5ae55f9d1e",
+  "workflow_run_id": 35473960905,
+  "run_attempt": 1,
+  "workflow_conclusion": "success",
+  "exact_blobs": {
+    "scheduler": "c577b84d15ba50a34f49c66befbe9f26bb2b83bb",
+    "tests": "ce4b0883deb644f2aed553c279ad7aa564fe393b",
+    "governance": "db20d9c773461891fee7f980c92caf9f5365e6c3",
+    "workflow": "813e550a8bf7bea79c96fe92a010ae95ffdd386f"
+  },
+  "jobs": {
+    "validate": {
+      "id": 105979850264,
+      "conclusion": "success"
+    },
+    "runner1": {
+      "id": 105979906466,
+      "conclusion": "success"
+    },
+    "runner2": {
+      "id": 105979933295,
+      "conclusion": "success"
+    },
+    "runner3": {
+      "id": 105979951092,
+      "conclusion": "success"
+    },
+    "runner4": {
+      "id": 105979969982,
+      "conclusion": "success"
+    }
+  },
+  "gates_verified": {
+    "G0_single_reducer": "PASS",
+    "G1_split_brain": "PASS",
+    "G2_false_progress": "PASS",
+    "G3_bounded_liveness": "PASS",
+    "G4_segmentation_transparency": "PASS",
+    "G5_crash_replay": "PASS_CHAOS_PLUS_MULTI_RUNNER_STATE_RESUME",
+    "G6_state_resurrection": "PASS_4_RUNNERS",
+    "G7_lost_ack_exactly_once": "PASS",
+    "G8_user_preemption": "PASS",
+    "G9_scientific_firewall": "PASS",
+    "G10_state_integrity": "PASS",
+    "G11_controller_race": "PASS",
+    "G12_environment_multi_runner": "PASS_SAME_PINNED_UBUNTU_IMAGE",
+    "G13_closure_proof": "PASS",
+    "G14_independent_oracle": "PASS",
+    "G15_long_run_resource": "PASS_10000_PROGRESS_UNITS_STATE_614_BYTES"
+  },
+  "supergates_verified": {
+    "SG1_state_space_oracle": "PASS_9216_EXHAUSTIVE_STATES",
+    "SG2_massive_chaos": {
+      "episodes": 100000,
+      "transitions": 458806,
+      "duplicate_effects": 0,
+      "invalid_completion": 0,
+      "firewall_breaches": 0
+    },
+    "SG3_metamorphic_continuity": "PASS_SEGMENTATION_1_2_10_100_1000",
+    "SG4_real_multi_runner_soak": {
+      "runners": 4,
+      "progress_units": 10000,
+      "phase": "COMPLETE",
+      "state_bytes": 614,
+      "state_hash": "a59445da75fb2f00242a972df25f6b309d32b416f998bb13312abab8440aeecb"
+    },
+    "SG5_independent_oracle_and_pins": "PASS"
+  },
+  "fixed_point": {
+    "rounds": 2,
+    "cases_per_round": 100000,
+    "new_critical": 0,
+    "new_high": 0
+  },
+  "completion_certificate": {
+    "sha256": "c107092375fb56d13a5a87fb94b19517149361e18ee4e54697ced8d9c5727677",
+    "task_spec_hash": "8a9c19170758bc75fa4b81b04362a5c777ff25b3041e3a66a5a251c02843f125",
+    "terminal_root": "6666666666666666666666666666666666666666666666666666666666666666"
+  },
+  "self_application_gate": {
+    "bounded_control_plane_steps": "PASS",
+    "durable_build_checkpoints": "PASS",
+    "route_switch_after_transport_failure": "PASS",
+    "no_raw_base64_hand_assembly": "PASS",
+    "repository_native_transport": "PASS",
+    "self_hosted_end_to_end_soak": "PASS",
+    "repeated_user_continue_required_for_internal_build": "NO",
+    "main_mutated_during_candidate_build": false
+  },
+  "decision": "VALIDATED_DESIGN_ELIGIBLE_FOR_PROMOTION_GUARD; NOT_ACTIVE_YET",
+  "scientific_effect": "NONE"
+}
