@@ -1,0 +1,74 @@
+name: qros-cws-w09c-shadow-v1
+
+on:
+  push:
+    branches:
+      - cws-w09c-shadow-v1-20260919
+      - main
+    paths:
+      - 'control/QROS_CWS_W09C_SHADOW_SPEC_20260919_v1.json'
+      - 'scripts/qros_cws_w09c_shadow_observer_v1.py'
+      - 'scripts/qros_cws_w09c_shadow_tests_v1.py'
+      - 'governance/QROS_CWS_W09C_SHADOW_GOVERNANCE_v1.0.json'
+      - '.github/workflows/qros-cws-w09c-shadow-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  shadow:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact shadow pins
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object control/QROS_CWS_W09C_SHADOW_SPEC_20260919_v1.json)" = "19dc7c084d505c91d378e26f1c859e5bc3c56df6"
+          test "$(git hash-object scripts/qros_cws_w09c_shadow_observer_v1.py)" = "36f024d050b492fb1afbb73909572cde41d0c056"
+          test "$(git hash-object scripts/qros_cws_w09c_shadow_tests_v1.py)" = "b4388fda1dd32eefe321160f639e5f22e16c4781"
+          python3 - <<'PY'
+          import json,subprocess
+          s=json.load(open('control/QROS_CWS_W09C_SHADOW_SPEC_20260919_v1.json'))
+          for k,node in s['authority_pins'].items():
+              got=subprocess.check_output(['git','hash-object',node['path']],text=True).strip()
+              assert got==node['git_blob_sha1'],(k,got,node['git_blob_sha1'])
+          g=json.load(open('governance/QROS_CWS_W09C_SHADOW_GOVERNANCE_v1.0.json'))
+          assert g['status']=='PREREGISTERED_NO_RESULTS'
+          assert g['activation'] is False
+          assert g['w09c_effects_allowed']==0
+          print('W09C_SHADOW_EXACT_PINS=PASS')
+          PY
+      - name: Compile
+        run: |
+          python3 -m py_compile scripts/qros_cws_w09c_shadow_observer_v1.py
+          python3 -m py_compile scripts/qros_cws_w09c_shadow_tests_v1.py
+      - name: Baseline read-only observer
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/qros_cws_w09c_shadow_observer_v1.py             --frontier control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json             --checkpoint control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json             --dek governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json             --cws control/QROS_CWS_CURRENT.json             --spec control/QROS_CWS_W09C_SHADOW_SPEC_20260919_v1.json | tee w09c_shadow_baseline.json
+      - name: Adversarial firewall suite
+        working-directory: scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 qros_cws_w09c_shadow_tests_v1.py | tee ../w09c_shadow_tests.json
+      - name: Assert zero effects
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          b=json.load(open('w09c_shadow_baseline.json'))
+          t=json.load(open('w09c_shadow_tests.json'))
+          assert b['status']=='PASS'
+          assert b['external_effects_executed']==0
+          assert b['w09c_writes']==0
+          assert t['external_effects_executed']==0
+          assert t['w09c_writes']==0
+          assert t['mutation_cases']==100000
+          assert t['mutation_rejected']==100000
+          print('W09C_SHADOW_ZERO_EFFECTS=PASS')
+          PY
