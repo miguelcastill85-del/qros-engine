@@ -1,0 +1,36 @@
+{
+  "schema": "QROS_FENCED_RUNTIME_LEASE_GUARD_VALIDATION_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "policy_status": "CANDIDATE_NOT_ACTIVE",
+  "implementation": {
+    "path": "scripts/qros_fenced_runtime_lease_guard_v1.py",
+    "git_blob_sha1": "8eed504af981529b21933ef594aef77e9b9d06a5",
+    "sha256": "85f1441e16b90a61d6607469b8dbc798e3d7d8950d9cb23c4ef66adf0c697afb"
+  },
+  "tests": {
+    "path": "scripts/qros_fenced_runtime_lease_guard_tests_v1.py",
+    "git_blob_sha1": "758efc7e318bdfb3a64f50bf5473ac21ec516814",
+    "sha256": "0a973eb9dd0cb228b0e8bfe80a2a53683e60c1422a1d2f96209a49a041fc2d4c",
+    "result": "PASS_8_OF_8"
+  },
+  "execution": {
+    "environment_boot_id": "12a54489-1877-43f8-88f0-923c8973b198",
+    "stdout": "PASS 8/8",
+    "exit_code": 0,
+    "git_blob_recomputation": "PASS_2_OF_2",
+    "sha256_recomputation": "PASS_2_OF_2"
+  },
+  "coverage": [
+    "valid active lease",
+    "expired lease",
+    "tampered fence token",
+    "epoch supersession",
+    "valid epoch receipt",
+    "stale epoch receipt rejection",
+    "new epoch receipt",
+    "non-PASS worker receipt"
+  ],
+  "group09_effect": "NONE_RETROACTIVE_USE_FORBIDDEN",
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY"
+}
