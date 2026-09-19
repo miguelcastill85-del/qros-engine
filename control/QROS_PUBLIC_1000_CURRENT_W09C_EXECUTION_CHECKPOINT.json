@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.0",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.1",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -70,7 +70,7 @@
     },
     "no_freeze_running_receipt": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RUNNING_ADOPTABLE_20260919_v1.json",
-      "git_blob_sha1": "18699c9611c363a60ff4f5acbf0b8253dde15a76",
+      "git_blob_sha1": "5da26353c2ea18834e023bf775476670e5179fa3",
       "status": "RUNNING_ADOPTABLE"
     },
     "group_runtime_binding_policy": {
@@ -170,7 +170,7 @@
   "problem": "NONE_CURRENT_NO_FREEZE_BARRIER_ACTIVE",
   "root_cause": "Group07 supervisor false-negative corrected; mandatory group runtime binding guard prevents recurrence.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP09 <=5S; IF PASS VALIDATE_ARTIFACTS_AND_PERSIST GROUP09; IF RUNNING KEEP RUNNING_ADOPTABLE; DO NOT_POLL_OR_RELAUNCH",
+  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP09 <=5S; IF PASS VALIDATE_ARTIFACTS_AND_PERSIST GROUP09; IF RUNNING KEEP RUNNING_ADOPTABLE; DO_NOT_POLL_OR_RELAUNCH",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -218,13 +218,16 @@
     "status": "RUNNING_ADOPTABLE",
     "receipt": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RUNNING_ADOPTABLE_20260919_v1.json",
-      "git_blob_sha1": "18699c9611c363a60ff4f5acbf0b8253dde15a76"
+      "git_blob_sha1": "5da26353c2ea18834e023bf775476670e5179fa3"
     },
     "group09_launched": true,
     "attempt": 1,
+    "adopt_action": "ADOPT_LIVE_PROCESS",
+    "supervisor_calls": 2,
+    "duplicate_launch": false,
     "expensive_unit_open": true,
     "orphan_worker": false,
-    "control_elapsed_seconds": 0.616901,
+    "last_control_elapsed_seconds": 0.743616,
     "runtime_binding_gate": "PASS"
   }
 }
