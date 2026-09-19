@@ -1,0 +1,94 @@
+{
+  "schema": "QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_3.0",
+  "version": "3.0",
+  "status": "CANDIDATE_VALIDATION",
+  "supersedes": "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v2.1.json",
+  "absorbs": [
+    "governance/QROS_ANTI_FREEZE_EXECUTION_LAYER_v1.0.json",
+    "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+    "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v2.0.json",
+    "governance/QROS_MANIFEST_FIRST_NONSTALL_RECOVERY_POLICY_v1.0.json",
+    "governance/QROS_TURN_COMMIT_NONSTALL_POLICY_v1.0.json",
+    "governance/QROS_EXTERNAL_CALL_BUDGET_NONSTALL_POLICY_v2.0.json"
+  ],
+  "architecture": "RECURSIVE_TRANSACTIONAL_STATE_MACHINE",
+  "purpose": "Replace chat/runtime-centric continuation with a deterministic recursive transition machine. Every invocation reads durable state, compiles exactly one idempotent transition, persists intent before any external effect, and exits at effect/checkpoint boundaries.",
+  "authority_model": {
+    "chat_runtime_role": "EPHEMERAL_EXECUTOR_ONLY",
+    "memory_authoritative": false,
+    "durable_state_required": true,
+    "immutable_event_chain": true,
+    "stable_pointer_compare_and_swap": true
+  },
+  "recursive_contract": {
+    "one_external_effect_per_invocation": true,
+    "durable_intent_before_effect": true,
+    "deterministic_idempotency_key": true,
+    "artifact_first_resumption": true,
+    "exact_terminal_receipt_advances_once": true,
+    "duplicate_invocation_same_transition": true,
+    "crash_after_persist_resume_equivalence": true,
+    "checkpoint_call": 6,
+    "hard_cap_calls": 8,
+    "polling_loops": false,
+    "synchronous_heavy_work": false,
+    "broad_search_when_exact_route_exists": false,
+    "blind_relaunch": false,
+    "second_no_evidence_delta": "SWITCH_ROUTE_OR_CHECKPOINT_EXIT",
+    "foreign_runtime_non_economic": "FENCED_CUTOVER",
+    "foreign_runtime_economic": "FAIL_CLOSED",
+    "no_input_route": "BLOCK_DURABLE"
+  },
+  "transaction_model": [
+    "OBSERVE_DURABLE_STATE",
+    "COMPILE_DETERMINISTIC_TRANSITION",
+    "PERSIST_INTENT_AND_EVENT",
+    "EXECUTE_AT_MOST_ONE_EXTERNAL_EFFECT",
+    "PERSIST_RECEIPT_OR_RUNNING_CLAIM",
+    "EXIT",
+    "NEXT_INVOCATION_REPLAYS_FROM_DURABLE_STATE"
+  ],
+  "implementation": {
+    "kernel": {
+      "path": "scripts/qros_recursive_progress_kernel_v1.py",
+      "git_blob_sha1": "891cfc148c5104dc676dea326c8f802ec24c9cc9",
+      "sha256": "129ec051ae8e366cf1d0306ffcc26fb77a2eaced5c554464459cf07f7404c3ed"
+    },
+    "exhaustive_tests": {
+      "path": "scripts/qros_recursive_progress_kernel_tests_v1.py",
+      "git_blob_sha1": "06a9087aa9494239e71ab72472ddd17ea0292daa",
+      "sha256": "86496921ff20ef4a25563daddaeecaaf6bd5d245a6783d29165ca8469f5cc97f"
+    },
+    "chaos_tests": {
+      "path": "scripts/qros_recursive_progress_chaos_v1.py",
+      "git_blob_sha1": "bb3fd6774cfd13b67278d760ad2f8281b6fdce57",
+      "sha256": "4cafd1ad6cc34aca36e75c0f34313fcba95169c69bc6878f836475a374de9900"
+    }
+  },
+  "local_validation": {
+    "named_cases": 22,
+    "exhaustive_states": 393216,
+    "total_assertion_states": 393238,
+    "chaos_episodes": 10000,
+    "chaos_max_steps": 40,
+    "simulated_crashes": 17770,
+    "external_effects": 23820,
+    "terminal_episodes": 8252,
+    "result": "PASS",
+    "forbidden_actions_observed": []
+  },
+  "external_validation": {
+    "workflow": ".github/workflows/qros-recursive-progress-kernel-v1.yml",
+    "required_before_activation": true,
+    "exact_blob_pins_required": true,
+    "clean_runner_required": true
+  },
+  "scientific_firewall": {
+    "scientific_semantics_changed": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "activation_rule": "PROMOTE_TO_FROZEN_ACTIVE_ONLY_AFTER_EXTERNAL_WORKFLOW_PASS_ON_EXACT_COMMIT"
+}

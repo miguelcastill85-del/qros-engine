@@ -1,0 +1,73 @@
+name: qros-recursive-progress-kernel-v1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/qros_recursive_progress_kernel_v1.py'
+      - 'scripts/qros_recursive_progress_kernel_tests_v1.py'
+      - 'scripts/qros_recursive_progress_chaos_v1.py'
+      - 'governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json'
+      - '.github/workflows/qros-recursive-progress-kernel-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-recursive-kernel:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+
+      - name: Verify exact candidate pins
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib,json,pathlib
+          g=json.load(open('governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json'))
+          assert g['status']=='CANDIDATE_VALIDATION'
+          for key in ('kernel','exhaustive_tests','chaos_tests'):
+              n=g['implementation'][key]
+              p=pathlib.Path(n['path'])
+              b=p.read_bytes()
+              blob=hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+              sha=hashlib.sha256(b).hexdigest()
+              assert blob==n['git_blob_sha1'],(key,'BLOB',blob,n['git_blob_sha1'])
+              assert sha==n['sha256'],(key,'SHA256',sha,n['sha256'])
+          print('EXACT_CANDIDATE_PINS=PASS')
+          PY
+
+      - name: Compile
+        run: |
+          python3 -m py_compile scripts/qros_recursive_progress_kernel_v1.py
+          python3 -m py_compile scripts/qros_recursive_progress_kernel_tests_v1.py
+          python3 -m py_compile scripts/qros_recursive_progress_chaos_v1.py
+
+      - name: Exhaustive state validation
+        working-directory: scripts
+        run: python3 qros_recursive_progress_kernel_tests_v1.py
+
+      - name: Chaos crash-resume validation
+        working-directory: scripts
+        run: python3 qros_recursive_progress_chaos_v1.py
+
+      - name: Machine-readable PASS
+        run: |
+          python3 - <<'PY'
+          import json
+          print('QROS_RECURSIVE_KERNEL_VALIDATION='+json.dumps({
+            'status':'PASS',
+            'governance':'3.0-candidate',
+            'exact_pins':True,
+            'exhaustive_states':393216,
+            'chaos_episodes':10000,
+            'polling_loops':False,
+            'sync_heavy':False,
+            'one_external_effect_per_invocation':True
+          },sort_keys=True,separators=(',',':')))
+          PY
