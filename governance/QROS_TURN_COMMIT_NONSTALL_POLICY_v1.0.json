@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_TURN_COMMIT_NONSTALL_POLICY_1.0",
+  "version": "v1.0",
+  "date": "2026-09-18",
+  "status": "ACTIVE_MANDATORY",
+  "purpose": "Eliminate user-visible freeze caused by ending a chat execution turn after announcing a next action that was not actually started or durably closed.",
+  "root_cause": "Chat execution has a hard turn boundary. Previous non-stall policies protected workers and call budgets but did not make user-visible turn completion itself transactional.",
+  "hard_invariants": [
+    "NO_EXECUTION_CLAIM_WITHOUT_EVIDENCE: never state that an action is being executed unless its launch/operation has already occurred in the current turn.",
+    "TURN_COMMIT_BARRIER: before the assistant can finish a project execution turn, every action announced as started must have a durable state PASS, RUNNING_ADOPTABLE, FAIL_CLOSED, or BLOCKED_BY_INFRASTRUCTURE.",
+    "NO_PENDING_FUTURE_TENSE: an unstarted next action must be labelled PENDING_NEXT_ACTION, not 'continúo', 'ejecuto', 'procedo' or equivalent.",
+    "RUNNING_REQUIRES_IDENTITY: RUNNING is valid only with durable job/spec identity and exact process/adoption provenance when a process exists.",
+    "PASS_REQUIRES_RECEIPT: PASS requires durable receipt/hash validation.",
+    "FAIL_REQUIRES_CAUSE: FAIL/BLOCKED requires explicit root cause and next deterministic repair.",
+    "ONE_EXPENSIVE_UNIT_PER_TURN_BLOCK remains mandatory.",
+    "A turn boundary is not worker failure and never authorizes retry.",
+    "If the platform turn ends before a pending action starts, the pointer must still identify that action as pending and must not imply it was launched.",
+    "On the next project-related user input, resume directly from the pointer without repeating closed work."
+  ],
+  "state_machine": {
+    "allowed_terminal_turn_states": [
+      "PASS",
+      "RUNNING_ADOPTABLE",
+      "FAIL_CLOSED",
+      "BLOCKED_BY_INFRASTRUCTURE",
+      "PENDING_NEXT_ACTION_NOT_STARTED"
+    ],
+    "forbidden_terminal_turn_states": [
+      "ANNOUNCED_NOT_STARTED",
+      "UNKNOWN_RUNNING",
+      "RETRY_ASSUMED",
+      "BACKGROUND_PROMISE"
+    ]
+  },
+  "relationship": {
+    "external_call_budget": {
+      "path": "governance/QROS_EXTERNAL_CALL_BUDGET_NONSTALL_POLICY_v2.0.json",
+      "git_blob_sha1": "62d054382b98d7c212128518f79930f7a9b9beb9"
+    },
+    "heavy_exactly_once": {
+      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+      "git_blob_sha1": "74e4d884a7018825ed67f0218f82f1d3fd543db3"
+    }
+  },
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY",
+  "economic_effect": "NONE",
+  "holdout_effect": "NONE"
+}
