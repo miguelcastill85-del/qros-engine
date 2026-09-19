@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_LEGACY_UNFENCED_RECOVERY_POLICY_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE_MANDATORY",
+  "purpose": "Recover a deterministic non-economic unit stranded in a foreign runtime when it predates fenced leases, without claiming process death and without allowing two authoritative promotions.",
+  "scope": {
+    "allowed": "DETERMINISTIC_NON_ECONOMIC_REMATERIALIZATION_ONLY",
+    "economic_pnl": false,
+    "holdout": false,
+    "ga2": false,
+    "new_ga1": false,
+    "current_case": "W09C XAUUSD BUY M1 GROUP09"
+  },
+  "prerequisites": [
+    "Exact scientific capsule and frozen inputs unchanged.",
+    "No durable terminal receipt exists at cutover.",
+    "Legacy RUNNING_ADOPTABLE identity is fully bound: job id, spec hash, claim token, bootstrap birth, worker birth.",
+    "Legacy promotion authority is durably revoked before any recovery launch.",
+    "Recovery uses a distinct job id and fenced lease epoch.",
+    "Any late legacy terminal receipt is permanently quarantined and cannot promote.",
+    "Duplicate computation is operational only and does not create a new hypothesis, test, selection exposure or economic observation.",
+    "Next scientific group remains closed until recovery GROUP09 has one authoritative durable PASS."
+  ],
+  "guard": {
+    "path": "scripts/qros_legacy_authority_fence_v1.py",
+    "git_blob_sha1": "f695580f25e63a467c17bccf7f06548bda094fd4",
+    "sha256": "89c8783d64f27f94142f2073d4e0b9c518fdde79ecf26ceedab4966132160009"
+  },
+  "tests": {
+    "path": "scripts/qros_legacy_authority_fence_tests_v1.py",
+    "git_blob_sha1": "cb572852fcd3fc75838d49b513b1d3614c91c964",
+    "sha256": "baa4c3e4d7204d9783665c0559fc4cadceb79d19dc85df88d967d7c26ae0102b",
+    "status": "PASS",
+    "count": 13,
+    "physically_executed": true
+  },
+  "relationship": {
+    "cross_runtime_claim_policy_v1": "DEFAULT_FAIL_CLOSED_RETAINED; THIS_POLICY_IS_SPECIFIC_DURABLE_AUTHORITY_CUTOVER_EXCEPTION_AFTER_REVOCATION"
+  },
+  "scientific_effect": "NONE_SAME_FROZEN_UNIT_RECOMPUTATION_ONLY"
+}
