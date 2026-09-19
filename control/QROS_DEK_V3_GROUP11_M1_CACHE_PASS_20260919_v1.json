@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_DEK_V3_GROUP11_M1_CACHE_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "group_index": 11
+  },
+  "authority": {
+    "materializer_git_blob_sha1": "b543c8585258b21a007af84a53a944bba58678e6",
+    "manifest_git_blob_sha1": "622f21a62c532daaa824eafb202cf00a1c2b1a5d",
+    "bar_builder_git_blob_sha1": "987ef26aca2507a94247bed7663493e6682aa869"
+  },
+  "dev": {
+    "records": 151382388,
+    "bytes": 2573500596,
+    "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
+  },
+  "m1": {
+    "bars": 681772,
+    "content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "file_bytes": 27271136,
+    "file_sha256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59",
+    "physical_rehash": "PASS"
+  },
+  "execution": {
+    "prior_pid": 737,
+    "prior_boot_id": "996e4f03-a6b5-4464-8a8e-d8dc7171201b",
+    "same_boot_terminal_observed": true,
+    "relaunch_count": 0
+  },
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false
+  },
+  "decision": "M1_CACHE_DURABLY_VALIDATED; AUTHORIZE_INDICATOR_M1_BUILD_ONLY"
+}

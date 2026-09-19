@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.22",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.23",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -280,6 +280,11 @@
       "exact_candidate_commit": "09bc8f59edc2425a0ea8fda230f311d1da9ec2a7",
       "conclusion": "success",
       "status": "PASS"
+    },
+    "group11_m1_cache_pass": {
+      "path": "control/QROS_DEK_V3_GROUP11_M1_CACHE_PASS_20260919_v1.json",
+      "git_blob_sha1": "8d86fbc2be5ae9c5528dd8b3802345159d34902b",
+      "status": "PASS"
     }
   },
   "data": {
@@ -387,10 +392,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "DEK_V3_GROUP11_EPOCH2_M1_BUILD_RUNNING_ADOPTABLE",
-  "root_cause": "NONE_OPEN: EXACT DEV REBUILT FROM USER-UPLOADED 8/8 SOURCE ZIPS; FROZEN M1 BUILDER LAUNCHED AS A SINGLE NONBLOCKING LOCAL EFFECT.",
+  "problem": "NONE_FOR_M1: GROUP11_M1_CACHE_EXACT_PASS",
+  "root_cause": "RESOLVED: EXACT DEV AND FROZEN BAR BUILDER PRODUCED THE EXPECTED M1 CACHE; PRIOR RUNNING_ADOPTABLE UNIT TERMINATED CLEANLY.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "DEK_V3_ACTIVE: ADOPT/STATUS ONLY THE EXISTING M1 STAGE PROCESS PID 737 ON BOOT 996e4f03-a6b5-4464-8a8e-d8dc7171201b; IF TERMINAL PASS REQUIRE bars=681772 AND content_sha256=55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4, THEN PERSIST M1 PASS AND EXIT. IF RUNNING, PRESERVE RUNNING_ADOPTABLE AND EXIT. NEVER RELAUNCH THIS ATTEMPT.",
+  "next_automatic_action": "DEK_V3_ACTIVE: BUILD/VERIFY ONLY THE M1 INDICATOR CACHE FROM THE EXACT M1 BAR CACHE USING THE FROZEN INDICATOR BUILDER; EXPECT bars=681772 AND content_root_sha256=2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c; PERSIST; EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -481,8 +486,8 @@
     "M1_STAGE_RUNNING_ADOPTABLE_PID737"
   ],
   "last_execution_block": {
-    "status": "RUNNING_ADOPTABLE",
-    "external_effects_this_transition": 1,
+    "status": "DEK_V3_SINGLE_EFFECT_PASS_M1_CACHE",
+    "external_effects_this_transition": 0,
     "group11": {
       "current_epoch": 2,
       "terminal_receipt_present": false,
@@ -493,18 +498,13 @@
         "bytes": 2573500596,
         "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
       },
-      "m1_stage": {
-        "status": "RUNNING_ADOPTABLE",
-        "pid": 737,
-        "boot_id": "996e4f03-a6b5-4464-8a8e-d8dc7171201b",
-        "proc_start_ticks": 216780,
-        "expected_bars": 681772,
-        "expected_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
-        "materializer_git_blob_sha1": "b543c8585258b21a007af84a53a944bba58678e6",
-        "manifest_git_blob_sha1": "622f21a62c532daaa824eafb202cf00a1c2b1a5d",
-        "bar_builder_git_blob_sha1": "987ef26aca2507a94247bed7663493e6682aa869",
-        "controller_prelaunch_failure": "STREAMING_EXEC_UNSUPPORTED_THEN_MISSING_RUNNER_FILE; NO SCIENTIFIC WORKER STARTED",
-        "relaunch_forbidden": true
+      "m1": {
+        "status": "PASS_EXACT",
+        "bars": 681772,
+        "content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+        "file_bytes": 27271136,
+        "file_sha256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59",
+        "receipt_blob_sha1": "8d86fbc2be5ae9c5528dd8b3802345159d34902b"
       }
     },
     "group12_opened": false,
