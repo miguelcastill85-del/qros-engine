@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.6",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.7",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -142,6 +142,21 @@
       "path": "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v2.0.json",
       "git_blob_sha1": "c1eb772f0768e81be75fdeff38580b80e2d07935",
       "status": "ACTIVE_MANDATORY"
+    },
+    "manifest_first_nonstall_policy": {
+      "path": "governance/QROS_MANIFEST_FIRST_NONSTALL_RECOVERY_POLICY_v1.0.json",
+      "git_blob_sha1": "9a7868e82cd1bbec49240a534036c27968609a4d",
+      "status": "ACTIVE_MANDATORY"
+    },
+    "runtime_neutral_xau_carrier_locator": {
+      "path": "control/QROS_XAU_W09C_RUNTIME_NEUTRAL_CARRIER_LOCATOR_20260919_v1.json",
+      "git_blob_sha1": "3a078b238c374ff4f062aff916d290ffc3c109b5",
+      "entries": 8
+    },
+    "manifest_first_nonstall_validation": {
+      "path": "control/QROS_MANIFEST_FIRST_NONSTALL_RECOVERY_PASS_20260919_v1.json",
+      "git_blob_sha1": "b0726480caa0194ae818302434b0fb9c11dbf7e6",
+      "status": "PASS"
     }
   },
   "data": {
@@ -232,10 +247,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP09_LEGACY_RUNTIME_NO_LONGER_BLOCKS_AUTHORITY; FENCED_RECOVERY_EPOCH1_AUTHORIZED_NOT_STARTED",
-  "root_cause": "Legacy attempt predates fenced leases. Authority cutover now revokes legacy promotion without asserting death and establishes a uniquely promotable fenced recovery epoch.",
+  "problem": "GROUP09_RECOVERY_EPOCH1_AUTHORIZED; DATA_AND_CACHE_IDENTITIES_REMATERIALIZED_EXACTLY; RUNTIME_PACKAGE_BINDING_PENDING",
+  "root_cause": "Prior user-visible stall was caused by exploratory carrier discovery and a synchronous heavy materialization call, not by scientific computation. Manifest-first locator and nonblocking heavy claims now eliminate that control-plane path.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "BUILD_DURABLE_RUNTIME_NEUTRAL_GROUP09_RECOVERY_PACKAGE_FROM_FROZEN_GITHUB_INPUTS; VALIDATE_PACKAGE_AND_FENCE_BINDINGS; PRECOMMIT; LAUNCH RECOVERY_EPOCH1_NONBLOCKING; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED; GROUP10_REMAINS_CLOSED",
+  "next_automatic_action": "MATERIALIZE_GROUP09_RECOVERY_RUNTIME_PACKAGE_FROM_FROZEN_GITHUB_BLOBS; VERIFY SOURCE/BINDING ROOTS; PRECOMMIT; LAUNCH RECOVERY_EPOCH1 NONBLOCKING; PERSIST TERMINAL_OR_RUNNING STATE; GROUP10 REMAINS CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -288,10 +303,14 @@
     "LEGACY_UNFENCED_AUTHORITY_TOMBSTONE",
     "FENCED_RUNTIME_LEASE_V2_ACTIVE_MIGRATION_CUTOVER",
     "GROUP09_RECOVERY_EPOCH1_AUTHORIZED",
-    "OLD_RUNTIME_DEATH_NO_LONGER_REQUIRED_FOR_AUTHORITY_CUTOVER"
+    "OLD_RUNTIME_DEATH_NO_LONGER_REQUIRED_FOR_AUTHORITY_CUTOVER",
+    "MANIFEST_FIRST_DIRECT_CARRIER_LOCATOR_ACTIVE",
+    "NO_BROAD_SEARCH_FOR_KNOWN_CARRIERS",
+    "NONBLOCKING_HEAVY_DATA_REMATERIALIZATION_PHYSICALLY_VALIDATED",
+    "XAU_DEV_BAR_INDICATOR_IDENTITIES_RESTORED_EXACT"
   ],
   "last_execution_block": {
-    "status": "PENDING_FENCED_RECOVERY_LAUNCH",
+    "status": "GROUP09_RECOVERY_DATA_READY_RUNTIME_PACKAGE_PENDING",
     "receipt": {
       "path": "control/QROS_GROUP09_AUTHORITY_CUTOVER_PASS_20260919_v1.json",
       "git_blob_sha1": "dafe0b046608b5e9155a83de1dd5615073f29645"
@@ -307,6 +326,15 @@
       "lease_blob_sha1": "7471a26fb382889bd6fd2fd75f86e50c149bbb04",
       "job_id": "W09C_XAUUSD_BUY_M1_GROUP09_RECOVERY_E1_20260919_v1"
     },
-    "expensive_unit_open": false
+    "expensive_unit_open": false,
+    "manifest_first_recovery": {
+      "status": "PASS",
+      "validation_blob_sha1": "b0726480caa0194ae818302434b0fb9c11dbf7e6",
+      "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+      "bar_M1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+      "indicator_M1_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+      "point": 0.01,
+      "group10_opened": false
+    }
   }
 }
