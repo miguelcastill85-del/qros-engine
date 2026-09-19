@@ -1,0 +1,213 @@
+name: qros-cws-real-control-soak-final-v1
+
+on:
+  push:
+    branches:
+      - cws-real-control-soak-final-v1-20260919
+      - main
+    paths:
+      - 'scripts/qros_cws_real_control_soak_driver_v1.py'
+      - 'scripts/qros_cws_real_control_soak_driver_tests_v1.py'
+      - 'control/QROS_CWS_GROUP11_EPOCH3_CUTOVER_AUTHORIZATION_20260919_v1.json'
+      - 'governance/QROS_CWS_REAL_CONTROL_PLANE_SOAK_FINAL_v1.0.json'
+      - '.github/workflows/qros-cws-real-control-soak-final-v1.yml'
+  workflow_dispatch:
+    inputs:
+      stage:
+        required: true
+        default: '0'
+      expected_epoch:
+        required: false
+        default: '3'
+      expected_fence_token:
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: qros-cws-real-control-soak-final
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact candidate pins
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object scripts/qros_cws_real_control_soak_driver_v1.py)" = "9e41255a06496446a3b400e83b486e7c516ef869"
+          test "$(git hash-object scripts/qros_cws_real_control_soak_driver_tests_v1.py)" = "cec0b947c43a5a31ea8237458affa0e54690415b"
+          test "$(git hash-object control/QROS_CWS_GROUP11_EPOCH3_CUTOVER_AUTHORIZATION_20260919_v1.json)" = "e8a420f9da230729e53e8d1735f1f08d4775deb9"
+          test "$(git hash-object governance/QROS_CWS_REAL_CONTROL_PLANE_SOAK_FINAL_v1.0.json)" = "0cce3fbbd27616472a51acf89efed57995cf809c"
+          python3 - <<'PY'
+          import json
+          g=json.load(open('governance/QROS_CWS_REAL_CONTROL_PLANE_SOAK_FINAL_v1.0.json'))
+          a=json.load(open('control/QROS_CWS_GROUP11_EPOCH3_CUTOVER_AUTHORIZATION_20260919_v1.json'))
+          assert g['status']=='PREREGISTERED_NO_RESULTS'
+          assert g['target_old_lease_blob']=='14851cd5a547c239288228f08d80f0684ff72ae3'
+          assert a['old_lease_epoch']==2 and a['new_epoch']==3
+          assert a['old_epoch_promotion_revoked'] is True
+          assert a['scientific_unit_same'] is True
+          for k in ('economic_pnl_read','holdout_open','ga2_open','new_ga1_authorized','first_gate_execution_authorized','group12_opened'):
+              assert a[k] is False
+          print('FINAL_SOAK_EXACT_PINS=PASS')
+          PY
+      - name: Compile
+        run: |
+          python3 -m py_compile scripts/qros_cws_real_control_soak_driver_v1.py
+          python3 -m py_compile scripts/qros_cws_real_control_soak_driver_tests_v1.py
+      - name: Adversarial driver suite
+        working-directory: scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 qros_cws_real_control_soak_driver_tests_v1.py | tee ../real_soak_driver_validation.json
+      - name: Assert adversarial PASS
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          j=json.load(open('real_soak_driver_validation.json'))
+          assert j['status']=='PASS'
+          assert j['adversarial_cases']==100000
+          assert j['rejected']==100000
+          assert j['unsafe_accepts']==0
+          print('FINAL_SOAK_ADVERSARIAL=PASS')
+          PY
+
+  stage0_cutover:
+    needs: validate
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || inputs.stage == '0')
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Verify old authority and expired epoch2
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json)" = "14851cd5a547c239288228f08d80f0684ff72ae3"
+          python3 scripts/qros_fenced_runtime_lease_guard_v2.py validate             --lease control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json             --now 2026-09-19T20:31:53Z > old_lease_validation.json || true
+          python3 - <<'PY'
+          import json
+          j=json.load(open('old_lease_validation.json'))
+          assert j['status']=='FAIL_CLOSED' and j['reason']=='LEASE_EXPIRED'
+          print('EPOCH2_EXPIRED_FAIL_CLOSED=PASS')
+          PY
+      - name: Create epoch3 lease from actual runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' >> "$GITHUB_ENV"
+          import datetime as dt
+          now=dt.datetime.now(dt.timezone.utc)
+          print('ISSUED_AT='+now.isoformat().replace('+00:00','Z'))
+          print('EXPIRES_AT='+(now+dt.timedelta(hours=2)).isoformat().replace('+00:00','Z'))
+          PY
+          echo "RUNTIME_ID=github-actions:${GITHUB_RUN_ID}:${GITHUB_RUN_ATTEMPT}:stage0" >> "$GITHUB_ENV"
+      - name: Persist cutover intent before next runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/qros_cws_real_control_soak_driver_v1.py cutover             --old-lease control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json             --cutover-auth control/QROS_CWS_GROUP11_EPOCH3_CUTOVER_AUTHORIZATION_20260919_v1.json             --runtime-id "$RUNTIME_ID"             --issued-at "$ISSUED_AT"             --expires-at "$EXPIRES_AT"             --out-lease control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json             --out-receipt control/QROS_CWS_REAL_CONTROL_SOAK_EPOCH3_CUTOVER_PASS_20260919_v1.json | tee stage0.json
+          python3 - <<'PY'
+          import json,os
+          p='control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_STATE.json'
+          s=json.load(open(p)); l=json.load(open('control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json'))
+          assert s['stage']==0 and s['manual_interventions']==0
+          s.update({'status':'STAGE1_CUTOVER_COMMITTED','stage':1,'lease_epoch':l['lease_epoch'],'lease_id':l['lease_id'],'fence_token':l['fence_token'],'stage0_run_id':os.environ['GITHUB_RUN_ID'],'manual_interventions':0})
+          open(p,'w').write(json.dumps(s,sort_keys=True,indent=2)+'\n')
+          PY
+          git config user.name qros-cws
+          git config user.email qros-cws@users.noreply.github.com
+          git add control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json                   control/QROS_CWS_REAL_CONTROL_SOAK_EPOCH3_CUTOVER_PASS_20260919_v1.json                   control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_STATE.json
+          git commit -m "CWS real soak: epoch3 fenced cutover"
+          git push origin HEAD:main
+      - name: Self-dispatch stage1
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          FENCE="$(python3 -c "import json;print(json.load(open('control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json'))['fence_token'])")"
+          gh workflow run qros-cws-real-control-soak-final-v1.yml             --repo "${GITHUB_REPOSITORY}"             --ref main             -f stage=1             -f expected_epoch=3             -f expected_fence_token="$FENCE"
+          echo "REAL_SOAK_SELF_DISPATCH_STAGE1=PASS"
+
+  stage1_intent:
+    needs: validate
+    if: github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' && inputs.stage == '1'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - name: Adopt durable epoch3
+        shell: bash
+        env:
+          EXPECTED_EPOCH: ${{ inputs.expected_epoch }}
+          EXPECTED_FENCE: ${{ inputs.expected_fence_token }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json,os
+          s=json.load(open('control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_STATE.json'))
+          l=json.load(open('control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json'))
+          assert s['stage']==1 and s['manual_interventions']==0
+          assert l['lease_epoch']==int(os.environ['EXPECTED_EPOCH'])==3
+          assert l['fence_token']==os.environ['EXPECTED_FENCE']==s['fence_token']
+          print('STAGE1_DURABLE_EPOCH3_ADOPTION=PASS')
+          PY
+          python3 scripts/qros_fenced_runtime_lease_guard_v2.py validate             --lease control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json
+      - name: Prepare GROUP11 intent and safe stop
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/qros-carriers"
+          CURRENT_RUNTIME_ID="github-actions:${GITHUB_RUN_ID}:${GITHUB_RUN_ATTEMPT}:stage1"
+          NOW="$(python3 -c "import datetime as dt;print(dt.datetime.now(dt.timezone.utc).isoformat().replace('+00:00','Z'))")"
+          python3 scripts/qros_cws_real_control_soak_driver_v1.py intent             --lease control/QROS_PUBLIC_1000_W09C_GROUP11_CURRENT_FENCED_LEASE.json             --source control/QROS_CWS_W09C_SOURCE_PACKAGE_PASS_20260919_v1.json             --capsule control/QROS_PUBLIC_1000_W09C_XAU_GROUP11_EXECUTION_CAPSULE_20260919_v1.json             --m1 control/QROS_DEK_V3_GROUP11_M1_CACHE_PASS_20260919_v1.json             --ind control/QROS_DEK_V3_GROUP11_M1_INDICATOR_CACHE_PASS_20260919_v1.json             --carrier-root "$RUNNER_TEMP/qros-carriers"             --now "$NOW"             --current-runtime-id "$CURRENT_RUNTIME_ID"             --out-intent control/QROS_CWS_GROUP11_EXECUTION_INTENT_20260919_v1.json             --out-terminal control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_FINAL_PASS_20260919_v1.json | tee stage1.json
+          python3 - <<'PY'
+          import hashlib,json,os
+          intent=json.load(open('control/QROS_CWS_GROUP11_EXECUTION_INTENT_20260919_v1.json'))
+          term=json.load(open('control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_FINAL_PASS_20260919_v1.json'))
+          state=json.load(open('control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_STATE.json'))
+          assert intent['spawn_authorized'] is False
+          assert intent['carrier_materialization_required'] is True
+          assert intent['runtime_cutover_required'] is True
+          assert term['status']=='PASS' and term['spawn_started'] is False
+          assert state['manual_interventions']==0
+          for obj in (intent,term):
+              for k in ('economic_pnl_read','holdout_open','ga2_open','new_ga1_authorized','first_gate_execution_authorized','group12_opened'):
+                  assert obj[k] is False
+          state.update({'status':'TERMINAL_PASS','stage':2,'stage1_run_id':os.environ['GITHUB_RUN_ID'],'manual_interventions':0,'spawn_started':False,
+                        'intent_sha256':hashlib.sha256(json.dumps(intent,sort_keys=True,separators=(',',':')).encode()).hexdigest()})
+          open('control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_STATE.json','w').write(json.dumps(state,sort_keys=True,indent=2)+'\n')
+          final={
+            'schema':'QROS_CWS_REAL_CONTROL_PLANE_SOAK_TERMINAL_RECEIPT_1.0','date':'2026-09-19','status':'PASS',
+            'stage0_run_id':state['stage0_run_id'],'stage1_run_id':state['stage1_run_id'],'terminal_stage':2,'manual_interventions':0,
+            'lease_epoch':intent['lease_epoch'],'intent_status':intent['status'],'spawn_started':False,
+            'carrier_materialization_required':intent['carrier_materialization_required'],'runtime_cutover_required':intent['runtime_cutover_required'],
+            'economic_pnl_read':False,'holdout_open':False,'ga2_open':False,'new_ga1_authorized':False,'first_gate_execution_authorized':False,'group12_opened':False,
+            'decision':'PASS_CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE_ELIGIBLE'
+          }
+          open('control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_TERMINAL_RECEIPT_20260919_v1.json','w').write(json.dumps(final,sort_keys=True,indent=2)+'\n')
+          print('REAL_CONTROL_SOAK_TERMINAL=PASS')
+          PY
+      - name: Persist terminal state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name qros-cws
+          git config user.email qros-cws@users.noreply.github.com
+          git add control/QROS_CWS_GROUP11_EXECUTION_INTENT_20260919_v1.json                   control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_FINAL_PASS_20260919_v1.json                   control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_STATE.json                   control/QROS_CWS_REAL_CONTROL_PLANE_SOAK_TERMINAL_RECEIPT_20260919_v1.json
+          git commit -m "CWS real soak: terminal safe intent PASS"
+          git push origin HEAD:main
