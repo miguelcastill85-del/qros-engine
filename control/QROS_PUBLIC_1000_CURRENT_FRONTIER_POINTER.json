@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.6",
+  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.7",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "current_version": "V255",
   "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json",
@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "DEK_V3_ACTIVE: BUILD/VERIFY ONLY THE M1 INDICATOR CACHE FROM THE EXACT M1 BAR CACHE USING THE FROZEN INDICATOR BUILDER; EXPECT bars=681772 AND content_root_sha256=2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c; PERSIST; EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
+  "next_action": "DEK_V3_ACTIVE: VERIFY GROUP11 EPOCH2 CAPSULE + LEASE + FROZEN SOURCE BLOBS AGAINST DEV/M1/INDICATOR ROOTS; BUILD RUNTIME PACKAGE/PRELAUNCH LOCALLY; EXECUTE AT MOST ONE EFFECT: LAUNCH GROUP11 EPOCH2 EXACTLY ONCE NONBLOCKING; PERSIST RUNNING_ADOPTABLE OR TERMINAL; EXIT. GROUP12 REMAINS CLOSED.",
   "resume_contract": "V255 remains the stable scientific frontier. DEK v3 is the frozen active control-plane authority. Each invocation is one durable authority bundle -> local deterministic transition -> at most one idempotent external effect -> one durable commit bundle -> exit. Chat/runtime never owns continuity.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "f6fa317220e7927b3f233356023d196f591ca785",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.23"
+      "git_blob_sha1": "464f0b538468f73c825a5b40c418f95eb075952f",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.24"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
@@ -208,7 +208,7 @@
       "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
       "status": "RUNNING_ADOPTABLE"
     },
-    "execution_state": "DEK_V3_GROUP11_M1_CACHE_EXACT_PASS",
+    "execution_state": "DEK_V3_GROUP11_M1_INDICATORS_EXACT_PASS",
     "group09_infrastructure_blocker": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
       "git_blob_sha1": "3713ecff5724f7b298d4e4cda4f50ebb60936dbe",
@@ -374,6 +374,11 @@
     "group11_m1_cache_pass": {
       "path": "control/QROS_DEK_V3_GROUP11_M1_CACHE_PASS_20260919_v1.json",
       "git_blob_sha1": "8d86fbc2be5ae9c5528dd8b3802345159d34902b",
+      "status": "PASS"
+    },
+    "group11_m1_indicator_cache_pass": {
+      "path": "control/QROS_DEK_V3_GROUP11_M1_INDICATOR_CACHE_PASS_20260919_v1.json",
+      "git_blob_sha1": "60b03eb236dc89653789d0312004cb16dc8d75a8",
       "status": "PASS"
     }
   },

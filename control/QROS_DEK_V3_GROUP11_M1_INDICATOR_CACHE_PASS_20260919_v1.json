@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_DEK_V3_GROUP11_M1_INDICATOR_CACHE_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "group_index": 11
+  },
+  "authority": {
+    "bar_builder_git_blob_sha1": "987ef26aca2507a94247bed7663493e6682aa869",
+    "indicator_builder_git_blob_sha1": "21a50b167e791f4474e3c358b81e40065c048280",
+    "indicators_library_git_blob_sha1": "b3575c061607aaae9f4062ad623ff7083e2e0ffe"
+  },
+  "input_m1": {
+    "bars": 681772,
+    "content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "file_sha256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59"
+  },
+  "execution": {
+    "mode": "FROZEN_BUILDER_M1_ONLY_RUNTIME_SCOPE",
+    "formula_code_changed": false,
+    "builder_code_changed": false,
+    "tfs_runtime_scope": [
+      "M1"
+    ],
+    "point": 0.01
+  },
+  "m1_indicators": {
+    "bars": 681772,
+    "content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+    "file": "XAUUSD_M1_INDICATORS.npz",
+    "file_bytes": 196359134,
+    "file_sha256": "f30da86f6c11b5a6573b3571ffd3c3621bbe4d51134258c89d956d6f9ab115b5",
+    "receipt_sha256": "b8c63df6afbfb8d58e2f479cf7333ffea64d9f00585dbbb3640a375b4a7b2988",
+    "physical_rehash": "PASS"
+  },
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false
+  },
+  "decision": "M1_INDICATOR_CACHE_DURABLY_VALIDATED; AUTHORIZE_GROUP11_EPOCH2_RUNTIME_PACKAGE_AND_PRELAUNCH_NEXT_TRANSITION"
+}

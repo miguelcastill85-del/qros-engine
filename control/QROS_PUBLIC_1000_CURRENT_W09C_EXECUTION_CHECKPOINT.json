@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.23",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.24",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -285,6 +285,11 @@
       "path": "control/QROS_DEK_V3_GROUP11_M1_CACHE_PASS_20260919_v1.json",
       "git_blob_sha1": "8d86fbc2be5ae9c5528dd8b3802345159d34902b",
       "status": "PASS"
+    },
+    "group11_m1_indicator_cache_pass": {
+      "path": "control/QROS_DEK_V3_GROUP11_M1_INDICATOR_CACHE_PASS_20260919_v1.json",
+      "git_blob_sha1": "60b03eb236dc89653789d0312004cb16dc8d75a8",
+      "status": "PASS"
     }
   },
   "data": {
@@ -392,10 +397,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_FOR_M1: GROUP11_M1_CACHE_EXACT_PASS",
-  "root_cause": "RESOLVED: EXACT DEV AND FROZEN BAR BUILDER PRODUCED THE EXPECTED M1 CACHE; PRIOR RUNNING_ADOPTABLE UNIT TERMINATED CLEANLY.",
+  "problem": "NONE_FOR_M1_INDICATORS: GROUP11_M1_INDICATOR_CACHE_EXACT_PASS",
+  "root_cause": "RESOLVED: FROZEN INDICATOR FORMULAS AND BUILDER, RESTRICTED TO M1 RUNTIME SCOPE ONLY, REPRODUCED THE PREREGISTERED M1 INDICATOR ROOT.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "DEK_V3_ACTIVE: BUILD/VERIFY ONLY THE M1 INDICATOR CACHE FROM THE EXACT M1 BAR CACHE USING THE FROZEN INDICATOR BUILDER; EXPECT bars=681772 AND content_root_sha256=2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c; PERSIST; EXIT. DO NOT LAUNCH GROUP11 IN SAME INVOCATION.",
+  "next_automatic_action": "DEK_V3_ACTIVE: VERIFY GROUP11 EPOCH2 CAPSULE + LEASE + FROZEN SOURCE BLOBS AGAINST DEV/M1/INDICATOR ROOTS; BUILD RUNTIME PACKAGE/PRELAUNCH LOCALLY; EXECUTE AT MOST ONE EFFECT: LAUNCH GROUP11 EPOCH2 EXACTLY ONCE NONBLOCKING; PERSIST RUNNING_ADOPTABLE OR TERMINAL; EXIT. GROUP12 REMAINS CLOSED.",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -486,25 +491,28 @@
     "M1_STAGE_RUNNING_ADOPTABLE_PID737"
   ],
   "last_execution_block": {
-    "status": "DEK_V3_SINGLE_EFFECT_PASS_M1_CACHE",
-    "external_effects_this_transition": 0,
+    "status": "DEK_V3_SINGLE_EFFECT_PASS_M1_INDICATORS",
+    "external_effects_this_transition": 1,
     "group11": {
       "current_epoch": 2,
       "terminal_receipt_present": false,
       "launch_started_epoch2": false,
       "dev": {
         "status": "PASS_EXACT",
-        "records": 151382388,
-        "bytes": 2573500596,
         "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
       },
       "m1": {
         "status": "PASS_EXACT",
         "bars": 681772,
-        "content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
-        "file_bytes": 27271136,
-        "file_sha256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59",
-        "receipt_blob_sha1": "8d86fbc2be5ae9c5528dd8b3802345159d34902b"
+        "content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4"
+      },
+      "indicators_m1": {
+        "status": "PASS_EXACT",
+        "bars": 681772,
+        "content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+        "file_bytes": 196359134,
+        "file_sha256": "f30da86f6c11b5a6573b3571ffd3c3621bbe4d51134258c89d956d6f9ab115b5",
+        "receipt_blob_sha1": "60b03eb236dc89653789d0312004cb16dc8d75a8"
       }
     },
     "group12_opened": false,
