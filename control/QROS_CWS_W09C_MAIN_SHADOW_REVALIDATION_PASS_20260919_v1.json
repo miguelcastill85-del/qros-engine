@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_CWS_W09C_MAIN_SHADOW_REVALIDATION_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "workflow_run_id": 35475618150,
+  "job_id": 105984250823,
+  "validated_commit": "1fce807d3127315916c2953daf8b21e30dc3d370",
+  "conclusion": "success",
+  "traceback_present": false,
+  "exact_pins_pass": true,
+  "evidence": {
+    "baseline_status": "PASS",
+    "mode": "SHADOW_READ_ONLY",
+    "decision": "INVOKE_DEK",
+    "authority_objective_hash": "77c2f749072f7c0c999cc071c402abbbfebb7bf9c3b721ac0e6fc379082596f9",
+    "would_effect_id": "65d45283398044588a5bece31ee28527b86e49078fb8d1710ce02fd9f21b72c5",
+    "mutation_cases": 100000,
+    "mutation_rejected": 100000,
+    "external_effects_executed": 0,
+    "w09c_writes": 0,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "PASS_FOR_CONTROL_PLANE_SHADOW_ACTIVE",
+  "scientific_effect": "NONE"
+}

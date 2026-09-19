@@ -1,0 +1,17 @@
+{
+  "schema": "QROS_CHAT_NON_BLOCKING_HANDOFF_GATE_ACTIVATION_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_GOVERNANCE_ACTIVATED",
+  "governance_path": "governance/QROS_CHAT_NON_BLOCKING_HANDOFF_GATE_v1.0.json",
+  "evidence": {
+    "cws_self_application_gate": "PASS",
+    "autochain_16_generations": "PASS",
+    "manual_interventions": 0,
+    "w09c_main_shadow_revalidation": "PASS",
+    "external_effects_in_shadow": 0,
+    "w09c_writes_in_shadow": 0,
+    "activation_guard_adversarial_cases": 100000,
+    "activation_guard_unsafe_eligible": 0
+  },
+  "scientific_effect": "NONE"
+}

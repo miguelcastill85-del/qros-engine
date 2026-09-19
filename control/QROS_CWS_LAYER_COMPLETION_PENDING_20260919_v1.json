@@ -1,7 +1,7 @@
 {
-  "schema": "QROS_CWS_LAYER_COMPLETION_PENDING_1.1",
+  "schema": "QROS_CWS_LAYER_COMPLETION_PENDING_1.2",
   "date": "2026-09-19",
-  "status": "MAIN_SHADOW_REVALIDATION_PENDING",
+  "status": "CONTROL_PLANE_SHADOW_ACTIVE_SOAK_PENDING",
   "layer": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
   "completed": {
     "core_external_validation": "PASS",
@@ -9,15 +9,19 @@
     "autochain_16_generation_terminal": "PASS",
     "manual_intervention_rate": 0,
     "w09c_branch_shadow": "PASS",
-    "control_plane_activation_guard": "PASS"
+    "control_plane_activation_guard": "PASS",
+    "main_w09c_shadow_revalidation": "PASS",
+    "chat_non_blocking_handoff_gate": "PASS_ACTIVE"
   },
   "pending": {
-    "main_w09c_shadow_revalidation": "PENDING_PROMOTION_TRIGGER"
+    "real_non_economic_control_plane_soak": "PENDING"
   },
   "activation_state": {
-    "cws_active": false,
-    "w09c_connected": false,
-    "allowed_scope": "NONE_UNTIL_MAIN_SHADOW_REVALIDATION_PASS"
+    "cws_active": true,
+    "mode": "CONTROL_PLANE_SHADOW_ACTIVE",
+    "w09c_connected": true,
+    "scientific_effects_allowed": false,
+    "economic_effects_allowed": false
   },
-  "next_automatic_action": "FAST-FORWARD MAIN TO CANDIDATE WITHOUT CHANGING PINNED CWS_CURRENT; ADOPT MAIN SHADOW WORKFLOW ONCE; REQUIRE ZERO EFFECTS + 100000 MUTATIONS REJECTED; ONLY THEN UPDATE CWS_CURRENT."
+  "next_automatic_action": "EXECUTE CWS/DEK REAL NON-ECONOMIC CONTROL-PLANE SOAK. CHAT MUST HAND OFF AFTER ONE BOUNDED EFFECT/ADOPTION; CWS OWNS CONTINUATION. STOP AT SCIENTIFIC/ECONOMIC BOUNDARY."
 }

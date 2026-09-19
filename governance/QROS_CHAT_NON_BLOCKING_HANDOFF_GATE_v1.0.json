@@ -1,0 +1,53 @@
+{
+  "schema": "QROS_CHAT_NON_BLOCKING_HANDOFF_GATE_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE_MANDATORY",
+  "purpose": "Prevent the chat runtime from becoming the owner of prolonged work. The chat may recover authority, compile one bounded transition, persist intent, launch/adopt at most one effect, persist a resumable state, and exit. Prolonged continuity belongs to CWS/DEK and durable runners.",
+  "applies_to": [
+    "QROS_CONTINUOUS_WORK_SCHEDULER",
+    "DEK_V3_CONTROL_PLANE",
+    "W09C_NON_ECONOMIC_EXECUTION",
+    "HEAVY_JOBS",
+    "CROSS_CHAT_CONTINUATION"
+  ],
+  "hard_invariants": [
+    "CHAT_IS_EPHEMERAL_CONTROLLER_OBSERVER_NOT_WORKER",
+    "ONE_AUTHORITY_READ_BUNDLE_PER_INVOCATION",
+    "ONE_DURABLE_COMMIT_BUNDLE_PER_INVOCATION",
+    "AT_MOST_ONE_EXTERNAL_EFFECT_PER_INVOCATION",
+    "NO_CHAT_SLEEP",
+    "NO_POLL_LOOP",
+    "NO_REPEATED_STATUS_QUERY_WITHOUT_NEW_EVIDENCE_OR_ORTHOGONAL_PROGRESS",
+    "NO_MANUAL_GIANT_PAYLOAD_TRANSPORT",
+    "NO_LONG_SYNCHRONOUS_HEAVY_EXECUTION_IN_CHAT",
+    "PERSIST_RUNNING_ADOPTABLE_BEFORE_EXIT_WHEN_EFFECT_CONTINUES",
+    "CWS_SELF_DISPATCH_OWNS_NON_ECONOMIC_CONTINUATION",
+    "DEK_V3_REMAINS_ONLY_TRANSITION_REDUCER",
+    "ANY_ECONOMIC_OR_SCIENTIFIC_BOUNDARY_FAILS_CLOSED"
+  ],
+  "allowed_chat_sequence": [
+    "RECOVER_DURABLE_AUTHORITY",
+    "VERIFY_EXACT_PINS",
+    "COMPILE_ONE_DETERMINISTIC_META_TRANSITION",
+    "PERSIST_INTENT_IF_EFFECT_REQUIRED",
+    "EXECUTE_OR_ADOPT_AT_MOST_ONE_EFFECT",
+    "PERSIST_TERMINAL_OR_RUNNING_ADOPTABLE",
+    "EXIT_CHAT_EXECUTION_PATH"
+  ],
+  "circuit_breakers": {
+    "same_route_no_delta_limit": 1,
+    "same_status_query_without_orthogonal_progress_limit": 1,
+    "manual_patch_attempts_per_root_cause": 1,
+    "on_limit": "SWITCH_ROUTE_OR_FAIL_CLOSED_WITH_DURABLE_CHECKPOINT"
+  },
+  "forbidden_boundaries": [
+    "economic_pnl_read",
+    "holdout_open",
+    "ga2_open",
+    "new_ga1_authorized",
+    "first_gate_execution_authorized"
+  ],
+  "rollback": "SET CWS CONTROL-PLANE POINTER TO SHADOW_INACTIVE; DO NOT ROLLBACK SCIENTIFIC EVIDENCE",
+  "persistence_rule": "ACTIVE UNTIL EXPLICITLY SUPERSEDED"
+}
