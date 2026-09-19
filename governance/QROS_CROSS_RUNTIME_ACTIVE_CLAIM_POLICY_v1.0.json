@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_CROSS_RUNTIME_ACTIVE_CLAIM_POLICY_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE_MANDATORY",
+  "purpose": "Prevent a foreign-runtime RUNNING_ADOPTABLE claim from being misclassified as proven dead by local PID/process-birth checks after chat/runtime migration.",
+  "implementation": {
+    "path": "scripts/qros_cross_runtime_claim_guard_v1.py",
+    "git_blob_sha1": "337034d5c19a67cabbd09a4d707055528a7169dd",
+    "sha256": "33d08eb3f18d81074c6da985f6ec168f4b6480c06691e6f9d28138f745598242"
+  },
+  "tests": {
+    "path": "scripts/qros_cross_runtime_claim_guard_tests_v1.py",
+    "git_blob_sha1": "c4a71deb0058198e808226bce548035ccba23f64",
+    "sha256": "8f92f2e3199b7f0550fe54c1947196a322251f301249a41e986cd6147e58653b",
+    "status": "PASS",
+    "count": 6,
+    "execution_environment": "current runtime",
+    "cases": [
+      "same boot scope passes addressability guard",
+      "foreign boot scope fails closed",
+      "non-running receipt rejected",
+      "inconsistent process birth scopes rejected",
+      "unreadable birth scope rejected",
+      "incomplete durable claim identity rejected"
+    ]
+  },
+  "rules": {
+    "foreign_boot_id_is_not_death_proof": true,
+    "missing_pid_on_different_host_is_not_death_proof": true,
+    "foreign_runtime_running_claim_action": "FAIL_CLOSED_AND_PRESERVE_RUNNING_ADOPTABLE",
+    "relaunch_requires_proven_death_on_authoritative_runtime_or_durable_terminal_evidence": true,
+    "deterministic_rematerialization_does_not_override_active_exactly_once_claim": true
+  },
+  "integrations": [
+    {
+      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+      "git_blob_sha1": "74e4d884a7018825ed67f0218f82f1d3fd543db3"
+    },
+    {
+      "path": "governance/QROS_NO_FREEZE_BARRIER_POLICY_v1.0.json",
+      "git_blob_sha1": "242d6b6d492d3354396c28adae9deb71595f3d9e"
+    },
+    {
+      "path": "governance/QROS_SHARD_PROMOTION_AND_CROSS_CHAT_CONTINUITY_POLICY_v1.0.json",
+      "git_blob_sha1": "08117b1b4926f2532f16542340a64bff72197e94"
+    }
+  ],
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY",
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "new_ga1_authorized": false
+}
