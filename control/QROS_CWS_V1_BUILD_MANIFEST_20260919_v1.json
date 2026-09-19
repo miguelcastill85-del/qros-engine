@@ -1,0 +1,63 @@
+{
+  "schema": "QROS_CWS_V1_BUILD_MANIFEST_1.0",
+  "date": "2026-09-19",
+  "status": "BUILDING_ISOLATED_CANDIDATE",
+  "branch": "cws-v1-selfhost-20260919",
+  "base_main": "01f507d427e99e770665a3f159a2670eae9191b7",
+  "authorities": {
+    "bpc_v11": "16aa5751b71d3259fd69916b566c1a92c1b0ed2e",
+    "prior_fail_receipt": "63c072f0a31869cc794c556a9877a392e4ed74b9",
+    "dek_v3": "21f838ced8ec8a6c21a596acaf2a949582c200fa"
+  },
+  "self_application_gate": {
+    "bounded_steps": true,
+    "durable_build_checkpoints": true,
+    "no_manual_base64": true,
+    "repository_native_transport": true,
+    "no_poll_loops": true,
+    "no_main_mutation_until_external_validation": true
+  },
+  "architecture": {
+    "role": "SCHEDULER_ONLY",
+    "scientific_reducer": "DEK_V3_ONLY",
+    "macro_lease": false,
+    "heartbeat_is_progress": false,
+    "capability_tokens_bound_to_task_spec": true,
+    "objective_revision_preemption": true,
+    "completion_requires_task_bound_dek_terminal": true
+  },
+  "planned_files": [
+    "scripts/qros_continuous_work_scheduler_v1.py",
+    "scripts/qros_continuous_work_scheduler_tests_v1.py",
+    ".github/workflows/qros-continuous-work-scheduler-v1.yml",
+    "governance/QROS_CONTINUOUS_WORK_SCHEDULER_GOVERNANCE_v1.0.json"
+  ],
+  "gates": [
+    "CW-G0",
+    "CW-G1",
+    "CW-G2",
+    "CW-G3",
+    "CW-G4",
+    "CW-G5",
+    "CW-G7",
+    "CW-G8",
+    "CW-G9",
+    "CW-G10",
+    "CW-G11",
+    "CW-G13",
+    "CW-G14"
+  ],
+  "external_pending": [
+    "CW-G6",
+    "CW-G12",
+    "CW-G15",
+    "CW-SG4",
+    "CW-SG5"
+  ],
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  }
+}
