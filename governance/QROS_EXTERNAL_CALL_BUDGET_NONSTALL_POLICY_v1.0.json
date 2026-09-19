@@ -1,0 +1,56 @@
+{
+  "schema": "QROS_EXTERNAL_CALL_BUDGET_NONSTALL_POLICY_1.0",
+  "version": "v1.0",
+  "date": "2026-09-18",
+  "status": "ACTIVE",
+  "objective": "Prevent chat/runtime stagnation caused by excessive external calls, polling loops, repeated recovery, or opening work too close to the turn budget.",
+  "hard_cap_external_calls_per_block": 15,
+  "phases": {
+    "normal_execution": {
+      "calls": "1-10",
+      "allowed": [
+        "RECOVER",
+        "VERIFY",
+        "EXECUTE",
+        "BATCHED_READS",
+        "ONE_HEAVY_JOB_LAUNCH"
+      ],
+      "forbidden": [
+        "UNBOUNDED_POLLING",
+        "REPEATED_SEARCH_FOR_SAME_AUTHORITY"
+      ]
+    },
+    "durable_checkpoint": {
+      "call": 11,
+      "required": true,
+      "rule": "Persist receipt/checkpoint before any further external interaction when expensive work was opened."
+    },
+    "closeout": {
+      "calls": "12-15",
+      "allowed": [
+        "VALIDATE",
+        "PERSIST",
+        "STATUS",
+        "CLOSEOUT"
+      ],
+      "forbidden": [
+        "SEARCH",
+        "EXPLORE",
+        "NEW_WORK",
+        "NEW_HEAVY_JOB"
+      ]
+    }
+  },
+  "invariants": [
+    "Never exceed 15 external calls in one execution block.",
+    "Batch independent reads/writes when the connector supports it.",
+    "At most one expensive unit may be open without a durable receipt.",
+    "A transport timeout is not a worker failure; exactly-once heavy supervisor remains mandatory.",
+    "No blind retry: recover PID/receipt/checkpoint first.",
+    "If the objective cannot close within the remaining budget, freeze a reanudable checkpoint instead of polling.",
+    "Calls 12-15 are a safety reserve and cannot increase scientific scope."
+  ],
+  "scientific_effect": "NONE_EXECUTION_GOVERNANCE_ONLY",
+  "guard_script": "scripts/qros_external_call_budget_guard_v1.py",
+  "test_script": "scripts/qros_external_call_budget_guard_tests_v1.py"
+}
