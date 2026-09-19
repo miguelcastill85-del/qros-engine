@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_PUBLIC1000_W09C_GROUP09_RECOVERY_PACKAGE_VALIDATION_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 9,
+    "shard_id": "aa2e1ab0ecd6cd08d18e98288e70847d6ff863c6790f0928b9109138abe24070"
+  },
+  "authority": {
+    "capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "4b8bf850d118eb31f6165f0fe7d3412204396bc3"
+    },
+    "recovery_authority": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_RECOVERY_AUTHORITY_20260919_v1.json",
+      "git_blob_sha1": "d954d3c0d5889778912dd833468e90a7fedfc0f9"
+    },
+    "current_lease": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_CURRENT_FENCED_LEASE.json",
+      "git_blob_sha1": "718f31083fd7bacf8f643226a638531d5b51b910",
+      "lease_epoch": 2
+    },
+    "wrapper": {
+      "path": "scripts/qros_public1000_w09c_group09_recovery_wrapper_v1.py",
+      "git_blob_sha1": "aeb0ff44412a519725fb718d5a1921868922f145",
+      "sha256": "8ee6326325bbdbf9d70223289ca82e8e892d601fddcdb0ed433ab4b223eeebee"
+    },
+    "runtime_binding_guard": {
+      "path": "scripts/qros_group_runtime_binding_guard_v1.py",
+      "git_blob_sha1": "9ec73412251dfcc1a967a8982e37273078b1c88e"
+    }
+  },
+  "frozen_source_blobs": {
+    "spec": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "config_stream": "a01268bd8bab639977b22c419926d94306754bba",
+    "structural": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "gate_engine": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+    "carrier_masks": "0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25",
+    "group_worker": "ec8d143e284727b1bd98a0dd10e9c349a62f2cd8"
+  },
+  "exact_runtime_inputs": {
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "bar_M1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_M1_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+    "point": 0.01,
+    "signal_config_count": 804672,
+    "ordered_config_id_stream_root_sha256": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3"
+  },
+  "gates": {
+    "source_blobs": "PASS_6_OF_6_EXACT_GIT_BLOB",
+    "config_stream": "PASS_804672_ROOT_EXACT",
+    "fenced_lease": "PASS_EPOCH2_CURRENT_RUNTIME",
+    "runtime_binding": "PASS_ALL_CHECKS_AFTER_FAIL_CLOSED_CORRECTION",
+    "prior_group08": "PASS",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group10_opened": false
+  },
+  "correction_event": {
+    "initial_wrapper_binding": "FAIL_CLOSED_WRAPPER_DICT_INDICES",
+    "expensive_work_started": false,
+    "correction": "added second explicit immutable GROUP09 binding anchor",
+    "retest": "PASS_ALL_CHECKS"
+  },
+  "decision": "RECOVERY_PACKAGE_VALIDATED; PRELAUNCH MAY_BE_PERSISTED; GROUP09_RECOVERY_EPOCH2 MAY_LAUNCH EXACTLY_ONCE"
+}
