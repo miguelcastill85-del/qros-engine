@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.4",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.5",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -222,10 +222,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "GROUP09_ACTIVE_ATTEMPT_1_IS_FOREIGN_RUNTIME_SCOPED_AND_NO_DURABLE_TERMINAL_RECEIPT_EXISTS; FUTURE_MIGRATION_SAFE_FENCING_PARTIALLY_IMPLEMENTED",
-  "root_cause": "GROUP09 predates a durable fenced lease. Current runtime boot namespace differs from the original worker, so local PID absence cannot prove death. Future lease/fence candidate now binds job, group, epoch, lease-id and fence-token but is intentionally non-retroactive.",
+  "problem": "GROUP09_LEGACY_AUTHORITY_FENCE_IMPLEMENTATION_PARTIAL_SAFE",
+  "root_cause": "Cross-chat freeze requires authority fencing; legacy authority guard persisted, lease-v2 persistence incomplete. No scientific state changed.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "FIRST CHECK FOR DURABLE GROUP09 TERMINAL RECEIPT; OTHERWISE BLOCKER REMAINS. DO NOT APPLY FENCED LEASE RETROACTIVELY TO GROUP09. BEFORE ANY FUTURE GROUP10+ PRODUCTION LAUNCH, COMPLETE AND PROMOTE FENCED LEASE INTEGRATION OR USE AN EQUIVALENT VALIDATED MIGRATION-SAFE OWNERSHIP CONTRACT.",
+  "next_automatic_action": "NEW_BOUNDED_BLOCK: PERSIST_LEASE_GUARD_V2_AND_TESTS; VERIFY_GIT_BYTES; PROMOTE_LEGACY_RECOVERY_AND_FENCED_LEASE_POLICIES; RECHECK_GROUP09_TERMINAL_RECEIPT; ONLY_IF_ABSENT PERSIST_LEGACY_AUTHORITY_TOMBSTONE_AND_RECOVERY_EPOCH",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -277,56 +277,12 @@
     "FENCED_HEAVY_SUPERVISOR_BINDING_PASS_8_OF_8"
   ],
   "last_execution_block": {
-    "status": "RUNNING_ADOPTABLE",
+    "status": "PENDING_CONTROL_PLANE_FENCE_COMPLETION",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RUNNING_ADOPTABLE_20260919_v1.json",
-      "git_blob_sha1": "5da26353c2ea18834e023bf775476670e5179fa3"
+      "path": "control/QROS_GROUP09_AUTHORITY_FENCE_IMPLEMENTATION_PROGRESS_20260919_v1.json"
     },
-    "group09_launched": true,
-    "attempt": 1,
-    "adopt_action": "ADOPT_LIVE_PROCESS",
-    "supervisor_calls": 2,
-    "duplicate_launch": false,
-    "expensive_unit_open": true,
-    "orphan_worker": false,
-    "last_control_elapsed_seconds": 0.743616,
-    "runtime_binding_gate": "PASS",
-    "cross_chat_reconciliation": {
-      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_CROSS_CHAT_RUNTIME_RECONCILIATION_20260919_v1.json",
-      "git_blob_sha1": "1545eee77e6850e99673394ee5e43396ff46c293",
-      "terminal_receipt_present": false,
-      "original_worker_death_proven": false,
-      "relaunch_allowed": false
-    },
-    "status_observation": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v1.json",
-      "git_blob_sha1": "95202c79268f50ea7776f724b7f4e80b5ec3b76d",
-      "terminal_receipt_present": false,
-      "worker_control_invoked": false,
-      "relaunch_performed": false
-    },
-    "status_observation_v2": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v2.json",
-      "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
-      "terminal_receipt_present": false,
-      "matching_runtime_context_available_here": false,
-      "relaunch_performed": false
-    },
-    "operational_blocker": {
-      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
-      "git_blob_sha1": "3713ecff5724f7b298d4e4cda4f50ebb60936dbe",
-      "state": "BLOCKED_BY_INFRASTRUCTURE",
-      "group09_status": "RUNNING_ADOPTABLE",
-      "relaunch_allowed": false,
-      "group10_opened": false
-    },
-    "engineering_hardening": {
-      "group09_effect": "NONE",
-      "cross_runtime_guard_revalidated": "PASS_6_OF_6",
-      "direct_runtime_probe": "FOREIGN_RUNTIME_CONFIRMED",
-      "fenced_runtime_lease_guard": "PASS_8_OF_8_CANDIDATE",
-      "fenced_supervisor_binding": "PASS_8_OF_8_CANDIDATE",
-      "retroactive_group09_use": false
-    }
+    "group09_legacy_promotion_revoked": false,
+    "recovery_epoch_created": false,
+    "expensive_unit_open": false
   }
 }
