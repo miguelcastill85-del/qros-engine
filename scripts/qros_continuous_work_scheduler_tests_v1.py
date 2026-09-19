@@ -79,12 +79,21 @@ def gate_suite():
     assert ack.action=="WAIT" and ack.next_state.pending_effect_id is None
 
     # ProgressProof binds task+segment and advances only monotonic seq
-    proof=make_progress_proof(sp,"seg",7,0,"2"*64)
+    proof=make_progress_proof(sp,"seg",7,0,"2"*64,d1.effect_id)
     pr=compile_step(sp,ack.next_state,ob(progress_window=0,progress_proof=proof))
     assert pr.action=="RECORD_PROGRESS" and pr.next_state.progress_count==1
     assert compile_step(sp,pr.next_state,ob(progress_window=1,progress_proof=proof)).action=="IGNORE_STALE"
-    bad=dict(make_progress_proof(sp,"seg",7,1,"3"*64)); bad["durable_root"]="4"*64
+    bad=dict(make_progress_proof(sp,"seg",7,1,"3"*64,d1.effect_id)); bad["durable_root"]="4"*64
     assert compile_step(sp,pr.next_state,ob(progress_window=1,progress_proof=bad)).action=="IGNORE_STALE"
+
+    # G7 regression: durable proof before ACK implicitly resolves the pending effect
+    lost_ack_proof=make_progress_proof(sp,"seg-lost-ack",9,0,"5"*64,d1.effect_id)
+    lost_ack=compile_step(sp,p,ob(progress_window=0,progress_proof=lost_ack_proof))
+    assert lost_ack.action=="RECORD_PROGRESS"
+    assert lost_ack.next_state.pending_effect_id is None
+    assert lost_ack.next_state.open_segment_effect_id==d1.effect_id
+    wrong_effect_proof=make_progress_proof(sp,"seg-wrong",9,1,"6"*64,"a"*64)
+    assert compile_step(sp,p,ob(progress_window=0,progress_proof=wrong_effect_proof)).action=="IGNORE_STALE"
 
     # G8 preemption
     pre=compile_step(sp,s,ob(requested_revision=2))
@@ -123,7 +132,7 @@ def gate_suite():
     for n in (1,2,10,100,1000):
         sx=initial_state(sp)
         for i in range(n):
-            px=make_progress_proof(sp,"segment",1,i,hashlib.sha256(f"{n}:{i}".encode()).hexdigest())
+            px=make_progress_proof(sp,"segment",1,i,hashlib.sha256(f"{n}:{i}".encode()).hexdigest(),"a"*64)
             sx=compile_step(sp,sx,ob(progress_window=i,progress_proof=px)).next_state
         sx=compile_step(sp,sx,ob(dek_terminal=True,dek_terminal_root=ROOT,dek_terminal_task_spec_hash=sx.task_spec_hash)).next_state
         certs.append(completion_certificate(sp,sx)["certificate_sha256"])
@@ -154,6 +163,7 @@ def oracle_exhaustive():
             pending_effect_id="e"*64 if pending else None,
             open_segment_id="seg" if opened else None,
             open_segment_epoch=1 if opened else 0,
+            open_segment_effect_id="a"*64 if opened else None,
             no_progress_streak=streak,last_progress_window=lastwin
         )
         o=ob(
@@ -191,7 +201,8 @@ def chaos(episodes=100000,seed=20260919):
                 o=replace(o,effect_ack_id=s.pending_effect_id,segment_id="seg",segment_epoch=1)
             elif r<.58:
                 window+=1; pseq+=1
-                pf=make_progress_proof(sp,s.open_segment_id or "seg",s.open_segment_epoch if s.open_segment_id else 1,pseq,hashlib.sha256(f"{ep}:{pseq}".encode()).hexdigest())
+                proof_effect=s.pending_effect_id or s.open_segment_effect_id or "a"*64
+                pf=make_progress_proof(sp,s.open_segment_id or "seg",s.open_segment_epoch if s.open_segment_id else 1,pseq,hashlib.sha256(f"{ep}:{pseq}".encode()).hexdigest(),proof_effect)
                 o=replace(o,progress_window=window,progress_proof=pf)
             elif r<.66 and s.open_segment_id:
                 o=replace(o,segment_terminal="FAIL",segment_id=s.open_segment_id,segment_epoch=s.open_segment_epoch)
@@ -260,7 +271,7 @@ def multirunner(stage:int,state_path:str,units_per_stage=2500):
         validate_state(sp,s)
         start=s.progress_count
     for i in range(start,start+units_per_stage):
-        pf=make_progress_proof(sp,"long-segment",1,i,hashlib.sha256(f"unit:{i}".encode()).hexdigest())
+        pf=make_progress_proof(sp,"long-segment",1,i,hashlib.sha256(f"unit:{i}".encode()).hexdigest(),"a"*64)
         s=compile_step(sp,s,ob(progress_window=i,progress_proof=pf)).next_state
     cert=None
     if stage==4:
