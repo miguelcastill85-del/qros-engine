@@ -1,0 +1,32 @@
+{
+  "schema": "QROS_CWS_V1_0_EFFECT_PROOF_BINDING_DEFECT_1.0",
+  "date": "2026-09-19",
+  "status": "MISSED_DEFECT_MATERIAL_CORRECTED_IN_V1_1_CANDIDATE",
+  "affected_version": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.0",
+  "defect": "A valid task-bound ProgressProof could arrive before ACK, advance durable progress, but leave pending_effect_id open because the proof was not bound to the originating effect_id.",
+  "risk": "A later no-progress reconciliation could treat the already-progressed effect as unresolved and attempt reconciliation/re-execution.",
+  "contamination": {
+    "production_active": false,
+    "scientific_execution": false,
+    "economic_pnl_read": false,
+    "holdout_open": false
+  },
+  "correction": {
+    "state_schema": "QROS_CWS_STATE_1.1",
+    "proof_schema": "QROS_CWS_PROGRESS_PROOF_1.1",
+    "proof_binds_effect_id": true,
+    "valid_progress_implicitly_resolves_pending_effect": true,
+    "ack_requires_segment_identity": true,
+    "open_segment_tracks_origin_effect": true
+  },
+  "invalidates": [
+    "CWS_V1_0_ACTIVATION_ELIGIBILITY"
+  ],
+  "preserves": [
+    "V1_0_EXTERNAL_TEST_EVIDENCE_AS_HISTORICAL",
+    "DEK_V3",
+    "AFEL",
+    "W09C_SCIENCE"
+  ],
+  "required_revalidation": "FULL_CW_GATES_SUPERGATES_EXTERNAL_CLEAN_RUNNER"
+}
