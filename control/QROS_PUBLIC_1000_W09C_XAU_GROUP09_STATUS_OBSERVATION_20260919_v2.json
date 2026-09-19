@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_NO_FREEZE_STATUS_OBSERVATION_1.1",
+  "date": "2026-09-19",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "RUNNING_ADOPTABLE",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 9
+  },
+  "authority": {
+    "observed_main_commit": "c14a9888532af1743796d896184fd8515322bfe1",
+    "pointer_before": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+      "git_blob_sha1": "ab1495ed4558357a53718aaa977a65d274b5876f"
+    },
+    "checkpoint_before": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
+      "git_blob_sha1": "ed264115dc8935088a51aed2e98d9aceb4b767d4"
+    },
+    "prior_status_observation": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v1.json",
+      "git_blob_sha1": "95202c79268f50ea7776f724b7f4e80b5ec3b76d"
+    }
+  },
+  "verification": {
+    "group09_repo_paths": [
+      "control/QROS_PUBLIC_1000_W09C_GROUP09_CROSS_CHAT_RUNTIME_RECONCILIATION_20260919_v1.json",
+      "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
+      "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_PRELAUNCH_INTENT_20260919_v1.json",
+      "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RUNNING_ADOPTABLE_20260919_v1.json",
+      "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v1.json"
+    ],
+    "durable_terminal_receipt_found": false,
+    "terminal_receipt_alternate_name_found": false,
+    "current_runtime_jobs_group09_present": false,
+    "current_runtime_job_spec_group09_present": false,
+    "current_runtime_supervisor_present": false,
+    "original_worker_death_proven": false,
+    "worker_control_invoked": false,
+    "relaunch_performed": false,
+    "group10_opened": false
+  },
+  "scientific_progress": {
+    "groups_total": 24,
+    "groups_durably_closed": 9,
+    "closed_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "processed_signal_configs_durable": 301752,
+    "group09": "RUNNING_ADOPTABLE_NOT_TERMINAL"
+  },
+  "guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "PRESERVE_SAME_GROUP09_ATTEMPT_1_RUNNING_ADOPTABLE; DO_NOT_RELAUNCH; DO_NOT_OPEN_GROUP10",
+  "next_automatic_action": "CHECK_FOR_DURABLE_GROUP09_TERMINAL_RECEIPT_ON_NEXT_CONTROL_INTERACTION; IF ABSENT, ONLY ADOPT_OR_STATUS SAME ATTEMPT_1 FROM MATCHING_RUNTIME_CONTEXT; NEVER RELAUNCH WITHOUT PROVEN_DEATH"
+}
