@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_EXTERNAL_CALL_BUDGET_HARDENING_RECEIPT_1.0",
+  "date": "2026-09-18",
+  "status": "PASS",
+  "implementation_sha256": "2a3a832cd7fce358def2b2feecd10cc698eb460f00163109fe6b509962b10848",
+  "tests_sha256": "bd0b25150553952849dade2618d645f2c3c0e42b91230e7a7f686b80f9fe896a",
+  "tests_total": 20,
+  "tests_passed": 20,
+  "hard_cap": 15,
+  "normal_execution_max_call": 10,
+  "checkpoint_call": 11,
+  "closeout_calls": [
+    12,
+    13,
+    14,
+    15
+  ],
+  "verified_properties": [
+    "NEW_WORK_BLOCKED_AFTER_CALL_10",
+    "CHECKPOINT_MUST_OCCUR_BY_CALL_11",
+    "CLOSEOUT_ONLY_CALLS_12_TO_15",
+    "HARD_CAP_CALL_15",
+    "NO_SECOND_EXPENSIVE_UNIT_WHILE_ONE_OPEN",
+    "NO_CLOSE_WITH_UNPERSISTED_EXPENSIVE_UNIT",
+    "ATOMIC_STATE_WRITE"
+  ],
+  "scientific_guards_preserved": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "ACTIVATE_FOR_ALL_QROS_HEAVY_OR_MULTI_CONNECTOR_EXECUTION_BLOCKS"
+}
