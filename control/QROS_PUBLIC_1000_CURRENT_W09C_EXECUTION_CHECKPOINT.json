@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.1",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_2.2",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -126,10 +126,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_CURRENT_CONTROL_PLANE_GATE_CLOSED",
-  "root_cause": "Prior no-op launch traced to a local test stub; exact durable v1/v2 bytes are now materialized and validated. v1.1 metadata SHA mismatch corrected by v1.2.",
+  "problem": "NONE_CURRENT_GROUP03_RUNNING",
+  "root_cause": "N/A",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NEW_BOUNDED_BLOCK: VERIFY_CHECKPOINT_2_1_AND_GROUP03_CAPSULE; LAUNCH_GROUP03_ONCE_USING_/mnt/data/qros_group03_runtime/supervisor_full/qros_heavy_job_supervisor_v2.py; PERSIST LIVE_OR_PASS_STATE_BY_CALL_11; DO_NOT_START_GROUP04_UNTIL_GROUP03_DURABLE_RECEIPT",
+  "next_automatic_action": "ADOPT_GROUP03_EXISTING_JOB_EXACTLY_ONCE; IF RUNNING PERSIST STATUS WITHOUT RELAUNCH; IF PASS VALIDATE ARTIFACTS_AND_PERSIST_DURABLE_GROUP03_RECEIPT; ONLY_AFTER_DURABLE_PASS_CREATE_GROUP04_CAPSULE",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -164,13 +164,15 @@
     "REQUIRE_CONTROLLER_SMOKE_LIFECYCLE_BEFORE_GROUP03"
   ],
   "last_execution_block": {
-    "status": "PASS_CONTROL_PLANE_RUNTIME_GATE_NO_SCIENTIFIC_JOB_LAUNCHED",
+    "status": "RUNNING_ADOPTED_EXACTLY_ONCE",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SUPERVISOR_FULL_RUNTIME_GATE_PASS_20260918_v1.json",
-      "git_blob_sha1": "e5bd10def7b534586df659b95995e370e070e730"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP03_LIVE_EXECUTION_CHECKPOINT_20260918_v1.json",
+      "git_blob_sha1": "96ce0c28907e6abb1c345e3bcd2bbed9da902e9d"
     },
-    "group03_launched": false,
-    "expensive_unit_open": false,
+    "job_spec_sha256": "c745dffc9b018b415e3778e28a52ea802cc185e61b8bc76faa786741e038ad74",
+    "attempt": 1,
+    "group03_launched": true,
+    "expensive_unit_open": true,
     "orphan_worker": false
   }
 }
