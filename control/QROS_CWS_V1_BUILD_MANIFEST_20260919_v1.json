@@ -1,7 +1,7 @@
 {
   "schema": "QROS_CWS_V1_BUILD_MANIFEST_1.0",
   "date": "2026-09-19",
-  "status": "BUILDING_ISOLATED_CANDIDATE",
+  "status": "EXTERNAL_VALIDATION_RUNNING_ADOPTABLE",
   "branch": "cws-v1-selfhost-20260919",
   "base_main": "01f507d427e99e770665a3f159a2670eae9191b7",
   "authorities": {
@@ -15,7 +15,15 @@
     "no_manual_base64": true,
     "repository_native_transport": true,
     "no_poll_loops": true,
-    "no_main_mutation_until_external_validation": true
+    "no_main_mutation_until_external_validation": true,
+    "evidence": {
+      "main_mutated": false,
+      "branch_isolated": true,
+      "repository_native_files": true,
+      "giant_manual_payload_transport": false,
+      "repeated_polling": false,
+      "durable_resume_point": true
+    }
   },
   "architecture": {
     "role": "SCHEDULER_ONLY",
@@ -59,5 +67,19 @@
     "holdout_open": false,
     "ga2_open": false,
     "new_ga1_authorized": false
-  }
+  },
+  "progress": {
+    "source_core": "PERSISTED",
+    "tests_oracle_chaos": "PERSISTED",
+    "governance": "PERSISTED_PREREGISTERED_NO_RESULTS",
+    "workflow": "PERSISTED_AND_TRIGGERED",
+    "external_validation": {
+      "run_id": 35473960905,
+      "head_sha": "d7df30922794af48b8f0aeca7e905c5ae55f9d1e",
+      "run_attempt": 1,
+      "status": "RUNNING_ADOPTABLE",
+      "polls_this_build_step": 1
+    }
+  },
+  "next_automatic_action": "QUERY WORKFLOW RUN 35473960905 ONCE. IF SUCCESS, VERIFY ALL JOBS + TERMINAL 10000-UNIT MULTI-RUNNER STATE, COMMIT DURABLE EXTERNAL PASS RECEIPT ON CANDIDATE BRANCH, THEN EVALUATE SELF_APPLICATION_GATE AND PROMOTION. IF RUNNING, PRESERVE RUNNING_ADOPTABLE AND EXIT. IF FAIL, FETCH FAILED JOB LOGS ONCE AND FAIL CLOSED."
 }
