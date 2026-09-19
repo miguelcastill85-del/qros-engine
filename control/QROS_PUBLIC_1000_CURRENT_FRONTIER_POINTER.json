@@ -104,13 +104,13 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "NONBLOCKING_ONLY: CHECK FOR DURABLE GROUP09 TERMINAL RECEIPT; IF ABSENT PRESERVE SAME ATTEMPT_1 RUNNING_ADOPTABLE; ADOPT/STATUS ONLY FROM MATCHING_RUNTIME_CONTEXT <=5S; NEVER RELAUNCH WITHOUT PROVEN DEATH",
+  "next_action": "CHECK_FOR_DURABLE_GROUP09_TERMINAL_RECEIPT_ON_NEXT_CONTROL_INTERACTION; IF ABSENT, ONLY ADOPT_OR_STATUS SAME ATTEMPT_1 FROM MATCHING_RUNTIME_CONTEXT; NEVER RELAUNCH WITHOUT PROVEN_DEATH",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "ed264115dc8935088a51aed2e98d9aceb4b767d4",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.1"
+      "git_blob_sha1": "debbf042bf3b4c1b9bf174a242f07108320773ad",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.2"
     },
     "next_capsule": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
@@ -201,6 +201,11 @@
     "group09_status_observation": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v1.json",
       "git_blob_sha1": "95202c79268f50ea7776f724b7f4e80b5ec3b76d",
+      "status": "RUNNING_ADOPTABLE"
+    },
+    "group09_status_observation_v2": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_STATUS_OBSERVATION_20260919_v2.json",
+      "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
       "status": "RUNNING_ADOPTABLE"
     }
   },
