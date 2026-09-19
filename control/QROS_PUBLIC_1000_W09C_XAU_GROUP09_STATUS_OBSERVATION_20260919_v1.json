@@ -1,0 +1,50 @@
+{
+  "schema": "QROS_NO_FREEZE_STATUS_OBSERVATION_1.0",
+  "date": "2026-09-19",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "status": "RUNNING_ADOPTABLE",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "subject": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "structural_group_index": 9
+  },
+  "authority": {
+    "observed_main_commit": "8dad6e5c9841836748959b992cc1577154c09316",
+    "checkpoint": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
+      "git_blob_sha1": "ca3a6826d7733c75ac2a82e091fa8dbe2ec34a7c"
+    },
+    "running_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_RUNNING_ADOPTABLE_20260919_v1.json",
+      "git_blob_sha1": "5da26353c2ea18834e023bf775476670e5179fa3"
+    },
+    "cross_chat_reconciliation": {
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_CROSS_CHAT_RUNTIME_RECONCILIATION_20260919_v1.json",
+      "git_blob_sha1": "1545eee77e6850e99673394ee5e43396ff46c293"
+    }
+  },
+  "observation": {
+    "terminal_receipt_present_on_main": false,
+    "durable_claim_present": true,
+    "job_id": "W09C_XAUUSD_BUY_M1_GROUP09_20260919_v1",
+    "attempt": 1,
+    "duplicate_launch": false,
+    "original_worker_death_proven": false,
+    "matching_runtime_context_available_here": false,
+    "worker_control_invoked": false,
+    "blocking_poll_used": false,
+    "relaunch_performed": false
+  },
+  "gates": {
+    "runtime_binding": "PASS",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "PRESERVE_RUNNING_ADOPTABLE; DO_NOT_RELAUNCH; DO_NOT_OPEN_GROUP10",
+  "next_automatic_action": "CHECK_FOR_DURABLE_GROUP09_TERMINAL_RECEIPT_ON_NEXT_CONTROL_INTERACTION; IF ABSENT, ONLY ADOPT_OR_STATUS SAME ATTEMPT_1 FROM MATCHING_RUNTIME_CONTEXT; NEVER RELAUNCH WITHOUT PROVEN_DEATH"
+}
