@@ -104,17 +104,17 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP08 <=5S; IF PASS VALIDATE_ARTIFACTS_AND_PERSIST_GROUP08; IF RUNNING KEEP RUNNING_ADOPTABLE; DO_NOT_POLL_OR_RELAUNCH",
+  "next_action": "PENDING_GROUP09_NOT_STARTED: BUILD_WRAPPER_AND_JOB_SPEC; REQUIRE GROUP_RUNTIME_BINDING_GUARD_PASS; PRECOMMIT; LAUNCH_OR_ADOPT <=5S; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED",
   "resume_contract": "V255 is the stable W09C/GAP-S05 production-prerequisite frontier. W09B is terminal by exact external synthetic parity. Historical P03 authorization is preserved but superseded and non-executable. Do not read economic PnL, execute FIRST_GATE, open GA2, open holdout or start new GA1 until all W09C production prerequisites and a compatible new economic transition are durably validated.",
   "operational_overlay": {
     "checkpoint": {
       "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
-      "git_blob_sha1": "f881d53a894419b3c7bf1c8ba8a16ef95e634440",
-      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.7"
+      "git_blob_sha1": "20dce19ba27e3c12fbc1aa283b3285ee571947db",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.8"
     },
     "next_capsule": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_EXECUTION_CAPSULE_20260919_v1.json",
-      "git_blob_sha1": "03cc56e67cae99e30d861ed9d2fa1895fc67269c"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP09_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "4b8bf850d118eb31f6165f0fe7d3412204396bc3"
     },
     "transversal_audit": {
       "path": "control/QROS_TRANSVERSAL_AUDIT_HARDENING_PASS_20260918_v1.json",
@@ -142,8 +142,8 @@
       "git_blob_sha1": "74e4d884a7018825ed67f0218f82f1d3fd543db3"
     },
     "last_durable_group_receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_SEMANTIC_RECEIPT_20260919_v1.json",
-      "git_blob_sha1": "b7abcd59f40b18274aa3c8eb0b04f0ce4daf393e"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "21dff1ce24dbcf1530053a0420720d69204011a7"
     },
     "turn_commit_nonstall_policy": {
       "path": "governance/QROS_TURN_COMMIT_NONSTALL_POLICY_v1.0.json",
@@ -184,10 +184,6 @@
     "group08_prelaunch_intent": {
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_PRELAUNCH_INTENT_20260919_v1.json",
       "git_blob_sha1": "b9c5e85ead1b88d8dbe4cb6d873cf1ca60bf75dd"
-    },
-    "group08_running_adoptable": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_RUNNING_ADOPTABLE_20260919_v1.json",
-      "git_blob_sha1": "0465dfb1ec5035811c9cab45cff7d168ce755b2c"
     }
   },
   "closed_w09c_bindings": {
