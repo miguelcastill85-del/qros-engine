@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_1.8",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_1.9",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -125,10 +125,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_SCIENTIFIC; EXECUTION_BLOCK_CLOSED_BY_NONSTALL_BUDGET_BEFORE_HEAVY_LAUNCH",
-  "root_cause": "Exact frozen runtime sources were not yet materialized locally when the bounded call block entered closeout reserve. Policy correctly prevented late heavy launch.",
+  "problem": "EXACT_SOURCE_BYTE_PIN_MISMATCH_ON_LOCAL_SPEC_MATERIALIZATION",
+  "root_cause": "The machine spec was compact-reserialized locally; scientific JSON meaning was unchanged but Git blob identity changed. Capsule requires exact frozen bytes, so launch was correctly blocked.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NEW_BOUNDED_BLOCK: RECOVER_EXACT_FROZEN_GROUP03_RUNTIME_SOURCES_BY_PINNED_BLOBS; MATERIALIZE_DEV/BAR/INDICATOR_CACHES_ONLY_IF_LOCAL_HASHED_CACHES_ABSENT; LAUNCH_GROUP03_ONLY_THROUGH_HEAVY_SUPERVISOR_V2; PERSIST_GROUP03_RECEIPT_BY_CALL_11",
+  "next_automatic_action": "NEW_BOUNDED_BLOCK: WRITE_EXACT_FORMATTED_SPEC_PLUS_REMAINING_PINNED_SOURCES; VERIFY_ALL_GIT_BLOB_SHA1_PINS; ONLY_THEN_LAUNCH_GROUP03_THROUGH_HEAVY_SUPERVISOR_V2",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -160,10 +160,9 @@
     "CURRENT_BINDING_CONSOLIDATION"
   ],
   "last_execution_block": {
-    "status": "PREEXEC_VALIDATED_NOT_EXECUTED_BUDGET_CLOSED",
+    "status": "FAIL_CLOSED_NO_HEAVY_LAUNCH",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_PREEXEC_CLOSEOUT_20260918_v1.json",
-      "git_blob_sha1": "a9a553cbc5a9f86e55596f92e4c9494d89713733"
+      "path": "control/QROS_PUBLIC_1000_W09C_GROUP03_SOURCE_GATE_FAIL_CLOSED_20260918_v1.json"
     },
     "group03_launched": false,
     "expensive_unit_open": false
