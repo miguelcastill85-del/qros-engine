@@ -1,12 +1,121 @@
 {
-  "schema":"QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_1.5",
-  "date":"2026-09-16","campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA","frontier_version":"V255","state":"DEVELOPMENT_RUNNING","scientific_state":"PREREGISTERED_NO_RESULTS","current_node":"W09C_FIRST_GATE_PRODUCTION_PREREQUISITES","current_gap":"GAP-S05_PRODUCTION_SEMANTIC_REMATERIALIZATION",
-  "authority":{"stable_frontier":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","version":"V255","git_blob_sha1":"a12ea959a2113d3ec3050842c79e4dbb6f185d50"},"previous_checkpoint_blob_sha1":"3f560b872a812bf6e2fec35407ee50fc784b1f6f","delivery_policy_blob_sha1":"56e9501ea1f480bbce185edcf83f49662af2a9d8","heavy_execution_policy":{"path":"governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.0.json","git_blob_sha1":"9cd8aca07d9321063299e3348568a37d1c6ea26f"},"heavy_execution_supervisor":{"path":"scripts/qros_heavy_job_supervisor_v1.py","git_blob_sha1":"991860cb4cb6e1f4d322127fd4417324dc8cbbaf"},"heavy_execution_hardening_receipt":{"path":"control/QROS_HEAVY_EXECUTION_LOOP_HARDENING_PASS_20260916_v1.json","git_blob_sha1":"d95576e86d5bbf6fb954c4a5871a56066b2d8231","status":"PASS","tests_passed":11}},
-  "data":{"asset":"XAUUSD","records":151382388,"bytes":2573500596,"sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"},
-  "semantic_progress":{"groups_total":24,"groups_durably_closed":3,"closed_indices":[0,1,2],"processed_signal_configs_durable":100584,"last_receipt":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_GROUP02_SEMANTIC_RECEIPT_20260916_v1.json","git_blob_sha1":"833502b8824789acac06d66e24b7ae84a96e4423"},"next_group_index":3,"next_capsule":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_GROUP03_EXECUTION_CAPSULE_20260916_v1.json","git_blob_sha1":"e9b1002c6064b1d5c366ee8df6953e3fcf0de93f"},"global_targets":{"processed_signal_configs":804672,"distinct_mask_class_count":303572,"duplicate_config_count":501100,"semantic_class_root_sha256":"cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4","alias_root_sha256":"4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458"}},
-  "pending":{"semantic_mask_root_rematerialization":"IN_PROGRESS_3_OF_24_DURABLY_CLOSED","production_normalized_input_bundle":"NOT_MATERIALIZED","production_real_trade_by_trade_parity":"NOT_EXECUTED","compatible_economic_transition":"NOT_AUTHORIZED","W10_FIRST_GATE":"NOT_EXECUTED"},
-  "durability_guard":{"max_unpersisted_expensive_units":1,"persist_receipt_before_next_expensive_unit":true,"client_retry_is_idempotent":true,"heavy_job_supervisor_required":true,"adopt_live_process_before_relaunch":true,"adopt_orphan_worker_before_relaunch":true,"active_attempt_delete_forbidden":true,"default_max_attempts":2,"relaunch_requires_proven_process_death":true},
-  "scientific_guards":{"economic_pnl_read":false,"holdout_open":false,"ga2_open":false,"new_ga1_authorized":false,"first_gate_execution_authorized":false},
-  "problem":"NONE_CURRENT","root_cause":"Prior volatile-progress loss and transport-timeout relaunch loop corrected by per-group durable persistence plus exactly-once heavy-worker supervision with PID+birth identity, orphan-worker adoption and fail-closed bounded retry.","portfolio_impact":"NONE",
-  "next_automatic_action":"VERIFY_GROUP03_CAPSULE_PINS_THEN_EXECUTE_GROUP03_ONLY_THROUGH_EXACTLY_ONCE_HEAVY_SUPERVISOR; VALIDATE_AND_PERSIST_BEFORE_GROUP04"
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_1.6",
+  "date": "2026-09-18",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "frontier_version": "V255",
+  "state": "DEVELOPMENT_RUNNING",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "current_node": "W09C_FIRST_GATE_PRODUCTION_PREREQUISITES",
+  "current_gap": "GAP-S05_PRODUCTION_SEMANTIC_REMATERIALIZATION",
+  "authority": {
+    "stable_frontier": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+      "version": "V255",
+      "git_blob_sha1": "a12ea959a2113d3ec3050842c79e4dbb6f185d50"
+    },
+    "previous_checkpoint_blob_sha1": "3f560b872a812bf6e2fec35407ee50fc784b1f6f",
+    "delivery_policy_blob_sha1": "56e9501ea1f480bbce185edcf83f49662af2a9d8",
+    "heavy_execution_policy": {
+      "path": "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.0.json",
+      "git_blob_sha1": "9cd8aca07d9321063299e3348568a37d1c6ea26f"
+    },
+    "heavy_execution_supervisor": {
+      "path": "scripts/qros_heavy_job_supervisor_v1.py",
+      "git_blob_sha1": "991860cb4cb6e1f4d322127fd4417324dc8cbbaf"
+    },
+    "heavy_execution_hardening_receipt": {
+      "path": "control/QROS_HEAVY_EXECUTION_LOOP_HARDENING_PASS_20260916_v1.json",
+      "git_blob_sha1": "d95576e86d5bbf6fb954c4a5871a56066b2d8231",
+      "status": "PASS",
+      "tests_passed": 11
+    },
+    "external_call_budget_policy": {
+      "path": "governance/QROS_EXTERNAL_CALL_BUDGET_NONSTALL_POLICY_v1.0.json",
+      "git_blob_sha1": "6456cf4cca36c347bf17c5ade789c67bb67cad39",
+      "status": "ACTIVE",
+      "hard_cap": 15
+    },
+    "external_call_budget_guard": {
+      "path": "scripts/qros_external_call_budget_guard_v1.py",
+      "git_blob_sha1": "78f46e6bed825b778638974bc8d73c2166910ecc"
+    },
+    "external_call_budget_hardening_receipt": {
+      "path": "control/QROS_EXTERNAL_CALL_BUDGET_HARDENING_PASS_20260918_v1.json",
+      "git_blob_sha1": "f9caea0fac732c060e1f3a029d678a0a7b577ae3",
+      "status": "PASS",
+      "tests_passed": 20
+    }
+  },
+  "data": {
+    "asset": "XAUUSD",
+    "records": 151382388,
+    "bytes": 2573500596,
+    "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
+  },
+  "semantic_progress": {
+    "groups_total": 24,
+    "groups_durably_closed": 3,
+    "closed_indices": [
+      0,
+      1,
+      2
+    ],
+    "processed_signal_configs_durable": 100584,
+    "last_receipt": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP02_SEMANTIC_RECEIPT_20260916_v1.json",
+      "git_blob_sha1": "833502b8824789acac06d66e24b7ae84a96e4423"
+    },
+    "next_group_index": 3,
+    "next_capsule": {
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP03_EXECUTION_CAPSULE_20260916_v1.json",
+      "git_blob_sha1": "e9b1002c6064b1d5c366ee8df6953e3fcf0de93f"
+    },
+    "global_targets": {
+      "processed_signal_configs": 804672,
+      "distinct_mask_class_count": 303572,
+      "duplicate_config_count": 501100,
+      "semantic_class_root_sha256": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+      "alias_root_sha256": "4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458"
+    }
+  },
+  "pending": {
+    "semantic_mask_root_rematerialization": "IN_PROGRESS_3_OF_24_DURABLY_CLOSED",
+    "production_normalized_input_bundle": "NOT_MATERIALIZED",
+    "production_real_trade_by_trade_parity": "NOT_EXECUTED",
+    "compatible_economic_transition": "NOT_AUTHORIZED",
+    "W10_FIRST_GATE": "NOT_EXECUTED"
+  },
+  "durability_guard": {
+    "max_unpersisted_expensive_units": 1,
+    "persist_receipt_before_next_expensive_unit": true,
+    "client_retry_is_idempotent": true,
+    "heavy_job_supervisor_required": true,
+    "adopt_live_process_before_relaunch": true,
+    "adopt_orphan_worker_before_relaunch": true,
+    "active_attempt_delete_forbidden": true,
+    "default_max_attempts": 2,
+    "relaunch_requires_proven_process_death": true,
+    "external_call_hard_cap": 15,
+    "normal_execution_max_call": 10,
+    "checkpoint_call": 11,
+    "closeout_only_calls": [
+      12,
+      13,
+      14,
+      15
+    ],
+    "unbounded_polling_forbidden": true,
+    "freeze_reanudable_checkpoint_before_budget_exhaustion": true
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "problem": "NONE_CURRENT",
+  "root_cause": "Prior volatile-progress loss, transport-timeout relaunch loop, and excessive external-call/polling exposure corrected by per-group durable persistence, exactly-once heavy-worker supervision, and a hard 15-call execution budget with checkpoint at call 11 and closeout-only reserve 12-15.",
+  "portfolio_impact": "NONE",
+  "next_automatic_action": "START_BOUNDED_EXECUTION_BLOCK_MAX_15_CALLS; VERIFY_GROUP03_CAPSULE_PINS_THEN_EXECUTE_GROUP03_ONLY_THROUGH_EXACTLY_ONCE_HEAVY_SUPERVISOR; PERSIST_RECEIPT_BY_CALL_11; VALIDATE/CLOSEOUT_ONLY_CALLS_12_TO_15"
 }
