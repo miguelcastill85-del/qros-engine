@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.4",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_3.5",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -72,6 +72,11 @@
       "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_RUNNING_ADOPTABLE_20260918_v1.json",
       "git_blob_sha1": "0b6cf57ca4484ae0f0ce932e9fa0f9a24907555a",
       "status": "RUNNING_ADOPTABLE"
+    },
+    "group_runtime_binding_policy": {
+      "path": "governance/QROS_GROUP_RUNTIME_BINDING_POLICY_v1.0.json",
+      "git_blob_sha1": "c3371d4099c4dae624cf6a672814582ebd795a32",
+      "status": "ACTIVE_MANDATORY"
     }
   },
   "data": {
@@ -82,7 +87,7 @@
   },
   "semantic_progress": {
     "groups_total": 24,
-    "groups_durably_closed": 7,
+    "groups_durably_closed": 8,
     "closed_indices": [
       0,
       1,
@@ -90,17 +95,18 @@
       3,
       4,
       5,
-      6
+      6,
+      7
     ],
-    "processed_signal_configs_durable": 234696,
+    "processed_signal_configs_durable": 268224,
     "last_receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP06_SEMANTIC_RECEIPT_20260918_v1.json",
-      "git_blob_sha1": "e885294e39f4e38b050e4beb66c3166ef22b0295"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "b7abcd59f40b18274aa3c8eb0b04f0ce4daf393e"
     },
-    "next_group_index": 7,
+    "next_group_index": 8,
     "next_capsule": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_EXECUTION_CAPSULE_20260918_v1.json",
-      "git_blob_sha1": "afec4154384284cc6e7f52e42cf6f9e7db1aa846"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP08_EXECUTION_CAPSULE_20260919_v1.json",
+      "git_blob_sha1": "03cc56e67cae99e30d861ed9d2fa1895fc67269c"
     },
     "global_targets": {
       "processed_signal_configs": 804672,
@@ -111,7 +117,7 @@
     }
   },
   "pending": {
-    "semantic_mask_root_rematerialization": "IN_PROGRESS_7_OF_24_DURABLY_CLOSED",
+    "semantic_mask_root_rematerialization": "IN_PROGRESS_8_OF_24_DURABLY_CLOSED",
     "production_normalized_input_bundle": "NOT_MATERIALIZED",
     "production_real_trade_by_trade_parity": "NOT_EXECUTED",
     "compatible_economic_transition": "NOT_AUTHORIZED",
@@ -160,10 +166,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "NONE_CURRENT_NO_FREEZE_BARRIER_ACTIVE",
-  "root_cause": "N/A",
+  "problem": "NONE_CURRENT",
+  "root_cause": "Group07 supervisor false-negative corrected; mandatory group runtime binding guard prevents recurrence.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "NONBLOCKING_ONLY: ADOPT/STATUS GROUP07 <=5S; IF PASS VALIDATE_ARTIFACTS_AND_PERSIST_GROUP07; IF RUNNING KEEP RUNNING_ADOPTABLE; DO_NOT_POLL_OR_RELAUNCH",
+  "next_automatic_action": "PENDING_GROUP08_NOT_STARTED: BUILD_WRAPPER_AND_JOB_SPEC; REQUIRE GROUP_RUNTIME_BINDING_GUARD_PASS; PRECOMMIT; LAUNCH_OR_ADOPT <=5S; PERSIST PASS/RUNNING_ADOPTABLE/FAIL_CLOSED",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -202,21 +208,19 @@
     "NO_FREEZE_BARRIER_V1_NONBLOCKING_CONTROL",
     "MAX_CONTROL_CALL_5S",
     "NO_CHAT_SLEEP_POLLING",
-    "RUNNING_REQUIRES_DURABLE_CLAIM"
+    "RUNNING_REQUIRES_DURABLE_CLAIM",
+    "GROUP_RUNTIME_BINDING_GUARD_V1",
+    "GROUP07_EXPECTED_RECEIPT_SCHEMA_FALSE_NEGATIVE_CORRECTED",
+    "DUPLICATE_ATTEMPT_NOT_COUNTED_AS_HYPOTHESIS"
   ],
   "last_execution_block": {
-    "status": "RUNNING_ADOPTABLE",
+    "status": "PASS_GROUP07_DURABLY_CLOSED_AFTER_CONTROL_PLANE_CORRECTION",
     "receipt": {
-      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_RUNNING_ADOPTABLE_20260918_v1.json",
-      "git_blob_sha1": "0b6cf57ca4484ae0f0ce932e9fa0f9a24907555a"
+      "path": "control/QROS_PUBLIC_1000_W09C_XAU_GROUP07_SEMANTIC_RECEIPT_20260919_v1.json",
+      "git_blob_sha1": "b7abcd59f40b18274aa3c8eb0b04f0ce4daf393e"
     },
-    "group07_launched": true,
-    "attempt": 1,
-    "adopt_action": "ADOPT_LIVE_PROCESS",
-    "supervisor_calls": 2,
-    "duplicate_launch": false,
-    "expensive_unit_open": true,
-    "orphan_worker": false,
-    "last_control_elapsed_seconds": 0.601308
+    "authoritative_attempt": 1,
+    "diagnostic_duplicate_attempt": 2,
+    "expensive_unit_open": false
   }
 }
