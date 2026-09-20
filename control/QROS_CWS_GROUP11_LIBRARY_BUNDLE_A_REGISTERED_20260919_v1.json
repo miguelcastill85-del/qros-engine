@@ -1,0 +1,59 @@
+{
+  "schema": "QROS_CWS_GROUP11_LIBRARY_BUNDLE_A_REGISTERED_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "subject": "W09C_XAUUSD_BUY_M1_GROUP11",
+  "authority": {
+    "pointer_blob_sha1": "373f7f06d13b16c183e65051e4985e7f2d55a2c1",
+    "staging_receipt_commit": "29910054f25f3703a337194d7fd59cd472fd28cb"
+  },
+  "correction": {
+    "rejected_single_bundle_bytes": 817356800,
+    "rejected_single_bundle_reason": "LIBRARY_MAX_UPLOAD_512_MB",
+    "scientific_change": false,
+    "transport_split_only": true
+  },
+  "bundle_A": {
+    "file": "QROS_CWS_GROUP11_XAU_SOURCE_BUNDLE_A_4OF8_v1.tar",
+    "parts": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "bytes": 404152320,
+    "sha256": "383ff6f7a8ad8202aeab79f37d6d0ee6b41f9e4e43a777494e92d4ba0e8540ba",
+    "library_status": "PASS",
+    "file_id": "file_000000000f40820e80a2acdf1e9db027",
+    "library_file_id": "libfile_a73d932971cc8191874e80c819731276",
+    "library_path": "/QROS_CWS_GROUP11_XAU_SOURCE_BUNDLE_A_4OF8_v1.tar"
+  },
+  "bundle_B": {
+    "file": "QROS_CWS_GROUP11_XAU_SOURCE_BUNDLE_B_4OF8_v1.tar",
+    "parts": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "bytes": 413204480,
+    "sha256": "b4726d9cfc2f3ae1f5e7ea92d1eb4e7da153390f2c5a74a054246c5ff2e4d72b",
+    "library_status": "NOT_YET_REGISTERED"
+  },
+  "governance": {
+    "cws": "GLOBAL_EXECUTION_GOVERNOR_ACTIVE",
+    "dek_v3": "ONLY_TRANSITION_REDUCER",
+    "chat_non_blocking_handoff_gate": "ACTIVE_MANDATORY",
+    "successful_external_effects_this_invocation": 1
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "group11_spawn_started": false,
+    "group12_opened": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "next_automatic_action": "UPLOAD BUNDLE_A FROM ITS PERSISTENT LIBRARY FILE_ID TO THE AUTHORIZED DROPBOX STAGING FOLDER; VERIFY DROPBOX METADATA. THEN REGISTER/UPLOAD BUNDLE_B IN SUBSEQUENT BOUNDED TRANSITIONS. AFTER BOTH ARE DURABLE, CWS RUNNER MUST EXTRACT AND HASH-VERIFY ALL 8 SOURCE ZIPS BEFORE REMATERIALIZATION."
+}
