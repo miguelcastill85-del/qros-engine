@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_EXTENDED_WORK_RUNTIME_GAP_AUDIT_1.0",
+  "date": "2026-09-20",
+  "status": "GAP_VERIFIED",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "task_id": "PUBLIC1000_SEED0076_GA1_SHARD09_NQX_BUY_M15",
+  "scientific_frontier": "V257",
+  "finding": {
+    "root_cause": "CWS/DEK/lease/supervisor control plane is active, but the existing GitHub workflows inspected are validation harnesses rather than a production executor bound to the 35-segment M15 task.",
+    "evidence": [
+      {
+        "path": ".github/workflows/qros-continuous-work-scheduler-v1.yml",
+        "git_blob_sha1": "b8c2b739a3d6f9bdf93b37212f69321ed1906142",
+        "role": "VALIDATION_HARNESS",
+        "observed_behavior": "Validates CWS and simulates staged state transfer; does not consume SEED0076_SHARD09_TASK_SPEC nor execute S00-S34."
+      },
+      {
+        "path": ".github/workflows/qros-cws-global-execution-router-v1.yml",
+        "git_blob_sha1": "d3f45b1d74e79af6cb907bf9974cc044bca73f4d",
+        "role": "ROUTER_VALIDATION_HARNESS",
+        "observed_behavior": "Validates routing logic; does not launch the M15 scientific segment worker."
+      }
+    ],
+    "active_runtime_lease": null,
+    "worker_launched": false
+  },
+  "what_is_not_missing": [
+    "Scientific authorization for exactly shard09 NQX/BUY/M15",
+    "CWS global governor",
+    "DEK v3",
+    "fenced runtime lease policy",
+    "exactly-once heavy job policy",
+    "35-segment task spec",
+    "execution capsule",
+    "runner/source pins"
+  ],
+  "missing_component": {
+    "id": "EXTENDED-WORKER-001",
+    "description": "A production extended worker/launcher that binds the durable CWS task spec and current fenced lease to one M15 segment at a time, produces durable progress proofs, and can resume across chat/runtime boundaries.",
+    "requirements": [
+      "Must consume control/persistent_execution/SEED0076_SHARD09_TASK_SPEC.json",
+      "Must consume control/persistent_execution/SEED0076_SHARD09_EXTENDED_STATE.json",
+      "Must require exact CAP_GA1/CAP_REMATERIALIZE/CAP_NON_ECONOMIC_CONTROL scope",
+      "Must use DEK v3 as only transition reducer",
+      "Must use fenced lease epoch/id/token",
+      "Must execute at most one segment effect per invocation",
+      "Must persist intent before external effect",
+      "Must adopt/reconcile before relaunch",
+      "Must emit progress proof and durable receipt",
+      "Must not poll from chat",
+      "Must not open economic PnL/GA2/holdout",
+      "Must stop after S34 and require separate authorization for shard10"
+    ]
+  },
+  "next_automatic_action": "Implement and preregister the production extended worker for this task on top of existing CWS/DEK/fenced-supervisor components, validate it adversarially and by self-application, then activate only if it can execute/adopt exactly one segment without direct chat polling. Do not launch S00 until the worker passes those gates.",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "shard10_open": false
+  }
+}

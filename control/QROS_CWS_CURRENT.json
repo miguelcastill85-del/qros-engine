@@ -10,7 +10,7 @@
   "validation_receipt": "control/QROS_CWS_V1_1_EXTERNAL_VALIDATION_PASS_20260919_v1.json",
   "autochain_active": true,
   "w09c_connected": true,
-  "next_automatic_action": "Recover authority; route current task through CWS. If a durable runtime/lease exists, adopt it and read proof. If none exists and an eligible runtime is available, create exactly one fenced lease/effect for S00. Never poll synchronously from chat.",
+  "next_automatic_action": "Implement and preregister the production extended worker for this task on top of existing CWS/DEK/fenced-supervisor components, validate it adversarially and by self-application, then activate only if it can execute/adopt exactly one segment without direct chat polling. Do not launch S00 until the worker passes those gates.",
   "autochain_shadow_validated": true,
   "autochain_terminal_receipt": "control/QROS_CWS_AUTOCHAIN_TERMINAL_PASS_20260919_v1.json",
   "self_application_gate": "PASS",
@@ -50,9 +50,8 @@
   "current_execution_blocker": {
     "status": "BLOCKED_BY_INFRASTRUCTURE",
     "scope": "SEED0076_SHARD09_NQX_BUY_M15",
-    "blocker": "NO_DURABLE_RESPONSIVE_COMPUTE_RUNTIME_VERIFIED",
-    "receipt": "control/QROS_ANTI_FREEZE_V2_RUNTIME_PROBE_FAILURE_20260920_v1.json",
-    "extended_work_bridge": "governance/QROS_EXTENDED_WORK_EXECUTION_BRIDGE_v1.0.json",
+    "blocker": "PRODUCTION_EXTENDED_WORKER_NOT_YET_BOUND",
+    "receipt": "control/QROS_EXTENDED_WORK_RUNTIME_GAP_AUDIT_20260920_v1.json",
     "global_governor_status": "ACTIVE_MANDATORY"
   },
   "current_extended_task": {

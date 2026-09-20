@@ -1,7 +1,7 @@
 {
   "schema": "QROS_EXTENDED_WORK_STATE_1.0",
   "date": "2026-09-20",
-  "status": "READY_TO_RESUME_WHEN_DURABLE_RUNTIME_AVAILABLE",
+  "status": "BLOCKED_BY_MISSING_PRODUCTION_EXTENDED_WORKER",
   "task_id": "PUBLIC1000_SEED0076_GA1_SHARD09_NQX_BUY_M15",
   "task_spec_hash": "3326b0a859ea811141ec19d1e38099ff0b27cefaeb9cff601ca29517835cf0f1",
   "objective_hash": "06972d09017e64acbea435e9f675bdb70a16c1c5a605bf729870b2db754bbf04",
@@ -324,5 +324,11 @@
     "holdout_open": false,
     "shard10_open": false
   },
-  "next_action": "Recover authority; route current task through CWS. If a durable runtime/lease exists, adopt it and read proof. If none exists and an eligible runtime is available, create exactly one fenced lease/effect for S00. Never poll synchronously from chat."
+  "next_action": "Implement and preregister the production extended worker for this task on top of existing CWS/DEK/fenced-supervisor components, validate it adversarially and by self-application, then activate only if it can execute/adopt exactly one segment without direct chat polling. Do not launch S00 until the worker passes those gates.",
+  "blocker": {
+    "id": "EXTENDED-WORKER-001",
+    "receipt": "control/QROS_EXTENDED_WORK_RUNTIME_GAP_AUDIT_20260920_v1.json",
+    "description": "CWS validation workflows exist, but no production worker is bound to this 35-segment task.",
+    "git_blob_sha1": "b5f2fd5371f06cfda1070bd49f8f06971e7ce2a5"
+  }
 }

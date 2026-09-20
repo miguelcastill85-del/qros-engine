@@ -4,8 +4,8 @@
   "status": "ACTIVE",
   "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
   "stable_frontier_version": "V257",
-  "current_blocker": "LOCAL_COMPUTE_RUNTIME_TRANSPORT_UNAVAILABLE",
-  "next_automatic_action": "Recover authority; route current task through CWS. If a durable runtime/lease exists, adopt it and read proof. If none exists and an eligible runtime is available, create exactly one fenced lease/effect for S00. Never poll synchronously from chat.",
+  "current_blocker": "PRODUCTION_EXTENDED_WORKER_NOT_YET_BOUND",
+  "next_automatic_action": "Implement and preregister the production extended worker for this task on top of existing CWS/DEK/fenced-supervisor components, validate it adversarially and by self-application, then activate only if it can execute/adopt exactly one segment without direct chat polling. Do not launch S00 until the worker passes those gates.",
   "handoff_git_blob_sha1": "87f1475e42754489082eef551780b1191d1aa908",
   "anti_freeze_v2": {
     "status": "ACTIVE_MANDATORY",
