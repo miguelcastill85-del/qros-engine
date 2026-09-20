@@ -1,0 +1,65 @@
+name: qros-cws-global-execution-router-v1
+
+on:
+  push:
+    branches:
+      - cws-global-execution-router-v1-20260919
+      - main
+    paths:
+      - 'governance/QROS_CWS_GLOBAL_EXECUTION_ROUTING_POLICY_v1.0.json'
+      - 'scripts/qros_cws_global_execution_router_v1.py'
+      - 'scripts/qros_cws_global_execution_router_tests_v1.py'
+      - '.github/workflows/qros-cws-global-execution-router-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify exact pins and active CWS authority
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git hash-object governance/QROS_CWS_GLOBAL_EXECUTION_ROUTING_POLICY_v1.0.json)" = "0f8e28636b8cf3ecf812e11df732ee50cf715753"
+          test "$(git hash-object scripts/qros_cws_global_execution_router_v1.py)" = "a06a403e19186addfcca69c6d8c4245a7eadbcbe"
+          test "$(git hash-object scripts/qros_cws_global_execution_router_tests_v1.py)" = "0b67571bc779f33cdbde03b476ba5fd14373f7fa"
+          python3 - <<'PY'
+          import json
+          p=json.load(open('governance/QROS_CWS_GLOBAL_EXECUTION_ROUTING_POLICY_v1.0.json'))
+          c=json.load(open('control/QROS_CWS_CURRENT.json'))
+          final=json.load(open('control/QROS_CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE_PASS_20260919_v1.json'))
+          assert p['status']=='PREREGISTERED_NO_RESULTS'
+          assert p['activation'] is False
+          assert p['routing_rule'].startswith('ALL_QROS_EXECUTION_MUST_ENTER_THROUGH_CWS_AND_DEK')
+          assert c['status']=='FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE'
+          assert c['validation_complete'] is True
+          assert final['status']=='PASS'
+          print('GLOBAL_ROUTER_AUTHORITY=PASS')
+          PY
+      - name: Compile
+        run: |
+          python3 -m py_compile scripts/qros_cws_global_execution_router_v1.py
+          python3 -m py_compile scripts/qros_cws_global_execution_router_tests_v1.py
+      - name: Adversarial routing validation
+        working-directory: scripts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 qros_cws_global_execution_router_tests_v1.py | tee ../global_router_validation.json
+      - name: Assert zero unsafe schedules
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json
+          j=json.load(open('global_router_validation.json'))
+          assert j['status']=='PASS'
+          assert j['execution_classes']==15
+          assert j['adversarial_cases']==100000
+          assert j['unsafe_schedule']==0
+          print('GLOBAL_EXECUTION_ROUTER=PASS')
+          PY
