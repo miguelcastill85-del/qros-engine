@@ -1,0 +1,84 @@
+{
+  "schema": "QROS_EXTERNAL_REFERENCE_CLEANROOM_POLICY_1.0",
+  "date": "2026-09-20",
+  "status": "ACTIVE_FOR_CANDIDATE",
+  "purpose": "Use public frameworks as architectural references without importing their source code or runtime dependencies into proprietary QROS/RISE core.",
+  "code_copied": false,
+  "vendored_dependency": false,
+  "runtime_dependency_added": false,
+  "references": [
+    {
+      "project": "Microsoft Qlib",
+      "license": "MIT",
+      "mode": "REFERENCE_ONLY",
+      "concepts": [
+        "research lineage",
+        "experiment recording",
+        "feature workflow"
+      ]
+    },
+    {
+      "project": "QuantConnect LEAN",
+      "license": "Apache-2.0",
+      "mode": "REFERENCE_ONLY",
+      "concepts": [
+        "execution models",
+        "risk/data boundaries",
+        "time availability semantics"
+      ]
+    },
+    {
+      "project": "Hummingbot",
+      "license": "Apache-2.0",
+      "mode": "REFERENCE_ONLY",
+      "concepts": [
+        "adapter contracts",
+        "order lifecycle",
+        "reconnect/idempotency"
+      ]
+    },
+    {
+      "project": "vn.py",
+      "license": "MIT",
+      "mode": "REFERENCE_ONLY",
+      "concepts": [
+        "gateway/datafeed separation"
+      ]
+    },
+    {
+      "project": "FinRL",
+      "license": "MIT",
+      "mode": "REFERENCE_ONLY_NO_CORE_DEPENDENCY",
+      "concepts": [
+        "research environment abstraction"
+      ]
+    },
+    {
+      "project": "NautilusTrader",
+      "license": "LGPL-3.0",
+      "mode": "REFERENCE_ONLY_NO_LINKING",
+      "concepts": [
+        "event-driven boundaries"
+      ]
+    },
+    {
+      "project": "Freqtrade",
+      "license": "GPL-3.0",
+      "mode": "REFERENCE_ONLY_NO_CORE_INTEGRATION",
+      "concepts": [
+        "benchmarking patterns"
+      ]
+    },
+    {
+      "project": "vectorbt",
+      "license": "Apache-2.0+Commons-Clause",
+      "mode": "DO_NOT_INTEGRATE_COMMERCIAL_CORE",
+      "concepts": [
+        "research-only conceptual reference"
+      ]
+    }
+  ],
+  "redistribution_rule": "Because this candidate contains no copied/vendored third-party code, no third-party runtime license is added by this patch. Future copied or linked code requires a separate provenance receipt and THIRD_PARTY_NOTICES update before merge.",
+  "trademark_rule": "Do not use third-party names or logos as QROS product branding.",
+  "data_rule": "Code licenses do not grant rights to third-party market datasets."
+}

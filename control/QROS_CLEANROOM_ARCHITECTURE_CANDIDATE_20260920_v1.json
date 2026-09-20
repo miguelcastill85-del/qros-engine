@@ -1,0 +1,41 @@
+{
+  "schema": "QROS_CLEANROOM_ARCHITECTURE_CANDIDATE_1.0",
+  "date": "2026-09-20",
+  "status": "DEVELOPMENT_RUNNING",
+  "branch": "feature/qros-cleanroom-architecture-v1-20260920",
+  "base_commit": "ed7a1831104a79374c595113ba437ffc71bbb520",
+  "implementation": {
+    "header": "include/qros/research_architecture.hpp",
+    "test": "tests/test_research_architecture.cpp",
+    "supergate": "scripts/qros_architecture_supergate_v1.py",
+    "cleanroom_policy": "governance/QROS_EXTERNAL_REFERENCE_CLEANROOM_POLICY_v1.0.json",
+    "supergate_policy": "governance/QROS_ARCHITECTURE_SUPERGATE_v1.0.json"
+  },
+  "design": {
+    "research_lineage": "finite forward-only scientific stage contract with RISE/freeze/parity/unit/holdout gates",
+    "execution_semantics": "BUY Ask/SELL Bid entry, BUY Bid/SELL Ask exit, checked arithmetic, zero/cross spread rejection, SL-first ambiguity, first executable gap price, daily 3/5 and one-entry-per-bar, no overnight",
+    "adapter_contract": "client-order idempotency, ordered event sequence, reconnect epoch fencing, partial/final fill bounds, terminal immutability",
+    "supergate": "release + deterministic replay + ASan + UBSan + clean-room + scientific firewall"
+  },
+  "legal_posture": {
+    "source_copied_from_external_projects": false,
+    "external_runtime_dependencies_added": false,
+    "implementation_style": "CLEAN_ROOM_STANDARD_LIBRARY_ONLY"
+  },
+  "validation": {
+    "current_chat_compile_attempt": "BLOCKED_BY_INFRASTRUCTURE_TOOL_TIMEOUT",
+    "native_tests_executed": false,
+    "supergate_executed": false,
+    "activation_allowed": false
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false,
+    "group11_spawn_started": false
+  },
+  "next_action": "RUN CMAKE/CTEST AND qros_architecture_supergate ON A C++20 HOST. REQUIRE ALL GATES PASS ON THIS EXACT COMMIT BEFORE MERGE OR RUNTIME ACTIVATION."
+}

@@ -22,6 +22,7 @@ set(QROS_IDENTITY_FILES
     src/time_authority.cpp
     src/text_snapshot.cpp
     include/qros/pipeline.hpp
+    include/qros/research_architecture.hpp
     include/qros/mt5_template.hpp
     src/pipeline_common.cpp
     src/pipeline_data.cpp
@@ -115,3 +116,17 @@ add_test(NAME pipeline_integration COMMAND "${Python3_EXECUTABLE}"
     "${CMAKE_SOURCE_DIR}/tests/test_pipeline_integration.py" "$<TARGET_FILE:qros>"
     --out "${CMAKE_BINARY_DIR}/integration-evidence" --fresh-run)
 set_tests_properties(pipeline_integration PROPERTIES TIMEOUT 120)
+
+# QROS clean-room research/execution/adapter architecture candidate.
+add_executable(qros_architecture_tests tests/test_research_architecture.cpp)
+target_include_directories(qros_architecture_tests PRIVATE include)
+target_compile_options(qros_architecture_tests PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
+target_compile_definitions(qros_architecture_tests PRIVATE _GLIBCXX_ASSERTIONS)
+add_test(NAME qros_architecture_tests COMMAND qros_architecture_tests)
+add_test(
+    NAME qros_architecture_supergate
+    COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/scripts/qros_architecture_supergate_v1.py"
+            --source-root "${CMAKE_SOURCE_DIR}"
+            --cxx "${CMAKE_CXX_COMPILER}"
+            --native-test "$<TARGET_FILE:qros_architecture_tests>")
+set_tests_properties(qros_architecture_supergate PROPERTIES TIMEOUT 120)
