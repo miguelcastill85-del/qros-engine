@@ -1,0 +1,57 @@
+{
+  "schema": "QROS_CARRIER_SCOPE_PHASE_PLAN_1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE_REQUIREMENT",
+  "authority": {
+    "current_chat_handoff_pointer_blob_sha1": "373f7f06d13b16c183e65051e4985e7f2d55a2c1",
+    "observed_main_head": "6cd32cf492784a9b43fd3babd0f0e1c18ab1c9ff"
+  },
+  "requirement_source": "USER_EXPLICIT_INSTRUCTION_CURRENT_CHAT",
+  "scope": {
+    "phase_1_first_gate": {
+      "purpose": "Only the data slice required for the current first-gate execution prerequisites; this is NOT the full historical validation corpus.",
+      "xau": {
+        "current_carriers": "8 XAU ZIP parts already staged/verified for current first-gate path",
+        "status": "PARTIAL_FIRST_GATE_SCOPE_ONLY"
+      },
+      "nqx": {
+        "pending_carriers_count": 3,
+        "exact_file_identities": "MUST_BE_RECOVERED_FROM CURRENT AUTHORITY/MANIFEST BEFORE UPLOAD; DO_NOT INFER FROM MEMORY",
+        "status": "PENDING_UPLOAD_AND_HASH_VERIFICATION"
+      }
+    },
+    "phase_2_full_multiyear_validation": {
+      "period": "2018-2026",
+      "assets": [
+        "XAUUSD",
+        "NQX/NDX"
+      ],
+      "requirement": "Upload and make runner-accessible the complete authoritative ZIP corpus for both assets before multiyear/full-history gates that require it.",
+      "status": "FUTURE_REQUIRED_NOT_YET_EXECUTED"
+    }
+  },
+  "invariants": [
+    "Do not treat the currently staged XAU files as the complete 2018-2026 corpus.",
+    "Do not treat the three pending NQX first-gate parts as the complete NQX corpus.",
+    "Before any later 2018-2026 full-history gate, recover the exact authoritative file list, sizes, SHA-256 values, manifests and coverage for both XAUUSD and NQX/NDX.",
+    "Carrier staging is infrastructure work only and must not open economic PnL, holdout, GA2, new GA1, or GROUP12.",
+    "No file identity may be guessed from memory; exact identities must come from durable authority."
+  ],
+  "architecture_implication": {
+    "carrier_bridge_design": "MUST_SCALE_FROM SMALL FIRST_GATE SLICE TO COMPLETE MULTIYEAR CORPUS WITHOUT DEPENDING ON USER PC",
+    "preferred_properties": [
+      "cloud-only",
+      "zero additional monetary cost or hard-stop at zero",
+      "resumable/chunked uploads",
+      "per-file hash verification",
+      "durable manifests",
+      "runner-accessible storage",
+      "no need to re-upload verified carriers unnecessarily"
+    ]
+  },
+  "next_actions": [
+    "Recover exact authoritative identities for the 3 pending NQX first-gate ZIP parts before upload.",
+    "Complete current first-gate carrier path for XAU + NQX.",
+    "Before later multiyear gates, recover and freeze the complete 2018-2026 XAUUSD and NQX/NDX ZIP manifests and execute full-corpus staging/verification."
+  ]
+}
