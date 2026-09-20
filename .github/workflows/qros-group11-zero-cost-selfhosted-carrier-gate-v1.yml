@@ -32,7 +32,7 @@ concurrency:
 jobs:
   carrier-gate:
     if: ${{ github.event_name == 'push' || inputs.confirm_zero_cost == true }}
-    runs-on: [self-hosted, Windows, X64, qros-zero-cost]
+    runs-on: [self-hosted, Windows, X64]
     timeout-minutes: 240
     env:
       PYTHONUTF8: '1'
