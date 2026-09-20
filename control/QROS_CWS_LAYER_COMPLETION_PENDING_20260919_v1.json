@@ -1,7 +1,7 @@
 {
-  "schema": "QROS_CWS_LAYER_COMPLETION_1.0",
+  "schema": "QROS_CWS_LAYER_COMPLETION_1.1",
   "date": "2026-09-19",
-  "status": "PASS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE",
+  "status": "PASS_GLOBAL_EXECUTION_GOVERNOR_ACTIVE",
   "layer": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
   "completed": {
     "core_external_validation": "PASS",
@@ -16,16 +16,23 @@
     "real_non_economic_control_plane_soak_step2": "PASS_SOURCE_PACKAGE_9_OF_9",
     "real_non_economic_control_plane_soak_step3": "PASS_TERMINAL",
     "final_validation": "PASS",
-    "full_active_non_economic_control_plane": "PASS"
+    "full_active_non_economic_control_plane": "PASS",
+    "global_execution_router_branch_validation": "PASS_100000_UNSAFE_0",
+    "global_execution_router_main_revalidation": "PASS_100000_UNSAFE_0",
+    "global_execution_governor_activation": "PASS_ACTIVE_MANDATORY"
   },
   "pending": {},
   "activation_state": {
     "cws_active": true,
-    "mode": "FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE",
+    "mode": "GLOBAL_EXECUTION_GOVERNOR_ACTIVE",
+    "routing_scope": "ALL_QROS_EXECUTION_CLASSES",
     "w09c_connected": true,
-    "scientific_effects_allowed": false,
-    "economic_effects_allowed": false
+    "scientific_effects_allowed": "ONLY_WHEN_SEPARATELY_AUTHORIZED",
+    "economic_effects_allowed": "ONLY_WHEN_SEPARATELY_AUTHORIZED",
+    "cws_can_grant_capabilities": false,
+    "bypass_allowed": false
   },
-  "next_automatic_action": "CWS FULL ACTIVE NON-ECONOMIC CONTROL-PLANE: MATERIALIZE VERIFIED GROUP11 CARRIERS ON ACTIVE RUNNER, REVERIFY EXACT DEV/M1/INDICATOR IDENTITIES, THEN DEK MAY PRECOMMIT ONE BOUNDED GROUP11 SPAWN INTENT. STOP BEFORE ANY ECONOMIC/SCIENTIFIC BOUNDARY.",
-  "final_receipt": "control/QROS_CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE_PASS_20260919_v1.json"
+  "next_automatic_action": "RESUME CURRENT QROS AUTHORITY THROUGH CWS GLOBAL GOVERNOR; MISSING CAPABILITIES FAIL CLOSED.",
+  "final_receipt": "control/QROS_CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE_PASS_20260919_v1.json",
+  "final_global_receipt": "control/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_ACTIVATION_PASS_20260919_v1.json"
 }
