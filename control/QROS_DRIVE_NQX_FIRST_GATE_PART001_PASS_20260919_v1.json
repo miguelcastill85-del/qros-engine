@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_DRIVE_NQX_FIRST_GATE_PART001_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "subject": "NQX_FIRST_GATE_CARRIER_PART001",
+  "authority": {
+    "observed_main_head": "efffab4e778936220708ad1cb493bfe315fb59b6",
+    "drive_root_receipt_commit": "efffab4e778936220708ad1cb493bfe315fb59b6",
+    "carrier_scope_commit": "743f66561afaa9793f4a623182f3cdccbf6a62b8",
+    "nqx_manifest_sha256": "9f91903273701fdfce5c5d50874e36b57c6ee96a50850498e4550b4881d611df"
+  },
+  "drive": {
+    "root_folder_id": "1qwGkUH0QF2BasqVZm1WsdG0tbJrmMlQv",
+    "first_gate_folder_id": "1-knTcENWHr3vkD4yhvkOzyKwaTs4qE1Q",
+    "file_drive_id": "1tGO-eJHWIM2eOhmSrHFelFFvfgut2xBm",
+    "file_name": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+    "size_bytes": 100816656,
+    "remote_rematerialization": "PASS",
+    "remote_sha256": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b"
+  },
+  "canonical": {
+    "expected_size_bytes": 100816656,
+    "expected_sha256": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b",
+    "payload_sha256": "0a0f1814e51bb649aeeadc05a982b052bfaa3a6ea48c6b81c8ec7e1af096f60d",
+    "records": 20000000,
+    "start_record": 0
+  },
+  "verification": {
+    "size": "PASS",
+    "sha256": "PASS",
+    "byte_identity": "PASS"
+  },
+  "governance": {
+    "external_effects_this_invocation": 1,
+    "additional_external_effect_forbidden_this_invocation": true,
+    "scientific_state": "PREREGISTERED_NO_RESULTS"
+  },
+  "scientific_firewall": {
+    "group11_spawn_started": false,
+    "group12_opened": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "next_automatic_action": "UPLOAD NQX PART002 FROM LIBRARY TO THE SAME GOOGLE DRIVE FIRST_GATE FOLDER; REMATERIALIZE FROM DRIVE AND VERIFY SIZE 113466374 + SHA256 53f827fa0b611d9e2b00db78b1da29b1c41f0d2d7d7e912ddcec12de42984a24 BEFORE PART003."
+}
