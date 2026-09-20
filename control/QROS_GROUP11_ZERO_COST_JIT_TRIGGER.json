@@ -1,18 +1,17 @@
 {
   "schema": "QROS_GROUP11_ZERO_COST_JIT_TRIGGER_1.0",
   "status": "ARMED",
-  "attempt": 4,
+  "attempt": 5,
   "subject": "W09C_XAUUSD_BUY_M1_GROUP11",
   "confirm_zero_cost": true,
   "runner_labels": [
     "self-hosted",
     "Windows",
-    "X64",
-    "qros-zero-cost"
+    "X64"
   ],
   "expiration_seconds": 900,
   "intended_effect": "CARRIER_GATE_ONLY_NO_GROUP11_SPAWN",
-  "workflow_fix_commit": "f8b4ba29635c0ccaf5a5bc633865e479462ce0b7",
+  "runner_label_relax_commit": "177e0aeec603a780d36838cca1888814f47432e8",
   "carriers": [
     {
       "part": 1,
@@ -20,7 +19,7 @@
       "canonical_name": "QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip",
       "bytes": 102025545,
       "sha256": "d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70",
-      "download_url": "https://uca926d5604997dcc3c73a821665.dl.dropboxusercontent.com/cd/0/get/DId0tUuhQp0ViT3PcjzorTB4SxPJy0G8A-IotT2Z3kAWjOrCDBSTEnpyoHxstp6oBUwDPj8yClVJcp04adadsD8UEgcv4C_9kg0bkXU8TTHXrcwRvdt4-mT1NdOQxo3PCJCWDMNDiZH6zYHOYV1Df11W4jv9vBjZefl60mixCRJO_w/file?c_luid=ecc3fd9d"
+      "download_url": "https://uc31fa3e546f164874080f535fca.dl.dropboxusercontent.com/cd/0/get/DIf2g9ucLNWmZIaddDRKNLPrLIgM4VpcV2dcKZzpXUdNJsrqYL6oubucjUW6_nhqx44muPdKQLT9Ecyx0rPth4WIhG_u7N4immIFkkACd6oUNkdhb7Tij4J-HDOoyk1UvNFOHB741yHRxfaCRtZaCR-Y1EFYdxhcAQ_EnOQ8Lm49yQ/file?c_luid=ecc3fd9d"
     },
     {
       "part": 2,
@@ -28,7 +27,7 @@
       "canonical_name": "QROS_XAU_FULL_HISTORY_v2_part002-of-035.zip",
       "bytes": 100422805,
       "sha256": "159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a",
-      "download_url": "https://ucabfcf34d495ff2902108a85e62.dl.dropboxusercontent.com/cd/0/get/DIc7lK1FyuUFfaXR3giRA7D4fyueaPGww3zkTiYj-mCM4dXZhpYIkvQsU7LxawgGgvGGJaC_o6QfFOekEo9ofkvwY0vPY7ClujYzOnaOSZRxhNuf-N_M8lWb6ytoAHnvIouJNRjB--N4RnUoxW_YFnFmU_1dSFwDw6U6gbeKmsdrRg/file?c_luid=ecc3fd9d"
+      "download_url": "https://uc9ca98e57c5a0522886fb317635.dl.dropboxusercontent.com/cd/0/get/DIcpQJbOyJbVBnnkKpTurFxrnwyDaKC1sZiBn4jVRHpweZ1dFgompSD0c9XaaxBLgCDDNLKWVWQKo4r-VEeudVfXeR-z_CKFPRR9CLgkq-OpasDw3Vi3PQYUW4ZWBi3mhx9WJ7z79d6xVWre0u9ZZKWJ4EKPajns88WTlV0IE1kqzg/file?c_luid=ecc3fd9d"
     },
     {
       "part": 3,
@@ -36,7 +35,7 @@
       "canonical_name": "QROS_XAU_FULL_HISTORY_v2_part003-of-035.zip",
       "bytes": 99870071,
       "sha256": "ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9",
-      "download_url": "https://uc881fb64615e98c07eb244786c1.dl.dropboxusercontent.com/cd/0/get/DId_3LpY0WSIPrMDBwqXJa_zPv_bHmLE5hmgMGtNr9qRfbH1iaGcEUAe_j6j33wBP2zLc9-7HczkXxAMHjAcSO-RpzlfzlVbY8MocAyXuv39TZuwbBwbw-6CwTw_4O8WjFe_2ZOg_3v1m0zRl6cvdSRe5MxfJ5JeKioE8VXZ7Lpm0w/file?c_luid=ecc3fd9d"
+      "download_url": "https://uc7146d3d036e4ba795bb714dd23.dl.dropboxusercontent.com/cd/0/get/DIfIZLS1esrSEv77S43BupUcwotq5NFcjhNffAbvrObej9NwlcYwdHvu8btkNAs0i08PyQOT3mN9TeGbKB45W7a35U9m4QjS8tT_Hb9CaSeLhEDypdFPsrRT3dEqCU3fP-k3mGNlIjquQTQv11kGuEWwL4fnBaxMrh76tdqQI5z4xg/file?c_luid=ecc3fd9d"
     },
     {
       "part": 4,
@@ -44,7 +43,7 @@
       "canonical_name": "QROS_XAU_FULL_HISTORY_v2_part004-of-035.zip",
       "bytes": 101825467,
       "sha256": "241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241",
-      "download_url": "https://uc6f202c8066dde123ad38030d72.dl.dropboxusercontent.com/cd/0/get/DIcHNcd69qBi6e96YgZYw1k6ioB78ZrYUviEG8YiVSzcg6uqDKKbrfu4cNzt60xslcJtBccNOEjGd-x7OcXHvwnFpbop0ByvLq6Ou8_DhG6gWpiDjo20alceJkYSIEgbSbc1ltl82hrPdKBT_Lytw-SrY-ZM-MdzSsfv-jjeb2BLMQ/file?c_luid=ecc3fd9d"
+      "download_url": "https://uc4a324289920cccea8330587e0e.dl.dropboxusercontent.com/cd/0/get/DIcy09jh3PenUMdu67_UOxAYIEgm1Nvf8HNUAvKKwMdb_MDJXoBzcffYMYtRwzAFKv9iGJVlpWRl4PE_7fr2uQ2xb4inQ88uw5euyHEJ69e3SNnNG_sXpcqJs30c3yVKY3-zcmj2jmnQka5-CqSPLkqEAq-mfO7qHuN-lrqHKc-z3g/file?c_luid=ecc3fd9d"
     },
     {
       "part": 5,
@@ -52,7 +51,7 @@
       "canonical_name": "QROS_XAU_FULL_HISTORY_v2_part005-of-035.zip",
       "bytes": 101538275,
       "sha256": "3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad",
-      "download_url": "https://uc9eae5d1d2e935e3ba94f2f7bd0.dl.dropboxusercontent.com/cd/0/get/DIdWgfLTyxm8Q85sWx2pu1rg8CAfLxOU4x7oJiKn7iBd9yhuRxybgXnReSt5uYd30yHEp-cseb5IaqbPDzflJGsL0TdktBV1rerIv5tVMXTZmcNrNeEusBSQv0412_NsKmA3GIB7T7Qje1gZoIaoTGXkVsnYDCLsnu-MbxbV_h89Wg/file?c_luid=ecc3fd9d"
+      "download_url": "https://ucdc6004cbc7d12ee142750a83ba.dl.dropboxusercontent.com/cd/0/get/DIdHwm9VzuQ2Z7ACPOVjkEpoOO8bUiKFta7u783JeL0IaUxzGpGsvKvPpIcJdcNPq_AeaoVQBVj0LYJCvOiwiEZvYogtR8vgGaBfbczbFRFF8bO1wFDW0FQ0fxXAPt9NpnLW-mAQPq0ot6of3cKYBVKDA2tn1qvMzJybgCQBFWG8Zg/file?c_luid=ecc3fd9d"
     },
     {
       "part": 6,
@@ -60,7 +59,7 @@
       "canonical_name": "QROS_XAU_FULL_HISTORY_v2_part006-of-035.zip",
       "bytes": 102849303,
       "sha256": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8",
-      "download_url": "https://uc0fc9bf398e871fe3d3d9451744.dl.dropboxusercontent.com/cd/0/get/DIcbwWGcrYH4I6MiwdAEKNlmqxos3mk8C8aA9hpxVDUO0WIgXZq67xBPxEt1Th_yDGLIugjr0UWFP9d991ftC8w5pmLtPKpOnfRPgzt5_CbPMKdOy923mhPaF2mQneze0BE2j51LcrMlpGnf-sTKs6yGHPtR5iAxFxVkDdMO93ZyLw/file?c_luid=ecc3fd9d"
+      "download_url": "https://uc71ff735dec1e9a85fb4d2240db.dl.dropboxusercontent.com/cd/0/get/DIfvo3MRptXnfbjiI7sDn-fLjZ28_ElILJ7gnXkq6pyt7Ro-bzaBTCCvO1rDwOKw4i1d_jQxaa2RqpWDQO-T7EboBUKPSf-BrU5kxgO_IN91Y3nP2pd3LkN3yE4DjmJO4qGzbuyOSkf1T44E4Zr8apqysy2MSMUTf5yL1PRALQWeUQ/file?c_luid=ecc3fd9d"
     },
     {
       "part": 7,
@@ -68,7 +67,7 @@
       "canonical_name": "QROS_XAU_FULL_HISTORY_v2_part007-of-035.zip",
       "bytes": 104515054,
       "sha256": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185",
-      "download_url": "https://uc2e73fe49787c75b80a51e1b089.dl.dropboxusercontent.com/cd/0/get/DIfWjhyQeXjT56Mg7kUsbwr96PsmLeECNCSRv2v6FOZDvgZdWl46ShLtSKn5pyb4Car0jfdLYgCo3-AUzvldJgI6x_a54qEaGuAGmOL47gl9VKYWUkRKLc364QEB6mNQRD3A7QZEtkbVJRqWMnKuD_dFcfxJK0vojxejUrqdzj549g/file?c_luid=ecc3fd9d"
+      "download_url": "https://uc2c52658ca8ee3b41e520d71007.dl.dropboxusercontent.com/cd/0/get/DIcAOya_WSrca0dWKS5WZUWmOpf9o5xdfA3hbrp-cjRUV-G4DIyxbey_nziViYQIP1OsPCLBrIkju6J6l818LD0P_Y1L4tPT8RyF8ffSP1a7Ymi65tOga7rkSXv-S8ZMy7PdFtklVyuM_NtqkVVWZCmDs0dOjn41lHTrq7dqESPrIQ/file?c_luid=ecc3fd9d"
     },
     {
       "part": 8,
@@ -76,7 +75,7 @@
       "canonical_name": "QROS_XAU_FULL_HISTORY_v2_part008-of-035.zip",
       "bytes": 104291866,
       "sha256": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b",
-      "download_url": "https://ucb219cfbf4520a72ed76e772ece.dl.dropboxusercontent.com/cd/0/get/DIdEAZT2Ps8fwpjonWV7rUrRLTqMmgwraEwCNyC3aOlim3okaebFPMWBME9jlTLeTSJBrZY5nuSBFCg7foaEoShhd61JqUj9y4A1OEqNiJSUV1MzM6IptvtiRP4D8vmJrXamQS39vtaxvEIq912xKVGFsvjxYLtiugalkFdHdOmgNg/file?c_luid=ecc3fd9d"
+      "download_url": "https://uc0c81ec1649dacffc5020297420.dl.dropboxusercontent.com/cd/0/get/DIf7rc1oprSDhR8behbea89bt6L4USIlh_U7ew8X6moKRbFssUmTER6vPh6SNATgtt5novvXBZJUGFqAXuNOCVhTu7XODGm84-5FWiWVYpP0ehgahpMz4oDgJyeZfw5Xf34n5a8BTiNga8-ZmkAQySeLm1fDrutt7MZv7gNgO2EixA/file?c_luid=ecc3fd9d"
     }
   ]
 }
