@@ -1,0 +1,219 @@
+name: QROS GROUP11 Zero-Cost Self-Hosted Carrier Gate v1
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_dir:
+        description: 'Local folder on the self-hosted runner containing XAU parts 001-008 (canonical names or Dropbox-prefixed names)'
+        required: true
+        type: string
+      output_root:
+        description: 'Local durable work root on the self-hosted runner'
+        required: true
+        default: 'C:\\QROS\\GROUP11\\work'
+        type: string
+      confirm_zero_cost:
+        description: 'Must be true. This workflow is restricted to a self-hosted qros-zero-cost runner.'
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qros-group11-zero-cost-selfhosted-carrier-gate
+  cancel-in-progress: false
+
+jobs:
+  carrier-gate:
+    if: ${{ inputs.confirm_zero_cost == true }}
+    runs-on: [self-hosted, Windows, X64, qros-zero-cost]
+    timeout-minutes: 240
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - name: Checkout exact authority
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Authority and frozen-source preflight
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $expected = @{
+            'control/QROS_PUBLIC_1000_W09C_XAU_RUNTIME_MATERIALIZATION_MANIFEST_20260916_v1.json' = '622f21a62c532daaa824eafb202cf00a1c2b1a5d'
+            'scripts/qros_seed0076_materialize_minimal_dev.py' = 'b543c8585258b21a007af84a53a944bba58678e6'
+            'scripts/qros_seed0076_build_bar_cache_v220.py' = '987ef26aca2507a94247bed7663493e6682aa869'
+            'scripts/qros_seed0076_build_indicator_cache_v220.py' = '21a50b167e791f4474e3c358b81e40065c048280'
+            'scripts/qros_seed0076_indicators_v220.py' = 'b3575c061607aaae9f4062ad623ff7083e2e0ffe'
+          }
+          foreach ($p in $expected.Keys) {
+            if (-not (Test-Path -LiteralPath $p)) { throw "MISSING_FROZEN_SOURCE:$p" }
+            $blob = (git hash-object -- $p).Trim()
+            if ($blob -ne $expected[$p]) { throw "FROZEN_SOURCE_DRIFT:$p:$blob" }
+          }
+          $ptr = Get-Content 'control/QROS_PUBLIC_1000_CURRENT_CHAT_HANDOFF.json' -Raw | ConvertFrom-Json
+          if ($ptr.cws_status -ne 'GLOBAL_EXECUTION_GOVERNOR_ACTIVE') { throw 'CWS_NOT_ACTIVE' }
+          $intent = Get-Content 'control/QROS_CWS_GROUP11_EXECUTION_INTENT_20260919_v1.json' -Raw | ConvertFrom-Json
+          if ($intent.group_index -ne 11) { throw 'GROUP_BINDING_DRIFT' }
+          if ($intent.spawn_authorized -ne $false) { throw 'AUTHORITY_DRIFT_SPAWN_AUTH_CHANGED' }
+          if ($intent.economic_pnl_read -ne $false -or $intent.holdout_open -ne $false -or $intent.ga2_open -ne $false -or $intent.new_ga1_authorized -ne $false -or $intent.group12_opened -ne $false) { throw 'SCIENTIFIC_FIREWALL_OPEN' }
+          $v6 = Get-Content 'control/QROS_CWS_GROUP11_DROPBOX_REMOTE_CARRIERS_8OF8_PASS_20260919_v6.json' -Raw | ConvertFrom-Json
+          if ($v6.status -ne 'PASS' -or $v6.verification_method.result -ne 'PASS_8_OF_8_BYTE_IDENTITY') { throw 'REMOTE_CARRIER_PASS_MISSING' }
+
+      - name: Prepare local run root and verify Python
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $python = Get-Command python -ErrorAction SilentlyContinue
+          if (-not $python) { throw 'PYTHON_NOT_AVAILABLE_FAIL_CLOSED' }
+          & $python.Source -c "import numpy,sys; print(sys.version); print('numpy', numpy.__version__)"
+          if ($LASTEXITCODE -ne 0) { throw 'NUMPY_NOT_AVAILABLE_FAIL_CLOSED' }
+          $runDir = Join-Path '${{ inputs.output_root }}' ('run-' + '${{ github.run_id }}')
+          New-Item -ItemType Directory -Force -Path $runDir | Out-Null
+          New-Item -ItemType Directory -Force -Path (Join-Path $runDir 'source') | Out-Null
+          New-Item -ItemType Directory -Force -Path (Join-Path $runDir 'dev') | Out-Null
+          New-Item -ItemType Directory -Force -Path (Join-Path $runDir 'bars') | Out-Null
+          New-Item -ItemType Directory -Force -Path (Join-Path $runDir 'indicators') | Out-Null
+          New-Item -ItemType Directory -Force -Path (Join-Path $runDir 'receipts') | Out-Null
+          "QROS_WORK_DIR=$runDir" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+          "QROS_PYTHON=$($python.Source)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Normalize and SHA-256 verify XAU source ZIPs 8/8
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $src = '${{ inputs.source_dir }}'
+          if (-not (Test-Path -LiteralPath $src -PathType Container)) { throw 'SOURCE_DIR_NOT_FOUND' }
+          $rows = @(
+            [pscustomobject]@{Name='QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip';Bytes=102025545;Sha='d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70'},
+            [pscustomobject]@{Name='QROS_XAU_FULL_HISTORY_v2_part002-of-035.zip';Bytes=100422805;Sha='159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a'},
+            [pscustomobject]@{Name='QROS_XAU_FULL_HISTORY_v2_part003-of-035.zip';Bytes=99870071;Sha='ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9'},
+            [pscustomobject]@{Name='QROS_XAU_FULL_HISTORY_v2_part004-of-035.zip';Bytes=101825467;Sha='241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241'},
+            [pscustomobject]@{Name='QROS_XAU_FULL_HISTORY_v2_part005-of-035.zip';Bytes=101538275;Sha='3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad'},
+            [pscustomobject]@{Name='QROS_XAU_FULL_HISTORY_v2_part006-of-035.zip';Bytes=102849303;Sha='9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8'},
+            [pscustomobject]@{Name='QROS_XAU_FULL_HISTORY_v2_part007-of-035.zip';Bytes=104515054;Sha='ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185'},
+            [pscustomobject]@{Name='QROS_XAU_FULL_HISTORY_v2_part008-of-035.zip';Bytes=104291866;Sha='362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b'}
+          )
+          $files = @(Get-ChildItem -LiteralPath $src -File)
+          $dst = Join-Path $env:QROS_WORK_DIR 'source'
+          foreach ($r in $rows) {
+            $matches = @($files | Where-Object { $_.Name.EndsWith($r.Name, [System.StringComparison]::OrdinalIgnoreCase) })
+            if ($matches.Count -ne 1) { throw "SOURCE_RESOLUTION_COUNT:$($r.Name):$($matches.Count)" }
+            $f = $matches[0]
+            if ($f.Length -ne $r.Bytes) { throw "SOURCE_SIZE_MISMATCH:$($r.Name):$($f.Length)" }
+            $sha = (Get-FileHash -Algorithm SHA256 -LiteralPath $f.FullName).Hash.ToLowerInvariant()
+            if ($sha -ne $r.Sha) { throw "SOURCE_SHA256_MISMATCH:$($r.Name):$sha" }
+            Copy-Item -LiteralPath $f.FullName -Destination (Join-Path $dst $r.Name) -Force
+            Write-Host "PASS_SOURCE $($r.Name) $($r.Bytes) $sha"
+          }
+
+      - name: Materialize exact DEV bytes with frozen materializer
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $receipt = Join-Path $env:QROS_WORK_DIR 'receipts\dev_materialization.json'
+          $out = Join-Path $env:QROS_WORK_DIR 'dev'
+          & $env:QROS_PYTHON 'scripts/qros_seed0076_materialize_minimal_dev.py' --manifest 'control/QROS_PUBLIC_1000_W09C_XAU_RUNTIME_MATERIALIZATION_MANIFEST_20260916_v1.json' --source-dir (Join-Path $env:QROS_WORK_DIR 'source') --out-dir $out --asset XAUUSD --receipt $receipt
+          if ($LASTEXITCODE -ne 0) { throw 'DEV_MATERIALIZER_FAIL' }
+          $dev = Join-Path $out 'QROS_XAUUSD_DEV_2018_2019_PACKED17.bin'
+          if ((Get-Item -LiteralPath $dev).Length -ne 2573500596) { throw 'DEV_SIZE_MISMATCH' }
+          $sha = (Get-FileHash -Algorithm SHA256 -LiteralPath $dev).Hash.ToLowerInvariant()
+          if ($sha -ne '3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53') { throw "DEV_SHA256_MISMATCH:$sha" }
+          Write-Host "PASS_DEV 151382388 2573500596 $sha"
+
+      - name: Build and verify exact M1 cache only
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $py = Join-Path $env:QROS_WORK_DIR 'build_m1_only.py'
+          @'
+import json,sys
+from pathlib import Path
+sys.path.insert(0, str(Path.cwd()/'scripts'))
+from qros_seed0076_build_bar_cache_v220 import build_m1, validate, save_bar, content_root, sha256_file
+ticks=Path(sys.argv[1]); out=Path(sys.argv[2]); receipt=Path(sys.argv[3]); out.mkdir(parents=True,exist_ok=True)
+m1=build_m1(ticks)
+fail=validate(m1)
+if fail: raise RuntimeError('M1_VALIDATE:'+','.join(fail))
+p=out/'XAUUSD_M1_BID_BARS.npy'; save_bar(p,m1)
+root=content_root(m1); fsha=sha256_file(p)
+rec={'schema':'QROS_GROUP11_SELFHOSTED_M1_GATE_1.0','status':'PASS','bars':int(len(m1)),'content_sha256':root,'file_bytes':p.stat().st_size,'file_sha256':fsha,'economic_pnl_read':False,'holdout_open':False}
+if rec['bars']!=681772: raise RuntimeError(f'M1_BARS:{rec["bars"]}')
+if root!='55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4': raise RuntimeError('M1_CONTENT_HASH')
+if rec['file_bytes']!=27271136: raise RuntimeError(f'M1_FILE_BYTES:{rec["file_bytes"]}')
+if fsha!='35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59': raise RuntimeError('M1_FILE_SHA256')
+receipt.write_text(json.dumps(rec,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+print(json.dumps(rec,sort_keys=True))
+'@ | Set-Content -LiteralPath $py -Encoding utf8
+          & $env:QROS_PYTHON $py (Join-Path $env:QROS_WORK_DIR 'dev\QROS_XAUUSD_DEV_2018_2019_PACKED17.bin') (Join-Path $env:QROS_WORK_DIR 'bars') (Join-Path $env:QROS_WORK_DIR 'receipts\m1.json')
+          if ($LASTEXITCODE -ne 0) { throw 'M1_GATE_FAIL' }
+
+      - name: Build and verify exact M1 indicators only
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $py = Join-Path $env:QROS_WORK_DIR 'build_m1_indicators_only.py'
+          @'
+import hashlib,json,sys
+from pathlib import Path
+import numpy as np
+sys.path.insert(0, str(Path.cwd()/'scripts'))
+from qros_seed0076_indicators_v220 import compute_all
+from qros_seed0076_build_indicator_cache_v220 import canonical_root
+bars=Path(sys.argv[1]); out=Path(sys.argv[2]); receipt=Path(sys.argv[3]); out.mkdir(parents=True,exist_ok=True)
+b=np.load(bars,mmap_mode='r',allow_pickle=False); scale=0.01
+h=b['high_bid'].astype(np.float64)*scale; l=b['low_bid'].astype(np.float64)*scale; c=b['close_bid'].astype(np.float64)*scale
+d=compute_all(h,l,c)
+completion=np.full(len(b),-1,dtype=np.int64)
+if len(b)>1: completion[:-1]=b['first_source_index'][1:]
+d['completion_source_index']=completion
+p=out/'XAUUSD_M1_INDICATORS.npz'; np.savez(p,**d)
+root=canonical_root(d)
+fh=hashlib.sha256()
+with p.open('rb') as f:
+    for chunk in iter(lambda:f.read(8*1024*1024),b''): fh.update(chunk)
+fsha=fh.hexdigest()
+rec={'schema':'QROS_GROUP11_SELFHOSTED_M1_INDICATOR_GATE_1.0','status':'PASS','bars':int(len(b)),'content_root_sha256':root,'file_bytes':p.stat().st_size,'file_sha256':fsha,'economic_pnl_read':False,'holdout_open':False}
+if rec['bars']!=681772: raise RuntimeError(f'IND_BARS:{rec["bars"]}')
+if root!='2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c': raise RuntimeError('IND_CONTENT_ROOT')
+if rec['file_bytes']!=196359134: raise RuntimeError(f'IND_FILE_BYTES:{rec["file_bytes"]}')
+receipt.write_text(json.dumps(rec,sort_keys=True,indent=2)+'\n',encoding='utf-8')
+print(json.dumps(rec,sort_keys=True))
+'@ | Set-Content -LiteralPath $py -Encoding utf8
+          & $env:QROS_PYTHON $py (Join-Path $env:QROS_WORK_DIR 'bars\XAUUSD_M1_BID_BARS.npy') (Join-Path $env:QROS_WORK_DIR 'indicators') (Join-Path $env:QROS_WORK_DIR 'receipts\m1_indicators.json')
+          if ($LASTEXITCODE -ne 0) { throw 'M1_INDICATOR_GATE_FAIL' }
+
+      - name: Emit local carrier-gate PASS receipt (no artifact upload)
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $dev = Get-Content (Join-Path $env:QROS_WORK_DIR 'receipts\dev_materialization.json') -Raw | ConvertFrom-Json
+          $m1 = Get-Content (Join-Path $env:QROS_WORK_DIR 'receipts\m1.json') -Raw | ConvertFrom-Json
+          $ind = Get-Content (Join-Path $env:QROS_WORK_DIR 'receipts\m1_indicators.json') -Raw | ConvertFrom-Json
+          $final = [ordered]@{
+            schema = 'QROS_GROUP11_ZERO_COST_SELFHOSTED_CARRIER_GATE_RECEIPT_1.0'
+            status = 'PASS'
+            run_id = '${{ github.run_id }}'
+            runner_name = '${{ runner.name }}'
+            runner_os = '${{ runner.os }}'
+            source_zip_sha256 = 'PASS_8_OF_8'
+            dev_sha256 = '3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53'
+            m1_content_sha256 = $m1.content_sha256
+            indicator_m1_content_root_sha256 = $ind.content_root_sha256
+            economic_pnl_read = $false
+            holdout_open = $false
+            ga2_open = $false
+            new_ga1_authorized = $false
+            group12_opened = $false
+            group11_spawned = $false
+            next_action = 'PERSIST_THIS_PASS_THEN_DEK_SCHEDULE_EXACTLY_ONE_GROUP11_TRANSITION'
+          }
+          $out = Join-Path $env:QROS_WORK_DIR 'receipts\QROS_GROUP11_ZERO_COST_SELFHOSTED_CARRIER_GATE_PASS.json'
+          $final | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $out -Encoding utf8
+          Write-Host 'QROS_GROUP11_ZERO_COST_SELFHOSTED_CARRIER_GATE_PASS'
+          Get-Content -LiteralPath $out -Raw
+          Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY -Value '### QROS GROUP11 carrier gate: PASS'
+          Add-Content -LiteralPath $env:GITHUB_STEP_SUMMARY -Value 'No economic PnL, holdout, GA2, new GA1, GROUP12, or GROUP11 spawn was executed.'

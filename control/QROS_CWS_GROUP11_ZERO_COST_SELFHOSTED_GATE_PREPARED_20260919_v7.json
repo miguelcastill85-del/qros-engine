@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_CWS_GROUP11_ZERO_COST_SELFHOSTED_GATE_PREPARED_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_WORKFLOW_PREPARED_NOT_EXECUTED",
+  "scientific_state": "BLOCKED_BY_INFRASTRUCTURE",
+  "blocker": "SELF_HOSTED_QROS_ZERO_COST_RUNNER_NOT_YET_VERIFIED_AVAILABLE",
+  "objective": "Provide a zero-additional-cost runner path for exact carrier -> DEV -> M1 -> M1 indicators validation before any GROUP11 spawn.",
+  "authority": {
+    "base_commit": "56b51237dcb17f9f22acc7d02b7fe33c3733b0f1",
+    "current_chat_handoff_pointer_blob_sha1": "373f7f06d13b16c183e65051e4985e7f2d55a2c1",
+    "remote_carrier_pass_path": "control/QROS_CWS_GROUP11_DROPBOX_REMOTE_CARRIERS_8OF8_PASS_20260919_v6.json",
+    "remote_carrier_pass_status": "PASS_8_OF_8_BYTE_IDENTITY",
+    "manifest_blob_sha1": "622f21a62c532daaa824eafb202cf00a1c2b1a5d",
+    "materializer_blob_sha1": "b543c8585258b21a007af84a53a944bba58678e6",
+    "bar_builder_blob_sha1": "987ef26aca2507a94247bed7663493e6682aa869",
+    "indicator_builder_blob_sha1": "21a50b167e791f4474e3c358b81e40065c048280",
+    "indicators_blob_sha1": "b3575c061607aaae9f4062ad623ff7083e2e0ffe"
+  },
+  "cost_guard": {
+    "requirement": "ZERO_ADDITIONAL_MONETARY_COST",
+    "github_hosted_private_runner": "NOT_AUTHORIZED_WITHOUT_ACCOUNT_SPECIFIC_FREE_QUOTA_PROOF",
+    "self_hosted_runner": "ALLOWED_ZERO_GITHUB_ACTIONS_MINUTE_CHARGE",
+    "artifact_upload": "FORBIDDEN_IN_WORKFLOW",
+    "automatic_trigger": "NONE_WORKFLOW_DISPATCH_ONLY"
+  },
+  "workflow": {
+    "path": ".github/workflows/qros-group11-zero-cost-selfhosted-carrier-gate-v1.yml",
+    "required_labels": [
+      "self-hosted",
+      "Windows",
+      "X64",
+      "qros-zero-cost"
+    ],
+    "source_mode": "LOCAL_FOLDER_8_CANONICAL_OR_DROPBOX_PREFIXED_ZIPS",
+    "output_mode": "LOCAL_DURABLE_RUN_DIRECTORY_AND_STDOUT_RECEIPT",
+    "group11_spawn": false
+  },
+  "targets": {
+    "sources": "SHA256_8_OF_8",
+    "dev": {
+      "records": 151382388,
+      "bytes": 2573500596,
+      "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
+    },
+    "m1": {
+      "bars": 681772,
+      "content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+      "file_bytes": 27271136,
+      "file_sha256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59"
+    },
+    "m1_indicators": {
+      "bars": 681772,
+      "content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c",
+      "file_bytes": 196359134
+    }
+  },
+  "observed_risk": {
+    "dropbox_file_request_id": "1l42vq84b0347ueaxd19",
+    "file_request_is_open": true,
+    "remediation": "Close manually in Dropbox; remote carrier files remain independently stored."
+  },
+  "scientific_firewall": {
+    "group11_spawn_started": false,
+    "group12_opened": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "next_automatic_action": "VERIFY OR REGISTER A WINDOWS X64 SELF-HOSTED GITHUB ACTIONS RUNNER WITH LABEL qros-zero-cost ON A USER-OWNED MACHINE. POINT source_dir TO A LOCAL FOLDER CONTAINING THE 8 VERIFIED ZIP FILES (A SYNCED DROPBOX FOLDER IS ACCEPTABLE). DISPATCH THE PREPARED WORKFLOW WITH confirm_zero_cost=true. ON PASS, PERSIST THE LOCAL/LOG RECEIPT AND ONLY THEN LET DEK SCHEDULE ONE GROUP11 TRANSITION."
+}
