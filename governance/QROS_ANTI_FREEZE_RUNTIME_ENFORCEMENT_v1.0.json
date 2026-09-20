@@ -1,0 +1,88 @@
+{
+  "schema": "QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_1.0",
+  "version": "v1.0",
+  "date": "2026-09-20",
+  "status": "ACTIVE_MANDATORY_CONTROL_PLANE",
+  "purpose": "Make anti-freeze rules executable at orchestration boundaries: every external call is preflighted and postflighted; heavy synchronous work is rejected; one expensive unit/effect maximum; checkpoint/exit is non-bypassable; stale blocker pointers are rejected.",
+  "implementation": {
+    "guard": {
+      "path": "scripts/qros_runtime_enforcement_guard_v1.py",
+      "git_blob_sha1": "f976229c2aaf561ea32a895ea5a62f2be0afff24",
+      "sha256": "635041739ad9158b600baf057ec37d34aaf748653bc609105d68f1b671d488bc"
+    },
+    "tests": {
+      "path": "scripts/qros_runtime_enforcement_guard_tests_v1.py",
+      "git_blob_sha1": "4aa6a27e033a7e08b4f2263a7f7d0c993bd5cd9c",
+      "sha256": "4d38233204a53791bc3cf21298a333ca34c643d55985f3d0d8b600315078336e"
+    },
+    "chaos": {
+      "path": "scripts/qros_runtime_enforcement_chaos_v1.py",
+      "git_blob_sha1": "7b0abe508fbff79e26ec2b0f82f67c7dba74917a",
+      "sha256": "7ddbc57a8587e72efc714f5f3bfcf18ccbf925a8357a69fae68cd6338c1deb42"
+    }
+  },
+  "enforced_limits": {
+    "checkpoint_call": 6,
+    "hard_cap_calls": 8,
+    "max_external_effects": 1,
+    "max_expensive_units": 1,
+    "synchronous_payload_max_bytes": 50000000,
+    "synchronous_wallclock_max_seconds": 5,
+    "heavy_work_requires_adoptable_job": true,
+    "write_requires_durable_intent": true,
+    "timeout_forces_checkpoint_exit": true,
+    "second_no_evidence_delta_forces_exit": true,
+    "terminal_durable_forces_exit": true
+  },
+  "call_classification": {
+    "read": [
+      "authority_read",
+      "metadata_read",
+      "status_read",
+      "search"
+    ],
+    "persist": [
+      "persist",
+      "checkpoint"
+    ],
+    "expensive": [
+      "materialize",
+      "download",
+      "upload",
+      "external_write",
+      "launch",
+      "new_work"
+    ],
+    "external_effect": [
+      "upload",
+      "external_write",
+      "launch",
+      "new_work"
+    ]
+  },
+  "pointer_rule": "Resolved blocker must advance atomically and pin the resolving receipt; scientific_state and forbidden boundaries may not drift.",
+  "local_validation": {
+    "named_adversarial_cases": 16,
+    "named_result": "PASS_16_OF_16",
+    "chaos_episodes": 10000,
+    "chaos_transitions": 13089,
+    "chaos_denied": 16420,
+    "simulated_timeouts": 270,
+    "chaos_result": "PASS",
+    "forbidden_invariant_violations": 0
+  },
+  "residual_platform_limitation": {
+    "preempt_in_flight_platform_connector": false,
+    "meaning": "Repository code cannot physically cancel a platform tool call already in flight. Therefore preflight forbids heavy synchronous connector operations; an observed platform timeout becomes UNKNOWN/timeout evidence and requires checkpoint/exit with no blind retry."
+  },
+  "scientific_firewall": {
+    "scientific_semantics_changed": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false,
+    "group11_spawn_started": false
+  },
+  "supersedes_gap": "control/QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_GAP_20260920_v1.json"
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_ACTIVATION_1.0",
+  "date": "2026-09-20",
+  "status": "PASS_ACTIVE",
+  "root_cause_receipt": "control/QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_GAP_20260920_v1.json",
+  "implementation_blobs": {
+    "guard": "f976229c2aaf561ea32a895ea5a62f2be0afff24",
+    "tests": "4aa6a27e033a7e08b4f2263a7f7d0c993bd5cd9c",
+    "chaos": "7b0abe508fbff79e26ec2b0f82f67c7dba74917a",
+    "governance": "51a5dae212e332100daa63d3a44d0e9ef048e182"
+  },
+  "validation": {
+    "named": "PASS_16_OF_16",
+    "chaos": "PASS_10000_EPISODES",
+    "transitions": 13089,
+    "denied": 16420,
+    "simulated_timeouts": 270,
+    "invariant_violations": 0
+  },
+  "corrected_failures": [
+    "mandatory preflight/postflight envelope",
+    "checkpoint-and-exit barrier",
+    "one expensive unit/effect",
+    "heavy sync route rejection",
+    "timeout/no-delta circuit breaker",
+    "pointer blocker advance validation"
+  ],
+  "residual": "Platform connector calls already in flight cannot be forcibly cancelled by repository code; prevention is by preflight route rejection and fail-closed checkpoint/exit.",
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY"
+}

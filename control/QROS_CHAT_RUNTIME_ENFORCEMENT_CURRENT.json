@@ -1,0 +1,24 @@
+{
+  "schema": "QROS_CHAT_RUNTIME_ENFORCEMENT_CURRENT_1.0",
+  "date": "2026-09-20",
+  "status": "ACTIVE_MANDATORY",
+  "governance_path": "governance/QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_v1.0.json",
+  "governance_git_blob_sha1": "51a5dae212e332100daa63d3a44d0e9ef048e182",
+  "guard_path": "scripts/qros_runtime_enforcement_guard_v1.py",
+  "guard_git_blob_sha1": "f976229c2aaf561ea32a895ea5a62f2be0afff24",
+  "carrier_bridge": {
+    "status": "PASS_11_OF_11_REMOTE_BYTE_IDENTITY",
+    "receipt_path": "control/QROS_DRIVE_FIRST_GATE_REMOTE_HASH_11OF11_PASS_20260920_v1.json",
+    "receipt_commit": "206c971c7d21e9710c3710e5eaa86890bf85390d"
+  },
+  "current_blocker": "ZERO_COST_CLOUD_RUNTIME_NOT_YET_VERIFIED",
+  "next_action": "Resolve a cloud adoptable runtime with verified zero additional monetary cost. Do not perform DEV/M1/indicator heavy execution synchronously in chat. Once runtime is verified, persist launch intent, execute one adoptable effect, persist RUNNING_ADOPTABLE/PASS, then exit.",
+  "hard_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false,
+    "group11_spawn_started": false
+  }
+}
