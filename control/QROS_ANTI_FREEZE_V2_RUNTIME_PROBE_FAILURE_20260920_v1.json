@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_ANTI_FREEZE_V2_RUNTIME_PROBE_RECEIPT_1.0",
+  "date": "2026-09-20",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "invocation_contract": [
+    "AUTHORITY_BUNDLE",
+    "ONE_ACTION",
+    "PERSIST_AND_EXIT"
+  ],
+  "authority": {
+    "main_head": "d65ab6ff44a194443c5c30283e80c3c08fe99e22",
+    "frontier_version": "V257",
+    "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "subject": {
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "M15",
+      "shard_ordinal": 9
+    }
+  },
+  "action": {
+    "type": "SINGLE_CAPABILITY_PROBE",
+    "capability": "LOCAL_COMPUTE_RUNTIME",
+    "probe": "trivial Python execution only",
+    "result": "FAILED_BEFORE_USER_CODE_EXECUTION",
+    "error_class": "EXECUTION_STATE_RESET_OR_TRANSPORT_UNAVAILABLE",
+    "scientific_work_started": false
+  },
+  "anti_freeze_v2_behavior": {
+    "retry_same_capability": false,
+    "alternate_runtime_route_attempted": false,
+    "tool_discovery_after_failure": false,
+    "second_work_action_attempted": false,
+    "next_legal_transaction": "PERSIST_AND_EXIT",
+    "result": "PASS_FAIL_FAST_BEHAVIOR"
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "completed_shards": 8,
+    "current_shard": 9,
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "shard10_open": false
+  },
+  "next_automatic_action": "On a future invocation, recover V257 and perform one capability action only. Do not repeat this failed LOCAL_COMPUTE_RUNTIME probe within the same invocation. If a compute runtime is available, continue shard09 from carrier SHA-256 binding; otherwise persist and exit again."
+}

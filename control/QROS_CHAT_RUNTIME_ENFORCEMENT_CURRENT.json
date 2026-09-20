@@ -21,5 +21,13 @@
   "scientific_effect": "NONE_CONTROL_PLANE_ONLY",
   "governance_git_blob_sha1": "badfbf162f3bc3ccf499bb903d54b72a4865df6c",
   "activation_receipt_path": "control/QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_V2_ACTIVATION_20260920_v1.json",
-  "activation_receipt_git_blob_sha1": "2ae3ebac84fa97b716385f8e67a5f7834da6c1fc"
+  "activation_receipt_git_blob_sha1": "2ae3ebac84fa97b716385f8e67a5f7834da6c1fc",
+  "last_invocation_probe": {
+    "capability": "LOCAL_COMPUTE_RUNTIME",
+    "result": "FAILED_THIS_INVOCATION",
+    "error_class": "EXECUTION_STATE_RESET_OR_TRANSPORT_UNAVAILABLE",
+    "retry_same_invocation": false,
+    "persisted_receipt_path": "control/QROS_ANTI_FREEZE_V2_RUNTIME_PROBE_FAILURE_20260920_v1.json",
+    "persisted_receipt_git_blob_sha1": "8780b0fc5825cd47f4b243535ea4e9c904b2c355"
+  }
 }

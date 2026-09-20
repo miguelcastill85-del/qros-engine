@@ -5,8 +5,8 @@
   "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
   "stable_frontier_version": "V257",
   "current_blocker": "LOCAL_COMPUTE_RUNTIME_TRANSPORT_UNAVAILABLE",
-  "next_automatic_action": "ON NEXT RESPONSIVE COMPUTE RUNTIME: REHASH NQX PARTS 001-003; MATERIALIZE DEV; BUILD BARS/INDICATORS/M15 TICK CACHE; RUN GROUPS 0..23 WITH CHECKPOINTS 8/16/20/24; MERGE V228; ORACLE V228. NO PNL.",
-  "handoff_git_blob_sha1": "0d8c0124c3dde067cd35f8b39f5e5924de600bf3",
+  "next_automatic_action": "On a future invocation, recover V257 and perform one capability action only. Do not repeat this failed LOCAL_COMPUTE_RUNTIME probe within the same invocation. If a compute runtime is available, continue shard09 from carrier SHA-256 binding; otherwise persist and exit again.",
+  "handoff_git_blob_sha1": "87f1475e42754489082eef551780b1191d1aa908",
   "anti_freeze_v2": {
     "status": "ACTIVE_MANDATORY",
     "governance_path": "governance/QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_v2.0.json",
