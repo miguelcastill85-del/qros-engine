@@ -1,0 +1,52 @@
+{
+  "schema": "QROS_CAUSAL_UNIVERSE_BACKTEST_HARDENING_PERSISTENCE_PASS_1.0",
+  "date": "2026-09-20",
+  "status": "PASS",
+  "branch": "audit/causal-universe-backtest-hardening-v1-20260920",
+  "base_main_commit": "95c1f280afc05b09a0df3867847edbf2c6dc3245",
+  "scientific_effect": "NONE_ON_V255",
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "new_ga1_started": false,
+  "local_validation": {
+    "tests_run": 14,
+    "tests_passed": 14,
+    "tests_failed": 0,
+    "mode": "STANDARD_LIBRARY_UNIT_TESTS_NO_MARKET_DATA_NO_PNL"
+  },
+  "artifacts": [
+    {
+      "path": "governance/QROS_CAUSAL_UNIVERSE_BACKTEST_HARDENING_POLICY_v1.0.json",
+      "git_blob_sha1": "e9a79d9c285f262d5b5f3a897c4e75420d2e1de9",
+      "local_sha256": "825c6f2edd7d93e27697f47aa4a7b46dd66ff4f305dc44888d79847779535f87",
+      "readback": "PASS"
+    },
+    {
+      "path": "scripts/qros_causal_universe_preflight_v1.py",
+      "git_blob_sha1": "43269eebb42fd33d2b08a429a104e126171c6f68",
+      "local_sha256": "f3641f3df297d5f85aebc7e95dd3ff579804d1d8c6d59645ebc1dc85ab747beb",
+      "readback": "PASS"
+    },
+    {
+      "path": "tests/test_qros_causal_universe_preflight_v1.py",
+      "git_blob_sha1": "1a16e5242b213f1b8ca3d032bbc838fefb237d8a",
+      "local_sha256": "47d1d564683199b34e6f9bcd428c182b3028115c272066a8d2ba25ed95302349",
+      "readback": "PASS"
+    },
+    {
+      "path": "tests/fixtures/QROS_CAUSAL_UNIVERSE_PREFLIGHT_VALID_v1.json",
+      "git_blob_sha1": "a9be932f09744c39e91b8644b8554734cf69571b",
+      "local_sha256": "15a549c8d9d1e30a80936040ce8e27b62475bab3837bdade2bd2f204fc3cbee5",
+      "readback": "PASS"
+    },
+    {
+      "path": "control/QROS_CAUSAL_UNIVERSE_BACKTEST_HARDENING_AUDIT_20260920_v1.json",
+      "git_blob_sha1": "8b6dde6acaecefeac10a35fd7ce2911ef0c2004e",
+      "local_sha256": "805cd128f58b268ddde05652128669c7ca91aa712d001e2628c787b4efb74bd9",
+      "readback": "PASS"
+    }
+  ],
+  "decision": "PERSISTENCE_PASS_READY_FOR_REVIEW_PR",
+  "next_action": "OPEN_REVIEW_PR_ONLY; DO_NOT_MERGE AUTOMATICALLY; DO_NOT MODIFY V255 POINTERS OR FROZEN SCIENCE."
+}
