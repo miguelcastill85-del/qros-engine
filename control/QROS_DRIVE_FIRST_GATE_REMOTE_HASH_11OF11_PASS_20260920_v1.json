@@ -1,0 +1,117 @@
+{
+  "schema": "QROS_DRIVE_FIRST_GATE_REMOTE_HASH_PASS_1.0",
+  "observed_at_utc": "2026-09-20T06:07:00Z",
+  "status": "PASS_11_OF_11_REMOTE_BYTE_IDENTITY",
+  "objective": "Verify current First Gate carriers from Google Drive before DEV/M1/indicator rematerialization.",
+  "authority": {
+    "observed_main_head_before_receipt": "eacbb23478d9c98b698074f478c35ff4c3dce9a5",
+    "drive_full_corpus_coverage_commit": "49d5ffcf6fbb5da914eea3d850c3c146a91443cb",
+    "evidence_correction_commit": "eacbb23478d9c98b698074f478c35ff4c3dce9a5",
+    "xau_manifest_sha256": "e2e41da50f5ee085cf744a5185f87089021afeae1f5535b1cd00f838383bdb7c",
+    "nqx_manifest_sha256": "9f91903273701fdfce5c5d50874e36b57c6ee96a50850498e4550b4881d611df"
+  },
+  "xau": {
+    "parts": [
+      {
+        "part": 1,
+        "bytes": 102025545,
+        "sha256": "d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70",
+        "drive_id": "14wIm9bBPq7eRikgLp03swoVNmztgkfmN"
+      },
+      {
+        "part": 2,
+        "bytes": 100422805,
+        "sha256": "159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a",
+        "drive_id": "1w_JxSuVpInp44EcUC9fgxlCILQuAbqY5"
+      },
+      {
+        "part": 3,
+        "bytes": 99870071,
+        "sha256": "ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9",
+        "drive_id": "1QL-oatGoYum_tSlNmlF3djbVYB6EkKwD"
+      },
+      {
+        "part": 4,
+        "bytes": 101825467,
+        "sha256": "241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241",
+        "drive_id": "193S2vMhoS63si1A6ZJnVxQ_9i6rSqa12"
+      },
+      {
+        "part": 5,
+        "bytes": 101538275,
+        "sha256": "3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad",
+        "drive_id": "15ivpOfYuvtL1buanKyGu9LYBLY4NINgM"
+      },
+      {
+        "part": 6,
+        "bytes": 102849303,
+        "sha256": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8",
+        "drive_id": "1XHZBUU-YvyeHDWZjxWdDevenG5G3AT3c"
+      },
+      {
+        "part": 7,
+        "bytes": 104515054,
+        "sha256": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185",
+        "drive_id": "1Ho7uAW5eqoUktE1rVQsU4rYHsrUKpJ1r"
+      },
+      {
+        "part": 8,
+        "bytes": 104291866,
+        "sha256": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b",
+        "drive_id": "1cido_oBhY_TjDWc30lfyFna0Oeo_1C_9"
+      }
+    ],
+    "result": "PASS_8_OF_8"
+  },
+  "nqx": {
+    "parts": [
+      {
+        "part": 1,
+        "bytes": 100816656,
+        "sha256": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b",
+        "mode": "INTACT",
+        "drive_id": "15zEJ6HF7IrXhiF_-MNS_nMjg2hik0L9t"
+      },
+      {
+        "part": 2,
+        "bytes": 113466374,
+        "sha256": "53f827fa0b611d9e2b00db78b1da29b1c41f0d2d7d7e912ddcec12de42984a24",
+        "mode": "RECONSTRUCTED_FROM_DRIVE_CHUNKS",
+        "chunk_drive_ids": [
+          "1tIQm2nAQtN7wHI_EJb5Yx6JkwjPt1drH",
+          "1zuBNPQe_Ul7ljgmDMmbULv_fz0eOgsxs"
+        ]
+      },
+      {
+        "part": 3,
+        "bytes": 111669173,
+        "sha256": "48463c8dd2b020356fd9b21caea470cec4e9340d8a8fd0e25bea8fcb0c512c8b",
+        "mode": "RECONSTRUCTED_FROM_DRIVE_CHUNKS",
+        "chunk_drive_ids": [
+          "14x8tyduZaBKFnGMKf10EL_ThczPlLjwC",
+          "1quVFAUCynqXgYQXcoizuEEO_PDxsuary"
+        ]
+      }
+    ],
+    "result": "PASS_3_OF_3"
+  },
+  "combined": {
+    "logical_carriers": 11,
+    "result": "PASS_11_OF_11_REMOTE_BYTE_IDENTITY"
+  },
+  "evidence_classification": {
+    "remote_byte_identity": "VERIFIED",
+    "first_gate_carrier_bridge": "VERIFIED",
+    "dev_m1_indicators_on_active_runner": "NOT_YET_EXECUTED"
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "group11_spawn_started": false,
+    "group12_opened": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "next_automatic_action": "RESOLVE A CLOUD ACTIVE RUNNER WITH ZERO ADDITIONAL MONETARY COST; REMATERIALIZE/VERIFY DEV-M1-INDICATORS FROM THE VERIFIED DRIVE CARRIERS; THEN DEK MAY SCHEDULE EXACTLY ONE GROUP11 TRANSITION."
+}
