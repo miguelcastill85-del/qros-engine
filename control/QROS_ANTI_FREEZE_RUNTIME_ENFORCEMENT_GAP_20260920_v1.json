@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_GAP_1.0",
+  "observed_at_utc": "2026-09-20T06:10:00Z",
+  "status": "ROOT_CAUSE_VERIFIED_IMPLEMENTATION_GAP",
+  "authority": {
+    "observed_main_head": "206c971c7d21e9710c3710e5eaa86890bf85390d",
+    "anti_freeze_governance_blob": "294feb32e8cbbe7dd0ac8c21ad25e25c63d3859f",
+    "chat_nonblocking_gate_blob": "6afabce775dfc1d496b25b9b67981cc43210c316",
+    "dek_v3_governance_blob": "21f838ced8ec8a6c21a596acaf2a949582c200fa",
+    "recursive_kernel_blob": "891cfc148c5104dc676dea326c8f802ec24c9cc9",
+    "external_call_budget_guard_blob": "57e40966729d207f7434c0f5fde741dccbfd9877"
+  },
+  "incident": {
+    "symptom": "USER_VISIBLE_FREEZE_DURING_CONTINUED_RUNTIME_CLOUD_DISCOVERY_AFTER_FIRST_GATE_CARRIER_PASS",
+    "scientific_damage": false,
+    "data_damage": false,
+    "duplicate_scientific_execution": false,
+    "last_clean_scientific_state": "PREREGISTERED_NO_RESULTS",
+    "carrier_bridge_state": "PASS_11_OF_11_REMOTE_BYTE_IDENTITY"
+  },
+  "root_causes": [
+    {
+      "id": "AF-RUNTIME-001",
+      "cause": "ANTI_FREEZE_KERNEL_NOT_MANDATORY_MIDDLEWARE_FOR_CHAT_TOOL_CALLS",
+      "evidence": "Kernel/guard are deterministic scripts that decide/record only when explicitly invoked; chat connector calls can occur without passing through them."
+    },
+    {
+      "id": "AF-RUNTIME-002",
+      "cause": "CONTROL_CALL_BUDGET_NOT_PERSISTED_OR_ENFORCED_PER_CHAT_INVOCATION",
+      "evidence": "Execution exceeded governance limits (checkpoint_call 6 / hard cap 8 in DEK v3, at-most-one external effect in Chat Non-Blocking Gate) because no live guard state wrapped each connector call."
+    },
+    {
+      "id": "AF-RUNTIME-003",
+      "cause": "NO_PREEMPTIVE_WALL_CLOCK_CANCEL_AROUND_IN_FLIGHT_CONNECTOR_CALL",
+      "evidence": "Manifest-first policy declares heavy_work_sync_call_max_seconds=5, but repository code cannot interrupt a connector call once the platform tool invocation is in flight."
+    },
+    {
+      "id": "AF-RUNTIME-004",
+      "cause": "TURN_DID_NOT_EXIT_AFTER_DURABLE_FIRST_GATE_11_OF_11_PASS",
+      "evidence": "Allowed sequence requires persist terminal/running state then exit; execution continued into runner/billing discovery."
+    },
+    {
+      "id": "AF-RUNTIME-005",
+      "cause": "STABLE_CHAT_HANDOFF_POINTER_NOT_ADVANCED_AFTER_CARRIER_BRIDGE_RESOLUTION",
+      "evidence": "CURRENT_CHAT_HANDOFF still reports DURABLE_RUNNER_ACCESSIBLE_CARRIER_BRIDGE_MISSING although Drive First Gate 11/11 is now durably verified."
+    }
+  ],
+  "missing_corrections": [
+    "MANDATORY_TOOL_CALL_ENVELOPE: every external call must consult and update a durable call-budget/anti-freeze state before and after execution.",
+    "CHECKPOINT_AND_EXIT_ENFORCEMENT: once checkpoint barrier or terminal durable delta is reached, no new diagnostic/tool route may start in the same invocation.",
+    "TIMEOUT_ISOLATION: potentially blocking work must be launched outside chat as an adoptable job; chat may perform at most one bounded status read.",
+    "ATOMIC_POINTER_ADVANCE: after a blocker is resolved, CURRENT_CHAT_HANDOFF/CWS execution checkpoint must CAS-advance in the same durable commit bundle.",
+    "ROUTE_CLASSIFICATION: Drive uploads/downloads/materializations and runner launches must be tagged as effects/expensive units instead of unmetered helper calls.",
+    "RUNTIME_ENFORCEMENT_TEST: add an integration/chaos test that simulates a connector call hanging and proves checkpoint/exit rather than continued orchestration."
+  ],
+  "correction_priority": [
+    "P0 mandatory tool-call envelope + durable call-budget state",
+    "P0 atomic pointer advance after blocker resolution",
+    "P0 checkpoint-and-exit hard gate",
+    "P1 timeout isolation / adoptable external-job boundary",
+    "P1 connector-hang integration test"
+  ],
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false,
+    "group11_spawn_started": false
+  },
+  "next_action": "IMPLEMENT AND VALIDATE QROS ANTI-FREEZE RUNTIME ENFORCEMENT PATCH BEFORE RESUMING DEV/M1/INDICATOR HEAVY EXECUTION."
+}
