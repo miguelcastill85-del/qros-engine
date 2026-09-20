@@ -1,0 +1,17 @@
+{
+  "schema": "QROS_CWS_GROUP11_ZERO_COST_SELFHOSTED_JIT_TRIGGER_REFRESH_1.0",
+  "date": "2026-09-19",
+  "status": "ARMED_SECOND_PUSH",
+  "parent_commit": "bd1a7fdb235279236bebd02c45ef20ea54262572",
+  "workflow_already_present_in_parent": true,
+  "trigger_attempt": 2,
+  "carrier_links": "8_JIT_LINKS_900_SECONDS",
+  "zero_cost_guard": "SELF_HOSTED_QROS_ZERO_COST_ONLY",
+  "group11_spawn": false,
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "new_ga1_authorized": false,
+  "group12_opened": false,
+  "next_action": "OBSERVE EXACTLY ONE WORKFLOW STATUS SNAPSHOT. ON PASS PERSIST CARRIER GATE; OTHERWISE FAIL CLOSED."
+}
