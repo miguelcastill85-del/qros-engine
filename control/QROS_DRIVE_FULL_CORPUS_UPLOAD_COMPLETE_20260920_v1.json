@@ -1,0 +1,140 @@
+{
+  "schema": "QROS_DRIVE_FULL_CORPUS_UPLOAD_COMPLETE_1.0",
+  "observed_at_utc": "2026-09-20T03:31:00Z",
+  "status": "PASS_STORAGE_COVERAGE_63_OF_63",
+  "objective": "Persist complete authoritative XAUUSD + NQX/NDX 2018-2026 ZIP corpus in Google Drive without dependence on the user PC.",
+  "authority": {
+    "observed_main_head_before_receipt": "95c1f280afc05b09a0df3867847edbf2c6dc3245",
+    "carrier_scope_commit": "743f66561afaa9793f4a623182f3cdccbf6a62b8",
+    "drive_root_commit": "efffab4e778936220708ad1cb493bfe315fb59b6",
+    "first_nqx_remote_pass_commit": "95c1f280afc05b09a0df3867847edbf2c6dc3245",
+    "xau_manifest_sha256": "e2e41da50f5ee085cf744a5185f87089021afeae1f5535b1cd00f838383bdb7c",
+    "nqx_manifest_sha256": "9f91903273701fdfce5c5d50874e36b57c6ee96a50850498e4550b4881d611df"
+  },
+  "drive": {
+    "root_folder_name": "QROS_CARRIER_STORE_2018_2026",
+    "root_folder_id": "1qwGkUH0QF2BasqVZm1WsdG0tbJrmMlQv",
+    "layout_manifest_path": "/Google Drive/QROS_CARRIER_STORE_2018_2026/MANIFESTS/QROS_DRIVE_CARRIER_LAYOUT_MANIFEST_20260920_v1.json",
+    "layout_manifest_file_id": "external-gdrive:file:1r797INR2hMRYa36N4kCcP4pn-jp5HBVr",
+    "layout_manifest_bytes": 35753,
+    "layout_manifest_sha256_local": "ed228163aa41658f4308b0498e0ad0955d70f7c2c8cb057c4aedf77d5f49bf9c"
+  },
+  "corpus": {
+    "xau": {
+      "logical_parts": 35,
+      "canonical_zip_bytes": 3988985549,
+      "intact_parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        11,
+        35
+      ],
+      "intact_remote_name_size_pass": "10_OF_10",
+      "chunked_parts": [
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "chunked_remote_layout_pass": "25_OF_25"
+    },
+    "nqx": {
+      "logical_parts": 28,
+      "canonical_zip_bytes": 2663994339,
+      "intact_parts": [
+        1,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ],
+      "intact_remote_name_size_pass": "24_OF_24",
+      "chunked_parts": [
+        2,
+        3,
+        5,
+        6
+      ],
+      "chunked_remote_layout_pass": "4_OF_4"
+    },
+    "combined": {
+      "logical_parts": 63,
+      "canonical_zip_bytes": 6652979888,
+      "storage_coverage": "PASS_63_OF_63"
+    }
+  },
+  "transport": {
+    "chunk_bytes": 100000000,
+    "chunk_rule": "Concatenate chunks in lexical order and require canonical ZIP byte count + SHA-256 before use.",
+    "local_canonical_sha_before_upload": "PASS_63_OF_63",
+    "remote_layout_check": "PASS_63_OF_63_LOGICAL_CARRIERS"
+  },
+  "evidence_classification": {
+    "storage_coverage": "VERIFIED",
+    "remote_names_and_sizes": "VERIFIED",
+    "local_canonical_source_hashes": "VERIFIED",
+    "full_remote_sha256_rehash_all_63": "NOT_YET_COMPLETE",
+    "remote_full_sha256_verified_examples": [
+      "NQX_part001_intact",
+      "NQX_part002_chunk_reconstruction"
+    ],
+    "note": "Do not reinterpret storage coverage as full remote byte rehash. Each carrier must still be SHA-256 verified on first runner ingest before scientific/economic use."
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "group11_spawn_started": false,
+    "group12_opened": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "impact_portfolio": "NONE",
+  "next_automatic_action": "USE DRIVE AS PRIMARY CARRIER STORE. FOR THE CURRENT FIRST GATE, RUNNER INGEST MUST RECONSTRUCT/READ XAU PART001-008 AND NQX PART001-003 FROM DRIVE, VERIFY CANONICAL SHA256 11/11, THEN REMATERIALIZE/VERIFY DEV-M1-INDICATORS. ONLY AFTER THOSE PASSES MAY DEK SCHEDULE EXACTLY ONE GROUP11 TRANSITION. FOR LATER 2018-2026 VALIDATION, RECONSTRUCT/VERIFY EACH OF THE 63 CARRIERS ON FIRST USE."
+}
