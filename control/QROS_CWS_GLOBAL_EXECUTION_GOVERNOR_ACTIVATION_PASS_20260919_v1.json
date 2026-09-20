@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_ACTIVATION_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_ACTIVE",
+  "subject": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1_GLOBAL_EXECUTION_GOVERNOR",
+  "branch_validation": {
+    "run_id": 35477741814,
+    "job_id": 105989809772,
+    "execution_classes": 15,
+    "adversarial_cases": 100000,
+    "scheduled_cases": 31197,
+    "unsafe_schedule": 0,
+    "traceback_present": false
+  },
+  "main_revalidation": {
+    "run_id": 35477818510,
+    "job_id": 105990013524,
+    "execution_classes": 15,
+    "adversarial_cases": 100000,
+    "scheduled_cases": 31197,
+    "unsafe_schedule": 0,
+    "traceback_present": false
+  },
+  "exact_blobs": {
+    "policy": "0f8e28636b8cf3ecf812e11df732ee50cf715753",
+    "router": "a06a403e19186addfcca69c6d8c4245a7eadbcbe",
+    "tests": "0b67571bc779f33cdbde03b476ba5fd14373f7fa",
+    "workflow": "d3f45b1d74e79af6cb907bf9974cc044bca73f4d"
+  },
+  "routing_scope": "ALL_QROS_EXECUTION_CLASSES",
+  "authorization_scope": "EXTERNAL_DURABLE_CAPABILITIES_ONLY",
+  "invariants": {
+    "cws_global_execution_governor": true,
+    "dek_v3_only_transition_reducer": true,
+    "direct_bypass_allowed": false,
+    "cws_can_grant_capabilities": false,
+    "cws_can_escalate_capabilities": false,
+    "missing_capability_fails_closed": true,
+    "chat_is_continuity_owner": false
+  },
+  "decision": "APPROVED_ACTIVE_MANDATORY_GLOBAL_EXECUTION_GOVERNOR"
+}
