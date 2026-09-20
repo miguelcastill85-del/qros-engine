@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_CWS_GROUP11_CARRIER_BRIDGE_ROUTE_AUDIT_1.0",
+  "date": "2026-09-19",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "blocker": "DURABLE_RUNNER_ACCESSIBLE_CARRIER_BRIDGE_MISSING",
+  "authority": {
+    "pointer_blob_sha1": "373f7f06d13b16c183e65051e4985e7f2d55a2c1",
+    "handoff_blob_sha1": "5c89395ba7e35198f4ad9431325e624a354097a4",
+    "observed_main": "35f30de5c1911dcfd50fa454640ecc22b3e0cacd",
+    "authority_drift": false
+  },
+  "verified_routes": {
+    "exact_source_zips_chat_library": "PASS_8_OF_8_PREVIOUSLY_VERIFIED",
+    "dropbox_exact_name_search": "MISS_8_OF_8",
+    "library_exact_derived_dev_filename": "MISS",
+    "library_exact_m1_indicator_filename": "MISS",
+    "library_target_hash_search": "NO_EXACT_DERIVED_CARRIER_FOUND",
+    "google_drive_existing_bridge_store": "ABSENT",
+    "repo_declared_external_store_or_rclone_s3_dropbox_bridge": "NOT_FOUND",
+    "github_connector_binary_artifact_upload_from_chat": "NOT_EXPOSED",
+    "existing_github_runtime_source_artifact": "CODE_ONLY_NOT_DATA_CARRIER"
+  },
+  "remaining_candidate_route": {
+    "name": "EXTERNAL_STAGING_THEN_RUNNER_INGEST",
+    "state": "NOT_EXECUTED",
+    "reason": "Requires an explicit user-authorized external storage mutation and an exact destination before any upload. Runner-accessible stable download semantics must then be validated before CWS may consume it.",
+    "direct_chat_heavy_bypass_forbidden": true
+  },
+  "governance": {
+    "cws": "GLOBAL_EXECUTION_GOVERNOR_ACTIVE",
+    "global_governor": "ACTIVE_MANDATORY",
+    "dek_v3": "ONLY_TRANSITION_REDUCER",
+    "chat_non_blocking_handoff_gate": "ACTIVE_MANDATORY",
+    "group11_spawn_started": false,
+    "group12_opened": false
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "root_cause": "Exact bytes exist and are recoverable, but no currently exposed, preauthorized durable binary transport bridges ChatGPT Library/container bytes into the active CWS GitHub runner.",
+  "next_automatic_action": "OBTAIN EXPLICIT AUTHORIZATION FOR ONE EXTERNAL STAGING TARGET; THEN VALIDATE RUNNER-ACCESSIBLE DOWNLOAD SEMANTICS WITHOUT EXPOSING ECONOMIC DATA. IF VALID, TRANSFER EXACT 8 SOURCES, HASH-VERIFY 8/8 ON RUNNER, REMATERIALIZE/VERIFY DEV-M1-INDICATORS, THEN SCHEDULE ONE DEK GROUP11 TRANSITION.",
+  "portfolio_impact": "NONE"
+}
