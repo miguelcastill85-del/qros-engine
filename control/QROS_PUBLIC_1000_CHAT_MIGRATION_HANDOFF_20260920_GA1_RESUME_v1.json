@@ -1,0 +1,36 @@
+{
+  "schema": "QROS_PUBLIC1000_CHAT_MIGRATION_HANDOFF_GA1_RESUME_1.0",
+  "date": "2026-09-20",
+  "status": "ACTIVE",
+  "source_main": "b53980eaf2419a08a01933fb7bf3714fd14fff2d",
+  "stable_frontier_version": "V256",
+  "active_campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "active_scientific_route": "GA1_SHARD_CONSTRUCTION_60_TOTAL",
+  "completed_shards": 8,
+  "remaining_shards": 52,
+  "current_shard": {
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M15",
+    "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+    "shard_ordinal": 9,
+    "expected_signal_configs": 804672,
+    "expected_config_root_sha256": "46e39c9108d4eec03d847fe3b405bdd7777976ba048f27705abfb7a3c869f947"
+  },
+  "seed0486": "OBSERVATIONAL_RESERVE_NOT_ACTIVE_QUEUE",
+  "economic_firewall": {
+    "economic_pnl_read": false,
+    "first_gate_execution_authorized": false,
+    "ga2_open": false,
+    "holdout_open": false
+  },
+  "current_blocker": "LOCAL_RUNTIME_SHA256_REHASH_TIMEOUT",
+  "next_automatic_action": "REHASH MATERIALIZED NQX PARTS 001-003; IF 3/3 MATCH, EXECUTE GA1 SHARD09 NQX/BUY/M15 USING THE FROZEN V236 WRAPPER. NO ECONOMIC PNL, GA2 OR HOLDOUT.",
+  "anti_repeat": [
+    "DO_NOT_OPEN_NEW_SEED",
+    "DO_NOT_RECOMPUTE_COMPLETED_8_SHARDS",
+    "DO_NOT_CONFUSE_24_INTERNAL_GROUPS_WITH_60_SCIENTIFIC_SHARDS",
+    "DO_NOT_OPEN FIRST_GATE/GA2/HOLDOUT BEFORE GA1_60_OF_60",
+    "DO_NOT_USE_WAVETREND_RSI_FIBONACCI_IN_SEED0076"
+  ]
+}

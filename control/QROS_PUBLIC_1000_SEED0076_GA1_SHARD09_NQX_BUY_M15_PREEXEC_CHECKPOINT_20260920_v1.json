@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_GA1_SHARD09_PREEXEC_CHECKPOINT_1.0",
+  "date": "2026-09-20",
+  "state": "DEVELOPMENT_RUNNING",
+  "status": "PREEXEC_READY_EXCEPT_LOCAL_BYTE_REHASH",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "shard": {
+    "ordinal": 9,
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M15",
+    "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+    "expected_signal_configs": 804672,
+    "source_group_count": 24,
+    "expected_config_root_sha256": "46e39c9108d4eec03d847fe3b405bdd7777976ba048f27705abfb7a3c869f947",
+    "config_stream_parity": "PASS_804672_OF_804672"
+  },
+  "data_authority": {
+    "activation_receipt_path": "control/QROS_PUBLIC_1000_SEED_0076_NQX_DEV_ACTIVATION_RECEIPT_V218_v1.json",
+    "activation_receipt_git_blob_sha1": "1722e8b6825c56413e6af33709190262c13bbcb3",
+    "dev_records": 59940260,
+    "dev_bytes": 1018984420,
+    "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "source_parts": [
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+        "bytes": 100816656,
+        "expected_sha256": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b",
+        "materialized_current_runtime": true,
+        "size_match": true
+      },
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+        "bytes": 113466374,
+        "expected_sha256": "53f827fa0b611d9e2b00db78b1da29b1c41f0d2d7d7e912ddcec12de42984a24",
+        "materialized_current_runtime": true,
+        "size_match": true
+      },
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip",
+        "bytes": 111669173,
+        "expected_sha256": "48463c8dd2b020356fd9b21caea470cec4e9340d8a8fd0e25bea8fcb0c512c8b",
+        "materialized_current_runtime": true,
+        "size_match": true
+      }
+    ]
+  },
+  "local_reverification": {
+    "sha256_rehash_status": "BLOCKED_BY_INFRASTRUCTURE_RUNTIME_TIMEOUT",
+    "attempts": [
+      "container sha256sum timed out",
+      "python hashlib rehash timed out"
+    ],
+    "execution_started": false,
+    "scientific_results_generated": false,
+    "reason_rehash_indispensable": "Current-runtime local bytes must be rebound to the frozen source hashes before executing GA1 masks."
+  },
+  "next_action": "REHASH THE THREE MATERIALIZED NQX ZIPs ON A RESPONSIVE LOCAL RUNTIME; IF 3/3 MATCH, REMATERIALIZE/VERIFY NQX DEV AND EXECUTE M15 GROUPS 0..23 WITH THE FROZEN V236 WRAPPER, PERSISTING CHECKPOINTS AND FINAL DOUBLE-ORACLE/GLOBAL-PACK RECEIPTS.",
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false
+}

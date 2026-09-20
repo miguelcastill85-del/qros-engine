@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_GA1_RESUME_AUTHORIZATION_1.0",
+  "date": "2026-09-20",
+  "status": "AUTHORIZED_ONE_SHARD",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "prior_state": {
+    "total_shards": 60,
+    "completed_shards": 8,
+    "remaining_shards": 52,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false
+  },
+  "chain_verified": [
+    {
+      "ordinal": 1,
+      "domain": "XAUUSD/BUY/M1"
+    },
+    {
+      "ordinal": 2,
+      "domain": "NQX/BUY/H1"
+    },
+    {
+      "ordinal": 3,
+      "domain": "NQX/BUY/H2"
+    },
+    {
+      "ordinal": 4,
+      "domain": "NQX/BUY/H3"
+    },
+    {
+      "ordinal": 5,
+      "domain": "NQX/BUY/H4"
+    },
+    {
+      "ordinal": 6,
+      "domain": "NQX/BUY/M1"
+    },
+    {
+      "ordinal": 7,
+      "domain": "NQX/BUY/M10"
+    },
+    {
+      "ordinal": 8,
+      "domain": "NQX/BUY/M12"
+    }
+  ],
+  "authorized_shard": {
+    "ordinal": 9,
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M15",
+    "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+    "expected_signal_configs": 804672,
+    "config_stream_parity_path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_NQX_BUY_M15_CONFIG_STREAM_PARITY_V240_v1.json",
+    "config_stream_parity_git_blob_sha1": "78bc933091255ae2def305feeda385643d92be4f",
+    "expected_config_root_sha256": "46e39c9108d4eec03d847fe3b405bdd7777976ba048f27705abfb7a3c869f947"
+  },
+  "runner_authority": {
+    "freeze_path": "control/QROS_SEED0076_GA1_RUNNER_BYTE_FREEZE_V221_v1.json",
+    "freeze_git_blob_sha1": "8189c8f9a96e3b60c27a7d67df625a17a037b1f8",
+    "portable_wrapper_path": "control/QROS_PUBLIC_1000_SEED_0076_PORTABLE_GA1_WRAPPER_PARITY_V236_v1.json",
+    "portable_wrapper_git_blob_sha1": "2d4d33b48c014a08923245dedf59401cb634b1a2"
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "universe_changed": false,
+    "config_ids_changed": false
+  }
+}

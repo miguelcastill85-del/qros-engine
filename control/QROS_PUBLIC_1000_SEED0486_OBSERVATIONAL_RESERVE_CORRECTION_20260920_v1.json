@@ -1,0 +1,23 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0486_OBSERVATIONAL_RESERVE_CORRECTION_1.0",
+  "date": "2026-09-20",
+  "status": "OBSERVATIONAL_RESERVE",
+  "reason": "Seed0486 was opened while the user's intended active route remained Seed0076 60-shard GA1 construction.",
+  "preserved_artifacts": [
+    "control/QROS_PUBLIC_1000_SEED_0486_SERIAL_SELECTION_V256_v1.json",
+    "control/QROS_PUBLIC_1000_SEED_0486_SOURCE_RECONCILIATION_V256_v1.json",
+    "control/QROS_PUBLIC_1000_SEED_0486_COLLISION_GATE_V256_v1.json",
+    "control/QROS_PUBLIC_1000_SEED_0486_SELECTION_PREREG_V256_v1.json",
+    "control/QROS_PUBLIC_1000_SEED_0486_CAUSAL_SCOPE_ONTOLOGY_V256_v1.json",
+    "control/QROS_PUBLIC_1000_SEED_0486_RISE_FIXED_POINT_V256_v1.json",
+    "control/QROS_PUBLIC_1000_SEED_0486_LOGICAL_CONFIG_MANIFEST_V257_v1.csv",
+    "control/QROS_PUBLIC_1000_SEED_0486_LOGICAL_ENUMERATOR_PARITY_V257_v1.json"
+  ],
+  "invalidate_scientific_content": false,
+  "active_queue": false,
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "portfolio_impact": "NONE",
+  "reactivation_rule": "Only after Seed0076 reaches a terminal scientific state or a new explicit user direction."
+}

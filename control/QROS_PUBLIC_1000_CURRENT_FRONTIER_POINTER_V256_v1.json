@@ -1,0 +1,56 @@
+{
+  "schema": "QROS_PUBLIC1000_FRONTIER_TARGET_7.1",
+  "version": "V256",
+  "state": "DEVELOPMENT_RUNNING",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "seed": "WEB_SEED_0076",
+  "phase": "GA1_RESUMED_PRE_ECONOMIC_SHARD_009_NQX_BUY_M15",
+  "supersedes_frontier_version": "V255",
+  "sequencing_policy": {
+    "path": "governance/QROS_PUBLIC1000_SEED0076_GA1_COMPLETE_BEFORE_ECONOMIC_GATE_POLICY_v1.0.json",
+    "status": "ACTIVE_PRIMARY_FOR_SEED0076_SHARD_SEQUENCE",
+    "git_blob_sha1": "9d4b1b038c75653f72f84024d5b7a6581123a61b"
+  },
+  "verified_counts": {
+    "shards_total": 60,
+    "ga1_formally_completed_shards": 8,
+    "ga1_remaining_shards": 52,
+    "first_gate_queue_count": 8,
+    "first_gate_pending": 8,
+    "first_gate_terminal": 0
+  },
+  "subject": {
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M15",
+    "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+    "shard_ordinal": 9,
+    "expected_signal_configs": 804672,
+    "expected_config_root_sha256": "46e39c9108d4eec03d847fe3b405bdd7777976ba048f27705abfb7a3c869f947"
+  },
+  "new_ga1_authorized": true,
+  "authorization_scope": "EXACTLY_SHARD09_NQX_BUY_M15",
+  "scientific_execution_authorized": true,
+  "first_gate_execution_authorized": false,
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "first_gate_economic_scoring_executed": false,
+  "seed0486_status": "OBSERVATIONAL_RESERVE_NOT_ACTIVE_QUEUE",
+  "current_blocker": "LOCAL_RUNTIME_SHA256_REHASH_TIMEOUT",
+  "next_action": "REHASH MATERIALIZED NQX PARTS 001-003; IF 3/3 MATCH, EXECUTE GA1 SHARD09 NQX/BUY/M15 USING THE FROZEN V236 WRAPPER. NO ECONOMIC PNL, GA2 OR HOLDOUT.",
+  "resume_contract": "Continue Seed0076 serial GA1 shard construction until 60/60. One shard at a time. Persist group checkpoints, merge/oracle/global-pack evidence, then authorize the next frozen shard. Do not open economic scoring before GA1 60/60.",
+  "resume_authorization": {
+    "path": "control/QROS_PUBLIC_1000_SEED0076_GA1_RESUME_AUTHORIZATION_20260920_v1.json",
+    "git_blob_sha1": "5c5fb88a771c4e89b772e3613a910efcc4f748cb"
+  },
+  "preexec_checkpoint": {
+    "path": "control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD09_NQX_BUY_M15_PREEXEC_CHECKPOINT_20260920_v1.json",
+    "git_blob_sha1": "6eb58e2a829d21b84af03a300be2a3203f9c1681"
+  },
+  "seed0486_correction": {
+    "path": "control/QROS_PUBLIC_1000_SEED0486_OBSERVATIONAL_RESERVE_CORRECTION_20260920_v1.json",
+    "git_blob_sha1": "91fe49a42c1e68f8d9ac31e9a0b94f8c489de75d"
+  }
+}
