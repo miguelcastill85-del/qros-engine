@@ -1,0 +1,124 @@
+{
+  "schema": "QROS_CWS_GROUP11_DROPBOX_REMOTE_CARRIERS_8OF8_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "subject": "W09C_XAUUSD_BUY_M1_GROUP11",
+  "authority": {
+    "current_chat_handoff_pointer_blob_sha1": "373f7f06d13b16c183e65051e4985e7f2d55a2c1",
+    "file_request_bridge_commit": "96d337fcd7175f143ac74f9a93fc6811f1ca09d5",
+    "runtime_manifest_blob_sha1": "622f21a62c532daaa824eafb202cf00a1c2b1a5d",
+    "materializer_blob_sha1": "b543c8585258b21a007af84a53a944bba58678e6"
+  },
+  "remote_carrier_store": {
+    "provider": "Dropbox",
+    "folder": "/QROS_CWS_GROUP11_CARRIER_BRIDGE_20260919",
+    "file_request_id": "1l42vq84b0347ueaxd19",
+    "file_request_file_count": 8,
+    "file_request_is_open": true
+  },
+  "verification_method": {
+    "canonical_sha256_source": "local canonical uploads already frozen and reverified",
+    "remote_identity_check": "Dropbox content_hash + exact byte size",
+    "dropbox_content_hash_method": "SHA256(concatenation of SHA256 digests of consecutive 4 MiB blocks)",
+    "result": "PASS_8_OF_8_BYTE_IDENTITY"
+  },
+  "files": [
+    {
+      "part": 1,
+      "file_id": "id:3hcdcMy0pHAAAAAAAAAAOA",
+      "remote_name": "Miguel Castillo - QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip",
+      "bytes": 102025545,
+      "canonical_sha256": "d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70",
+      "dropbox_content_hash": "b94e007e1adaa7c3168452d8866f940123514591c1f6a4868507b3e20b439d1b"
+    },
+    {
+      "part": 2,
+      "file_id": "id:3hcdcMy0pHAAAAAAAAAAOQ",
+      "remote_name": "Miguel Castillo - QROS_XAU_FULL_HISTORY_v2_part002-of-035.zip",
+      "bytes": 100422805,
+      "canonical_sha256": "159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a",
+      "dropbox_content_hash": "cf5ad8368224e39d501a6dc2113ed6b26c07287557bbcf1bbd25e4158d81910c"
+    },
+    {
+      "part": 3,
+      "file_id": "id:3hcdcMy0pHAAAAAAAAAAOg",
+      "remote_name": "Miguel Castillo - QROS_XAU_FULL_HISTORY_v2_part003-of-035.zip",
+      "bytes": 99870071,
+      "canonical_sha256": "ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9",
+      "dropbox_content_hash": "369a065b0fad46e1c57916ea3248b5a52f8e72f89588185ec42a4e66401c8998"
+    },
+    {
+      "part": 4,
+      "file_id": "id:3hcdcMy0pHAAAAAAAAAAOw",
+      "remote_name": "Miguel Castillo - QROS_XAU_FULL_HISTORY_v2_part004-of-035.zip",
+      "bytes": 101825467,
+      "canonical_sha256": "241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241",
+      "dropbox_content_hash": "7c55394eb73595cfb2ccc0a8bb2cab132f34f07453aa2059279ff672ab4df4d0"
+    },
+    {
+      "part": 5,
+      "file_id": "id:3hcdcMy0pHAAAAAAAAAAPA",
+      "remote_name": "Miguel Castillo - QROS_XAU_FULL_HISTORY_v2_part005-of-035.zip",
+      "bytes": 101538275,
+      "canonical_sha256": "3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad",
+      "dropbox_content_hash": "ccd855540745e983a77fdf8eea6b998fbda5d305f6a14243d4fdc5d3396354f4"
+    },
+    {
+      "part": 6,
+      "file_id": "id:3hcdcMy0pHAAAAAAAAAAPQ",
+      "remote_name": "Miguel Castillo - QROS_XAU_FULL_HISTORY_v2_part006-of-035.zip",
+      "bytes": 102849303,
+      "canonical_sha256": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8",
+      "dropbox_content_hash": "8ceb971faeee0203294b8f942366a9674efd4daa207fda87c0d019427bc07879"
+    },
+    {
+      "part": 7,
+      "file_id": "id:3hcdcMy0pHAAAAAAAAAAPg",
+      "remote_name": "Miguel Castillo - QROS_XAU_FULL_HISTORY_v2_part007-of-035.zip",
+      "bytes": 104515054,
+      "canonical_sha256": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185",
+      "dropbox_content_hash": "fc135162ba1b5924ad1aae0f60a810f79a5280e379413c6480021830954cc233"
+    },
+    {
+      "part": 8,
+      "file_id": "id:3hcdcMy0pHAAAAAAAAAAPw",
+      "remote_name": "Miguel Castillo - QROS_XAU_FULL_HISTORY_v2_part008-of-035.zip",
+      "bytes": 104291866,
+      "canonical_sha256": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b",
+      "dropbox_content_hash": "d90256654192992471219ff1af04b89a0e9b40d36ee8d7069126b7d0496e0560"
+    }
+  ],
+  "derived_targets": {
+    "dev": {
+      "bytes": 2573500596,
+      "records": 151382388,
+      "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
+    },
+    "m1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_m1_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c"
+  },
+  "runtime_reconciliation": {
+    "prior_owner_run_id": 35476612542,
+    "prior_owner_run_status": "completed",
+    "prior_owner_run_conclusion": "success",
+    "stage1_run_id": 35476823797,
+    "stage1_run_status": "completed",
+    "stage1_run_conclusion": "success",
+    "live_process_claim": false,
+    "current_fenced_lease_state_in_repo": "ACTIVE",
+    "current_execution_intent_status": "CARRIER_MATERIALIZATION_REQUIRED",
+    "spawn_authorized": false
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "group11_spawn_started": false,
+    "group12_opened": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "decision": "DURABLE_REMOTE_CARRIER_STORE_PASS_8_OF_8; RUNNER_MATERIALIZATION_REQUIRED_BEFORE_GROUP11",
+  "next_automatic_action": "GENERATE JUST-IN-TIME TEMPORARY DOWNLOAD URLS FOR THE 8 VERIFIED DROPBOX FILE_IDS; ON A ZERO-ADDITIONAL-COST AUTHORIZED RUNNER, DOWNLOAD ONCE, VERIFY CANONICAL SHA256 8/8, RUN FROZEN MINIMAL DEV MATERIALIZER, BUILD/VERIFY M1 AND M1 INDICATORS, PERSIST CARRIER PASS, THEN LET DEK SCHEDULE EXACTLY ONE GROUP11 TRANSITION. DO NOT SPAWN GROUP11 BEFORE THESE PASSES."
+}
