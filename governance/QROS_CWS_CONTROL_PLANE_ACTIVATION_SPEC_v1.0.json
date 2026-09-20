@@ -1,7 +1,7 @@
 {
   "schema": "QROS_CWS_CONTROL_PLANE_ACTIVATION_SPEC_1.0",
   "date": "2026-09-19",
-  "status": "CONTROL_PLANE_SHADOW_ACTIVE",
+  "status": "SUPERSEDED_BY_GLOBAL_EXECUTION_GOVERNOR",
   "subject": "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
   "prerequisite_receipts": [
     "control/QROS_CWS_V1_1_EXTERNAL_VALIDATION_PASS_20260919_v1.json",
@@ -60,7 +60,7 @@
   "initial_mode": "CONTROL_PLANE_SHADOW_ACTIVE",
   "full_active_mode_requires": "REAL NON-ECONOMIC CONTROL-PLANE SOAK PASS; SCIENTIFIC/ECONOMIC BOUNDARIES REMAIN SEPARATELY AUTHORIZED.",
   "scientific_effect": "NONE",
-  "current_authorization": "CONTROL_PLANE_SHADOW_ACTIVE",
+  "current_authorization": "SUPERSEDED",
   "activation_receipts": {
     "core": "control/QROS_CWS_V1_1_EXTERNAL_VALIDATION_PASS_20260919_v1.json",
     "autochain": "control/QROS_CWS_AUTOCHAIN_TERMINAL_PASS_20260919_v1.json",
@@ -69,5 +69,11 @@
     "main_shadow": "control/QROS_CWS_W09C_MAIN_SHADOW_REVALIDATION_PASS_20260919_v1.json",
     "activation_guard": "control/QROS_CWS_CONTROL_PLANE_ACTIVATION_GUARD_PASS_20260919_v1.json",
     "chat_handoff_gate": "control/QROS_CHAT_NON_BLOCKING_HANDOFF_GATE_ACTIVATION_PASS_20260919_v1.json"
-  }
+  },
+  "superseded_by": {
+    "governor": "governance/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_v1.0.json",
+    "pointer": "control/QROS_CWS_GLOBAL_EXECUTION_ROUTER_CURRENT.json",
+    "receipt": "control/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_ACTIVATION_PASS_20260919_v1.json"
+  },
+  "note": "Historical control-plane activation contract preserved; current execution authority is the CWS global execution governor."
 }
