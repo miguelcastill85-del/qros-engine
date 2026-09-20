@@ -1,0 +1,57 @@
+{
+  "schema": "QROS_ZERO_COST_CLOUD_RUNTIME_VERIFICATION_1.0",
+  "observed_at_utc": "2026-09-20T15:07:00Z",
+  "status": "BLOCKED_BY_ACCOUNT_SPECIFIC_ZERO_COST_PROOF",
+  "candidate": "GITHUB_ACTIONS_PRIVATE_STANDARD_LINUX",
+  "authority": {
+    "main_head_observed": "556d8b16d723b1154fa3469f98e93ede21316489",
+    "current_chat_handoff_blob": "26eb54f0bfd5186a2e8b6f34669beae4a533775f",
+    "runtime_enforcement_blob": "82bb892f2aa75732a5907b33b95e70a64c4f397d",
+    "first_gate_remote_hash_receipt_commit": "206c971c7d21e9710c3710e5eaa86890bf85390d"
+  },
+  "qrcel_reconciliation": {
+    "newer_main_commit": "556d8b16d723b1154fa3469f98e93ede21316489",
+    "files_changed": [
+      "AGENTS.md",
+      "control/QRCEL_ENGINEERING_CURRENT.json",
+      "engineering/qrcel/releases/0.5.0/FRESH_RELEASE_VALIDATION.json",
+      "engineering/qrcel/releases/0.5.0/RELEASE_READBACK.json",
+      "engineering/qrcel/releases/0.5.0/SESSION.json",
+      "engineering/qrcel/releases/0.5.0/SESSION_CHECKPOINT.json"
+    ],
+    "affects_current_chat_handoff": false,
+    "affects_carrier_bridge": false,
+    "classification": "ORTHOGONAL_ENGINEERING_ADVANCE"
+  },
+  "verified_provider_facts": {
+    "private_repositories_receive_included_standard_runner_minutes": true,
+    "free_plan_minutes_per_month": 2000,
+    "pro_plan_minutes_per_month": 3000,
+    "no_valid_payment_method_blocks_usage_after_included_quota": true,
+    "hard_budget_can_block_additional_metered_usage": true,
+    "public_standard_runners_free": true
+  },
+  "missing_account_specific_evidence": [
+    "Whether the repository owner currently has a valid payment method on file.",
+    "Whether an Actions hard budget with stop-usage is currently active.",
+    "Current remaining included Actions minutes for the billing cycle."
+  ],
+  "zero_cost_gate": {
+    "pass_if_any": [
+      "NO_VALID_PAYMENT_METHOD_ON_FILE_AND_INCLUDED_MINUTES_AVAILABLE",
+      "ACTIONS_HARD_BUDGET_WITH_STOP_USAGE_ACTIVE_AND_INCLUDED_MINUTES_AVAILABLE"
+    ],
+    "current_result": "NOT_VERIFIED",
+    "launch_allowed": false
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "group11_spawn_started": false,
+    "group12_opened": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "next_automatic_action": "OBTAIN ACCOUNT-SPECIFIC ZERO-COST PROOF FOR GITHUB ACTIONS WITHOUT INCURRING A RUN. IF PASS, PERSIST LAUNCH INTENT FOR ONE CLOUD ADOPTABLE DEV-M1-INDICATOR JOB. IF NOT OBSERVABLE, SWITCH TO ANOTHER CLOUD RUNTIME WHOSE ZERO-COST CONDITION IS VERIFIABLE WITHOUT USER PC."
+}
