@@ -4,36 +4,36 @@
   "date": "2026-09-20",
   "release": {
     "repository": "miguelcastill85-del/qros-engine",
-    "commit": "b1fbff6a1aeb4f9da23bd9107f135b0579829fb6",
-    "branch": "qrcel/hardening-0.5.0-20260920",
-    "version": "0.5.0-experimental",
+    "commit": "9cb67fe7e5051491d88b2c0e3197fce5e878feb6",
+    "branch": "qrcel/explicit-goals-0.6.0-20260920",
+    "version": "0.6.0-experimental",
     "manifest_path": "cognitive/COGNITIVE_MANIFEST.json",
-    "manifest_blob_sha1": "eeb5920cbeeaf4b67aa911b26e05ec7a7c399cfa",
-    "manifest_sha256": "891eae102d524b5ffc8b12c81905c2ba2cfb93605a29be6a11452ff05fc99afd",
+    "manifest_blob_sha1": "e6451ecc267cac23898d4494567432db6bcae031",
+    "manifest_sha256": "18504e00b31d5c5caf8015253e271098e49e65fbdad65080d49a00a270e536d5",
     "bootstrap_path": "cognitive/trusted_bootstrap.py",
     "bootstrap_sha256": "5635677b6945e503fba52352799e33ec773fc7fdc88c399e2a0ed2d4fdd5e47a"
   },
   "acceptance": {
-    "path": "cognitive/checkpoints/hardening_050/ACCEPTANCE.json",
-    "sha256": "084ada1b9198d8caa2e1242f5247f7ee6c94d68259d250c1000125b4fe681484",
-    "tests_passed": 202,
-    "unique_new_regressions": 25,
-    "scope": "BOUNDED_ENGINEERING_Q01_Q05_RESOURCE_AND_RECOVERY"
+    "path": "cognitive/checkpoints/goal_060/ACCEPTANCE.json",
+    "sha256": "13263e2837f93d14975bd701fe74fec1e8cb066e9b614d40a74fe12afa835d45",
+    "tests_passed": 220,
+    "unique_new_regressions": 43,
+    "scope": "Q01_Q05_RESOURCE_RECOVERY_AND_EXPLICIT_GOAL_COVERAGE"
   },
   "run_queue": {
-    "path": "cognitive/checkpoints/hardening_050/RUN_QUEUE.json",
-    "sha256": "3e7065437828bede8a494838d583d2563d7fb3004399e6b66b54da6c96cad53b"
+    "path": "cognitive/checkpoints/goal_060/RUN_QUEUE.json",
+    "sha256": "92df37bec754370de6e9cbb016f0616d10182e715e87783f6bf64d55e3784b38"
   },
   "durable_session": {
-    "path": "engineering/qrcel/releases/0.5.0/SESSION.json",
-    "sha256": "f84a325670980d35bb8141e81ebff592a41b62fb081dda7737a5a7840e95edea",
-    "checkpoint_path": "engineering/qrcel/releases/0.5.0/SESSION_CHECKPOINT.json",
-    "checkpoint_sha256": "a9f34abb71ee70c326f9c10a036143e3232a0844101ff338eff19981aca57449",
+    "path": "engineering/qrcel/releases/0.6.0/SESSION.json",
+    "sha256": "e18c559695dadc363f930492ab2f0102ab3668cabe642c72a5eb0f4e9ff90c79",
+    "checkpoint_path": "engineering/qrcel/releases/0.6.0/SESSION_CHECKPOINT.json",
+    "checkpoint_sha256": "25bb4fb64e05b553e84b823ed7fedd3f7cda77580ed03726f3ffc0374934fe2a",
     "capability_reusable": false
   },
   "fresh_release_validation": {
-    "path": "engineering/qrcel/releases/0.5.0/FRESH_RELEASE_VALIDATION.json",
-    "sha256": "db53c3a03321d606cac4a1d2c957743e2d75f0069a3eb09a08e60c074853543b"
+    "path": "engineering/qrcel/releases/0.6.0/FRESH_RELEASE_VALIDATION.json",
+    "sha256": "9a7109949a4b9f91cc90d801227b991f68d7f0ac050c0993c0e2573a903d6716"
   },
   "reference_epoch": 191,
   "reference_role": "HISTORICAL_ENGINEERING_ONLY",
@@ -46,5 +46,32 @@
   "background_running": false,
   "automatic_execution_in_every_chat": false,
   "capability_recheck_required": true,
-  "recovery": "Load the pinned Governor reference and verified START_HERE; verify external launcher hash before isolated execution; do not replay closed tests/model experiments as new research."
+  "recovery": "Load the pinned Governor reference and verified START_HERE; verify external launcher hash before isolated execution; do not replay closed tests/model experiments as new research.",
+  "explicit_goal_example": {
+    "scope": "SYNTHETIC_NON_SCIENTIFIC_NOT_STRATEGY_PROGRESS",
+    "validation_path": "engineering/qrcel/releases/0.6.0/GOAL_CLI_VALIDATION.json",
+    "validation_sha256": "3c39b0fbebe22952c8657a044bdb6fccd81b413628a9ecb7f4e4bb1421691fcf",
+    "artifacts": {
+      "PLAN.json": {
+        "path": "engineering/qrcel/releases/0.6.0/PLAN.json",
+        "sha256": "e273e50dc088d4b1b3eebe48c0e1bff97c37c2c663429b052fcd14d6d064b591"
+      },
+      "GOAL.json": {
+        "path": "engineering/qrcel/releases/0.6.0/GOAL.json",
+        "sha256": "b13fcaf8066b11de841da24cd3499fba876f0c849fa2405cd9cbca53b8f54a83"
+      },
+      "MAPPING.json": {
+        "path": "engineering/qrcel/releases/0.6.0/MAPPING.json",
+        "sha256": "f899281dd472c30897947f11e613152a9996a7a8516e02a563f6f7c5e3a0df73"
+      },
+      "RESUME_ANCHOR.json": {
+        "path": "engineering/qrcel/releases/0.6.0/RESUME_ANCHOR.json",
+        "sha256": "b8d5051499ca112603dec433871d9310e87290b221d47a38cdb2e4bedbf143f3"
+      },
+      "KERNEL_CHECKPOINT.json": {
+        "path": "engineering/qrcel/releases/0.6.0/KERNEL_CHECKPOINT.json",
+        "sha256": "83e2ce55f4d37a36a002ef072153a0a398d8a1ab60b706732fb363194c5392ae"
+      }
+    }
+  }
 }

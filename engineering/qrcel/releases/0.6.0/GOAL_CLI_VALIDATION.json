@@ -1,0 +1,114 @@
+{
+  "schema": "QRCEL_EXPLICIT_GOAL_CLI_VALIDATION_V1",
+  "status": "PASS",
+  "scope": "TWO_FRESH_ROOTS_ISOLATED_LAUNCHER_V191_SYNTHETIC_LOCAL_TASKS",
+  "records": [
+    {
+      "background_running": false,
+      "blocked": [],
+      "capability": {
+        "inheritable": false,
+        "local_transaction_observed": true,
+        "model_calls_available": false,
+        "observed_at_ns": 1789947953249011952,
+        "operations": [
+          "EXACT_SUM",
+          "CHECK_DAG"
+        ],
+        "pid": 17,
+        "scientific_dispatch": false,
+        "session_id": "ac1b37a1-f602-4a92-9acf-028fe690916d",
+        "sqlite_version": "3.53.1"
+      },
+      "checkpoint_sha256": "83e2ce55f4d37a36a002ef072153a0a398d8a1ab60b706732fb363194c5392ae",
+      "completed_tasks": 4,
+      "errors": [],
+      "goal_completion": {
+        "covered": [
+          "R-A",
+          "R-B",
+          "R-C",
+          "R-D"
+        ],
+        "goal_sha256": "b13fcaf8066b11de841da24cd3499fba876f0c849fa2405cd9cbca53b8f54a83",
+        "natural_language_adequacy_verified": false,
+        "pending": [],
+        "scientific_effect_authorized": false,
+        "scope": "EXPLICIT_LOCAL_REQUIREMENTS_ONLY",
+        "status": "EXPLICIT_REQUIREMENTS_SATISFIED"
+      },
+      "history_authentication": "UNATTESTED_LOCAL_HISTORY",
+      "model_calls": 0,
+      "newly_completed": 4,
+      "persisted_results_semantically_revalidated": true,
+      "resume_anchor": {
+        "binding_sha256": "861c82b57db6b338c3fc466710b2aef076d4917ea97d57168f7ea14ec946ec10",
+        "event_count": 8,
+        "head_sha256": "09f8a09f0c7193882a9d98320b3186d8478fc79d07632b447200a34fb1521d0e",
+        "schema": "QRCEL_RESUME_ANCHOR_V1"
+      },
+      "schema": "QRCEL_KERNEL_RUN_RECEIPT_V1",
+      "scientific_effect_authorized": false,
+      "semantic_revalidations_this_instance": 4,
+      "status": "COMPLETED_LOCAL_TASKS"
+    },
+    {
+      "background_running": false,
+      "blocked": [],
+      "capability": {
+        "inheritable": false,
+        "local_transaction_observed": true,
+        "model_calls_available": false,
+        "observed_at_ns": 1789947953506848616,
+        "operations": [
+          "EXACT_SUM",
+          "CHECK_DAG"
+        ],
+        "pid": 19,
+        "scientific_dispatch": false,
+        "session_id": "e7317463-140c-4d22-9a09-e056af0126f2",
+        "sqlite_version": "3.53.1"
+      },
+      "checkpoint_sha256": "83e2ce55f4d37a36a002ef072153a0a398d8a1ab60b706732fb363194c5392ae",
+      "completed_tasks": 4,
+      "errors": [],
+      "goal_completion": {
+        "covered": [
+          "R-A",
+          "R-B",
+          "R-C",
+          "R-D"
+        ],
+        "goal_sha256": "b13fcaf8066b11de841da24cd3499fba876f0c849fa2405cd9cbca53b8f54a83",
+        "natural_language_adequacy_verified": false,
+        "pending": [],
+        "scientific_effect_authorized": false,
+        "scope": "EXPLICIT_LOCAL_REQUIREMENTS_ONLY",
+        "status": "EXPLICIT_REQUIREMENTS_SATISFIED"
+      },
+      "history_authentication": "EXTERNAL_PREFIX_VERIFIED",
+      "model_calls": 0,
+      "newly_completed": 0,
+      "persisted_results_semantically_revalidated": true,
+      "resume_anchor": {
+        "binding_sha256": "861c82b57db6b338c3fc466710b2aef076d4917ea97d57168f7ea14ec946ec10",
+        "event_count": 8,
+        "head_sha256": "09f8a09f0c7193882a9d98320b3186d8478fc79d07632b447200a34fb1521d0e",
+        "schema": "QRCEL_RESUME_ANCHOR_V1"
+      },
+      "schema": "QRCEL_KERNEL_RUN_RECEIPT_V1",
+      "scientific_effect_authorized": false,
+      "semantic_revalidations_this_instance": 4,
+      "status": "COMPLETED_LOCAL_TASKS"
+    }
+  ],
+  "new_model_calls": 0,
+  "scientific_dispatches": 0,
+  "artifact_sha256": {
+    "PLAN.json": "e273e50dc088d4b1b3eebe48c0e1bff97c37c2c663429b052fcd14d6d064b591",
+    "GOAL.json": "b13fcaf8066b11de841da24cd3499fba876f0c849fa2405cd9cbca53b8f54a83",
+    "MAPPING.json": "f899281dd472c30897947f11e613152a9996a7a8516e02a563f6f7c5e3a0df73",
+    "RESUME_ANCHOR.json": "b8d5051499ca112603dec433871d9310e87290b221d47a38cdb2e4bedbf143f3",
+    "KERNEL_CHECKPOINT.json": "83e2ce55f4d37a36a002ef072153a0a398d8a1ab60b706732fb363194c5392ae"
+  }
+}
