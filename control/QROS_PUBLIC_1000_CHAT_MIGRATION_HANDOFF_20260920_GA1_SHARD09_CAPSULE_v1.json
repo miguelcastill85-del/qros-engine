@@ -1,0 +1,37 @@
+{
+  "schema": "QROS_PUBLIC1000_CHAT_MIGRATION_HANDOFF_GA1_SHARD09_CAPSULE_1.0",
+  "date": "2026-09-20",
+  "status": "ACTIVE",
+  "active_campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "stable_frontier_version": "V257",
+  "completed_shards": 8,
+  "remaining_shards": 52,
+  "current_shard": {
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M15",
+    "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+    "shard_ordinal": 9,
+    "expected_signal_configs": 804672,
+    "expected_config_root_sha256": "46e39c9108d4eec03d847fe3b405bdd7777976ba048f27705abfb7a3c869f947"
+  },
+  "group_map": {
+    "path": "control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD09_GROUP_MAP_20260920_v1.json",
+    "git_blob_sha1": "f32e779f623beb6bac0774e9a2e9e612142ea0c0",
+    "sha256": "a0541429ecb30dab65266dc496b6ae906815438a84f6da8c3a5da3cc43459140"
+  },
+  "execution_capsule": {
+    "path": "control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD09_EXECUTION_CAPSULE_20260920_v1.json",
+    "git_blob_sha1": "567ea8efc16db0322e8c35e06711ca5296e3f127"
+  },
+  "current_blocker": "LOCAL_COMPUTE_RUNTIME_TRANSPORT_UNAVAILABLE",
+  "next_automatic_action": "ON NEXT RESPONSIVE COMPUTE RUNTIME: REHASH NQX PARTS 001-003; MATERIALIZE DEV; BUILD BARS/INDICATORS/M15 TICK CACHE; RUN GROUPS 0..23 WITH CHECKPOINTS 8/16/20/24; MERGE V228; ORACLE V228. NO PNL.",
+  "anti_repeat": [
+    "DO_NOT_RECOMPUTE_SHARDS_1_TO_8",
+    "DO_NOT_OPEN_SHARD10",
+    "DO_NOT_OPEN_SEED0486",
+    "DO_NOT_OPEN_FIRST_GATE_GA2_HOLDOUT",
+    "DO_NOT_CONFUSE_24_GROUPS_WITH_60_SHARDS",
+    "DO_NOT_REDESIGN_INFRASTRUCTURE"
+  ]
+}

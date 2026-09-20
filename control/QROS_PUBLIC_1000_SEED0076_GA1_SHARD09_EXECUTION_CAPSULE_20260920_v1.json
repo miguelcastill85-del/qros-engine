@@ -1,0 +1,216 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_GA1_SHARD_EXECUTION_CAPSULE_1.0",
+  "date": "2026-09-20",
+  "status": "READY_EXCEPT_COMPUTE_RUNTIME",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "shard": {
+    "ordinal": 9,
+    "domain": {
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "M15"
+    },
+    "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+    "descriptor_sha256": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+    "signal_configs": 804672,
+    "ordered_config_id_stream_root_sha256": "46e39c9108d4eec03d847fe3b405bdd7777976ba048f27705abfb7a3c869f947",
+    "config_stream_parity": "PASS_804672_OF_804672"
+  },
+  "group_execution": {
+    "group_count": 24,
+    "configs_per_group": 33528,
+    "group_map_sha256": "a0541429ecb30dab65266dc496b6ae906815438a84f6da8c3a5da3cc43459140",
+    "checkpoints": [
+      "8/24",
+      "16/24",
+      "20/24",
+      "24/24"
+    ]
+  },
+  "frozen_sources": [
+    {
+      "path": "research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json",
+      "git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf"
+    },
+    {
+      "path": "scripts/qros_seed0076_gate_a_build_shard_manifest.py",
+      "git_blob_sha1": "ddb21b0bfa0a6a3f015949e8cae296701a19e833"
+    },
+    {
+      "path": "scripts/qros_seed0076_materialize_minimal_dev.py",
+      "git_blob_sha1": "b543c8585258b21a007af84a53a944bba58678e6"
+    },
+    {
+      "path": "scripts/qros_seed0076_build_bar_cache_v220.py",
+      "git_blob_sha1": "987ef26aca2507a94247bed7663493e6682aa869"
+    },
+    {
+      "path": "scripts/qros_seed0076_build_indicator_cache_v220.py",
+      "git_blob_sha1": "21a50b167e791f4474e3c358b81e40065c048280"
+    },
+    {
+      "path": "scripts/qros_seed0076_tick_raw_cache_v225.py",
+      "git_blob_sha1": "50784e14b63c8082c760b02effd0f2b71aa591a9"
+    },
+    {
+      "path": "scripts/qros_seed0076_config_stream.py",
+      "git_blob_sha1": "a01268bd8bab639977b22c419926d94306754bba"
+    },
+    {
+      "path": "scripts/qros_seed0076_structural_v220.py",
+      "git_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c"
+    },
+    {
+      "path": "scripts/qros_seed0076_gate_engine_v221.py",
+      "git_blob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2"
+    },
+    {
+      "path": "scripts/qros_seed0076_carrier_masks_v221.py",
+      "git_blob_sha1": "0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25"
+    },
+    {
+      "path": "scripts/qros_seed0076_ga1_shard_worker_v223.py",
+      "git_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041"
+    },
+    {
+      "path": "scripts/qros_seed0076_ga1_cached_wrapper_v236.py",
+      "git_blob_sha1": "2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f"
+    },
+    {
+      "path": "scripts/qros_seed0076_ga1_merge_groups_v228.py",
+      "git_blob_sha1": "112557e35398bcdb6798ab61f90f69dc10b7c72b"
+    },
+    {
+      "path": "scripts/qros_seed0076_ga1_merge_oracle_v228.py",
+      "git_blob_sha1": "5ebbbcd39c4d752b5f3faedb4f46d9fb8d609ded"
+    }
+  ],
+  "data_binding": {
+    "point": 0.1,
+    "dev_target": {
+      "file": "NQX_PACKED17_DEV_2018_2019.bin",
+      "records": 59940260,
+      "bytes": 1018984420,
+      "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf"
+    },
+    "source_parts": [
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+        "bytes": 100816656,
+        "sha256": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b"
+      },
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+        "bytes": 113466374,
+        "sha256": "53f827fa0b611d9e2b00db78b1da29b1c41f0d2d7d7e912ddcec12de42984a24"
+      },
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip",
+        "bytes": 111669173,
+        "sha256": "48463c8dd2b020356fd9b21caea470cec4e9340d8a8fd0e25bea8fcb0c512c8b"
+      }
+    ],
+    "durable_remote_identity": "control/QROS_DRIVE_FIRST_GATE_REMOTE_HASH_11OF11_PASS_20260920_v1.json",
+    "current_drive_layout_verified": true,
+    "current_materialized_sizes_verified": true,
+    "fresh_local_sha256_gate": "REQUIRED_BEFORE_EXECUTION"
+  },
+  "pipeline": [
+    {
+      "stage": "A",
+      "name": "carrier_rehash",
+      "gate": "3/3 exact ZIP SHA256"
+    },
+    {
+      "stage": "B",
+      "name": "DEV_materialization",
+      "runner": "scripts/qros_seed0076_materialize_minimal_dev.py",
+      "gate": "59940260 records / 1018984420 bytes / exact DEV SHA256"
+    },
+    {
+      "stage": "C",
+      "name": "bar_cache",
+      "runner": "scripts/qros_seed0076_build_bar_cache_v220.py",
+      "required_M15": "NQX_M15_BID_BARS.npy"
+    },
+    {
+      "stage": "D",
+      "name": "indicator_cache",
+      "runner": "scripts/qros_seed0076_build_indicator_cache_v220.py",
+      "point": 0.1,
+      "required_M15": "NQX_M15_INDICATORS.npz"
+    },
+    {
+      "stage": "E",
+      "name": "shared_tick_cache",
+      "runner": "scripts/qros_seed0076_tick_raw_cache_v225.py",
+      "point": 0.1,
+      "timeframe": "M15"
+    },
+    {
+      "stage": "F",
+      "name": "groups",
+      "runner": "scripts/qros_seed0076_ga1_cached_wrapper_v236.py",
+      "groups": "0..23 serial",
+      "expected_each": 33528
+    },
+    {
+      "stage": "G",
+      "name": "merge",
+      "runner": "scripts/qros_seed0076_ga1_merge_groups_v228.py",
+      "gate": "24 receipts / 72 artifacts / 804672 configs"
+    },
+    {
+      "stage": "H",
+      "name": "independent_merge_oracle",
+      "runner": "scripts/qros_seed0076_ga1_merge_oracle_v228.py",
+      "gate": "all identity/count/root checks PASS"
+    },
+    {
+      "stage": "I",
+      "name": "global_mask_pack",
+      "implementation_status": "VALIDATED_SEMANTICS_NO_GENERIC_DURABLE_SCRIPT_FOUND",
+      "authority": [
+        "control/QROS_PUBLIC_1000_SEED_0076_NQX_BUY_M10_GLOBAL_MASK_PACK_V239_v1.json",
+        "control/QROS_PUBLIC_1000_SEED_0076_NQX_BUY_M12_GLOBAL_MASK_PACK_V240_v1.json"
+      ],
+      "required_outputs": [
+        "global_unique_masks.maskpack",
+        "global_unique_masks.index.bin",
+        "global_config_to_class.bin"
+      ],
+      "gate": "lossless pack + independent oracle"
+    },
+    {
+      "stage": "J",
+      "name": "lossless_compaction_cleanup",
+      "authority": [
+        "control/QROS_PUBLIC_1000_SEED_0076_NQX_BUY_M10_GROUP_MASK_COMPACTION_V239_v1.json",
+        "control/QROS_PUBLIC_1000_SEED_0076_NQX_BUY_M12_GROUP_MASK_COMPACTION_V240_v1.json",
+        "control/QROS_PUBLIC_1000_SEED_0076_NQX_BUY_M12_STORAGE_CLEANUP_V240_v1.json"
+      ],
+      "gate": "decompressed identity before deletion"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "RUNTIME-001",
+      "status": "BLOCKED_BY_INFRASTRUCTURE",
+      "detail": "container/Python transport times out even for trivial commands"
+    },
+    {
+      "id": "PACK-001",
+      "status": "DEFERRED_POST_MERGE",
+      "detail": "validated pack semantics exist, generic reusable builder/oracle code not durable in repo"
+    }
+  ],
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "first_gate_execution_authorized": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "universe_changed": false,
+    "config_ids_changed": false
+  },
+  "next_action": "On a responsive compute runtime execute A-H exactly with checkpoints 8/16/20/24. Do not start shard10 or economic scoring."
+}

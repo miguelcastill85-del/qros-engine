@@ -1,12 +1,12 @@
 {
-  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.14",
-  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
-  "current_version": "V257",
-  "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V257_v1.json",
-  "target_git_blob_sha1": "ef184c025c1ef0a8a9015900d907a23a384fc60c",
+  "schema": "QROS_PUBLIC1000_FRONTIER_TARGET_7.2",
+  "version": "V257",
   "state": "BLOCKED_BY_INFRASTRUCTURE",
   "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "seed": "WEB_SEED_0076",
   "phase": "GA1_SHARD09_EXECUTION_CAPSULE_READY",
+  "supersedes_frontier_version": "V256",
   "subject": {
     "asset": "NQX",
     "side": "BUY",
@@ -21,13 +21,33 @@
     "ga1_formally_completed_shards": 8,
     "ga1_remaining_shards": 52
   },
+  "group_map": {
+    "path": "control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD09_GROUP_MAP_20260920_v1.json",
+    "git_blob_sha1": "f32e779f623beb6bac0774e9a2e9e612142ea0c0",
+    "sha256": "a0541429ecb30dab65266dc496b6ae906815438a84f6da8c3a5da3cc43459140"
+  },
+  "execution_capsule": {
+    "path": "control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD09_EXECUTION_CAPSULE_20260920_v1.json",
+    "git_blob_sha1": "567ea8efc16db0322e8c35e06711ca5296e3f127"
+  },
+  "prepared": {
+    "descriptor_hash_verified": true,
+    "group_map_24_verified": true,
+    "configs_per_group": 33528,
+    "runner_source_closure": "PASS_6_OF_6",
+    "point": 0.1,
+    "builders_bound": true,
+    "merge_v228_bound": true,
+    "merge_oracle_v228_bound": true
+  },
+  "current_blocker": "LOCAL_COMPUTE_RUNTIME_TRANSPORT_UNAVAILABLE",
   "new_ga1_authorized": true,
   "authorization_scope": "EXACTLY_SHARD09_NQX_BUY_M15",
+  "scientific_execution_authorized": true,
   "first_gate_execution_authorized": false,
   "economic_pnl_read": false,
   "holdout_open": false,
   "ga2_open": false,
-  "current_blocker": "LOCAL_COMPUTE_RUNTIME_TRANSPORT_UNAVAILABLE",
   "next_action": "ON NEXT RESPONSIVE COMPUTE RUNTIME: REHASH NQX PARTS 001-003; MATERIALIZE DEV; BUILD BARS/INDICATORS/M15 TICK CACHE; RUN GROUPS 0..23 WITH CHECKPOINTS 8/16/20/24; MERGE V228; ORACLE V228. NO PNL.",
   "resume_contract": "Do not open shard10 until shard09 durable PASS. Do not open economic scoring before GA1 60/60."
 }

@@ -1,0 +1,511 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_GA1_GROUP_MAP_1.0",
+  "date": "2026-09-20",
+  "status": "FROZEN_PRE_EXECUTION",
+  "seed": "WEB_SEED_0076",
+  "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "domain": {
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M15"
+  },
+  "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+  "descriptor_sha256": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+  "descriptor": {
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M15",
+    "base_tuples": 72,
+    "filter_packages": 11176,
+    "signal_configs": 804672
+  },
+  "ordering_authority": "qros_seed0076_ga1_shard_worker_v223.py canonical group-key ordering",
+  "base_row_ordering_authority": "qros_seed0076_config_stream.py canonical base ordering",
+  "group_count": 24,
+  "base_tuples_total": 72,
+  "configs_per_group": 33528,
+  "total_signal_configs": 804672,
+  "groups": [
+    {
+      "group_index": 0,
+      "fractal_window": 11,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        0,
+        4,
+        8
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 1,
+      "fractal_window": 11,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        1,
+        5,
+        9
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 2,
+      "fractal_window": 11,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        2,
+        6,
+        10
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 3,
+      "fractal_window": 11,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        3,
+        7,
+        11
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 4,
+      "fractal_window": 13,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        12,
+        16,
+        20
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 5,
+      "fractal_window": 13,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        13,
+        17,
+        21
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 6,
+      "fractal_window": 13,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        14,
+        18,
+        22
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 7,
+      "fractal_window": 13,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        15,
+        19,
+        23
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 8,
+      "fractal_window": 3,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        24,
+        28,
+        32
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 9,
+      "fractal_window": 3,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        25,
+        29,
+        33
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 10,
+      "fractal_window": 3,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        26,
+        30,
+        34
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 11,
+      "fractal_window": 3,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        27,
+        31,
+        35
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 12,
+      "fractal_window": 5,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        36,
+        40,
+        44
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 13,
+      "fractal_window": 5,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        37,
+        41,
+        45
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 14,
+      "fractal_window": 5,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        38,
+        42,
+        46
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 15,
+      "fractal_window": 5,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        39,
+        43,
+        47
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 16,
+      "fractal_window": 7,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        48,
+        52,
+        56
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 17,
+      "fractal_window": 7,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        49,
+        53,
+        57
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 18,
+      "fractal_window": 7,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        50,
+        54,
+        58
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 19,
+      "fractal_window": 7,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        51,
+        55,
+        59
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 20,
+      "fractal_window": 9,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        60,
+        64,
+        68
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 21,
+      "fractal_window": 9,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        61,
+        65,
+        69
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 22,
+      "fractal_window": 9,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "CLOSE_BREAK",
+      "base_indices": [
+        62,
+        66,
+        70
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    },
+    {
+      "group_index": 23,
+      "fractal_window": 9,
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "trigger": "TICK_BREAK",
+      "base_indices": [
+        63,
+        67,
+        71
+      ],
+      "rearm_modes": [
+        "LEVEL_REPLACED_ONLY",
+        "ONE_SIGNAL_PER_LEVEL",
+        "RETURN_INSIDE_OR_LEVEL_REPLACED"
+      ],
+      "base_tuple_count": 3,
+      "filter_packages_per_base_tuple": 11176,
+      "expected_signal_configs": 33528
+    }
+  ],
+  "checkpoint_barriers": [
+    {
+      "groups_complete": 8,
+      "after_group_index": 7,
+      "processed_configs": 268224
+    },
+    {
+      "groups_complete": 16,
+      "after_group_index": 15,
+      "processed_configs": 536448
+    },
+    {
+      "groups_complete": 20,
+      "after_group_index": 19,
+      "processed_configs": 670560
+    },
+    {
+      "groups_complete": 24,
+      "after_group_index": 23,
+      "processed_configs": 804672
+    }
+  ],
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false
+}
