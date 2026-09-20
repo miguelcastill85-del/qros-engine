@@ -5,7 +5,7 @@
   "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
   "stable_frontier_version": "V257",
   "current_blocker": "LOCAL_COMPUTE_RUNTIME_TRANSPORT_UNAVAILABLE",
-  "next_automatic_action": "On a future invocation, recover V257 and perform one capability action only. Do not repeat this failed LOCAL_COMPUTE_RUNTIME probe within the same invocation. If a compute runtime is available, continue shard09 from carrier SHA-256 binding; otherwise persist and exit again.",
+  "next_automatic_action": "Recover authority; route current task through CWS. If a durable runtime/lease exists, adopt it and read proof. If none exists and an eligible runtime is available, create exactly one fenced lease/effect for S00. Never poll synchronously from chat.",
   "handoff_git_blob_sha1": "87f1475e42754489082eef551780b1191d1aa908",
   "anti_freeze_v2": {
     "status": "ACTIVE_MANDATORY",
@@ -17,5 +17,13 @@
       "PERSIST_AND_EXIT"
     ],
     "timeout_rule": "PERSIST_ONLY_THEN_EXIT"
+  },
+  "extended_work": {
+    "status": "ACTIVE_MANDATORY",
+    "bridge_path": "governance/QROS_EXTENDED_WORK_EXECUTION_BRIDGE_v1.0.json",
+    "task_id": "PUBLIC1000_SEED0076_GA1_SHARD09_NQX_BUY_M15",
+    "task_spec_hash": "3326b0a859ea811141ec19d1e38099ff0b27cefaeb9cff601ca29517835cf0f1",
+    "active_runtime_lease": null,
+    "continuation_owner": "CWS_GLOBAL_GOVERNOR_PLUS_DEK_V3_PLUS_FENCED_HEAVY_SUPERVISOR"
   }
 }

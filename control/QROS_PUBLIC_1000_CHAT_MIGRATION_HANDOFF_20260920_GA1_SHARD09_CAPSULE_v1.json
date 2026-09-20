@@ -25,7 +25,7 @@
     "git_blob_sha1": "567ea8efc16db0322e8c35e06711ca5296e3f127"
   },
   "current_blocker": "LOCAL_COMPUTE_RUNTIME_TRANSPORT_UNAVAILABLE",
-  "next_automatic_action": "On a future invocation, recover V257 and perform one capability action only. Do not repeat this failed LOCAL_COMPUTE_RUNTIME probe within the same invocation. If a compute runtime is available, continue shard09 from carrier SHA-256 binding; otherwise persist and exit again.",
+  "next_automatic_action": "Recover authority; route current task through CWS. If a durable runtime/lease exists, adopt it and read proof. If none exists and an eligible runtime is available, create exactly one fenced lease/effect for S00. Never poll synchronously from chat.",
   "anti_repeat": [
     "DO_NOT_RECOMPUTE_SHARDS_1_TO_8",
     "DO_NOT_OPEN_SHARD10",
@@ -57,5 +57,14 @@
     "retry_same_invocation": false,
     "scientific_effect": "NONE",
     "next_turn_rule": "One capability action only after authority recovery."
+  },
+  "extended_work": {
+    "status": "ACTIVE_MANDATORY",
+    "bridge_path": "governance/QROS_EXTENDED_WORK_EXECUTION_BRIDGE_v1.0.json",
+    "task_spec_path": "control/persistent_execution/SEED0076_SHARD09_TASK_SPEC.json",
+    "state_path": "control/persistent_execution/SEED0076_SHARD09_EXTENDED_STATE.json",
+    "continuation_owner": "CWS_GLOBAL_GOVERNOR_PLUS_DEK_V3_PLUS_FENCED_HEAVY_SUPERVISOR",
+    "active_runtime_lease": null,
+    "next_action": "Recover authority; route current task through CWS. If a durable runtime/lease exists, adopt it and read proof. If none exists and an eligible runtime is available, create exactly one fenced lease/effect for S00. Never poll synchronously from chat."
   }
 }

@@ -1,0 +1,19 @@
+{
+  "schema": "QROS_CWS_STATE_1.1",
+  "task_id": "PUBLIC1000_SEED0076_GA1_SHARD09_NQX_BUY_M15",
+  "objective_hash": "06972d09017e64acbea435e9f675bdb70a16c1c5a605bf729870b2db754bbf04",
+  "revision": 1,
+  "task_spec_hash": "3326b0a859ea811141ec19d1e38099ff0b27cefaeb9cff601ca29517835cf0f1",
+  "seq": 0,
+  "phase": "ACTIVE",
+  "pending_effect_id": null,
+  "open_segment_id": null,
+  "open_segment_epoch": 0,
+  "open_segment_effect_id": null,
+  "last_progress_seq": -1,
+  "last_progress_window": -1,
+  "no_progress_streak": 0,
+  "progress_count": 0,
+  "terminal_root": null,
+  "blocked_reason": null
+}

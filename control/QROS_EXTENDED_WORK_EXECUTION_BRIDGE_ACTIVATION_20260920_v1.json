@@ -1,0 +1,41 @@
+{
+  "schema": "QROS_EXTENDED_WORK_EXECUTION_BRIDGE_ACTIVATION_1.0",
+  "date": "2026-09-20",
+  "status": "PASS_ACTIVE",
+  "base_main": "7f722aca61db643a9450c9a40d3bd1c533916168",
+  "bridge_version": "v1.0",
+  "task_id": "PUBLIC1000_SEED0076_GA1_SHARD09_NQX_BUY_M15",
+  "task_spec_hash": "3326b0a859ea811141ec19d1e38099ff0b27cefaeb9cff601ca29517835cf0f1",
+  "objective_hash": "06972d09017e64acbea435e9f675bdb70a16c1c5a605bf729870b2db754bbf04",
+  "validation": {
+    "EW_G0_AUTHORITY_PIN": "PASS",
+    "EW_G1_ANTIFREEZE_COMPOSITION": "PASS",
+    "EW_G2_EXACT_CAPABILITY_SCOPE": "PASS",
+    "EW_G3_EXACTLY_ONCE_POLICY_BOUND": "PASS",
+    "EW_G4_FENCED_LEASE_BOUND": "PASS",
+    "EW_G5_NO_POLLING": "PASS",
+    "EW_G6_ADOPT_BEFORE_RELAUNCH": "PASS",
+    "EW_G7_STALE_EPOCH_NO_PROMOTION": "PASS_BY_POLICY",
+    "EW_G8_PROGRESS_PROOF_REQUIRED": "PASS_BY_CWS",
+    "EW_G9_SCIENTIFIC_FIREWALL": "PASS",
+    "EW_SG1_COMPOSITION_CHAOS": {
+      "result": "PASS",
+      "episodes": 100000,
+      "violations": 0,
+      "crashes": 263484,
+      "timeouts": 352336,
+      "stale_receipts_rejected": 351796,
+      "adoptions": 0
+    }
+  },
+  "current_runtime_lease": null,
+  "worker_launched": false,
+  "reason_worker_not_launched": "No durable responsive compute runtime is currently verified. Activation of continuity architecture is independent of claiming a worker exists.",
+  "scientific_frontier_preserved": "V257",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "shard10_open": false
+  }
+}

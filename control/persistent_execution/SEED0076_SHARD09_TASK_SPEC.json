@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_CWS_TASK_SPEC_1.0",
+  "task_id": "PUBLIC1000_SEED0076_GA1_SHARD09_NQX_BUY_M15",
+  "objective_hash": "06972d09017e64acbea435e9f675bdb70a16c1c5a605bf729870b2db754bbf04",
+  "revision": 1,
+  "capabilities": [
+    "CAP_GA1",
+    "CAP_NON_ECONOMIC_CONTROL",
+    "CAP_REMATERIALIZE"
+  ],
+  "no_progress_limit": 2,
+  "call_budget": 8,
+  "authority_binding": {
+    "frontier_version": "V257",
+    "frontier_target_blob": "ef184c025c1ef0a8a9015900d907a23a384fc60c",
+    "execution_capsule_blob": "567ea8efc16db0322e8c35e06711ca5296e3f127",
+    "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+    "authorization_scope": "EXACTLY_SHARD09_NQX_BUY_M15"
+  }
+}

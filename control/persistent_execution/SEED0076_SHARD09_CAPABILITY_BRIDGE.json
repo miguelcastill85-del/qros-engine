@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_EXTENDED_WORK_CAPABILITY_BRIDGE_1.0",
+  "date": "2026-09-20",
+  "status": "ACTIVE_EXACT_SCOPE",
+  "task_id": "PUBLIC1000_SEED0076_GA1_SHARD09_NQX_BUY_M15",
+  "grants": [
+    {
+      "capability": "CAP_GA1",
+      "source": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V257_v1.json",
+      "source_condition": "new_ga1_authorized=true AND authorization_scope=EXACTLY_SHARD09_NQX_BUY_M15",
+      "scope": "SHARD09_NQX_BUY_M15_ONLY"
+    },
+    {
+      "capability": "CAP_REMATERIALIZE",
+      "source": "control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD09_EXECUTION_CAPSULE_20260920_v1.json",
+      "source_condition": "scientific pre-execution pipeline A-E frozen as prerequisites; no economic scoring",
+      "scope": "SHARD09_PREREQUISITE_MATERIALIZATION_ONLY"
+    },
+    {
+      "capability": "CAP_NON_ECONOMIC_CONTROL",
+      "source": "governance/QROS_CWS_GLOBAL_EXECUTION_ROUTING_POLICY_v1.0.json",
+      "source_condition": "control/recovery work only; cannot grant science/economic capability",
+      "scope": "TASK_CONTROL_PLANE_ONLY"
+    }
+  ],
+  "forbidden_capabilities": [
+    "CAP_GA2",
+    "CAP_ECONOMIC_PNL_READ",
+    "CAP_HOLDOUT_OPEN",
+    "CAP_DEV_BACKTEST"
+  ],
+  "no_escalation": true
+}

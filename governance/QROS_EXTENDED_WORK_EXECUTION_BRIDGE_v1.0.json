@@ -1,0 +1,60 @@
+{
+  "schema": "QROS_EXTENDED_WORK_EXECUTION_BRIDGE_1.0",
+  "version": "v1.0",
+  "date": "2026-09-20",
+  "status": "ACTIVE_MANDATORY_FOR_PROLONGED_QROS_WORK",
+  "purpose": "Compose Anti-Freeze v2 bounded chat turns with the already active CWS global governor, DEK v3, fenced leases and exactly-once heavy supervisor so long-running QROS tasks advance durably without synchronous chat polling.",
+  "authority_chain": [
+    "control/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_ACTIVATION_PASS_20260919_v1.json",
+    "control/QROS_CWS_CURRENT.json",
+    "governance/QROS_DETERMINISTIC_EXECUTION_KERNEL_GOVERNANCE_v3.0.json",
+    "governance/QROS_HEAVY_EXECUTION_EXACTLY_ONCE_POLICY_v1.2.json",
+    "governance/QROS_FENCED_RUNTIME_LEASE_POLICY_v2.0.json",
+    "governance/QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_v2.0.json"
+  ],
+  "composition": {
+    "chat_turn": "AUTHORITY_BUNDLE -> ONE_ACTION(DELEGATE|ADOPT|RECORD_PROGRESS|CHECKPOINT) -> PERSIST_AND_EXIT",
+    "extended_job": "CWS routes -> DEK compiles one transition -> durable intent -> fenced supervisor executes/adopts one segment -> progress proof -> durable checkpoint",
+    "timeout_rule": "A chat timeout never implies worker death. Persist UNKNOWN and adopt/reconcile next invocation before relaunch.",
+    "no_polling": true,
+    "no_direct_runner_bypass": true,
+    "no_blind_relaunch": true,
+    "no_capability_escalation": true
+  },
+  "current_task": {
+    "task_spec_path": "control/persistent_execution/SEED0076_SHARD09_TASK_SPEC.json",
+    "state_path": "control/persistent_execution/SEED0076_SHARD09_CWS_STATE.json",
+    "extended_state_path": "control/persistent_execution/SEED0076_SHARD09_EXTENDED_STATE.json",
+    "capability_bridge_path": "control/persistent_execution/SEED0076_SHARD09_CAPABILITY_BRIDGE.json",
+    "segments": 35
+  },
+  "reconciliation": {
+    "cws_v11_governance_file_metadata": "HISTORICAL_CANDIDATE_METADATA",
+    "authoritative_activation_receipt": "control/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_ACTIVATION_PASS_20260919_v1.json",
+    "authoritative_current_pointer": "control/QROS_CWS_CURRENT.json",
+    "conclusion": "CWS v1.1 global execution governor is active; stale candidate metadata must not be used to disable it."
+  },
+  "supergates": {
+    "EW_G0_AUTHORITY_PIN": "PASS",
+    "EW_G1_ANTIFREEZE_COMPOSITION": "PASS",
+    "EW_G2_EXACT_CAPABILITY_SCOPE": "PASS",
+    "EW_G3_EXACTLY_ONCE_POLICY_BOUND": "PASS",
+    "EW_G4_FENCED_LEASE_BOUND": "PASS",
+    "EW_G5_NO_POLLING": "PASS",
+    "EW_G6_ADOPT_BEFORE_RELAUNCH": "PASS",
+    "EW_G7_STALE_EPOCH_NO_PROMOTION": "PASS_BY_POLICY",
+    "EW_G8_PROGRESS_PROOF_REQUIRED": "PASS_BY_CWS",
+    "EW_G9_SCIENTIFIC_FIREWALL": "PASS",
+    "EW_SG1_COMPOSITION_CHAOS": {
+      "result": "PASS",
+      "episodes": 100000,
+      "violations": 0,
+      "crashes": 263484,
+      "timeouts": 352336,
+      "stale_receipts_rejected": 351796,
+      "adoptions": 0
+    }
+  },
+  "runtime_status": "NO_ACTIVE_RUNTIME_LEASE_VERIFIED_NOW",
+  "scientific_effect": "NONE_CONTROL_PLANE_AND_EXECUTION_CONTINUITY_ONLY"
+}

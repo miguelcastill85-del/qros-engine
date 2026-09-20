@@ -1,6 +1,6 @@
 {
   "schema": "QROS_CWS_CURRENT_1.0",
-  "date": "2026-09-19",
+  "date": "2026-09-20",
   "version": "v1.1",
   "status": "GLOBAL_EXECUTION_GOVERNOR_ACTIVE",
   "scheduler_blob": "692f5d496705495850981987616218ccf9bd750b",
@@ -10,7 +10,7 @@
   "validation_receipt": "control/QROS_CWS_V1_1_EXTERNAL_VALIDATION_PASS_20260919_v1.json",
   "autochain_active": true,
   "w09c_connected": true,
-  "next_automatic_action": "RESOLVE ONLY THE DURABLE CARRIER BRIDGE. ONCE AVAILABLE, CWS MUST HASH-VERIFY 8/8 SOURCES OR EXACT DERIVED CARRIERS, REMATERIALIZE/VERIFY DEV-M1-INDICATORS ON THE ACTIVE RUNNER, THEN SCHEDULE ONE DEK GROUP11 TRANSITION.",
+  "next_automatic_action": "Recover authority; route current task through CWS. If a durable runtime/lease exists, adopt it and read proof. If none exists and an eligible runtime is available, create exactly one fenced lease/effect for S00. Never poll synchronously from chat.",
   "autochain_shadow_validated": true,
   "autochain_terminal_receipt": "control/QROS_CWS_AUTOCHAIN_TERMINAL_PASS_20260919_v1.json",
   "self_application_gate": "PASS",
@@ -21,7 +21,7 @@
   "economic_pnl_read": false,
   "holdout_open": false,
   "ga2_open": false,
-  "new_ga1_authorized": false,
+  "new_ga1_authorized": true,
   "first_gate_execution_authorized": false,
   "real_control_plane_soak": {
     "step": "TERMINAL",
@@ -49,9 +49,24 @@
   },
   "current_execution_blocker": {
     "status": "BLOCKED_BY_INFRASTRUCTURE",
-    "scope": "W09C_GROUP11_ONLY",
-    "blocker": "DURABLE_RUNNER_ACCESSIBLE_CARRIER_BRIDGE_MISSING",
-    "receipt": "control/QROS_CWS_GROUP11_CARRIER_BRIDGE_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
+    "scope": "SEED0076_SHARD09_NQX_BUY_M15",
+    "blocker": "NO_DURABLE_RESPONSIVE_COMPUTE_RUNTIME_VERIFIED",
+    "receipt": "control/QROS_ANTI_FREEZE_V2_RUNTIME_PROBE_FAILURE_20260920_v1.json",
+    "extended_work_bridge": "governance/QROS_EXTENDED_WORK_EXECUTION_BRIDGE_v1.0.json",
     "global_governor_status": "ACTIVE_MANDATORY"
-  }
+  },
+  "current_extended_task": {
+    "task_id": "PUBLIC1000_SEED0076_GA1_SHARD09_NQX_BUY_M15",
+    "task_spec_hash": "3326b0a859ea811141ec19d1e38099ff0b27cefaeb9cff601ca29517835cf0f1",
+    "state_path": "control/persistent_execution/SEED0076_SHARD09_EXTENDED_STATE.json",
+    "status": "READY_TO_RESUME_WHEN_DURABLE_RUNTIME_AVAILABLE",
+    "active_runtime_lease": null,
+    "capability_scope": [
+      "CAP_GA1",
+      "CAP_REMATERIALIZE",
+      "CAP_NON_ECONOMIC_CONTROL"
+    ],
+    "scientific_authority": "V257"
+  },
+  "authorization_scope": "EXACTLY_SHARD09_NQX_BUY_M15"
 }

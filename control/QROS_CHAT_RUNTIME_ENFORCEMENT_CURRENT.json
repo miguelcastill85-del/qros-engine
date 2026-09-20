@@ -29,5 +29,12 @@
     "retry_same_invocation": false,
     "persisted_receipt_path": "control/QROS_ANTI_FREEZE_V2_RUNTIME_PROBE_FAILURE_20260920_v1.json",
     "persisted_receipt_git_blob_sha1": "8780b0fc5825cd47f4b243535ea4e9c904b2c355"
+  },
+  "extended_work": {
+    "status": "ACTIVE",
+    "bridge_path": "governance/QROS_EXTENDED_WORK_EXECUTION_BRIDGE_v1.0.json",
+    "rule": "ONE_ACTION may delegate/adopt/reconcile one durable CWS segment; the chat never polls a long-running worker.",
+    "current_task": "PUBLIC1000_SEED0076_GA1_SHARD09_NQX_BUY_M15",
+    "active_runtime_lease": null
   }
 }
