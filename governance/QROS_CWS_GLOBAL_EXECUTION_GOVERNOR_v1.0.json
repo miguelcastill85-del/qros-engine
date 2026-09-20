@@ -1,0 +1,40 @@
+{
+  "schema": "QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "MAIN_REVALIDATION_PENDING",
+  "router_policy": "governance/QROS_CWS_GLOBAL_EXECUTION_ROUTING_POLICY_v1.0.json",
+  "router_code": "scripts/qros_cws_global_execution_router_v1.py",
+  "current_pointer": "control/QROS_CWS_GLOBAL_EXECUTION_ROUTER_CURRENT.json",
+  "governing_chain": [
+    "QROS_CWS_GLOBAL_EXECUTION_GOVERNOR",
+    "QROS_CONTINUOUS_WORK_SCHEDULER_v1.1",
+    "DEK_V3"
+  ],
+  "coverage": "ALL_QROS_EXECUTION_CLASSES",
+  "role_split": {
+    "cws": "GLOBAL_CONTINUITY_AND_SCHEDULING_GOVERNOR",
+    "dek_v3": "ONLY_TRANSITION_REDUCER",
+    "scientific_authority": "ONLY_SOURCE_OF_SCIENTIFIC_AND_ECONOMIC_CAPABILITIES",
+    "chat": "EPHEMERAL_CONTROLLER_OBSERVER_ONLY"
+  },
+  "hard_rules": [
+    "ALL_QROS_EXECUTION_ROUTES_THROUGH_CWS_PLUS_DEK",
+    "NO_DIRECT_RUNNER_BYPASS",
+    "CWS_NEVER_GRANTS_OR_ESCALATES_CAPABILITIES",
+    "MISSING_CAPABILITY_BLOCKS_AND_CHECKPOINTS",
+    "AUTHORIZED_SCIENTIFIC_OR_ECONOMIC_WORK_MAY_RUN_ONLY_AFTER_SEPARATE_DURABLE_AUTHORITY_GRANTS_CAPABILITY",
+    "ONE_DEK_TRANSITION_PER_INVOCATION",
+    "CHAT_NEVER_OWNS_CONTINUITY",
+    "SCIENTIFIC_EVIDENCE_AND_GATES_ARE_NOT_MODIFIED_BY_THIS_GOVERNOR"
+  ],
+  "validation_required": {
+    "branch_run_id": 35477741814,
+    "main_run_id": 35477818510,
+    "branch_unsafe_schedule": 0,
+    "main_unsafe_schedule": 0,
+    "execution_classes": 15,
+    "adversarial_cases_each": 100000
+  },
+  "activation": false
+}
