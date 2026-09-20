@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_CWS_GROUP11_SELFHOSTED_RUNNER_QUEUE_BLOCK_1.0",
+  "date": "2026-09-19",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "subject": "W09C_XAUUSD_BUY_M1_GROUP11",
+  "objective": "Complete zero-additional-cost carrier gate on self-hosted Windows runner before any GROUP11 spawn.",
+  "authority": {
+    "current_main_commit": "dcecfc62a3f14b98a89dac3a9060c9e8a49b83f8",
+    "corrected_workflow_commit": "f8b4ba29635c0ccaf5a5bc633865e479462ce0b7",
+    "runner_label_relax_commit": "177e0aeec603a780d36838cca1888814f47432e8",
+    "remote_carrier_pass_commit": "56b51237dcb17f9f22acc7d02b7fe33c3733b0f1",
+    "corrected_workflow_blob_sha1": "cd82f77bf0fb7e7720ddd3e991bd6409aad7c016"
+  },
+  "verified": {
+    "remote_carriers": "PASS_8_OF_8_BYTE_IDENTITY",
+    "workflow_yaml_root_cause": "FIXED",
+    "github_workflow_acceptance": "VERIFIED_BY_CHECK_RUN",
+    "first_valid_check_run_id": 106003014378,
+    "first_valid_run_id": 35482612983,
+    "first_valid_run_state": "QUEUED",
+    "first_valid_run_head_sha": "f144c41cb785fb72033c4c7ef92f9d2cdf613198",
+    "latest_trigger_commit": "dcecfc62a3f14b98a89dac3a9060c9e8a49b83f8",
+    "latest_trigger_single_snapshot_check_runs": 0
+  },
+  "root_cause": {
+    "prior": "INVALID_YAML_FROM_UNINDENTED_EMBEDDED_PYTHON",
+    "prior_status": "CORRECTED",
+    "current": "SELF_HOSTED_RUNNER_NOT_YET_OBSERVED_PICKING_CARRIER_GATE_JOB",
+    "certainty": "INFERRED_FROM_QUEUED_JOB_AND_NO_RUNNER_ENUMERATION_API"
+  },
+  "cost_guard": {
+    "github_hosted_runner_used": false,
+    "self_hosted_only": true,
+    "additional_monetary_cost_authorized": false
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "group11_spawn_started": false,
+    "group12_opened": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "first_gate_execution_authorized": false
+  },
+  "next_automatic_action": "VERIFY THE USER-OWNED WINDOWS X64 SELF-HOSTED RUNNER IS ONLINE/LISTENING. ONCE THE RUNNER PICKS THE CARRIER-GATE JOB, READ ITS SINGLE RUN/JOB RESULT; IF PASS, PERSIST THE CARRIER-GATE PASS AND ONLY THEN LET DEK SCHEDULE EXACTLY ONE GROUP11 TRANSITION. DO NOT RELAUNCH WHILE AN AUTHORITATIVE QUEUED/RUNNING JOB EXISTS."
+}
