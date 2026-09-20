@@ -1,0 +1,110 @@
+{
+  "schema": "QROS_SEED0076_M12_PERFORMANCE_BENCHMARK_CONTRACT_1.0",
+  "date": "2026-09-20",
+  "status": "PREREGISTERED_NO_BENCHMARK_RESULTS",
+  "purpose": "Measure the current GA1 hot path before any optimization. No semantic changes and no economic PnL.",
+  "authority": {
+    "main_base": "030c1838cd9efe9e146269d7b8724cbd949b6706",
+    "golden_completion_path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_M12_COMPLETION_V240_v1.json",
+    "golden_completion_git_blob_sha1": "17dcc8e3b5f2a05c196ef950c1e4273cdad921f9",
+    "wrapper_path": "scripts/qros_seed0076_ga1_cached_wrapper_v236.py",
+    "wrapper_git_blob_sha1": "2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f",
+    "worker_path": "scripts/qros_seed0076_ga1_shard_worker_v223.py",
+    "worker_git_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041"
+  },
+  "golden": {
+    "domain": {
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "M12"
+    },
+    "signal_configs": 804672,
+    "distinct_mask_classes": 248010,
+    "duplicate_aliases": 556662,
+    "zero_event_class_alias_count": 69351,
+    "ordered_config_id_stream_root_sha256": "07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714",
+    "semantic_class_root_sha256": "44cf066910a98f8d2a0988efe9f0bec14834683934369fa9972bb59e870161b0",
+    "full_alias_mapping_root_sha256": "c5bec36e0b78c896f81578de5a69b42fd6f673a54630efbb8311f33e7e09c0a7",
+    "uncompressed_global_pack_bytes": 2590887817,
+    "compressed_global_pack_bytes": 683104903,
+    "group_original_bytes": 2591397468,
+    "group_compressed_bytes": 322011859
+  },
+  "benchmark_phases": [
+    {
+      "id": "B0_STATIC",
+      "requirement": "Profiler/wrapper pins and benchmark contract freeze; no compute results."
+    },
+    {
+      "id": "B1_GROUP_PANEL",
+      "representative_groups": [
+        0,
+        7,
+        15,
+        23
+      ],
+      "configs_each": 33528,
+      "purpose": "Estimate hotspot stability across structural group ordering before full-shard profiling.",
+      "pass_conditions": [
+        "worker PASS",
+        "processed_signal_configs=33528",
+        "ordered config root equals golden M12 root",
+        "no economic/holdout contamination",
+        "profile artifact produced"
+      ]
+    },
+    {
+      "id": "B2_FULL_SHARD_BASELINE",
+      "configs": 804672,
+      "purpose": "Obtain exact current full-shard baseline.",
+      "pass_conditions": [
+        "804672 configs",
+        "248010 distinct masks",
+        "556662 aliases",
+        "69351 zero-event aliases",
+        "exact semantic root",
+        "exact full alias root",
+        "exact ordered config root"
+      ]
+    },
+    {
+      "id": "B3_COMPONENT_ATTRIBUTION",
+      "purpose": "Rank measured bottlenecks; only top measured contributors become optimization targets."
+    }
+  ],
+  "metrics": [
+    "wall_seconds",
+    "child_user_seconds",
+    "child_system_seconds",
+    "max_rss",
+    "cProfile cumulative/self times",
+    "worker elapsed_seconds",
+    "artifact bytes"
+  ],
+  "optimization_rules": [
+    "No implementation change before B1 measurement.",
+    "Do not optimize a component merely because code inspection suggests it is slow; confirm by profiling.",
+    "Every optimization must reproduce golden identities before speed is considered.",
+    "Benchmark result must distinguish compute, persistence/I/O, hashing/compression, and merge/pack costs.",
+    "Do not use economic PnL."
+  ],
+  "candidate_targets_to_test_not_assume": [
+    "config-root recomputation per group",
+    "filter package/partition rebuild",
+    "structural cache rebuild",
+    "NPZ indicator load/copy behavior",
+    "SQLite FULL synchronous scratch",
+    "zlib compression/decompression in dedupe",
+    "tobytes/copy amplification",
+    "SHA256 and artifact rehash",
+    "candidate/retest/rearm kernels",
+    "merge/oracle reread",
+    "global pack materialization"
+  ],
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "universe_changed": false
+  }
+}
