@@ -50,8 +50,8 @@
     "when_user_is_active": "Interactive foreground has priority; continue research to the maximum safe boundary and report in human-first format.",
     "when_user_is_idle": "Hourly automation may fill idle gaps and must use the same human-first format for any notification.",
     "material_proposal_behavior": "Before presenting any material architecture/system/improvement, run the Best Proposal Compiler pipeline to DESIGN_FIXED_POINT; do not rely on the user to request a separate audit.",
-    "cws_rule": "For prolonged non-economic QROS work, chat must hand off to CWS/DEK durable execution. Do not use the chat as the continuity owner or long-running worker.",
-    "global_execution_routing": "All QROS execution classes must route through CWS+DEK. CWS is continuity/scheduling governor only; scientific and economic permissions remain external durable capabilities and missing capabilities fail closed."
+    "cws_rule": "ALL QROS execution, including prolonged, scientific, economic, recovery and control-plane work, must route through the CWS global execution governor and DEK v3. CWS never grants capabilities; guarded scientific/economic classes execute only when separately authorized by durable scientific authority.",
+    "global_execution_routing": "MANDATORY for all QROS execution classes. No chat/runner direct bypass. Missing durable capability blocks and checkpoints instead of executing."
   },
   "audit_preservation": {
     "scientific_rigor_unchanged": true,
@@ -65,7 +65,7 @@
     "owned_lease_release_required": true,
     "verify_STATE_lease_null": true
   },
-  "revision": 8,
+  "revision": 9,
   "scientific_effect": "NONE_OPERATIONAL_AND_COMMUNICATION_CONTROL_ONLY",
   "best_proposal_compiler": {
     "path": "governance/QROS_BEST_PROPOSAL_COMPILER_GOVERNANCE_v1.1.json",
@@ -77,22 +77,25 @@
   "continuous_work_scheduler": {
     "current_pointer": "control/QROS_CWS_CURRENT.json",
     "final_validation_receipt": "control/QROS_CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE_PASS_20260919_v1.json",
-    "status": "FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE",
+    "status": "GLOBAL_EXECUTION_GOVERNOR_ACTIVE",
     "bootstrap_required": true,
     "chat_role": "EPHEMERAL_CONTROLLER_OBSERVER_ONLY",
-    "continuation_owner": "CWS_PLUS_DEK_DURABLE_RUNNERS",
+    "continuation_owner": "CWS_GLOBAL_GOVERNOR_PLUS_DEK_DURABLE_RUNNERS",
     "non_blocking_gate": "governance/QROS_CHAT_NON_BLOCKING_HANDOFF_GATE_v1.0.json",
-    "scientific_firewall": "MUST_REMAIN_CLOSED_UNLESS_SEPARATELY_AUTHORIZED"
+    "scientific_firewall": "MUST_REMAIN_CLOSED_UNLESS_SEPARATELY_AUTHORIZED",
+    "routing_scope": "ALL_QROS_EXECUTION_CLASSES",
+    "activation_receipt": "control/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_ACTIVATION_PASS_20260919_v1.json"
   },
   "global_execution_router": {
     "pointer": "control/QROS_CWS_GLOBAL_EXECUTION_ROUTER_CURRENT.json",
-    "status": "MAIN_REVALIDATION_PENDING",
-    "router_policy": "governance/QROS_CWS_GLOBAL_EXECUTION_ROUTING_POLICY_v1.0.json",
+    "policy": "governance/QROS_CWS_GLOBAL_EXECUTION_ROUTING_POLICY_v1.0.json",
+    "governor": "governance/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_v1.0.json",
+    "activation_receipt": "control/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_ACTIVATION_PASS_20260919_v1.json",
+    "status": "ACTIVE_MANDATORY",
+    "routing_scope": "ALL_QROS_EXECUTION_CLASSES",
     "bypass_allowed": false,
     "dek_only_reducer": true,
     "cws_can_grant_capabilities": false,
-    "branch_validation_receipt": "control/QROS_CWS_GLOBAL_EXECUTION_ROUTER_BRANCH_VALIDATION_PASS_20260919_v1.json",
-    "main_validation_run_id": 35477818510,
-    "activation": false
+    "external_capability_required_for_guarded_classes": true
   }
 }
