@@ -15,6 +15,7 @@ from dataclasses import dataclass
 from fractions import Fraction
 from pathlib import Path
 from typing import Any, Mapping
+from types import MappingProxyType
 
 MANIFEST = "control/CONTROL_AUTHORITY_MANIFEST_v3.json"
 PATHS = {"head": "control/HEAD.json", "state": "control/persistent_execution/STATE.json",
@@ -149,6 +150,23 @@ class Snapshot:
         finally:
             for fd in reversed(handles):
                 os.close(fd)
+
+    def json(self, relative: str) -> tuple[dict, bytes]:
+        data = self.read(relative)
+        return parse_json(data), data
+
+
+class FrozenSnapshot:
+    """Consume the exact verified bytes; later filesystem changes are irrelevant."""
+    def __init__(self, files: Mapping[str, bytes]):
+        self.files = MappingProxyType(dict(files))
+
+    def read(self, relative: str, limit: int = 4 * 1024 * 1024) -> bytes:
+        relative_parts(relative)
+        require(relative in self.files, 'UNVERIFIED_SNAPSHOT_PATH', relative)
+        data = self.files[relative]
+        require(type(data) is bytes and len(data) <= limit, 'FILE_TOO_LARGE', relative)
+        return data
 
     def json(self, relative: str) -> tuple[dict, bytes]:
         data = self.read(relative)
@@ -491,10 +509,25 @@ def check_bound_packet(snapshot: Snapshot, contracts: Mapping[str, EvidenceContr
 
 def rational(value: Any) -> Fraction:
     require(type(value) in (str, int), "DIMENSION_REQUIRES_EXACT_NUMBER")
+    # Bound allocation BEFORE Fraction interprets an exponent or huge integer.
+    if type(value) is int:
+        require(value.bit_length() <= 2048, 'DIMENSION_RESOURCE_LIMIT')
+    else:
+        require(len(value) <= 256, 'DIMENSION_RESOURCE_LIMIT')
+        text = value.strip()
+        match = re.fullmatch(r'[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[eE]([+-]?[0-9]+))?', text)
+        if match:
+            exponent = match.group(1)
+            require(exponent is None or (len(exponent.lstrip('+-')) <= 3 and abs(int(exponent)) <= 256),
+                    'DIMENSION_RESOURCE_LIMIT')
+        else:
+            require(re.fullmatch(r'[+-]?[0-9]+/[0-9]+', text) is not None, 'INVALID_DIMENSION')
     try:
         result = Fraction(value)
     except (ValueError, ZeroDivisionError) as exc:
         raise ContractError("INVALID_DIMENSION") from exc
+    require(result.numerator.bit_length() <= 2048 and result.denominator.bit_length() <= 2048,
+            'DIMENSION_RESOURCE_LIMIT')
     require(result > 0, "NONPOSITIVE_DIMENSION")
     return result
 

@@ -1,0 +1,70 @@
+{
+  "schema": "QRCEL_ENGINEERING_QUEUE_V1",
+  "scope": "NON_SCIENTIFIC",
+  "closed": [
+    "Q01",
+    "Q02",
+    "Q03",
+    "Q04",
+    "Q05",
+    "BOUNDED_SUPERVISOR",
+    "FRESH_PROCESS_RECOVERY"
+  ],
+  "next_action": "RESOLVE_FULL_SYSTEM_EVALUATION_PREREQUISITES",
+  "items": [
+    {
+      "id": "AUTHORITY_ADAPTERS",
+      "status": "BLOCKED_CONTRACT_REQUIRED",
+      "requires": [
+        "schema-specific authority delegation",
+        "current transition contracts"
+      ],
+      "no_inferred_permission": true
+    },
+    {
+      "id": "GENERAL_OBJECTIVE_COVERAGE",
+      "status": "PENDING_DESIGN_AND_EVIDENCE",
+      "requires": [
+        "full scoped capability ontology",
+        "independent task-coverage verification",
+        "RISE fixed-point evidence"
+      ]
+    },
+    {
+      "id": "MATCHED_MODEL_SYSTEM_EVALUATION",
+      "status": "BLOCKED_CAPABILITY_AND_PROTOCOL",
+      "requires": [
+        "observed model/provider routes and configuration",
+        "enforceable equivalent budgets",
+        "frozen fresh task/scorer protocol"
+      ],
+      "current_native_evaluation_tool": "NOT_AVAILABLE_IN_EXPOSED_TOOLS",
+      "paid_fallback_authorized": false
+    },
+    {
+      "id": "SEALED_EVALUATION",
+      "status": "BLOCKED_CUSTODY",
+      "requires": [
+        "independent custodian",
+        "fresh inaccessible-to-development corpus",
+        "exposure genealogy ledger"
+      ]
+    },
+    {
+      "id": "OPERATIONAL_PROMOTION",
+      "status": "BLOCKED_UPSTREAM",
+      "requires": [
+        "full-system validation",
+        "operational shadow",
+        "canary",
+        "tested rollback",
+        "existing promotion authority"
+      ]
+    }
+  ],
+  "full_qrcel_complete": false,
+  "background_running": false,
+  "holdout_open": false,
+  "economic_pnl_read": false,
+  "ga2_open": false
+}

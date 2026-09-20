@@ -92,7 +92,7 @@ def dag_oracle(nodes):
     return True
 
 
-def execute(task,parents):
+def _evaluate(task,parents):
     level,reason=route(task)
     v.require(level!='L3','SCIENTIFIC_GATES_NOT_SATISFIED')
     evidence={'level':level,'routing_reason':reason,'independent_verification':False,'bounded_falsification':False}
@@ -134,6 +134,11 @@ def execute(task,parents):
     return output,evidence
 
 
+def execute(task,parents):
+    """Dispatch one new local task. Validation of stored results is separate."""
+    return _evaluate(task,parents)
+
+
 def open_store(path: Path, startup_timeout: float = 2.0):
     """SQLite journal-mode changes can return BUSY without waiting for busy_timeout."""
     v.require(type(startup_timeout) in (int,float) and 0 < startup_timeout <= 2, 'STARTUP_TIMEOUT')
@@ -161,13 +166,16 @@ def open_store(path: Path, startup_timeout: float = 2.0):
 
 
 class Kernel:
-    def __init__(self,repo:Path,plan:dict,plan_sha:str,authority_blob:str,run_id:str):
+    def __init__(self,repo:Path,plan:dict,plan_sha:str,authority_blob:str,run_id:str,expected_resume_anchor=None):
         self.repo=repo.resolve();self.plan=v.parse_json(v.canonical(plan));self.order=validate_plan(self.plan)
         v.require_hash(plan_sha);v.require(v.sha256(v.canonical(plan))==plan_sha,'PLAN_ANCHOR_MISMATCH')
         v.require(isinstance(run_id,str) and re.fullmatch(r'[A-Za-z0-9_-]{1,80}',run_id),'RUN_ID')
         self.authority=authority_blob;self.observe()
         self.binding={'plan_sha256':plan_sha,'authority_manifest_blob_sha1':authority_blob,'source_sha256':source_identity()}
         self.tasks={t['task_id']:t for t in self.plan['tasks']}
+        self.expected_resume_anchor=v.parse_json(v.canonical(expected_resume_anchor)) if expected_resume_anchor is not None else None
+        self._verified_results={}
+        self.semantic_revalidations=0
         base=self.repo/'cognitive'
         v.require(base.is_dir() and not base.is_symlink(),'KERNEL_NAMESPACE_UNSAFE')
         for part in ('runs',run_id):
@@ -206,7 +214,7 @@ class Kernel:
 
     def close(self):self.db.close()
 
-    def rows(self):
+    def rows(self,verify_semantics=True):
         result={}
         for identity,raw,h,evidence in self.db.execute('SELECT id,output,digest,evidence FROM completed ORDER BY id'):
             v.require(identity in self.tasks,'UNKNOWN_COMPLETED_TASK')
@@ -218,7 +226,21 @@ class Kernel:
             result[identity]={'output':v.parse_json(raw),'sha256':h,'evidence':e}
         for identity in result:
             v.require(set(self.tasks[identity]['parent_ids'])<=set(result),'IMPOSSIBLE_COMPLETION')
+        if verify_semantics:self._revalidate_results(result)
         return result
+
+    def _revalidate_results(self,result):
+        # Self-consistent hashes cannot authenticate rewritten local state. Recheck
+        # the actual pure predicate before returning any stored claim to callers.
+        for identity in self.order:
+            if identity not in result:continue
+            task=self.tasks[identity];row=result[identity]
+            key=v.sha256(v.canonical({'task':task,'row':row,'parents':[result[p]['sha256'] for p in task['parent_ids']]}))
+            if self._verified_results.get(identity)!=key:
+                expected,evidence=_evaluate(task,[result[p]['output'] for p in task['parent_ids']])
+                v.require(row['output']==expected and row['evidence']==evidence,'PERSISTED_RESULT_SEMANTIC_MISMATCH')
+                self._verified_results[identity]=key
+                self.semantic_revalidations+=1
 
     def event(self,payload):
         previous=self.db.execute('SELECT seq,digest FROM events ORDER BY seq DESC LIMIT 1').fetchone()
@@ -237,7 +259,14 @@ class Kernel:
     def integrity(self):
         v.require(self.db.execute('SELECT binding FROM meta').fetchall()==[(v.canonical(self.binding),)],'RUN_BINDING_MISMATCH')
         v.require(v.sha256(v.canonical(self.plan))==self.binding['plan_sha256'] and source_identity()==self.binding['source_sha256'],'RUN_INPUT_OR_CODE_CHANGED')
-        rows=self.rows();events=self.ledger();started=set();finished={}
+        rows=self.rows(verify_semantics=False);events=self.ledger();started=set();finished={}
+        if self.expected_resume_anchor is not None:
+            anchor=self.expected_resume_anchor
+            v.require(set(anchor)=={'schema','binding_sha256','event_count','head_sha256'} and anchor['schema']=='QRCEL_RESUME_ANCHOR_V1','RESUME_ANCHOR_SCHEMA')
+            v.require(anchor['binding_sha256']==v.sha256(v.canonical(self.binding)),'RESUME_ANCHOR_BINDING')
+            n=anchor['event_count'];v.require(type(n) is int and 0<=n<=10000,'RESUME_ANCHOR_COUNT')
+            v.require(len(events)>=n,'STATE_ROLLBACK_DETECTED')
+            v.require((events[n-1]['sha256'] if n else None)==anchor['head_sha256'],'STATE_HISTORY_REWRITTEN')
         for row in events:
             event=row['payload'].get('event');v.require(isinstance(event,dict),'EVENT_SCHEMA')
             identity=event.get('task_id');v.require(isinstance(identity,str) and identity in self.tasks,'EVENT_TASK_UNKNOWN')
@@ -253,7 +282,13 @@ class Kernel:
         for identity,row in rows.items():
             event=finished[identity]
             v.require(event.get('output_sha256')==row['sha256'] and event.get('evidence_sha256')==v.sha256(v.canonical(row['evidence'])),'OUTPUT_LEDGER_MISMATCH')
+        self._revalidate_results(rows)
         return rows,events
+
+    def resume_anchor(self):
+        _,events=self.integrity()
+        return {'schema':'QRCEL_RESUME_ANCHOR_V1','binding_sha256':v.sha256(v.canonical(self.binding)),
+                'event_count':len(events),'head_sha256':events[-1]['sha256'] if events else None}
 
     def event_once(self,payload):
         if not any(r['payload']['event']==payload for r in self.ledger()):self.event(payload)
@@ -354,6 +389,10 @@ class Kernel:
                 'completed_tasks':len(self.rows()),'newly_completed':newly_completed,'blocked':blocked,
                 'errors':errors,
                 'checkpoint_sha256':checkpoint_sha,'capability':self.capability,
+                'resume_anchor':self.resume_anchor(),
+                'history_authentication':'EXTERNAL_PREFIX_VERIFIED' if self.expected_resume_anchor is not None else 'UNATTESTED_LOCAL_HISTORY',
+                'persisted_results_semantically_revalidated':True,
+                'semantic_revalidations_this_instance':self.semantic_revalidations,
                 'scientific_effect_authorized':False,'background_running':False,'model_calls':0}
 
 
@@ -362,11 +401,19 @@ def main():
     p.add_argument('--plan',type=Path,required=True);p.add_argument('--plan-sha256',required=True)
     p.add_argument('--authority-blob',required=True);p.add_argument('--release-blob',required=True);p.add_argument('--run-id',required=True)
     p.add_argument('--restore',type=Path);p.add_argument('--checkpoint-sha256')
+    p.add_argument('--resume-anchor',type=Path);p.add_argument('--resume-anchor-sha256')
     a=p.parse_args();kernel=None
     try:
         verify_release(a.repo_root,a.release_blob)
         plan=v.parse_json(v.Snapshot(a.plan.parent).read(a.plan.name))
-        kernel=Kernel(a.repo_root,plan,a.plan_sha256,a.authority_blob,a.run_id)
+        anchor=None
+        v.require((a.resume_anchor is None)==(a.resume_anchor_sha256 is None),'RESUME_ANCHOR_ARGUMENTS')
+        if a.resume_anchor:
+            raw=v.Snapshot(a.resume_anchor.parent).read(a.resume_anchor.name)
+            v.require_hash(a.resume_anchor_sha256)
+            v.require(v.sha256(raw)==a.resume_anchor_sha256,'RESUME_ANCHOR_HASH_MISMATCH')
+            anchor=v.parse_json(raw)
+        kernel=Kernel(a.repo_root,plan,a.plan_sha256,a.authority_blob,a.run_id,expected_resume_anchor=anchor)
         if a.restore:
             v.require(a.checkpoint_sha256 is not None,'RESTORE_ANCHOR_REQUIRED')
             kernel.restore(v.Snapshot(a.restore.parent).read(a.restore.name),a.checkpoint_sha256)

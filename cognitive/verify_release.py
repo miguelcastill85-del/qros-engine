@@ -12,7 +12,7 @@ from .runtime import ContractError, Snapshot, require, require_hash, git_blob, s
 MANIFEST = 'cognitive/COGNITIVE_MANIFEST.json'
 
 
-def verify(root: Path, expected_manifest_blob: str) -> dict:
+def verify(root: Path, expected_manifest_blob: str, *, captured: dict | None = None) -> dict:
     require_hash(expected_manifest_blob, 40)
     snapshot = Snapshot(root)
     manifest, raw = snapshot.json(MANIFEST)
@@ -20,22 +20,32 @@ def verify(root: Path, expected_manifest_blob: str) -> dict:
     require(manifest.get('schema') == 'QRCEL_SOURCE_AND_ENGINEERING_EVIDENCE_MANIFEST_V1', 'RELEASE_SCHEMA')
     require(manifest.get('scientific_authority') is False, 'RELEASE_CANNOT_BE_SCIENTIFIC_AUTHORITY')
     files = manifest.get('files_sha256')
-    require(isinstance(files, dict) and bool(files), 'RELEASE_FILES_MISSING')
+    require(isinstance(files, dict) and 0 < len(files) <= 2048, 'RELEASE_FILES_MISSING')
+    verified = {MANIFEST: raw}
+    total = len(raw)
     for path, digest in files.items():
         parts = relative_parts(path)
         require(len(parts) > 1 and parts[0] == 'cognitive' and path != MANIFEST, 'RELEASE_SCOPE_VIOLATION')
         require_hash(digest)
-        require(sha256(snapshot.read(path)) == digest, 'RELEASE_FILE_MISMATCH', path)
+        data = snapshot.read(path)
+        require(sha256(data) == digest, 'RELEASE_FILE_MISMATCH', path)
+        verified[path] = data
+        total += len(data)
+        require(total <= 64 * 1024 * 1024, 'RELEASE_SIZE_LIMIT')
     # Unlisted code could otherwise be imported while all listed hashes match.
     sources = set()
     for directory, dirs, names in os.walk(root / 'cognitive', followlinks=False):
         for name in dirs + names:
             require(not (Path(directory) / name).is_symlink(), 'RELEASE_SYMLINK', name)
-        dirs[:] = [d for d in dirs if d != '__pycache__']
         for name in names:
+            require(not name.lower().endswith(('.pyc','.pyo','.so','.pyd','.dll','.dylib','.zip','.pth')),
+                    'RELEASE_UNLISTED_CODE', name)
             if name.endswith('.py'):
                 sources.add((Path(directory) / name).relative_to(root).as_posix())
     require(sources == {p for p in files if p.endswith('.py')}, 'RELEASE_UNLISTED_CODE')
+    if captured is not None:
+        captured.clear()
+        captured.update(verified)
     return {'schema': 'QRCEL_RELEASE_INTEGRITY_V1', 'status': 'PASS',
             'manifest_blob_sha1': expected_manifest_blob, 'files_verified': len(files),
             'source_files_verified': len(sources), 'tests_executed_by_this_check': False,

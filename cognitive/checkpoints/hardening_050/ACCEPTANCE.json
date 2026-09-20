@@ -1,0 +1,81 @@
+{
+  "schema": "QRCEL_HARDENING_ACCEPTANCE_V1",
+  "date": "2026-09-20",
+  "parent_release": "36ebafb399ac60cb8d30c7a86f328f13563b856b",
+  "status": "PASS_BOUNDED_ENGINEERING",
+  "source_sha256": {
+    "cognitive/__init__.py": "e1dd6ccb90aed98076af62b64aab415ca9376356127578b8ad831c4e6a914a76",
+    "cognitive/compare_repairs.py": "1be949282e606c87fa60e743161a07a6c7b6c79030e6fb72c0c59b5bab6d5a70",
+    "cognitive/evaluation.py": "159964352e6fe5fb7ede608ab39df02a821e6ff4f7e6e473284c1c2fd944330d",
+    "cognitive/kernel.py": "8b1f7a63851b73c6482e16cfaf5261f1f7531e40fb69a42b0833384261e4e22a",
+    "cognitive/qros_controller_adapter.py": "ea40f8fdc435eb83efeae444c213a666fb5aaa5f2d9e0d476582267fc0b769e6",
+    "cognitive/research/continuity_development/run.py": "d196cc383247a6abb9f179bb8f1293a005e762b0f721200e2bb991bd255d8943",
+    "cognitive/research/continuity_development/worker.py": "5eb92f2721925448601b85f59b96522a346418ed1dee77d9cdf480980d2e6b11",
+    "cognitive/research/model_development/extended_development.py": "fbb44994b0ee0e875d1defa48fce43456466ecec04b5814ca6b6cf208c6b8ba2",
+    "cognitive/research/model_development/score.py": "2146c3e7bfbe68d9cf3f9c7da1882ab6e5f201aa7d0b50cf3df5a9f492604f8b",
+    "cognitive/research/model_development/test_extended_development.py": "9c9600c5291a0fc2f85c169bc0da225f0aa8779205de46c25c0920f1cadbf8f2",
+    "cognitive/research/model_development/test_score.py": "062b9af96008300703e007a24e976ba7935a28cbad21f53499875d2a5b4581a3",
+    "cognitive/research/system_development/protocol.py": "97b5bc1fcfe52296a799f7e5b5f240839ced3adaef5539a4a0039a351d3e8365",
+    "cognitive/research/system_development/recover.py": "0fb62f8cd688b33ff94831a5d5a570071d0bd5d5baed5d4a962fa536ed2268a2",
+    "cognitive/research/system_development/run.py": "df93f61cc3dd9073d6486913a110df9b8f1eafcf3dbbe665cdf606ee6606cc7b",
+    "cognitive/research/system_development/test_protocol.py": "95afa6d34ba2109b6461b95ac72a0d90b5f1caaa5bcef49432085bcfde2fd8f4",
+    "cognitive/research/system_development/test_recover.py": "c7f16b2d83b48d30e90d15315efdff5beba163fe54b9e4d4138ee36379de34cc",
+    "cognitive/research/system_development/test_resume.py": "3d8b2e345972b9054e1228e8657319c1b8271f89ea4fc78a377202de0d836f3b",
+    "cognitive/research/system_development/worker.py": "6732f8d06fa47ca2b794ef05314fd35b0f195804aa2e81b44cc39af3662bc727",
+    "cognitive/research/treatments/preflight.py": "9e96383acb39dd5c4f9b714612adb624d419cdeaae52eb3b65234026bf9ede1d",
+    "cognitive/research/treatments/test_preflight.py": "a34bbe139d5a0fbcc98af6519c6d1bfada3c33fec831bbec3213dcafe7103a85",
+    "cognitive/runtime.py": "c7de47cf6256ed9526ff7e60cb6dbba466a7cb0f6991e9e2d66bb845834debf2",
+    "cognitive/session.py": "35e1c1290d87840c9d77f8d8a71031e52f56710c27ed19ba3bbb880fb7b959c8",
+    "cognitive/shadow.py": "8446f85f360ea34c0c390fdf3063b4a926ae7b1a248c3db360153be2372f1ca9",
+    "cognitive/tests/test_bootstrap_hardening.py": "01d0f82cd3c2d4dd1aae33e1ecc57458eb971daa0cb7763a6cda82bb7bd5b8c3",
+    "cognitive/tests/test_controller_adapter.py": "09caa15d294b27cdbe440cf38c8bc892920e996a7f91d542eca12cf3bdc645ba",
+    "cognitive/tests/test_durable_recovery.py": "6e12482928adb19f7aec94210e584b395e2a100b5f4d86300fb78c0656532fb1",
+    "cognitive/tests/test_evaluation.py": "a2adf6e81a7f6f37eedf62201296c00e7517a4d769789090c0d8eac6125a48ed",
+    "cognitive/tests/test_followup.py": "9631afc205b59ea932d621041169b09873eb1027e4412b40e253ab5b3e965ab7",
+    "cognitive/tests/test_hardening.py": "15c227146331d9bdc9c90740c3d731dbb509e6d9e3b631a70716ba6d6d22dad3",
+    "cognitive/tests/test_kernel.py": "26774c41eb7a97e04b8d6828237a1bcbf7606c3fce51e4704e5df9e9eebd931e",
+    "cognitive/tests/test_release.py": "66b4bb7f5658b628f6c9d6ec6220b647a0509eb64547fb83adec29a717a70542",
+    "cognitive/tests/test_runtime.py": "8214f36cf51a197a58c4fcf8b2068576bf95b922620064a5799b163eef69bfbd",
+    "cognitive/tests/test_session.py": "f182b556056d41006ae18da095b2746f4844014051e0c9cb746213c58f12450b",
+    "cognitive/tests/test_v191.py": "23e5116c77fdbafaccc7f4ad11ead2439fbcaba8a7b63b5160497daa8e2c78e2",
+    "cognitive/trusted_bootstrap.py": "5635677b6945e503fba52352799e33ec773fc7fdc88c399e2a0ed2d4fdd5e47a",
+    "cognitive/validate_candidate.py": "0bbd87df133be24a1bc70e436ded435adfb47ef4a30e73e3561c0ab5b9c11e35",
+    "cognitive/verify_release.py": "956dceffd9b753824e3f051ce4c026440c14f94b4048e78345175366b6981b4b"
+  },
+  "suites": [
+    {
+      "log": "cognitive/checkpoints/hardening_050/REGRESSION.log",
+      "sha256": "86bfcd5ef545b6e11dc24263ec6f4893fbb49b7c6f38317c3a5ec3400f421a9e",
+      "tests": 159,
+      "status": "PASS"
+    },
+    {
+      "log": "cognitive/checkpoints/hardening_050/RESEARCH_REGRESSION.log",
+      "sha256": "2f4b3a106beee515c15680958272791497e8dd0aa027d7976eb272eca37b4efd",
+      "tests": 43,
+      "status": "PASS"
+    }
+  ],
+  "total_tests": 202,
+  "new_unique_regressions": 25,
+  "audit_regressions_before_fix": {
+    "log": "cognitive/checkpoints/hardening_050/RED_TESTS.log",
+    "expected_failures": 5,
+    "sha256": "5a297d7ed8ec3f50ed7262f676bca5c65a830cc3d98d224884515e2579359e1a"
+  },
+  "closed_findings": {
+    "Q01": "Verified byte-backed importer and executable-extra rejection; host-pinned launcher/interpreter required",
+    "Q02": "Session consumes same captured bytes that passed verification",
+    "Q03": "Pure result semantics revalidated; external prefix anchor required to authenticate history and detect rollback",
+    "Q04": "Numeric bounds enforced before Fraction construction",
+    "Q05": "No-follow parent traversal, owned directory, pinned descriptor and auxiliary-file checks; Linux/POSIX host boundary"
+  },
+  "host_scope": "Linux CPython 3.12.14; no arbitrary-code sandbox guarantee",
+  "no_new_model_calls": true,
+  "scientific_dispatches": 0,
+  "full_qrcel_complete": false,
+  "parity": "INSUFFICIENT_EVIDENCE",
+  "changes_to_scientific_rules": false,
+  "native_handoff_check": "Existing separate local QROS handoff could not verify missing .gitignore; native runtime not changed or certified in this work",
+  "durability": "Requires independently verified remote commit/readback; this receipt alone does not assert upload"
+}

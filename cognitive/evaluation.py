@@ -1,5 +1,7 @@
 """Offline benchmark bookkeeping and conditional statistics, never model attestation."""
 import math
+import os
+import stat
 import sqlite3
 from pathlib import Path
 from .runtime import ContractError, canonical, parse_json, require, require_hash, sha256
@@ -14,14 +16,39 @@ DIMENSIONS = ('CORRECTNESS','CRITICAL_ERROR_RATE','TASK_COMPLETION','STATE_RECOV
 class BenchmarkLedger:
     """Independent benchmark registry: a child inherits all ancestor exposures."""
     def __init__(self,path: Path):
-        require(not path.is_symlink(),'BENCHMARK_LEDGER_SYMLINK')
-        self.db=sqlite3.connect(path,timeout=2,isolation_level=None)
-        self.db.execute('PRAGMA foreign_keys=ON')
-        self.db.execute('PRAGMA synchronous=FULL')
-        self.db.execute('CREATE TABLE IF NOT EXISTS family(id TEXT PRIMARY KEY,parent TEXT REFERENCES family(id))')
-        self.db.execute('CREATE TABLE IF NOT EXISTS exposure(family TEXT REFERENCES family(id),case_hash TEXT,receipt_hash TEXT,PRIMARY KEY(family,case_hash))')
+        # POSIX host-owned directory is the trust boundary. Reject linked parents;
+        # retain its descriptor so renaming a parent cannot redirect SQLite.
+        path=Path(path).absolute()
+        require('..' not in path.parts,'BENCHMARK_LEDGER_PATH')
+        self._dir_fd=None;self.db=None
+        try:
+            fd=os.open(path.anchor,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
+            self._dir_fd=fd
+            for part in path.parts[1:-1]:
+                new=os.open(part,os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW,dir_fd=fd)
+                os.close(fd);fd=new;self._dir_fd=fd
+            info=os.fstat(fd)
+            require(info.st_uid==os.geteuid() and not info.st_mode & 0o022,'BENCHMARK_LEDGER_UNTRUSTED_DIRECTORY')
+            for suffix in ('','-journal','-wal','-shm'):
+                try:info=os.stat(path.name+suffix,dir_fd=fd,follow_symlinks=False)
+                except FileNotFoundError:continue
+                require(not stat.S_ISLNK(info.st_mode),'BENCHMARK_LEDGER_SYMLINK')
+                require(stat.S_ISREG(info.st_mode) and info.st_uid==os.geteuid() and info.st_nlink==1 and not info.st_mode & 0o022,'BENCHMARK_LEDGER_UNSAFE_FILE')
+            require(Path('/proc/self/fd').is_dir(),'BENCHMARK_LEDGER_HOST_UNSUPPORTED')
+            self.db=sqlite3.connect(f'/proc/self/fd/{fd}/{path.name}',timeout=2,isolation_level=None)
+            self.db.execute('PRAGMA trusted_schema=OFF')
+            self.db.execute('PRAGMA foreign_keys=ON')
+            self.db.execute('PRAGMA synchronous=FULL')
+            self.db.execute('CREATE TABLE IF NOT EXISTS family(id TEXT PRIMARY KEY,parent TEXT REFERENCES family(id))')
+            self.db.execute('CREATE TABLE IF NOT EXISTS exposure(family TEXT REFERENCES family(id),case_hash TEXT,receipt_hash TEXT,PRIMARY KEY(family,case_hash))')
+        except OSError as error:
+            self.close();raise ContractError('BENCHMARK_LEDGER_SYMLINK','unsafe or unavailable path') from error
+        except Exception:
+            self.close();raise
 
-    def close(self):self.db.close()
+    def close(self):
+        if self.db is not None:self.db.close();self.db=None
+        if self._dir_fd is not None:os.close(self._dir_fd);self._dir_fd=None
 
     def register(self,identity,parent=None):
         require(isinstance(identity,str) and 0<len(identity)<=128,'FAMILY_ID')

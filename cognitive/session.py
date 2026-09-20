@@ -19,8 +19,9 @@ MODULES={'L0':['CORE_CONSTITUTION','AUTHORITY_BOOTSTRAP','TOOL_POLICY'],
 
 def start(root,release_blob,objective,level='L1',mode='REFERENCE_ONLY',active_root=None,active_blob=None):
     root=Path(root).resolve()
-    integrity=verify(root,release_blob)
-    snapshot=v.Snapshot(root);config,_=snapshot.json(CONFIG)
+    captured={}
+    integrity=verify(root,release_blob,captured=captured)
+    snapshot=v.FrozenSnapshot(captured);config,_=snapshot.json(CONFIG)
     v.require(config.get('schema')=='QRCEL_SESSION_ACTIVATION_V1','ACTIVATION_SCHEMA')
     v.require(config.get('scientific_dispatch') is False,'ACTIVATION_NOT_AUTHORITY')
     v.require(level in MODULES,'UNKNOWN_DEPTH')

@@ -1,17 +1,17 @@
-# QRCEL: recuperación operacional
+# QRCEL: recuperación operacional verificada
 
-El usuario eligió V191 como referencia de ingeniería. No usar resultados negativos de otras versiones para borrar exposición, evidencia o autoridad científica.
+Recuperar la release y el manifiesto exactos fijados por la referencia QRCEL del Governor o por `control/QRCEL_ENGINEERING_CURRENT.json` verificado. El usuario eligió V191 como referencia de ingeniería. Resolver aparte la autoridad científica vigente; no borrar historia ni exposición.
 
-Recuperar este paquete desde el commit y el hash del manifest fijados en la referencia QRCEL del Governor instalado. Verificar los bytes antes de importar código. No elegir una release por fecha o nombre.
-
-Ejecutar desde una copia verificada:
+Antes de importar el paquete, verificar por SHA-256 el lanzador `cognitive/trusted_bootstrap.py` usando el ancla externa del puntero. Recuperar los archivos del manifiesto desde el commit exacto. Leer `HARDENING_050.md` para el modelo de confianza, compatibilidad y recuperación.
 
 ```bash
-python -B -m cognitive.session --repo-root <checkout> --release-blob <anclaje-externo> --objective '<objetivo autorizado>' --depth L2 --save
+python3 -I -S -B /ruta/verificada/cognitive/trusted_bootstrap.py --repo-root /ruta/verificada --release-blob <blob-externo-del-manifiesto> --entry session -- --objective '<objetivo autorizado>' --depth L2 --save
 ```
 
-Por defecto se usa `REFERENCE_ONLY`: valida la referencia completa V191, carga sólo módulos pertinentes, mide capacidad local y crea un checkpoint de sesión. El recibo no autoriza trading ni activa un proceso persistente. Publicar los checkpoints cerrados en el repositorio usando las herramientas autorizadas del agente; un archivo local por sí solo no demuestra durabilidad remota.
+El lanzador verifica y captura las fuentes antes de importarlas, aplica límites al hijo y termina con él. La sesión carga prompts verificados, inspecciona la referencia V191 y mide capacidad local. No autoriza ciencia ni deja un proceso persistente.
 
-Para inspeccionar autoridad activa, suministrar explícitamente `--mode ACTIVE_INSPECTION --active-root <snapshot> --active-blob <anclaje>`. Una discrepancia bloquea esa inspección; no impide ingeniería sintética independiente.
+Leer `COGNITIVE_STATE.json`, `checkpoints/hardening_050/ACCEPTANCE.json` y `checkpoints/hardening_050/RUN_QUEUE.json`. No repetir trabajo cerrado. La evaluación completa y la promoción siguen sujetas a sus gates.
 
-Leer `COGNITIVE_STATE.json` para trabajo pendiente y `research/evaluation_readiness/COMPLETION_AUDIT.json` para gates no cumplidos. No repetir benchmarks cerrados. Las pruebas de arranque no equivalen a fixed point global ni a paridad Astra–Sol.
+Para continuidad durable, publicar cada checkpoint cerrado con su SHA-256 y el `resume_anchor` del kernel en el repositorio autorizado; comprobar lectura remota por identidad. En otro runtime, verificar esas anclas externas antes de restaurar y medir capacidad de nuevo. `--save` crea primero una sesión local: no prueba persistencia remota.
+
+La recuperación con una release distinta requiere migración explícita; no reescribir hashes históricos. No elegir una rama por fecha. La persistencia del software no garantiza activación ni proceso en todos los chats.
