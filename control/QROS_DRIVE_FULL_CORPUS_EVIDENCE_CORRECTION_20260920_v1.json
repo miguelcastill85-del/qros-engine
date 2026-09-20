@@ -1,0 +1,83 @@
+{
+  "schema": "QROS_DRIVE_FULL_CORPUS_EVIDENCE_CORRECTION_1.0",
+  "observed_at_utc": "2026-09-20T06:05:00Z",
+  "status": "CORRECTION_RECEIPT_ACTIVE",
+  "supersedes_evidence_fields_only": {
+    "receipt_path": "control/QROS_DRIVE_FULL_CORPUS_UPLOAD_COMPLETE_20260920_v1.json",
+    "receipt_commit": "49d5ffcf6fbb5da914eea3d850c3c146a91443cb",
+    "invalidated_fields": [
+      "transport.local_canonical_sha_before_upload=PASS_63_OF_63",
+      "evidence_classification.local_canonical_source_hashes=VERIFIED interpreted as all 63"
+    ]
+  },
+  "preserved_verified_evidence": {
+    "storage_coverage": "PASS_63_OF_63",
+    "xau_logical_parts": 35,
+    "nqx_logical_parts": 28,
+    "intact_remote_name_size": "PASS_34_OF_34",
+    "chunked_remote_layout": "PASS_29_OF_29",
+    "combined_canonical_zip_bytes": 6652979888
+  },
+  "corrected_evidence": {
+    "local_physical_canonical_sha256_rehash_confirmed": "PASS_38_OF_63",
+    "local_physical_rehash_parts": {
+      "xau": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34
+      ],
+      "nqx": [
+        1,
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    "remote_full_sha256_rehash_all_63": "NOT_YET_COMPLETE",
+    "remote_end_to_end_sha256_examples": [
+      "NQX_part001_intact",
+      "NQX_part002_chunk_reconstruction"
+    ]
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "group11_spawn_started": false,
+    "group12_opened": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "next_automatic_action": "REMOTE REHASH CURRENT FIRST GATE 11/11 FROM DRIVE: XAU001-008 + NQX001-003. FAIL CLOSED ON ANY SIZE/SHA MISMATCH. THEN REMATERIALIZE DEV-M1-INDICATORS."
+}
