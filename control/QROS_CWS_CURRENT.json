@@ -34,5 +34,12 @@
   },
   "activation": "APPROVED_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE",
   "validation_complete": true,
-  "final_validation_receipt": "control/QROS_CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE_PASS_20260919_v1.json"
+  "final_validation_receipt": "control/QROS_CWS_FULL_ACTIVE_NON_ECONOMIC_CONTROL_PLANE_PASS_20260919_v1.json",
+  "global_execution_governor": {
+    "status": "MAIN_REVALIDATION_PENDING",
+    "pointer": "control/QROS_CWS_GLOBAL_EXECUTION_ROUTER_CURRENT.json",
+    "main_validation_run_id": 35477818510,
+    "coverage": "ALL_QROS_EXECUTION_CLASSES",
+    "activation": false
+  }
 }
