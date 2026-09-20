@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.11",
+  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.12",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "current_version": "V255",
   "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json",
@@ -104,7 +104,7 @@
   "first_gate_economic_scoring_executed": false,
   "production_normalized_input_bundle_materialized": false,
   "production_trade_by_trade_parity_executed": false,
-  "next_action": "CWS CONTROL-PLANE: PREPARE ONE BOUNDED GROUP11 EXECUTION INTENT FROM THE VERIFIED SOURCE PACKAGE + EXISTING EXACT DEV/M1/INDICATOR ARTIFACTS + CURRENT FENCED AUTHORITY. PERSIST INTENT BEFORE ANY SPAWN. DO NOT START GROUP12. STOP AT SCIENTIFIC/ECONOMIC BOUNDARY.",
+  "next_action": "RESOLVE ONLY THE DURABLE CARRIER BRIDGE. ONCE AVAILABLE, CWS MUST HASH-VERIFY 8/8 SOURCES OR EXACT DERIVED CARRIERS, REMATERIALIZE/VERIFY DEV-M1-INDICATORS ON THE ACTIVE RUNNER, THEN SCHEDULE ONE DEK GROUP11 TRANSITION.",
   "resume_contract": "V255 remains the stable scientific frontier. DEK v3 is the frozen active control-plane authority. Each invocation is one durable authority bundle -> local deterministic transition -> at most one idempotent external effect -> one durable commit bundle -> exit. Chat/runtime never owns continuity.",
   "operational_overlay": {
     "checkpoint": {
@@ -208,7 +208,7 @@
       "git_blob_sha1": "189004bdc368fda4df292c3e29fda89ad366cdad",
       "status": "RUNNING_ADOPTABLE"
     },
-    "execution_state": "CWS_CONTROL_PLANE_SHADOW_ACTIVE_GROUP11_EXECUTION_INTENT_PENDING",
+    "execution_state": "BLOCKED_BY_INFRASTRUCTURE_GROUP11_DURABLE_CARRIER_BRIDGE",
     "group09_infrastructure_blocker": {
       "path": "control/QROS_PUBLIC_1000_W09C_GROUP09_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
       "git_blob_sha1": "3713ecff5724f7b298d4e4cda4f50ebb60936dbe",
@@ -400,6 +400,11 @@
       "artifact_id": 10591846067,
       "next": "PREPARE_DURABLE_GROUP11_EXECUTION_INTENT",
       "step2_receipt_git_blob_sha1": "b0b479c22261dc9fc0136ae7f795ca6d60170813"
+    },
+    "group11_carrier_bridge_blocker": {
+      "path": "control/QROS_CWS_GROUP11_CARRIER_BRIDGE_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
+      "bridge_spec": "control/QROS_CWS_GROUP11_CARRIER_BRIDGE_SPEC_20260919_v1.json",
+      "status": "BLOCKED_BY_INFRASTRUCTURE"
     }
   },
   "closed_w09c_bindings": {

@@ -1,0 +1,85 @@
+{
+  "schema": "QROS_CWS_GROUP11_CARRIER_BRIDGE_SPEC_1.0",
+  "date": "2026-09-19",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "subject": "W09C_XAUUSD_BUY_M1_GROUP11",
+  "purpose": "Provide a durable runner-accessible source for the exact 8 XAU DEV ZIPs so CWS can rematerialize DEV/M1/indicators outside chat.",
+  "source_manifest": "control/QROS_XAU_W09C_RUNTIME_NEUTRAL_CARRIER_LOCATOR_20260919_v1.json",
+  "sources": [
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip",
+      "bytes": 102025545,
+      "sha256": "d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part002-of-035.zip",
+      "bytes": 100422805,
+      "sha256": "159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part003-of-035.zip",
+      "bytes": 99870071,
+      "sha256": "ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part004-of-035.zip",
+      "bytes": 101825467,
+      "sha256": "241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part005-of-035.zip",
+      "bytes": 101538275,
+      "sha256": "3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part006-of-035.zip",
+      "bytes": 102849303,
+      "sha256": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part007-of-035.zip",
+      "bytes": 104515054,
+      "sha256": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185"
+    },
+    {
+      "file": "QROS_XAU_FULL_HISTORY_v2_part008-of-035.zip",
+      "bytes": 104291866,
+      "sha256": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b"
+    }
+  ],
+  "target_identities": {
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "m1_content_sha256": "55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4",
+    "indicator_content_root_sha256": "2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c"
+  },
+  "verified_availability": {
+    "current_chat_runtime": "PASS_8_OF_8_AT_/mnt/data_WITH_EXPECTED_SIZES",
+    "personal_library": "PASS_LOCATOR_IDS_EXIST_AND_FILES_MATERIALIZE_TO_LOCAL_CONTAINER",
+    "derived_carriers_current_runtime": "ABSENT_EXACT_NAME_SEARCH",
+    "github_stage0_artifacts": 0,
+    "github_stage1_artifacts": 0,
+    "existing_github_materialization_workflow": false
+  },
+  "missing_capability": "SUPPORTED_DURABLE_BINARY_BRIDGE_FROM_CHATGPT_LIBRARY_OR_CURRENT_RUNTIME_TO_CWS_GITHUB_RUNNER",
+  "indispensable_reason": "GROUP11 spawn requires exact DEV/M1/indicator bytes on the active fenced runner; receipts alone are insufficient.",
+  "attempted_routes": [
+    "reuse exact derived carrier names in current runtime -> absent",
+    "reuse stage0/stage1 GitHub artifacts -> none",
+    "reuse existing GitHub carrier/materialization workflow -> none",
+    "Files materialize Library ZIP -> works only into current chat container, no runner-accessible URL returned",
+    "GitHub connector artifact API -> download/list available, no upload path exposed"
+  ],
+  "forbidden_workarounds": [
+    "manual base64 transport",
+    "chat as long-running heavy worker",
+    "recompute on unpinned data",
+    "spawn GROUP11 without exact carriers",
+    "open GROUP12"
+  ],
+  "acceptable_resolution": [
+    "durable runner-accessible artifact/store containing exact 8 ZIPs with hash verification",
+    "durable runner-accessible exact DEV/M1/indicator carriers with target hashes",
+    "approved external storage bridge with exact hashes and no scientific semantic change"
+  ],
+  "scientific_effect": "NONE"
+}

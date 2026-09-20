@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.28",
+  "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.29",
   "date": "2026-09-18",
   "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
   "frontier_version": "V255",
@@ -412,10 +412,10 @@
     "new_ga1_authorized": false,
     "first_gate_execution_authorized": false
   },
-  "problem": "DEK_V3_GROUP11_SOURCE_PACKAGE_PASS_EXECUTION_INTENT_PENDING",
-  "root_cause": "RESOLVED: EXACT RUNTIME SOURCE PACKAGE FETCHED AND VERIFIED 9_OF_9 AGAINST ARTIFACT MANIFEST AND CURRENT MAIN BLOBS.",
+  "problem": "BLOCKED_BY_INFRASTRUCTURE_DURABLE_CARRIER_BRIDGE",
+  "root_cause": "Exact 8 source ZIPs are available in ChatGPT Library/current runtime, but no supported durable binary bridge is exposed to the CWS GitHub runner; derived DEV/M1/indicator carriers are not mounted there.",
   "portfolio_impact": "NONE",
-  "next_automatic_action": "CWS CONTROL-PLANE: PREPARE ONE BOUNDED GROUP11 EXECUTION INTENT FROM THE VERIFIED SOURCE PACKAGE + EXISTING EXACT DEV/M1/INDICATOR ARTIFACTS + CURRENT FENCED AUTHORITY. PERSIST INTENT BEFORE ANY SPAWN. DO NOT START GROUP12. STOP AT SCIENTIFIC/ECONOMIC BOUNDARY.",
+  "next_automatic_action": "RESOLVE ONLY THE DURABLE CARRIER BRIDGE. ONCE AVAILABLE, CWS MUST HASH-VERIFY 8/8 SOURCES OR EXACT DERIVED CARRIERS, REMATERIALIZE/VERIFY DEV-M1-INDICATORS ON THE ACTIVE RUNNER, THEN SCHEDULE ONE DEK GROUP11 TRANSITION.",
   "w09c_closed_bindings": {
     "clock_session": {
       "status": "PASS",
@@ -508,21 +508,15 @@
     "REUSABLE_GITHUB_ACTION_RUNTIME_SOURCE_EXPORT_CREATED",
     "SOURCE_EXPORT_RUN_35467656777_RUNNING_ADOPTABLE_NO_POLL",
     "CWS_REAL_SOAK_STEP1_QUERY_ONCE_HANDOFF_PASS",
-    "CWS_REAL_SOAK_STEP2_SOURCE_PACKAGE_9_OF_9_PASS"
+    "CWS_REAL_SOAK_STEP2_SOURCE_PACKAGE_9_OF_9_PASS",
+    "CWS_GLOBAL_GOVERNOR_ACTIVE",
+    "GROUP11_CARRIER_BRIDGE_BLOCKER_FROZEN_NO_CHAT_HEAVY_BYPASS"
   ],
   "last_execution_block": {
-    "status": "PASS_CONTROL_PLANE_STEP2_SOURCE_PACKAGE_VERIFIED",
-    "external_effects_this_transition": 0,
-    "source_package": {
-      "run_id": 35467656777,
-      "artifact_id": 10591846067,
-      "zip_sha256": "866eb1db63faf31eb1e41b52299c9e663a35629bb675deb216c6d7b3c4a7425c",
-      "files_verified": 9,
-      "status": "PASS"
-    },
+    "status": "BLOCKED_BY_INFRASTRUCTURE",
+    "blocker_receipt": "control/QROS_CWS_GROUP11_CARRIER_BRIDGE_BLOCKED_BY_INFRASTRUCTURE_20260919_v1.json",
     "group11_launch_started": false,
     "group12_opened": false,
-    "chat_non_blocking_handoff": true,
     "economic_pnl_read": false,
     "holdout_open": false,
     "ga2_open": false,

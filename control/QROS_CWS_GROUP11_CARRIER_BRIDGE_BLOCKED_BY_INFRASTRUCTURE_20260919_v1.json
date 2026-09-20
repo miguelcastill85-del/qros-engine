@@ -1,0 +1,16 @@
+{
+  "schema": "QROS_CWS_GROUP11_CARRIER_BRIDGE_BLOCKED_BY_INFRASTRUCTURE_1.0",
+  "date": "2026-09-19",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "blocker": "DURABLE_RUNNER_ACCESSIBLE_CARRIER_BRIDGE_MISSING",
+  "bridge_spec": "control/QROS_CWS_GROUP11_CARRIER_BRIDGE_SPEC_20260919_v1.json",
+  "current_execution_governor": "GLOBAL_EXECUTION_GOVERNOR_ACTIVE",
+  "group11_spawn_started": false,
+  "group12_opened": false,
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "new_ga1_authorized": false,
+  "next_action": "RESOLVE ONLY THE DURABLE CARRIER BRIDGE. ONCE AVAILABLE, CWS MUST HASH-VERIFY 8/8 SOURCES OR EXACT DERIVED CARRIERS, REMATERIALIZE/VERIFY DEV-M1-INDICATORS ON THE ACTIVE RUNNER, THEN SCHEDULE ONE DEK GROUP11 TRANSITION."
+}
