@@ -1,0 +1,91 @@
+{
+  "schema": "QROS_R2_CARRIER_CONTRACT_1.0",
+  "status": "FROZEN_TARGET_NOT_PROVISIONED",
+  "provider": "CLOUDFLARE_R2",
+  "storage_class": "STANDARD",
+  "bucket_visibility": "PRIVATE",
+  "bucket_name": null,
+  "s3_endpoint_template": "https://<ACCOUNT_ID>.r2.cloudflarestorage.com",
+  "object_key_template": "qros/carriers/2018_2026/{asset}/{filename}",
+  "security": {
+    "presigned_urls_only_for_ephemeral_transfer": true,
+    "presigned_url_max_seconds": 3600,
+    "credentials_in_repository": false,
+    "credentials_in_chat": false,
+    "github_actions_secrets_required": [
+      "R2_ACCOUNT_ID",
+      "R2_ACCESS_KEY_ID",
+      "R2_SECRET_ACCESS_KEY",
+      "R2_BUCKET"
+    ]
+  },
+  "zero_cost_guard": {
+    "cloudflare_free_tier_reference": {
+      "standard_storage_gb_month": 10,
+      "class_a_operations": 1000000,
+      "class_b_operations": 10000000,
+      "internet_egress": "FREE"
+    },
+    "qros_fail_closed_limits": {
+      "max_projected_storage_bytes": 9000000000,
+      "max_projected_class_a": 900000,
+      "max_projected_class_b": 9000000
+    },
+    "rules": [
+      "STANDARD storage only.",
+      "Before every mutation, read current R2 account/bucket usage and fail closed if existing + planned exceeds any QROS guard.",
+      "Store compressed canonical ZIP carriers and small manifests/receipts only; do not persist reconstructed full BIN, bars or indicator caches in R2 unless a new capacity decision is frozen.",
+      "Do not use Infrequent Access.",
+      "Do not enable public bucket access.",
+      "Do not execute writes if current usage cannot be measured."
+    ]
+  },
+  "corpus": {
+    "xau": {
+      "authoritative_manifest": "QROS_XAU_FULL_HISTORY_ZIP_MANIFEST_v2.json",
+      "authoritative_manifest_file_id": "file_0000000040c881fd94262fdee5ff066b",
+      "authoritative_manifest_sha256": "e2e41da50f5ee085cf744a5185f87089021afeae1f5535b1cd00f838383bdb7c",
+      "parts": 35,
+      "total_zip_bytes": 3988985549,
+      "full_carrier_records": 697060968
+    },
+    "nqx": {
+      "authoritative_manifest": "QROS_NQX_FULL_HISTORY_ZIP_MANIFEST_v2.json",
+      "authoritative_manifest_file_id": "file_0000000063b081fd84a804912cd73846",
+      "authoritative_manifest_sha256": "9f91903273701fdfce5c5d50874e36b57c6ee96a50850498e4550b4881d611df",
+      "parts": 28,
+      "total_zip_bytes": 2663994339,
+      "full_carrier_records": 559817687
+    },
+    "combined": {
+      "parts": 63,
+      "total_zip_bytes": 6652979888
+    }
+  },
+  "phase_1_first_gate": {
+    "xau_parts": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "xau_remote_status": "DROPBOX_PASS_8_OF_8_BYTE_IDENTITY",
+    "nqx_parts": [
+      1,
+      2,
+      3
+    ],
+    "nqx_library_status": "PASS_3_OF_3_PHYSICAL_REHASH",
+    "target_after_r2_provisioning": "MIGRATE/STAGE BOTH ASSETS FIRST-GATE CARRIERS INTO ONE PRIVATE R2 PREFIX AND HASH-VERIFY REMOTELY"
+  },
+  "runner_contract": {
+    "compute": "GITHUB_HOSTED_PRIVATE_RUNNER_WITH_ACCOUNT_ZERO-COST GUARD OR OTHER AUTHORIZED CLOUD RUNNER",
+    "download": "PRESIGNED_GET_OR_SCOPED_TEMPORARY_CREDENTIALS",
+    "verify": "SHA256_EACH_OBJECT_BEFORE_USE",
+    "group11_spawn_before_carrier_pass": false
+  }
+}

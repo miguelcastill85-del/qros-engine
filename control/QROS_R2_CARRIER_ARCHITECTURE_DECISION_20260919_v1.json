@@ -1,0 +1,69 @@
+{
+  "schema": "QROS_R2_CARRIER_ARCHITECTURE_DECISION_1.0",
+  "date": "2026-09-19",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "decision": "SELECT_CLOUDFLARE_R2_AS_TARGET_CLOUD_CARRIER_STORE",
+  "objective": "Remove user-PC dependency and support current first-gate carriers plus the complete authoritative XAUUSD+NQX/NDX 2018-2026 ZIP corpus at planned zero additional monetary cost.",
+  "authority": {
+    "parent_commit": "743f66561afaa9793f4a623182f3cdccbf6a62b8",
+    "carrier_scope_receipt": "control/QROS_CARRIER_CLOUD_SCOPE_AND_NQX_FIRST_GATE_FREEZE_20260919_v1.json",
+    "xau_manifest_sha256": "e2e41da50f5ee085cf744a5185f87089021afeae1f5535b1cd00f838383bdb7c",
+    "nqx_manifest_sha256": "9f91903273701fdfce5c5d50874e36b57c6ee96a50850498e4550b4881d611df"
+  },
+  "verified_facts": {
+    "full_zip_parts": 63,
+    "full_zip_bytes": 6652979888,
+    "r2_standard_free_storage_gb_month": 10,
+    "r2_free_class_a_per_month": 1000000,
+    "r2_free_class_b_per_month": 10000000,
+    "r2_internet_egress_free": true,
+    "r2_s3_compatible": true,
+    "r2_presigned_get_put_head_delete": true,
+    "r2_presigned_expiry_seconds_range": [
+      1,
+      604800
+    ],
+    "r2_max_object_size_bytes": 5497558138880,
+    "r2_max_multipart_parts": 10000
+  },
+  "alternatives": {
+    "google_drive": {
+      "status": "BLOCKED_BY_CURRENT_TOOL_SURFACE",
+      "reason": "create/upload operations unavailable in current context"
+    },
+    "dropbox": {
+      "status": "FIRST_GATE_XAU_USABLE_NOT_SELECTED_FOR_FULL_CORPUS",
+      "reason": "current connector cannot consume Library file_ids directly and account free-space is not verifiable from exposed tools"
+    },
+    "self_hosted_pc": {
+      "status": "REJECTED_BY_USER_REQUIREMENT",
+      "reason": "architecture must not depend on user's PC"
+    },
+    "github_actions_artifacts": {
+      "status": "NOT_SELECTED_FOR_DURABLE_CORPUS",
+      "reason": "artifact storage is not the long-term carrier store"
+    }
+  },
+  "zero_cost_condition": {
+    "classification": "PLANNED_ZERO_COST_NOT_YET_PROVEN_ACCOUNT_SPECIFIC",
+    "reason": "6.652979888 GB planned storage fits R2 10 GB-month free tier, but current account usage and R2 provisioning are not yet observable.",
+    "mandatory_preflight": "Query actual R2 usage and run scripts/qros_r2_zero_cost_guard_v1.py before any upload.",
+    "failure_behavior": "FAIL_CLOSED_NO_UPLOAD"
+  },
+  "blockers": [
+    "R2 bucket not yet provisioned.",
+    "R2 S3 credentials not available through current tool surface.",
+    "No Cloudflare R2 connector is installed/exposed in this chat.",
+    "Initial Library-to-R2 byte transfer still requires an approved upload surface (prefer ChatGPT Work/cloud browser or direct presigned upload surface); do not fall back to user PC."
+  ],
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false,
+    "group11_spawn_started": false
+  },
+  "next_automatic_action": "PROVISION PRIVATE R2 STANDARD BUCKET AND RESTRICTED S3 CREDENTIALS WITHOUT PASTING SECRETS INTO CHAT. READ ACTUAL R2 USAGE; REQUIRE ZERO-COST GUARD PASS. THEN STAGE NQX FIRST-GATE PART001-003 AND XAU FIRST-GATE PART001-008 INTO R2, HASH-VERIFY 11/11, AND ONLY THEN RESUME RUNNER MATERIALIZATION."
+}
