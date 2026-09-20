@@ -1,0 +1,73 @@
+{
+  "schema": "QROS_CWS_GLOBAL_EXECUTION_ROUTING_POLICY_1.0",
+  "version": "v1.0",
+  "date": "2026-09-19",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "purpose": "Make CWS+DEK the mandatory execution continuity/control-plane path for all QROS execution classes while preserving separate scientific/economic authorization.",
+  "routing_rule": "ALL_QROS_EXECUTION_MUST_ENTER_THROUGH_CWS_AND_DEK; CWS_MAY_SCHEDULE_BUT_MUST_NEVER_GRANT_CAPABILITIES.",
+  "coverage": [
+    "NON_ECONOMIC_CONTROL_PLANE",
+    "HEAVY_DATA",
+    "REMATERIALIZATION",
+    "DEVELOPMENT_BACKTEST",
+    "GATE_A",
+    "HOLDOUT",
+    "SUPERGATE",
+    "MT5_PARITY",
+    "PORTFOLIO_ANALYSIS",
+    "GA1",
+    "GA2",
+    "ECONOMIC_PNL",
+    "RECOVERY",
+    "CHECKPOINTING",
+    "CROSS_CHAT_CONTINUATION"
+  ],
+  "capability_model": {
+    "source_of_truth": "EXTERNAL_DURABLE_AUTHORITY_ONLY",
+    "cws_can_create_capability": false,
+    "cws_can_escalate_capability": false,
+    "cws_can_bypass_missing_capability": false,
+    "action_when_missing": "BLOCK_AND_CHECKPOINT",
+    "action_when_present": "SCHEDULE_EXACTLY_ONE_DEK_TRANSITION"
+  },
+  "capability_map": {
+    "NON_ECONOMIC_CONTROL_PLANE": null,
+    "HEAVY_DATA": "CAP_NON_ECONOMIC_CONTROL",
+    "REMATERIALIZATION": "CAP_REMATERIALIZE",
+    "DEVELOPMENT_BACKTEST": "CAP_DEV_BACKTEST",
+    "GATE_A": "CAP_GATE_A",
+    "HOLDOUT": "CAP_HOLDOUT_OPEN",
+    "SUPERGATE": "CAP_SUPERGATE",
+    "MT5_PARITY": "CAP_MT5_PARITY",
+    "PORTFOLIO_ANALYSIS": "CAP_PORTFOLIO_ANALYSIS",
+    "GA1": "CAP_GA1",
+    "GA2": "CAP_GA2",
+    "ECONOMIC_PNL": "CAP_ECONOMIC_PNL_READ",
+    "RECOVERY": "CAP_NON_ECONOMIC_CONTROL",
+    "CHECKPOINTING": null,
+    "CROSS_CHAT_CONTINUATION": null
+  },
+  "invariants": [
+    "CWS_IS_GLOBAL_EXECUTION_ROUTER",
+    "DEK_V3_IS_ONLY_TRANSITION_REDUCER",
+    "CWS_NEVER_AUTHORIZES_SCIENCE_OR_ECONOMICS",
+    "MISSING_CAPABILITY_FAILS_CLOSED",
+    "CAPABILITIES_BOUND_TO_DURABLE_AUTHORITY",
+    "ONE_DEK_TRANSITION_PER_INVOCATION",
+    "CHAT_NEVER_OWNS_CONTINUITY",
+    "NO_DIRECT_QROS_EXECUTION_PATH_BYPASSING_CWS",
+    "ROLLBACK_CHANGES_ROUTING_POINTER_ONLY_NOT_SCIENTIFIC_EVIDENCE"
+  ],
+  "promotion_gates": {
+    "GR-G0": "all execution classes covered",
+    "GR-G1": "no bypass path",
+    "GR-G2": "missing capability always blocks",
+    "GR-G3": "valid capability schedules exactly one DEK step",
+    "GR-G4": "CWS never mutates granted capabilities",
+    "GR-G5": "100000 adversarial routing cases unsafe_schedule=0",
+    "GR-G6": "persistent chat bootstrap points to global router",
+    "GR-G7": "current CWS full-active receipt exact",
+    "GR-G8": "scientific/economic permissions remain externally governed"
+  },
+  "activation": false
+}
