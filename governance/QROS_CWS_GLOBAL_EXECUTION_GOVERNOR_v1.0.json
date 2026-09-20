@@ -2,7 +2,7 @@
   "schema": "QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_1.0",
   "version": "v1.0",
   "date": "2026-09-19",
-  "status": "MAIN_REVALIDATION_PENDING",
+  "status": "ACTIVE_MANDATORY",
   "router_policy": "governance/QROS_CWS_GLOBAL_EXECUTION_ROUTING_POLICY_v1.0.json",
   "router_code": "scripts/qros_cws_global_execution_router_v1.py",
   "current_pointer": "control/QROS_CWS_GLOBAL_EXECUTION_ROUTER_CURRENT.json",
@@ -36,5 +36,9 @@
     "execution_classes": 15,
     "adversarial_cases_each": 100000
   },
-  "activation": false
+  "activation": true,
+  "activation_receipt": "control/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_ACTIVATION_PASS_20260919_v1.json",
+  "validated_main_run_id": 35477818510,
+  "validated_main_job_id": 105990013524,
+  "activation_decision": "ALL_QROS_EXECUTION_MUST_ROUTE_THROUGH_CWS_PLUS_DEK; AUTHORIZATION_REMAINS_EXTERNAL_DURABLE_CAPABILITIES"
 }
