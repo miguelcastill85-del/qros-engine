@@ -1,0 +1,50 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0486_COLLISION_GATE_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "seed": {
+    "queue_rank": 5,
+    "id": "WEB_SEED_0486",
+    "source_id": "FMZ:478711"
+  },
+  "state": "PASS_NOVEL_GENEALOGY_CANDIDATE",
+  "stage": "PRE_PNL_CAUSAL_COLLISION_GATE",
+  "exact_source": {
+    "repository": "fmzquant/strategies",
+    "commit": "7853bb2bf262c4567ac238d3552d97f0e50cb801",
+    "git_blob_sha1": "066a47399d97ac06d7b6fc204595ecb383085c29"
+  },
+  "causal_fingerprint": {
+    "oscillator": "WaveTrend cross built from EMA(hlc3), EMA absolute deviation normalization, EMA smoothing and SMA4 signal line",
+    "confirmation": "RSI oversold/overbought gate",
+    "path_state": "cumulative all-history/session-start extrema defining Fibonacci location",
+    "conjunction": "oscillator cross + RSI extreme + range-location gate on same completed bar",
+    "buy_reduced": "crossover(wt1,wt2) AND RSI<30 AND close<fib38",
+    "sell_reduced": "crossunder(wt1,wt2) AND RSI>70 AND close>fib618"
+  },
+  "algebraic_dedupe": {
+    "buy": "Because fib38<=fib50<=fib618 whenever fibHigh>=fibLow, close<fib38 implies the other two BUY Fibonacci conjuncts.",
+    "sell": "Because fib38<=fib50<=fib618 whenever fibHigh>=fibLow, close>fib618 implies the other two SELL Fibonacci conjuncts.",
+    "effect": "Do not enumerate the redundant fib50/fib618 BUY conjuncts or fib38/fib50 SELL conjuncts as separate causal dimensions."
+  },
+  "active_repository_collision_search": {
+    "searched_terms": [
+      "WaveTrend",
+      "Fibonacci",
+      "RSI",
+      "wt1",
+      "fib38",
+      "OSCTURN",
+      "TURN_QUORUM",
+      "oscillator",
+      "overbought",
+      "oversold"
+    ],
+    "matching_active_qros_files": 0,
+    "scope": "miguelcastill85-del/qros-engine default branch at pre-PnL collision gate"
+  },
+  "classification": "NOVEL_COMPOSITE_WITH_CUMULATIVE_EXTREMA_PATH_STATE_PENDING_LATER_PORTFOLIO_ORTHOGONALITY",
+  "caveat": "Pre-PnL causal novelty does not prove economic independence or portfolio orthogonality; those remain later gates.",
+  "development_pnl_open": false,
+  "holdout_open": false,
+  "decision": "OPEN_DETAILED_UNIVERSE_BUILD"
+}

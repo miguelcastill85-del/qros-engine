@@ -1,0 +1,96 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0486_ONTOLOGY_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "seed": {
+    "id": "WEB_SEED_0486",
+    "source_id": "FMZ:478711",
+    "genealogy": "PUBLIC1000_WEB_SEED_0486_WAVETREND_RSI_CUMULATIVE_FIB",
+    "source_repo": "fmzquant/strategies",
+    "source_commit": "7853bb2bf262c4567ac238d3552d97f0e50cb801",
+    "source_blob_sha1": "066a47399d97ac06d7b6fc204595ecb383085c29"
+  },
+  "state": "UNIVERSE_ONTOLOGY_FROZEN",
+  "signal_state_machine": {
+    "bar_source": "CANONICAL_BID_OHLC",
+    "fib_state": "fibLow/fibHigh initialized from first bar in the frozen data-start policy and monotonically updated by min(low)/max(high)",
+    "wt_state": "WT1/WT2 updated causally from completed bars only",
+    "rsi_state": "RSI updated causally from completed closes only",
+    "buy_event": "WT1 crosses above WT2 on completed bar AND RSI<30 AND close<fib38",
+    "sell_event": "WT1 crosses below WT2 on completed bar AND RSI>70 AND close>fib618",
+    "fill": "next executable quote after signal bar close"
+  },
+  "causal_dimensions": {
+    "assets": [
+      "XAUUSD",
+      "NQX/NDX"
+    ],
+    "sides": [
+      "BUY",
+      "SELL"
+    ],
+    "timeframes": [
+      "M1",
+      "M5",
+      "M15",
+      "M30",
+      "H1"
+    ],
+    "n1": [
+      8,
+      10,
+      12
+    ],
+    "n2": [
+      17,
+      21,
+      25
+    ],
+    "rsi_length": [
+      11,
+      14,
+      17
+    ]
+  },
+  "fixed_source_semantics": {
+    "wt2_sma_length": 4,
+    "rsi_thresholds": {
+      "buy_lt": 30,
+      "sell_gt": 70
+    },
+    "fibonacci_ratios": [
+      0.382,
+      0.5,
+      0.618
+    ],
+    "fibonacci_gate_reduction": {
+      "buy": "close<fib38",
+      "sell": "close>fib618"
+    },
+    "fibonacci_memory": "CUMULATIVE_FROM_FROZEN_DATASET_START",
+    "source_management": "DYNAMIC_CLOSE_REANCHORED_OFFSETS"
+  },
+  "logical_counts": {
+    "parameter_combinations_per_timeframe_side": 27,
+    "signal_profiles_per_asset": 270,
+    "signal_profiles_all_assets": 540,
+    "primary_signal_management_profiles_all_assets": 540
+  },
+  "dedupe_rules": [
+    "Do not enumerate algebraically redundant Fibonacci conjuncts.",
+    "Do not count parameter-window variations as new genealogies.",
+    "BUY and SELL are separate signal sides but not separate source genealogies.",
+    "Management variants do not establish independent alpha."
+  ],
+  "required_before_config_hash_freeze": [
+    "freeze exact EMA/SMA/RSI builtin seeding/warmup semantics with independent parity",
+    "freeze native timeframe alignment under Darwinex/source clock",
+    "freeze cumulative-Fibonacci initialization/warmup boundary",
+    "freeze instrument mintick/pipValue unit binding",
+    "freeze opposite-entry reversal/order replacement semantics",
+    "freeze exact EOD/session-close behavior",
+    "freeze central/conservative/severe numeric costs",
+    "execute independent real-data event-mask parity on canonical DEV bytes"
+  ],
+  "development_pnl_open": false,
+  "holdout_open": false
+}

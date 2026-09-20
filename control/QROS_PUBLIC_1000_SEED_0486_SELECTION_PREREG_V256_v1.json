@@ -1,0 +1,93 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0486_SELECTION_PREREG_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "seed": "WEB_SEED_0486",
+  "genealogy": "PUBLIC1000_WEB_SEED_0486_WAVETREND_RSI_CUMULATIVE_FIB",
+  "state": "PREREGISTERED_NO_RESULTS",
+  "assets": [
+    "XAUUSD",
+    "NQX/NDX"
+  ],
+  "sides": [
+    "BUY",
+    "SELL"
+  ],
+  "selection_timeframes": [
+    "M1",
+    "M5",
+    "M15",
+    "M30",
+    "H1"
+  ],
+  "development_period": "2018-2019_DEV_ONLY_UNDER_EXISTING_PROGRAM_DATA_AUTHORITY",
+  "holdout": "SEALED_NOT_OPENED",
+  "signal_contract": {
+    "decision": "AFTER_COMPLETED_CANONICAL_BID_BAR",
+    "entry": "FIRST_EXECUTABLE_QUOTE_AFTER_SIGNAL_CLOSE",
+    "buy_entry": "ASK",
+    "sell_entry": "BID",
+    "buy_exit": "BID",
+    "sell_exit": "ASK",
+    "zero_or_crossed_spread_fill": "FORBIDDEN",
+    "ambiguous_stop_target": "STOP_FIRST",
+    "gaps": "FIRST_ACTUALLY_EXECUTABLE_PRICE",
+    "overnight": "FORBIDDEN",
+    "max_new_entries_per_day": 3,
+    "same_bar_new_entry": "FORBIDDEN"
+  },
+  "selection_grid_rule": "Only source-exposed n1, n2 and RSI length are locally perturbed for selection. For each default, use nearest integer to {0.8x,1.0x,1.2x}; no PnL informed the grid.",
+  "selection_grid": {
+    "wavetrend_channel_n1": [
+      8,
+      10,
+      12
+    ],
+    "wavetrend_average_n2": [
+      17,
+      21,
+      25
+    ],
+    "rsi_length": [
+      11,
+      14,
+      17
+    ],
+    "wt2_sma_length_fixed": 4,
+    "rsi_buy_threshold_fixed": 30,
+    "rsi_sell_threshold_fixed": 70,
+    "fibonacci_ratios_fixed": [
+      0.382,
+      0.5,
+      0.618
+    ],
+    "fibonacci_memory_fixed": "CUMULATIVE_FROM_DATASET_START"
+  },
+  "source_management_primary": {
+    "profile": "M_SRC_DYNAMIC_CLOSE_OFFSETS_EOD",
+    "pip_value": "10*instrument_min_tick",
+    "buy_tp_ticks": 3000,
+    "buy_sl_ticks": 7000,
+    "sell_tp_ticks": 35000,
+    "sell_sl_ticks": 70000,
+    "update": "Re-anchor levels from each newly completed bar close; updates become effective only after that close, never retroactively.",
+    "session_override": "FORCED_SAME_DAY_EXIT",
+    "opposite_signal": "SOURCE_REVERSAL_SEMANTICS_MUST_BE_BOUND_BEFORE_CONFIG_HASH_FREEZE"
+  },
+  "nonselection_robustness_only": [
+    "wider n1/n2/RSI-length perturbations",
+    "latency/slippage/cost stresses",
+    "prepend-history sensitivity of cumulative Fibonacci extrema",
+    "fixed-at-entry versus source dynamic-close exit anchoring as management ablation"
+  ],
+  "excluded_pre_pnl_descendants": [
+    "rolling-window Fibonacci extrema",
+    "ATR-based stop/target proposed in narrative",
+    "trend-strength filters",
+    "volume confirmation",
+    "alternative RSI thresholds",
+    "alternative WT2 smoothing length",
+    "HTF confirmation or session filters"
+  ],
+  "cost_layers": "CENTRAL_CONSERVATIVE_SEVERE_NUMERIC_BINDING_REQUIRED_BEFORE ECONOMIC BACKTEST",
+  "economic_results_read": false
+}

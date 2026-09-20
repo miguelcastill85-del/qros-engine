@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0486_SERIAL_SELECTION_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "date": "2026-09-20",
+  "state": "SELECTED_FOR_DETAILED_UNIVERSE_BUILD",
+  "authority": {
+    "queue_freeze_path": "control/QROS_PUBLIC_1000_PNL_BLIND_PRIORITY_QUEUE_FREEZE_V203_v1.json",
+    "queue_freeze_git_blob_sha1": "6c93656753235166f273257eccfd9a94dd905fa7",
+    "serial_policy_receipt": "control/QROS_SEED_SERIAL_EXECUTION_ADOPTION_RECEIPT_v1.json",
+    "serial_policy_git_blob_sha1": "862a6fd089bc7616f897c6b162b440868b582292"
+  },
+  "predecessors": [
+    {
+      "rank": 1,
+      "id": "WEB_SEED_0076",
+      "disposition": "BLOCKED_BY_INFRASTRUCTURE_RESUMABLE",
+      "reason": "Current genealogy is beyond universe construction and requires executable production rematerialization/backtest infrastructure; queue release is permitted by frozen serial policy exception."
+    },
+    {
+      "rank": 2,
+      "id": "WEB_SEED_0512",
+      "disposition": "BLOCKED_BY_INFRASTRUCTURE_RESUMABLE",
+      "reason": "Ontology and RISE fixed point are closed; independent real-data event-mask parity/execution remains blocked."
+    },
+    {
+      "rank": 3,
+      "id": "WEB_SEED_0763",
+      "disposition": "REJECTED_PRE_PNL_CAUSAL_COLLISION",
+      "receipt": "control/QROS_PUBLIC_1000_SEED_0763_COLLISION_REJECTION_V206_v1.json"
+    },
+    {
+      "rank": 4,
+      "id": "WEB_SEED_0929",
+      "disposition": "REJECTED_PRE_PNL_CAUSAL_COLLISION",
+      "receipt": "control/QROS_PUBLIC_1000_SEED_0929_COLLISION_REJECTION_V207_v1.json"
+    }
+  ],
+  "selected": {
+    "rank": 5,
+    "id": "WEB_SEED_0486",
+    "source_id": "FMZ:478711",
+    "name": "Dynamic WaveTrend and Fibonacci Integrated Trading Strategy"
+  },
+  "selection_basis": "Frozen PnL-blind queue order plus serial-policy blocked-seed release exception. No profitability/backtest/holdout result used.",
+  "development_pnl_open": false,
+  "holdout_open": false
+}

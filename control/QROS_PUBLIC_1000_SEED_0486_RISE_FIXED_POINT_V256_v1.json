@@ -1,0 +1,59 @@
+{
+  "schema": "QROS_RISE_FIXED_POINT_RECEIPT_1.0",
+  "seed": "WEB_SEED_0486",
+  "state": "RISE_FIXED_POINT",
+  "ontology": "control/QROS_PUBLIC_1000_SEED_0486_CAUSAL_SCOPE_ONTOLOGY_V256_v1.json",
+  "ontology_file_sha256": "SHA256_NOT_AVAILABLE_IN_ORCHESTRATOR",
+  "development_pnl_open": false,
+  "holdout_open": false,
+  "rounds": [
+    {
+      "id": "R1_EXACT_SOURCE_SEMANTICS_ADVERSARY",
+      "challenges": [
+        "WaveTrend code uses EMA absolute deviation, not narrative standard deviation.",
+        "WT2 is fixed SMA4; plotted overbought/oversold WT levels are not entry RSI thresholds.",
+        "RSI entry gates are hard-coded 30/70.",
+        "Fibonacci extrema are cumulative persistent extrema, not rolling.",
+        "The three Fibonacci entry conjuncts reduce algebraically to fib38 for BUY and fib618 for SELL.",
+        "buyTPCondition/sellTPCondition are unused.",
+        "BUY and SELL exit distances are materially asymmetric in exact code.",
+        "strategy.exit is reissued every bar from current close, so management is dynamic.",
+        "Closed-bar decision must precede next executable quote fill under QROS normalization."
+      ],
+      "new_eligible_family_delta": 0,
+      "new_causal_dimension_delta": 0,
+      "new_unresolved_universe_ambiguity_delta": 0,
+      "result": "PASS"
+    },
+    {
+      "id": "R2_CAUSAL_SCOPE_BOUNDARY_ADVERSARY",
+      "challenges": [
+        "Only source-exposed n1/n2/RSI length are PnL-blind selection parameters.",
+        "WT2 smoothing, RSI thresholds and Fibonacci ratios remain fixed in the core genealogy.",
+        "Rolling Fibonacci, ATR exits, volume/trend filters and HTF/session filters are descendants and excluded pre-PnL.",
+        "Management alternatives cannot create independent alpha.",
+        "BUY/SELL remain separate sides and XAUUSD/NQX remain separate assets.",
+        "Timeframe set is frozen prospectively to M1/M5/M15/M30/H1."
+      ],
+      "new_eligible_family_delta": 0,
+      "new_causal_dimension_delta": 0,
+      "new_unresolved_universe_ambiguity_delta": 0,
+      "result": "PASS"
+    },
+    {
+      "id": "R3_DEDUPE_AND_START_STATE_ADVERSARY",
+      "challenges": [
+        "No redundant fib50/fib618 BUY dimensions or fib38/fib50 SELL dimensions survive enumeration.",
+        "Cumulative-extrema initialization is treated as an execution binding, not silently changed by warmup.",
+        "Dataset-start sensitivity is reserved for robustness diagnostics, not retrospective selection.",
+        "No existing active-repository WaveTrend/RSI/Fibonacci genealogy was found by collision search.",
+        "Economic/portfolio orthogonality remains unclaimed until later evidence."
+      ],
+      "new_eligible_family_delta": 0,
+      "new_causal_dimension_delta": 0,
+      "new_unresolved_universe_ambiguity_delta": 0,
+      "result": "PASS"
+    }
+  ],
+  "next_gate": "LOGICAL_ENUMERATOR_PARITY_THEN_EXECUTION_BINDINGS_AND_REAL_DATA_EVENT_MASK_PARITY"
+}

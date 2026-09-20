@@ -1,0 +1,47 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0486_SOURCE_RECONCILIATION_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "seed": {
+    "queue_rank": 5,
+    "id": "WEB_SEED_0486",
+    "source_id": "FMZ:478711",
+    "genealogy": "PUBLIC1000_WEB_SEED_0486_WAVETREND_RSI_CUMULATIVE_FIB",
+    "name": "Dynamic WaveTrend and Fibonacci Integrated Trading Strategy"
+  },
+  "state": "PASS_EXACT_SOURCE_RECOVERED",
+  "exact_source": {
+    "repository": "fmzquant/strategies",
+    "commit": "7853bb2bf262c4567ac238d3552d97f0e50cb801",
+    "path": "动态波浪趋势与斐波那契综合量化交易策略-Dynamic-WaveTrend-and-Fibonacci-Integrated-Quantitative-Trading-Strategy.md",
+    "git_blob_sha1": "066a47399d97ac06d7b6fc204595ecb383085c29",
+    "source_id": "FMZ:478711"
+  },
+  "code_authority_over_narrative": true,
+  "semantic_corrections": [
+    "Narrative says WaveTrend uses standard deviation; exact Pine code uses EMA of absolute deviation abs(ap-esa).",
+    "Narrative/comment says TP/SL 3500/7000 pips generally; exact code uses BUY 300/700 and SELL 3500/7000 multiplied by pipValue.",
+    "obLevel1/obLevel2/osLevel1/osLevel2 are plotted WaveTrend levels and are not the RSI entry thresholds; entry RSI thresholds are hard-coded 30 and 70.",
+    "buyTPCondition and sellTPCondition are assigned but never used to gate strategy.exit.",
+    "Fibonacci extrema are cumulative from script start via persistent fibLow/fibHigh; they are not rolling-window extrema.",
+    "strategy.exit is called every bar with levels derived from that bar close, so source management levels are dynamically re-anchored rather than fixed once at entry."
+  ],
+  "source_signal": {
+    "price_inputs": {
+      "wavetrend": "hlc3",
+      "rsi": "close",
+      "fibonacci_range": "cumulative low/high"
+    },
+    "wavetrend": [
+      "esa=EMA(hlc3,n1)",
+      "d=EMA(abs(hlc3-esa),n1)",
+      "ci=(hlc3-esa)/(0.015*d)",
+      "wt1=EMA(ci,n2)",
+      "wt2=SMA(wt1,4)"
+    ],
+    "buy": "RSI(close,14)<30 AND close<fib38 AND close<fib50 AND close<fib618 AND crossover(wt1,wt2)",
+    "sell": "RSI(close,14)>70 AND close>fib38 AND close>fib50 AND close>fib618 AND crossunder(wt1,wt2)",
+    "fibonacci": "fibLow=cumulative min(low); fibHigh=cumulative max(high); fib38/50/618=low+ratio*(high-low)"
+  },
+  "economic_results_read": false,
+  "holdout_open": false
+}
