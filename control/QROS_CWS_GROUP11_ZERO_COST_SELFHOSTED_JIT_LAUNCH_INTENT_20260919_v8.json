@@ -1,0 +1,37 @@
+{
+  "schema": "QROS_CWS_GROUP11_ZERO_COST_SELFHOSTED_JIT_LAUNCH_INTENT_1.0",
+  "date": "2026-09-19",
+  "status": "ARMED",
+  "authority": {
+    "parent_commit": "7df88b5d28c7f6f8bcca8bf63972df618fccd6d6",
+    "workflow_blob_before": "dbcab7a461126feb8ab1f48c189078f9fc4c08b9",
+    "remote_carrier_pass_commit": "56b51237dcb17f9f22acc7d02b7fe33c3733b0f1"
+  },
+  "execution": {
+    "trigger": "push main path control/QROS_GROUP11_ZERO_COST_JIT_TRIGGER.json",
+    "runner_required": [
+      "self-hosted",
+      "Windows",
+      "X64",
+      "qros-zero-cost"
+    ],
+    "carrier_source": "Dropbox temporary download links, 900-second JIT",
+    "source_count": 8,
+    "carrier_gate_only": true,
+    "group11_spawn": false
+  },
+  "cost_guard": {
+    "github_hosted_runner_forbidden": true,
+    "self_hosted_only": true,
+    "additional_monetary_cost_authorized": false
+  },
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false,
+    "first_gate_execution_authorized": false
+  },
+  "next_action_on_pass": "PERSIST CARRIER PASS; THEN DEK MAY SCHEDULE EXACTLY ONE GROUP11 TRANSITION."
+}

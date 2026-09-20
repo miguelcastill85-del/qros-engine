@@ -1,6 +1,10 @@
 name: QROS GROUP11 Zero-Cost Self-Hosted Carrier Gate v1
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'control/QROS_GROUP11_ZERO_COST_JIT_TRIGGER.json'
   workflow_dispatch:
     inputs:
       source_dir:
@@ -27,7 +31,7 @@ concurrency:
 
 jobs:
   carrier-gate:
-    if: ${{ inputs.confirm_zero_cost == true }}
+    if: ${{ github.event_name == 'push' || inputs.confirm_zero_cost == true }}
     runs-on: [self-hosted, Windows, X64, qros-zero-cost]
     timeout-minutes: 240
     env:
@@ -71,9 +75,15 @@ jobs:
           if (-not $python) { throw 'PYTHON_NOT_AVAILABLE_FAIL_CLOSED' }
           & $python.Source -c "import numpy,sys; print(sys.version); print('numpy', numpy.__version__)"
           if ($LASTEXITCODE -ne 0) { throw 'NUMPY_NOT_AVAILABLE_FAIL_CLOSED' }
-          $runDir = Join-Path '${{ inputs.output_root }}' ('run-' + '${{ github.run_id }}')
+          if ('${{ github.event_name }}' -eq 'push') {
+            $baseRoot = Join-Path $env:RUNNER_TEMP 'qros-group11-zero-cost'
+          } else {
+            $baseRoot = '${{ inputs.output_root }}'
+          }
+          $runDir = Join-Path $baseRoot ('run-' + '${{ github.run_id }}')
           New-Item -ItemType Directory -Force -Path $runDir | Out-Null
           New-Item -ItemType Directory -Force -Path (Join-Path $runDir 'source') | Out-Null
+          New-Item -ItemType Directory -Force -Path (Join-Path $runDir 'jit-downloads') | Out-Null
           New-Item -ItemType Directory -Force -Path (Join-Path $runDir 'dev') | Out-Null
           New-Item -ItemType Directory -Force -Path (Join-Path $runDir 'bars') | Out-Null
           New-Item -ItemType Directory -Force -Path (Join-Path $runDir 'indicators') | Out-Null
@@ -85,8 +95,25 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          $src = '${{ inputs.source_dir }}'
-          if (-not (Test-Path -LiteralPath $src -PathType Container)) { throw 'SOURCE_DIR_NOT_FOUND' }
+          if ('${{ github.event_name }}' -eq 'push') {
+            $triggerPath = 'control/QROS_GROUP11_ZERO_COST_JIT_TRIGGER.json'
+            if (-not (Test-Path -LiteralPath $triggerPath)) { throw 'JIT_TRIGGER_NOT_FOUND' }
+            $trigger = Get-Content -LiteralPath $triggerPath -Raw | ConvertFrom-Json
+            if ($trigger.schema -ne 'QROS_GROUP11_ZERO_COST_JIT_TRIGGER_1.0' -or $trigger.status -ne 'ARMED') { throw 'JIT_TRIGGER_SCHEMA_OR_STATUS_INVALID' }
+            if ($trigger.confirm_zero_cost -ne $true) { throw 'ZERO_COST_NOT_CONFIRMED' }
+            $src = Join-Path $env:QROS_WORK_DIR 'jit-downloads'
+            foreach ($c in $trigger.carriers) {
+              $target = Join-Path $src $c.canonical_name
+              Invoke-WebRequest -Uri $c.download_url -OutFile $target -UseBasicParsing
+              if ((Get-Item -LiteralPath $target).Length -ne [int64]$c.bytes) { throw "JIT_DOWNLOAD_SIZE_MISMATCH:$($c.canonical_name)" }
+              $sha = (Get-FileHash -Algorithm SHA256 -LiteralPath $target).Hash.ToLowerInvariant()
+              if ($sha -ne $c.sha256) { throw "JIT_DOWNLOAD_SHA256_MISMATCH:$($c.canonical_name):$sha" }
+              Write-Host "PASS_JIT_DOWNLOAD $($c.canonical_name) $($c.bytes) $sha"
+            }
+          } else {
+            $src = '${{ inputs.source_dir }}'
+            if (-not (Test-Path -LiteralPath $src -PathType Container)) { throw 'SOURCE_DIR_NOT_FOUND' }
+          }
           $rows = @(
             [pscustomobject]@{Name='QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip';Bytes=102025545;Sha='d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70'},
             [pscustomobject]@{Name='QROS_XAU_FULL_HISTORY_v2_part002-of-035.zip';Bytes=100422805;Sha='159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a'},
