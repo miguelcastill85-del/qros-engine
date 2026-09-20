@@ -1,0 +1,73 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0486_LOGICAL_ENUMERATOR_PARITY_1.0",
+  "program": "QROS_PUBLIC_1000_XAU_NQX",
+  "seed": "WEB_SEED_0486",
+  "state": "PASS_LOGICAL_ENUMERATOR_PARITY",
+  "ontology_path": "control/QROS_PUBLIC_1000_SEED_0486_CAUSAL_SCOPE_ONTOLOGY_V256_v1.json",
+  "ontology_git_blob_sha1": "5a6091affc205525dc6de705f530231e28979255",
+  "rise_fixed_point_path": "control/QROS_PUBLIC_1000_SEED_0486_RISE_FIXED_POINT_V256_v1.json",
+  "rise_fixed_point_git_blob_sha1": "ac743942d3217527ffdb8f037ec92a554d9b8f99",
+  "enumerator_a": "DIRECT_NESTED_AXES_LAST_AXIS_FASTEST",
+  "enumerator_b": "MIXED_RADIX_INDEX_DECODE_INDEPENDENT_LOOP_STRUCTURE",
+  "axes": {
+    "asset": [
+      "XAUUSD",
+      "NQX/NDX"
+    ],
+    "side": [
+      "BUY",
+      "SELL"
+    ],
+    "timeframe": [
+      "M1",
+      "M5",
+      "M15",
+      "M30",
+      "H1"
+    ],
+    "n1": [
+      8,
+      10,
+      12
+    ],
+    "n2": [
+      17,
+      21,
+      25
+    ],
+    "rsi": [
+      11,
+      14,
+      17
+    ]
+  },
+  "fixed_semantics": {
+    "wt2_sma_length": 4,
+    "rsi_buy_lt": 30,
+    "rsi_sell_gt": 70,
+    "fib_buy_lt_ppm": 382000,
+    "fib_sell_gt_ppm": 618000
+  },
+  "expected_count": 540,
+  "enumerator_a_count": 540,
+  "enumerator_b_count": 540,
+  "unique_config_count": 540,
+  "parity": "EXACT_ROW_BY_ROW_540_OF_540",
+  "manifest_path": "control/QROS_PUBLIC_1000_SEED_0486_LOGICAL_CONFIG_MANIFEST_V257_v1.csv",
+  "manifest_sha256": "dd0355f4e90d7d48bc1e4702703fa55985154a4d3760bcdb4a2b23e0bd7fccdf",
+  "manifest_encoding": "UTF-8 ASCII-compatible CSV, LF endings",
+  "invalid_combinations": 0,
+  "alias_duplicates": 0,
+  "development_pnl_open": false,
+  "holdout_open": false,
+  "next_gate": "EXECUTION_BINDINGS_THEN_INDEPENDENT_REAL_DATA_EVENT_MASK_PARITY",
+  "blockers_before_final_config_hash_freeze": [
+    "indicator builtin seeding/warmup semantics",
+    "Darwinex native bar alignment and cumulative-Fibonacci start boundary",
+    "mintick/pipValue unit binding",
+    "opposite-entry reversal/order replacement semantics",
+    "EOD/session-close behavior",
+    "central/conservative/severe numeric costs",
+    "independent real-data event-mask parity on canonical DEV bytes"
+  ]
+}
