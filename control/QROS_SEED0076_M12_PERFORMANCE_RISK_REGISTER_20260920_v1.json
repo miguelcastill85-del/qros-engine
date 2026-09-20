@@ -1,0 +1,149 @@
+{
+  "schema": "QROS_SEED0076_M12_PERFORMANCE_RISK_REGISTER_1.0",
+  "date": "2026-09-20",
+  "status": "FROZEN_PRE_BENCHMARK",
+  "scope": "Performance and scientific-integrity risks to measure before FAST_CORE implementation.",
+  "verified_code_level_findings": [
+    {
+      "id": "PERF-V01",
+      "finding": "When the 24 groups are executed as separate worker invocations, each invocation recomputes the complete 804672-config ordered root before processing its 33528-config group.",
+      "evidence": "qros_seed0076_ga1_shard_worker_v223.py process(): full nested bases x filter_packages config_id loop occurs before only_group_index filtering.",
+      "theoretical_counts": {
+        "root_config_hash_calls_across_24_groups": 19312128,
+        "group_config_hash_calls_across_24_groups": 804672,
+        "total_current_config_hash_calls": 20116800,
+        "root_once_plus_group_config_hash_calls": 1609344,
+        "theoretical_hash_call_reduction_fraction_if_root_reused": 0.92
+      },
+      "wallclock_contribution": "TO_MEASURE"
+    },
+    {
+      "id": "PERF-V02",
+      "finding": "filter_packages, package_partition, base rows and structural cache are rebuilt inside every separate group worker invocation.",
+      "evidence": "process() constructs fps/bases/parts and calls build_structural_cache before group selection.",
+      "wallclock_contribution": "TO_MEASURE"
+    },
+    {
+      "id": "PERF-V03",
+      "finding": "group_packages_exact computes zlib.compress(p.tobytes(),1) but never uses the compressed result, while p.tobytes() is invoked repeatedly.",
+      "evidence": "scripts/qros_seed0076_carrier_masks_v221.py group_packages_exact.",
+      "semantic_value": "NONE_OBSERVED",
+      "wallclock_contribution": "TO_MEASURE"
+    },
+    {
+      "id": "PERF-V04",
+      "finding": "Ephemeral per-group ClassDB uses SQLite journal_mode=DELETE and synchronous=FULL, then the DB is deleted after finalization.",
+      "evidence": "ClassDB.__init__ and process() cleanup in worker v223.",
+      "semantic_value": "Crash protection inside scratch only; final scientific evidence is exported separately.",
+      "wallclock_contribution": "TO_MEASURE"
+    },
+    {
+      "id": "PERF-V05",
+      "finding": "Merge uses synchronous=FULL scratch SQLite and rehashes all 72 group artifacts; independent merge oracle re-reads/re-hashes group artifacts again.",
+      "evidence": "qros_seed0076_ga1_merge_groups_v228.py and qros_seed0076_ga1_merge_oracle_v228.py.",
+      "scientific_value": "Independent integrity check is valuable; physical reread strategy may be optimizable without weakening the oracle.",
+      "wallclock_contribution": "TO_MEASURE"
+    },
+    {
+      "id": "PERF-V06",
+      "finding": "M12 materializes multi-gigabyte intermediate mask representations before compaction.",
+      "evidence": {
+        "group_original_bytes": 2591397468,
+        "global_uncompressed_pack_bytes": 2590887817,
+        "group_compressed_bytes": 322011859,
+        "global_compressed_pack_bytes": 683104903
+      },
+      "wallclock_contribution": "TO_MEASURE"
+    }
+  ],
+  "high_confidence_hypotheses_requiring_measurement": [
+    {
+      "id": "PERF-H01",
+      "hypothesis": "NPZ-based indicator and tick caches may cause repeated archive array materialization/copy across 24 short-lived processes rather than true persistent mmap reuse.",
+      "required_measurement": "RSS, load time, page/block I/O, repeated array-access cost."
+    },
+    {
+      "id": "PERF-H02",
+      "hypothesis": "Candidate/retest/rearm Numba kernels may still dominate CPU despite control-plane/I/O inefficiencies.",
+      "required_measurement": "cProfile/phase timing around raw-cache and filter_raw_to_candidates; do not optimize I/O only."
+    },
+    {
+      "id": "PERF-H03",
+      "hypothesis": "Package-mask DAG/common-subexpression evaluation can reduce repeated bitwise AND and unpackbits work.",
+      "required_measurement": "group_packages_exact + CarrierMaskEngine.package/selected_indices cumulative time and allocations."
+    },
+    {
+      "id": "PERF-H04",
+      "hypothesis": "A persistent per-shard process with adaptive checkpoints may outperform 24 process invocations primarily by reusing immutable caches and JIT/import state.",
+      "required_measurement": "cold vs warm group panel and full-shard baseline."
+    }
+  ],
+  "benchmark_validity_risks": [
+    {
+      "id": "BENCH-R01",
+      "risk": "cProfile changes timing.",
+      "control": "Use instrumentation=off for performance timing; use cprofile only for attribution. Never compare cProfile wall time to optimized unprofiled wall time."
+    },
+    {
+      "id": "BENCH-R02",
+      "risk": "Numba cold compilation and OS page cache can dominate a single run.",
+      "control": "Record cold run separately; benchmark warm steady-state with repeated runs and report median plus dispersion before claiming speedup."
+    },
+    {
+      "id": "BENCH-R03",
+      "risk": "Different CPUs/BLAS/thread counts make wall-clock comparisons invalid.",
+      "control": "Record environment and pin thread env. Compare baseline/candidate on same runtime and data cache state."
+    },
+    {
+      "id": "BENCH-R04",
+      "risk": "Optimization can alter float comparison outcomes at threshold boundaries.",
+      "control": "No fastmath/unordered numeric rewrite without exact M12 mask/config-to-class/root parity. Preserve operation order unless independently proven equivalent."
+    }
+  ],
+  "scientific_integrity_risks": [
+    {
+      "id": "SCI-R01",
+      "risk": "DEV exact-mask equivalence and causal/genealogical equivalence are different concepts.",
+      "current_contract": "Within SEED0076 first-gate multiplicity, one distinct exact GA1 event-mask class per shard is the frozen hypothesis test unit.",
+      "decision": "DO_NOT_CHANGE_CURRENT_FROZEN_UNIT_INSIDE_PERFORMANCE_WORK.",
+      "future_improvement": "Retain a separate CAUSAL_PROVENANCE_CLASS_ID in future universes so computational mask sharing never erases mechanism provenance. Optionally run a conservative multiplicity sensitivity using causal-class count; it cannot rescue a failed gate."
+    },
+    {
+      "id": "SCI-R02",
+      "risk": "A project-global cache can silently reuse stale artifacts after semantic or implementation changes.",
+      "required_cache_key_components": [
+        "data_sha256",
+        "asset",
+        "timeframe",
+        "bar_clock_session_semantics_hash",
+        "indicator_or_operator_code_blob",
+        "parameters",
+        "warmup_seed_semantics",
+        "point_or_tick_size",
+        "numeric_dtype",
+        "relevant_library_semantic_version"
+      ],
+      "rule": "Cache hit requires exact semantic key identity; otherwise recompute."
+    },
+    {
+      "id": "SCI-R03",
+      "risk": "A faster physical mask representation can change canonical identity.",
+      "rule": "Physical SPARSE/DENSE representation may vary, but canonical event source-index sequence and final SHA-256 identity must remain exact."
+    }
+  ],
+  "optimization_order": [
+    "MEASURE_B1_UNPROFILED_AND_PROFILED_GROUP_PANEL",
+    "MEASURE_COLD_VS_WARM",
+    "RANK_TOP3_BOTTLENECKS_BY_WALL_OR_CPU_IO_EVIDENCE",
+    "CHANGE_ONE_BOTTLENECK_AT_A_TIME",
+    "EXACT_GOLDEN_PARITY",
+    "A_B_BENCHMARK_SAME_RUNTIME",
+    "ONLY_THEN_NEXT_OPTIMIZATION"
+  ],
+  "prohibited": [
+    "No FAST_CORE rewrite before measured baseline.",
+    "No current multiplicity-contract change as a side effect of performance optimization.",
+    "No PnL, GA2 or holdout.",
+    "No merge to main before parity and benchmark evidence."
+  ]
+}

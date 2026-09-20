@@ -5,12 +5,17 @@ import argparse
 import hashlib
 import json
 import os
+import platform
 import pstats
-import resource
 import subprocess
 import sys
 import time
 from pathlib import Path
+
+try:
+    import resource
+except ImportError:
+    resource=None
 
 HERE=Path(__file__).resolve().parent
 WRAPPER=HERE/"qros_seed0076_ga1_cached_wrapper_v236.py"
@@ -42,6 +47,38 @@ def sha256_file(path:Path)->str:
             h.update(block)
     return h.hexdigest()
 
+def tree_bytes(path:Path)->int:
+    total=0
+    if not path.exists():
+        return 0
+    for p in path.rglob("*"):
+        if p.is_file():
+            total+=p.stat().st_size
+    return total
+
+def usage_snapshot():
+    if resource is None:
+        return None
+    r=resource.getrusage(resource.RUSAGE_CHILDREN)
+    return {
+        "utime":float(r.ru_utime),
+        "stime":float(r.ru_stime),
+        "maxrss":int(r.ru_maxrss),
+        "inblock":int(getattr(r,"ru_inblock",0)),
+        "oublock":int(getattr(r,"ru_oublock",0)),
+    }
+
+def usage_delta(before,after):
+    if before is None or after is None:
+        return None
+    return {
+        "child_user_seconds":max(0.0,after["utime"]-before["utime"]),
+        "child_system_seconds":max(0.0,after["stime"]-before["stime"]),
+        "child_maxrss_after":after["maxrss"],
+        "child_inblock_delta":max(0,after["inblock"]-before["inblock"]),
+        "child_oublock_delta":max(0,after["oublock"]-before["oublock"]),
+    }
+
 def profile_rows(pstats_path:Path,limit:int=60):
     st=pstats.Stats(str(pstats_path))
     rows=[]
@@ -62,6 +99,7 @@ def parse_args():
     ap=argparse.ArgumentParser()
     ap.add_argument("--mode",choices=["group","full"],required=True)
     ap.add_argument("--group-index",type=int)
+    ap.add_argument("--instrumentation",choices=["off","cprofile"],default="off")
     ap.add_argument("--shard-json",required=True)
     ap.add_argument("--spec",required=True)
     ap.add_argument("--ticks",required=True)
@@ -71,7 +109,6 @@ def parse_args():
     ap.add_argument("--point",type=float,required=True)
     ap.add_argument("--out-dir",required=True)
     ap.add_argument("--benchmark-json",required=True)
-    ap.add_argument("--keep-profile",action="store_true")
     return ap.parse_args()
 
 def main()->int:
@@ -89,13 +126,16 @@ def main()->int:
 
     out=Path(a.out_dir)
     out.mkdir(parents=True,exist_ok=True)
-    run_dir=out/("full" if a.mode=="full" else f"group{a.group_index:02d}")
+    label="full" if a.mode=="full" else f"group{a.group_index:02d}"
+    run_dir=out/f"{label}_{a.instrumentation}"
+    if run_dir.exists() and any(run_dir.iterdir()):
+        raise SystemExit("BENCHMARK_OUTPUT_DIR_NOT_EMPTY")
     run_dir.mkdir(parents=True,exist_ok=True)
     receipt=run_dir/"worker_receipt.json"
     pstats_path=run_dir/"profile.pstats"
 
-    cmd=[
-        sys.executable,"-m","cProfile","-o",str(pstats_path),str(WRAPPER),
+    worker_args=[
+        str(WRAPPER),
         "--tick-raw-cache",a.tick_raw_cache,
         "--shard-json",a.shard_json,
         "--spec",a.spec,
@@ -108,7 +148,10 @@ def main()->int:
         "--expected-config-root",EXPECTED_M12_CONFIG_ROOT,
     ]
     if a.mode=="group":
-        cmd += ["--only-group-index",str(a.group_index)]
+        worker_args += ["--only-group-index",str(a.group_index)]
+    cmd=[sys.executable]+worker_args
+    if a.instrumentation=="cprofile":
+        cmd=[sys.executable,"-m","cProfile","-o",str(pstats_path)]+worker_args
 
     env=os.environ.copy()
     env.update({
@@ -119,27 +162,36 @@ def main()->int:
         "NUMEXPR_NUM_THREADS":"1",
     })
 
-    before=resource.getrusage(resource.RUSAGE_CHILDREN)
+    before_usage=usage_snapshot()
+    bytes_before=tree_bytes(run_dir)
     t0=time.perf_counter()
-    cp0=time.process_time()
     proc=subprocess.run(cmd,env=env,capture_output=True,text=True)
     wall=time.perf_counter()-t0
-    parent_cpu=time.process_time()-cp0
-    after=resource.getrusage(resource.RUSAGE_CHILDREN)
+    after_usage=usage_snapshot()
+    bytes_after=tree_bytes(run_dir)
 
     result={
-        "schema":"QROS_SEED0076_M12_PROFILE_RESULT_1.0",
+        "schema":"QROS_SEED0076_M12_PROFILE_RESULT_1.1",
         "mode":a.mode,
         "group_index":a.group_index,
+        "instrumentation":a.instrumentation,
         "status":"FAIL",
+        "environment":{
+            "python":sys.version,
+            "platform":platform.platform(),
+            "machine":platform.machine(),
+            "processor":platform.processor(),
+            "cpu_count":os.cpu_count(),
+            "thread_env":{
+                k:env[k] for k in ("OMP_NUM_THREADS","OPENBLAS_NUM_THREADS","MKL_NUM_THREADS","NUMEXPR_NUM_THREADS")
+            }
+        },
         "wrapper_git_blob_sha1":EXPECTED_WRAPPER_BLOB,
         "worker_git_blob_sha1":EXPECTED_WORKER_BLOB,
         "expected_config_root_sha256":EXPECTED_M12_CONFIG_ROOT,
         "wall_seconds":wall,
-        "parent_cpu_seconds":parent_cpu,
-        "child_user_seconds_delta":max(0.0,after.ru_utime-before.ru_utime),
-        "child_system_seconds_delta":max(0.0,after.ru_stime-before.ru_stime),
-        "child_maxrss_after":after.ru_maxrss,
+        "resource_usage":usage_delta(before_usage,after_usage),
+        "output_bytes_delta":max(0,bytes_after-bytes_before),
         "returncode":proc.returncode,
         "stdout_tail":proc.stdout[-4000:],
         "stderr_tail":proc.stderr[-4000:],
@@ -170,25 +222,27 @@ def main()->int:
                 if wr.get(k)!=v:
                     failures.append(f"GOLDEN_MISMATCH:{k}")
 
-    if pstats_path.is_file():
-        result["profile_top_cumulative"]=profile_rows(pstats_path,60)
-        result["profile_sha256"]=sha256_file(pstats_path)
-        result["profile_bytes"]=pstats_path.stat().st_size
-    else:
-        failures.append("MISSING_PROFILE_PSTATS")
+    if a.instrumentation=="cprofile":
+        if pstats_path.is_file():
+            result["profile_top_cumulative"]=profile_rows(pstats_path,80)
+            result["profile_sha256"]=sha256_file(pstats_path)
+            result["profile_bytes"]=pstats_path.stat().st_size
+        else:
+            failures.append("MISSING_PROFILE_PSTATS")
+    elif pstats_path.exists():
+        failures.append("UNEXPECTED_PROFILE_PSTATS")
 
     result["failures"]=failures
     result["status"]="PASS" if not failures else "FAIL"
-    result["benchmark_contract"]="M12 golden; profiling only; no semantic mutation"
+    result["benchmark_contract"]="M12 golden; timing and profiling separated; no semantic mutation"
     out_json=Path(a.benchmark_json)
     out_json.parent.mkdir(parents=True,exist_ok=True)
     out_json.write_text(json.dumps(result,sort_keys=True,indent=2)+"\n",encoding="utf-8")
-    if not a.keep_profile and pstats_path.is_file():
-        pstats_path.unlink()
     print(json.dumps({
         "status":result["status"],
         "mode":a.mode,
         "group_index":a.group_index,
+        "instrumentation":a.instrumentation,
         "wall_seconds":round(wall,6),
         "failures":failures,
     },sort_keys=True))

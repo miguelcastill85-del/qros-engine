@@ -33,59 +33,68 @@
   "benchmark_phases": [
     {
       "id": "B0_STATIC",
-      "requirement": "Profiler/wrapper pins and benchmark contract freeze; no compute results."
+      "requirement": "Profiler, golden pins, risk register and environment controls frozen."
     },
     {
-      "id": "B1_GROUP_PANEL",
+      "id": "B1_GROUP_PANEL_UNPROFILED",
       "representative_groups": [
         0,
         7,
         15,
         23
       ],
-      "configs_each": 33528,
-      "purpose": "Estimate hotspot stability across structural group ordering before full-shard profiling.",
-      "pass_conditions": [
-        "worker PASS",
-        "processed_signal_configs=33528",
-        "ordered config root equals golden M12 root",
-        "no economic/holdout contamination",
-        "profile artifact produced"
-      ]
+      "repetitions": {
+        "cold": 1,
+        "warm": 3
+      },
+      "purpose": "Primary timing baseline. cProfile disabled."
+    },
+    {
+      "id": "B1P_GROUP_PANEL_PROFILED",
+      "representative_groups": [
+        0,
+        7,
+        15,
+        23
+      ],
+      "repetitions": 1,
+      "purpose": "Hotspot attribution only; never used as primary wall-clock baseline."
     },
     {
       "id": "B2_FULL_SHARD_BASELINE",
       "configs": 804672,
-      "purpose": "Obtain exact current full-shard baseline.",
-      "pass_conditions": [
-        "804672 configs",
-        "248010 distinct masks",
-        "556662 aliases",
-        "69351 zero-event aliases",
-        "exact semantic root",
-        "exact full alias root",
-        "exact ordered config root"
-      ]
+      "repetitions": {
+        "cold": 1,
+        "warm": 2
+      },
+      "purpose": "Exact current full-shard baseline after B1 identifies stable runtime."
     },
     {
-      "id": "B3_COMPONENT_ATTRIBUTION",
-      "purpose": "Rank measured bottlenecks; only top measured contributors become optimization targets."
+      "id": "B3_PIPELINE_IO",
+      "purpose": "Measure merge/oracle/global-pack/compaction separately from worker compute."
+    },
+    {
+      "id": "B4_COMPONENT_ATTRIBUTION",
+      "purpose": "Rank top measured bottlenecks and authorize only one optimization at a time."
     }
   ],
   "metrics": [
-    "wall_seconds",
-    "child_user_seconds",
-    "child_system_seconds",
-    "max_rss",
-    "cProfile cumulative/self times",
+    "unprofiled wall_seconds",
+    "profiled cumulative/self times",
+    "child user/system CPU when platform exposes it",
+    "peak RSS when platform exposes it",
+    "block I/O when platform exposes it",
+    "output bytes",
     "worker elapsed_seconds",
-    "artifact bytes"
+    "cold-vs-warm delta",
+    "repeat dispersion"
   ],
   "optimization_rules": [
-    "No implementation change before B1 measurement.",
-    "Do not optimize a component merely because code inspection suggests it is slow; confirm by profiling.",
-    "Every optimization must reproduce golden identities before speed is considered.",
-    "Benchmark result must distinguish compute, persistence/I/O, hashing/compression, and merge/pack costs.",
+    "No implementation change before B1 unprofiled and profiled measurements.",
+    "cProfile is attribution evidence, not timing baseline.",
+    "Only measured top contributors may enter optimization queue.",
+    "Every optimization must reproduce exact M12 golden identities before speed matters.",
+    "One optimization at a time; measure marginal speedup and memory/I/O effect.",
     "Do not use economic PnL."
   ],
   "candidate_targets_to_test_not_assume": [
@@ -106,5 +115,6 @@
     "ga2_open": false,
     "holdout_open": false,
     "universe_changed": false
-  }
+  },
+  "risk_register_path": "control/QROS_SEED0076_M12_PERFORMANCE_RISK_REGISTER_20260920_v1.json"
 }
