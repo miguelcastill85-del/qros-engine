@@ -1,0 +1,67 @@
+{
+  "schema": "QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_2.0",
+  "version": "v2.0",
+  "date": "2026-09-20",
+  "status": "ACTIVE_MANDATORY_CHAT_TURN_PROTOCOL",
+  "purpose": "Fail-fast turn orchestration. The chat orchestrates bounded work and never enters retry/discovery/fallback loops.",
+  "supersedes": "governance/QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_v1.0.json",
+  "turn_contract": {
+    "sequence": [
+      "AUTHORITY_BUNDLE",
+      "ONE_ACTION",
+      "PERSIST_AND_EXIT"
+    ],
+    "max_logical_transactions": 3,
+    "max_platform_calls": 4,
+    "failed_action_consumes_action_slot": true,
+    "timeout_or_infrastructure_error": "ONLY_PERSIST_AND_EXIT",
+    "one_probe_per_capability_per_invocation": true,
+    "duplicate_attempt_fingerprint_forbidden": true,
+    "route_switch_after_action_forbidden": true,
+    "tool_discovery_after_action_forbidden": true,
+    "heavy_sync_without_adoptable_job_forbidden": true
+  },
+  "pointer_preservation": [
+    "scientific_state",
+    "economic_pnl_read",
+    "holdout_open",
+    "ga2_open",
+    "new_ga1_authorized",
+    "authorization_scope",
+    "first_gate_execution_authorized",
+    "subject"
+  ],
+  "implementation": {
+    "guard": "scripts/qros_turn_enforcement_guard_v2.py",
+    "named_tests": "scripts/qros_turn_enforcement_guard_tests_v2.py",
+    "chaos": "scripts/qros_turn_enforcement_chaos_v2.py",
+    "guard_git_blob_sha1": "71df413fb3caa391daeb129fa7af90a73a5fde68",
+    "named_tests_git_blob_sha1": "4b5f9b89a865ec01f4d29b47c152f9e23639d6f7",
+    "chaos_git_blob_sha1": "db3d8393cd76f0144f19f3e56c54ba3cdaa6ff52"
+  },
+  "independent_oracle": {
+    "engine": "ECMASCRIPT_INDEPENDENT_MODEL",
+    "episodes": 100000,
+    "timeouts": 10064,
+    "second_action_denied": 100000,
+    "invariant_violations": 0,
+    "result": "PASS"
+  },
+  "supergates": {
+    "SG-AF01_SEQUENCE": "PASS",
+    "SG-AF02_SECOND_ACTION_DENY": "PASS",
+    "SG-AF03_TIMEOUT_PERSIST_ONLY": "PASS",
+    "SG-AF04_ONE_PROBE": "PASS_BY_SPEC",
+    "SG-AF05_DUPLICATE_ATTEMPT": "PASS_BY_SPEC",
+    "SG-AF06_TX_BUDGET": "PASS",
+    "SG-AF07_HEAVY_SYNC_BAN": "PASS_BY_SPEC",
+    "SG-AF08_CROSS_TURN_RESUME": "PASS_BY_HANDOFF_CONTRACT",
+    "SG-AF09_SCIENTIFIC_FIREWALL": "PASS_BY_EXACT_PRESERVATION"
+  },
+  "native_python_execution": {
+    "status": "NOT_REEXECUTED",
+    "reason": "The local compute runtime under investigation is unavailable; activation does not depend solely on the Python reference implementation."
+  },
+  "platform_limit": "Cannot physically cancel a platform connector already in flight. V2 guarantees no second QROS work action after control returns with timeout/infrastructure failure.",
+  "scientific_effect": "NONE_CONTROL_PLANE_ONLY"
+}

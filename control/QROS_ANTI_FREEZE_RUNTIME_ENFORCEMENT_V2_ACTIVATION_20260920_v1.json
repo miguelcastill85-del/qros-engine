@@ -1,0 +1,45 @@
+{
+  "schema": "QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_V2_ACTIVATION_1.0",
+  "date": "2026-09-20",
+  "status": "PASS_ACTIVE_WITH_PLATFORM_LIMIT",
+  "base_main": "a4fb3aa41d3926e96899648f3d8afefad89139f8",
+  "root_causes": [
+    "V1 was optional library logic, not a turn-state contract.",
+    "V1 did not bind failure to consumption of the only work-action slot.",
+    "V1 allowed route switching/tool discovery after an infrastructure failure.",
+    "V1 pointer validator assumed some scientific boundaries must be false instead of preserving current authority."
+  ],
+  "corrections": [
+    "AUTHORITY_BUNDLE -> ONE_ACTION -> PERSIST_AND_EXIT",
+    "failure consumes ONE_ACTION",
+    "timeout/infra failure permits only persistence",
+    "one probe per capability",
+    "no same-turn route switching after action",
+    "exact scientific-boundary preservation"
+  ],
+  "supergate_oracle": {
+    "engine": "ECMASCRIPT_INDEPENDENT_MODEL",
+    "episodes": 100000,
+    "timeouts": 10064,
+    "second_action_denied": 100000,
+    "invariant_violations": 0,
+    "result": "PASS"
+  },
+  "scientific_frontier_preserved": {
+    "version": "V257",
+    "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "shard_ordinal": 9,
+    "domain": "NQX/BUY/M15",
+    "new_ga1_authorized": true,
+    "authorization_scope": "EXACTLY_SHARD09_NQX_BUY_M15",
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false
+  },
+  "implementation_blobs": {
+    "governance": "badfbf162f3bc3ccf499bb903d54b72a4865df6c",
+    "guard": "71df413fb3caa391daeb129fa7af90a73a5fde68",
+    "tests": "4b5f9b89a865ec01f4d29b47c152f9e23639d6f7",
+    "chaos": "db3d8393cd76f0144f19f3e56c54ba3cdaa6ff52"
+  }
+}

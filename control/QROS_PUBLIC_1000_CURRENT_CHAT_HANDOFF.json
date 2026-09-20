@@ -6,5 +6,16 @@
   "stable_frontier_version": "V257",
   "current_blocker": "LOCAL_COMPUTE_RUNTIME_TRANSPORT_UNAVAILABLE",
   "next_automatic_action": "ON NEXT RESPONSIVE COMPUTE RUNTIME: REHASH NQX PARTS 001-003; MATERIALIZE DEV; BUILD BARS/INDICATORS/M15 TICK CACHE; RUN GROUPS 0..23 WITH CHECKPOINTS 8/16/20/24; MERGE V228; ORACLE V228. NO PNL.",
-  "handoff_git_blob_sha1": "240c8a500f2e68c86c9ef44835d49a63797891b8"
+  "handoff_git_blob_sha1": "0d8c0124c3dde067cd35f8b39f5e5924de600bf3",
+  "anti_freeze_v2": {
+    "status": "ACTIVE_MANDATORY",
+    "governance_path": "governance/QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_v2.0.json",
+    "governance_git_blob_sha1": "badfbf162f3bc3ccf499bb903d54b72a4865df6c",
+    "turn_contract": [
+      "AUTHORITY_BUNDLE",
+      "ONE_ACTION",
+      "PERSIST_AND_EXIT"
+    ],
+    "timeout_rule": "PERSIST_ONLY_THEN_EXIT"
+  }
 }

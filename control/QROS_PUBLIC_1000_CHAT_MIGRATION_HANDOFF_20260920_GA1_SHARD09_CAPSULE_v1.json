@@ -32,6 +32,23 @@
     "DO_NOT_OPEN_SEED0486",
     "DO_NOT_OPEN_FIRST_GATE_GA2_HOLDOUT",
     "DO_NOT_CONFUSE_24_GROUPS_WITH_60_SHARDS",
-    "DO_NOT_REDESIGN_INFRASTRUCTURE"
-  ]
+    "DO_NOT_REDESIGN_INFRASTRUCTURE",
+    "AFV2_AFTER_ANY_ACTION_DO_NOT_START_SECOND_ACTION",
+    "AFV2_AFTER_TIMEOUT_OR_INFRA_ERROR_ONLY_PERSIST_AND_EXIT",
+    "AFV2_DO_NOT_SWITCH_COMPUTE_ROUTE_IN_SAME_TURN",
+    "AFV2_DO_NOT_REPEAT_TOOL_DISCOVERY_AFTER_ACTION"
+  ],
+  "anti_freeze_v2": {
+    "status": "ACTIVE_MANDATORY_CHAT_TURN_PROTOCOL",
+    "governance_path": "governance/QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_v2.0.json",
+    "turn_contract": [
+      "AUTHORITY_BUNDLE",
+      "ONE_ACTION",
+      "PERSIST_AND_EXIT"
+    ],
+    "max_logical_transactions": 3,
+    "max_platform_calls": 4,
+    "on_timeout_or_infrastructure_error": "PERSIST_CHECKPOINT_AND_EXIT_NO_RETRY_NO_ROUTE_SWITCH",
+    "one_probe_per_capability_per_invocation": true
+  }
 }
