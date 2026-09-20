@@ -1,0 +1,50 @@
+{
+  "schema": "QRCEL_ENGINEERING_CURRENT_V1",
+  "status": "ACTIVE_REFERENCE_ASSISTANCE",
+  "date": "2026-09-20",
+  "release": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "commit": "b1fbff6a1aeb4f9da23bd9107f135b0579829fb6",
+    "branch": "qrcel/hardening-0.5.0-20260920",
+    "version": "0.5.0-experimental",
+    "manifest_path": "cognitive/COGNITIVE_MANIFEST.json",
+    "manifest_blob_sha1": "eeb5920cbeeaf4b67aa911b26e05ec7a7c399cfa",
+    "manifest_sha256": "891eae102d524b5ffc8b12c81905c2ba2cfb93605a29be6a11452ff05fc99afd",
+    "bootstrap_path": "cognitive/trusted_bootstrap.py",
+    "bootstrap_sha256": "5635677b6945e503fba52352799e33ec773fc7fdc88c399e2a0ed2d4fdd5e47a"
+  },
+  "acceptance": {
+    "path": "cognitive/checkpoints/hardening_050/ACCEPTANCE.json",
+    "sha256": "084ada1b9198d8caa2e1242f5247f7ee6c94d68259d250c1000125b4fe681484",
+    "tests_passed": 202,
+    "unique_new_regressions": 25,
+    "scope": "BOUNDED_ENGINEERING_Q01_Q05_RESOURCE_AND_RECOVERY"
+  },
+  "run_queue": {
+    "path": "cognitive/checkpoints/hardening_050/RUN_QUEUE.json",
+    "sha256": "3e7065437828bede8a494838d583d2563d7fb3004399e6b66b54da6c96cad53b"
+  },
+  "durable_session": {
+    "path": "engineering/qrcel/releases/0.5.0/SESSION.json",
+    "sha256": "f84a325670980d35bb8141e81ebff592a41b62fb081dda7737a5a7840e95edea",
+    "checkpoint_path": "engineering/qrcel/releases/0.5.0/SESSION_CHECKPOINT.json",
+    "checkpoint_sha256": "a9f34abb71ee70c326f9c10a036143e3232a0844101ff338eff19981aca57449",
+    "capability_reusable": false
+  },
+  "fresh_release_validation": {
+    "path": "engineering/qrcel/releases/0.5.0/FRESH_RELEASE_VALIDATION.json",
+    "sha256": "db53c3a03321d606cac4a1d2c957743e2d75f0069a3eb09a08e60c074853543b"
+  },
+  "reference_epoch": 191,
+  "reference_role": "HISTORICAL_ENGINEERING_ONLY",
+  "scientific_authority": false,
+  "scientific_authority_changed": false,
+  "full_qrcel_complete": false,
+  "promoted": false,
+  "parity": "INSUFFICIENT_EVIDENCE",
+  "next_action": "RESOLVE_FULL_SYSTEM_EVALUATION_PREREQUISITES",
+  "background_running": false,
+  "automatic_execution_in_every_chat": false,
+  "capability_recheck_required": true,
+  "recovery": "Load the pinned Governor reference and verified START_HERE; verify external launcher hash before isolated execution; do not replay closed tests/model experiments as new research."
+}

@@ -190,3 +190,9 @@ registro de pruebas y checkpoint de ingeniería. No fusiones ni publiques fuera 
 scope autorizado. No afirmes ejecución en segundo plano sin un proceso real.
 La aceptación del producto y del paquete para chats está en el contrato de entrega.
 No declares TERMINADO si falta un criterio obligatorio o una verificación MT5 exigida.
+
+## QRCEL — asistencia de ingeniería y recuperación entre chats
+
+Para tareas QRCEL o asistencia cognitiva del proyecto, leer `control/QRCEL_ENGINEERING_CURRENT.json` y recuperar la release por su commit, manifiesto y hash del lanzador exactos. Seguir su `cognitive/START_HERE.md`; ejecutar el lanzador verificado con `python3 -I -S -B`, nunca importar código no verificado. La release vive en su rama de ingeniería y no se presupone materializada en main.
+
+Este puntero sólo selecciona software de asistencia; no sustituye la autoridad científica, la cola de investigación ni sus gates. V191 sigue siendo referencia histórica. Recuperar por separado el puntero científico vigente cuando la tarea lo requiera. Verificar los checkpoints remotos antes de reusar resultados, medir capacidad en cada runtime y preservar los gates pendientes de QRCEL completo. No afirmar paridad, promoción o ejecución permanente por cargar el paquete.

@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "commit": "b1fbff6a1aeb4f9da23bd9107f135b0579829fb6",
+  "verified_git_blobs": 272,
+  "manifest_and_launcher_bytes_read_back": true,
+  "branch": "qrcel/hardening-0.5.0-20260920"
+}
