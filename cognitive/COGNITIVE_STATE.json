@@ -13,11 +13,11 @@
   "kernel_demo_receipt": "cognitive/checkpoints/v191_cli_031/DEMO_RECEIPT.json",
   "kernel_implementation_complete": true,
   "last_continuity_checkpoint": "cognitive/COGNITIVE_STATE.json",
-  "last_receipt": "cognitive/checkpoints/hardening_050/ACCEPTANCE.json",
+  "last_receipt": "cognitive/checkpoints/goal_060/ACCEPTANCE.json",
   "model_execution_observation_scope": "Six observed agent batches: two short-answer batches and one restricted declarative program per route; replays are not additional model calls.",
   "model_runs_observed": 6,
   "next_action": "Recover pinned hardening receipt and RUN_QUEUE; resolve observed model-route, sealed-custody and authority-contract prerequisites before full-system evaluation.",
-  "parent_candidate_commit": "36ebafb399ac60cb8d30c7a86f328f13563b856b",
+  "parent_candidate_commit": "b1fbff6a1aeb4f9da23bd9107f135b0579829fb6",
   "parity": "INSUFFICIENT_EVIDENCE",
   "pending": [
     "Existing-authority delegation and schema-specific scientific adapters",
@@ -37,7 +37,7 @@
   "research_receipt": "cognitive/research/continuity_development/run_001/RESULTS.json",
   "research_result": "15_OF_15_COMPONENT_CASES_PASS_NO_FULL_ARCHITECTURE_SELECTION",
   "research_revision": "restricted-system-development-v2",
-  "rollback_target": "36ebafb399ac60cb8d30c7a86f328f13563b856b",
+  "rollback_target": "b1fbff6a1aeb4f9da23bd9107f135b0579829fb6",
   "runtime_capability_inheritable": false,
   "schema": "QRCEL_ENGINEERING_STATE_V1",
   "scientific_authority_changed": false,
@@ -50,7 +50,7 @@
     "repository": "miguelcastill85-del/qros-engine"
   },
   "session_entrypoint": "python3 -I -S -B cognitive/trusted_bootstrap.py",
-  "status": "HARDENED_REFERENCE_ASSISTANCE_VALIDATED",
+  "status": "HARDENED_EXPLICIT_GOAL_ASSISTANCE_VALIDATED",
   "stop_reason": "FULL_SYSTEM_GATES_REQUIRE_EXTERNAL_PREREQUISITES",
   "verified_followup": [
     "F09 impossible task states",
@@ -58,7 +58,7 @@
     "F11 externally bound checkpoint provenance and extent",
     "F12 observation consumers revalidate bound bytes"
   ],
-  "version": "0.5.0-experimental",
+  "version": "0.6.0-experimental",
   "historical_authority_observation": {
     "commit": "a6f76f5fd1039f10f18ad3d10c0b00ddea9a181e",
     "head_blob_sha1": "dc7f7f68f127b279ffff36f0ec8f80d23d2e41c1",
@@ -70,6 +70,7 @@
     "status": "CONTRADICTORY_NOT_VERIFIED"
   },
   "hardening_scope": "Q01_Q05_AND_BOUNDED_LOCAL_RECOVERY",
-  "rollback_caution": "Parent has known Q01-Q05 findings; never silently reactivate it as a security fallback.",
-  "hardening_complete_within_scope": true
+  "rollback_caution": "Never rewrite old checkpoint code bindings; retain the prior hardened release as a separate recovery target.",
+  "hardening_complete_within_scope": true,
+  "explicit_requirement_coverage_implemented": true
 }

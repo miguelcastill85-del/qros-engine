@@ -47,5 +47,10 @@
     "receipt": "cognitive/checkpoints/hardening_050/ACCEPTANCE.json",
     "tests": 202,
     "scope": "Q01_Q05_LOCAL_RESOURCE_AND_CONTINUITY_ONLY"
+  },
+  "goal_060": {
+    "receipt": "cognitive/checkpoints/goal_060/ACCEPTANCE.json",
+    "tests": 220,
+    "scope": "EXPLICIT_REQUIREMENT_COVERAGE_AND_LOCAL_RECOVERY"
   }
 }

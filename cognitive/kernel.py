@@ -13,6 +13,7 @@ from fractions import Fraction
 from pathlib import Path
 
 from . import runtime as v
+from . import goal_contract as goals
 from .verify_release import verify as verify_release
 
 SCHEMA='QRCEL_LOCAL_TASK_PLAN_V1'
@@ -20,7 +21,7 @@ CLAIMS={'VERIFIED','SUPPORTED','INFERENCE','HYPOTHESIS','UNKNOWN','BLOCKED'}
 
 
 def source_identity():
-    return {p.name:v.sha256(p.read_bytes()) for p in (Path(__file__),Path(v.__file__))}
+    return {p.name:v.sha256(p.read_bytes()) for p in (Path(__file__),Path(v.__file__),Path(goals.__file__))}
 
 
 def number(x):
@@ -166,12 +167,20 @@ def open_store(path: Path, startup_timeout: float = 2.0):
 
 
 class Kernel:
-    def __init__(self,repo:Path,plan:dict,plan_sha:str,authority_blob:str,run_id:str,expected_resume_anchor=None):
+    def __init__(self,repo:Path,plan:dict,plan_sha:str,authority_blob:str,run_id:str,expected_resume_anchor=None,
+                 *,goal_contract=None,goal_sha256=None,goal_mapping=None):
         self.repo=repo.resolve();self.plan=v.parse_json(v.canonical(plan));self.order=validate_plan(self.plan)
         v.require_hash(plan_sha);v.require(v.sha256(v.canonical(plan))==plan_sha,'PLAN_ANCHOR_MISMATCH')
         v.require(isinstance(run_id,str) and re.fullmatch(r'[A-Za-z0-9_-]{1,80}',run_id),'RUN_ID')
         self.authority=authority_blob;self.observe()
         self.binding={'plan_sha256':plan_sha,'authority_manifest_blob_sha1':authority_blob,'source_sha256':source_identity()}
+        supplied=(goal_contract is not None,goal_sha256 is not None,goal_mapping is not None)
+        v.require(all(supplied) or not any(supplied),'GOAL_ARGUMENTS_INCOMPLETE')
+        self.goal_contract=v.parse_json(v.canonical(goal_contract)) if all(supplied) else None
+        self.goal_mapping=v.parse_json(v.canonical(goal_mapping)) if all(supplied) else None
+        self.goal_sha256=goal_sha256
+        self.goal_binding=goals.bind(self.goal_contract,goal_sha256,self.plan,self.goal_mapping) if all(supplied) else None
+        if self.goal_binding is not None:self.binding['goal_binding']=self.goal_binding
         self.tasks={t['task_id']:t for t in self.plan['tasks']}
         self.expected_resume_anchor=v.parse_json(v.canonical(expected_resume_anchor)) if expected_resume_anchor is not None else None
         self._verified_results={}
@@ -259,6 +268,8 @@ class Kernel:
     def integrity(self):
         v.require(self.db.execute('SELECT binding FROM meta').fetchall()==[(v.canonical(self.binding),)],'RUN_BINDING_MISMATCH')
         v.require(v.sha256(v.canonical(self.plan))==self.binding['plan_sha256'] and source_identity()==self.binding['source_sha256'],'RUN_INPUT_OR_CODE_CHANGED')
+        if self.goal_contract is not None:
+            v.require(goals.bind(self.goal_contract,self.goal_sha256,self.plan,self.goal_mapping)==self.binding.get('goal_binding'),'GOAL_BINDING_CHANGED')
         rows=self.rows(verify_semantics=False);events=self.ledger();started=set();finished={}
         if self.expected_resume_anchor is not None:
             anchor=self.expected_resume_anchor
@@ -322,6 +333,7 @@ class Kernel:
             completed,ledger=self.integrity()
             tasks,claims=self.graphs(completed,ledger)
             value={'schema':'QRCEL_KERNEL_CHECKPOINT_V1','binding':self.binding,'plan':self.plan,
+                   'goal_contract':self.goal_contract,'goal_mapping':self.goal_mapping,
                    'completed':completed,'ledger':ledger,'task_graph':tasks,'evidence_graph':claims,'scientific_effect_authorized':False}
             raw=v.canonical(value);temp=self.directory/'checkpoint.json.partial'
             v.require(len(raw)<=4*1024*1024,'CHECKPOINT_SIZE_LIMIT')
@@ -339,6 +351,7 @@ class Kernel:
         v.require_hash(expected_sha);v.require(v.sha256(raw)==expected_sha,'CHECKPOINT_ANCHOR_MISMATCH')
         cp=v.parse_json(raw)
         v.require(cp.get('schema')=='QRCEL_KERNEL_CHECKPOINT_V1' and cp.get('binding')==self.binding and cp.get('plan')==self.plan,'CHECKPOINT_BINDING_MISMATCH')
+        v.require(cp.get('goal_contract')==self.goal_contract and cp.get('goal_mapping')==self.goal_mapping,'CHECKPOINT_GOAL_MISMATCH')
         v.require(cp.get('scientific_effect_authorized') is False,'CHECKPOINT_SCOPE')
         v.require(isinstance(cp.get('completed'),dict) and isinstance(cp.get('ledger'),list),'CHECKPOINT_SCHEMA')
         self.db.execute('BEGIN IMMEDIATE')
@@ -393,6 +406,7 @@ class Kernel:
                 'history_authentication':'EXTERNAL_PREFIX_VERIFIED' if self.expected_resume_anchor is not None else 'UNATTESTED_LOCAL_HISTORY',
                 'persisted_results_semantically_revalidated':True,
                 'semantic_revalidations_this_instance':self.semantic_revalidations,
+                'goal_completion':goals.completion(self.goal_binding,self.rows()),
                 'scientific_effect_authorized':False,'background_running':False,'model_calls':0}
 
 
@@ -402,6 +416,7 @@ def main():
     p.add_argument('--authority-blob',required=True);p.add_argument('--release-blob',required=True);p.add_argument('--run-id',required=True)
     p.add_argument('--restore',type=Path);p.add_argument('--checkpoint-sha256')
     p.add_argument('--resume-anchor',type=Path);p.add_argument('--resume-anchor-sha256')
+    p.add_argument('--goal-contract',type=Path);p.add_argument('--goal-sha256');p.add_argument('--goal-mapping',type=Path)
     a=p.parse_args();kernel=None
     try:
         verify_release(a.repo_root,a.release_blob)
@@ -413,7 +428,10 @@ def main():
             v.require_hash(a.resume_anchor_sha256)
             v.require(v.sha256(raw)==a.resume_anchor_sha256,'RESUME_ANCHOR_HASH_MISMATCH')
             anchor=v.parse_json(raw)
-        kernel=Kernel(a.repo_root,plan,a.plan_sha256,a.authority_blob,a.run_id,expected_resume_anchor=anchor)
+        goal=v.parse_json(v.Snapshot(a.goal_contract.parent).read(a.goal_contract.name)) if a.goal_contract else None
+        mapping=v.parse_json(v.Snapshot(a.goal_mapping.parent).read(a.goal_mapping.name)) if a.goal_mapping else None
+        kernel=Kernel(a.repo_root,plan,a.plan_sha256,a.authority_blob,a.run_id,expected_resume_anchor=anchor,
+                      goal_contract=goal,goal_sha256=a.goal_sha256,goal_mapping=mapping)
         if a.restore:
             v.require(a.checkpoint_sha256 is not None,'RESTORE_ANCHOR_REQUIRED')
             kernel.restore(v.Snapshot(a.restore.parent).read(a.restore.name),a.checkpoint_sha256)

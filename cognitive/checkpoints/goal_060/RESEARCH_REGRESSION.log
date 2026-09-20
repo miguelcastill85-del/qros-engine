@@ -1,0 +1,48 @@
+test_boolean_resource_cap_rejected (cognitive.research.treatments.test_preflight.PreflightTests.test_boolean_resource_cap_rejected) ... ok
+test_development_cannot_be_promoted_by_flag (cognitive.research.treatments.test_preflight.PreflightTests.test_development_cannot_be_promoted_by_flag) ... ok
+test_duplicate_arm_rejected (cognitive.research.treatments.test_preflight.PreflightTests.test_duplicate_arm_rejected) ... ok
+test_each_resource_or_access_mismatch_rejected (cognitive.research.treatments.test_preflight.PreflightTests.test_each_resource_or_access_mismatch_rejected) ... ok
+test_forged_expected_hash_rejected (cognitive.research.treatments.test_preflight.PreflightTests.test_forged_expected_hash_rejected) ... ok
+test_matched_protocol_not_a_parity_result (cognitive.research.treatments.test_preflight.PreflightTests.test_matched_protocol_not_a_parity_result) ... ok
+test_provider_context_mismatch_rejected (cognitive.research.treatments.test_preflight.PreflightTests.test_provider_context_mismatch_rejected) ... ok
+test_sealed_label_not_available_for_exposed_cases (cognitive.research.treatments.test_preflight.PreflightTests.test_sealed_label_not_available_for_exposed_cases) ... ok
+test_injection_cannot_downgrade_scientific_marker (cognitive.research.system_development.test_protocol.ProtocolTests.test_injection_cannot_downgrade_scientific_marker) ... ok
+test_invented_hash_field_rejected (cognitive.research.system_development.test_protocol.ProtocolTests.test_invented_hash_field_rejected) ... ok
+test_omitted_branch_rejected (cognitive.research.system_development.test_protocol.ProtocolTests.test_omitted_branch_rejected) ... ok
+test_oracle_rejects_double_counted_diamond (cognitive.research.system_development.test_protocol.ProtocolTests.test_oracle_rejects_double_counted_diamond) ... ok
+test_unrelated_failure_is_not_successful_fault_detection (cognitive.research.system_development.test_protocol.ProtocolTests.test_unrelated_failure_is_not_successful_fault_detection) ... ok
+test_unsafe_operation_rejected (cognitive.research.system_development.test_protocol.ProtocolTests.test_unsafe_operation_rejected) ... ok
+test_valid_program_and_alternative_graph_order (cognitive.research.system_development.test_protocol.ProtocolTests.test_valid_program_and_alternative_graph_order) ... ok
+test_valid_result_does_not_override_blocked_marker (cognitive.research.system_development.test_protocol.ProtocolTests.test_valid_result_does_not_override_blocked_marker) ... ok
+test_changed_archive_rejected (cognitive.research.system_development.test_recover.RecoveryTests.test_changed_archive_rejected) ... ok
+test_clean_copy_reused_without_execution (cognitive.research.system_development.test_recover.RecoveryTests.test_clean_copy_reused_without_execution) ... ok
+test_duplicate_episode_not_complete_coverage (cognitive.research.system_development.test_recover.RecoveryTests.test_duplicate_episode_not_complete_coverage) ... ok
+test_external_anchor_rejects_changed_receipt (cognitive.research.system_development.test_recover.RecoveryTests.test_external_anchor_rejects_changed_receipt) ... ok
+test_forged_pass_cannot_hide_wrong_error (cognitive.research.system_development.test_recover.RecoveryTests.test_forged_pass_cannot_hide_wrong_error) ... ok
+test_interruption_claim_requires_exit_evidence (cognitive.research.system_development.test_recover.RecoveryTests.test_interruption_claim_requires_exit_evidence) ... ok
+test_mixed_pid_within_attempt_rejected (cognitive.research.system_development.test_recover.RecoveryTests.test_mixed_pid_within_attempt_rejected) ... ok
+test_negative_new_calls_rejected_even_with_matching_answer (cognitive.research.system_development.test_recover.RecoveryTests.test_negative_new_calls_rejected_even_with_matching_answer) ... ok
+test_null_attempt_fails_with_contract_error (cognitive.research.system_development.test_recover.RecoveryTests.test_null_attempt_fails_with_contract_error) ... ok
+test_raw_model_program_change_rejected (cognitive.research.system_development.test_recover.RecoveryTests.test_raw_model_program_change_rejected) ... ok
+test_repeated_valid_task_id_is_not_a_valid_trace (cognitive.research.system_development.test_recover.RecoveryTests.test_repeated_valid_task_id_is_not_a_valid_trace) ... ok
+test_unknown_or_forbidden_operation_rejected (cognitive.research.system_development.test_recover.RecoveryTests.test_unknown_or_forbidden_operation_rejected) ... ok
+test_actual_episode_resume_preserves_closed_receipts (cognitive.research.system_development.test_resume.ResumeTests.test_actual_episode_resume_preserves_closed_receipts) ... ok
+test_changed_response_cannot_resume_closed_episodes (cognitive.research.system_development.test_resume.ResumeTests.test_changed_response_cannot_resume_closed_episodes) ... ok
+test_legacy_unbound_partial_is_rejected (cognitive.research.system_development.test_resume.ResumeTests.test_legacy_unbound_partial_is_rejected) ... ok
+test_missing_external_anchor_rejected_before_new_directory (cognitive.research.system_development.test_resume.ResumeTests.test_missing_external_anchor_rejected_before_new_directory) ... ok
+test_reordered_partial_is_not_a_valid_prefix (cognitive.research.system_development.test_resume.ResumeTests.test_reordered_partial_is_not_a_valid_prefix) ... ok
+test_bool_not_equal_to_integer_and_missing_not_dropped (cognitive.research.model_development.test_score.ScorerTests.test_bool_not_equal_to_integer_and_missing_not_dropped) ... ok
+test_duplicate_nonfinite_unknown_ids_rejected (cognitive.research.model_development.test_score.ScorerTests.test_duplicate_nonfinite_unknown_ids_rejected) ... ok
+test_reference_fixture_is_not_model_execution (cognitive.research.model_development.test_score.ScorerTests.test_reference_fixture_is_not_model_execution) ... ok
+test_abstention_is_missing_and_critical_failure (cognitive.research.model_development.test_extended_development.ExtendedScorerTests.test_abstention_is_missing_and_critical_failure) ... ok
+test_bool_does_not_pass_as_integer (cognitive.research.model_development.test_extended_development.ExtendedScorerTests.test_bool_does_not_pass_as_integer) ... ok
+test_dependency_violation_rejected (cognitive.research.model_development.test_extended_development.ExtendedScorerTests.test_dependency_violation_rejected) ... ok
+test_observed_response_files_are_scored_individually (cognitive.research.model_development.test_extended_development.ExtendedScorerTests.test_observed_response_files_are_scored_individually) ... ok
+test_other_optimum_accepted (cognitive.research.model_development.test_extended_development.ExtendedScorerTests.test_other_optimum_accepted) ... ok
+test_processor_overload_rejected (cognitive.research.model_development.test_extended_development.ExtendedScorerTests.test_processor_overload_rejected) ... ok
+test_unrecognized_id_rejected (cognitive.research.model_development.test_extended_development.ExtendedScorerTests.test_unrecognized_id_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 43 tests in 3.306s
+
+OK
