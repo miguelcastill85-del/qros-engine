@@ -1,0 +1,122 @@
+{
+  "schema": "QROS_CARRIER_CLOUD_SCOPE_AND_NQX_FIRST_GATE_FREEZE_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_SCOPE_FROZEN_INFRA_PENDING",
+  "authority": {
+    "observed_main_head": "07f4223f4f0775c9df6b6e648596a4faad308c73",
+    "current_chat_handoff_pointer_blob_sha1": "373f7f06d13b16c183e65051e4985e7f2d55a2c1",
+    "nqx_zip_manifest": {
+      "file": "QROS_NQX_FULL_HISTORY_ZIP_MANIFEST_v2.json",
+      "file_id": "file_0000000063b081fd84a804912cd73846",
+      "library_file_id": "libfile_9108dc0330d88191ac75063a4b3e079a",
+      "sha256": "9f91903273701fdfce5c5d50874e36b57c6ee96a50850498e4550b4881d611df"
+    },
+    "xau_zip_manifest": {
+      "file": "QROS_XAU_FULL_HISTORY_ZIP_MANIFEST_v2.json",
+      "file_id": "file_0000000040c881fd94262fdee5ff066b",
+      "library_file_id": "libfile_45d65e62761c8191ae70e6cc0efe939a",
+      "sha256": "e2e41da50f5ee085cf744a5185f87089021afeae1f5535b1cd00f838383bdb7c"
+    }
+  },
+  "first_gate_nqx": {
+    "development_prefix": {
+      "bytes": 1018984420,
+      "records": 59940260,
+      "sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+      "parity": "PASS"
+    },
+    "required_parts": [
+      1,
+      2,
+      3
+    ],
+    "reason": "20,000,000 records per ZIP payload; development prefix ends inside part003.",
+    "physical_rehash": "PASS_3_OF_3",
+    "files": [
+      {
+        "index": 1,
+        "file": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+        "bytes": 100816656,
+        "sha256": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b",
+        "payload_sha256": "0a0f1814e51bb649aeeadc05a982b052bfaa3a6ea48c6b81c8ec7e1af096f60d",
+        "records": 20000000,
+        "start_record": 0,
+        "file_id": "file_00000000326081f5875ee903b2f5d7b8",
+        "library_file_id": "libfile_3171831215c48191a3f08b7d13c2514e"
+      },
+      {
+        "index": 2,
+        "file": "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+        "bytes": 113466374,
+        "sha256": "53f827fa0b611d9e2b00db78b1da29b1c41f0d2d7d7e912ddcec12de42984a24",
+        "payload_sha256": "371e8c4bff51ed6896101aec9212aa6fcc6677eb650c1e2b1e08739c2518da91",
+        "records": 20000000,
+        "start_record": 20000000,
+        "file_id": "file_00000000862081fbb84ccac33fb00a2f",
+        "library_file_id": "libfile_2b43a067dae48191b1d7febe26d2a472"
+      },
+      {
+        "index": 3,
+        "file": "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip",
+        "bytes": 111669173,
+        "sha256": "48463c8dd2b020356fd9b21caea470cec4e9340d8a8fd0e25bea8fcb0c512c8b",
+        "payload_sha256": "0a74851c86bc8e07585921da2598f5ceefdccaa7cf2a16dd48d3ebcd00267cdf",
+        "records": 20000000,
+        "start_record": 40000000,
+        "file_id": "file_00000000544c8230ab9d40f396f16a06",
+        "library_file_id": "libfile_b9a20967fd308191a0e03aa2f4c08153"
+      }
+    ]
+  },
+  "full_2018_2026_zip_corpus": {
+    "xau": {
+      "parts": 35,
+      "total_zip_bytes": 3988985549,
+      "max_zip_bytes": 127488270,
+      "carrier_bytes": 11850036456,
+      "records": 697060968
+    },
+    "nqx": {
+      "parts": 28,
+      "total_zip_bytes": 2663994339,
+      "max_zip_bytes": 113466374,
+      "carrier_bytes": 9516900679,
+      "records": 559817687
+    },
+    "combined": {
+      "parts": 63,
+      "total_zip_bytes": 6652979888,
+      "total_zip_gib": 6.19608885422349
+    }
+  },
+  "cloud_requirement": {
+    "no_user_pc_dependency": true,
+    "zero_additional_monetary_cost": true,
+    "minimum_practical_capacity_bytes": 6652979888,
+    "required_capabilities": [
+      "server-side or connector-native upload from Library/file references",
+      "durable storage",
+      "runner-readable authenticated or presigned downloads",
+      "per-file SHA-256 verification",
+      "resumable/chunked transfer",
+      "support for at least 63 ZIP objects and >6.65 GB total",
+      "no forced public exposure of scientific authority"
+    ]
+  },
+  "google_drive_attempt": {
+    "status": "BLOCKED_BY_TOOL_CONTEXT",
+    "mutations_applied": false,
+    "create_folder_error": "google_drive_create_folder_unavailable",
+    "upload_error": "google_drive_upload_unavailable",
+    "plugin_directory_state": "Google Drive installed, but Drive write actions are not exposed in current tool surface"
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false
+  },
+  "next_automatic_action": "SELECT A CLOUD OBJECT/CARRIER STORE THAT SATISFIES >6.65 GB ZERO-COST CAPACITY AND RUNNER-READABLE DOWNLOADS WITHOUT USER-PC DEPENDENCY. STAGE NQX PART001-003 FIRST, VERIFY REMOTE HASHES 3/3, THEN COMPLETE FIRST-GATE XAU+NQX. LATER STAGE ALL 63 ZIP PARTS BEFORE FULL 2018-2026 VALIDATION."
+}
