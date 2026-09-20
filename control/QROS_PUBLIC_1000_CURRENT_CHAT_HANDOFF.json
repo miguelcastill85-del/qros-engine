@@ -1,11 +1,11 @@
 {
-  "schema":"QROS_PUBLIC1000_CURRENT_CHAT_HANDOFF_POINTER_5.3",
-  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA","status":"ACTIVE_AUDITED_DELIVERY_RESILIENT_ECONOMIC_FIREWALL_CLOSED",
-  "stable_scientific_pointer":{"path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json","expected_git_blob_sha1":"a12ea959a2113d3ec3050842c79e4dbb6f185d50","expected_version":"V255"},
-  "execution_checkpoint":{"path":"control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json","expected_git_blob_sha1":"3f560b872a812bf6e2fec35407ee50fc784b1f6f"},
-  "active_execution_capsule":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_GROUP03_EXECUTION_CAPSULE_20260916_v1.json","expected_git_blob_sha1":"e9b1002c6064b1d5c366ee8df6953e3fcf0de93f","capsule_id":"W09C_XAUUSD_BUY_M1_FIFO1_GROUP03_20260916_v1"},
-  "last_durable_unit":{"path":"control/QROS_PUBLIC_1000_W09C_XAU_GROUP02_SEMANTIC_RECEIPT_20260916_v1.json","expected_git_blob_sha1":"833502b8824789acac06d66e24b7ae84a96e4423","status":"PASS","structural_group_index":2},
-  "delivery_resilience_policy":{"path":"governance/QROS_CHAT_DELIVERY_RESILIENCE_AND_DURABLE_CHECKPOINT_POLICY_v1.0.json","git_blob_sha1":"56e9501ea1f480bbce185edcf83f49662af2a9d8"},
-  "duplicate_or_retried_continue_order":"IDEMPOTENT_RESUME_FROM_DURABLE_CHECKPOINT","economic_pnl_read":false,"first_gate_execution_authorized":false,"ga2_open":false,"holdout_open":false,"new_ga1_authorized":false,
-  "next_automatic_action":"VERIFY_GROUP03_CAPSULE_PINS_THEN_EXECUTE_GROUP03_ONLY; VALIDATE_AND_PERSIST_BEFORE_GROUP04"
+  "schema": "QROS_PUBLIC1000_CURRENT_CHAT_HANDOFF_POINTER_1.0",
+  "date": "2026-09-19",
+  "status": "ACTIVE",
+  "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260919_CWS_GLOBAL_v1.json",
+  "source_main": "1a9b3e1c5caa42d7605d4270a94fc1b7ce3ca960",
+  "cws_status": "GLOBAL_EXECUTION_GOVERNOR_ACTIVE",
+  "current_blocker": "DURABLE_RUNNER_ACCESSIBLE_CARRIER_BRIDGE_MISSING",
+  "next_automatic_action": "RESOLVE ONLY THE DURABLE CARRIER BRIDGE. ONCE AVAILABLE, CWS MUST HASH-VERIFY 8/8 SOURCES OR EXACT DERIVED CARRIERS, REMATERIALIZE/VERIFY DEV-M1-INDICATORS ON THE ACTIVE RUNNER, THEN SCHEDULE ONE DEK GROUP11 TRANSITION. DO NOT REVALIDATE CWS. DO NOT OPEN GROUP12. KEEP ECONOMIC PNL/HOLDOUT/GA2/NEW_GA1 CLOSED.",
+  "handoff_git_blob_sha1": "5c89395ba7e35198f4ad9431325e624a354097a4"
 }
