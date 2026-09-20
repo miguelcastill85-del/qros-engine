@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_CWS_GROUP11_ZERO_COST_WORKFLOW_YAML_CORRECTION_1.0",
+  "date": "2026-09-19",
+  "status": "PASS_CODE_CORRECTED_NOT_TRIGGERED",
+  "subject": "W09C_XAUUSD_BUY_M1_GROUP11",
+  "invalid_workflow_blob_sha1": "b6e351d8d34523442d529cbbbdd613d1ab592916",
+  "root_cause": "Embedded Python here-string bodies inside YAML run block were emitted at column 1, breaking YAML block-scalar indentation. GitHub therefore created no check-runs for JIT trigger commits.",
+  "evidence": {
+    "trigger_commits_with_zero_check_runs": [
+      "bd1a7fdb235279236bebd02c45ef20ea54262572",
+      "972c87927a1d7f83ba3a5b9dfdd9bb1e37c4fa94",
+      "cb02faef5730aa6c4684565442d75d23b858ffef"
+    ]
+  },
+  "correction": {
+    "embedded_python_removed": true,
+    "m1_helper_path": "scripts/qros_group11_build_m1_only_v1.py",
+    "m1_helper_git_blob_sha1": "7e513c3002ec245043ee960297e3acab7234206c",
+    "indicator_helper_path": "scripts/qros_group11_build_m1_indicators_only_v1.py",
+    "indicator_helper_git_blob_sha1": "98f61576d25f64b4168df126bee6dba597c31a2f",
+    "scientific_semantics_changed": false,
+    "expected_hash_targets_changed": false
+  },
+  "guards": {
+    "group11_spawn_started": false,
+    "group12_opened": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "next_automatic_action": "VALIDATE CORRECTED WORKFLOW SYNTAX; THEN REFRESH JIT LINKS AND TRIGGER ON SELF-HOSTED qros-zero-cost ONLY."
+}

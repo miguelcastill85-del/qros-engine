@@ -52,6 +52,8 @@ jobs:
             'scripts/qros_seed0076_build_bar_cache_v220.py' = '987ef26aca2507a94247bed7663493e6682aa869'
             'scripts/qros_seed0076_build_indicator_cache_v220.py' = '21a50b167e791f4474e3c358b81e40065c048280'
             'scripts/qros_seed0076_indicators_v220.py' = 'b3575c061607aaae9f4062ad623ff7083e2e0ffe'
+            'scripts/qros_group11_build_m1_only_v1.py' = '7e513c3002ec245043ee960297e3acab7234206c'
+            'scripts/qros_group11_build_m1_indicators_only_v1.py' = '98f61576d25f64b4168df126bee6dba597c31a2f'
           }
           foreach ($p in $expected.Keys) {
             if (-not (Test-Path -LiteralPath $p)) { throw "MISSING_FROZEN_SOURCE:$p" }
@@ -155,62 +157,14 @@ jobs:
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          $py = Join-Path $env:QROS_WORK_DIR 'build_m1_only.py'
-          @'
-import json,sys
-from pathlib import Path
-sys.path.insert(0, str(Path.cwd()/'scripts'))
-from qros_seed0076_build_bar_cache_v220 import build_m1, validate, save_bar, content_root, sha256_file
-ticks=Path(sys.argv[1]); out=Path(sys.argv[2]); receipt=Path(sys.argv[3]); out.mkdir(parents=True,exist_ok=True)
-m1=build_m1(ticks)
-fail=validate(m1)
-if fail: raise RuntimeError('M1_VALIDATE:'+','.join(fail))
-p=out/'XAUUSD_M1_BID_BARS.npy'; save_bar(p,m1)
-root=content_root(m1); fsha=sha256_file(p)
-rec={'schema':'QROS_GROUP11_SELFHOSTED_M1_GATE_1.0','status':'PASS','bars':int(len(m1)),'content_sha256':root,'file_bytes':p.stat().st_size,'file_sha256':fsha,'economic_pnl_read':False,'holdout_open':False}
-if rec['bars']!=681772: raise RuntimeError(f'M1_BARS:{rec["bars"]}')
-if root!='55630b61810c087c8230f9395214270b23773fec19d7af08d0547fb2ffe17bf4': raise RuntimeError('M1_CONTENT_HASH')
-if rec['file_bytes']!=27271136: raise RuntimeError(f'M1_FILE_BYTES:{rec["file_bytes"]}')
-if fsha!='35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59': raise RuntimeError('M1_FILE_SHA256')
-receipt.write_text(json.dumps(rec,sort_keys=True,indent=2)+'\n',encoding='utf-8')
-print(json.dumps(rec,sort_keys=True))
-'@ | Set-Content -LiteralPath $py -Encoding utf8
-          & $env:QROS_PYTHON $py (Join-Path $env:QROS_WORK_DIR 'dev\QROS_XAUUSD_DEV_2018_2019_PACKED17.bin') (Join-Path $env:QROS_WORK_DIR 'bars') (Join-Path $env:QROS_WORK_DIR 'receipts\m1.json')
+          & $env:QROS_PYTHON 'scripts/qros_group11_build_m1_only_v1.py' --ticks (Join-Path $env:QROS_WORK_DIR 'dev\QROS_XAUUSD_DEV_2018_2019_PACKED17.bin') --out-dir (Join-Path $env:QROS_WORK_DIR 'bars') --receipt (Join-Path $env:QROS_WORK_DIR 'receipts\m1.json')
           if ($LASTEXITCODE -ne 0) { throw 'M1_GATE_FAIL' }
 
       - name: Build and verify exact M1 indicators only
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Stop'
-          $py = Join-Path $env:QROS_WORK_DIR 'build_m1_indicators_only.py'
-          @'
-import hashlib,json,sys
-from pathlib import Path
-import numpy as np
-sys.path.insert(0, str(Path.cwd()/'scripts'))
-from qros_seed0076_indicators_v220 import compute_all
-from qros_seed0076_build_indicator_cache_v220 import canonical_root
-bars=Path(sys.argv[1]); out=Path(sys.argv[2]); receipt=Path(sys.argv[3]); out.mkdir(parents=True,exist_ok=True)
-b=np.load(bars,mmap_mode='r',allow_pickle=False); scale=0.01
-h=b['high_bid'].astype(np.float64)*scale; l=b['low_bid'].astype(np.float64)*scale; c=b['close_bid'].astype(np.float64)*scale
-d=compute_all(h,l,c)
-completion=np.full(len(b),-1,dtype=np.int64)
-if len(b)>1: completion[:-1]=b['first_source_index'][1:]
-d['completion_source_index']=completion
-p=out/'XAUUSD_M1_INDICATORS.npz'; np.savez(p,**d)
-root=canonical_root(d)
-fh=hashlib.sha256()
-with p.open('rb') as f:
-    for chunk in iter(lambda:f.read(8*1024*1024),b''): fh.update(chunk)
-fsha=fh.hexdigest()
-rec={'schema':'QROS_GROUP11_SELFHOSTED_M1_INDICATOR_GATE_1.0','status':'PASS','bars':int(len(b)),'content_root_sha256':root,'file_bytes':p.stat().st_size,'file_sha256':fsha,'economic_pnl_read':False,'holdout_open':False}
-if rec['bars']!=681772: raise RuntimeError(f'IND_BARS:{rec["bars"]}')
-if root!='2b7b9a1fe666993a9a303f34f466950b6411f274136ec5f1f34adafdd2ee394c': raise RuntimeError('IND_CONTENT_ROOT')
-if rec['file_bytes']!=196359134: raise RuntimeError(f'IND_FILE_BYTES:{rec["file_bytes"]}')
-receipt.write_text(json.dumps(rec,sort_keys=True,indent=2)+'\n',encoding='utf-8')
-print(json.dumps(rec,sort_keys=True))
-'@ | Set-Content -LiteralPath $py -Encoding utf8
-          & $env:QROS_PYTHON $py (Join-Path $env:QROS_WORK_DIR 'bars\XAUUSD_M1_BID_BARS.npy') (Join-Path $env:QROS_WORK_DIR 'indicators') (Join-Path $env:QROS_WORK_DIR 'receipts\m1_indicators.json')
+          & $env:QROS_PYTHON 'scripts/qros_group11_build_m1_indicators_only_v1.py' --bars (Join-Path $env:QROS_WORK_DIR 'bars\XAUUSD_M1_BID_BARS.npy') --out-dir (Join-Path $env:QROS_WORK_DIR 'indicators') --receipt (Join-Path $env:QROS_WORK_DIR 'receipts\m1_indicators.json')
           if ($LASTEXITCODE -ne 0) { throw 'M1_INDICATOR_GATE_FAIL' }
 
       - name: Emit local carrier-gate PASS receipt (no artifact upload)
