@@ -1,0 +1,78 @@
+{
+  "schema": "QROS_ARCHITECTURE_PERFORMANCE_RETROSPECTIVE_1.0",
+  "date": "2026-09-20",
+  "status": "AUDIT_COMPLETE_NO_IMPLEMENTATION",
+  "main_base": "e94b275e1c9032613bd38d0a681eb991ce604318",
+  "scientific_frontier": "V257",
+  "findings": {
+    "control_plane_drift": "VERIFIED",
+    "shards_scientifically_reasonable": "VERIFIED",
+    "inner_loop_redundancy": "VERIFIED_BY_CODE_INSPECTION",
+    "excess_intermediate_io": "VERIFIED",
+    "old_vs_new_exact_wallclock_factor": "NO_DISPONIBLE"
+  },
+  "evidence": {
+    "universe_signal_configs": 48280320,
+    "scientific_shards": 60,
+    "configs_per_shard": 804672,
+    "raw_blind_economic_trials_avoided": 3761519731200,
+    "overlay_factor_avoided_per_signal": 77910,
+    "repo_snapshot": {
+      "control_files": 968,
+      "governance_files": 79,
+      "scripts_files": 170
+    },
+    "recent100_commit_heuristic": {
+      "control_plane": 93,
+      "scientific_execution": 4,
+      "other": 3
+    },
+    "examples": {
+      "H4": {
+        "distinct": 58647,
+        "duplicates": 746025
+      },
+      "M10": {
+        "distinct": 253230,
+        "duplicates": 551442,
+        "compressed_pack_bytes": 787859511
+      },
+      "M12": {
+        "distinct": 248010,
+        "duplicates": 556662,
+        "uncompressed_pack_bytes": 2590887817,
+        "compressed_pack_bytes": 683104903,
+        "group_original_bytes": 2591397468,
+        "group_compressed_bytes": 322011859
+      }
+    }
+  },
+  "root_cause": "CONTROL_PLANE_AND_IO_AMPLIFICATION_AROUND_A_PARTIALLY_OPTIMIZED_SCIENTIFIC_CORE",
+  "preserve": [
+    "causal semantics",
+    "60 scientific shards",
+    "event-mask dedupe before PnL",
+    "holdout firewall",
+    "multiplicity controls",
+    "content-addressed final evidence"
+  ],
+  "simplify": [
+    "control-plane layers",
+    "micro-checkpoints",
+    "repeated full config-root computation",
+    "repeated cache construction",
+    "durable SQLite scratch semantics",
+    "compression in inner loops",
+    "repeated carrier revalidation",
+    "fixed 24-group operational granularity"
+  ],
+  "target_architecture": "QROS_FAST_RESEARCH_CORE_WITH_THIN_EVIDENCE_PLANE",
+  "implementation_authorized": false,
+  "next_action": "Benchmark a completed shard (prefer NQX BUY M12) and build a semantics-identical FAST_CORE candidate in an isolated branch. Promote only after exact event-mask/config-to-class parity and material speedup.",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "universe_changed": false
+  }
+}
