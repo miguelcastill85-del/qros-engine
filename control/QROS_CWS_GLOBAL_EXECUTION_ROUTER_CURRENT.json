@@ -1,7 +1,7 @@
 {
   "schema": "QROS_CWS_GLOBAL_EXECUTION_ROUTER_CURRENT_1.0",
   "date": "2026-09-19",
-  "status": "CANDIDATE_EXTERNAL_VALIDATION_PENDING",
+  "status": "BRANCH_VALIDATED_MAIN_REVALIDATION_PENDING",
   "candidate_branch": "cws-global-execution-router-v1-20260919",
   "candidate_commit": "1ef6e97555f4eefb2eaccc5de62b7e3a02f51f42",
   "validation_run_id": 35477741814,
@@ -14,5 +14,6 @@
   "routing_scope": "ALL_QROS_EXECUTION_CLASSES",
   "authorization_scope": "EXTERNAL_CAPABILITIES_ONLY",
   "bypass_allowed": false,
-  "next_automatic_action": "ADOPT RUN 35477741814 ONCE. IF PASS, VERIFY LOGS, PERSIST PASS RECEIPT, RUN PROMOTION GUARD, PROMOTE TO MAIN, THEN REVALIDATE ON MAIN BEFORE ACTIVATION."
+  "next_automatic_action": "FAST-FORWARD TO MAIN, ADOPT qros-cws-global-execution-router-v1 RUN ON MAIN ONCE, REQUIRE 15 CLASSES + 100000 CASES + unsafe_schedule=0, THEN ACTIVATE GLOBAL EXECUTION GOVERNOR.",
+  "branch_validation_receipt": "control/QROS_CWS_GLOBAL_EXECUTION_ROUTER_BRANCH_VALIDATION_PASS_20260919_v1.json"
 }

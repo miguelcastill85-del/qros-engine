@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_CWS_GLOBAL_EXECUTION_ROUTER_BRANCH_VALIDATION_PASS_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "validated_commit": "1ef6e97555f4eefb2eaccc5de62b7e3a02f51f42",
+  "workflow_run_id": 35477741814,
+  "job_id": 105989809772,
+  "exact_blobs": {
+    "policy": "0f8e28636b8cf3ecf812e11df732ee50cf715753",
+    "router": "a06a403e19186addfcca69c6d8c4245a7eadbcbe",
+    "tests": "0b67571bc779f33cdbde03b476ba5fd14373f7fa",
+    "workflow": "d3f45b1d74e79af6cb907bf9974cc044bca73f4d"
+  },
+  "evidence": {
+    "execution_classes": 15,
+    "adversarial_cases": 100000,
+    "scheduled_cases": 31197,
+    "unsafe_schedule": 0,
+    "traceback_present": false
+  },
+  "promotion_guard": {
+    "executable_drift": false,
+    "policy_drift": false,
+    "tests_drift": false,
+    "workflow_drift": false,
+    "post_validation_files": [
+      "control/QROS_CWS_GLOBAL_EXECUTION_ROUTER_CURRENT.json",
+      "governance/QROS_PERSISTENT_CHAT_EXECUTION_PROTOCOL_v1.1.json"
+    ]
+  },
+  "decision": "PASS_FOR_MAIN_REVALIDATION",
+  "activation_allowed": false
+}

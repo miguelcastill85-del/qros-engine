@@ -86,10 +86,11 @@
   },
   "global_execution_router": {
     "pointer": "control/QROS_CWS_GLOBAL_EXECUTION_ROUTER_CURRENT.json",
-    "status": "CANDIDATE_EXTERNAL_VALIDATION_PENDING",
+    "status": "BRANCH_VALIDATED_MAIN_REVALIDATION_PENDING",
     "router_policy": "governance/QROS_CWS_GLOBAL_EXECUTION_ROUTING_POLICY_v1.0.json",
     "bypass_allowed": false,
     "dek_only_reducer": true,
-    "cws_can_grant_capabilities": false
+    "cws_can_grant_capabilities": false,
+    "branch_validation_receipt": "control/QROS_CWS_GLOBAL_EXECUTION_ROUTER_BRANCH_VALIDATION_PASS_20260919_v1.json"
   }
 }
