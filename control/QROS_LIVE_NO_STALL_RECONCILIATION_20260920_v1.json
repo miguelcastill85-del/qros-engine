@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_LIVE_NO_STALL_RECONCILIATION_1.0",
+  "date": "2026-09-20",
+  "status": "PASS",
+  "root_cause": "CURRENT_CHAT_HANDOFF_NEXT_ACTION_WAS_STALE_RELATIVE_TO_LATEST_DURABLE_PERFORMANCE_AUDIT",
+  "previous_next_action": "Implement production extended worker...",
+  "corrected_next_action": "RECOVER perf/seed0076-m12-profiler-v1-20260920 @ f21969f8f2f3bdeda528ad5b1e96b06182355a52; execute only the preregistered M12 B1 benchmark when a responsive compute runtime with the verified NQX data is available. Do not build the production extended worker, do not retry failed runtimes in-loop, and do not modify M15 until M12 bottlenecks are measured.",
+  "scientific_frontier_preserved": "V257",
+  "active_scientific_subject": "SEED0076 shard09 NQX/BUY/M15",
+  "performance_benchmark_route": {
+    "branch": "perf/seed0076-m12-profiler-v1-20260920",
+    "commit": "f21969f8f2f3bdeda528ad5b1e96b06182355a52",
+    "status": "PREREGISTERED_NO_BENCHMARK_RESULTS"
+  },
+  "science_unchanged": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_seed_opened": false
+  }
+}

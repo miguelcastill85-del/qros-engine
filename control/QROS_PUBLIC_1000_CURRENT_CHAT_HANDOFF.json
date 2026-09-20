@@ -4,8 +4,8 @@
   "status": "ACTIVE",
   "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
   "stable_frontier_version": "V257",
-  "current_blocker": "PRODUCTION_EXTENDED_WORKER_NOT_YET_BOUND",
-  "next_automatic_action": "Implement and preregister the production extended worker for this task on top of existing CWS/DEK/fenced-supervisor components, validate it adversarially and by self-application, then activate only if it can execute/adopt exactly one segment without direct chat polling. Do not launch S00 until the worker passes those gates.",
+  "current_blocker": "NONE_FOR_AUDIT_PREPARATION__COMPUTE_ONLY_REQUIRED_FOR_MEASURED_BENCHMARK",
+  "next_automatic_action": "RECOVER perf/seed0076-m12-profiler-v1-20260920 @ f21969f8f2f3bdeda528ad5b1e96b06182355a52; execute only the preregistered M12 B1 benchmark when a responsive compute runtime with the verified NQX data is available. Do not build the production extended worker, do not retry failed runtimes in-loop, and do not modify M15 until M12 bottlenecks are measured.",
   "handoff_git_blob_sha1": "87f1475e42754489082eef551780b1191d1aa908",
   "anti_freeze_v2": {
     "status": "ACTIVE_MANDATORY",
@@ -25,5 +25,30 @@
     "task_spec_hash": "3326b0a859ea811141ec19d1e38099ff0b27cefaeb9cff601ca29517835cf0f1",
     "active_runtime_lease": null,
     "continuation_owner": "CWS_GLOBAL_GOVERNOR_PLUS_DEK_V3_PLUS_FENCED_HEAVY_SUPERVISOR"
+  },
+  "live_no_stall_contract": {
+    "version": "1.0",
+    "purpose": "Keep one current objective in working memory and prevent route drift.",
+    "current_objective": "Measure M12 current GA1 baseline before any FAST_CORE implementation.",
+    "current_route": "perf/seed0076-m12-profiler-v1-20260920",
+    "current_route_commit": "f21969f8f2f3bdeda528ad5b1e96b06182355a52",
+    "forbidden_parallel_routes": [
+      "production extended worker",
+      "new governance layer",
+      "new seed",
+      "M15 execution before benchmark evidence",
+      "runtime retry chains",
+      "tool-discovery loops"
+    ],
+    "decision_loop": [
+      "1_RECOVER_CURRENT_OBJECTIVE",
+      "2_ATTEMPT_ONE_PRODUCTIVE_ACTION",
+      "3_IF_VERIFIABLE_DELTA_CONTINUE_FROM_DELTA",
+      "4_IF_NO_DELTA_OR_INFRA_FAILURE_RECORD_BLOCKER_ONCE",
+      "5_PIVOT_ONLY_TO_AN_INDEPENDENT_ACTION_THAT_ADVANCES_THE_SAME_OBJECTIVE",
+      "6_IF_NO_SUCH_ACTION_EXISTS_PERSIST_AND_EXIT"
+    ],
+    "stale_handoff_rule": "If any older handoff conflicts with a newer durable audit/decision on main, newer durable authority wins and the stale next_action must be rewritten before work continues.",
+    "user_visible_progress_rule": "Each update must state current objective, completed delta, and exact next action; never narrate repeated attempts."
   }
 }
