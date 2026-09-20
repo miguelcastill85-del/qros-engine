@@ -1,0 +1,50 @@
+{
+  "schema": "QROS_DRIVE_CARRIER_ROOT_CREATED_1.0",
+  "date": "2026-09-19",
+  "status": "PASS",
+  "authority": {
+    "observed_main_head": "cb55ed80ff0245334e0888202f0e835660a3b641",
+    "carrier_scope_commit": "743f66561afaa9793f4a623182f3cdccbf6a62b8"
+  },
+  "drive": {
+    "root_folder_name": "QROS_CARRIER_STORE_2018_2026",
+    "root_folder_id": "1qwGkUH0QF2BasqVZm1WsdG0tbJrmMlQv",
+    "root_folder_url": "https://drive.google.com/drive/folders/1qwGkUH0QF2BasqVZm1WsdG0tbJrmMlQv",
+    "parent_id": "root",
+    "provider": "GOOGLE_DRIVE",
+    "visibility": "NOT_SHARED_BY_THIS_ACTION"
+  },
+  "corpus": {
+    "xau_parts": 35,
+    "nqx_parts": 28,
+    "combined_parts": 63,
+    "combined_zip_bytes": 6652979888
+  },
+  "first_gate": {
+    "xau_parts": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "nqx_parts": [
+      1,
+      2,
+      3
+    ]
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "group12_opened": false,
+    "group11_spawn_started": false
+  },
+  "next_automatic_action": "CREATE NQX/FIRST_GATE SUBFOLDER UNDER THIS DRIVE ROOT, THEN UPLOAD NQX PART001 USING A CONNECTOR FILE_URI BRIDGE; VERIFY DRIVE SIZE AND SHA-256 BEFORE PART002/003."
+}
