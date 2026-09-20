@@ -1,0 +1,91 @@
+{
+  "schema": "QROS_CWS_GROUP11_LIBRARY_CARRIERS_8OF8_DURABLE_BLOCKED_1.0",
+  "date": "2026-09-19",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "blocker": "LIBRARY_TO_DROPBOX_FILEPARAM_ADAPTER_BRIDGE_MISSING",
+  "subject": "W09C_XAUUSD_BUY_M1_GROUP11",
+  "authority": {
+    "current_chat_handoff_pointer_blob_sha1": "373f7f06d13b16c183e65051e4985e7f2d55a2c1",
+    "handoff_blob_sha1": "5c89395ba7e35198f4ad9431325e624a354097a4",
+    "prior_library_bundle_a_commit": "402a347eb0951c89c0805e4c179331b6443281ed",
+    "observed_main_before_receipt": "402a347eb0951c89c0805e4c179331b6443281ed",
+    "authority_drift": false
+  },
+  "transport_architecture": {
+    "original_single_bundle_bytes": 817356800,
+    "single_bundle_rejected_by_library_limit_bytes": 536870912,
+    "split_transport_only": true,
+    "scientific_change": false
+  },
+  "durable_library_carriers": {
+    "bundle_A": {
+      "file": "QROS_CWS_GROUP11_XAU_SOURCE_BUNDLE_A_4OF8_v1.tar",
+      "parts": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "file_id": "file_000000000f40820e80a2acdf1e9db027",
+      "library_file_id": "libfile_a73d932971cc8191874e80c819731276",
+      "bytes": 404152320,
+      "sha256": "383ff6f7a8ad8202aeab79f37d6d0ee6b41f9e4e43a777494e92d4ba0e8540ba",
+      "rematerialized_from_library": true,
+      "physical_rehash": "PASS"
+    },
+    "bundle_B": {
+      "file": "QROS_CWS_GROUP11_XAU_SOURCE_BUNDLE_B_4OF8_v1.tar",
+      "parts": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "file_id": "file_00000000ae44820eaba87d7aaad2e403",
+      "library_file_id": "libfile_ad0470e8fab0819194a70e5019627560",
+      "bytes": 413204480,
+      "sha256": "b4726d9cfc2f3ae1f5e7ea92d1eb4e7da153390f2c5a74a054246c5ff2e4d72b",
+      "rematerialized_from_library": true,
+      "physical_rehash": "PASS"
+    },
+    "source_coverage": "8_OF_8"
+  },
+  "dropbox_staging": {
+    "path_display": "/QROS_CWS_GROUP11_CARRIER_BRIDGE_20260919",
+    "folder_id": "id:3hcdcMy0pHAAAAAAAAAANw",
+    "exists": true,
+    "bundle_A_uploaded": false,
+    "bundle_B_uploaded": false
+  },
+  "failed_transition": {
+    "intended_action": "UPLOAD_BUNDLE_A_LIBRARY_TO_DROPBOX",
+    "mutation_reached_dropbox": false,
+    "partial_file_created": false,
+    "error_class": "FILEPARAM_ADAPTER_TYPE_REJECTION",
+    "observed_error": "source_file passed through orchestration remained a string file_id; Dropbox upload_file requires a ChatGPT-injected file object",
+    "equivalent_dropbox_action_accepting_library_file_id": "NOT_EXPOSED"
+  },
+  "governance": {
+    "cws": "GLOBAL_EXECUTION_GOVERNOR_ACTIVE",
+    "global_governor": "ACTIVE_MANDATORY",
+    "dek_v3": "ONLY_TRANSITION_REDUCER",
+    "chat_non_blocking_handoff_gate": "ACTIVE_MANDATORY",
+    "cws_revalidated": false,
+    "autochain_revalidated": false,
+    "w09c_shadow_revalidated": false
+  },
+  "scientific_firewall": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "group11_closed": false,
+    "group11_spawn_started": false,
+    "group12_opened": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "root_cause": "All eight exact XAU source parts are now durably preserved as two hash-verified Library tar carriers, and the authorized Dropbox staging folder exists. The remaining failure is not data or science: the exposed Dropbox upload adapter cannot consume a Library file_id through the current orchestration surface because source_file requires an injected file object.",
+  "correction": "Preserve both verified Library carriers. Do not rebuild or rehash unless their identities drift. Do not retry the same invalid file_id-to-source_file call. Resume only when a tool surface exposes Library/fileParam bridging or another explicitly authorized durable runner-accessible binary path.",
+  "next_automatic_action": "RESOLVE ONLY LIBRARY_TO_DROPBOX_FILEPARAM ADAPTER OR AN EXPLICITLY AUTHORIZED EQUIVALENT DURABLE BINARY PATH. THEN UPLOAD BUNDLE_A AND BUNDLE_B, VERIFY REMOTE BYTES/METADATA, LET CWS RUNNER EXTRACT AND HASH-VERIFY 8/8 SOURCE ZIPS, REMATERIALIZE/VERIFY DEV-M1-INDICATORS, THEN SCHEDULE ONE DEK GROUP11 TRANSITION.",
+  "portfolio_impact": "NONE"
+}
