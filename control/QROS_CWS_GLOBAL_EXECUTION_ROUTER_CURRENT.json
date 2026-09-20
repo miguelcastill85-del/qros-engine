@@ -1,7 +1,7 @@
 {
   "schema": "QROS_CWS_GLOBAL_EXECUTION_ROUTER_CURRENT_1.0",
   "date": "2026-09-19",
-  "status": "MAIN_REVALIDATION_PENDING",
+  "status": "ACTIVE_MANDATORY",
   "candidate_branch": "cws-global-execution-router-v1-20260919",
   "candidate_commit": "1ef6e97555f4eefb2eaccc5de62b7e3a02f51f42",
   "validation_run_id": 35477741814,
@@ -10,12 +10,13 @@
     "router": "a06a403e19186addfcca69c6d8c4245a7eadbcbe",
     "tests": "0b67571bc779f33cdbde03b476ba5fd14373f7fa"
   },
-  "activation": false,
+  "activation": true,
   "routing_scope": "ALL_QROS_EXECUTION_CLASSES",
-  "authorization_scope": "EXTERNAL_CAPABILITIES_ONLY",
+  "authorization_scope": "EXTERNAL_DURABLE_CAPABILITIES_ONLY",
   "bypass_allowed": false,
-  "next_automatic_action": "ADOPT MAIN RUN 35477818510 ONCE. IF PASS WITH unsafe_schedule=0, ATOMICALLY ACTIVATE GLOBAL EXECUTION GOVERNOR IN MAIN.",
+  "next_automatic_action": "ALL QROS EXECUTION: RECOVER CURRENT AUTHORITY -> ROUTE THROUGH CWS GLOBAL GOVERNOR -> REQUIRE EXTERNAL CAPABILITY IF CLASS IS GUARDED -> COMPILE EXACTLY ONE DEK V3 TRANSITION -> DURABLE HANDOFF -> CONTINUE AUTOMATICALLY. NO DIRECT CHAT/RUNNER BYPASS.",
   "branch_validation_receipt": "control/QROS_CWS_GLOBAL_EXECUTION_ROUTER_BRANCH_VALIDATION_PASS_20260919_v1.json",
   "main_validation_run_id": 35477818510,
-  "activation_governance": "governance/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_v1.0.json"
+  "activation_governance": "governance/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_v1.0.json",
+  "final_activation_receipt": "control/QROS_CWS_GLOBAL_EXECUTION_GOVERNOR_ACTIVATION_PASS_20260919_v1.json"
 }
