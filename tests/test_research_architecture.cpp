@@ -17,22 +17,32 @@ int main(){
     try{
         ResearchEvidence e;
         e.hypothesis_id="H1";e.seed_sha256=h('a');
-        validate_research_transition(ResearchStage::Preregistered,ResearchStage::CausalScope,e);
-        rejects([&]{validate_research_transition(ResearchStage::Preregistered,ResearchStage::UniverseBuilt,e);},"stage skip");
-        e.rise_fixed_point=true;
-        validate_research_transition(ResearchStage::UniverseBuilt,ResearchStage::RiseFixedPoint,e);
-        e.ontology_frozen=true;e.ontology_sha256=h('b');
-        validate_research_transition(ResearchStage::RiseFixedPoint,ResearchStage::OntologyFrozen,e);
-        e.config_frozen=true;e.config_root_sha256=h('c');e.n_tests=100;
-        validate_research_transition(ResearchStage::OntologyFrozen,ResearchStage::ConfigFrozen,e);
-        e.independent_parity=true;
-        validate_research_transition(ResearchStage::ConfigFrozen,ResearchStage::IndependentParity,e);
-        e.dataset_sha256=h('d');e.unit_binding_pass=true;
-        validate_research_transition(ResearchStage::IndependentParity,ResearchStage::DevelopmentBacktest,e);
-        e.economic_pnl_read=true;
-        validate_research_transition(ResearchStage::DevelopmentBacktest,ResearchStage::GateA,e);
-        rejects([&]{ResearchEvidence x=e;x.holdout_authorized=false;validate_research_transition(ResearchStage::GateA,ResearchStage::HoldoutAuthorized,x);},"holdout auth");
-        rejects([&]{ResearchEvidence x=e;x.ga2_open=true;validate_research_transition(ResearchStage::GateA,ResearchStage::HoldoutAuthorized,x);},"ga2 firewall");
+        ResearchLineage lineage(e);
+        auto next=e;
+        lineage.advance(ResearchStage::CausalScope,next);
+        rejects([&]{ResearchLineage x(e);x.advance(ResearchStage::UniverseBuilt,next);},"stage skip");
+        next.rise_fixed_point=true;
+        lineage.advance(ResearchStage::UniverseBuilt,next);
+        lineage.advance(ResearchStage::RiseFixedPoint,next);
+        next.ontology_frozen=true;next.ontology_sha256=h('b');
+        lineage.advance(ResearchStage::OntologyFrozen,next);
+        next.config_frozen=true;next.config_root_sha256=h('c');next.n_tests=100;
+        lineage.advance(ResearchStage::ConfigFrozen,next);
+        next.independent_parity=true;
+        lineage.advance(ResearchStage::IndependentParity,next);
+        next.dataset_sha256=h('d');next.unit_binding_pass=true;
+        lineage.advance(ResearchStage::DevelopmentBacktest,next);
+        next.economic_pnl_read=true;
+        lineage.advance(ResearchStage::GateA,next);
+        rejects([&]{auto bad=next;bad.holdout_authorized=false;lineage.advance(ResearchStage::HoldoutAuthorized,bad);},"holdout auth");
+        auto drift=next;drift.holdout_authorized=true;drift.n_tests=101;
+        rejects([&]{lineage.advance(ResearchStage::HoldoutAuthorized,drift);},"n_tests drift");
+        next.holdout_authorized=true;
+        lineage.advance(ResearchStage::HoldoutAuthorized,next);
+        next.supergate_pass=true;
+        lineage.advance(ResearchStage::Supergate,next);
+        lineage.advance(ResearchStage::FinalDecision,next);
+        rejects([&]{ResearchEvidence x=e;x.ga2_open=true;ResearchLineage bad(x);},"preregister ga2 firewall");
 
         Quote q1{1,100,20260105,100,101},q2{2,100,20260105,102,103},q3{3,101,20260105,99,100};
         CausalClock clock;clock.observe(q1);clock.observe(q2);clock.observe(q3);
@@ -53,14 +63,17 @@ int main(){
         const auto gap_sell=resolve_bar_exit({120,125,100,110},Side::Sell,115,85);
         check(gap_sell.reason==ExitReason::StopLoss&&gap_sell.executable_price_u==120,"sell gap first executable");
 
-        DailyAdmission d(3);
-        check(d.admit(20260105,1),"entry 1");
-        check(!d.admit(20260105,1),"same bar rejected");
-        check(d.admit(20260105,2)&&d.admit(20260105,3),"entries 2 and 3");
-        check(!d.admit(20260105,4),"daily cap");
-        rejects([&]{d.validate_day_rollover(20260106,true);},"overnight rejected");
-        d.validate_day_rollover(20260106,false);
-        check(d.admit(20260106,1),"new day reset");
+        ExecutionAdmission d(3);
+        check(d.admit_and_open(20260105,1),"entry 1");
+        check(!d.admit_and_open(20260105,2),"one position per asset");
+        rejects([&]{d.validate_day_rollover(20260106);},"overnight rejected");
+        d.close_position();
+        check(!d.admit_and_open(20260105,1),"same bar rejected");
+        check(d.admit_and_open(20260105,2),"entry 2");d.close_position();
+        check(d.admit_and_open(20260105,3),"entry 3");d.close_position();
+        check(!d.admit_and_open(20260105,4),"daily cap");
+        d.validate_day_rollover(20260106);
+        check(d.admit_and_open(20260106,1),"new day reset");d.close_position();
 
         AdapterSession s;
         s.submit("A",10);
@@ -80,6 +93,16 @@ int main(){
         s.submit("B",1);
         rejects([&]{s.apply("B",{1,old_epoch,OrderEventKind::Ack,0});},"stale epoch");
         s.apply("B",{1,s.epoch(),OrderEventKind::Ack,0});
+        AdapterSession capped(1);
+        capped.submit("ONE",1);
+        rejects([&]{capped.submit("TWO",1);},"adapter order resource cap");
+        AdapterSession reconnecting;
+        reconnecting.submit("R",2);
+        reconnecting.apply("R",{7,reconnecting.epoch(),OrderEventKind::Ack,0});
+        reconnecting.disconnect();
+        reconnecting.reconnect();
+        reconnecting.apply("R",{1,reconnecting.epoch(),OrderEventKind::PartialFill,1});
+        check(reconnecting.order("R").filled()==1,"sequence resets only across fenced epoch");
 
         std::mt19937_64 rng(20260920ULL);
         for(std::uint64_t i=0;i<50000U;++i){

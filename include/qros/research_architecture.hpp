@@ -60,50 +60,79 @@ inline int stage_rank(ResearchStage stage) {
     return static_cast<int>(stage);
 }
 
-inline void validate_research_transition(ResearchStage from, ResearchStage to, const ResearchEvidence& e) {
-    if (stage_rank(to) != stage_rank(from) + 1) throw std::logic_error("RESEARCH_STAGE_SKIP_OR_BACKTRACK");
-    if (e.hypothesis_id.empty() || !hash64(e.seed_sha256)) throw std::invalid_argument("RESEARCH_IDENTITY_INVALID");
-    if (e.ga2_open || e.new_ga1_authorized) throw std::logic_error("FORBIDDEN_SCIENTIFIC_BOUNDARY_OPEN");
-    if (e.holdout_open && stage_rank(to) < stage_rank(ResearchStage::HoldoutAuthorized)) throw std::logic_error("HOLDOUT_OPEN_EARLY");
-
-    switch (to) {
-        case ResearchStage::CausalScope:
-        case ResearchStage::UniverseBuilt:
-            break;
-        case ResearchStage::RiseFixedPoint:
-            if (!e.rise_fixed_point) throw std::logic_error("RISE_FIXED_POINT_REQUIRED");
-            break;
-        case ResearchStage::OntologyFrozen:
-            if (!e.rise_fixed_point || !e.ontology_frozen || !hash64(e.ontology_sha256)) throw std::logic_error("ONTOLOGY_FREEZE_REQUIRED");
-            break;
-        case ResearchStage::ConfigFrozen:
-            if (!e.ontology_frozen || !e.config_frozen || !hash64(e.config_root_sha256) || e.n_tests == 0U)
-                throw std::logic_error("CONFIG_FREEZE_AND_NTESTS_REQUIRED");
-            break;
-        case ResearchStage::IndependentParity:
-            if (!e.config_frozen || !e.independent_parity) throw std::logic_error("INDEPENDENT_PARITY_REQUIRED");
-            break;
-        case ResearchStage::DevelopmentBacktest:
-            if (!e.independent_parity || !e.unit_binding_pass || !hash64(e.dataset_sha256))
-                throw std::logic_error("DEV_PREFLIGHT_REQUIRED");
-            if (e.holdout_open) throw std::logic_error("HOLDOUT_MUST_REMAIN_CLOSED_DURING_DEV");
-            break;
-        case ResearchStage::GateA:
-            if (!e.economic_pnl_read) throw std::logic_error("DEVELOPMENT_RESULT_REQUIRED");
-            break;
-        case ResearchStage::HoldoutAuthorized:
-            if (!e.holdout_authorized) throw std::logic_error("HOLDOUT_AUTHORIZATION_REQUIRED");
-            break;
-        case ResearchStage::Supergate:
-            if (!e.supergate_pass) throw std::logic_error("SUPERGATE_PASS_REQUIRED");
-            break;
-        case ResearchStage::FinalDecision:
-            if (!e.supergate_pass) throw std::logic_error("FINAL_REQUIRES_SUPERGATE");
-            break;
-        case ResearchStage::Preregistered:
-            throw std::logic_error("INVALID_FORWARD_TRANSITION");
+class ResearchLineage {
+public:
+    explicit ResearchLineage(ResearchEvidence initial) : evidence_(std::move(initial)) {
+        if (evidence_.hypothesis_id.empty() || !hash64(evidence_.seed_sha256))
+            throw std::invalid_argument("RESEARCH_IDENTITY_INVALID");
+        if (evidence_.economic_pnl_read || evidence_.holdout_open || evidence_.ga2_open || evidence_.new_ga1_authorized)
+            throw std::logic_error("PREREGISTRATION_FIREWALL_VIOLATION");
     }
-}
+
+    ResearchStage stage() const { return stage_; }
+    const ResearchEvidence& evidence() const { return evidence_; }
+
+    void advance(ResearchStage to, ResearchEvidence next) {
+        if (stage_rank(to) != stage_rank(stage_) + 1) throw std::logic_error("RESEARCH_STAGE_SKIP_OR_BACKTRACK");
+        if (next.hypothesis_id != evidence_.hypothesis_id || next.seed_sha256 != evidence_.seed_sha256)
+            throw std::logic_error("RESEARCH_LINEAGE_IDENTITY_DRIFT");
+        if (next.ga2_open || next.new_ga1_authorized) throw std::logic_error("FORBIDDEN_SCIENTIFIC_BOUNDARY_OPEN");
+        if (next.holdout_open && stage_rank(to) < stage_rank(ResearchStage::HoldoutAuthorized))
+            throw std::logic_error("HOLDOUT_OPEN_EARLY");
+        preserve_hash(evidence_.dataset_sha256, next.dataset_sha256, "DATASET_HASH_DRIFT");
+        preserve_hash(evidence_.ontology_sha256, next.ontology_sha256, "ONTOLOGY_HASH_DRIFT");
+        preserve_hash(evidence_.config_root_sha256, next.config_root_sha256, "CONFIG_ROOT_DRIFT");
+        if (evidence_.n_tests != 0U && next.n_tests != evidence_.n_tests) throw std::logic_error("N_TESTS_DRIFT");
+
+        switch (to) {
+            case ResearchStage::CausalScope:
+            case ResearchStage::UniverseBuilt:
+                break;
+            case ResearchStage::RiseFixedPoint:
+                if (!next.rise_fixed_point) throw std::logic_error("RISE_FIXED_POINT_REQUIRED");
+                break;
+            case ResearchStage::OntologyFrozen:
+                if (!next.rise_fixed_point || !next.ontology_frozen || !hash64(next.ontology_sha256))
+                    throw std::logic_error("ONTOLOGY_FREEZE_REQUIRED");
+                break;
+            case ResearchStage::ConfigFrozen:
+                if (!next.ontology_frozen || !next.config_frozen || !hash64(next.config_root_sha256) || next.n_tests == 0U)
+                    throw std::logic_error("CONFIG_FREEZE_AND_NTESTS_REQUIRED");
+                break;
+            case ResearchStage::IndependentParity:
+                if (!next.config_frozen || !next.independent_parity) throw std::logic_error("INDEPENDENT_PARITY_REQUIRED");
+                break;
+            case ResearchStage::DevelopmentBacktest:
+                if (!next.independent_parity || !next.unit_binding_pass || !hash64(next.dataset_sha256))
+                    throw std::logic_error("DEV_PREFLIGHT_REQUIRED");
+                if (next.economic_pnl_read || next.holdout_open) throw std::logic_error("DEV_ENTRY_FIREWALL_VIOLATION");
+                break;
+            case ResearchStage::GateA:
+                if (!next.economic_pnl_read) throw std::logic_error("DEVELOPMENT_RESULT_REQUIRED");
+                break;
+            case ResearchStage::HoldoutAuthorized:
+                if (!next.holdout_authorized) throw std::logic_error("HOLDOUT_AUTHORIZATION_REQUIRED");
+                break;
+            case ResearchStage::Supergate:
+                if (!next.holdout_authorized || !next.supergate_pass) throw std::logic_error("SUPERGATE_EVIDENCE_REQUIRED");
+                break;
+            case ResearchStage::FinalDecision:
+                if (!next.holdout_authorized || !next.supergate_pass) throw std::logic_error("FINAL_REQUIRES_SUPERGATE");
+                break;
+            case ResearchStage::Preregistered:
+                throw std::logic_error("INVALID_FORWARD_TRANSITION");
+        }
+        stage_ = to;
+        evidence_ = std::move(next);
+    }
+
+private:
+    static void preserve_hash(const std::string& old_value, const std::string& next_value, const char* error) {
+        if (!old_value.empty() && old_value != next_value) throw std::logic_error(error);
+    }
+    ResearchStage stage_{ResearchStage::Preregistered};
+    ResearchEvidence evidence_;
+};
 
 enum class Side : std::uint8_t { Buy, Sell };
 enum class ExitReason : std::uint8_t { None, StopLoss, TakeProfit, SessionClose };
@@ -210,12 +239,13 @@ inline ExitDecision resolve_bar_exit(const BarEnvelope& b, Side side, std::int64
     return {};
 }
 
-class DailyAdmission {
+class ExecutionAdmission {
 public:
-    explicit DailyAdmission(std::uint32_t limit) : limit_(limit) {
+    explicit ExecutionAdmission(std::uint32_t limit) : limit_(limit) {
         if (limit_ != 3U && limit_ != 5U) throw std::invalid_argument("DAILY_LIMIT_NOT_AUTHORIZED");
     }
-    bool admit(std::int64_t day, std::int64_t bar_id) {
+    bool admit_and_open(std::int64_t day, std::int64_t bar_id) {
+        if (position_open_) return false;
         if (!day_.has_value() || *day_ != day) {
             day_ = day;
             entries_ = 0U;
@@ -225,14 +255,22 @@ public:
         if (last_bar_.has_value() && *last_bar_ == bar_id) return false;
         ++entries_;
         last_bar_ = bar_id;
+        position_open_ = true;
         return true;
     }
-    void validate_day_rollover(std::int64_t next_day, bool position_open) const {
-        if (day_.has_value() && *day_ != next_day && position_open) throw std::logic_error("OVERNIGHT_POSITION_FORBIDDEN");
+    void close_position() {
+        if (!position_open_) throw std::logic_error("CLOSE_WITHOUT_POSITION");
+        position_open_ = false;
     }
+    void validate_day_rollover(std::int64_t next_day) const {
+        if (day_.has_value() && *day_ != next_day && position_open_) throw std::logic_error("OVERNIGHT_POSITION_FORBIDDEN");
+    }
+    bool position_open() const { return position_open_; }
+    std::uint32_t entries_today() const { return entries_; }
 private:
     std::uint32_t limit_{};
     std::uint32_t entries_{};
+    bool position_open_{};
     std::optional<std::int64_t> day_;
     std::optional<std::int64_t> last_bar_;
 };
@@ -256,6 +294,11 @@ public:
 
     void apply(const OrderEvent& e, std::uint64_t current_epoch) {
         if (e.epoch != current_epoch) throw std::logic_error("STALE_ADAPTER_EPOCH");
+        if (last_epoch_ != e.epoch) {
+            if (last_epoch_ != 0U && e.epoch < last_epoch_) throw std::logic_error("ADAPTER_EPOCH_WENT_BACKWARDS");
+            last_epoch_ = e.epoch;
+            last_seq_ = 0U;
+        }
         if (e.seq == 0U || e.seq <= last_seq_) throw std::logic_error("ORDER_EVENT_REPLAY_OR_REORDER");
         if (terminal()) throw std::logic_error("ORDER_ALREADY_TERMINAL");
 
@@ -300,11 +343,15 @@ private:
     std::uint64_t quantity_{};
     std::uint64_t filled_{};
     std::uint64_t last_seq_{};
+    std::uint64_t last_epoch_{};
     OrderStatus status_{OrderStatus::New};
 };
 
 class AdapterSession {
 public:
+    explicit AdapterSession(std::size_t max_orders = 1024U) : max_orders_(max_orders) {
+        if (max_orders_ == 0U || max_orders_ > 100000U) throw std::invalid_argument("ADAPTER_ORDER_CAP_INVALID");
+    }
     std::uint64_t epoch() const { return epoch_; }
     bool connected() const { return connected_; }
 
@@ -322,6 +369,7 @@ public:
     void submit(const std::string& client_id, std::uint64_t quantity) {
         if (!connected_) throw std::logic_error("SUBMIT_WHILE_DISCONNECTED");
         if (orders_.contains(client_id)) throw std::logic_error("DUPLICATE_CLIENT_ORDER_ID");
+        if (orders_.size() >= max_orders_) throw std::logic_error("ADAPTER_ORDER_CAP_EXCEEDED");
         orders_.emplace(client_id, AdapterOrder(client_id, quantity));
     }
 
@@ -335,6 +383,7 @@ public:
 private:
     std::uint64_t epoch_{1U};
     bool connected_{true};
+    std::size_t max_orders_{};
     std::map<std::string, AdapterOrder> orders_;
 };
 
