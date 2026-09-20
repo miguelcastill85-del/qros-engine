@@ -1,0 +1,61 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_GA1_SHARD09_RUNNER_SOURCE_CLOSURE_1.0",
+  "date": "2026-09-20",
+  "status": "PASS_6_OF_6_GIT_BLOB_IDENTITY",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "shard": {
+    "ordinal": 9,
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M15",
+    "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106"
+  },
+  "files": [
+    {
+      "path": "scripts/qros_seed0076_config_stream.py",
+      "expected_git_blob_sha1": "a01268bd8bab639977b22c419926d94306754bba",
+      "actual_git_blob_sha1": "a01268bd8bab639977b22c419926d94306754bba",
+      "match": true
+    },
+    {
+      "path": "scripts/qros_seed0076_structural_v220.py",
+      "expected_git_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+      "actual_git_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+      "match": true
+    },
+    {
+      "path": "scripts/qros_seed0076_gate_engine_v221.py",
+      "expected_git_blob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+      "actual_git_blob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+      "match": true
+    },
+    {
+      "path": "scripts/qros_seed0076_carrier_masks_v221.py",
+      "expected_git_blob_sha1": "0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25",
+      "actual_git_blob_sha1": "0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25",
+      "match": true
+    },
+    {
+      "path": "scripts/qros_seed0076_ga1_shard_worker_v223.py",
+      "expected_git_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+      "actual_git_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+      "match": true
+    },
+    {
+      "path": "scripts/qros_seed0076_ga1_cached_wrapper_v236.py",
+      "expected_git_blob_sha1": "2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f",
+      "actual_git_blob_sha1": "2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f",
+      "match": true
+    }
+  ],
+  "config_stream_parity": {
+    "path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_NQX_BUY_M15_CONFIG_STREAM_PARITY_V240_v1.json",
+    "status": "PASS",
+    "processed_signal_configs": 804672,
+    "ordered_config_id_stream_root_sha256": "46e39c9108d4eec03d847fe3b405bdd7777976ba048f27705abfb7a3c869f947"
+  },
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "decision": "RUNNER_SOURCE_CLOSURE_PASS"
+}

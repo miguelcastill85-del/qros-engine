@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_GA1_SHARD09_BLOCKED_BY_INFRASTRUCTURE_1.0",
+  "date": "2026-09-20",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "scope": "SEED0076_GA1_SHARD09_NQX_BUY_M15_ONLY",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "shard": {
+    "ordinal": 9,
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M15",
+    "shard_id": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+    "expected_signal_configs": 804672
+  },
+  "recovered": {
+    "config_stream_parity": "PASS_804672_OF_804672",
+    "runner_source_closure": "PASS_6_OF_6",
+    "carriers_materialized": [
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+        "size_bytes": 100816656,
+        "size_match": true
+      },
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+        "size_bytes": 113466374,
+        "size_match": true
+      },
+      {
+        "file": "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip",
+        "size_bytes": 111669173,
+        "size_match": true
+      }
+    ]
+  },
+  "indispensable_missing_evidence": "Current-runtime SHA-256 rehash of the three materialized ZIP byte streams before rebuilding NQX DEV and executing GA1 masks.",
+  "attempted_routes": [
+    {
+      "route": "container sha256sum",
+      "result": "TransportTimeout"
+    },
+    {
+      "route": "python hashlib",
+      "result": "TransportTimeout"
+    }
+  ],
+  "why_indispensable": "The current runtime must bind the materialized bytes to the frozen carrier hashes before scientific mask generation; size/name alone is insufficient for a fresh byte-identity claim.",
+  "alternatives_attempted": [
+    "Library title search for exact ZIP names",
+    "Library search with simplified prefixes",
+    "Direct materialization from previously verified exact file identifiers",
+    "OS-level SHA-256",
+    "Python SHA-256"
+  ],
+  "execution_started": false,
+  "masks_generated": false,
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "queue_effect": "Shard09 remains the only authorized new GA1 shard. No later shard may start until this one reaches durable PASS.",
+  "next_action": "On the next responsive runtime, hash the already materialized NQX parts 001-003. Require exact 3/3 SHA-256 match. Then rebuild/verify NQX DEV SHA-256 451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf and execute M15 groups 0..23 with V236, checkpointing 8/16/20/24 before merge/oracle/global pack."
+}
