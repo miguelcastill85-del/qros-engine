@@ -5,6 +5,8 @@ import qros_typed_dag
 from qros_scientific_context import BINDING_INPUT
 from qros_scientific_dag import compile_scientific_manifest, execute_scientific_manifest, validate_scientific_run
 
+ENV={"python":"3.13.5","implementation":"CPython","platform":"fixture-linux","numpy":"2.3.5","numba":"0.65.1","byteorder":"little"}
+
 H=lambda s: hashlib.sha256(s.encode()).hexdigest()
 
 def base_manifest():
@@ -13,10 +15,10 @@ def base_manifest():
       "nodes":[
         {"id":"a","operation":"emit","operation_version":"1","code_hashes":{"emit":H("code-a")},
          "domain":{"asset":"NQX","timeframe":"M2"},"parameters":{"x":1},
-         "static_inputs":{"fixture":H("fixture-a")},"environment":{"python":"fixture"},"deps":[]},
+         "static_inputs":{"fixture":H("fixture-a")},"environment":ENV,"deps":[]},
         {"id":"b","operation":"join","operation_version":"1","code_hashes":{"join":H("code-b")},
          "domain":{"asset":"NQX","timeframe":"M2"},"parameters":{"y":2},
-         "static_inputs":{"fixture":H("fixture-b")},"environment":{"python":"fixture"},"deps":["a"]},
+         "static_inputs":{"fixture":H("fixture-b")},"environment":ENV,"deps":["a"]},
       ]
     }
 
