@@ -43,11 +43,11 @@
   "full_qrcel_complete": false,
   "promoted": false,
   "parity": "INSUFFICIENT_EVIDENCE",
-  "next_action": "RESOLVE_FULL_SYSTEM_EVALUATION_PREREQUISITES",
+  "next_action": "AUTHENTICATE_NEW_PREREQUISITE_EVIDENCE_THEN_RECOMPUTE_CAUSAL_FRONTIER",
   "background_running": false,
   "automatic_execution_in_every_chat": false,
   "capability_recheck_required": true,
-  "recovery": "Load the pinned Governor reference and verified START_HERE; verify external launcher hash before isolated execution; do not replay closed tests/model experiments as new research.",
+  "recovery": "Load the pinned Governor reference and verified START_HERE; verify external launcher hash before isolated execution; do not replay closed tests/model experiments as new research. Read the continuation checkpoint and DAG before acting; historical pending trial plans are superseded by bound completion receipts.",
   "explicit_goal_example": {
     "scope": "SYNTHETIC_NON_SCIENTIFIC_NOT_STRATEGY_PROGRESS",
     "validation_path": "engineering/qrcel/releases/0.6.0/GOAL_CLI_VALIDATION.json",
@@ -104,5 +104,23 @@
     "direct_api_covered": false,
     "summary_path": "engineering/qrcel/releases/0.6.2/SUMMARY.json",
     "summary_sha256": "b06e399db29b5a79b62d3f3a66402e5cf710d9783dd30ee4209b36b21d209fe7"
+  },
+  "continuation": {
+    "schema": "QRCEL_VERIFIED_CONTINUATION_REFERENCE_V1",
+    "mode": "QROS_RISE_CONTINUATION_MAX",
+    "scope": "QRCEL_ENGINEERING_ONLY",
+    "artifacts_commit": "bcf4c7be7f63686d8604057b2eb6c52dd57992fa",
+    "manifest_path": "engineering/qrcel/continuation/20260921-forensic/MANIFEST.json",
+    "manifest_sha256": "17805a6412492a06b1faeae6d57a78fd25df1851900ecde5995ab12d446d2c47",
+    "checkpoint_path": "engineering/qrcel/continuation/20260921-forensic/CHECKPOINT.json",
+    "checkpoint_sha256": "43a1eebea74e70c19db0892b49fa1735622b7cd6bbfd1db1824fe194a13dfd86",
+    "verification_path": "engineering/qrcel/continuation/20260921-forensic/VERIFICATION.json",
+    "verification_sha256": "631c5bb1f8caecaecb7494e65813074349bba8d4c9d8117bfdcb8b220a1bb6c1",
+    "decision_ledger_path": "engineering/qrcel/continuation/20260921-forensic/DECISION_LEDGER.json",
+    "remote_artifact_readback": "11 blobs matched before this pointer was created",
+    "first_unfinished_action": "ESTABLISH_VERIFIABLE_FULL_SYSTEM_EVALUATION_INPUT_CONTRACT",
+    "ready_independent_nodes": [],
+    "replay_closed_tests": false,
+    "runtime_release_changed": false
   }
 }
