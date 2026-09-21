@@ -1,0 +1,60 @@
+{
+  "alternatives_attempted": [
+    "read-only maskpack verifier implemented and synthetically validated",
+    "independent structural/tick event canary implemented",
+    "synthetic/property/future-perturbation/tamper/crash tests executed",
+    "searched all currently connected durable artifact stores"
+  ],
+  "authority": {
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "shards1_10_recompute_forbidden": true,
+    "stable_frontier": "V259"
+  },
+  "blocked_scope": "ONLY full historical event-mask byte regression against H1/M12/M15/M2 certified heavy artifacts.",
+  "date": "2026-09-21",
+  "next_action": "Continue independent Factor IR durability/serialization validation on the research branch. Do not block the whole project and do not recompute closed shards.",
+  "objective": "Run read-only exact historical regression of the candidate against certified H1/M12 maskpack bytes without recomputing closed shards.",
+  "receipt_sha256": "72d2e322cfe307813043a12b2b56aaf87f76d32d82faa410484177544da43870",
+  "required_artifacts": {
+    "H1": {
+      "compressed_pack_sha256": "bdf7f1afd912b53c7069475da643c6f8ce70a94cd0e7bd9a564a59a5ae715204",
+      "index_sha256": "6a715da39bb04b026ab097b3724518452d26dad8d294e1d57b867e45e53a03ad9a",
+      "mapping_sha256": "98218fd8d552e2db81450d664834078785e418ff1891d57b867e45e53a03ad9a",
+      "uncompressed_pack_sha256": "84493f0ff510df8b91ca87336d1412e11d3f09d84a9eb2a6002d3dffdee43940"
+    },
+    "M12": {
+      "index_sha256": "6b421453e9828149a753cc8d0038c14d81f31b54bbc4301c214e661169579291",
+      "mapping_sha256": "c5bec36e0b78c896f81578de5a69b42fd6f673a54630efbb8311f33e7e09c0a7",
+      "uncompressed_pack_sha256": "340e67029924fb148ca6136e155c204239624e8c532267ad8f116f751a68baef"
+    }
+  },
+  "resume_condition": "Recover a certified historical maskpack/index/mapping artifact matching the known SHA256 identities, or establish a later durable authority that explicitly authorizes parity-only recomputation of a closed shard without changing scientific state.",
+  "schema": "QROS_GA1_COMPILED_DAG_FACTOR_IR_V1_HISTORICAL_REGRESSION_BLOCKER_1.0",
+  "scientific_effect": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "historical_shards_invalidated": false,
+    "holdout_open": false,
+    "shard11_open": false
+  },
+  "searched": [
+    {"method":"exact filenames, certified hashes and H1/M12 maskpack names","result":"NO_MATCH","source":"Google Drive"},
+    {"method":"exact filenames, certified hashes and H1/M12 maskpack names","result":"NO_MATCH","source":"Dropbox"},
+    {"method":"code/file search for heavy maskpack filenames","result":"NO_HEAVY_BYTES","source":"GitHub repository"},
+    {"method":"workflow runs on H1 certification commit 727a8132d5102859e597236375c73ab003aeebf4 and M12 certification commit c8c808f58d111513d3f512e3b3211f7cb8261c21","result":"NO_WORKFLOW_RUN_ARTIFACTS","source":"GitHub Actions"},
+    {"method":"exact title search and simplified title retry for maskpack/unique masks","result":"NO_MATCH","source":"Project/File Library"}
+  ],
+  "status": "BLOCKED_BY_INFRASTRUCTURE_SUBTASK_ONLY",
+  "unblocked_scope": [
+    "candidate code hardening",
+    "typed provenance/action keys",
+    "Factor IR serialization and round-trip validation",
+    "property-based testing",
+    "independent synthetic generator canaries",
+    "tamper/corruption tests",
+    "crash/restart tests",
+    "performance microbenchmarks on synthetic/non-scientific fixtures"
+  ],
+  "why_equivalent_evidence_is_insufficient": "Durable control receipts prove historical roots and counts but do not expose every historical event-mask byte needed to compare candidate reconstruction byte-for-byte without recomputation.",
+  "why_indispensable": "V259 forbids recomputing shards1-10. Exact historical byte regression therefore requires certified historical pack/index/mapping bytes or an equivalent previously certified event-mask carrier."
+}
