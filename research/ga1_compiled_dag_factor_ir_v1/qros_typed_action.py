@@ -1,8 +1,9 @@
 from __future__ import annotations
-import hashlib, json, os, platform, sys, tempfile
+import hashlib, json, platform, sys
 from pathlib import Path
 from typing import Any
 import numpy as np
+from qros_factor_ir_store import immutable_publish_bytes
 
 SCHEMA = "QROS_TYPED_ACTION_KEY_1.0"
 
@@ -86,24 +87,5 @@ def validate_receipt(receipt: dict[str, Any], *, expected_action_key: str | None
 
 
 def atomic_publish_bytes(path: str | Path, data: bytes, *, crash_before_rename: bool = False) -> str:
-    final = Path(path)
-    final.parent.mkdir(parents=True, exist_ok=True)
-    fd, temp_name = tempfile.mkstemp(prefix=final.name + ".staging.", dir=final.parent)
-    temp = Path(temp_name)
-    try:
-        with os.fdopen(fd, "wb") as f:
-            f.write(data)
-            f.flush()
-            os.fsync(f.fileno())
-        if crash_before_rename:
-            raise RuntimeError("INJECTED_CRASH_BEFORE_RENAME")
-        os.replace(temp, final)
-        dfd = os.open(final.parent, os.O_DIRECTORY)
-        try:
-            os.fsync(dfd)
-        finally:
-            os.close(dfd)
-    except Exception:
-        # Preserve staging as forensic evidence; never create/replace final.
-        raise
-    return sha256_file(final)
+    result = immutable_publish_bytes(path, data, crash_before_publish=crash_before_rename)
+    return result["sha256"]
