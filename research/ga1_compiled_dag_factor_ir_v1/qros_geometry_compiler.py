@@ -18,6 +18,7 @@ class GeometryPrimitives:
     # All arrays are indexed by signal bar index. Indicator values are causally
     # anchored to bar_idx-1, exactly matching GateContext.eval_family V221.
     valid_struct: np.ndarray
+    valid_indicator_index: np.ndarray
     atr_prev: np.ndarray
     box_atr: np.ndarray
     contraction2: np.ndarray
@@ -36,7 +37,9 @@ def compile_geometry_primitives(ind: dict[str, np.ndarray], sh: np.ndarray, sl: 
         raise ValueError("GEOMETRY_SHAPE_MISMATCH")
     bar = np.arange(n, dtype=np.int64)
     ii = bar - 1
-    atr_prev = _safe(np.asarray(ind["ATR14"], dtype=np.float64), ii)
+    atr_source = np.asarray(ind["ATR14"], dtype=np.float64)
+    atr_prev = _safe(atr_source, ii)
+    valid_indicator_index = (ii >= 0) & (ii < len(atr_source))
     valid_struct = ~np.isnan(sh) & ~np.isnan(sl)
     width = np.abs(sh - sl)
     box_atr = np.full(n, np.nan, dtype=np.float64)
@@ -60,6 +63,7 @@ def compile_geometry_primitives(ind: dict[str, np.ndarray], sh: np.ndarray, sl: 
         dist[fast] = r
     return GeometryPrimitives(
         valid_struct=valid_struct,
+        valid_indicator_index=valid_indicator_index,
         atr_prev=atr_prev,
         box_atr=box_atr,
         contraction2=contraction(2),
@@ -73,7 +77,9 @@ def evaluate_compiled_geometry(pr: GeometryPrimitives, bar_idx: np.ndarray,
                                variant: dict, active_trend: dict | None = None) -> np.ndarray:
     b = np.asarray(bar_idx, dtype=np.int64)
     nbar = len(pr.valid_struct)
-    valid = (b >= 0) & (b < nbar) & (b - 1 >= 0)
+    valid = (b >= 0) & (b < nbar)
+    in_range = valid.copy()
+    valid[in_range] &= pr.valid_indicator_index[b[in_range]]
     out = np.zeros(len(b), dtype=bool)
     if not np.any(valid):
         return out
