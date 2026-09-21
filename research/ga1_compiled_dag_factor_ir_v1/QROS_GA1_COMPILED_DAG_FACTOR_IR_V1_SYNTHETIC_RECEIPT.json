@@ -1,0 +1,74 @@
+{
+  "authority": {
+    "audit_blob_sha1": "8aaaf683c8f3e8acc555a59c187765399e5f4ee4",
+    "audit_path": "control/QROS_GA1_FAST_V3_ADVERSARIAL_ARCHITECTURE_AUDIT_20260921_v1.json",
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "stable_frontier": "V259"
+  },
+  "classification": {
+    "candidate_status": "CANDIDATE_NOT_PRODUCTION",
+    "not_verified": "No full M12/M15/M2 scientific regression in this runtime because V259 explicitly forbids recomputing shards1-10 and prior local heavy artifacts were lost when the runtime recycled.",
+    "verified": "Synthetic equivalence/invariant tests above executed in current runtime and passed."
+  },
+  "date": "2026-09-21",
+  "environment": {
+    "byteorder": "little",
+    "implementation": "CPython",
+    "numba": "0.65.1",
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "python": "3.13.5"
+  },
+  "files": {
+    "adversarial_test_output.json": {
+      "bytes": 544,
+      "sha256": "16de51c30ac02a0d514fa93b3457383f35ee4f8c2bd6c2d805975d5cd122154f"
+    },
+    "qros_factor_ir.py": {
+      "bytes": 3421,
+      "sha256": "0c31aaa75e3ebae22f31d5ceb16818ad2db1462eab9bf923735b645a342530f6"
+    },
+    "qros_geometry_compiler.py": {
+      "bytes": 3715,
+      "sha256": "258c80d6b472d321a58abb5dbb3daddd9159c1cf56681de1ca7e2c62b3ef51a0"
+    },
+    "qros_typed_action.py": {
+      "bytes": 3904,
+      "sha256": "8ea71066f5434540011f515fd71dd3acd7e26ff70f6a11819dd47a7811f166b1"
+    },
+    "tests/run_adversarial.py": {
+      "bytes": 6869,
+      "sha256": "54cdf4dec081163e90e88202892ec62e12ba4c7188ae88ac21998c4bf19776b3"
+    }
+  },
+  "next_action": "Persist exact prototype bytes on the isolated research branch. Then add an independent synthetic event-generator canary and a durable regression harness capable of consuming certified mask-pack artifacts without recomputing shards. Do not authorize shard11.",
+  "receipt_sha256": "0a86c60618aef792715e9999ffd0690de4d47c343b4472f20eb1d92c3592b69e",
+  "schema": "QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1_SYNTHETIC_RECEIPT_1.0",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_seed_open": false,
+    "shard11_open": false,
+    "shards1_10_recomputed": false
+  },
+  "status": "PASS_SYNTHETIC_ONLY",
+  "tests": {
+    "action_key_dependency_mutations_rejected": [
+      "code",
+      "domain",
+      "param",
+      "input",
+      "environment"
+    ],
+    "atomic_crash_before_rename_rejected": true,
+    "factor_ir_physical_bitmap_count": 3,
+    "factor_ir_recipe_count": 5,
+    "factor_ir_reconstruction_pass": true,
+    "factor_ir_semantic_primitive_count": 4,
+    "future_perturbation_pass": true,
+    "geometry_reference_equivalence_cases": 315,
+    "geometry_reference_mismatches": 0,
+    "receipt_tamper_rejected": true
+  }
+}
