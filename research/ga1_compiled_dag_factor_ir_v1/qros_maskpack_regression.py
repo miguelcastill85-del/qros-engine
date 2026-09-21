@@ -52,15 +52,25 @@ def verify_maskpack(pack_path: str|Path,index_path: str|Path,mapping_path: str|P
             if ec==0:zero_alias+=int(ac)
         if f.read(1):raise ValueError('TRAILING_PACK_BYTES')
     hmap=hashlib.sha256();cfg_count=0;prev_cfg=None
+    map_counts={ch:0 for ch in seen}; map_min={}
     for off in range(0,len(mapping_bytes),MAP_REC.size):
         cfg,ch=MAP_REC.unpack_from(mapping_bytes,off)
         if prev_cfg is not None and cfg<=prev_cfg:raise ValueError('CONFIG_ORDER_INVALID')
         prev_cfg=cfg
         if ch not in seen:raise ValueError('MAPPING_UNKNOWN_CLASS')
+        map_counts[ch]+=1
+        if ch not in map_min or cfg<map_min[ch]:map_min[ch]=cfg
         hmap.update(cfg);hmap.update(ch);cfg_count+=1
-    result={'processed_signal_configs':cfg_count,'distinct_mask_class_count':len(idx),'zero_event_class_alias_count':zero_alias,'semantic_class_root_sha256':hsem.hexdigest(),'full_alias_mapping_root_sha256':hmap.hexdigest(),'mapping_file_sha256':hashlib.sha256(mapping_bytes).hexdigest(),'event_count_sum':event_total}
+    zero_rep=None
+    for ch,pack_off,rep,ac,ec,db,masksha in idx:
+        if map_counts.get(ch,0)!=int(ac):raise ValueError('ALIAS_COUNT_MAPPING_MISMATCH')
+        if map_min.get(ch)!=rep:raise ValueError('REPRESENTATIVE_NOT_MAPPING_MINIMUM')
+        if int(ec)==0:zero_rep=rep.hex()
+    result={'processed_signal_configs':cfg_count,'distinct_mask_class_count':len(idx),'duplicate_config_count':cfg_count-len(idx),'zero_event_class_alias_count':zero_alias,'zero_event_representative_config_id':zero_rep,'semantic_class_root_sha256':hsem.hexdigest(),'full_alias_mapping_root_sha256':hmap.hexdigest(),'mapping_file_sha256':hashlib.sha256(mapping_bytes).hexdigest(),'event_count_sum':event_total}
     if result['mapping_file_sha256']!=result['full_alias_mapping_root_sha256']:raise ValueError('MAPPING_FILE_ROOT_MISMATCH')
     if expected:
+        unknown=sorted(set(expected)-set(result))
+        if unknown:raise ValueError('UNSUPPORTED_EXPECTED_FIELDS:'+','.join(unknown))
         for k,v in expected.items():
-            if k in result and result[k]!=v:raise ValueError('EXPECTED_MISMATCH:'+k)
+            if result[k]!=v:raise ValueError('EXPECTED_MISMATCH:'+k)
     return result
