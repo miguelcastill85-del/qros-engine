@@ -1,0 +1,55 @@
+{
+  "schema": "QROS_FAST_RUNTIME_INFRA_BLOCK_1.0",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "date": "2026-09-20",
+  "run_id": "SEED0076_M12_GOLDEN_FAST_V1",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "domain": {
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M12"
+  },
+  "runtime_path": "container_non_streaming_single_invocation",
+  "error": "EXECUTION_TIMEOUT_240S",
+  "process_started": true,
+  "process_remaining_after_timeout": false,
+  "retry_same_runtime_path": false,
+  "resume": {
+    "exists": true,
+    "status": "RUNNING",
+    "run_id": "SEED0076_M12_GOLDEN_FAST_V1"
+  },
+  "summary_exists": false,
+  "worker_receipt_exists": false,
+  "partial_runtime_artifacts": {
+    "sqlite": {
+      "bytes": 220631040,
+      "sha256": "0270801d779ab301dfe3f4173ca8ec641e07efb7958ab6be8bf824a11630b9bf"
+    },
+    "journal": {
+      "bytes": 8834880,
+      "sha256": "7f140927143a5688e92c20b288e57d412cbaad324a44d1859f44dc2cf282e32f"
+    }
+  },
+  "forensic_progress_non_scientific": {
+    "aliases": 140165,
+    "classes": 37700,
+    "sum_alias_count": 140165,
+    "max_alias_count": 22493,
+    "zero_event_classes": 1,
+    "zero_event_aliases": 22493,
+    "use_for_parity_decision": false
+  },
+  "scientific_result": false,
+  "parity_decision": "NOT_AVAILABLE",
+  "last_clean_point": "FAST_M12_INPUTS_CODE_CLOSURE_CONFIG_ROOT_AND_CAUSAL_CACHES_VERIFIED",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "m15_open": false
+  },
+  "local_receipt_sha256": "f98b74e7cb84cbc546aad5e71f2d42ad5fc3294abafadc1e652dd624567b1c81",
+  "next_automatic_action": "Resume only on a responsive compute runtime from the verified FAST M12 inputs; do not reuse partial SQLite as a scientific result and do not open M15 before exact M12 golden PASS."
+}
