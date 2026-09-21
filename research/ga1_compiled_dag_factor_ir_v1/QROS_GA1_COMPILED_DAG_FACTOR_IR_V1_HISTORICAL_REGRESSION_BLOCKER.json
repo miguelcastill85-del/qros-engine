@@ -18,7 +18,7 @@
   "required_artifacts": {
     "H1": {
       "compressed_pack_sha256": "bdf7f1afd912b53c7069475da643c6f8ce70a94cd0e7bd9a564a59a5ae715204",
-      "index_sha256": "6a715da39bb04b026ab097b3724518452d26dad8d294e1d57b867e45e53a03ad9a",
+      "index_sha256": "6a715da39bb04b026ab097b3724518452d26dad8d294e1ef87eeb35e523cbe68",
       "mapping_sha256": "98218fd8d552e2db81450d664834078785e418ff1891d57b867e45e53a03ad9a",
       "uncompressed_pack_sha256": "84493f0ff510df8b91ca87336d1412e11d3f09d84a9eb2a6002d3dffdee43940"
     },
@@ -38,11 +38,31 @@
     "shard11_open": false
   },
   "searched": [
-    {"method":"exact filenames, certified hashes and H1/M12 maskpack names","result":"NO_MATCH","source":"Google Drive"},
-    {"method":"exact filenames, certified hashes and H1/M12 maskpack names","result":"NO_MATCH","source":"Dropbox"},
-    {"method":"code/file search for heavy maskpack filenames","result":"NO_HEAVY_BYTES","source":"GitHub repository"},
-    {"method":"workflow runs on H1 certification commit 727a8132d5102859e597236375c73ab003aeebf4 and M12 certification commit c8c808f58d111513d3f512e3b3211f7cb8261c21","result":"NO_WORKFLOW_RUN_ARTIFACTS","source":"GitHub Actions"},
-    {"method":"exact title search and simplified title retry for maskpack/unique masks","result":"NO_MATCH","source":"Project/File Library"}
+    {
+      "method": "exact filenames, certified hashes and H1/M12 maskpack names",
+      "result": "NO_MATCH",
+      "source": "Google Drive"
+    },
+    {
+      "method": "exact filenames, certified hashes and H1/M12 maskpack names",
+      "result": "NO_MATCH",
+      "source": "Dropbox"
+    },
+    {
+      "method": "code/file search for heavy maskpack filenames",
+      "result": "NO_HEAVY_BYTES",
+      "source": "GitHub repository"
+    },
+    {
+      "method": "workflow runs on H1 certification commit 727a8132d5102859e597236375c73ab003aeebf4 and M12 certification commit c8c808f58d111513d3f512e3b3211f7cb8261c21",
+      "result": "NO_WORKFLOW_RUN_ARTIFACTS",
+      "source": "GitHub Actions"
+    },
+    {
+      "method": "exact title search and simplified title retry for maskpack/unique masks",
+      "result": "NO_MATCH",
+      "source": "Project/File Library"
+    }
   ],
   "status": "BLOCKED_BY_INFRASTRUCTURE_SUBTASK_ONLY",
   "unblocked_scope": [
