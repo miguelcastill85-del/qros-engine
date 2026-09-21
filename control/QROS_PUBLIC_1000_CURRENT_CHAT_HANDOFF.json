@@ -4,8 +4,8 @@
   "status": "ACTIVE",
   "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
   "stable_frontier_version": "V257",
-  "current_blocker": "QROS_FAST_M12_GOLDEN_BLOCKED_BY_RUNTIME_TIMEOUT_AFTER_VERIFIED_INPUTS",
-  "next_automatic_action": "Recover control/QROS_FAST_M12_EXECUTION_CHECKPOINT_20260920_v1.json and fast/seed0076-research-v1-20260920 @ ddacf6efdcda4dccb0d7e9ef528492dc9af9087b. On a responsive compute runtime, reuse or deterministically rematerialize only the verified M12 inputs/caches, then execute SEED0076_M12_GOLDEN_FAST_V1 as one full-domain invocation. Do not use the partial SQLite as a result and do not open M15 until exact M12 golden PASS.",
+  "current_blocker": null,
+  "next_automatic_action": "Persist the validated FAST V2 implementation code durably, then execute NQX/BUY/M15 under the same memory-isolated single-domain architecture. Do not change the frozen universe or open economic PnL, GA2, holdout, or a new seed.",
   "handoff_git_blob_sha1": "87f1475e42754489082eef551780b1191d1aa908",
   "anti_freeze_v2": {
     "status": "ACTIVE_MANDATORY",
@@ -27,11 +27,11 @@
     "continuation_owner": "CWS_GLOBAL_GOVERNOR_PLUS_DEK_V3_PLUS_FENCED_HEAVY_SUPERVISOR"
   },
   "live_no_stall_contract": {
-    "version": "2.0_FAST_RESEARCH",
-    "current_objective": "Prove QROS FAST single-domain execution on NQX/BUY/M12 with exact golden parity.",
+    "version": "2.1_FAST_RESEARCH_V2",
+    "current_objective": "Execute NQX/BUY/M15 using the exact M12-validated FAST V2 memory-isolated architecture.",
     "current_route": "fast/seed0076-research-v1-20260920",
     "current_route_commit": "ddacf6efdcda4dccb0d7e9ef528492dc9af9087b",
-    "current_run_id": "SEED0076_M12_GOLDEN_FAST_V1",
+    "current_run_id": "SEED0076_M15_FAST_V2",
     "drive_run_folder_id": "18aLTm7EtI67v81Dia1Qsf8N-pKLeSIkE",
     "forbidden_parallel_routes": [
       "24-group M12 benchmark topology",
@@ -41,14 +41,15 @@
       "M15 before M12 FAST parity",
       "new seed"
     ],
-    "execution_rule": "One full scientific domain per invocation. Persist only resume.json, summary.json and final artifacts. Heavy outputs go to Drive.",
-    "failure_rule": "One attempt only per runtime path. If infrastructure fails, persist once and do not retry in-loop.",
-    "current_blocker_receipt": "control/QROS_FAST_M12_RUNTIME_BLOCK_RECEIPT_20260920_v1.json",
+    "execution_rule": "One scientific domain. Technical process isolation is permitted only as deterministic memory management; no per-segment scientific decisions, selection, gates, or economic reads.",
+    "failure_rule": "Persist deterministic technical segment state; scientific result exists only after complete global reduction. Never infer from partial segments.",
+    "current_blocker_receipt": null,
     "run_spec_correction_receipt": "control/QROS_FAST_M12_RUN_SPEC_CORRECTION_RECEIPT_20260920_v1.json",
-    "last_clean_point": "FAST_M12_INPUTS_CODE_CLOSURE_CONFIG_ROOT_AND_CAUSAL_CACHES_VERIFIED",
-    "scientific_result": "NOT_AVAILABLE",
-    "m15_open": false,
-    "execution_checkpoint": "control/QROS_FAST_M12_EXECUTION_CHECKPOINT_20260920_v1.json"
+    "last_clean_point": "FAST_V2_M12_EXACT_7_FIELD_GOLDEN_PARITY_PASS",
+    "scientific_result": "M12_FAST_V2_GOLDEN_PASS",
+    "m15_open": true,
+    "execution_checkpoint": "control/QROS_FAST_M12_EXECUTION_CHECKPOINT_20260920_v1.json",
+    "fast_v2_validation_receipt": "control/QROS_FAST_M12_V2_GOLDEN_PASS_RECEIPT_20260921_v1.json"
   },
   "qros_fast_storage": {
     "status": "ACTIVE",
