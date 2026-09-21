@@ -30,7 +30,12 @@ class FactorIR:
     @classmethod
     def build(cls, source_idx: np.ndarray, primitives: dict[str, np.ndarray],
               recipes: dict[str, Iterable[str]]) -> "FactorIR":
-        source_idx = np.asarray(source_idx, dtype=np.uint64)
+        raw_source = np.asarray(source_idx)
+        if raw_source.ndim != 1 or raw_source.dtype.kind not in ("i", "u"):
+            raise ValueError("SOURCE_INDEX_INTEGER_VECTOR_REQUIRED")
+        if raw_source.dtype.kind == "i" and np.any(raw_source < 0):
+            raise ValueError("SOURCE_INDEX_NEGATIVE")
+        source_idx = raw_source.astype(np.uint64, copy=False)
         if len(source_idx) > 1 and np.any(source_idx[1:] <= source_idx[:-1]):
             raise ValueError("SOURCE_INDEX_NOT_STRICTLY_INCREASING")
         sem_to_phys: dict[str, str] = {}
