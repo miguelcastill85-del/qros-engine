@@ -1,0 +1,80 @@
+{
+  "authority": {
+    "branch_head_after_change": "0b4f6737989f1b7aad182dd03b60a291f0cc000c",
+    "branch_head_before_change": "cd32775d970daaa6325e355ff1faa6f09af1ac71",
+    "main_drift": "QRCEL_ONLY_ORTHOGONAL_CONFIRMED",
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "stable_frontier": "V259"
+  },
+  "code": {
+    "qros_factor_ir_store_git_blob_sha1": "2ff5f4b6ad84f7c085b5a218d32d59cdbe5f6bf6",
+    "qros_typed_action_new_git_blob_sha1": "1340c779bea16808a092894a21671653124ff33c",
+    "qros_typed_action_old_git_blob_sha1": "d66e60048d8d6888c9f41bfab11d3fa10a970feb",
+    "qros_typed_dag_git_blob_sha1": "d3f3059cba13980e7f51202384c08accc5425a7a"
+  },
+  "date": "2026-09-21",
+  "decision_blast_radius": "NONE",
+  "next_action": "Derive and persist an evidence-native research recovery root and append-only event ledger from authenticated receipts/artifacts. Keep the historical byte-regression blocker isolated and do not authorize shard11.",
+  "prior_evidence": {
+    "crash_window_receipt_git_blob_sha1": "ad7a9e261a2a086323d655672c2ae1c121641f20",
+    "crash_window_receipt_self_hash_verified": true,
+    "typed_dag_receipt_git_blob_sha1": "2e4793453b6ab7ef843714d8e7a20aa5c0134866",
+    "typed_dag_receipt_self_hash_verified": true
+  },
+  "proposition_equivalence": {
+    "action_key_ast_unchanged": true,
+    "ast_sha256": {
+      "action_key": "19a4adeafc3f84ed0c530b53d0a9ce6ee3b8cfdf0e965a9d45b7c276ffde88db",
+      "build_action_payload": "6b02162e9cdf2d3466c29761dd9ac6edb47f4ff913c8d82a03669eb1e913dc6b",
+      "canonical_bytes": "2a4dd3d0c435fb379fa87616101d550fd8ca14ba424cefe1fb8beb812e663588",
+      "sha256_bytes": "16f22cc72b76b356699e2164f9aade373eab1bd856741721f78c4320b63f709e"
+    },
+    "build_action_payload_ast_unchanged": true,
+    "canonical_bytes_ast_unchanged": true,
+    "dag_regression_reused_under_contract": true,
+    "qros_typed_dag_imports_from_typed_action": [
+      "canonical_bytes",
+      "action_key"
+    ],
+    "reuse_reason": "The DAG consumes only canonical_bytes and action_key from qros_typed_action, and those function ASTs are unchanged. The changed atomic_publish_bytes symbol is not referenced by qros_typed_dag.",
+    "sha256_bytes_ast_unchanged": true
+  },
+  "receipt_sha256": "6426e2c4e0d631f8f48acea932ebf09df4b554d4aba3829553b5fe5495d45d06",
+  "result": "Duplicated os.replace publication path removed from typed action. All research publication paths now route through the validated immutable no-clobber CAS primitive.",
+  "schema": "QROS_GA1_PUBLICATION_UNIFICATION_RECEIPT_1.0",
+  "scientific_blast_radius": "NONE",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "shard11_open": false,
+    "shards1_10_recomputed": false
+  },
+  "status": "PASS",
+  "technical_blast_radius": {
+    "atomic_publish_bytes_consumers": [
+      "research/ga1_compiled_dag_factor_ir_v1/qros_typed_action.py",
+      "research/ga1_compiled_dag_factor_ir_v1/tests/run_adversarial.py",
+      "research/ga1_compiled_dag_factor_ir_v1/tests/run_adversarial_v2.py"
+    ],
+    "branch_python_files_scanned": 16,
+    "dag_runtime_consumer": false
+  },
+  "validation": {
+    "action_key_canonical_self_consistent": true,
+    "conflicting_bytes_rejected": true,
+    "crash_before_publish_no_final": true,
+    "environment": {
+      "byteorder": "little",
+      "implementation": "CPython",
+      "numba": "0.65.1",
+      "numpy": "2.3.5",
+      "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+      "python": "3.13.5"
+    },
+    "idempotent_same_bytes": true,
+    "initial_publish_sha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+    "publication_output_sha256": "47bc2680c87fc6677b69447f788fa8287b0eebb31054d3ea5409c67b7c71574c",
+    "publication_test_sha256": "28142a2e3700b8fecdcec7ce6429c2884cc36679a0b577e2c448f0e0a138ca41"
+  }
+}
