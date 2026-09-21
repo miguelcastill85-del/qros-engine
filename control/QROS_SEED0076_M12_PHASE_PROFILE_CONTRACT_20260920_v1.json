@@ -1,0 +1,45 @@
+{
+  "schema": "QROS_SEED0076_M12_PHASE_PROFILE_CONTRACT_1.0",
+  "date": "2026-09-20",
+  "status": "PREREGISTERED_NO_PHASE_RESULTS",
+  "purpose": "Attribute B1 group wall-clock to current frozen worker phases without semantic changes.",
+  "branch_parent": "b0114d9cb210ff38d8d87ba9337ea8890165da0d",
+  "worker_git_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+  "wrapper_git_blob_sha1": "2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f",
+  "expected_m12_config_root": "07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714",
+  "representative_groups": [
+    0,
+    7,
+    15,
+    23
+  ],
+  "instrumented_phases": [
+    "config_id",
+    "filter_packages",
+    "package_partition",
+    "shard_base_rows",
+    "build_structural_cache",
+    "raw_cache_for",
+    "next_replacement_source",
+    "filter_raw_to_candidates",
+    "session_ms_for_candidates",
+    "CarrierMaskEngine_ctor",
+    "group_packages_exact",
+    "ClassDB.__init__",
+    "ClassDB.register",
+    "ClassDB.close",
+    "finalize_artifacts"
+  ],
+  "interpretation_rules": [
+    "Phase timings are inclusive; nested times must not be summed as exclusive CPU.",
+    "Primary timing comparison remains unprofiled B1.",
+    "This profiler is attribution-only.",
+    "No optimization ranking until unprofiled and phase-profile evidence agree."
+  ],
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "event_semantics_changed": false
+  }
+}
