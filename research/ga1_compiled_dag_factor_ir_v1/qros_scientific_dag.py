@@ -2,6 +2,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Callable
 from qros_scientific_context import BINDING_INPUT, bind_scientific_context
+from qros_typed_action import validate_environment_manifest
 from qros_typed_dag import EXECUTION_CONTRACT as RAW_EXECUTION_CONTRACT
 from qros_typed_dag import execute_manifest, manifest_root, normalize_manifest, validate_run_receipt
 
@@ -13,6 +14,11 @@ def compile_scientific_manifest(manifest: dict[str, Any], scientific_context: di
     if RAW_EXECUTION_CONTRACT != EXPECTED_RAW_EXECUTION_CONTRACT:
         raise RuntimeError("RAW_EXECUTOR_CONTRACT_MISMATCH")
     bound = bind_scientific_context(manifest, scientific_context)
+    for node in bound["manifest"]["nodes"]:
+        try:
+            validate_environment_manifest(node.get("environment"))
+        except ValueError as e:
+            raise ValueError("SCIENTIFIC_ENVIRONMENT_INVALID:" + str(node.get("id", "<unknown>")) + ":" + str(e)) from e
     normalized = normalize_manifest(bound["manifest"])
     expected = bound["scientific_context_sha256"]
     for node in normalized["nodes"]:
