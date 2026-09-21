@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_M12_B1_SINGLE_ATTEMPT_NETWORK_BLOCK_1.0",
+  "date": "2026-09-20",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "objective": "Measure M12 current GA1 baseline before any FAST_CORE implementation.",
+  "benchmark_route": {
+    "branch": "perf/seed0076-m12-profiler-v1-20260920",
+    "commit": "33f7800b13e32128b223b01dca0b33321074e445"
+  },
+  "verified_this_attempt": {
+    "local_python_runtime": "PASS",
+    "nq_parts_present": [
+      "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+      "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+      "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip"
+    ],
+    "code_checkout": "FAIL",
+    "failure_reason": "Container DNS/network cannot resolve github.com",
+    "b1_measurement_produced": false
+  },
+  "anti_stall_behavior": {
+    "retries": 0,
+    "alternate_runtime_route_attempted": false,
+    "alternate_code_materialization_attempted": false,
+    "diagnostic_chain_started": false,
+    "next_legal_action": "PERSIST_AND_EXIT"
+  },
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "m15_modified": false
+  },
+  "next_action": "Do not retry git clone or runtime networking in-loop. On a future invocation, run B1 only if the benchmark code is already materialized locally or a responsive runtime with GitHub access is available. Otherwise continue only with independent static analysis of the same M12 performance objective."
+}

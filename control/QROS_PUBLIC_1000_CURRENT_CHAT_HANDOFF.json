@@ -4,8 +4,8 @@
   "status": "ACTIVE",
   "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
   "stable_frontier_version": "V257",
-  "current_blocker": "M12_B1_COMPUTE_RUNTIME_TRANSPORT_TIMEOUT",
-  "next_automatic_action": "Recover perf/seed0076-m12-profiler-v1-20260920 @ 33f7800b13e32128b223b01dca0b33321074e445. When a responsive compute runtime is available, run B1 unprofiled plus phase profiler on representative M12 groups 0,7,15,23; compare phase attribution with static amplification model. If compute is unavailable, continue only with independent analysis of the same M12 performance objective. Do not modify M15 or build new infrastructure.",
+  "current_blocker": "M12_B1_CODE_NOT_LOCAL_AND_CONTAINER_GITHUB_DNS_UNAVAILABLE",
+  "next_automatic_action": "Do not retry git clone or runtime networking in-loop. On a future invocation, run B1 only if the benchmark code is already materialized locally or a responsive runtime with GitHub access is available. Otherwise continue only with independent static analysis of the same M12 performance objective.",
   "handoff_git_blob_sha1": "87f1475e42754489082eef551780b1191d1aa908",
   "anti_freeze_v2": {
     "status": "ACTIVE_MANDATORY",
@@ -52,10 +52,9 @@
     "user_visible_progress_rule": "Each update must state current objective, completed delta, and exact next action; never narrate repeated attempts.",
     "last_action": {
       "objective": "Measure M12 current GA1 baseline before any FAST_CORE implementation.",
-      "action": "Non-invasive M12 phase profiler frozen",
-      "result": "PASS_PREREGISTERED_NO_PHASE_RESULTS",
-      "branch": "perf/seed0076-m12-profiler-v1-20260920",
-      "commit": "33f7800b13e32128b223b01dca0b33321074e445"
+      "action": "Single encapsulated B1 attempt",
+      "result": "BLOCKED_BY_INFRASTRUCTURE_NO_GITHUB_DNS",
+      "retry_same_path": false
     }
   }
 }
