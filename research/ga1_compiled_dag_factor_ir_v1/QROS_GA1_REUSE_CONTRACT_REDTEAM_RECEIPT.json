@@ -1,0 +1,58 @@
+{
+  "schema": "QROS_GA1_REUSE_CONTRACT_REDTEAM_RECEIPT_1.0",
+  "date": "2026-09-21",
+  "status": "PASS_RESEARCH_ONLY",
+  "authority": {
+    "scientific_frontier": "V259",
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "branch_head_at_validation": "8a53e7fad54114cab3cfe70dfa0069d10e8094a4",
+    "safe_recovery_root_path": "research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_EVIDENCE_NATIVE_RECOVERY_ROOT_V3.json",
+    "safe_recovery_root_git_blob_sha1": "9c712282c8d9707bed5ae2da72ab60c1639515cc"
+  },
+  "code": {
+    "reuse_contract_path": "research/ga1_compiled_dag_factor_ir_v1/qros_reuse_contract.py",
+    "reuse_contract_git_blob_sha1": "063b9ccc551ce322a42b52769de469778265aec2",
+    "test_path": "research/ga1_compiled_dag_factor_ir_v1/tests/run_reuse_contract_redteam_v1.py",
+    "test_git_blob_sha1": "4ee22b38bab445f65955611421a9805e0056ac17",
+    "output_path": "research/ga1_compiled_dag_factor_ir_v1/tests/reuse_contract_redteam_output_v1.json",
+    "output_git_blob_sha1": "6c1930109ef50a2e26876e1ee78bb774a76c535f"
+  },
+  "results": {
+    "exact_reuse_pass": true,
+    "content_tamper_invalidated": true,
+    "semantic_dimensions_invalidated": 7,
+    "scientific_context_mismatch_invalidated": true,
+    "unbound_scientific_context_quarantined": true,
+    "missing_validation_verify_only": true,
+    "wrong_validation_invalidated": true,
+    "proof_tamper_invalidated": true,
+    "draft_proof_quarantined": true,
+    "incomplete_request_quarantined": true
+  },
+  "incident_finding": {
+    "classification": "P1_LATENT_FALSE_REUSE_PREVENTED",
+    "first_bad_condition": "A technically valid DAG node without scientific-context binding could otherwise be considered reusable under technical identity alone.",
+    "primary_cause": "Scientific context was not yet part of the DAG action-key dependency closure.",
+    "technical_blast_radius": "Existing research DAG/CAS nodes lacking reserved __scientific_context__ binding.",
+    "scientific_blast_radius": "NONE observed; production/scientific reuse remains closed.",
+    "decision_blast_radius": "NONE observed; shard11 and economic surfaces remain closed.",
+    "containment": "Unbound nodes are QUARANTINE_FOR_SCIENTIFIC_REUSE, not invalidated as technical artifacts."
+  },
+  "reuse_contract": {
+    "REUSE": "Exact content/action semantics/dependencies/environment/scientific context plus required validation receipts.",
+    "VERIFY_ONLY": "Compatible bound artifact with missing required validation evidence.",
+    "QUARANTINE": "Provenance/context incomplete, including unbound scientific context.",
+    "INVALIDATE": "Content, action, dependency, environment, context or required-validation mismatch."
+  },
+  "scientific_firewall": {
+    "shards1_10_recomputed": false,
+    "shard11_open": false,
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_seed_open": false
+  },
+  "next_action": "Implement and adversarially validate a deterministic scientific-context binder that injects the reserved __scientific_context__ hash into every DAG node static_inputs before execution; preserve original manifest and fail closed on missing required context or reserved-key conflict.",
+  "receipt_sha256": "6012d45acc4f89446bda7e4ab21235dc522bb2708938cc2e6c8802b9f19f2827"
+}
