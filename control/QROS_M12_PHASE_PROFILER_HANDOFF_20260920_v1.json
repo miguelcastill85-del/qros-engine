@@ -1,0 +1,23 @@
+{
+  "schema": "QROS_M12_PHASE_PROFILER_HANDOFF_1.0",
+  "date": "2026-09-20",
+  "status": "PASS",
+  "objective": "Measure M12 current GA1 baseline before any FAST_CORE implementation.",
+  "benchmark_branch": "perf/seed0076-m12-profiler-v1-20260920",
+  "benchmark_commit": "33f7800b13e32128b223b01dca0b33321074e445",
+  "newly_preregistered": [
+    "scripts/qros_seed0076_m12_phase_profile_v1.py",
+    "control/QROS_SEED0076_M12_PHASE_PROFILE_CONTRACT_20260920_v1.json",
+    "scripts/qros_seed0076_m12_phase_profile_static_test_v1.py"
+  ],
+  "benchmark_results_generated": false,
+  "timing_claims": false,
+  "scientific_frontier_preserved": "V257",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "m15_modified": false
+  },
+  "next_action": "Recover perf/seed0076-m12-profiler-v1-20260920 @ 33f7800b13e32128b223b01dca0b33321074e445. When a responsive compute runtime is available, run B1 unprofiled plus phase profiler on representative M12 groups 0,7,15,23; compare phase attribution with static amplification model. If compute is unavailable, continue only with independent analysis of the same M12 performance objective. Do not modify M15 or build new infrastructure."
+}
