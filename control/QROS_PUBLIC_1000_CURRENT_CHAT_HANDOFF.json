@@ -30,7 +30,7 @@
     "version": "2.1_FAST_RESEARCH_V2",
     "current_objective": "Execute NQX/BUY/M15 using the exact M12-validated FAST V2 memory-isolated architecture.",
     "current_route": "fast/seed0076-research-v1-20260920",
-    "current_route_commit": "ddacf6efdcda4dccb0d7e9ef528492dc9af9087b",
+    "current_route_commit": "5b878a807992f469082e1c57536c84ca0d0f9b7c",
     "current_run_id": "SEED0076_M15_FAST_V2",
     "drive_run_folder_id": "18aLTm7EtI67v81Dia1Qsf8N-pKLeSIkE",
     "forbidden_parallel_routes": [
@@ -49,7 +49,15 @@
     "scientific_result": "M12_FAST_V2_GOLDEN_PASS",
     "m15_open": true,
     "execution_checkpoint": "control/QROS_FAST_M12_EXECUTION_CHECKPOINT_20260920_v1.json",
-    "fast_v2_validation_receipt": "control/QROS_FAST_M12_V2_GOLDEN_PASS_RECEIPT_20260921_v1.json"
+    "fast_v2_validation_receipt": "control/QROS_FAST_M12_V2_GOLDEN_PASS_RECEIPT_20260921_v1.json",
+    "fast_v2_prototypes": {
+      "group_worker": "research/fast/seed0076/prototypes/qros_fast_v2_group_worker_validated_20260921.py",
+      "group_worker_blob_sha1": "3d624638e78d558e1fe88d6000caeee5338d45fb",
+      "common": "research/fast/seed0076/prototypes/qros_fast_v2_common_validated_20260921.py",
+      "common_blob_sha1": "cbd0f66c71e78078a7ba44f070597a4f3e6eb354",
+      "reducer": "research/fast/seed0076/prototypes/qros_fast_v2_reduce_validated_20260921.py",
+      "reducer_blob_sha1": "56ff414c732398080a0ea41846605b9bee907292"
+    }
   },
   "qros_fast_storage": {
     "status": "ACTIVE",
