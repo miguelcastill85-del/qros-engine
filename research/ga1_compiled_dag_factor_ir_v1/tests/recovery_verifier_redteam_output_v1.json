@@ -1,0 +1,1 @@
+{"ledger_tamper_rejected": true, "missing_artifact_rejected": true, "receipt_self_hash_tamper_rejected": true, "reference_tamper_rejected": true, "root_self_hash_tamper_rejected": true, "stale_pointer_rejected": true, "status": "PASS", "valid_fixture_pass": true}
