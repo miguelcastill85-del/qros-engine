@@ -5,7 +5,7 @@ from typing import Any
 NODE_MAGIC=b"QROS_TYPED_DAG_NODE_V1\n"
 NODE_LEN=struct.Struct(">Q")
 NODE_SCHEMA="QROS_TYPED_DAG_NODE_OBJECT_1.0"
-PROOF_SCHEMA="QROS_REUSE_PROOF_1.0"
+PROOF_SCHEMA="QROS_REUSE_PROOF_1.1"
 SCIENTIFIC_CONTEXT_INPUT="__scientific_context__"
 DECISIONS={"REUSE","VERIFY_ONLY","QUARANTINE","INVALIDATE"}
 
@@ -62,6 +62,8 @@ def parse_node_object(data: bytes) -> dict[str,Any]:
 
 def make_reuse_proof(*,node_object:bytes,scientific_context:dict[str,Any],
                      validation_receipts:dict[str,str],parent_state:str,status:str="VALIDATED")->dict[str,Any]:
+    if not isinstance(parent_state,str) or not parent_state:
+        raise ValueError("PARENT_STATE_REQUIRED")
     node=parse_node_object(node_object)
     sc_hash=scientific_context_hash(scientific_context)
     proof={
@@ -95,6 +97,8 @@ def _verify_proof(proof:dict[str,Any])->None:
         raise ValueError("SCIENTIFIC_CONTEXT_BINDING_LABEL_INVALID")
     if scientific_context_hash(proof.get("scientific_context"))!=proof["scientific_context_sha256"]:
         raise ValueError("SCIENTIFIC_CONTEXT_PROOF_HASH_MISMATCH")
+    if not isinstance(proof.get("parent_state"),str) or not proof["parent_state"]:
+        raise ValueError("PARENT_STATE_REQUIRED")
     vals=proof.get("validation_receipts")
     if not isinstance(vals,dict):
         raise ValueError("VALIDATION_RECEIPTS_INVALID")
@@ -121,8 +125,13 @@ def evaluate_reuse(*,node_object:bytes,proof:dict[str,Any],request:dict[str,Any]
     expected_action=request.get("action_payload")
     expected_context=request.get("scientific_context")
     required_validations=request.get("required_validations",{})
+    expected_parent=request.get("parent_state")
     if not isinstance(expected_action,dict) or not isinstance(expected_context,dict) or not expected_context:
         return {"decision":"QUARANTINE","reasons":["REQUEST_PROVENANCE_INCOMPLETE"]}
+    if not isinstance(expected_parent,str) or not expected_parent:
+        return {"decision":"QUARANTINE","reasons":["REQUEST_PARENT_STATE_REQUIRED"]}
+    if proof["parent_state"]!=expected_parent:
+        return {"decision":"VERIFY_ONLY","reasons":["PARENT_STATE_MISMATCH_REQUIRES_SUPERSESSION_PROOF"]}
     if not isinstance(required_validations,dict):
         return {"decision":"QUARANTINE","reasons":["REQUIRED_VALIDATIONS_INVALID"]}
 
