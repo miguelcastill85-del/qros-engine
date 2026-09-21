@@ -1,0 +1,1 @@
+{"cold_execution_nodes": 4, "crash_resume_executed_nodes": 2, "crash_resume_reused_nodes": 2, "cycle_rejected": true, "duplicate_workers_pass": true, "missing_dependency_rejected": true, "stale_parent_invalidated_descendants": ["a", "c", "d"], "status": "PASS", "truncated_node_rejected": true, "unaffected_sibling_reused": "b", "warm_reuse_nodes": 4}
