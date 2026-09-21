@@ -21,7 +21,7 @@ PAY={"schema":"QROS_TYPED_ACTION_KEY_1.0","operation":"MASK","operation_version"
 OBJ=node(PAY)
 VAL={"generator_oracle":H("oracle"),"tamper_suite":H("tamper")}
 PROOF=make_reuse_proof(node_object=OBJ,scientific_context=SC,validation_receipts=VAL,parent_state="V259")
-REQ={"action_payload":PAY,"scientific_context":SC,"required_validations":VAL}
+REQ={"action_payload":PAY,"scientific_context":SC,"required_validations":VAL,"parent_state":"V259"}
 assert evaluate_reuse(node_object=OBJ,proof=PROOF,request=REQ)["decision"]=="REUSE"
 bad=bytearray(OBJ);bad[-1]^=1
 assert evaluate_reuse(node_object=bytes(bad),proof=PROOF,request=REQ)["decision"]=="INVALIDATE"
@@ -41,7 +41,7 @@ assert evaluate_reuse(node_object=OBJ,proof=PROOF,request=q)["decision"]=="INVAL
 unbound=copy.deepcopy(PAY);unbound["input_artifacts"].pop(SCIENTIFIC_CONTEXT_INPUT)
 UOBJ=node(unbound)
 UPROOF=make_reuse_proof(node_object=UOBJ,scientific_context=SC,validation_receipts=VAL,parent_state="V259")
-UREQ={"action_payload":unbound,"scientific_context":SC,"required_validations":VAL}
+UREQ={"action_payload":unbound,"scientific_context":SC,"required_validations":VAL,"parent_state":"V259"}
 r=evaluate_reuse(node_object=UOBJ,proof=UPROOF,request=UREQ)
 assert r["decision"]=="QUARANTINE" and "SCIENTIFIC_CONTEXT_UNBOUND_TO_ACTION_KEY" in r["reasons"]
 q=copy.deepcopy(REQ);q["required_validations"]["extra"]=H("extra")
