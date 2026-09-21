@@ -8,6 +8,7 @@ from qros_factor_ir_store import immutable_publish_bytes
 MANIFEST_SCHEMA='QROS_TYPED_DAG_MANIFEST_1.0'
 NODE_MAGIC=b'QROS_TYPED_DAG_NODE_V1\n'
 NODE_LEN=struct.Struct('>Q')
+EXECUTION_CONTRACT='TECHNICAL_ONLY_UNBOUND_MANIFESTS_NOT_SCIENTIFICALLY_ADMISSIBLE'
 
 def _sha(b:bytes)->str:return hashlib.sha256(b).hexdigest()
 def _hex64(v,label):
