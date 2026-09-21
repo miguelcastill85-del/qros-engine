@@ -1,0 +1,208 @@
+{
+  "schema": "QROS_GA1_ANTI_STALL_INCIDENT_CLOSURE_1.0",
+  "incident_id": "QROS_GA1_RECOVERY_VERIFIER_SEMANTICS_20260921_v1",
+  "date": "2026-09-21",
+  "status": "CLOSED_RESEARCH_RECOVERY_SAFE",
+  "incident_state": "RECOVERED_PROGRESSING",
+  "authority_vector": {
+    "scientific": {
+      "frontier": "V259",
+      "pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+      "scientific_state": "PREREGISTERED_NO_RESULTS",
+      "shard11_open": false
+    },
+    "operational": {
+      "main_head": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+      "main_drift": "IRRELEVANT_DRIFT_QRCEL_ONLY",
+      "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+      "branch_head_at_validation": "0b5ca149af535539a63ab5e218ab8689ebdd67c1"
+    },
+    "code": {
+      "recovery_verifier_blob_sha1": "37244645c2c27bc2efecdceb05c47b837a000126",
+      "test_blob_sha1": "c49b9fb6b4748b0d62496d7a31c0da8be457b29f",
+      "test_output_blob_sha1": "d193b286fb90d418bce8d7d7500b8df50bf22df5"
+    }
+  },
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "stall_classification": {
+    "current": "PROGRESSING",
+    "incident": "FAILED_LOCAL_RECOVERY_TOOLING",
+    "false_stall_rejected": true,
+    "scientific_stall": false
+  },
+  "last_verified_progress": {
+    "recovery_root_v1_blob_sha1": "7a3494a2a0cacfe30c58a41f5762dfdbeed9f94f",
+    "recovery_root_sha256": "fb82a4a4ce1f0e359f2e30efa8aaf7a1061bac42c0aed20c8c110b2e865505d6",
+    "ledger_v1_blob_sha1": "1e62991163f68615f3ea9b079ef9331dc889746e",
+    "ledger_file_sha256": "670478d4a584eaa90077fc8eb4249497f2e29fb7d7b3041630a78f6d8658f6b4",
+    "ledger_head_sha256": "73c1bd561f17583c101b4e93377a618d971934fe654616f9ebbfcbb964b7a2e0",
+    "referenced_git_blobs_verified": 11
+  },
+  "last_known_good": "Recovery root V1 plus ledger V1 materialized on isolated research branch after publication-unification PASS.",
+  "first_bad_event": {
+    "classification": "P1_RECOVERY_VERIFIER_SEMANTIC_BUG",
+    "description": "The first verifier prototype treated every referenced artifact as a JSON receipt, so a valid non-JSON artifact would be rejected.",
+    "persistence": "NOT_PERSISTED_AS_AUTHORITY",
+    "containment": "Detected in synthetic red-team before any production or scientific promotion."
+  },
+  "evidence": {
+    "verifier_redteam_output": {
+      "status": "PASS",
+      "valid_root_pass": true,
+      "non_json_artifact_accepted": true,
+      "root_tamper_rejected": true,
+      "ledger_tamper_rejected": true,
+      "missing_artifact_rejected": true,
+      "blob_drift_rejected": true,
+      "receipt_self_hash_drift_rejected": true,
+      "path_traversal_rejected": true
+    },
+    "root_v1_self_hash_verified": true,
+    "ledger_v1_file_hash_verified": true,
+    "ledger_v1_chain_records_verified": 10,
+    "ledger_v1_head_verified": true,
+    "remote_git_blob_identity_checks": {
+      "checked": 11,
+      "mismatches": 0
+    }
+  },
+  "competing_hypotheses": {
+    "H1": {
+      "hypothesis": "Seed0076 scientific authority drifted or was corrupted.",
+      "result": "FALSIFIED",
+      "discriminating_evidence": "V259 pointer/target/shard10/audit and all referenced Git blob identities matched."
+    },
+    "H2": {
+      "hypothesis": "Recovery verifier semantics were over-constrained.",
+      "result": "SUPPORTED_AND_FIXED",
+      "discriminating_evidence": "Minimal fixture containing a valid binary artifact; corrected verifier accepts it while retaining receipt checks for JSON."
+    },
+    "H3": {
+      "hypothesis": "Branch divergence from main invalidated research results.",
+      "result": "FALSIFIED_FOR_CURRENT_SCOPE",
+      "discriminating_evidence": "main drift is QRCEL-only; Seed0076 blobs and scientific pointer are unchanged."
+    },
+    "H4": {
+      "hypothesis": "The problem is architectural: recovery guarantees live only in prompts.",
+      "result": "SUPPORTED",
+      "discriminating_evidence": "Recovery root, append-only ledger and verifier were required to make state mechanically checkable."
+    }
+  },
+  "primary_cause": "Recovery verification lacked a typed artifact contract distinguishing generic immutable artifacts from JSON receipts.",
+  "contributing_factors": [
+    "Recovery verification was initially designed after the recovery root rather than as a prerequisite library.",
+    "Operational branch continued to advance during recovery work, producing a benign CAS conflict that forced authority recalculation."
+  ],
+  "propagation": "Contained to the research verifier prototype; no descendant scientific or production artifact consumed the faulty verifier.",
+  "detection_failure": "No pre-existing property test required a non-JSON evidence artifact in the reusable evidence set.",
+  "technical_blast_radius": "Only the unpublished verifier prototype and recovery-tooling path.",
+  "scientific_blast_radius": "NONE",
+  "decision_blast_radius": "NONE",
+  "valid_work_preserved": [
+    "V259 and shards1-10",
+    "Shard10 NQX/BUY/M2 PASS",
+    "Architecture audit",
+    "Factor IR/GEOMETRY synthetic validations",
+    "Immutable publisher concurrency/crash recovery",
+    "Typed DAG synthetic PASS",
+    "Publication unification PASS",
+    "Recovery root V1 and ledger V1"
+  ],
+  "quarantined_outputs": [
+    "Production-readiness claim for typed DAG/Factor IR",
+    "Historical byte-regression claim requiring unavailable certified maskpacks"
+  ],
+  "invalidated_outputs": [
+    "Only the unpublished over-strict verifier prototype"
+  ],
+  "attempts_and_causal_novelty": [
+    {
+      "attempt": "Grouped connector recovery with unsupported argument",
+      "result": "FAILED_NO_MUTATION",
+      "novelty_after": "Switched to supported ref/file reads."
+    },
+    {
+      "attempt": "CAS write using stale blob SHA",
+      "result": "409_CONFLICT_NO_MUTATION",
+      "novelty_after": "Re-read branch head and discovered later durable DAG/crash-window progress."
+    },
+    {
+      "attempt": "Verifier fixture without parent directory",
+      "result": "TEST_HARNESS_FAILURE",
+      "novelty_after": "Corrected fixture setup; verifier unchanged."
+    },
+    {
+      "attempt": "Verifier assuming all artifacts are receipt JSON",
+      "result": "SEMANTIC_FAILURE",
+      "novelty_after": "Typed validation by artifact kind; non-JSON immutable artifacts accepted."
+    }
+  ],
+  "escape_routes_evaluated": [
+    "REUSE authenticated V259 evidence",
+    "VERIFY_ONLY recovery root/ledger",
+    "CHANGE_REPRESENTATION from conversational state to immutable root+ledger",
+    "MOVE_GUARANTEE_TO_SOFTWARE via verifier"
+  ],
+  "selected_route": "Preserve V1 evidence, fix verifier semantics, adversarially validate, remotely confirm Git blob identities, then roll forward to V2 recovery root.",
+  "fix_applied": {
+    "recovery_fix": "Classify only .json artifacts for JSON/receipt validation; generic artifacts validate by Git blob identity.",
+    "robust_fix": "Recovery root verifier checks self-hash, ledger file/hash-chain, path safety, artifact presence/blob identity and receipt self-hash.",
+    "architectural_fix": "Recovery state is represented by immutable evidence root + append-only ledger + executable verifier."
+  },
+  "adversarial_validation": {
+    "valid_root_pass": true,
+    "non_json_artifact_accepted": true,
+    "root_tamper_rejected": true,
+    "ledger_tamper_rejected": true,
+    "missing_artifact_rejected": true,
+    "blob_drift_rejected": true,
+    "receipt_self_hash_drift_rejected": true,
+    "path_traversal_rejected": true
+  },
+  "regression_status": "PASS_FOR_RECOVERY_TOOLING_SCOPE",
+  "resume_contract_status": {
+    "input_identity": "PASS",
+    "checkpoint": "PASS",
+    "scientific_state": "PASS",
+    "old_writers": "NO_ACTIVE_WRITER_EVIDENCE; IMMUTABLE_CAS_ENFORCED",
+    "partial_outputs": "NONE_CONSUMED",
+    "idempotency": "PASS",
+    "dependencies": "PASS_FOR_RESEARCH_SCOPE",
+    "side_effects": "NONE_EXTERNAL",
+    "gates": "INTACT",
+    "result": "SAFE_TO_RESUME_RESEARCH_ONLY"
+  },
+  "recovery_point": "Recovery root V1 is valid historical root; next root V2 will include this incident closure and verifier artifacts.",
+  "residual_risk": [
+    "Historical exact maskpack regression remains locally blocked by missing certified heavy bytes.",
+    "Verifier currently operates on a materialized repository checkout; remote provider verification is still separate.",
+    "Candidate is not production-ready and shard11 remains closed."
+  ],
+  "prevention_added": [
+    "Typed artifact handling in recovery verifier",
+    "Binary/non-JSON recovery canary",
+    "Root/ledger tamper tests",
+    "Missing/blob-drift/receipt-self-hash/path-traversal tests",
+    "Immutable event ledger and proof-carrying recovery root"
+  ],
+  "artifacts": {
+    "verifier": {
+      "path": "research/ga1_compiled_dag_factor_ir_v1/qros_recovery_root_verifier.py",
+      "git_blob_sha1": "37244645c2c27bc2efecdceb05c47b837a000126",
+      "sha256": "963458acc7138a3e4230ed44ad16ca2b4e39b4319e59f7f0674ebfbebff9a187"
+    },
+    "test": {
+      "path": "research/ga1_compiled_dag_factor_ir_v1/tests/run_recovery_root_verifier_redteam_v1.py",
+      "git_blob_sha1": "c49b9fb6b4748b0d62496d7a31c0da8be457b29f",
+      "sha256": "372e9042c8c690e30133c92717228bfdd38e03d4505f54707ec42a679ccb44a0"
+    },
+    "output": {
+      "path": "research/ga1_compiled_dag_factor_ir_v1/tests/recovery_root_verifier_redteam_output_v1.json",
+      "git_blob_sha1": "d193b286fb90d418bce8d7d7500b8df50bf22df5",
+      "sha256": "f46adfd379a26bec3692bb0e23c6f7d74cea568184fc3ef3bb4606553afe0464"
+    }
+  },
+  "current_frontier": "V259 scientific / recovery tooling branch progressing",
+  "next_automatic_action": "Append verifier validation and incident closure to a V2 evidence ledger, materialize recovery root V2, verify readback, then continue with the next independent architecture canary. Do not authorize shard11.",
+  "receipt_sha256": "0faf351aebdfac7fa9c2260718793baf299d6ab0a446f581940521bf12cb8e96"
+}
