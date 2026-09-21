@@ -1,0 +1,1 @@
+{"allowed_non_test_raw_sites":["research/ga1_compiled_dag_factor_ir_v1/qros_typed_dag.py:definition","research/ga1_compiled_dag_factor_ir_v1/qros_scientific_dag.py:delegation"],"direct_raw_test_canaries":["research/ga1_compiled_dag_factor_ir_v1/tests/run_scientific_dag_wrapper_redteam_v1.py"],"non_test_bypass_count":0,"status":"PASS","tested_changed_python_files":15}
