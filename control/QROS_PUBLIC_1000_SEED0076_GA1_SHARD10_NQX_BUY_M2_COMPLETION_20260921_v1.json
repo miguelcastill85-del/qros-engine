@@ -1,0 +1,147 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_GA1_SHARD10_NQX_BUY_M2_COMPLETION_1.0",
+  "date": "2026-09-21",
+  "status": "PASS",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "authority": {
+    "stable_frontier_before": "V258",
+    "authorization_path": "control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD10_AUTHORIZATION_20260921_v1.json",
+    "authorization_git_blob_sha1": "15f2d94cd41ad56a7b97c042fa1ddc8c8b7d5b94",
+    "route_branch": "fast/seed0076-research-v1-20260920",
+    "route_commit": "5b878a807992f469082e1c57536c84ca0d0f9b7c"
+  },
+  "subject": {
+    "shard_ordinal": 10,
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M2",
+    "shard_id": "4f405970730cf6916e6de08efc7c3bd62aa2912023c21f2df6ce2938f6ee7bf3",
+    "expected_signal_configs": 804672,
+    "expected_config_root_sha256": "752e5b82983e673a9c7fab28e11c750f8f5b66808674f5ee6769dd4d9cb560a9"
+  },
+  "inputs": {
+    "dev_bytes": 1018984420,
+    "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "bar_cache": {
+      "M2": {"file_sha256":"a4abcd0abcaf50b3db3ec73ddb2dc5da41e9078941775a0fe4d796e4f5b992bf","content_sha256":"0f892adcdd1c489fae8dc4eefe2ab27bc3f0ce46171dc6939b1096f6b625600d","bars":337134},
+      "M5": {"file_sha256":"e8ad3158a0f838ed617ee4b6c2ef5fa9a4e8398a004b7cbd26f1611850ab9807","content_sha256":"b9a9927a85b11323c230269dceb5a250d69fb7710277e71d4d9436e87ea7d51e","bars":135250},
+      "M15": {"file_sha256":"7004293a015d521fb2178f308a09a4723892a5d96e458b90cf33763155418f20","content_sha256":"535189415d8b12f3de9346e4dac50de648825ea2c61a33f775f164eb8d92f043","bars":45312}
+    },
+    "indicator_cache": {
+      "M2": {"file_sha256":"9abbaaaa9eded75392b847fcd5b1b1bf9b53525fde5315ffc4e006f3c9d288ad","content_root_sha256":"70ccbf78c515b845a8ddf0142838ffa634a9b69aa0e3fdb994c31b51e0af7244"},
+      "M5": {"file_sha256":"e827e8130dc5171b9fe6c58bd60f425ec42dadee3ed6a2c10d2b1f774a118283","content_root_sha256":"63cbda7eb10e525a14a0e285fe465c2197873121cf3272a0b9645996dd7283cb"},
+      "M15": {"file_sha256":"decc46b290146443b6c1f6a5267e613400a65402911b910dbb088d96e91f469a","content_root_sha256":"fc50fde34dc057773da439c15d1a3f24259aefd9f84932e787c19cc546e81cbe"}
+    },
+    "raw_tick_cache_m2": {
+      "file_sha256":"019e35769466630475b7afbea7e8b5a614719eb3b4d511e7c417006f9d3b646c",
+      "oracle_control_channels_checked":8,
+      "oracle_all_exact":true
+    },
+    "minimal_cache_receipt_sha256":"326d093b039537a73d3612c9d603ef1dfaea4d2ee8a861cd19ed5fa70ac9ad09",
+    "preflight_oracle_receipt_sha256":"091c1bf536f8bd46b08b6a2a340e74cdf0d18d57752726e119fe2fdfa89ad5c7"
+  },
+  "execution_architecture": {
+    "name": "QROS_FAST_V2_HIERARCHICAL_CHECKPOINTED_M2",
+    "technical_groups": 24,
+    "configs_per_group": 33528,
+    "tick_group_strategy": "carrier checkpoint -> transform0 package chunks of 256 -> transform receipts -> local deterministic reduction",
+    "close_group_strategy": "FAST V2 complete group execution",
+    "partial_outputs_are_scientific_results": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "semantic_core": {
+      "structural_v220_git_blob_sha1":"805044c9918a87456a95e150a1c9a1292112cf4c",
+      "gate_engine_v221_git_blob_sha1":"74290f11e7a95a25f54c5c9989af110de7dde4e2",
+      "carrier_masks_v221_git_blob_sha1":"0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25",
+      "tick_raw_cache_v225_git_blob_sha1":"50784e14b63c8082c760b02effd0f2b71aa591a9",
+      "worker_v223_git_blob_sha1":"c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+      "wrapper_v236_git_blob_sha1":"2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f"
+    },
+    "executed_helper_sha256": {
+      "fast_v2_engine.py":"43b506b5bdbf5374db248bd9d4d77827bfcdaa9af7dccee7db45a1ebcafcf4f7",
+      "group_worker.py":"1675a90cd5e5fda1534e167e4eb7b8f5db5957f11e67bd763ab97e2b5b4ba176",
+      "transform_batch_worker.py":"0f0739c0882fd88ef334d62c138e877fc1f316ccf922e14d56af895b6f5a5ac4",
+      "tick_t00_carrier_generic.py":"0b99cde359f2ed3f5a904f438e56eb5979ee6f2863369e1174fee62b5c11a915",
+      "tick_t00_chunks_generic.py":"9327d6088cc30c2bce98070902786cc0c9dcb7e8da3da84ac3597dd69ca274ae",
+      "consolidate_t00_chunks.py":"a2bd58f5abc9b4f148dec7ef6a9ba3d0bdae7754626dc97e4a6bd217ddb15fb1",
+      "consolidate_tick_group.py":"0122bc78e69be3e409098ba31a2e36981d9f05f1bf15d2f92a7b272afa099fbf",
+      "global_reduce_primary.py":"7d8d96f9b33a9930d3cbc5f862471e82911ae648797c53d96917b431997eaf03",
+      "global_reduce_oracle_v2.py":"e4b193e70a93d386a3c3d77ba95220e05652639619a6b56016ee1262edc1ad16"
+    },
+    "validation": {
+      "generic_carrier_vs_group01_all_array_bytes_exact": true,
+      "generic_chunk_vs_group01_artifact_bytes_exact": true,
+      "generic_t00_consolidator_vs_group01_artifact_bytes_exact": true,
+      "generic_group_consolidator_vs_group01_metrics_and_roots_exact": true
+    }
+  },
+  "groups": {
+    "count":24,
+    "all_status_pass":true,
+    "processed_sum":804672,
+    "receipt_sha256s":[
+      "5025ee388650260a480a9c8a126be1063aece81333b8c63e6a10e0ad08949d5c",
+      "13c3a9b0dc6c157733af2405bbc816eb04ef6aa8249b8c61fab92254600e3f28",
+      "cdae6464ebb95f1b20e7f7aef48eb39703e600c154c7dc4c3a637f2e7364b08e",
+      "8316d633f32afce39b9fd07f9c87ac329201adef5befccb45e494fb074044bb9",
+      "ca3c642d197e8f7c19ef243662d2e93c8b51f8e44a9c53733ebb45194cb99193",
+      "d0241d78aa0a38b615c64ba0f8326cbe6b961f41f582c3bc71f2e86546ab7f53",
+      "208794533d47293c4ea7ffde413ae2b2b6489ea6d8655ee98e22bb198fe13048",
+      "3ea7c6495ab05553c08c9bfa411955fd75108c5307aa34279b84a41b37616f15",
+      "957621ed5ace65ca8e0d0a6e66db237090be7e00a2fd04d7639b6601abfb92c5",
+      "60e6acc651ff419e4fd6e8adb973f34e0a729c351e421ae0d7030a7e482daed6",
+      "627da11c3d77f8b92a35f960376e73caddef45481d282508f7042318cbc69305",
+      "b678be9ecc19556e9b4d9144793f475e34273f3a6b8b3e88e43477b7d55c7ef2",
+      "1c52eef290896ffbb892a2fb5b2afbca07bf0bc342cc5305943e3ab8d57bb764",
+      "d3ec1326ba27afefc06047df21210db9c7927a9cfd7568e34fc54028fc4a2324",
+      "84ba72135eca13df390507ad01ae6eed8016fb7f50b0335edfa4f184f1328ca9",
+      "cd890c6e4dbbf80ce0758bbc577d843504983a713bf8ec1f22733303d129e4bd",
+      "2fdbd4c3116b0d0e4d559251137243534e58b4817efa8e0b26be3ed24e2afc18",
+      "e6e0ad8651f2c8aeaff7343cc4789d7b436be7b7f4c482d3fba2b0b837a7fbe1",
+      "5cc1e1c1f16d9b1acfd701ea96e9188e43412433712eac1d77866ca16148e6be",
+      "b84534ee3047cf6f97a521fc5f5c9eeba22f15962ceaee6e67e75463820017bc",
+      "a1ce433d243f1ef34a34958115b74d39edc6babfdbc354251e0dc79eed26b6e1",
+      "ff633bc948fb23bcbb40ec467911182c64e8fced0edf6e2e9f7a413d0ba081f8",
+      "c2153f63c2edcc919decc68007860388105d859bb673c436a0cbe3c0f29e6ad0",
+      "e7cd08b0854b930a0449c8d5afac6be2899cc8b47b42d31885c5e7c3b0762c51"
+    ]
+  },
+  "global_result": {
+    "processed_signal_configs":804672,
+    "local_distinct_sum":296491,
+    "distinct_mask_class_count":296068,
+    "duplicate_config_count":508604,
+    "zero_event_class_alias_count":22329,
+    "zero_event_representative_config_id":"00009f62192c5f8f7686fbf2960326b65450c1a8d370a700fcf4c5abfd215e20",
+    "ordered_config_id_stream_root_sha256":"752e5b82983e673a9c7fab28e11c750f8f5b66808674f5ee6769dd4d9cb560a9",
+    "semantic_class_root_sha256":"e722365a6e0bbb6a5f5baab7e905c6dd0a24ef340fb81a6b172bba1ae7af4930",
+    "full_alias_mapping_root_sha256":"3afa5f6a77cda3926e7ce16af07568dd571f2bf0d9d68cb275e8641c7bea2844",
+    "primary_receipt_sha256":"825101930e952129cbf4933614f8462f3d17c8e2000556c3e0031b20e38a4047",
+    "primary_receipt_file_sha256":"8b10f5238deedc9cfe71c7faf3c0354a73dae80b984900beaed8e30833bfdf81",
+    "oracle_receipt_sha256":"c78c6cf7b715920c4303d08fce4bc750027670a71cc9f5783b4a71afc4ee837f",
+    "oracle_receipt_file_sha256":"edf3a86c7f3baff17550029b06bad81e9db91fec57bd47d4454e653e5cae82bb",
+    "primary_equals_independent_oracle":true
+  },
+  "scientific_interpretation": {
+    "fact":"All 24 technical groups completed and two independent global reducers reproduce the exact same complete structural mapping.",
+    "inference":"Shard10 GA1 structural enumeration and exact-mask dedupe are complete.",
+    "hypothesis":"No structural count or root is evidence of profitable alpha; economic scoring remains unopened.",
+    "validated_result":"GA1_SHARD10_NQX_BUY_M2_PASS"
+  },
+  "gates": {
+    "GA1_SHARD10":"PASS_CLOSED",
+    "economic_pnl":"CLOSED",
+    "first_gate":"CLOSED",
+    "GA2":"CLOSED",
+    "holdout":"CLOSED",
+    "new_seed":"CLOSED",
+    "shard11":"PENDING_AUTHORIZATION_FROM_FROZEN_PLAN"
+  },
+  "durability": {
+    "lightweight_completion_receipt":"GITHUB_MAIN",
+    "heavy_artifacts":"LOCAL_RUNTIME_ONLY",
+    "heavy_artifacts_required_for_current_decision_replay":false,
+    "reproducible_from":"frozen DEV carriers + frozen semantic source blobs + input hashes + group receipt hashes + executed-helper identities"
+  },
+  "next_automatic_action":"Resolve the next not-yet-completed frozen shard from the canonical 60-shard manifest ordering, independently verify its descriptor and config stream root, then authorize exactly that shard. Keep economic PnL, GA2, holdout and new seeds closed."
+}
