@@ -1,0 +1,82 @@
+{
+  "authority": {
+    "branch_head_at_validation": "ea0e69769dcd1ef0fa833fb4fcf848e9c73d49cf",
+    "completed_shards": 10,
+    "previous_authoritative_research_head": "eb59cd1d4e8025f1544483777b8ee4700479acbd",
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "scientific_frontier": "V259",
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "shard11_open": false,
+    "total_shards": 60
+  },
+  "blast_radii": {
+    "decision": "NONE; production adoption and shard11 remain closed.",
+    "scientific": "NONE; no Seed0076 result, shard mapping or gate changed.",
+    "technical": "qros_typed_dag contract marker plus new qros_scientific_dag wrapper on isolated research branch."
+  },
+  "code": {
+    "output": {
+      "git_blob_sha1": "d024541fe287f77def1a525a58761e2f11fc9d10",
+      "path": "research/ga1_compiled_dag_factor_ir_v1/tests/scientific_dag_wrapper_redteam_output_v1.json"
+    },
+    "qros_scientific_context": {
+      "git_blob_sha1": "ca025b9a498e9ef4403ad2afc339da2bd704c5f4",
+      "path": "research/ga1_compiled_dag_factor_ir_v1/qros_scientific_context.py"
+    },
+    "qros_scientific_dag": {
+      "git_blob_sha1": "c958f443f93f716cab0d82af160eb26c61a31ae5",
+      "path": "research/ga1_compiled_dag_factor_ir_v1/qros_scientific_dag.py"
+    },
+    "qros_typed_dag": {
+      "git_blob_sha1": "19dd546480198b4525c2a77be16ef7d57f82879b",
+      "path": "research/ga1_compiled_dag_factor_ir_v1/qros_typed_dag.py"
+    },
+    "test": {
+      "git_blob_sha1": "b50af32d1f71f46e7f18e107041c5a771a415e37",
+      "path": "research/ga1_compiled_dag_factor_ir_v1/tests/run_scientific_dag_wrapper_redteam_v1.py"
+    }
+  },
+  "contract": {
+    "action_key_semantics_changed": false,
+    "binding_input": "__scientific_context__",
+    "raw_executor": "TECHNICAL_ONLY_UNBOUND_MANIFESTS_NOT_SCIENTIFICALLY_ADMISSIBLE",
+    "scientific_executor": "SCIENTIFIC_CONTEXT_BOUND_ONLY"
+  },
+  "date": "2026-09-21",
+  "falsification": {
+    "classification": "TEST_HARNESS_ONLY_NO_CANDIDATE_CODE_CHANGE",
+    "correction": "Use context-independent raw operations for the raw-executor contract canary.",
+    "first_test_harness_failure": "Raw-executor canary reused a context-dependent operation and raised KeyError before contract evaluation.",
+    "rerun": "PASS"
+  },
+  "next_action": "Persist evidence ledger/root update for this PASS, then verify enforcement coverage so any research path claiming scientific admissibility enters through qros_scientific_dag; keep raw executor technical-only and shard11 closed.",
+  "receipt_sha256": "c4132d29184f325fce0f341ef932ebfd04479bd7417a3ccd4262897fb7aa1466",
+  "residual_risk": [
+    "Raw qros_typed_dag.execute_manifest remains technically callable by design; its contract marks such runs non-scientifically-admissible.",
+    "Historical exact H1/M12/M15/M2 event-mask regression remains BLOCKED_BY_INFRASTRUCTURE_SUBTASK_ONLY.",
+    "No production adoption or shard11 authorization exists."
+  ],
+  "results": {
+    "action_key_propagation_changed_nodes": 2,
+    "changed_context_invalidates_all_action_keys": true,
+    "missing_context_rejected": true,
+    "original_context_immutable": true,
+    "original_manifest_immutable": true,
+    "raw_direct_call_labeled_non_scientific": true,
+    "raw_executor_contract_technical_only": true,
+    "reserved_binding_bypass_rejected": true,
+    "same_context_warm_reuse": true,
+    "scientific_run_receipt_validates": true,
+    "scientific_wrapper_binds_every_node": true
+  },
+  "schema": "QROS_GA1_SCIENTIFIC_DAG_WRAPPER_REDTEAM_RECEIPT_1.0",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_seed_open": false,
+    "shard11_open": false,
+    "shards1_10_recomputed": false
+  },
+  "status": "PASS_RESEARCH_ONLY"
+}
