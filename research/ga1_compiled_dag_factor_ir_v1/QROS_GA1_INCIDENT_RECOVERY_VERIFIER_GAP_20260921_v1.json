@@ -1,0 +1,112 @@
+{
+  "actual_root_authentication": {
+    "ledger_file_sha256": "PASS",
+    "ledger_head_sha256": "PASS",
+    "ledger_record_chain_10_of_10": "PASS",
+    "recovery_root_self_hash": "PASS",
+    "referenced_git_blob_identities": "PASS via GitHub readback/metadata for current referenced evidence and code identities",
+    "shard11_open": false,
+    "stable_frontier": "V259"
+  },
+  "adversarial_validation": {
+    "ledger_tamper_rejected": true,
+    "missing_artifact_rejected": true,
+    "receipt_self_hash_tamper_rejected": true,
+    "recovery_root_self_hash_tamper_rejected": true,
+    "referenced_blob_tamper_rejected": true,
+    "stale_pointer_with_consistent_hashes_rejected": true,
+    "valid_fixture_pass": true
+  },
+  "attempts_and_causal_novelty": [
+    {
+      "attempt": "Manual/authenticated recovery-root inspection",
+      "novelty": "AUTHORITY_AND_EVIDENCE_RECONSTRUCTION",
+      "result": "Root self-hash and ledger chain independently recomputed; current Git blob identities authenticated."
+    },
+    {
+      "attempt": "Executable local recovery verifier",
+      "novelty": "NEW_METHOD_SYSTEM_ENFORCEMENT",
+      "result": "PASS on valid fixture; fail-closed attacks below all rejected."
+    }
+  ],
+  "authority_vector": {
+    "operational_authority": {
+      "handoff_git_blob_sha1": "cd83c7416497225243c553243ca69a43ff38e7b8",
+      "main_head": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+      "pointer_git_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d"
+    },
+    "research_execution_authority": {
+      "branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+      "branch_head_before_close": "41e4789ee5629454999cdbf7793d6a9b30a3dbdc",
+      "recovery_root_commit": "a175c8645e8b96b33b7a3df43ff362b1bfa43e32",
+      "recovery_root_git_blob_sha1": "7a3494a2a0cacfe30c58a41f5762dfdbeed9f94f"
+    },
+    "scientific_authority": "main V259 / PREREGISTERED_NO_RESULTS / 10 of 60 GA1 shards closed / shard11 and economic surfaces closed"
+  },
+  "contributing_factors": [
+    "Recovery root schema v1 carried sufficient identities, but verification remained procedural.",
+    "Pointer is a cache/index and can become stale independently of underlying evidence.",
+    "Receipts and ledger use multiple integrity mechanisms that previously required manual reconciliation."
+  ],
+  "current_frontier": {
+    "research": "Recovery verifier PASS; production promotion still not admissible.",
+    "scientific": "V259 unchanged"
+  },
+  "date": "2026-09-21",
+  "decision_blast_radius": "NONE observed: shard11 and production architecture promotion remained closed.",
+  "detection_failure": "No single executable preflight failed closed across root self-hash, ledger chain, Git blob identity, receipt self-hash and pointer semantic anchor.",
+  "first_bad_event": "Recovery root v1 existed before an executable verifier existed; recovery guarantees were still partly prompt/manual enforced.",
+  "fix_applied": {
+    "output_git_blob_sha1": "d9581c13462c73828d90b5ec198300ab1ecd846f",
+    "output_path": "research/ga1_compiled_dag_factor_ir_v1/tests/recovery_verifier_redteam_output_v1.json",
+    "test_git_blob_sha1": "435fea2c6f6e170062a1f49ad5accda587aff130",
+    "test_path": "research/ga1_compiled_dag_factor_ir_v1/tests/run_recovery_verifier_redteam_v1.py",
+    "verifier_git_blob_sha1": "3ccee2521424227547153df7ae394f496f8251be",
+    "verifier_path": "research/ga1_compiled_dag_factor_ir_v1/qros_recovery_verifier.py"
+  },
+  "incident_id": "GA1-EN-INC-RECOVERY-VERIFIER-GAP-20260921",
+  "invalidated_outputs": [],
+  "last_known_good": "PUBLICATION_UNIFICATION_PASS at commit c36ae04202282469a1cf636697a0e8aa671ab3f2, then recovery root v1 at a175c8645e8b96b33b7a3df43ff362b1bfa43e32.",
+  "last_verified_progress": "Evidence-native recovery root v1 and 10-record append-only ledger materialized and authenticated.",
+  "next_automatic_action": "Append verifier closure to a new immutable event ledger v2 and derive recovery root v2. Then implement proof-carrying REUSE_CONTRACT evaluation for DAG/CAS artifacts without opening shard11.",
+  "observed_symptom": "A future recovery could accept a stale/tampered/missing-reference state unless the operator manually repeated hash, ledger, pointer and receipt checks.",
+  "prevention_added": [
+    "Recovery root self-hash enforcement",
+    "Append-only ledger chain enforcement",
+    "Git blob identity enforcement",
+    "Receipt self-hash enforcement",
+    "Pointer semantic-anchor enforcement",
+    "Missing artifact fail-closed",
+    "Scientific firewall fail-closed"
+  ],
+  "primary_cause": "RECOVERY_GUARANTEES_NOT_YET_ENFORCED_BY_SOFTWARE",
+  "quarantined_outputs": [
+    "Production-readiness claims for typed DAG/Factor IR remain quarantined.",
+    "Historical exact maskpack byte-regression claims remain blocked by unavailable certified heavy bytes."
+  ],
+  "receipt_sha256": "9ec3112d7f47d9522c7f828284a0d7794ff9bb59aaea5cbe556c6398957543ea",
+  "recovery_point": "Recovery root v1 + ledger v1 + executable verifier PASS; scientific authority remains V259.",
+  "regression_status": "PASS_SYNTHETIC_VERIFIER_REDTEAM_PLUS_CURRENT_ROOT_AUTHENTICATION",
+  "residual_risk": [
+    "Verifier has not yet been run against a full local checkout snapshot of the current repository; current root byte/blob authentication was split between local recomputation and GitHub connector readback.",
+    "Historical exact maskpack regression remains blocked independently."
+  ],
+  "resume_contract_status": "SAFE_TO_CONTINUE_RESEARCH_ONLY",
+  "schema": "QROS_GA1_INCIDENT_RECOVERY_VERIFIER_GAP_1.0",
+  "scientific_blast_radius": "NONE observed: no shards recomputed, no PnL/GA2/holdout opened, no scientific state promoted.",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "selected_route": "ELIMINATE_MANUAL_RECOVERY_INTERPRETATION_WITH_EXECUTABLE_VERIFIER",
+  "stall_classification": "NOT_STALLED_RESILIENCE_GAP",
+  "status": "CLOSED",
+  "technical_blast_radius": "Recovery/readiness interpretation on the isolated research branch only.",
+  "valid_work_preserved": [
+    "V259 scientific frontier",
+    "shards1-10 completion evidence",
+    "architecture audit",
+    "Factor IR/store validations",
+    "typed DAG PASS",
+    "publication unification PASS",
+    "recovery root v1",
+    "event ledger v1"
+  ]
+}
