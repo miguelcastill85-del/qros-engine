@@ -1,0 +1,67 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_GA1_SHARD10_AUTHORIZATION_1.0",
+  "date": "2026-09-21",
+  "status": "AUTHORIZED_ONE_SHARD",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "transition_basis": {
+    "policy_path": "governance/QROS_PUBLIC1000_SEED0076_GA1_COMPLETE_BEFORE_ECONOMIC_GATE_POLICY_v1.0.json",
+    "policy_git_blob_sha1": "9d4b1b038c75653f72f84024d5b7a6581123a61b",
+    "rule": "After shard09 durable PASS, authorize exactly the next frozen shard from the 60-shard plan; do not open economic scoring.",
+    "shard09_pass_path": "control/QROS_FAST_V2_M15_STRUCTURAL_PASS_20260921_v1.json",
+    "shard09_pass_git_blob_sha1": "acb8ecc12bfefd3c3a04a1bdb9342cca960673d7"
+  },
+  "frozen_plan_resolution": {
+    "plan_path": "control/QROS_PUBLIC_1000_SEED_0076_GATE_A_SHARD_PLAN_V213_v1.json",
+    "plan_git_blob_sha1": "0b4f724ccf683907b05013687c581deadfc2ecc1",
+    "manifest_builder_path": "scripts/qros_seed0076_gate_a_build_shard_manifest.py",
+    "manifest_builder_git_blob_sha1": "ddb21b0bfa0a6a3f015949e8cae296701a19e833",
+    "ordering": "lexicographic canonical descriptor bytes",
+    "manifest_shard_count": 60,
+    "manifest_root_sha256": "629093e113aa4fa22f7640ff32c9f4affb4b0f89797f21420a3a9c8293e99f21",
+    "manifest_root_reproduced": true,
+    "already_completed_domains": [
+      "XAUUSD/BUY/M1",
+      "NQX/BUY/H1",
+      "NQX/BUY/H2",
+      "NQX/BUY/H3",
+      "NQX/BUY/H4",
+      "NQX/BUY/M1",
+      "NQX/BUY/M10",
+      "NQX/BUY/M12",
+      "NQX/BUY/M15"
+    ],
+    "selection_rule": "first frozen manifest row not already completed",
+    "resolved_manifest_index_1_based": 9
+  },
+  "authorized_shard": {
+    "completion_ordinal": 10,
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M2",
+    "shard_id": "4f405970730cf6916e6de08efc7c3bd62aa2912023c21f2df6ce2938f6ee7bf3",
+    "expected_signal_configs": 804672,
+    "expected_config_root_sha256": "752e5b82983e673a9c7fab28e11c750f8f5b66808674f5ee6769dd4d9cb560a9"
+  },
+  "config_stream_validation": {
+    "primary_count": 804672,
+    "oracle_count": 804672,
+    "primary_root_sha256": "752e5b82983e673a9c7fab28e11c750f8f5b66808674f5ee6769dd4d9cb560a9",
+    "oracle_root_sha256": "752e5b82983e673a9c7fab28e11c750f8f5b66808674f5ee6769dd4d9cb560a9",
+    "exact_match": true
+  },
+  "verified_counts_after_shard09": {
+    "shards_total": 60,
+    "ga1_formally_completed_shards": 9,
+    "ga1_remaining_shards": 51
+  },
+  "scientific_guards": {
+    "economic_pnl_read": false,
+    "first_gate_execution_authorized": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_seed_open": false,
+    "universe_changed": false,
+    "config_ids_changed": false
+  },
+  "next_automatic_action": "Execute exactly shard10 NQX/BUY/M2 under FAST V2 technical process isolation. Reuse frozen DEV and existing reusable causal caches where identities match; build only missing M2 causal caches. Persist fragment receipts and complete global primary+independent reduction before any shard11 authorization."
+}
