@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_FAST_RUN_SPEC_CORRECTION_RECEIPT_1.0",
+  "status": "PASS",
+  "run_id": "SEED0076_M12_GOLDEN_FAST_V1",
+  "authority_branch": "fast/seed0076-research-v1-20260920",
+  "authority_commit_before": "74fbfa39de9bd4e6da5d6158d326c9224078469a",
+  "authority_commit_after": "ddacf6efdcda4dccb0d7e9ef528492dc9af9087b",
+  "original_path": "research/fast/seed0076/SEED0076_M12_GOLDEN_FAST_V1.json",
+  "original_git_blob_sha1": "d0bb1355b5a5a7c7008d70378360aef483c9a79e",
+  "corrected_git_blob_sha1": "c41cbe2203cc657f806bc6959ede54a6f53c036c",
+  "original_bytes": 2227,
+  "corrected_bytes": 2225,
+  "correction": "REMOVE_FINAL_TWO_BYTES_5C_6E_ONLY",
+  "root_cause": "GITHUB_BLOB_HAS_LITERAL_BACKSLASH_N_AFTER_VALID_JSON_OBJECT",
+  "semantic_fields_changed": false,
+  "golden_changed": false,
+  "universe_changed": false,
+  "economic_pnl_read": false,
+  "ga2_open": false,
+  "holdout_open": false
+}
