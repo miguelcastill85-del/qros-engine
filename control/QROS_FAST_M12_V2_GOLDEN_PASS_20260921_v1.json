@@ -1,0 +1,153 @@
+{
+  "anti_stall": {
+    "abandoned_route": "single monolithic V1 process in constrained runtime",
+    "alternative_route": "24 deterministic internal structural fragments in isolated processes plus global deterministic reduction and independent oracle",
+    "diagnosis": "candidate/gate working-set accumulation plus monolithic no-checkpoint execution caused artificial runtime failure; DB durability was secondary, not sufficient.",
+    "economic_pnl_read": false,
+    "golden_changed": false,
+    "holdout_open": false,
+    "root_cause": [
+      "F_MEMORY_RAM_TIME",
+      "G_ALGORITHM_ARCHITECTURE"
+    ],
+    "scientific_semantics_changed": false
+  },
+  "authority": {
+    "main_head_before_execution": "0443c014be765e33537398ca2348fa1f68950cfd",
+    "prior_execution_checkpoint": "control/QROS_FAST_M12_EXECUTION_CHECKPOINT_20260920_v1.json",
+    "route_branch": "fast/seed0076-research-v1-20260920",
+    "route_commit": "ddacf6efdcda4dccb0d7e9ef528492dc9af9087b",
+    "scientific_state_before": "PREREGISTERED_NO_RESULTS",
+    "stable_frontier": "V257"
+  },
+  "date": "2026-09-21",
+  "decision": {
+    "FAST_ROUTE": "PROMOTED_FOR_RESEARCH",
+    "GA2": "CLOSED",
+    "M12_FAST_GOLDEN": "PASS_EXACT_7_OF_7",
+    "M15": "OPEN_FOR_SAME_RESEARCH_METHOD",
+    "economic_pnl": "CLOSED",
+    "holdout": "CLOSED",
+    "new_seeds": "CLOSED"
+  },
+  "durability": {
+    "heavy_drive_upload": "NOT_REQUIRED_TO_DECIDE_M12_GATE_AND_NOT_AVAILABLE_VIA_CURRENT_LOCAL_TO_DRIVE_BRIDGE",
+    "heavy_fragment_bytes": "LOCAL_RUNTIME_ONLY_AT_THIS_CHECKPOINT",
+    "lightweight_receipt_target": "GITHUB_MAIN",
+    "reproducibility": "SOURCE_CARRIERS_PLUS_VERIFIED_INPUT_HASHES_PLUS_IMPLEMENTATION_HASHES_PLUS_24_RECEIPT_HASHES"
+  },
+  "executed_implementation": {
+    "classification": "INDEPENDENT_EQUIVALENT_IMPLEMENTATION_NOT_BYTE_IDENTICAL_TO_FROZEN_GITHUB_MODULES",
+    "executed_code_bundle_bytes": 19178,
+    "executed_code_bundle_sha256": "9569a9103512b7d16b6f15fd0a5b8c34ec1840dd227c3f70210a3a3b86b263d0",
+    "group_worker_sha256": "dd406ba437f968622a1f03d260b6d1de7ef2de86eadcf8f021e3b734c9cedda2",
+    "reducer_oracle_sha256": "7129eafefa9c42f18c38702222c1df6383428d378ab3cb5f5eb8986305fd7410"
+  },
+  "fragmentation": {
+    "all_fragment_status_pass": true,
+    "configs_per_fragment": 33528,
+    "fragment_receipt_sha256s": [
+      "9a15d2db045e60cd864b8647d3e56365a4740c6afe531e0293430a16d8d06fae",
+      "ef4643385d0d99b42338559f636dd8b7c49738d81af09180f9361dc765021c8f",
+      "b4093e8e80103ce01c0ec5a4bed615959ec87761b0f45ce184d3402b83beb15d",
+      "ee5a4f9a1f3621882de9f57f12428bbf9bfdd11b5f4f4492e843e21cc7f88d14",
+      "70ae9f8948e0c7cc4f776282ab72c71e5282a43088f68f6c4ff571a792fea19a",
+      "8b6f820979cdb955e549c66cd8f09fb24e8ecd634a92de9c15b491dedb37e6b0",
+      "f0ed408445bea14d7f24c6219819ea4101558e1be3fa0d89695904288ec3963e",
+      "76874bf84634874fe04d85656d289c3f867c47bbdde53e511bb26247b87a851e",
+      "bd4ce934cc2848ece3723641d9fdb20279f76cbafe512a61326b28244ad5b4ca",
+      "a969eac6a63fe6b124ed0954ae3592fb7a2a8481a6ce3ff320d45c4b80bb7110",
+      "5c08466a235511c1e26191532c96412c1dae78222767ddf3ac675648b8be7956",
+      "23b8fea36645f574dc0e242af1442e2bbeb2bd2386114266a35123c13f1d3710",
+      "0c1f847d7a0d102d542a326d9edeaf1b92d9275f97f8c58b949cf2ef5868de0b",
+      "462adf82e686fa38a4b4d88cb472a52cbb83de4311311d6d8cc7c33b8b62a445",
+      "3e7f306ed1eae8ef6ce85c10a0a4ab7d6a2f569378a84a468daae4b3c91ffd03",
+      "8d44187be48cdc9e05d3eedf69591c85517b2c337b2cc169fdc91c68d95922ad",
+      "25b55066aa49fbedc3e4a0c094687acd99239ceb3f72095a934ca487480b796a",
+      "009f04f5139f6cf78bd64a5fbb942e33d71f5c285a944926ad8db4c15a21fc5a",
+      "77ed90eaa935427a2b39afd3c3ce425bf12baed83670a095efe8c361e5b3a0ea",
+      "95a26dd1da2f7d9f88458298bf9e14e0579439d1a40840f6ad2ac337f6f5041f",
+      "df1793fb9eee2266ec47fc91117791f01213819f49f0267c910a5a56601c5128",
+      "9e19c2c7b29f434ccc26e334b922bc823cfb086929c6fdda5354986615a9b4e9",
+      "aa2d950ca5b4cd526c66c8708c4c4856def72dfaa5a945782c7aa892597a79ad",
+      "2fe9f637a5ac5275d48b813b695612f7a435d459ec0a0b82e7c71c4c17cc1478"
+    ],
+    "fragments": 24,
+    "processed_sum": 804672
+  },
+  "golden": {
+    "distinct_mask_class_count": 248010,
+    "duplicate_config_count": 556662,
+    "full_alias_mapping_root_sha256": "c5bec36e0b78c896f81578de5a69b42fd6f673a54630efbb8311f33e7e09c0a7",
+    "ordered_config_id_stream_root_sha256": "07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714",
+    "processed_signal_configs": 804672,
+    "semantic_class_root_sha256": "44cf066910a98f8d2a0988efe9f0bec14834683934369fa9972bb59e870161b0",
+    "zero_event_class_alias_count": 69351
+  },
+  "golden_checks": {
+    "golden_distinct_mask_class_count": true,
+    "golden_duplicate_config_count": true,
+    "golden_full_alias_mapping_root_sha256": true,
+    "golden_ordered_config_id_stream_root_sha256": true,
+    "golden_processed_signal_configs": true,
+    "golden_semantic_class_root_sha256": true,
+    "golden_zero_event_class_alias_count": true,
+    "primary_equals_oracle": true
+  },
+  "independent_audit": {
+    "artifact_integrity_checks": 48,
+    "file_sha256": "df5d79906a0783891c9738099e7ab6b53b3901191b09c16fb24af8a035f50d66",
+    "receipt_sha256": "806015ff19bbca5510b595f18f51a0f16aa8fcd6c5493aa35e00617463dd73c6",
+    "result": {
+      "all_fragment_receipts_self_hashed": true,
+      "all_index_and_alias_artifacts_hashed": true,
+      "distinct_mask_class_count": 248010,
+      "duplicate_config_count": 556662,
+      "full_alias_mapping_root_sha256": "c5bec36e0b78c896f81578de5a69b42fd6f673a54630efbb8311f33e7e09c0a7",
+      "ordered_config_id_stream_root_sha256": "07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714",
+      "processed_signal_configs": 804672,
+      "semantic_class_root_sha256": "44cf066910a98f8d2a0988efe9f0bec14834683934369fa9972bb59e870161b0",
+      "zero_event_class_alias_count": 69351,
+      "zero_event_class_count": 1
+    },
+    "status": "PASS"
+  },
+  "next_automatic_action": "Persist this PASS receipt and update CURRENT_CHAT_HANDOFF. Then execute NQX/BUY/M15 using the same anti-stall fragment+reduce method; build only the missing M15 raw-tick cache and H4 causal context. Keep economic PnL, GA2 and holdout closed.",
+  "objective": "Resolve M12 FAST runtime stall without changing scientific semantics or golden gates.",
+  "primary_reduction": {
+    "file_sha256": "9e7dabd789a4fa1bf917c23d95a3992c98e5099c4c8c25c7f3936c360bab3d70",
+    "receipt_sha256": "fd87d3866b944c59f2a774bb78cef0ffa96a854aaba4197efe1f52dae5f971d7",
+    "result": {
+      "distinct_mask_class_count": 248010,
+      "duplicate_config_count": 556662,
+      "full_alias_mapping_root_sha256": "c5bec36e0b78c896f81578de5a69b42fd6f673a54630efbb8311f33e7e09c0a7",
+      "local_distinct_sum": 251084,
+      "ordered_config_id_stream_root_sha256": "07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714",
+      "processed_signal_configs": 804672,
+      "semantic_class_root_sha256": "44cf066910a98f8d2a0988efe9f0bec14834683934369fa9972bb59e870161b0",
+      "zero_event_class_alias_count": 69351,
+      "zero_event_representative_config_id": "000005e9e7e9c294a7722f0fd10e1ece90b6324c683a68beb6cf014fba233159"
+    },
+    "status": "PASS"
+  },
+  "receipt_sha256": "56f22d9c563a2d8cbee3ca687a997deac578c1feb20b61c49d3309debf279c50",
+  "schema": "QROS_FAST_M12_V2_GOLDEN_PASS_RECEIPT_1.0",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "status": "PASS",
+  "verified_inputs": {
+    "bar_file_sha256": {
+      "H1": "9ae2cf18bc803061d73e3b84dcbf11d72e150b956029d21a5b51311a0a9ad60b",
+      "M12": "490adcd280b837633ead83865d1f1be21704723df0566ac94d79b8f3649c887d",
+      "M15": "7004293a015d521fb2178f308a09a4723892a5d96e458b90cf33763155418f20"
+    },
+    "dev_bytes": 1018984420,
+    "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "indicator_file_sha256": {
+      "H1": "90b6c0661570114af1e7d254f90a2d5371adac29b957926ce467c4808bb46b95",
+      "M12": "e5ecdbfb95fd9a4774423b83734047bab0568cfda1ad389a5a16955f8deae6ae",
+      "M15": "decc46b290146443b6c1f6a5267e613400a65402911b910dbb088d96e91f469a"
+    },
+    "tick_raw_cache_bytes": 124261014,
+    "tick_raw_cache_sha256": "cce714b0d76087146238f0226bdb1a1cfb9dfed580a595b0cbbd808fe4944909"
+  }
+}
