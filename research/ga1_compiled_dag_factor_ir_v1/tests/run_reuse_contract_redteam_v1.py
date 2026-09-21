@@ -17,7 +17,7 @@ SCH=scientific_context_hash(SC)
 PAY={"schema":"QROS_TYPED_ACTION_KEY_1.0","operation":"MASK","operation_version":"2","code_hashes":{"impl":H("code")},
      "domain":{"asset":"NQX","side":"BUY","timeframe":"M2"},"parameters":{"fractal":3},
      "input_artifacts":{"bars":H("bars"),"dep:x":H("parent"),SCIENTIFIC_CONTEXT_INPUT:SCH},
-     "environment":{"python":"3.13.5","numpy":"2.3.5","numba":"0.65.1","byteorder":"little"}}
+     "environment":{"python":"3.13.5","implementation":"CPython","platform":"fixture-linux","numpy":"2.3.5","numba":"0.65.1","byteorder":"little"}}
 OBJ=node(PAY)
 VAL={"generator_oracle":H("oracle"),"tamper_suite":H("tamper")}
 PROOF=make_reuse_proof(node_object=OBJ,scientific_context=SC,validation_receipts=VAL,parent_state="V259")
