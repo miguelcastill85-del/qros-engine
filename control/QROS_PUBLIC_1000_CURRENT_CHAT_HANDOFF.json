@@ -4,8 +4,8 @@
   "status": "ACTIVE",
   "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
   "stable_frontier_version": "V257",
-  "current_blocker": "QROS_FAST_M12_GOLDEN_WAITING_FOR_RESPONSIVE_LOCAL_COMPUTE",
-  "next_automatic_action": "Recover fast/seed0076-research-v1-20260920 @ 74fbfa39de9bd4e6da5d6158d326c9224078469a and execute SEED0076_M12_GOLDEN_FAST_V1 as one full-domain invocation using local/materialized Drive data. No 24-group topology, no merge/oracle, no CWS, no GitHub dependency during compute. Promote FAST research route only after exact M12 golden parity.",
+  "current_blocker": "QROS_FAST_M12_GOLDEN_BLOCKED_BY_RUNTIME_TIMEOUT_AFTER_VERIFIED_INPUTS",
+  "next_automatic_action": "Recover fast/seed0076-research-v1-20260920 @ ddacf6efdcda4dccb0d7e9ef528492dc9af9087b and resume SEED0076_M12_GOLDEN_FAST_V1 only on a responsive compute runtime using the already verified Drive/local inputs and exact golden. Do not treat the partial SQLite as a result. Do not open M15 until exact M12 golden PASS.",
   "handoff_git_blob_sha1": "87f1475e42754489082eef551780b1191d1aa908",
   "anti_freeze_v2": {
     "status": "ACTIVE_MANDATORY",
@@ -30,7 +30,7 @@
     "version": "2.0_FAST_RESEARCH",
     "current_objective": "Prove QROS FAST single-domain execution on NQX/BUY/M12 with exact golden parity.",
     "current_route": "fast/seed0076-research-v1-20260920",
-    "current_route_commit": "74fbfa39de9bd4e6da5d6158d326c9224078469a",
+    "current_route_commit": "ddacf6efdcda4dccb0d7e9ef528492dc9af9087b",
     "current_run_id": "SEED0076_M12_GOLDEN_FAST_V1",
     "drive_run_folder_id": "18aLTm7EtI67v81Dia1Qsf8N-pKLeSIkE",
     "forbidden_parallel_routes": [
@@ -42,7 +42,12 @@
       "new seed"
     ],
     "execution_rule": "One full scientific domain per invocation. Persist only resume.json, summary.json and final artifacts. Heavy outputs go to Drive.",
-    "failure_rule": "One attempt only per runtime path. If infrastructure fails, persist once and do not retry in-loop."
+    "failure_rule": "One attempt only per runtime path. If infrastructure fails, persist once and do not retry in-loop.",
+    "current_blocker_receipt": "control/QROS_FAST_M12_RUNTIME_BLOCK_RECEIPT_20260920_v1.json",
+    "run_spec_correction_receipt": "control/QROS_FAST_M12_RUN_SPEC_CORRECTION_RECEIPT_20260920_v1.json",
+    "last_clean_point": "FAST_M12_INPUTS_CODE_CLOSURE_CONFIG_ROOT_AND_CAUSAL_CACHES_VERIFIED",
+    "scientific_result": "NOT_AVAILABLE",
+    "m15_open": false
   },
   "qros_fast_storage": {
     "status": "ACTIVE",
