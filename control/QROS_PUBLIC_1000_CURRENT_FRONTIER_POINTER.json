@@ -1,33 +1,28 @@
 {
-  "schema": "QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.15",
-  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
-  "current_version": "V258",
-  "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V258_v1.json",
-  "target_git_blob_sha1": "c1e5df1786060cf050c07a584b913bf7fe4a37af",
-  "state": "DEVELOPMENT_RUNNING",
-  "scientific_state": "PREREGISTERED_NO_RESULTS",
-  "phase": "GA1_SHARD10_AUTHORIZED_FAST_V2",
-  "subject": {
-    "asset": "NQX",
-    "side": "BUY",
-    "timeframe": "M2",
-    "shard_id": "4f405970730cf6916e6de08efc7c3bd62aa2912023c21f2df6ce2938f6ee7bf3",
-    "shard_ordinal": 10,
-    "expected_signal_configs": 804672,
-    "expected_config_root_sha256": "752e5b82983e673a9c7fab28e11c750f8f5b66808674f5ee6769dd4d9cb560a9"
+  "schema":"QROS_PUBLIC1000_STABLE_FRONTIER_POINTER_6.16",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "current_version":"V259",
+  "target_path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V259_v1.json",
+  "target_git_blob_sha1":"540aa07bbeeb9c62d1288d6974ac6e61b3b83a67",
+  "state":"DEVELOPMENT_RUNNING",
+  "scientific_state":"PREREGISTERED_NO_RESULTS",
+  "phase":"GA1_ARCHITECTURE_AUDIT_HOLD_AFTER_SHARD10_PASS",
+  "verified_counts":{"shards_total":60,"ga1_formally_completed_shards":10,"ga1_remaining_shards":50},
+  "new_ga1_authorized":false,
+  "authorization_scope":"NONE_ARCHITECTURE_AUDIT_HOLD",
+  "shard11_open":false,
+  "first_gate_execution_authorized":false,
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false,
+  "current_blocker":null,
+  "architecture_audit":{
+    "path":"control/QROS_GA1_FAST_V3_ADVERSARIAL_ARCHITECTURE_AUDIT_20260921_v1.json",
+    "git_blob_sha1":"8aaaf683c8f3e8acc555a59c187765399e5f4ee4",
+    "decision":"ORIGINAL_PROPOSAL_REJECTED_AS_STATED",
+    "replacement_candidate":"QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1",
+    "replacement_status":"CANDIDATE_NOT_IMPLEMENTED"
   },
-  "verified_counts": {
-    "shards_total": 60,
-    "ga1_formally_completed_shards": 9,
-    "ga1_remaining_shards": 51
-  },
-  "new_ga1_authorized": true,
-  "authorization_scope": "EXACTLY_SHARD10_NQX_BUY_M2",
-  "first_gate_execution_authorized": false,
-  "economic_pnl_read": false,
-  "holdout_open": false,
-  "ga2_open": false,
-  "current_blocker": null,
-  "next_action": "EXECUTE EXACTLY GA1 SHARD10 NQX/BUY/M2 WITH FAST V2 CHECKPOINTED TECHNICAL PROCESS ISOLATION. REUSE VALID FROZEN DEV/CACHES; BUILD ONLY M2-SPECIFIC MISSING CAUSAL CACHES. COMPLETE GLOBAL PRIMARY+INDEPENDENT REDUCTION. NO ECONOMIC PNL, GA2 OR HOLDOUT.",
-  "resume_contract": "Do not recompute shards1-9. Do not authorize shard11 until shard10 has a durable complete global PASS. Do not open economic scoring before GA1 60/60."
+  "next_action":"Build and adversarially validate the replacement execution architecture only on an isolated research branch. Require exact M12/M15/M2 regression, independent generator canaries, provenance tamper rejection, temporal future-perturbation and crash/restart recovery before any production adoption or shard11 authorization.",
+  "resume_contract":"Do not recompute shards1-10. Do not authorize shard11 or bulk remaining-shard execution. Keep economic PnL, GA2, holdout and new seeds closed."
 }
