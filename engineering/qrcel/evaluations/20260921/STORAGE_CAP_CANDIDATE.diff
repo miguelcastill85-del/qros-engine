@@ -1,0 +1,11 @@
+--- a/cognitive/trusted_bootstrap.py
++++ b/cognitive/trusted_bootstrap.py
+@@ -99,7 +99,7 @@
+ def worker(args):
+     resource.setrlimit(resource.RLIMIT_CPU,(args.cpu,args.cpu))
+     resource.setrlimit(resource.RLIMIT_AS,(args.memory_mib*1024*1024,)*2)
+-    resource.setrlimit(resource.RLIMIT_FSIZE,(1024*1024,)*2)
++    resource.setrlimit(resource.RLIMIT_FSIZE,((8 if args.entry == 'kernel' else 1)*1024*1024,)*2)
+     resource.setrlimit(resource.RLIMIT_NOFILE,(128,128))
+     files=capture(args.repo_root,args.release_blob)
+     require(not any(k=='cognitive' or k.startswith('cognitive.') for k in sys.modules),'PRELOADED_PROJECT_CODE')

@@ -1,0 +1,97 @@
+{
+  "schema": "QRCEL_ENGINEERING_QUEUE_V2",
+  "scope": "NON_SCIENTIFIC",
+  "parent_queue_sha256": "92df37bec754370de6e9cbb016f0616d10182e715e87783f6bf64d55e3784b38",
+  "closed": [
+    "Q01",
+    "Q02",
+    "Q03",
+    "Q04",
+    "Q05",
+    "BOUNDED_SUPERVISOR",
+    "FRESH_PROCESS_RECOVERY",
+    "EXPLICIT_REQUIREMENT_COVERAGE",
+    "GOAL_CHECKPOINT_BINDING",
+    "OPERATIONAL_FAULT_EVALUATION_20260921",
+    "STORAGE_CAP_CANDIDATE_VALIDATION",
+    "BOUNDED_CONTENTION_RETRY_VALIDATION"
+  ],
+  "items": [
+    {
+      "id": "Q06",
+      "status": "CANDIDATE_VALIDATED_IMPLEMENTATION_PENDING",
+      "artifact": "STORAGE_CAP_CANDIDATE.diff",
+      "requires": [
+        "publish new isolated release and manifest",
+        "targeted release verification",
+        "update launcher external anchor only after verification"
+      ]
+    },
+    {
+      "id": "Q07",
+      "status": "ADMISSION_POLICY_PENDING",
+      "requires": [
+        "single writer per run or bounded retry after observed lock release",
+        "preserve existing run/input/goal identity",
+        "do not silently retry unknown external side effects"
+      ]
+    },
+    {
+      "id": "AUTHORITY_ADAPTERS",
+      "status": "BLOCKED_CONTRACT_REQUIRED",
+      "requires": [
+        "schema-specific authority delegation",
+        "current transition contracts"
+      ],
+      "no_inferred_permission": true
+    },
+    {
+      "id": "GENERAL_OBJECTIVE_COVERAGE",
+      "status": "BLOCKED_FULL_MODEL_AND_ONTOLOGY_EVIDENCE",
+      "requires": [
+        "full scoped capability ontology",
+        "independent task-coverage verification",
+        "RISE fixed-point evidence"
+      ],
+      "implemented_component": "Explicit finite goal contract, mapping and checkpoint checks; arbitrary natural-language adequacy remains unverified"
+    },
+    {
+      "id": "MATCHED_MODEL_SYSTEM_EVALUATION",
+      "status": "BLOCKED_CAPABILITY_AND_PROTOCOL",
+      "requires": [
+        "observed model/provider routes and configuration",
+        "enforceable equivalent budgets",
+        "frozen fresh task/scorer protocol"
+      ],
+      "current_native_evaluation_tool": "NOT_AVAILABLE_IN_EXPOSED_TOOLS",
+      "paid_fallback_authorized": false
+    },
+    {
+      "id": "SEALED_EVALUATION",
+      "status": "BLOCKED_CUSTODY",
+      "requires": [
+        "independent custodian",
+        "fresh inaccessible-to-development corpus",
+        "exposure genealogy ledger"
+      ]
+    },
+    {
+      "id": "OPERATIONAL_PROMOTION",
+      "status": "BLOCKED_UPSTREAM",
+      "requires": [
+        "full-system validation",
+        "operational shadow",
+        "canary",
+        "tested rollback",
+        "existing promotion authority"
+      ]
+    }
+  ],
+  "next_action": "APPLY_VALIDATED_STORAGE_CAP_FIX_AND_VERIFY_RELEASE",
+  "active_release_changed": false,
+  "full_qrcel_complete": false,
+  "background_running": false,
+  "holdout_open": false,
+  "economic_pnl_read": false,
+  "ga2_open": false
+}

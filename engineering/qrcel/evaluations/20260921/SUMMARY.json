@@ -1,0 +1,59 @@
+{
+  "schema": "QRCEL_OPERATIONAL_EVALUATION_SUMMARY_V1",
+  "date": "2026-09-21",
+  "release_commit": "9cb67fe7e5051491d88b2c0e3197fce5e878feb6",
+  "manifest_blob": "e6451ecc267cac23898d4494567432db6bcae031",
+  "verified_files": 278,
+  "scope": "SYNTHETIC_DEVELOPMENT_OPERATIONAL_ONLY",
+  "previous_tests_preserved": 220,
+  "new_operational_cases": 13,
+  "new_operational_pass": 11,
+  "new_operational_fail": 2,
+  "candidate_targeted_cases": 3,
+  "candidate_targeted_pass": 3,
+  "candidate_supervisor_regressions": {
+    "active_release_changed": false,
+    "errors": 0,
+    "existing_affected_regressions": 9,
+    "failures": 0,
+    "new_cases": 3,
+    "pass": true,
+    "scope": "CANDIDATE_SUPERVISOR_ONLY",
+    "tests": 12
+  },
+  "active_release_changed": false,
+  "candidate_promoted": false,
+  "full_qrcel_complete": false,
+  "scientific_dispatches": 0,
+  "model_calls": 0,
+  "sealed_cases": 0,
+  "background_running": false,
+  "python_version": "3.12.14",
+  "platform": "Linux",
+  "source_closure_recovery": "Initial local cached bytecode rejected; clean snapshot materialized exclusively from 278 manifest-bound files before execution",
+  "findings": [
+    {
+      "id": "Q06",
+      "severity": "HIGH_OPERATIONAL_AVAILABILITY",
+      "status": "REPRODUCED_CANDIDATE_VALIDATED_NOT_ACTIVE",
+      "cause": "kernel accepts up to 4 MiB checkpoint but production RLIMIT_FSIZE=1 MiB also limits SQLite WAL",
+      "plan_bytes": 883579,
+      "checkpoint_bytes": 2009506,
+      "committed_tasks_before_failure": 68,
+      "diagnostic_resume_new_tasks": 32,
+      "observed_error": "disk I/O error",
+      "candidate": "8 MiB per file for kernel only; session/verify retain 1 MiB; accepted stdout retains 1 MiB",
+      "limits": "Candidate proves exercised case and affected regressions, not universal capacity or aggregate disk quota"
+    },
+    {
+      "id": "Q07",
+      "severity": "MEDIUM_OPERATIONAL_CONTENTION",
+      "status": "RETRY_RECIPE_VALIDATED_NO_AUTOMATIC_POLICY_IMPLEMENTED",
+      "observation": "Four concurrent writers: three successful receipts, one database-is-locked timeout; 100 exact results and 200 events; no duplicate committed tasks",
+      "classification": "bounded contention/admission gap, not demonstrated corruption or security vulnerability",
+      "recovery": "one retry after confirmed owner release, bound to same run/input/goal; zero new completed tasks"
+    }
+  ],
+  "full_system_gates": "Matched model evaluation, independent sealed custody, authority transition adapters, general objective adequacy and operational promotion remain unverified",
+  "next_action": "APPLY_VALIDATED_STORAGE_CAP_FIX_AND_VERIFY_RELEASE"
+}

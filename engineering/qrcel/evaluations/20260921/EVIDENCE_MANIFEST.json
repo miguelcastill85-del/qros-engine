@@ -1,0 +1,21 @@
+{
+  "schema": "QRCEL_EVALUATION_EVIDENCE_MANIFEST_V1",
+  "parent_release": "9cb67fe7e5051491d88b2c0e3197fce5e878feb6",
+  "files_sha256": {
+    "validate_operational.py": "49aa006fb1c591f284c9b7690d0afcaf552974bbbcad427c01972e27f07b5b7e",
+    "PROTOCOL.json": "ba10707bf8af82f87162a767699f4e358209afa245f638ce313482ff62cc3a95",
+    "RESULTS.json": "ead3350cb364c6a12b9678d777b5935b6b1ff69bcd57494a7240a8fb8caaebe4",
+    "RUN.log": "c6f800d6eab10f362014a46ed730357e9f448b8e36a8d53b5bf2b7d0244e1684",
+    "validate_candidate.py": "466c248bd6cc6e4f89e105c38438bedcdfb3ade2e3548e737f439bc82c618464",
+    "CANDIDATE_PROTOCOL.json": "168b7a3420e32557ea6d9e25f876ec76479882fed93e43957a81936c171cfd0b",
+    "CANDIDATE_RESULTS.json": "cb89e855200169fb88c726a9a2490c5d8ce499e30e55260bafee15e6508e7959",
+    "CANDIDATE.log": "634b627506d22b860474f9da9f7ee6ecb0f8c32e2085aabed01ed8b81095bfe8",
+    "validate_candidate_regressions.py": "dbb30336b4e4840efa218db1d21bbdf88ba41f6e156938043cee17f91e420dd0",
+    "CANDIDATE_REGRESSION_RECEIPT.json": "bfef109a0682f162df6268e6c7ef8be0f42b6a146e899142c4d8afc6f0b0f05f",
+    "CANDIDATE_REGRESSIONS.log": "beb7fb6042002cd3409222de2f06cee8dccf3126f321c80c5077eef77d112d12",
+    "STORAGE_CAP_CANDIDATE.diff": "b6ba592f871e1c2abfe7cb5f96fea27eea43d879622bad40ea1910d22f05bdff",
+    "SUMMARY.json": "5c0c41f69953a3bedd5c767a5c67839eb3e64c8f1f0859fe6833b01172d434c7",
+    "RUN_QUEUE.json": "080ca4a3f5476b6c0d615d296517e543809987b6d7f2179e2e84064de2a43a17"
+  },
+  "scientific_authority": false
+}

@@ -42,7 +42,7 @@
   "full_qrcel_complete": false,
   "promoted": false,
   "parity": "INSUFFICIENT_EVIDENCE",
-  "next_action": "RESOLVE_FULL_SYSTEM_EVALUATION_PREREQUISITES",
+  "next_action": "APPLY_VALIDATED_STORAGE_CAP_FIX_AND_VERIFY_RELEASE",
   "background_running": false,
   "automatic_execution_in_every_chat": false,
   "capability_recheck_required": true,
@@ -73,5 +73,16 @@
         "sha256": "83e2ce55f4d37a36a002ef072153a0a398d8a1ab60b706732fb363194c5392ae"
       }
     }
+  },
+  "operational_evaluation": {
+    "path": "engineering/qrcel/evaluations/20260921/SUMMARY.json",
+    "sha256": "5c0c41f69953a3bedd5c767a5c67839eb3e64c8f1f0859fe6833b01172d434c7",
+    "evidence_manifest_path": "engineering/qrcel/evaluations/20260921/EVIDENCE_MANIFEST.json",
+    "evidence_manifest_sha256": "2276f5db171778a7e90032dd7e26e7857cf4281a323dca40d0dd1dc6d1ba7bd0",
+    "run_queue_path": "engineering/qrcel/evaluations/20260921/RUN_QUEUE.json",
+    "run_queue_sha256": "080ca4a3f5476b6c0d615d296517e543809987b6d7f2179e2e84064de2a43a17",
+    "new_operational_defect": "Q06_STORAGE_CAP_MISMATCH",
+    "candidate_validated": true,
+    "candidate_promoted": false
   }
 }

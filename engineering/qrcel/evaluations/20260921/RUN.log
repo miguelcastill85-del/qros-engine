@@ -1,0 +1,14 @@
+commit_BEFORE_11 PASS
+commit_BEFORE_23 PASS
+commit_AFTER_11 PASS
+commit_AFTER_23 PASS
+checkpoint_before_fsync PASS
+checkpoint_after_fsync PASS
+checkpoint_before_rename PASS
+checkpoint_after_rename PASS
+checkpoint_ENOSPC PASS
+checkpoint_EIO PASS
+four_writer_100_tasks FAIL
+lock_timeout_and_recovery PASS
+accepted_large_plan_production_limits FAIL
+{"cases": 13, "pass": 11, "fail": 2}
