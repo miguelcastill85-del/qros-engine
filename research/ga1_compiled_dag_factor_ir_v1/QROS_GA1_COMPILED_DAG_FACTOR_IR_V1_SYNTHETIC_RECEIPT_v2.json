@@ -1,0 +1,25 @@
+{
+  "authority": {
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "stable_frontier": "V259"
+  },
+  "classification": {
+    "candidate_status": "CANDIDATE_NOT_PRODUCTION",
+    "not_verified": "Full historical M12/M15/M2 regression remains unavailable without certified heavy artifacts or a later authority allowing parity recomputation.",
+    "verified": "Current-runtime synthetic adversarial tests passed with exact bytes identified above."
+  },
+  "date": "2026-09-21",
+  "files": {
+    "adversarial_test_output_v2.json": {"bytes": 544, "sha256": "16de51c30ac02a0d514fa93b3457383f35ee4f8c2bd6c2d805975d5cd122154f"},
+    "qros_factor_ir.py": {"bytes": 3421, "sha256": "0c31aaa75e3ebae22f31d5ceb16818ad2db1462eab9bf923735b645a342530f6"},
+    "qros_geometry_compiler.py": {"bytes": 3971, "sha256": "0a6607eeb5d1e710baee0c6d44da6a787be19fcc86ea93fffea015fe17238986"},
+    "qros_typed_action.py": {"bytes": 3904, "sha256": "8ea71066f5434540011f515fd71dd3acd7e26ff70f6a11819dd47a7811f166b1"},
+    "tests/run_adversarial.py": {"bytes": 7516, "sha256": "522de4e938093bf5a9ba434ce7ac12f8f033971796833c65fd077360fae67a33"}
+  },
+  "next_action": "Search all durable artifact stores for certified H1/M12 maskpack bytes by exact known hashes. If unavailable, persist the missing-artifact blocker and continue only with independent non-recompute validation.",
+  "receipt_sha256": "ea7aea1d8b9268f6794d796d8459565b4d8420fa49f07e36c0d35ac0c697c67b",
+  "schema": "QROS_GA1_COMPILED_DAG_FACTOR_IR_V1_SYNTHETIC_RECEIPT_v2_1.0",
+  "scientific_firewall": {"economic_pnl_read": false,"ga2_open": false,"holdout_open": false,"new_seed_open": false,"shard11_open": false,"shards1_10_recomputed": false},
+  "status": "PASS_SYNTHETIC_ONLY",
+  "tests": {"action_key_dependency_mutations_rejected":["code","domain","param","input","environment"],"atomic_crash_before_rename_rejected":true,"factor_ir_reconstruction_pass":true,"future_perturbation_pass":true,"geometry_reference_equivalence_cases":315,"geometry_reference_mismatches":0,"indicator_length_schema_drift_fail_closed":true,"receipt_tamper_rejected":true}
+}
