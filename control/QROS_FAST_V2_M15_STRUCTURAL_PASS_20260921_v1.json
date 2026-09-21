@@ -1,0 +1,147 @@
+{
+  "schema": "QROS_FAST_V2_M15_STRUCTURAL_PASS_RECEIPT_1.0",
+  "date": "2026-09-21",
+  "objective": "Complete NQX/BUY/M15 structural mask enumeration under the M12-validated FAST V2 anti-stall architecture without economic reads.",
+  "authority": {
+    "stable_frontier_version": "V257",
+    "current_handoff_path": "control/QROS_PUBLIC_1000_CURRENT_CHAT_HANDOFF.json",
+    "route_branch": "fast/seed0076-research-v1-20260920",
+    "route_commit": "5b878a807992f469082e1c57536c84ca0d0f9b7c",
+    "m12_validation_receipt": "control/QROS_FAST_M12_V2_GOLDEN_PASS_RECEIPT_20260921_v1.json",
+    "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA"
+  },
+  "anti_stall": {
+    "monolithic_retries": 0,
+    "technical_fragment_count": 24,
+    "configs_per_fragment": 33528,
+    "scientific_decisions_per_fragment": 0,
+    "timeouts": [
+      {
+        "scope": "mixed_batch_containing_group03",
+        "completed_before_timeout": [1,2],
+        "partial_preserved": "group03_timeout_partial",
+        "partial_is_scientific_evidence": false,
+        "recovery": "rerun only group03 with smaller granularity"
+      },
+      {
+        "scope": "mixed_batch_containing_group07",
+        "completed_before_timeout": [4,5,6],
+        "partial_preserved": "group07_timeout_partial",
+        "partial_is_scientific_evidence": false,
+        "recovery": "rerun only group07 individually"
+      }
+    ],
+    "final_granularity": "one_or_two_isolated_group_processes_per_tool_call",
+    "root_cause_class": ["F_MEMORY_RAM_TIME","G_ALGORITHM_ARCHITECTURE"],
+    "no_closed_work_repeated": true
+  },
+  "inputs": {
+    "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "m15_bar_sha256": "7004293a015d521fb2178f308a09a4723892a5d96e458b90cf33763155418f20",
+    "m15_indicator_sha256": "decc46b290146443b6c1f6a5267e613400a65402911b910dbb088d96e91f469a",
+    "h1_bar_sha256": "9ae2cf18bc803061d73e3b84dcbf11d72e150b956029d21a5b51311a0a9ad60b",
+    "h1_indicator_sha256": "90b6c0661570114af1e7d254f90a2d5371adac29b957926ce467c4808bb46b95",
+    "h4_bar_sha256": "fb2f6d15fe6d7323a34dde3b825b3d7a5e4736dd5a6c7060f625dfbdb3b2a796",
+    "h4_bar_content_sha256": "4f4d89397a0ab64478d43a8685ad5fddca135f749c857b5ce2df031d3ebc3e7b",
+    "h4_indicator_sha256": "f629d7219982a119bdd17db4bed8c47cecf8c9c1e190809eedec093e044bc88d",
+    "m15_raw_tick_cache_sha256": "33fef396f8e2a43d6baccc08c8932c48c3daa44e6870bfaec1680b9812be03d6",
+    "m15_raw_up_events": 2988510,
+    "m15_raw_down_events": 2637838,
+    "input_receipt_sha256": "93e1eddb39725fa8915f149065006decbc55a4a90f9696999380be5a30873dab",
+    "input_receipt_file_sha256": "6c498ce852972bb13a1b1fc4847720941608951c78458546f699eb1e0e855100"
+  },
+  "input_oracles": {
+    "h4_associative_aggregation_parity": true,
+    "raw_tick_control_channels_checked": 8,
+    "raw_tick_control_all_exact": true,
+    "raw_tick_oracle_receipt_sha256": "210bb7ab1edeb4dea0e8391f44960b6e569c2c4a85346e114a29e1a4b97b1d52",
+    "raw_tick_oracle_file_sha256": "14687358ce73a764da439ad0e41451dbb095d681d3c1d2dcdf4970a6c2e2d0ac"
+  },
+  "config_freeze": {
+    "signal_config_count": 804672,
+    "base_tuple_count": 72,
+    "filter_package_count": 11176,
+    "descriptor_sha256": "1e31983853b9b05d2064ab725322697d5a007c2f643b1a2224272cd424e88106",
+    "ordered_config_id_stream_root_sha256": "46e39c9108d4eec03d847fe3b405bdd7777976ba048f27705abfb7a3c869f947",
+    "receipt_sha256": "0f25aa02e8e2633a31e08303a0521129c6de03f9434c5c5441c726ac108d0094",
+    "receipt_file_sha256": "0c142a8f6bca4516506b4e28d8c05f45e6ed0c3537f945e1621bd987a3370d79"
+  },
+  "implementation": {
+    "classification": "M12_VALIDATED_INDEPENDENT_EQUIVALENT_GENERIC_WORKER",
+    "group_worker_sha256": "dd406ba437f968622a1f03d260b6d1de7ef2de86eadcf8f021e3b734c9cedda2",
+    "m15_reducer_sha256": "9b9855eedd6046ada4417a2427bfaa2be00fa3663ce6671049f6782c70f3e0a5",
+    "repo_pinned_reference_prototypes": {
+      "common_blob_sha1": "cbd0f66c71e78078a7ba44f070597a4f3e6eb354",
+      "group_worker_blob_sha1": "3d624638e78d558e1fe88d6000caeee5338d45fb",
+      "reducer_blob_sha1": "56ff414c732398080a0ea41846605b9bee907292"
+    }
+  },
+  "fragments": {
+    "count": 24,
+    "all_status_pass": true,
+    "processed_sum": 804672,
+    "receipt_sha256s": [
+      "3ad732ea4b462540186dd6788ea8c3a1b62a5aff81079aa4550fb7ed65e470de",
+      "01cc2d0aafcacf199c5af43b182b6c377af7b35aa3cdec7cb36b4957ee96b48e",
+      "9f9b51340903537f0fefd3f9f0ef8e7cd49f2cfabbbbb6caed7db37d9e858c25",
+      "b7cdf8084bcb37186c4b9c1f936a5372c374cf3957e0c593071d93d9413a6c9a",
+      "3438d8aad2cbb109abd0a13d34a4aed408451b26ba2f0bc1673307367565bbda",
+      "13716872616f80d4cff017e17fb2bd21277b23a83a1ffa727c73476f819bbd3e",
+      "a47db5b24226b0a6834b6fe0cc3c624e07a4ef6ee2de0902e10d13d67235bdca",
+      "9746cd61950f36c5a23a920be04402c6cc4c4deded41ce03e2193f1d2365de92",
+      "4c107352fa0f8ca9d348cbaa4d1446a4231d8eecd4e0b801ef2c4cee7a6914aa",
+      "d849884d3dd5a7fba4337c38d31f55e8088a4329d68e85a1c70b8435b7ba90b6",
+      "6cd1fbb3d0f9821d2551ee91e4e153c2a91dcd13b710009efafd2e09ed6d7701",
+      "f4ca013ffe7fc05d46c54cb8019ba5b251bcf9586ddc0d7d3d817d82ef600a68",
+      "1925d63a227836a2c4221227ebeed1da7dba5f3e86f46b2a548a96606c73ec13",
+      "4f0356f6f90250844d64b1b342ab0d25067d2ebcde9c8c653b9505b8c3987798",
+      "1002919b2a4f29dc3b3b1df0d42df27425527a5f6d95bf4796c54be9a9de2a1a",
+      "f04cd76d4901b2e833cd9b0ff23fe9b983d5b41540d2a802a34df339d162bc18",
+      "f17fa2c93f65ce1472b8675f8387f87b1eb94be021373da2d3e7a56ad19a47c5",
+      "03a4b8ef2fa934149f5998f92e4a3fccf60cdb0de14090aa53871d31ccc77fd4",
+      "0520fb843bc52b830eef402d1a46138cd46b9f1a02e6f91001fb4fd0a9de7dcd",
+      "e2cea7b62f32dc5afd0871f46e0e0f1491d69d2bcc145c94853d259edbeff0fe",
+      "28aa35ed99cc591c7bbcab96003019c4e7cebee0b9027276f6ff468fc41dabef",
+      "69e7a1cfd37c6a5dff8a6de21fb58acf0fadca2393a0e769205ec85acf004c65",
+      "f02f1da312d15b7266dcc90238595eb92c631504d0e5ec08b0e46a7a77edaac9",
+      "8e1135d4a2998cc108bd94d831ff612bc2c39699b6a95ce38380dba40e329973"
+    ]
+  },
+  "global_result": {
+    "status": "PASS",
+    "processed_signal_configs": 804672,
+    "distinct_mask_class_count": 237636,
+    "duplicate_config_count": 567036,
+    "zero_event_class_alias_count": 70665,
+    "zero_event_representative_config_id": "00009d9cd9653f9275bdf9abad28f95975192464479b109b19e21fc69c7ee9a9",
+    "semantic_class_root_sha256": "1715fe9d3a15db744c2b8fcdd54d62c61cf649cd176be6acbee685b53703e439",
+    "full_alias_mapping_root_sha256": "d04413efa9f5cc1543dff7677be97d0ad102c0816ee84f22df0518892ea6fa4c",
+    "ordered_config_id_stream_root_sha256": "46e39c9108d4eec03d847fe3b405bdd7777976ba048f27705abfb7a3c869f947",
+    "local_distinct_sum": 241907,
+    "primary_equals_independent_oracle": true,
+    "reducer_receipt_sha256": "5a98d81114ca2c312e38efe731540181ba8586854c332576de403e4bd8fbca81",
+    "reducer_receipt_file_sha256": "e2a2837494e20c8006e3f75043eacebbe1076022e63cfb7ec9e29aadce3e0895"
+  },
+  "scientific_interpretation": {
+    "fact": "M15 complete structural mask mapping is deterministically reproduced by two independent global reduction paths.",
+    "inference": "The FAST V2 execution architecture generalizes from M12 to M15 without changing structural semantics.",
+    "hypothesis": "None of these structural counts or roots imply profitable alpha; economic evidence remains unopened.",
+    "validated_result": "NQX/BUY/M15 structural enumeration PASS."
+  },
+  "gates": {
+    "M12_FAST_GOLDEN": "PASS_CLOSED",
+    "M15_STRUCTURAL_ENUMERATION": "PASS_CLOSED",
+    "economic_pnl": "CLOSED",
+    "GA2": "CLOSED",
+    "holdout": "CLOSED",
+    "new_seeds": "CLOSED"
+  },
+  "durability": {
+    "lightweight_receipt": "GITHUB_MAIN",
+    "heavy_fragment_artifacts": "LOCAL_RUNTIME_ONLY",
+    "heavy_artifacts_are_required_for_current_gate_replay": false,
+    "reproducible_from": "frozen DEV plus verified caches/input receipts plus config freeze plus implementation identities"
+  },
+  "status": "DEVELOPMENT_RUNNING",
+  "next_automatic_action": "Re-read CURRENT_CHAT_HANDOFF and CURRENT_FRONTIER_POINTER after persistence. Continue only with the next explicitly authorized scientific domain; do not revive old CWS/24-group production topology and keep economic PnL, GA2 and holdout closed."
+}
