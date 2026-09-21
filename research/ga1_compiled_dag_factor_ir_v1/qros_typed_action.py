@@ -6,6 +6,9 @@ import numpy as np
 from qros_factor_ir_store import immutable_publish_bytes
 
 SCHEMA = "QROS_TYPED_ACTION_KEY_1.0"
+ENVIRONMENT_CONTRACT = "QROS_RUNTIME_ENVIRONMENT_1.0"
+ENVIRONMENT_REQUIRED_FIELDS = ("python", "implementation", "platform", "numpy", "numba", "byteorder")
+ENVIRONMENT_OPTIONAL_FIELDS = ("extra",)
 
 
 def canonical_bytes(obj: Any) -> bytes:
@@ -24,6 +27,32 @@ def sha256_file(path: str | Path) -> str:
     return h.hexdigest()
 
 
+def validate_environment_manifest(environment: dict[str, Any]) -> dict[str, Any]:
+    if not isinstance(environment, dict):
+        raise ValueError("ENVIRONMENT_OBJECT_REQUIRED")
+    required = set(ENVIRONMENT_REQUIRED_FIELDS)
+    allowed = required | set(ENVIRONMENT_OPTIONAL_FIELDS)
+    missing = sorted(required - set(environment))
+    extra_fields = sorted(set(environment) - allowed)
+    if missing or extra_fields:
+        raise ValueError(
+            "ENVIRONMENT_FIELDS_INVALID:missing=" + ",".join(missing)
+            + ";extra=" + ",".join(extra_fields)
+        )
+    for field in ("python", "implementation", "platform", "numpy"):
+        if not isinstance(environment[field], str) or not environment[field]:
+            raise ValueError("ENVIRONMENT_" + field.upper() + "_INVALID")
+    numba_version = environment["numba"]
+    if numba_version is not None and (not isinstance(numba_version, str) or not numba_version):
+        raise ValueError("ENVIRONMENT_NUMBA_INVALID")
+    if environment["byteorder"] not in ("little", "big"):
+        raise ValueError("ENVIRONMENT_BYTEORDER_INVALID")
+    if "extra" in environment and not isinstance(environment["extra"], dict):
+        raise ValueError("ENVIRONMENT_EXTRA_INVALID")
+    canonical_bytes(environment)
+    return dict(environment)
+
+
 def environment_manifest(extra: dict[str, Any] | None = None) -> dict[str, Any]:
     try:
         import numba
@@ -40,7 +69,7 @@ def environment_manifest(extra: dict[str, Any] | None = None) -> dict[str, Any]:
     }
     if extra:
         out["extra"] = extra
-    return out
+    return validate_environment_manifest(out)
 
 
 def build_action_payload(*, operation: str, operation_version: str,
