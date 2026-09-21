@@ -1,39 +1,40 @@
 {
   "schema": "QRCEL_ENGINEERING_CURRENT_V1",
   "status": "ACTIVE_REFERENCE_ASSISTANCE",
-  "date": "2026-09-20",
+  "date": "2026-09-21",
   "release": {
     "repository": "miguelcastill85-del/qros-engine",
-    "commit": "9cb67fe7e5051491d88b2c0e3197fce5e878feb6",
-    "branch": "qrcel/explicit-goals-0.6.0-20260920",
-    "version": "0.6.0-experimental",
+    "commit": "4f4eea7eb281ae0ac5e149109ddf5b9d2d3ff6e0",
+    "branch": "qrcel/storage-budget-0.6.1-20260921",
+    "version": "0.6.1-experimental",
     "manifest_path": "cognitive/COGNITIVE_MANIFEST.json",
-    "manifest_blob_sha1": "e6451ecc267cac23898d4494567432db6bcae031",
-    "manifest_sha256": "18504e00b31d5c5caf8015253e271098e49e65fbdad65080d49a00a270e536d5",
+    "manifest_blob_sha1": "4a1f48faecc6f352afac0b32302d9995a68fb1a3",
+    "manifest_sha256": "0e2f9d15f96bc2b1b9e908dde5000d87ae568e36aaa8956c09daafeccd53f008",
     "bootstrap_path": "cognitive/trusted_bootstrap.py",
-    "bootstrap_sha256": "5635677b6945e503fba52352799e33ec773fc7fdc88c399e2a0ed2d4fdd5e47a"
+    "bootstrap_sha256": "cd97b58c5d7d5b30c9142612c3852c0107946f8c532a6fa6b615625c88c8c512"
   },
   "acceptance": {
-    "path": "cognitive/checkpoints/goal_060/ACCEPTANCE.json",
-    "sha256": "13263e2837f93d14975bd701fe74fec1e8cb066e9b614d40a74fe12afa835d45",
-    "tests_passed": 220,
-    "unique_new_regressions": 43,
-    "scope": "Q01_Q05_RESOURCE_RECOVERY_AND_EXPLICIT_GOAL_COVERAGE"
+    "path": "cognitive/checkpoints/storage_061/ACCEPTANCE.json",
+    "sha256": "149a9bfb889935282cc83c84bade50127effe90d7e41821e0884a0c44f4397ba",
+    "targeted_tests_passed": 12,
+    "new_regressions": 3,
+    "historical_tests_preserved": 220,
+    "scope": "Q06_STORAGE_CAP_COMPATIBILITY"
   },
   "run_queue": {
-    "path": "cognitive/checkpoints/goal_060/RUN_QUEUE.json",
-    "sha256": "92df37bec754370de6e9cbb016f0616d10182e715e87783f6bf64d55e3784b38"
+    "path": "cognitive/checkpoints/storage_061/RUN_QUEUE.json",
+    "sha256": "c295c4fec4cac02975637685b1e387913f69f2ce74117cbab694ea90df44268d"
   },
   "durable_session": {
-    "path": "engineering/qrcel/releases/0.6.0/SESSION.json",
-    "sha256": "e18c559695dadc363f930492ab2f0102ab3668cabe642c72a5eb0f4e9ff90c79",
-    "checkpoint_path": "engineering/qrcel/releases/0.6.0/SESSION_CHECKPOINT.json",
-    "checkpoint_sha256": "25bb4fb64e05b553e84b823ed7fedd3f7cda77580ed03726f3ffc0374934fe2a",
+    "path": "engineering/qrcel/releases/0.6.1/SESSION.json",
+    "sha256": "80d886a738c14b68a9d7264176164d9405243896c46b918c24c89b94c599c4e5",
+    "checkpoint_path": "engineering/qrcel/releases/0.6.1/SESSION_CHECKPOINT.json",
+    "checkpoint_sha256": "e7cc5e4f12a38130ac3399d2d743ac66fdca703c66c8cdfa39b36110269b4639",
     "capability_reusable": false
   },
   "fresh_release_validation": {
-    "path": "engineering/qrcel/releases/0.6.0/FRESH_RELEASE_VALIDATION.json",
-    "sha256": "9a7109949a4b9f91cc90d801227b991f68d7f0ac050c0993c0e2573a903d6716"
+    "path": "engineering/qrcel/releases/0.6.1/FRESH_VALIDATION.json",
+    "sha256": "af22e83451bfdc9e6aa4b0c0290d669fe4eec29379c118190a20fb1bc36f07f9"
   },
   "reference_epoch": 191,
   "reference_role": "HISTORICAL_ENGINEERING_ONLY",
@@ -42,7 +43,7 @@
   "full_qrcel_complete": false,
   "promoted": false,
   "parity": "INSUFFICIENT_EVIDENCE",
-  "next_action": "APPLY_VALIDATED_STORAGE_CAP_FIX_AND_VERIFY_RELEASE",
+  "next_action": "RESOLVE_SINGLE_WRITER_ADMISSION_AND_FULL_SYSTEM_EVALUATION_PREREQUISITES",
   "background_running": false,
   "automatic_execution_in_every_chat": false,
   "capability_recheck_required": true,
@@ -83,6 +84,16 @@
     "run_queue_sha256": "080ca4a3f5476b6c0d615d296517e543809987b6d7f2179e2e84064de2a43a17",
     "new_operational_defect": "Q06_STORAGE_CAP_MISMATCH",
     "candidate_validated": true,
-    "candidate_promoted": false
+    "candidate_promoted": false,
+    "historical_evaluation_of_release": "0.6.0-experimental",
+    "Q06_remediated_by_release": "0.6.1-experimental",
+    "Q07": "ADMISSION_POLICY_PENDING"
+  },
+  "large_synthetic_recovery_capsule": {
+    "path": "engineering/qrcel/releases/0.6.1/RECOVERY_CAPSULE.json",
+    "sha256": "4807330d0e1d2cea0bada0a2be1b092e289d1303704399d49dbad17e01acfbde",
+    "encoding": "gzip+base64 per file",
+    "max_decoded_bytes_per_file": 4194304,
+    "scope": "SYNTHETIC_NON_SCIENTIFIC_NOT_STRATEGY_PROGRESS"
   }
 }
