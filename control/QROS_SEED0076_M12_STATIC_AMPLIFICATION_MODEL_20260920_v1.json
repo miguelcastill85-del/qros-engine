@@ -1,0 +1,121 @@
+{
+  "schema": "QROS_SEED0076_M12_STATIC_AMPLIFICATION_MODEL_1.0",
+  "date": "2026-09-20",
+  "status": "PASS_STATIC_NO_TIMING_CLAIMS",
+  "scope": "Current v223/v236 24-group execution plus v228 merge/oracle for one 804672-config shard.",
+  "authority": {
+    "benchmark_branch": "perf/seed0076-m12-profiler-v1-20260920",
+    "benchmark_parent": "f21969f8f2f3bdeda528ad5b1e96b06182355a52",
+    "worker_git_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+    "wrapper_git_blob_sha1": "2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f",
+    "carrier_masks_git_blob_sha1": "0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25",
+    "merge_git_blob_sha1": "112557e35398bcdb6798ab61f90f69dc10b7c72b",
+    "merge_oracle_git_blob_sha1": "5ebbbcd39c4d752b5f3faedb4f46d9fb8d609ded"
+  },
+  "verified_counts": {
+    "scientific_shard_configs": 804672,
+    "execution_groups": 24,
+    "configs_per_group": 33528,
+    "filter_packages": 11176,
+    "structural_variants_per_process": 12,
+    "indicator_arrays_per_npz": 36
+  },
+  "amplification": {
+    "config_identity_hashing": {
+      "full_root_hash_calls_repeated_across_24_workers": 19312128,
+      "per_group_config_hash_calls_across_24_workers": 804672,
+      "total_current_config_id_hash_calls_lower_bound": 20116800,
+      "root_once_plus_required_group_config_hash_calls": 1609344,
+      "eliminable_hash_calls_if_root_is_bound_once": 18507456,
+      "theoretical_call_reduction_fraction": 0.92,
+      "interpretation": "This is an operation-count reduction only, not a wall-clock speedup claim."
+    },
+    "structural_cache": {
+      "structural_state_builds_current": 288,
+      "structural_state_builds_if_shared_once": 12,
+      "eliminable_rebuilds": 276,
+      "amplification_factor": 24,
+      "note": "box_history4 is likewise rebuilt once per structural variant in each worker invocation."
+    },
+    "indicator_archive": {
+      "minimum_indicator_array_extractions_current": 864,
+      "if_loaded_once_per_shard": 36,
+      "eliminable_array_extractions": 828,
+      "amplification_factor": 24,
+      "note": "np.load(...INDICATORS.npz) followed by {k:z[k] for k in z.files} occurs before group selection. Physical memory/copy cost must still be benchmarked."
+    },
+    "package_dedupe_inner_loop": {
+      "package_evaluations_across_shard": 268224,
+      "unused_zlib_compress_calls": 268224,
+      "minimum_p_tobytes_calls": 804672,
+      "note": "Minimum is three p.tobytes() calls per package evaluation from hash, unused zlib.compress, and stored/compared packed bytes. Hash-bucket collision paths can increase this."
+    },
+    "ephemeral_sqlite": {
+      "group_databases_created": 24,
+      "synchronous_mode": "FULL",
+      "journal_mode": "DELETE",
+      "minimum_commit_events_lower_bound": 48,
+      "note": "Lower bound assumes one >=20k pending commit and one close/final commit per 33,528-config group. SQLite fsync count is platform-dependent and not claimed."
+    },
+    "merge_and_oracle": {
+      "group_artifacts_per_group": 3,
+      "artifact_full_sha256_passes_in_primary_merge": 72,
+      "artifact_full_sha256_passes_in_independent_oracle": 72,
+      "combined_full_artifact_hash_passes": 144,
+      "note": "This count excludes additional index/duplicate-pair parsing and class collision byte comparisons."
+    },
+    "known_M12_storage": {
+      "group_original_bytes": 2591397468,
+      "group_compressed_bytes": 322011859,
+      "global_uncompressed_pack_bytes": 2590887817,
+      "global_compressed_pack_bytes": 683104903,
+      "note": "These are verified artifact sizes, not total I/O bytes. Actual reads/writes are higher because merge/oracle/compaction re-read data."
+    }
+  },
+  "conclusions": {
+    "verified": [
+      "The 24-group topology causes repeated shard-global work before group selection.",
+      "At least 92% of current config-id hash calls are structurally eliminable if the frozen config root is computed/bound once and group config IDs are still generated exactly.",
+      "Structural cache construction is amplified 24x by process-per-group execution.",
+      "Indicator archive extraction is structurally repeated 24x.",
+      "There are 268224 unused zlib.compress calls in group_packages_exact across a full 24-group shard.",
+      "Primary merge plus independent oracle perform at least 144 whole-artifact SHA-256 verification passes over group artifacts."
+    ],
+    "not_yet_verified": [
+      "Which component dominates wall-clock.",
+      "Exact speedup from removing any one source of amplification.",
+      "Peak RAM impact of a persistent per-shard process.",
+      "Whether candidate/retest/rearm kernels dominate after I/O/control reductions."
+    ]
+  },
+  "first_optimization_candidates_after_B1": [
+    {
+      "rank_prior": false,
+      "id": "CAND_ROOT_BIND_ONCE",
+      "rationale": "Largest verified operation-count amplification; must wait for B1 timing before priority."
+    },
+    {
+      "rank_prior": false,
+      "id": "CAND_PERSISTENT_SHARD_CACHE",
+      "rationale": "Would share fps/parts/structural/indicator/tick caches across adaptive chunks; exact semantics can remain unchanged."
+    },
+    {
+      "rank_prior": false,
+      "id": "CAND_REMOVE_UNUSED_ZLIB_AND_COPY",
+      "rationale": "Semantically dead work verified in inner loop; still benchmark before claiming material gain."
+    },
+    {
+      "rank_prior": false,
+      "id": "CAND_EPHEMERAL_DEDUPE_STORE",
+      "rationale": "Replace FULL-sync scratch only if parity and crash-boundary design preserve durable checkpoint semantics."
+    }
+  ],
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "multiplicity_contract_changed": false,
+    "event_semantics_changed": false
+  },
+  "next_action": "When B1 compute becomes available, test whether the measured profile confirms these amplification sources and rank the top three by wall/CPU/I/O contribution. Do not optimize from static counts alone."
+}

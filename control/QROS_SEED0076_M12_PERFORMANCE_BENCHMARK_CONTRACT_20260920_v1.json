@@ -116,5 +116,7 @@
     "holdout_open": false,
     "universe_changed": false
   },
-  "risk_register_path": "control/QROS_SEED0076_M12_PERFORMANCE_RISK_REGISTER_20260920_v1.json"
+  "risk_register_path": "control/QROS_SEED0076_M12_PERFORMANCE_RISK_REGISTER_20260920_v1.json",
+  "static_amplification_model_path": "control/QROS_SEED0076_M12_STATIC_AMPLIFICATION_MODEL_20260920_v1.json",
+  "static_amplification_model_status": "PASS_STATIC_NO_TIMING_CLAIMS"
 }
