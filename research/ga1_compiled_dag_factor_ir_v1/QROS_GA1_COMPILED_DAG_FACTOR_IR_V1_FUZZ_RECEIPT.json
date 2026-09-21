@@ -1,0 +1,48 @@
+{
+  "authority": {
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "stable_frontier": "V259"
+  },
+  "classification": {
+    "not_verified": "Historical M12/M15/M2 full regression.",
+    "verified": "Synthetic/property-level behavior of current candidate bytes."
+  },
+  "code": {
+    "qros_factor_ir_git_blob_sha1": "6418fda2c6ec7400f95018754b348ddbc488caad",
+    "qros_geometry_compiler_git_blob_sha1": "a412451465abdbcb5de0b8178f0f3c7f20d479a9",
+    "qros_independent_event_canary_git_blob_sha1": "287da51ffba33d4620e39a8bebbb99b4fc75cb3b",
+    "qros_maskpack_regression_git_blob_sha1": "5bbcbc7ecbf7438ea71162aa0cde75396f40d2e1",
+    "qros_typed_action_git_blob_sha1": "d66e60048d8d6888c9f41bfab11d3fa10a970feb"
+  },
+  "date": "2026-09-21",
+  "new_failure_class_closed": {
+    "source_index_duplicate": "REJECTED",
+    "source_index_float": "REJECTED",
+    "source_index_signed_negative_wrap": "REJECTED_PRE_CAST",
+    "source_index_unsorted": "REJECTED"
+  },
+  "next_action": "Persist a narrowly scoped historical-artifact blocker, then continue independent durability validation with Factor IR serialization/round-trip/tamper tests without recomputing closed shards.",
+  "receipt_sha256": "7708a378d0ff831d8c828dc1f79477533736924ebfecaa62349f53537e8c3800",
+  "results": {
+    "action_key_unique_input_mutations": 100,
+    "factor_ir_fuzz_checks": 800,
+    "geometry_fuzz_checks": 800,
+    "invalid_source_index_cases_rejected": 4,
+    "mismatches": 0
+  },
+  "schema": "QROS_GA1_COMPILED_DAG_FACTOR_IR_V1_FUZZ_RECEIPT_1.0",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "shard11_open": false,
+    "shards1_10_recomputed": false
+  },
+  "status": "PASS_SYNTHETIC_FUZZ",
+  "test_artifacts": {
+    "fuzz_output_git_blob_sha1": "4c0841976d83e74a80ab39c4c06d54787f0afec6",
+    "fuzz_output_sha256": "9fe89cb8b15f8566a27473160d80969d3f8a62dd5a7321609e701a862683fb1f",
+    "run_fuzz_v1_git_blob_sha1": "3ba05a8b73b7d483abd0649c422a1446b23a2bb6",
+    "run_fuzz_v1_sha256": "edd8d5a1a64c92d1f0393e6cb4c86e5532b6d2712003c989756fd6fd2f1fd070"
+  }
+}
