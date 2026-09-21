@@ -1,0 +1,17 @@
+{
+  "authority": {"research_branch":"research/ga1-compiled-dag-factor-ir-v1-20260921","stable_frontier":"V259"},
+  "classification": {"candidate_status":"CANDIDATE_NOT_PRODUCTION","not_verified":"Full historical M12/M15/M2 regression remains unavailable without certified heavy artifacts or a later authority allowing parity recomputation.","verified":"Current-runtime synthetic adversarial tests passed with exact bytes identified above."},
+  "date":"2026-09-21",
+  "files":{
+    "event_maskpack_test_output_v2.json":{"bytes":255,"sha256":"fb0cdc89b69a0b2b17788ef22ec686b9e2133a94a18e6a27525afa645f4c3b05"},
+    "qros_independent_event_canary.py":{"bytes":4188,"sha256":"92f745cf8699c92a6a89b45ab7cbd4ba152c411a0764f5ecef809d868888a79b"},
+    "qros_maskpack_regression.py":{"bytes":4623,"sha256":"7da48f830ebf53f5b4dc4175d2ae7dc33ce86116ffcbd464f7495426dfbcc339"},
+    "tests/run_event_maskpack_canary.py":{"bytes":4587,"sha256":"5b3c1a8fb39e4e1720c6171ee86619a8416f46bc08f1ada365bbf2eb085ad5e5"}
+  },
+  "next_action":"Search all durable artifact stores for certified H1/M12 maskpack bytes by exact known hashes. If unavailable, persist the missing-artifact blocker and continue only with independent non-recompute validation.",
+  "receipt_sha256":"1ce44fb86bb51e8bdfe6f4cde35ef024a1a35866e9e3a4ac84a115e0f5f8c6c8",
+  "schema":"QROS_GA1_COMPILED_DAG_FACTOR_IR_V1_GENERATOR_MASKPACK_CANARY_v2_1.0",
+  "scientific_firewall":{"economic_pnl_read":false,"ga2_open":false,"holdout_open":false,"new_seed_open":false,"shard11_open":false,"shards1_10_recomputed":false},
+  "status":"PASS_SYNTHETIC_ONLY",
+  "tests":{"canonical_representative_enforced":true,"event_future_perturbation_pass":true,"maskpack_alias_metadata_tamper_rejected":true,"maskpack_byte_tamper_rejected":true,"maskpack_regression_fixture_pass":true,"structural_independent_cases":24,"tick_cross_independent_sides":2}
+}
