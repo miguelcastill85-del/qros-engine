@@ -10,10 +10,12 @@ python3 -I -S -B /ruta/verificada/cognitive/trusted_bootstrap.py --repo-root /ru
 
 El lanzador verifica y captura las fuentes antes de importarlas, aplica límites al hijo y termina con él. La sesión carga prompts verificados, inspecciona la referencia V191 y mide capacidad local. No autoriza ciencia ni deja un proceso persistente.
 
-Leer `COGNITIVE_STATE.json`, `checkpoints/goal_060/ACCEPTANCE.json` y `checkpoints/goal_060/RUN_QUEUE.json`. No repetir trabajo cerrado. La evaluación completa y la promoción siguen sujetas a sus gates.
+Leer `COGNITIVE_STATE.json`, `checkpoints/storage_061/ACCEPTANCE.json` y `checkpoints/storage_061/RUN_QUEUE.json`. No repetir trabajo cerrado. La evaluación completa y la promoción siguen sujetas a sus gates.
 
 Para continuidad durable, publicar cada checkpoint cerrado con su SHA-256 y el `resume_anchor` del kernel en el repositorio autorizado; comprobar lectura remota por identidad. En otro runtime, verificar esas anclas externas antes de restaurar y medir capacidad de nuevo. `--save` crea primero una sesión local: no prueba persistencia remota.
 
 La recuperación con una release distinta requiere migración explícita; no reescribir hashes históricos. No elegir una rama por fecha. La persistencia del software no garantiza activación ni proceso en todos los chats.
 
 Para objetivos descompuestos con requisitos explícitos, usar el contrato descrito en `GOAL_CONTRACT_060.md`. Debe conservarse con su hash externo y mapa al restaurar. No declarar completo un objetivo libre por tener un DAG válido.
+
+Leer `STORAGE_LIMIT_061.md`: límites por archivo compatibles con SQLite/checkpoints. Una sola invocación escritora por run; la concurrencia puede fallar por timeout sin corrupción.

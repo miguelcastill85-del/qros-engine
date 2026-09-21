@@ -1,0 +1,17 @@
+test_cancellation_reaps_worker (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_cancellation_reaps_worker) ... ok
+test_identity_override_is_rejected (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_identity_override_is_rejected) ... ok
+test_loader_ignores_source_swap_after_capture (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_loader_ignores_source_swap_after_capture) ... ok
+test_loader_rejects_unverified_module (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_loader_rejects_unverified_module) ... ok
+test_memory_allocation_is_bounded (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_memory_allocation_is_bounded) ... ok
+test_namespace_exists_only_for_verified_descendants (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_namespace_exists_only_for_verified_descendants) ... ok
+test_real_entry_rejects_added_matching_bytecode (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_real_entry_rejects_added_matching_bytecode) ... ok
+test_real_isolated_entry_uses_pinned_source (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_real_isolated_entry_uses_pinned_source) ... ok
+test_wall_deadline_terminates_worker (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_wall_deadline_terminates_worker) ... ok
+test_kernel_can_write_two_mib (cognitive.tests.test_storage_budget.StorageBudgetTests.test_kernel_can_write_two_mib) ... ok
+test_kernel_output_acceptance_stays_one_mib (cognitive.tests.test_storage_budget.StorageBudgetTests.test_kernel_output_acceptance_stays_one_mib) ... ok
+test_session_stays_bounded_to_one_mib (cognitive.tests.test_storage_budget.StorageBudgetTests.test_session_stays_bounded_to_one_mib) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 3.853s
+
+OK
