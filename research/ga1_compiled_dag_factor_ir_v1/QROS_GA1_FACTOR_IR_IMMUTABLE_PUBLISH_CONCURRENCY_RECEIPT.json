@@ -1,0 +1,46 @@
+{
+  "authority": {
+    "main_drift": "QRCEL_ONLY_ORTHOGONAL_CONFIRMED",
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "stable_frontier": "V259"
+  },
+  "code": {
+    "concurrency_test_sha256": "8428882566eb8440fa01307975ce367afad70ee181fa5d5be2442a452e97d93b",
+    "qros_factor_ir_git_blob_sha1": "6418fda2c6ec7400f95018754b348ddbc488caad",
+    "qros_factor_ir_store_sha256": "2521109fe306997f46300d094b2ebcff5ac18d63a9ee3ddc66c76b0dbfa10523"
+  },
+  "date": "2026-09-21",
+  "implementation": {
+    "conflict": "existing different bytes => IMMUTABLE_ARTIFACT_CONFLICT",
+    "crash_before_publish": "no final path created",
+    "idempotence": "existing identical bytes => IDEMPOTENT_EXISTING",
+    "publish_primitive": "same-directory fsynced temporary file + atomic os.link no-clobber + directory fsync"
+  },
+  "next_action": "Read back persisted code/tests, then red-team process death after link-before-directory-fsync and stale staging cleanup/recovery. Keep historical byte regression blocker isolated.",
+  "receipt_sha256": "1fc0683d4f81b58c0e57da7865d2acebc7f3bdd3be7b2210e29cdacdacb0c8f3",
+  "root_cause": {
+    "class": "EXECUTION_CONCURRENCY_PARTIAL_WRITE_AUTHORITY",
+    "new_invariant": "An immutable artifact path may be created once. Existing identical bytes are idempotent; existing different bytes fail closed.",
+    "old_behavior": "os.replace allowed later writers to overwrite an already-published immutable path."
+  },
+  "schema": "QROS_GA1_FACTOR_IR_IMMUTABLE_PUBLISH_CONCURRENCY_RECEIPT_1.0",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "shard11_open": false,
+    "shards1_10_recomputed": false
+  },
+  "status": "PASS",
+  "tests": {
+    "conflict_winner_count": 1,
+    "conflicting_concurrent_workers": 8,
+    "conflicts_rejected": 7,
+    "crash_before_publish_no_final": true,
+    "identical_concurrent_workers": 8,
+    "identical_exactly_one_published": true,
+    "identical_idempotent_existing": 7,
+    "sequential_conflict_no_overwrite": true,
+    "sequential_idempotence_pass": true
+  }
+}
