@@ -1,0 +1,62 @@
+{
+  "admissible_frontier": {
+    "blocked_subtask_only": ["HISTORICAL_EXACT_MASKPACK_BYTE_REGRESSION"],
+    "closed_by_policy": ["SHARD11","ECONOMIC_PNL","GA2","HOLDOUT","NEW_SEEDS","PRODUCTION_ADOPTION"],
+    "next": ["SELL_MIRROR_CANARY_COVERAGE","XAU_POINT_SCALING_CANARY_COVERAGE"]
+  },
+  "authority_vector": {
+    "CODE_AUTHORITY": {
+      "factor_ir_store": "2ff5f4b6ad84f7c085b5a218d32d59cdbe5f6bf6",
+      "recovery_verifier": "584a441c3b8e501153e021e11d437851551f4c85",
+      "typed_action": "1340c779bea16808a092894a21671653124ff33c",
+      "typed_dag": "19dd546480198b4525c2a77be16ef7d57f82879b"
+    },
+    "EXECUTION_AUTHORITY": {
+      "enforcement_receipt_git_blob_sha1": "07afe704cd7fb289fc847dc7ba0eafbfb1952cff",
+      "scientific_wrapper_git_blob_sha1": "c958f443f93f716cab0d82af160eb26c61a31ae5",
+      "wrapper_receipt_git_blob_sha1": "d731b8aefd0bf96af3a68e585cac207df9423279"
+    },
+    "OPERATIONAL_AUTHORITY": {
+      "handoff_git_blob_sha1": "cd83c7416497225243c553243ca69a43ff38e7b8",
+      "main_drift": "NONE_SINCE_LAST_VERIFIED",
+      "main_head": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+      "seed0076_pointer_git_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d"
+    },
+    "SCIENTIFIC_AUTHORITY": {
+      "economic_pnl_read": false,
+      "ga1_completed": 10,
+      "ga1_total": 60,
+      "ga2_open": false,
+      "holdout_open": false,
+      "scientific_state": "PREREGISTERED_NO_RESULTS",
+      "shard11_open": false,
+      "source": "main V259"
+    }
+  },
+  "event_ledger": {
+    "file_sha256": "2e4acbfc19a8ab0de59d0a23900a0fc2cbd29717494524b7b878e9c5c5401140",
+    "git_blob_sha1": "22d9afbe048c6bb026ba847ab93a01e0cf9acf07",
+    "head_sha256": "f7bf80bedc810f4abf6ba0b895c18c155389dd47747fa84db168f3c7f1008019",
+    "path": "research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_EVIDENCE_NATIVE_EVENT_LEDGER_v4.jsonl",
+    "records": 16
+  },
+  "next_action": "Authenticate SELL mirror and XAU point-scaling canary coverage; implement only missing non-economic canaries; keep shard11 closed.",
+  "recovery_root_sha256": "1be09ebc758196c71a339d2b3a5c9c754c023c6480ecc9b1eacbc6e13e456ebe",
+  "reusable_evidence_set": [],
+  "schema": "QROS_GA1_EVIDENCE_NATIVE_RECOVERY_ROOT_1.0",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "status": "VERIFIED_RECOVERY_ROOT",
+  "verified_recovery_root": {
+    "last_validated_research_action": "SCIENTIFIC_DAG_ENFORCEMENT_COVERAGE_PASS",
+    "research_anchor": {
+      "branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+      "branch_head_at_root_input": "1f16b41786c4dd68f99b4a251dc73d90bea0eba6",
+      "ledger_v4_git_blob_sha1": "22d9afbe048c6bb026ba847ab93a01e0cf9acf07"
+    },
+    "scientific_anchor": {
+      "pointer_git_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+      "stable_frontier": "V259",
+      "target_git_blob_sha1": "540aa07bbeeb9c62d1288d6974ac6e61b3b83a67"
+    }
+  }
+}
