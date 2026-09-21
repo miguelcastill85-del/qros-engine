@@ -1,0 +1,192 @@
+{
+  "schema":"QROS_GA1_FAST_V3_ADVERSARIAL_ARCHITECTURE_AUDIT_1.0",
+  "date":"2026-09-21",
+  "status":"REJECTED_AS_STATED_REPLACEMENT_CANDIDATE_IDENTIFIED",
+  "objective":"Adversarially audit the proposal to keep 60 logical shards while replacing shard-by-shard physical execution with a global/factorized engine.",
+  "authority":{
+    "main_head_at_recovery":"82e12d1fa55f38f4b273f0929cd195c0d34981ce",
+    "stable_frontier_version":"V258",
+    "stable_pointer_blob_sha1":"b3e17cf9a2c95847a0fc2b2bcb161d27172d16eb",
+    "current_handoff_blob_sha1":"872ad76c5bc3018c614a963aca30ee7d9d73b49f",
+    "shard10_completion_path":"control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD10_NQX_BUY_M2_COMPLETION_20260921_v1.json",
+    "shard10_completion_git_blob_sha1":"f445e7b496b00524fd515b620cafedd2776512bf",
+    "frozen_plan_git_blob_sha1":"0b4f724ccf683907b05013687c581deadfc2ecc1",
+    "active_ga1_sequence_policy_git_blob_sha1":"9d4b1b038c75653f72f84024d5b7a6581123a61b"
+  },
+  "decision":{
+    "original_proposal":"REJECTED_AS_STATED",
+    "reason":"It overestimated safe cross-shard gate-mask reuse, violated the active one-shard authorization contract if executed immediately, increased common-mode blast radius, and did not preserve a downstream-rematerializable event-mask carrier.",
+    "replacement_candidate":"QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1",
+    "replacement_status":"CANDIDATE_NOT_IMPLEMENTED",
+    "production_change_authorized":false,
+    "economic_pnl_read":false,
+    "ga2_open":false,
+    "holdout_open":false
+  },
+  "verified_findings":[
+    {
+      "id":"P0_AUTH_001",
+      "severity":"P0",
+      "finding":"The active campaign policy authorizes ONE_PREREGISTERED_GA1_SHARD_AT_A_TIME. Bulk execution of the remaining shards is not currently authorized.",
+      "evidence":"governance/QROS_PUBLIC1000_SEED0076_GA1_COMPLETE_BEFORE_ECONOMIC_GATE_POLICY_v1.0.json",
+      "root_cause":"Scientific sequencing and physical scheduling are conflated in one authorization rule.",
+      "correction":"Before any bulk execution, supersede the policy pre-PnL with a frozen batch-execution manifest that authorizes an exact immutable set while preserving per-domain outputs and the economic firewall."
+    },
+    {
+      "id":"P0_CACHE_002",
+      "severity":"P0",
+      "finding":"Family-mask outputs are carrier-coordinate-dependent and cannot be globally reused by family/variant alone.",
+      "evidence":"CarrierMaskEngine inputs include source_idx, bar_idx, structural state and session timestamps; audited M2 t00 carriers had 128538 TICK coordinates versus 11078 CLOSE coordinates.",
+      "root_cause":"The original proposal treated semantic filter identity as sufficient cache identity.",
+      "correction":"Typed action key must include evaluator version plus full carrier/input artifact hashes and domain dependencies."
+    },
+    {
+      "id":"P0_ORACLE_003",
+      "severity":"P0",
+      "finding":"Primary and NumPy global reducers are independent reductions of the same generated group artifacts, not independent event-mask generators.",
+      "evidence":"Both consume groups_fast/groupXX class_occ.bin and full_alias_mapping.bin.",
+      "root_cause":"Oracle independence begins too far downstream.",
+      "correction":"Require independent generator parity on regression domains and stratified per-domain generator canaries before bulk promotion."
+    },
+    {
+      "id":"P0_PROVENANCE_004",
+      "severity":"P0",
+      "finding":"FAST V2 group receipts do not bind DEV/bar/indicator/raw-cache identities, and reducers do not recompute group receipt self-hashes.",
+      "evidence":{"tamper_test":{"original_accepts":true,"tampered_receipt_sha_accepts":true,"group_receipt_has_dev_sha256":false,"group_receipt_has_raw_cache_sha256":false}},
+      "root_cause":"Output-integrity checks are present but action provenance is not part of the reducer acceptance invariant.",
+      "correction":"Every action receipt must contain an action_key=SHA256(op_version, code hashes, environment hash, domain, parameter bytes, all input artifact hashes); reducers must recompute receipt hash and require one frozen input-manifest root."
+    },
+    {
+      "id":"P1_MASK_005",
+      "severity":"P1",
+      "finding":"Shard10 FAST V2 retains class/mask hashes but not exact unique event-mask bytes; direct downstream rematerialization therefore requires recomputation.",
+      "evidence":{"M2_unique_classes":296068,"sum_unique_event_count":1661968487,"raw_u64_bytes_if_materialized":13295747896,"delta_u32_bytes_if_materialized":6647873948,"fast_v2_record":"class_hash+mask_hash+representative+alias_count+event_count only"},
+      "root_cause":"Runtime-stall mitigation removed the durable scientific carrier that older mask-pack stages preserved.",
+      "correction":"Persist either the canonical mask pack or a certified factorized IR sufficient to reconstruct every representative event mask and verify its domain-bound class hash."
+    },
+    {
+      "id":"P1_CODE_006",
+      "severity":"P1",
+      "finding":"The exact M2 helper implementations executed are local-only; the durable completion receipt stores their SHA256 identities but not recoverable bytes/paths in GitHub.",
+      "root_cause":"Prototype evolution occurred inside the runtime faster than code promotion.",
+      "correction":"No production/campaign promotion may reference an executed helper unless its bytes are recoverable from a durable code bundle, commit, or immutable environment image."
+    },
+    {
+      "id":"P1_AUTH_007",
+      "severity":"P1",
+      "finding":"Shard10 completion is durable but the stable pointer/handoff still describe shard10 as authorized with only 9 completed shards.",
+      "root_cause":"Target, pointer, handoff and completion are separate writes without one atomic authority transaction.",
+      "correction":"Single authoritative frontier object plus CAS ref update; handoff becomes derived/non-authoritative. Prefer one Git tree/commit transaction for multi-file transitions."
+    },
+    {
+      "id":"P2_ORCH_008",
+      "severity":"P2",
+      "finding":"Fine-grained recovery multiplied orchestration state: M2 groups_fast contains thousands of files and hundreds of receipts.",
+      "evidence":{"scientific_close_seconds":93.603691,"tick_carrier_seconds":3.257969,"tick_t00_chunk_seconds":301.864498,"tick_t01_27_seconds":103.365262,"recorded_core_subtotal_seconds":502.09142,"receipt_files_observed":819,"groups_fast_files_observed":2554,"groups_fast_bytes_observed":499780718},
+      "root_cause":"Checkpoint granularity was driven by chat/tool timeout rather than scientific transaction boundaries.",
+      "correction":"Persistent executor with adaptive checkpoints; split only when measured runtime/memory crosses a threshold."
+    },
+    {
+      "id":"P2_RECOMPUTE_009",
+      "severity":"P2",
+      "finding":"Chunk restarts can recompute primitive family masks. For heavy t00 there are 1373 unique semantic primitive requests; treating all 38 chunks independently would evaluate 4656 request sets (3.39x), while the observed group01 process segmentation implies about 2484 (1.81x).",
+      "root_cause":"Primitive caches are process-local rather than content-addressed carrier artifacts.",
+      "correction":"Persist carrier-level primitive IR once; package chunks reference it."
+    },
+    {
+      "id":"P2_REDUCER_010",
+      "severity":"P2",
+      "finding":"SQLite reduction is not the fastest deterministic representation for fixed-width records.",
+      "evidence":{"sqlite_primary_wall_seconds":17.60,"sqlite_primary_maxrss_kb":123272,"numpy_oracle_wall_seconds":8.33,"numpy_oracle_maxrss_kb":487028,"outputs_exact_equal":true},
+      "correction":"Use bounded-memory sort/reduce as primary where resource envelope permits; retain an independently implemented oracle."
+    },
+    {
+      "id":"P1_PERF_011",
+      "severity":"P1",
+      "finding":"GEOMETRY is the dominant algorithmic bottleneck because 79 parameter variants with active-trend dependencies recompute common numeric features as opaque gates.",
+      "evidence":{"heavy_carrier_family_profile_seconds":{"GEOMETRY":14.326566712,"MULTI_TF":1.217727266,"EMA_CROSS_RECENCY":0.444640293,"TREND":0.364482194,"other_families_combined_approx":0.049598},"geometry_share_of_profile":"approximately 87%"},
+      "root_cause":"The filter compiler factorizes across families/packages but not algebraically inside parameterized families."
+    }
+  ],
+  "validated_improvements":{
+    "factorized_ir":{
+      "status":"VALIDATED_LOCALLY_NQX_BUY_M2_NOT_GLOBAL",
+      "heavy_tick_t00":{"configs_checked":28857,"mismatches":0,"exact":true,"primitive_precompute_seconds":18.272068478,"reconstruction_seconds":4.362587804,"carrier_bytes":19317860,"primitive_physical_bitmap_bytes":14091636,"recipe_bytes_estimate":629350,"ir_total_uncompressed_estimate_bytes":34038846,"unique_mask_delta_u32_bytes_estimate":282617904},
+      "tick_retest_t01":{"configs_checked":513,"mismatches":0,"exact":true},
+      "close_t00":{"configs_checked":28857,"mismatches":0,"exact":true},
+      "interpretation":"A certified carrier+primitive-bitmap+recipe IR can reconstruct exact class identities while being much smaller than fully materialized masks for tested cases."
+    },
+    "geometry_algebraic_factorization":{
+      "status":"VALIDATED_LOCALLY_NQX_BUY_M2",
+      "heavy_tick_carrier":{"geometry_requests_checked":1027,"mismatches":0,"baseline_seconds":16.434128173,"factored_seconds":0.327783035,"family_speedup":50.137214005},
+      "largest_fractal3_carrier_stratified_redteam":{"candidate_union":251383,"requests_sampled":48,"mismatches":0,"exact":true},
+      "natural_bar_coordinate_reuse":{"requests_sampled":48,"close_union":11078,"tick_union":128538,"close_mismatches":0,"tick_mismatches":0,"exact":true},
+      "end_to_end_heavy_tick":{"configs_checked":28857,"mismatches":0,"factored_pipeline_seconds":7.032186258,"baseline_components_seconds_approx":22.634656282,"approx_speedup":3.22},
+      "interpretation":"GEOMETRY can be compiled from shared bar-space primitives and reused across CLOSE/TICK for identical asset/timeframe/fractal/tie without changing outputs."
+    },
+    "bitmap_density":{
+      "carrier_union":128538,
+      "unique_physical_primitive_masks":877,
+      "density_median":0.0289641974,
+      "density_mean":0.1403309596,
+      "masks_below_1pct":297,
+      "masks_below_10pct":602,
+      "masks_above_50pct":81,
+      "dense_packbits_bytes_per_mask":16068,
+      "sparse_uint32_break_even_density":0.0312514587,
+      "decision":"ADAPTIVE_BITMAP_REPRESENTATION_IS_WORTH_BENCHMARKING_BUT_NOT_YET_VALIDATED"
+    }
+  },
+  "replacement_architecture":{
+    "name":"QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1",
+    "principles":[
+      "Scientific shards remain immutable logical domains; physical execution is a compiled task graph.",
+      "Every task is content-addressed by operation version, typed parameters, code/environment identity and hashes of every input.",
+      "Safe shared primitives: asset DEV bytes, bars/indicators per asset/timeframe, structural states per asset/timeframe/fractal/tie, raw up/down crossing cache per asset/timeframe, global frozen filter-plan recipes.",
+      "Unsafe to share without carrier key: candidate masks, gate masks, session masks on candidate coordinates, side-dependent predicates, MTF candidate mappings.",
+      "Compile GEOMETRY and other threshold families into natural-coordinate primitives before carrier gather.",
+      "Persist factorized IR: carrier coordinates, membership bitmaps, primitive bitmap dictionary, semantic-key-to-physical-bitmap map, package recipes, class-to-representative recipe, config-to-class mapping.",
+      "Semantic class key remains domain-qualified; physical bitmap dedupe never merges hypotheses.",
+      "Use bounded worker processes/tiles, not one monolithic global process.",
+      "Use atomic immutable CAS publication and a single authority CAS transition.",
+      "Bulk remaining-shard execution requires an explicit pre-PnL policy supersession and immutable batch manifest.",
+      "Independent generator parity/canaries precede bulk execution; downstream reducer parity alone is insufficient."
+    ],
+    "what_it_obsoletes_if_validated":[
+      "per-shard rebuild of reusable bars/indicator/raw-crossing caches",
+      "thousands of package-chunk receipt files in normal operation",
+      "mandatory full raw-mask pack materialization for every class",
+      "random SQLite alias/class updates on the hot path",
+      "separate handoff as co-equal authority",
+      "serial authorize-run-promote loop for each frozen non-economic shard"
+    ]
+  },
+  "red_team_of_replacement":[
+    "Cache poisoning or stale reuse remains possible unless action key binds all inputs, code and environment.",
+    "A wrong compiler can corrupt many shards; require exact M12/M15/M2 regressions plus independent generator canaries before widening blast radius.",
+    "Factor IR corruption must be detected by object hashes and by reconstructing representative masks and checking domain-bound class hashes.",
+    "Physical bitmap dedupe must never imply semantic cross-domain dedupe.",
+    "Adaptive bitmap codec may change performance or serialization; canonical semantic mask remains sorted source-record indices, independent of storage codec.",
+    "Bulk scheduler must never expose partial economic outputs or permit result-dependent skipping/order.",
+    "Precomputed bar-space predicates must preserve bar_idx-1 and MTF completion semantics; future-perturbation metamorphic tests are mandatory."
+  ],
+  "regression_requirements":[
+    "M12 exact seven-field golden parity.",
+    "M15 exact structural roots/counts from durable PASS.",
+    "M2 exact structural roots/counts from durable PASS.",
+    "Independent direct-generator parity across all fractal windows, tie policies, CLOSE/TICK, RETEST modes and rearm modes.",
+    "SELL mirror canaries and XAU point-scaling canaries before bulk use.",
+    "Future perturbation: mutate data strictly after T; all signals/events <=T must remain byte-identical.",
+    "Crash/restart/duplicate-worker/partial-write chaos tests.",
+    "Input/receipt tamper tests must fail closed."
+  ],
+  "residual_risks":[
+    "No full SELL/XAU validation of factor IR has been executed.",
+    "No full different-timeframe regression of the algebraic GEOMETRY compiler has been executed beyond M2.",
+    "Adaptive bitmap/Roaring representation is unvalidated in QROS.",
+    "Exact environment lock for Python/NumPy/Numba is not currently part of shard10 receipts.",
+    "Current stable pointer still lags the durable shard10 completion until a separate authority correction is committed."
+  ],
+  "scientific_state":"PREREGISTERED_NO_RESULTS",
+  "next_automatic_action":"Do not implement the rejected global-mask-sharing proposal. Freeze shard11. Persist an authority checkpoint acknowledging shard10 PASS and architecture-audit hold. Build the replacement DAG/IR engine only on an isolated research branch, bind environment/action keys, then regression-test it against M12/M15/M2 and independent generator canaries before any bulk remaining-shard execution."
+}
