@@ -1,0 +1,53 @@
+{
+  "schema": "QROS_FAST_RESEARCH_RUN_SPEC_1.0",
+  "run_id": "SEED0076_M12_GOLDEN_FAST_V1",
+  "mode": "RESEARCH_FAST",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "domain": {
+    "asset": "NQX",
+    "side": "BUY",
+    "timeframe": "M12"
+  },
+  "purpose": "Golden parity proof that one full-domain invocation can replace 24 group invocations + merge/oracle in research mode.",
+  "code_pins": {
+    "wrapper_path": "scripts/qros_seed0076_ga1_cached_wrapper_v236.py",
+    "wrapper_git_blob_sha1": "2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f",
+    "worker_path": "scripts/qros_seed0076_ga1_shard_worker_v223.py",
+    "worker_git_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041"
+  },
+  "storage": {
+    "primary": "GOOGLE_DRIVE",
+    "drive_run_folder_id": "18aLTm7EtI67v81Dia1Qsf8N-pKLeSIkE",
+    "drive_run_folder_url": "https://drive.google.com/drive/folders/18aLTm7EtI67v81Dia1Qsf8N-pKLeSIkE",
+    "library_primary": false
+  },
+  "golden": {
+    "ordered_config_id_stream_root_sha256": "07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714",
+    "receipt_exact": {
+      "processed_signal_configs": 804672,
+      "distinct_mask_class_count": 248010,
+      "duplicate_config_count": 556662,
+      "zero_event_class_alias_count": 69351,
+      "semantic_class_root_sha256": "44cf066910a98f8d2a0988efe9f0bec14834683934369fa9972bb59e870161b0",
+      "full_alias_mapping_root_sha256": "c5bec36e0b78c896f81578de5a69b42fd6f673a54630efbb8311f33e7e09c0a7",
+      "ordered_config_id_stream_root_sha256": "07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714"
+    }
+  },
+  "execution_contract": {
+    "wrapper_invocations": 1,
+    "only_group_index": null,
+    "group_merge_required": false,
+    "merge_oracle_required_for_research_fast": false,
+    "cws_required": false,
+    "github_required_during_compute": false,
+    "resume_file": "resume.json",
+    "summary_file": "summary.json"
+  },
+  "promotion_rule": "This FAST route may replace the current 24-group research topology only after exact M12 golden parity. Certification remains separate.",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "universe_changed": false
+  }
+}\n
