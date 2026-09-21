@@ -6,9 +6,11 @@ from qros_scientific_context import bind_scientific_context,SCHEMA,BINDING_INPUT
 from qros_typed_action import action_key
 from qros_reuse_contract import NODE_MAGIC,NODE_LEN,NODE_SCHEMA,canonical_bytes,sha256_bytes,make_reuse_proof,evaluate_reuse
 
+ENV={"python":"3.13.5","implementation":"CPython","platform":"fixture-linux","numpy":"2.3.5","numba":"0.65.1","byteorder":"little"}
+
 H=lambda s:hashlib.sha256(s.encode()).hexdigest()
 CTX={"schema":SCHEMA,"campaign_id":"C","seed_id":"S","genealogy_id":"G","phase":"GA1","asset":"NQX","side":"BUY","timeframe":"M2","development_period":{"start":"2018","end":"2019","timezone":"BROKER"},"scientific_state":"PREREGISTERED_NO_RESULTS","holdout_state":"CLOSED","exposure_state":"DEV_ONLY","multiplicity_scope":"M60","cost_model_id":"COST1","gate_policy_id":"GATE1","selection_policy_id":"SEL1","thesis_fingerprint":H("T"),"data_context_fingerprint":H("D"),"extensions":{}}
-MAN={"schema":"QROS_TYPED_DAG_MANIFEST_1.0","nodes":[{"id":"a","operation":"EMIT","operation_version":"1","code_hashes":{"impl":H("code")},"domain":{"asset":"NQX","side":"BUY","timeframe":"M2"},"parameters":{"x":1},"static_inputs":{"fixture":H("fixture")},"environment":{"python":"x"},"deps":[]}]}
+MAN={"schema":"QROS_TYPED_DAG_MANIFEST_1.0","nodes":[{"id":"a","operation":"EMIT","operation_version":"1","code_hashes":{"impl":H("code")},"domain":{"asset":"NQX","side":"BUY","timeframe":"M2"},"parameters":{"x":1},"static_inputs":{"fixture":H("fixture")},"environment":ENV,"deps":[]}]}
 def payload(comp):
     n=comp["manifest"]["nodes"][0]
     return action_key(operation=n["operation"],operation_version=n["operation_version"],code_hashes=n["code_hashes"],domain=n["domain"],parameters=n["parameters"],input_artifacts=n["static_inputs"],environment=n["environment"])
