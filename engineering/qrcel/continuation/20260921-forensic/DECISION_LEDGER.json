@@ -1,0 +1,136 @@
+{
+  "decisions": [
+    {
+      "AFFECTED_NODES": [
+        "A_AUTHORITY"
+      ],
+      "ARTIFACTS": [
+        "AUTHORITY.json"
+      ],
+      "AUTHORITY": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "DECISION_ID": "D01",
+      "INPUT_EVIDENCE": [
+        "AUTHORITY.json"
+      ],
+      "NEXT_ACTION": "Verify checkpoint",
+      "RESULT": "Reuse 0.6.2; separate main campaign genealogy",
+      "RULE_APPLIED": "Authority > recency; active chat scope",
+      "TIMESTAMP": "2026-09-21T20:52:26.693658+00:00",
+      "VERSION": "continuation-forensic-v1"
+    },
+    {
+      "AFFECTED_NODES": [
+        "C_CHECKPOINT"
+      ],
+      "ARTIFACTS": [
+        "VERIFICATION.json"
+      ],
+      "AUTHORITY": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "DECISION_ID": "D02",
+      "INPUT_EVIDENCE": [
+        "VERIFICATION.json"
+      ],
+      "NEXT_ACTION": "Reconcile historical plans",
+      "RESULT": "Reuse100 outputs/200events; no execution replay",
+      "RULE_APPLIED": "Independent validation; delta only",
+      "TIMESTAMP": "2026-09-21T20:52:26.693658+00:00",
+      "VERSION": "continuation-forensic-v1"
+    },
+    {
+      "AFFECTED_NODES": [
+        "D_HISTORICAL_TRIAL_PLAN"
+      ],
+      "ARTIFACTS": [
+        "RECONCILIATION.json"
+      ],
+      "AUTHORITY": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "DECISION_ID": "D03",
+      "INPUT_EVIDENCE": [
+        "RECONCILIATION.json"
+      ],
+      "NEXT_ACTION": "Do not repeat six observed historical model batches",
+      "RESULT": "Mark old trial plan SUPERSEDED in overlay; preserve original artifacts",
+      "RULE_APPLIED": "Later verified completion supersedes stale pending plan",
+      "TIMESTAMP": "2026-09-21T20:52:26.693658+00:00",
+      "VERSION": "continuation-forensic-v1"
+    },
+    {
+      "AFFECTED_NODES": [
+        "E_CONTRACT",
+        "A_TRANSITION"
+      ],
+      "ARTIFACTS": [
+        "BLOCKERS.json",
+        "STATE_DAG.json"
+      ],
+      "AUTHORITY": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "DECISION_ID": "D04",
+      "INPUT_EVIDENCE": [
+        "BLOCKERS.json",
+        "STATE_DAG.json"
+      ],
+      "NEXT_ACTION": "Await precise external contract, not generic authorization",
+      "RESULT": "Keep historical treatment provenance; no artificial current runtime rebinding",
+      "RULE_APPLIED": "No silent authority or treatment mixing",
+      "TIMESTAMP": "2026-09-21T20:52:26.693658+00:00",
+      "VERSION": "continuation-forensic-v1"
+    },
+    {
+      "AFFECTED_NODES": [
+        "E_CONTRACT",
+        "S_CUSTODY",
+        "A_TRANSITION",
+        "G_SCOPE"
+      ],
+      "ARTIFACTS": [
+        "BLOCKERS.json"
+      ],
+      "AUTHORITY": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "DECISION_ID": "D05",
+      "INPUT_EVIDENCE": [
+        "BLOCKERS.json"
+      ],
+      "NEXT_ACTION": "Persist frontier then resume only when a named input changes",
+      "RESULT": "Stop open-ended searching; keep local engineering results reusable",
+      "RULE_APPLIED": "Bounded recovery; block only descendants",
+      "TIMESTAMP": "2026-09-21T20:52:26.693658+00:00",
+      "VERSION": "continuation-forensic-v1"
+    },
+    {
+      "AFFECTED_NODES": [
+        "C_CHECKPOINT"
+      ],
+      "ARTIFACTS": [
+        "VERIFICATION.json"
+      ],
+      "AUTHORITY": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "DECISION_ID": "D06",
+      "INPUT_EVIDENCE": [
+        "VERIFICATION.json"
+      ],
+      "NEXT_ACTION": "Reuse passing independent verification",
+      "RESULT": "Correct audit oracle canonical serialization to include documented trailing newline; no product change",
+      "RULE_APPLIED": "Protocol checks must change a material decision",
+      "TIMESTAMP": "2026-09-21T20:52:26.693658+00:00",
+      "VERSION": "continuation-forensic-v1"
+    },
+    {
+      "AFFECTED_NODES": [],
+      "ARTIFACTS": [
+        "RECEIPT.json"
+      ],
+      "AUTHORITY": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "DECISION_ID": "D07",
+      "INPUT_EVIDENCE": [
+        "RECEIPT.json",
+        "VERIFICATION.json"
+      ],
+      "NEXT_ACTION": "Persist only QRCEL engineering continuation records.",
+      "RESULT": "Original handoff pre-edit invocation failed on incomplete local native materialization. Preserve limitation; no native source edits, no native runtime correctness claim. QRCEL 288-file closure passes.",
+      "RULE_APPLIED": "Minimize blast radius; do not expand recovery to unrelated native transfer",
+      "TIMESTAMP": "2026-09-21T20:52:26.693658+00:00",
+      "VERSION": "continuation-forensic-v1"
+    }
+  ],
+  "schema": "QRCEL_DECISION_LEDGER_V1"
+}

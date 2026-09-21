@@ -1,0 +1,94 @@
+{
+  "ACTIVE_BLOCKERS": "BLOCKERS.json",
+  "ARTEFACTOS": "MANIFEST.json",
+  "AUTORIDAD": {
+    "file": "AUTHORITY.json",
+    "observed_main": "3658c0f3aff8c95146318548a499770a29c17268",
+    "release": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb"
+  },
+  "AVAILABLE_INDEPENDENT_BRANCHES": [],
+  "BLAST_RADIUS": [],
+  "BLOQUEOS": "BLOCKERS.json",
+  "CAUSA_RAIZ": "Missing external evaluation/custody/delegation/coverage evidence, not a hung local process. Stale historical pending labels could trigger duplicate work.",
+  "DECISIONES": "DECISION_LEDGER.json",
+  "DELTA_EJECUTADO": [
+    "Remote authority/branch/manifest authentication",
+    "Bounded checkpoint falsification using independent analytic/hash oracle",
+    "Historical pending-plan reconciliation",
+    "Minimal DAG and precise blockers",
+    "Decision ledger and transactional continuation artifacts"
+  ],
+  "ESTADO_CIENTIFICO": {
+    "economic_inputs_used": false,
+    "full_qrcel_complete": false,
+    "new_backtests": 0,
+    "new_model_calls": 0,
+    "scientific_authority_selected": false,
+    "scientific_dispatches": 0,
+    "search_exposure_note": "SEARCH_EXPOSURE_NOTE.json"
+  },
+  "ESTADO_DE_ENTRADA": "0.6.2 active; Q01-Q07 local scopes closed; full QRCEL gates unresolved.",
+  "FIRST_UNFINISHED_ACTION": "ESTABLISH_VERIFIABLE_FULL_SYSTEM_EVALUATION_INPUT_CONTRACT",
+  "FRONTERA_ACTUAL": [
+    "E_CONTRACT",
+    "S_CUSTODY",
+    "A_TRANSITION",
+    "G_SCOPE"
+  ],
+  "GATES": {
+    "full_system_evaluation": "BLOCKED",
+    "local_engineering": "PASS_WITHIN_DECLARED_SCOPE",
+    "parity": "INSUFFICIENT_EVIDENCE",
+    "scientific_promotion": "NOT_GRANTED"
+  },
+  "HASHES": "MANIFEST.json",
+  "LAST_CLEAN_CHECKPOINT": {
+    "commit": "3658c0f3aff8c95146318548a499770a29c17268",
+    "path": "engineering/qrcel/releases/0.6.2/RECOVERY_CAPSULE.json",
+    "sha256": "898dba1886434e8e8a84fd67a147a7168d4b66fe811b4c105e6811cbe95f6eb0"
+  },
+  "LAST_COMPLETED_ACTION": "CAUSAL_RECONCILIATION_R04",
+  "LAST_PERSISTED_ACTION": {
+    "action": "QRCEL_062_DELIVERY",
+    "main_commit": "d8a2ac47186cbb52247cb3ff6a92eccd2bd23ff4",
+    "scope": "At checkpoint construction; this transaction becomes durable only after remote readback and final pointer update."
+  },
+  "LAST_VALIDATED_ACTION": "INDEPENDENT_FORENSIC_VERIFICATION_PASS",
+  "LAST_VERIFIED_AUTHORITY": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+  "NEXT_AUTOMATIC_ACTION": "On new contract evidence: authenticate only changed inputs, invalidate affected descendants only, recalculate DAG; execute ready authorized node. Otherwise stop this blocked chain without replay.",
+  "OBJETIVO": "Recover the QRCEL engineering frontier from evidence and apply only the pending causal reconciliation delta.",
+  "RESULTADOS_INVALIDADOS": [],
+  "RESULTADOS_VERIFICADOS": "VERIFICATION.json",
+  "SIGUIENTE_ACCION_AUTOMATICA": "Authenticate the first newly available named prerequisite, then recompute only its affected frontier.",
+  "TRABAJO_REUTILIZADO": [
+    "288 pinned source files",
+    "12 release evidence artifacts",
+    "100 completed synthetic results/200 ledger events",
+    "Closed development receipts and six observed historical batches"
+  ],
+  "background_running": false,
+  "cross_chat_recovery": "Repository pointer references this checkpoint; no guarantee of automatic execution in every chat.",
+  "epistemic_status": {
+    "INFERIDO": [
+      "QRCEL is intended target because latest recovery point is blank and active task is QRCEL"
+    ],
+    "NO_DISPONIBLE": [
+      "Fresh matched model runner contract",
+      "Independent sealed custodian",
+      "Full-system sufficiency proof"
+    ],
+    "REPORTADO": [
+      "Historical model executions as described by immutable receipts; not re-observed today"
+    ],
+    "VERIFICADO": [
+      "Remote pointer/release identities",
+      "Artifact hashes and independently checked synthetic results",
+      "Historical records and their limited scopes",
+      "Current exposed capability inventory"
+    ]
+  },
+  "manifest_sha256": "17805a6412492a06b1faeae6d57a78fd25df1851900ecde5995ab12d446d2c47",
+  "persistence_order": "Artifacts -> integrity/hashes -> receipt -> manifest -> checkpoint bound to manifest -> remote materialization/readback -> pointer last. Manifest excludes itself and checkpoint; final pointer externally binds both.",
+  "schema": "QRCEL_CONTINUATION_MAX_CHECKPOINT_V1",
+  "timestamp": "2026-09-21T20:52:26.693658+00:00"
+}

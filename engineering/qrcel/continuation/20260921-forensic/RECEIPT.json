@@ -1,0 +1,22 @@
+{
+  "native_handoff_pre_edit_check": {
+    "command": "python3 handoff/verify_import.py",
+    "resolution": "No native-engine edit or native verification claim. Stop unrelated rematerialization; pinned QRCEL closure independently verified.",
+    "result": "FAILED_PARTIAL_NATIVE_HANDOFF_MATERIALIZATION",
+    "scope": "Original native-engine transfer; not QRCEL pinned release"
+  },
+  "new_backtests": 0,
+  "new_model_calls": 0,
+  "release_changed": false,
+  "remote_publication_proof": "Final pointer must bind the materialized artifact commit and manifest hash; no prepublication durability claim.",
+  "runtime_implementation_changed": false,
+  "schema": "QRCEL_FORENSIC_RECEIPT_V1",
+  "source_tasks_reexecuted": 0,
+  "status": "LOCAL_ARTIFACTS_VALIDATED_REMOTE_PUBLICATION_PENDING",
+  "timestamp": "2026-09-21T20:52:26.693658+00:00",
+  "verification": {
+    "path": "VERIFICATION.json",
+    "sha256": "631c5bb1f8caecaecb7494e65813074349bba8d4c9d8117bfdcb8b220a1bb6c1"
+  },
+  "verifier_sha256": "a91f0eed77adb2e82fa1a7ab5b5545c263ad5e0e14664dbb9838cac9419f9101"
+}

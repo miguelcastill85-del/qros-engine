@@ -1,0 +1,18 @@
+{
+  "analytic_results_verified": 100,
+  "capsule_files_verified": 5,
+  "checkpoint_sha256": "4abfc80520a9102844b7e3fda3505dc9cc32430c6ac1ef9229628add2e5528e1",
+  "evidence_files_verified": 12,
+  "full_qrcel_complete": false,
+  "ledger_events_verified": 200,
+  "method": "standalone stdlib hash/decode/analytic oracle; no QRCEL imports",
+  "new_model_calls": 0,
+  "new_task_executions": 0,
+  "pointer_sha256": "98cee3c33cb35339d78c4767e66b6afb100bbfdd0410f60ff5f09a086a4da1ba",
+  "release_commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+  "schema": "QRCEL_FORENSIC_VERIFICATION_V1",
+  "scientific_dispatches": 0,
+  "source_files_verified": 288,
+  "status": "PASS",
+  "verifier_sha256": "a91f0eed77adb2e82fa1a7ab5b5545c263ad5e0e14664dbb9838cac9419f9101"
+}

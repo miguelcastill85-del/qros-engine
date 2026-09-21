@@ -1,0 +1,49 @@
+{
+  "base_main": "3658c0f3aff8c95146318548a499770a29c17268",
+  "checkpoint_binding": "Checkpoint created after this manifest; final pointer binds checkpoint hash separately.",
+  "created_at": "2026-09-21T20:52:26.693658+00:00",
+  "files": {
+    "AUTHORITY.json": {
+      "bytes": 23193,
+      "sha256": "1be46c5aa9227f57502d78e71d83cbfa9e006ea5d235ffc44fa73ce0ccc5b4ed"
+    },
+    "BLOCKERS.json": {
+      "bytes": 7480,
+      "sha256": "545af6d4c8441fc4f8c904f6270f7936eea381f8b1cbc7b50b8943bcb513121e"
+    },
+    "DECISION_LEDGER.json": {
+      "bytes": 4588,
+      "sha256": "c36d03313cfdba12432cdc1617764190bbe7e4e72583b6c977302d44975ddd51"
+    },
+    "RECEIPT.json": {
+      "bytes": 1066,
+      "sha256": "0e9171e4995b8194f3fe714428e9a6af41276bfac295dfc9c662429e862ef3cc"
+    },
+    "RECONCILIATION.json": {
+      "bytes": 2088,
+      "sha256": "2658d3418f250f496f060332b8e8b11bbd5455d3a7132bc85705fde6b150e289"
+    },
+    "SEARCH_EXPOSURE_NOTE.json": {
+      "bytes": 716,
+      "sha256": "821d166832dac014207c3f5656357d3df95b342e9d274627d2d8a9916afd8e82"
+    },
+    "STATE_DAG.json": {
+      "bytes": 4794,
+      "sha256": "54b4e34d12510729b4d2fb64112b769bdc7c5c89f0d490e60e2e60574803bc83"
+    },
+    "VERIFICATION.json": {
+      "bytes": 759,
+      "sha256": "631c5bb1f8caecaecb7494e65813074349bba8d4c9d8117bfdcb8b220a1bb6c1"
+    },
+    "verify_recovery.py": {
+      "bytes": 7220,
+      "sha256": "a91f0eed77adb2e82fa1a7ab5b5545c263ad5e0e14664dbb9838cac9419f9101"
+    }
+  },
+  "manifest_self_hash": "External final pointer",
+  "parent_pointer_blob_sha1": "10e475f9d8fb9fedabae4222a71825fcf2e06576",
+  "release": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+  "schema": "QRCEL_FORENSIC_MANIFEST_V1",
+  "scientific_authority": false,
+  "scope": "QRCEL_ENGINEERING_RECOVERY"
+}

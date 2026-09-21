@@ -1,0 +1,152 @@
+{
+  "available_independent_branches_after_reconciliation": [],
+  "background_running": false,
+  "blocks": [
+    {
+      "absence_claim_scope": "Not recovered in the named authoritative/exposed sources; no global absence claim.",
+      "affected_descendants": [
+        "E_MATCHED",
+        "G_COVERAGE",
+        "E_SEALED",
+        "O_PROMOTION"
+      ],
+      "alternatives_tried": [
+        "Reuse existing development receipts",
+        "Inspect historical treatment packages and benchmark designs",
+        "Inspect exposed capability inventory"
+      ],
+      "missing": [
+        "Observed immutable provider/model configuration",
+        "Enforceable matched resource envelope",
+        "Frozen actual treatment/task/scorer protocol and predeclared decision margins/sample size"
+      ],
+      "node": "E_CONTRACT",
+      "resume_evidence": "An accessible verifiable evaluation configuration/runner contract plus frozen protocol; evaluate only newly admissible tasks.",
+      "type": "BLOCKED_BY_INFRASTRUCTURE_AND_PROTOCOL",
+      "unaffected_verified_branches": [
+        "Q01-Q07 local engineering",
+        "Historical bounded development",
+        "Recovered synthetic checkpoint"
+      ],
+      "where_searched": [
+        "Pinned 0.6.2 source manifest and current RUN_QUEUE",
+        "Current main engineering/qrcel directory and evaluations subtree",
+        "Recovered benchmark design, treatment manifest, completion audit and historical receipts",
+        "Exposed tool metadata; collaboration does not establish immutable provider identities, budget enforcement or independent custody",
+        "One bounded Library query batch; no authoritative prerequisite artifact identified; not proof of global absence"
+      ],
+      "why_indispensable": "Without these, differences cannot be attributed to the system under a controlled comparison.",
+      "why_not_equivalent": [
+        "Old cases are exposed and model snapshot IDs are unavailable",
+        "Historical package is not a full current-system treatment",
+        "Available agent orchestration does not prove required external identities or equal resources"
+      ]
+    },
+    {
+      "absence_claim_scope": "Not recovered in the named authoritative/exposed sources; no global absence claim.",
+      "affected_descendants": [
+        "E_SEALED",
+        "O_PROMOTION"
+      ],
+      "alternatives_tried": [
+        "Historical exposure ledger",
+        "Existing development and proposed benchmark corpus contracts"
+      ],
+      "missing": [
+        "Independent custodian identity/process",
+        "Fresh corpus inaccessible to development",
+        "Exposure genealogy and access controls"
+      ],
+      "node": "S_CUSTODY",
+      "resume_evidence": "Custodian receipt binding fresh corpus hashes, independent access controls and scorer protocol, without exposing cases.",
+      "type": "BLOCKED_BY_CUSTODY",
+      "unaffected_verified_branches": [
+        "Q01-Q07 local engineering",
+        "Historical bounded development",
+        "Recovered synthetic checkpoint"
+      ],
+      "where_searched": [
+        "Pinned 0.6.2 source manifest and current RUN_QUEUE",
+        "Current main engineering/qrcel directory and evaluations subtree",
+        "Recovered benchmark design, treatment manifest, completion audit and historical receipts",
+        "Exposed tool metadata; collaboration does not establish immutable provider identities, budget enforcement or independent custody",
+        "One bounded Library query batch; no authoritative prerequisite artifact identified; not proof of global absence"
+      ],
+      "why_indispensable": "Developer-visible cases cannot become independent sealed evaluation evidence.",
+      "why_not_equivalent": [
+        "Known/exposed cases cannot be resealed",
+        "No independent custody is established by a document authored in this same development session"
+      ]
+    },
+    {
+      "absence_claim_scope": "Not recovered in the named authoritative/exposed sources; no global absence claim.",
+      "affected_descendants": [
+        "O_PROMOTION"
+      ],
+      "alternatives_tried": [
+        "Reuse V191 read-only adapter",
+        "Separate current main campaign advance from QRCEL release authority"
+      ],
+      "missing": [
+        "Selected scientific target",
+        "Schema-specific delegated transition contract"
+      ],
+      "node": "A_TRANSITION",
+      "resume_evidence": "Explicit target pointer and applicable existing delegated transition schema.",
+      "type": "BLOCKED_CONTRACT_REQUIRED",
+      "unaffected_verified_branches": [
+        "Q01-Q07 local engineering",
+        "Historical bounded development",
+        "Recovered synthetic checkpoint"
+      ],
+      "where_searched": [
+        "Pinned 0.6.2 source manifest and current RUN_QUEUE",
+        "Current main engineering/qrcel directory and evaluations subtree",
+        "Recovered benchmark design, treatment manifest, completion audit and historical receipts",
+        "Exposed tool metadata; collaboration does not establish immutable provider identities, budget enforcement or independent custody",
+        "One bounded Library query batch; no authoritative prerequisite artifact identified; not proof of global absence"
+      ],
+      "why_indispensable": "Engineering reference cannot authorize live scientific state transitions.",
+      "why_not_equivalent": [
+        "Read-only reference inspection grants no lease/dispatch/promotion permission",
+        "A newer unrelated main commit does not select a target campaign"
+      ]
+    },
+    {
+      "absence_claim_scope": "Not recovered in the named authoritative/exposed sources; no global absence claim.",
+      "affected_descendants": [
+        "G_COVERAGE",
+        "O_PROMOTION"
+      ],
+      "alternatives_tried": [
+        "Explicit goal mapping and analytic checkpoint verification",
+        "Historical ontology and completion audit"
+      ],
+      "missing": [
+        "Independently justified scoped capability ontology and task-coverage contract"
+      ],
+      "node": "G_SCOPE",
+      "resume_evidence": "Independent scoped coverage specification; full coverage/fixed-point validation remains downstream of E_MATCHED.",
+      "type": "BLOCKED_FULL_MODEL_AND_ONTOLOGY_EVIDENCE",
+      "unaffected_verified_branches": [
+        "Q01-Q07 local engineering",
+        "Historical bounded development",
+        "Recovered synthetic checkpoint"
+      ],
+      "where_searched": [
+        "Pinned 0.6.2 source manifest and current RUN_QUEUE",
+        "Current main engineering/qrcel directory and evaluations subtree",
+        "Recovered benchmark design, treatment manifest, completion audit and historical receipts",
+        "Exposed tool metadata; collaboration does not establish immutable provider identities, budget enforcement or independent custody",
+        "One bounded Library query batch; no authoritative prerequisite artifact identified; not proof of global absence"
+      ],
+      "why_indispensable": "Finite explicit goal coverage is not arbitrary natural-language adequacy.",
+      "why_not_equivalent": [
+        "These demonstrate bounded local requirements only",
+        "The source itself marks sufficiency and native gaps unmeasured"
+      ]
+    }
+  ],
+  "schema": "QRCEL_PRECISE_BLOCKERS_V1",
+  "search_stopped_because": "Additional undirected search cannot select unknown model settings/custodian/scientific scope or turn exposed development evidence into sealed evidence."
+}

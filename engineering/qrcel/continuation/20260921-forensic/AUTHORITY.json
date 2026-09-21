@@ -1,0 +1,302 @@
+{
+  "evidence_remote_blob_index": [
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/129c327ead1481c6dd7e730d24f3b57735fe680c",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/ANCHORS.json",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/ANCHORS.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/ANCHORS.json?token=CHME7IR32PIOQAL3SMDM7TDKWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/129c327ead1481c6dd7e730d24f3b57735fe680c",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/ANCHORS.json",
+      "name": "ANCHORS.json",
+      "path": "engineering/qrcel/releases/0.6.2/ANCHORS.json",
+      "sha": "129c327ead1481c6dd7e730d24f3b57735fe680c",
+      "size": 274,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/ANCHORS.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/9e3463bda86ec0768020f0cab69208ca43cea76b",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/EVIDENCE_MANIFEST.json",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/EVIDENCE_MANIFEST.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/EVIDENCE_MANIFEST.json?token=CHME7IS74XF3WAXTTXVEWP3KWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/9e3463bda86ec0768020f0cab69208ca43cea76b",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/EVIDENCE_MANIFEST.json",
+      "name": "EVIDENCE_MANIFEST.json",
+      "path": "engineering/qrcel/releases/0.6.2/EVIDENCE_MANIFEST.json",
+      "sha": "9e3463bda86ec0768020f0cab69208ca43cea76b",
+      "size": 1279,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/EVIDENCE_MANIFEST.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/87564480751082a5a4c02cdf5932ab508d4ac314",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.json",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.json?token=CHME7IR745R6EWBYVI4M3ALKWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/87564480751082a5a4c02cdf5932ab508d4ac314",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.json",
+      "name": "FRESH_VALIDATION.json",
+      "path": "engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.json",
+      "sha": "87564480751082a5a4c02cdf5932ab508d4ac314",
+      "size": 43959,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/456f77409c054e7d46b93aa2c22d34d54e06a8af",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.log",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.log?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.log?token=CHME7IXBMUGO7HDJBREKSL3KWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/456f77409c054e7d46b93aa2c22d34d54e06a8af",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.log",
+      "name": "FRESH_VALIDATION.log",
+      "path": "engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.log",
+      "sha": "456f77409c054e7d46b93aa2c22d34d54e06a8af",
+      "size": 117,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.log?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/f626d1ef5974bc4f5aed1e1534a0636187d92739",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/PROTOCOL.json",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/PROTOCOL.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/PROTOCOL.json?token=CHME7IRNK4ZRR63ULJUKLPDKWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/f626d1ef5974bc4f5aed1e1534a0636187d92739",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/PROTOCOL.json",
+      "name": "PROTOCOL.json",
+      "path": "engineering/qrcel/releases/0.6.2/PROTOCOL.json",
+      "sha": "f626d1ef5974bc4f5aed1e1534a0636187d92739",
+      "size": 549,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/PROTOCOL.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/e4f8ee6434be09afd8cc5a940bec7a2ea234196c",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/RECOVERY.md",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/RECOVERY.md?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/RECOVERY.md?token=CHME7IVDS32W3JDOKOS6OXLKWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/e4f8ee6434be09afd8cc5a940bec7a2ea234196c",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/RECOVERY.md",
+      "name": "RECOVERY.md",
+      "path": "engineering/qrcel/releases/0.6.2/RECOVERY.md",
+      "sha": "e4f8ee6434be09afd8cc5a940bec7a2ea234196c",
+      "size": 2388,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/RECOVERY.md?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/c2c235725234febcb25c775bded65631b82ba8da",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/RECOVERY_CAPSULE.json",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/RECOVERY_CAPSULE.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/RECOVERY_CAPSULE.json?token=CHME7ISMQZAUKXH6GR5SGMDKWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/c2c235725234febcb25c775bded65631b82ba8da",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/RECOVERY_CAPSULE.json",
+      "name": "RECOVERY_CAPSULE.json",
+      "path": "engineering/qrcel/releases/0.6.2/RECOVERY_CAPSULE.json",
+      "sha": "c2c235725234febcb25c775bded65631b82ba8da",
+      "size": 42590,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/RECOVERY_CAPSULE.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/50eb681349e5a44f56ad2728c2ea21433fd4d540",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/RED_ARGUMENTS.log",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/RED_ARGUMENTS.log?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/RED_ARGUMENTS.log?token=CHME7IW447LQJK477DIVPCTKWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/50eb681349e5a44f56ad2728c2ea21433fd4d540",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/RED_ARGUMENTS.log",
+      "name": "RED_ARGUMENTS.log",
+      "path": "engineering/qrcel/releases/0.6.2/RED_ARGUMENTS.log",
+      "sha": "50eb681349e5a44f56ad2728c2ea21433fd4d540",
+      "size": 2916,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/RED_ARGUMENTS.log?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/397205508db492308497de2a63e3d46193d2fd62",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/SESSION.json",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/SESSION.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/SESSION.json?token=CHME7ITTPLRJDKWPF3IB4KDKWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/397205508db492308497de2a63e3d46193d2fd62",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/SESSION.json",
+      "name": "SESSION.json",
+      "path": "engineering/qrcel/releases/0.6.2/SESSION.json",
+      "sha": "397205508db492308497de2a63e3d46193d2fd62",
+      "size": 9586,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/SESSION.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/dd73eef62d29341440ad4e9764ef490ce13aa0e7",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/SESSION_CHECKPOINT.json",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/SESSION_CHECKPOINT.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/SESSION_CHECKPOINT.json?token=CHME7IU5WTKX6UR4EDBSN4TKWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/dd73eef62d29341440ad4e9764ef490ce13aa0e7",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/SESSION_CHECKPOINT.json",
+      "name": "SESSION_CHECKPOINT.json",
+      "path": "engineering/qrcel/releases/0.6.2/SESSION_CHECKPOINT.json",
+      "sha": "dd73eef62d29341440ad4e9764ef490ce13aa0e7",
+      "size": 262,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/SESSION_CHECKPOINT.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/959af06fde25f5e73b36f3735bc198c7064ae8e1",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/SUMMARY.json",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/SUMMARY.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/SUMMARY.json?token=CHME7IQIWGOOUN3RC34U5H3KWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/959af06fde25f5e73b36f3735bc198c7064ae8e1",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/SUMMARY.json",
+      "name": "SUMMARY.json",
+      "path": "engineering/qrcel/releases/0.6.2/SUMMARY.json",
+      "sha": "959af06fde25f5e73b36f3735bc198c7064ae8e1",
+      "size": 1280,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/SUMMARY.json?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/22ecb219bf08ab636709ccdd0f3e0ceb06571831",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/TARGETED.log",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/TARGETED.log?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/TARGETED.log?token=CHME7IXD6CYB2VT347QBN5LKWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/22ecb219bf08ab636709ccdd0f3e0ceb06571831",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/TARGETED.log",
+      "name": "TARGETED.log",
+      "path": "engineering/qrcel/releases/0.6.2/TARGETED.log",
+      "sha": "22ecb219bf08ab636709ccdd0f3e0ceb06571831",
+      "size": 3778,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/TARGETED.log?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    },
+    {
+      "_links": {
+        "git": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/71a1db2551f54f4177752960cf46322ade06df8c",
+        "html": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/validate_release.py",
+        "self": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/validate_release.py?ref=3658c0f3aff8c95146318548a499770a29c17268"
+      },
+      "download_url": "https://raw.githubusercontent.com/miguelcastill85-del/qros-engine/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/validate_release.py?token=CHME7IUPKZ54SYN64UUFEQDKWGMKZAA",
+      "git_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/git/blobs/71a1db2551f54f4177752960cf46322ade06df8c",
+      "html_url": "https://github.com/miguelcastill85-del/qros-engine/blob/3658c0f3aff8c95146318548a499770a29c17268/engineering/qrcel/releases/0.6.2/validate_release.py",
+      "name": "validate_release.py",
+      "path": "engineering/qrcel/releases/0.6.2/validate_release.py",
+      "sha": "71a1db2551f54f4177752960cf46322ade06df8c",
+      "size": 6930,
+      "type": "file",
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/contents/engineering/qrcel/releases/0.6.2/validate_release.py?ref=3658c0f3aff8c95146318548a499770a29c17268"
+    }
+  ],
+  "main_advance": "Seed0076 V259 handoff is separate genealogy; no QRCEL pointer drift observed.",
+  "observed_at": "2026-09-21T20:52:26.693658+00:00",
+  "observed_main": "3658c0f3aff8c95146318548a499770a29c17268",
+  "pointer_blob_sha1": "10e475f9d8fb9fedabae4222a71825fcf2e06576",
+  "pointer_path": "control/QRCEL_ENGINEERING_CURRENT.json",
+  "pointer_sha256": "98cee3c33cb35339d78c4767e66b6afb100bbfdd0410f60ff5f09a086a4da1ba",
+  "release": {
+    "bootstrap_path": "cognitive/trusted_bootstrap.py",
+    "bootstrap_sha256": "722d07d618b62f598fef618b3a3835a64400abf69cec1720f241ed3a011faf0a",
+    "branch": "qrcel/local-admission-0.6.2-20260921",
+    "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+    "manifest_blob_sha1": "f3f8784a6ea28aa6f3ff7a252ad50536a296df3f",
+    "manifest_path": "cognitive/COGNITIVE_MANIFEST.json",
+    "manifest_sha256": "bab683da6d0e0fb63a8afc4ff8671d209f12513cfe20ea33f84808fee1e036f0",
+    "repository": "miguelcastill85-del/qros-engine",
+    "version": "0.6.2-experimental"
+  },
+  "release_branch_at_observation": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+  "repository": "miguelcastill85-del/qros-engine",
+  "schema": "QRCEL_FORENSIC_AUTHORITY_V1",
+  "scientific_authority_selected": false,
+  "scope": "QRCEL_ENGINEERING_ONLY",
+  "scope_reason": "Recovery placeholder empty; bind to active QRCEL work in this chat, not latest scientific campaign.",
+  "source_refs": {
+    "FRESH_VALIDATION.json": {
+      "commit": "3658c0f3aff8c95146318548a499770a29c17268",
+      "path": "engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.json",
+      "sha256": "13b5011b6169e4413593d0080585f15a580b15028327f247149764748acc483e"
+    },
+    "RECOVERY_CAPSULE.json": {
+      "commit": "3658c0f3aff8c95146318548a499770a29c17268",
+      "path": "engineering/qrcel/releases/0.6.2/RECOVERY_CAPSULE.json",
+      "sha256": "898dba1886434e8e8a84fd67a147a7168d4b66fe811b4c105e6811cbe95f6eb0"
+    },
+    "SESSION_CHECKPOINT.json": {
+      "commit": "3658c0f3aff8c95146318548a499770a29c17268",
+      "path": "engineering/qrcel/releases/0.6.2/SESSION_CHECKPOINT.json",
+      "sha256": "568dca47988272ee42237f0f2b59a67ec5de8fb8a469e6f6982e268a1dc2ee13"
+    },
+    "acceptance": {
+      "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "path": "cognitive/checkpoints/admission_062/ACCEPTANCE.json",
+      "sha256": "aff58896b34056be66dce846bba890efb39996376e719fba9abeee74256f8ba0"
+    },
+    "benchmark_design": {
+      "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "path": "cognitive/research/evaluation_readiness/BENCHMARK_DESIGN.json",
+      "sha256": "2315aa2a8fc54210d15fedb470b52725808af22263cf8f448053e3293e99d779"
+    },
+    "completion_audit": {
+      "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "path": "cognitive/research/evaluation_readiness/COMPLETION_AUDIT.json",
+      "sha256": "29dc97fbaad5bf3956847aea7a65dfceea8072e3305bf2fb26217221a0e27d27"
+    },
+    "extended_result": {
+      "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "path": "cognitive/research/model_development/extended_002/RESULTS.json",
+      "sha256": "c5c9af0230dc61159dc3c68cbcc40e4342434b5c7c14527312f352d3812f2151"
+    },
+    "next_benchmark": {
+      "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "path": "cognitive/research/model_development/run_001/NEXT_BENCHMARK_DESIGN.json",
+      "sha256": "7bba2a0166a08f4dab7272e0169782918d759ec84d5ffb66c026c7679bf8a450"
+    },
+    "queue": {
+      "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "path": "cognitive/checkpoints/admission_062/RUN_QUEUE.json",
+      "sha256": "c1614984d7c93b148cfe0e8a0b78674e97a925dc7dc851d92460bc453ddba379"
+    },
+    "system_resume": {
+      "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "path": "cognitive/research/system_development/RESUME.json",
+      "sha256": "60ac314fc208ef21228bb155bf6db706f917c505f569153757b118e378dba402"
+    },
+    "treatment_manifest": {
+      "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "path": "cognitive/research/treatments/MANIFEST.json",
+      "sha256": "7b20504684cc5ad9213799682ac61b788e6c550a185eee7c75b1063fbe24b083"
+    },
+    "trial_plan": {
+      "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "path": "cognitive/research/evaluation_readiness/DEVELOPMENT_TRIAL_PLAN.json",
+      "sha256": "6bd9248fe4275e89f852aebca3411777e9f71961c8c1c223da8632d1e143e02a"
+    },
+    "trial_result": {
+      "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+      "path": "cognitive/research/model_development/run_001/RESULTS.json",
+      "sha256": "333ccbd34a9b4337d67abd6cb1c6302b3dd44b97f14e84dc439ff8ef56945d70"
+    }
+  }
+}

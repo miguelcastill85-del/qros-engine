@@ -1,0 +1,58 @@
+{
+  "blast_radius": [],
+  "historical_artifacts_rewritten": false,
+  "invalidated_scientific_results": [],
+  "items": [
+    {
+      "effect": "Do not rerun completed development batches; historical files preserved.",
+      "evidence": [
+        "trial_plan",
+        "trial_result",
+        "system_resume"
+      ],
+      "id": "R01",
+      "limitation": "12/12 answers is development smoke evidence; actual_model_snapshot_id unavailable; no parity claim.",
+      "new_status": "SUPERSEDED",
+      "object": "DEVELOPMENT_TRIAL_PLAN",
+      "old_status": "PREPARED_AWAITING_EXPLICIT_SUBAGENT_AUTHORIZATION",
+      "resolution": "SUPERSEDED_BY_VERIFIED_EVIDENCE"
+    },
+    {
+      "effect": "Reuse completed bounded development records; no new model calls.",
+      "evidence": [
+        "extended_result",
+        "system_resume"
+      ],
+      "id": "R02",
+      "limitation": "Historical receipt identity verified; old executions not independently re-observed today.",
+      "new_status": "VERIFIED_COMPLETE",
+      "object": "extended_002_and_system_development"
+    },
+    {
+      "effect": "Reuse historical source package only. ae17300695e2266c239e7660dc3b4f6d286e63ff is historical treatment binding, not current runtime authority.",
+      "evidence": [
+        "treatment_manifest"
+      ],
+      "id": "R03",
+      "limitation": "A new full comparison must freeze actual treatments/configuration; no silent rebinding to 0.6.2.",
+      "new_status": "VERIFIED_COMPLETE",
+      "object": "treatment_manifest"
+    },
+    {
+      "effect": "Q01-Q07 local scopes stay closed. No source/runtime changes needed for this recovery.",
+      "evidence": [
+        "queue",
+        "acceptance",
+        "FRESH_VALIDATION.json",
+        "SESSION_CHECKPOINT.json",
+        "RECOVERY_CAPSULE.json"
+      ],
+      "id": "R04",
+      "limitation": "Full QRCEL and scientific promotion remain incomplete.",
+      "new_status": "VERIFIED_COMPLETE",
+      "object": "continuation_frontier"
+    }
+  ],
+  "schema": "QRCEL_CAUSAL_RECONCILIATION_V1",
+  "timestamp": "2026-09-21T20:52:26.693658+00:00"
+}

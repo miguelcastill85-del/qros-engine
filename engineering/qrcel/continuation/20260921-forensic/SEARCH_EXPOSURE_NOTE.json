@@ -1,0 +1,12 @@
+{
+  "full_file_read": false,
+  "genealogy": "UNBOUND_NOT_CLASSIFIED_AS_HOLDOUT",
+  "impact": "No QRCEL arithmetic/development/model-evaluation input changed; do not claim zero economic snippets were visible.",
+  "incident": "Broad Library search returned an unsolicited snippet from an unrelated economic candidates CSV.",
+  "response": "No further economic reads; no campaign exposure ledger changed without authority binding. Avoid broad content queries for this recovery.",
+  "schema": "QRCEL_RECOVERY_SEARCH_SCOPE_V1",
+  "scientific_use": false,
+  "selection_or_strategy_decision": false,
+  "source_library_id": "libfile_d0caaf73eec481919e96c2c32c182888",
+  "source_title": "sell_deep_selected_candidates.csv"
+}

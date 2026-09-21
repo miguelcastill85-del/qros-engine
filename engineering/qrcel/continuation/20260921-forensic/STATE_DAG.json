@@ -1,0 +1,206 @@
+{
+  "current_frontier": [
+    "E_CONTRACT",
+    "S_CUSTODY",
+    "A_TRANSITION",
+    "G_SCOPE"
+  ],
+  "engineering_recovery_complete": true,
+  "full_project_complete": false,
+  "nodes": [
+    {
+      "CONSUMIDO_POR": [
+        "C_CHECKPOINT"
+      ],
+      "DEPENDENCIAS": [],
+      "ESTADO": "VERIFIED_COMPLETE",
+      "EVIDENCIA": [
+        "AUTHORITY.json"
+      ],
+      "NODO": "A_AUTHORITY",
+      "OUTPUT": "Pinned 0.6.2 engineering authority"
+    },
+    {
+      "CONSUMIDO_POR": [
+        "R_RECONCILIATION"
+      ],
+      "DEPENDENCIAS": [
+        "A_AUTHORITY"
+      ],
+      "ESTADO": "VERIFIED_COMPLETE",
+      "EVIDENCIA": [
+        "VERIFICATION.json"
+      ],
+      "NODO": "C_CHECKPOINT",
+      "OUTPUT": "Authenticated complete 100-task checkpoint; no replay"
+    },
+    {
+      "CONSUMIDO_POR": [],
+      "DEPENDENCIAS": [],
+      "ESTADO": "SUPERSEDED",
+      "EVIDENCIA": [
+        "trial_plan",
+        "trial_result"
+      ],
+      "NODO": "D_HISTORICAL_TRIAL_PLAN",
+      "OUTPUT": "Historical pending plan covered by later completion"
+    },
+    {
+      "CONSUMIDO_POR": [
+        "R_RECONCILIATION"
+      ],
+      "DEPENDENCIAS": [],
+      "ESTADO": "VERIFIED_COMPLETE",
+      "EVIDENCIA": [
+        "trial_result",
+        "extended_result",
+        "system_resume"
+      ],
+      "NODO": "D_DEVELOPMENT_RECEIPTS",
+      "OUTPUT": "Identity and restricted scope of completed historical receipts; not new model validation"
+    },
+    {
+      "CONSUMIDO_POR": [
+        "E_CONTRACT",
+        "S_CUSTODY",
+        "A_TRANSITION",
+        "G_SCOPE"
+      ],
+      "DEPENDENCIAS": [
+        "C_CHECKPOINT",
+        "D_DEVELOPMENT_RECEIPTS"
+      ],
+      "ESTADO": "VERIFIED_COMPLETE",
+      "EVIDENCIA": [
+        "RECONCILIATION.json"
+      ],
+      "NODO": "R_RECONCILIATION",
+      "OUTPUT": "First unfinished prerequisites isolated"
+    },
+    {
+      "CONSUMIDO_POR": [
+        "E_MATCHED"
+      ],
+      "DEPENDENCIAS": [
+        "R_RECONCILIATION"
+      ],
+      "ESTADO": "BLOCKED",
+      "EVIDENCIA": [
+        "benchmark_design",
+        "next_benchmark",
+        "queue"
+      ],
+      "NODO": "E_CONTRACT",
+      "OUTPUT": "Observed model IDs/settings, equal enforceable budgets, actual treatments and frozen task/scorer plan"
+    },
+    {
+      "CONSUMIDO_POR": [
+        "E_SEALED"
+      ],
+      "DEPENDENCIAS": [
+        "R_RECONCILIATION"
+      ],
+      "ESTADO": "BLOCKED",
+      "EVIDENCIA": [
+        "queue",
+        "completion_audit"
+      ],
+      "NODO": "S_CUSTODY",
+      "OUTPUT": "Independent custodian and fresh inaccessible-to-development corpus"
+    },
+    {
+      "CONSUMIDO_POR": [
+        "O_PROMOTION"
+      ],
+      "DEPENDENCIAS": [
+        "R_RECONCILIATION"
+      ],
+      "ESTADO": "BLOCKED",
+      "EVIDENCIA": [
+        "queue"
+      ],
+      "NODO": "A_TRANSITION",
+      "OUTPUT": "Explicit target authority and schema-specific delegated transitions"
+    },
+    {
+      "CONSUMIDO_POR": [
+        "O_PROMOTION"
+      ],
+      "DEPENDENCIAS": [
+        "G_SCOPE",
+        "E_MATCHED"
+      ],
+      "ESTADO": "BLOCKED",
+      "EVIDENCIA": [
+        "queue",
+        "completion_audit"
+      ],
+      "NODO": "G_COVERAGE",
+      "OUTPUT": "Independent full objective coverage and scoped RISE fixed-point evidence"
+    },
+    {
+      "CONSUMIDO_POR": [
+        "G_COVERAGE",
+        "E_SEALED",
+        "O_PROMOTION"
+      ],
+      "DEPENDENCIAS": [
+        "E_CONTRACT"
+      ],
+      "ESTADO": "BLOCKED",
+      "EVIDENCIA": [
+        "queue"
+      ],
+      "NODO": "E_MATCHED",
+      "OUTPUT": "Matched model/system evaluation"
+    },
+    {
+      "CONSUMIDO_POR": [
+        "O_PROMOTION"
+      ],
+      "DEPENDENCIAS": [
+        "S_CUSTODY",
+        "E_MATCHED"
+      ],
+      "ESTADO": "BLOCKED",
+      "EVIDENCIA": [
+        "queue"
+      ],
+      "NODO": "E_SEALED",
+      "OUTPUT": "Independent sealed evaluation"
+    },
+    {
+      "CONSUMIDO_POR": [],
+      "DEPENDENCIAS": [
+        "A_TRANSITION",
+        "G_COVERAGE",
+        "E_MATCHED",
+        "E_SEALED"
+      ],
+      "ESTADO": "BLOCKED",
+      "EVIDENCIA": [
+        "queue"
+      ],
+      "NODO": "O_PROMOTION",
+      "OUTPUT": "Full operational shadow, canary, tested rollback and authorized promotion"
+    },
+    {
+      "CONSUMIDO_POR": [
+        "G_COVERAGE"
+      ],
+      "DEPENDENCIAS": [
+        "R_RECONCILIATION"
+      ],
+      "ESTADO": "BLOCKED",
+      "EVIDENCIA": [
+        "queue",
+        "completion_audit"
+      ],
+      "NODO": "G_SCOPE",
+      "OUTPUT": "Independently justified scoped ontology and task-coverage contract"
+    }
+  ],
+  "note": "G_SCOPE is independent scope/coverage contract; G_COVERAGE additionally depends on admissible matched model results.",
+  "ready_independent_nodes": [],
+  "schema": "QRCEL_MINIMUM_CAUSAL_DAG_V1"
+}
