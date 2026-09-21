@@ -1,0 +1,79 @@
+{
+  "schema": "QROS_FAST_M12_V2_GOLDEN_PASS_RECEIPT_1.0",
+  "date": "2026-09-21",
+  "objective": "Validate a memory-isolated FAST V2 execution architecture for NQX/BUY/M12 without changing the frozen universe or scientific semantics.",
+  "authority": {
+    "main_head_before_persistence": "0443c014be765e33537398ca2348fa1f68950cfd",
+    "stable_frontier": "V257",
+    "source_fast_branch": "fast/seed0076-research-v1-20260920",
+    "source_fast_commit": "ddacf6efdcda4dccb0d7e9ef528492dc9af9087b",
+    "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "scientific_state": "PREREGISTERED_NO_RESULTS"
+  },
+  "input_identity": {
+    "dev_records": 59940260,
+    "dev_bytes": 1018984420,
+    "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "m12_bar_file_sha256": "490adcd280b837633ead83865d1f1be21704723df0566ac94d79b8f3649c887d",
+    "m12_indicator_content_root_sha256": "e089eeb6cd604c4637e313ff8166915b7a6f581afefd49dc277e86b4c956cefd",
+    "m15_indicator_content_root_sha256": "fc50fde34dc057773da439c15d1a3f24259aefd9f84932e787c19cc546e81cbe",
+    "h1_indicator_content_root_sha256": "50c826a904e9f2c460e6d5ae378ea7c2810971e8af2e4bd83e943ecb8c1a00d0",
+    "m12_tick_raw_cache_sha256": "cce714b0d76087146238f0226bdb1a1cfb9dfed580a595b0cbbd808fe4944909"
+  },
+  "architecture": {
+    "name": "QROS_FAST_RESEARCH_V2_MEMORY_ISOLATED_MAP_REDUCE",
+    "scientific_domains": 1,
+    "scientific_decisions_per_domain": 1,
+    "technical_segments": 24,
+    "technical_segments_are_scientific_results": false,
+    "technical_segment_rule": "Each structural state runs in a disposable process and emits only deterministic fixed-record class-occurrence and alias logs. No selection, gate decision, economic read, or scientific interpretation occurs per segment.",
+    "global_reduction_rule": "Only the complete 24-segment deterministic reduction is eligible for scientific parity comparison.",
+    "storage_hot_path": "append-only fixed-record logs; no random SQLite alias/class updates",
+    "memory_rule": "process lifetime is bounded by one structural state; process exit is the working-set reclamation boundary",
+    "semantic_dedupe_rule": "family-mask equivalence is deduplicated before pair intersections; final mask identity remains exact ordered uint64 source-record coordinates",
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "universe_changed": false
+  },
+  "adversarial_eliminations": [
+    "ACID relaxation alone: insufficient for full-domain completion",
+    "raw uncompressed mask storage: rejected due I/O amplification",
+    "madvise per carrier: rejected due repeated tick-page refault",
+    "single long-lived process: rejected due cumulative working-set pressure",
+    "golden-only shortcut: rejected because semantic and full-alias roots require complete global mapping"
+  ],
+  "global_result": {
+    "processed_signal_configs": 804672,
+    "distinct_mask_class_count": 248010,
+    "duplicate_config_count": 556662,
+    "zero_event_class_alias_count": 69351,
+    "ordered_config_id_stream_root_sha256": "07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714",
+    "semantic_class_root_sha256": "44cf066910a98f8d2a0988efe9f0bec14834683934369fa9972bb59e870161b0",
+    "full_alias_mapping_root_sha256": "c5bec36e0b78c896f81578de5a69b42fd6f673a54630efbb8311f33e7e09c0a7",
+    "golden_parity_failures": [],
+    "status": "PASS"
+  },
+  "local_validation_artifacts": {
+    "summary_json_sha256": "d302a7ee199d536a18f31933ef83189e34ebe578f6afd2c91a6a9c6a21e48acc",
+    "class_occ_bin_bytes": 43405752,
+    "class_occ_bin_sha256": "30294b3e08eb8524a823efaf1878eaeaa57a2549f7cae5d5961cb0d28a522f9c",
+    "aliases_bin_bytes": 51499008,
+    "aliases_bin_sha256": "9311af75b912c076d90af5b2d5c62fdceaabca420a864f38844aaa51bd816c58",
+    "prototype_fast_v2_engine_sha256": "fe75f119473eb885c616becc53e2f18baae69d2092d17e5c9f093c8348bea872",
+    "prototype_mapreduce_sha256": "b453b631a2a5471b1cfaaa211f31934d906a736de64b421c3bb0dbf54375eed5",
+    "prototype_group_worker_sha256": "14da537c297dc54b11d1bc13870824825d2494fbe33b4d244d228a9ef2b3cf93",
+    "note": "Heavy local validation artifacts were not promoted as scientific authority; exact global roots and frozen input identities are the scientific evidence."
+  },
+  "gates": {
+    "M12_FAST_GOLDEN": "PASS",
+    "FAST_V2_ARCHITECTURE": "PASS",
+    "M15": "OPEN_FOR_SAME_FAST_V2_ARCHITECTURE",
+    "economic_pnl": "CLOSED",
+    "GA2": "CLOSED",
+    "holdout": "CLOSED",
+    "new_seeds": "CLOSED"
+  },
+  "status": "PASS",
+  "next_automatic_action": "Persist the validated FAST V2 implementation code durably, then execute NQX/BUY/M15 under the same memory-isolated single-domain architecture. Do not change the frozen universe or open economic PnL, GA2, holdout, or a new seed."
+}
