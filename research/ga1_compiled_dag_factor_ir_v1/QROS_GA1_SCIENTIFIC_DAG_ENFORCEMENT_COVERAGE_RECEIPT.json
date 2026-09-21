@@ -1,0 +1,51 @@
+{
+  "authority": {
+    "branch_head_at_validation": "3d22975db8a23a9849c7365db6f10d364167572b",
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "scientific_frontier": "V259",
+    "scientific_state": "PREREGISTERED_NO_RESULTS"
+  },
+  "blast_radii": {
+    "decision": "NONE",
+    "scientific": "NONE",
+    "technical": "Research DAG execution entry points only."
+  },
+  "date": "2026-09-21",
+  "evidence": {
+    "coverage_output": {
+      "git_blob_sha1": "c5fa1dbb578e6d974b55bb3337f3984a1acb2a60",
+      "path": "research/ga1_compiled_dag_factor_ir_v1/tests/scientific_dag_enforcement_coverage_output_v1.json"
+    },
+    "qros_scientific_dag_git_blob_sha1": "c958f443f93f716cab0d82af160eb26c61a31ae5",
+    "qros_typed_dag_git_blob_sha1": "19dd546480198b4525c2a77be16ef7d57f82879b",
+    "wrapper_receipt_git_blob_sha1": "d731b8aefd0bf96af3a68e585cac207df9423279"
+  },
+  "next_action": "Derive evidence ledger/root V4 including scientific-context binding, wrapper PASS and enforcement coverage; then resolve the next architecture requirement that is admissible without historical maskpack bytes.",
+  "receipt_sha256": "74f10052e8d0a833ec2d39e4ed25daab1ba47682de30d5bb735059012c38552b",
+  "residual_risk": [
+    "Enforcement is repository-contract based; Python cannot make direct import of the raw executor impossible without a larger API/package boundary change.",
+    "Historical exact maskpack byte regression remains blocked by unavailable certified artifacts."
+  ],
+  "results": {
+    "direct_raw_test_use_only_canary": true,
+    "non_test_bypass_absent": true,
+    "raw_executor_definition_allowed": true,
+    "scientific_wrapper_delegation_allowed": true
+  },
+  "schema": "QROS_GA1_SCIENTIFIC_DAG_ENFORCEMENT_COVERAGE_RECEIPT_1.0",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_seed_open": false,
+    "shard11_open": false,
+    "shards1_10_recomputed": false
+  },
+  "scope": {
+    "allowed_non_test_raw_sites": 2,
+    "changed_python_files_scanned": 15,
+    "direct_raw_test_canary_count": 1,
+    "non_test_bypass_count": 0
+  },
+  "status": "PASS_RESEARCH_ONLY"
+}
