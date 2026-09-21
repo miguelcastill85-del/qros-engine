@@ -1,0 +1,88 @@
+{
+  "schema": "QROS_GA1_INCIDENT_SCIENTIFIC_REUSE_BINDING_1.0",
+  "incident_id": "GA1-EN-INC-SCIENTIFIC-REUSE-BINDING-20260921",
+  "date": "2026-09-21",
+  "status": "CLOSED_RESEARCH_FIX_VALIDATED",
+  "incident_state": "RECOVERED_PROGRESSING",
+  "authority_vector": {
+    "scientific": {"frontier":"V259","scientific_state":"PREREGISTERED_NO_RESULTS","completed_shards":10,"total_shards":60,"shard11_open":false},
+    "operational": {"main_head":"f2a513c56e297b5ec72db07568c71c12d65a638d","main_drift":"IRRELEVANT_DRIFT_QRCEL_ONLY"},
+    "research": {"branch":"research/ga1-compiled-dag-factor-ir-v1-20260921","branch_head_at_validation":"67e2a54c40c0c8669ef097e13023322a6f04c47b","safe_recovery_root_v3_blob":"9c712282c8d9707bed5ae2da72ab60c1639515cc"}
+  },
+  "stall_classification": "NOT_STALLED_LATENT_FALSE_REUSE_RISK",
+  "severity": "P1",
+  "last_verified_progress": "Recovery root V3 plus canonical recovery verifier v2; REUSE_CONTRACT red-team materialized.",
+  "last_known_good": "Typed DAG technical CAS provenance was valid, but scientific reuse of unbound nodes was not admissible.",
+  "first_bad_event": "Typed DAG action-key schema permitted nodes whose input_artifacts did not bind a scientific-context fingerprint.",
+  "evidence": {
+    "reuse_contract_pre_fix_receipt_git_blob_sha1":"b7d8eb5ab09676cce311c57a8835bac96fcea4aa",
+    "scientific_context_binder_git_blob_sha1":"ca025b9a498e9ef4403ad2afc339da2bd704c5f4",
+    "reuse_contract_v1_1_git_blob_sha1":"fb44a1017751ea803750f305cbcddfba3b88ffb6",
+    "binder_test_git_blob_sha1":"11905ae5d4cb49037e2cffc3d4f8957e28ef38b6",
+    "binder_output_git_blob_sha1":"cafcae8e5a072051afec56b1b104d6f0e9cb28c8",
+    "integration_test_git_blob_sha1":"c51e49531f2864ddc65af123bb1b6f788b036902",
+    "integration_output_git_blob_sha1":"da745c3b8d6dce4081667eb19f2db2005fedd394"
+  },
+  "root_cause_set": {
+    "primary":"SCIENTIFIC_CONTEXT_NOT_IN_ACTION_KEY_DEPENDENCY_CLOSURE",
+    "contributing":"Reuse proof carried parent_state but evaluator did not compare it against requested parent state.",
+    "propagation_mechanism":"Technical CAS identity could remain stable across changes in genealogy/period/exposure/multiplicity unless callers supplied those dimensions elsewhere.",
+    "detection_failure":"No prior invariant required scientific-context binding or parent-state compatibility for REUSE."
+  },
+  "competing_hypotheses": {
+    "H1":{"hypothesis":"Technical action-key identity alone is sufficient for scientific reuse.","result":"FALSIFIED"},
+    "H2":{"hypothesis":"Scientific context can be bound without rewriting DAG internals by reserved static input.","result":"SUPPORTED_AND_VALIDATED"},
+    "H3":{"hypothesis":"Existing unbound artifacts must be destroyed/invalidated.","result":"FALSIFIED","reason":"They remain valid technical evidence but are quarantined for scientific reuse."},
+    "H4":{"hypothesis":"Parent-state mismatch should automatically invalidate content.","result":"REJECTED_AS_TOO_STRICT","reason":"Mismatch may be proposition-equivalent after verified supersession; evaluator returns VERIFY_ONLY."}
+  },
+  "technical_blast_radius": "Research DAG/CAS artifacts without __scientific_context__ binding and reuse evaluator v1.0 semantics.",
+  "scientific_blast_radius": "NONE OBSERVED. No unbound research artifact was promoted to Seed0076 production/scientific results.",
+  "decision_blast_radius": "NONE. Shard11, bulk GA1 and economic surfaces remained closed.",
+  "valid_work_preserved": ["V259","shards1-10","typed DAG technical CAS artifacts as technical evidence","Factor IR/store validations","recovery roots/ledgers except previously superseded V2 operational root"],
+  "quarantined_outputs": ["Existing DAG/CAS node objects lacking __scientific_context__ are QUARANTINE_FOR_SCIENTIFIC_REUSE.","Production-readiness claims remain quarantined.","Historical exact maskpack regression remains blocked."],
+  "invalidated_outputs": ["Reuse contract v1.0 as canonical decision logic; preserved as historical evidence."],
+  "attempts_and_causal_novelty": [
+    {"attempt":"Proof-carrying reuse evaluator v1","novelty":"NEW_REPRESENTATION_AND_GATE","result":"Detected unbound scientific context."},
+    {"attempt":"Scientific-context binder","novelty":"NEW_DEPENDENCY_BINDING","result":"10 scientific dimensions changed all tested action keys."},
+    {"attempt":"Parent-state adversarial test","novelty":"NEW_STATE_COMPATIBILITY_HYPOTHESIS","result":"Found stale-parent acceptance gap; fixed to VERIFY_ONLY/QUARANTINE semantics."},
+    {"attempt":"Binder→action-key→node→proof→reuse integration","novelty":"END_TO_END_PROPOSITION_TEST","result":"PASS."}
+  ],
+  "selected_route": "ROLLFORWARD_MINIMAL: bind canonical scientific-context SHA256 as reserved static input and require parent-state compatibility at reuse time.",
+  "fix_applied": {
+    "binder_path":"research/ga1_compiled_dag_factor_ir_v1/qros_scientific_context.py",
+    "binding_input":"__scientific_context__",
+    "reuse_contract_path":"research/ga1_compiled_dag_factor_ir_v1/qros_reuse_contract.py",
+    "reuse_proof_schema":"QROS_REUSE_PROOF_1.1"
+  },
+  "adversarial_validation": {
+    "same_context_same_action_key":true,
+    "bound_exact_reuse":true,
+    "scientific_dimensions_changed_action_keys":10,
+    "scientific_changes_invalidated":10,
+    "unbound_legacy_quarantined":true,
+    "stale_parent_verify_only":true,
+    "missing_parent_quarantined":true,
+    "reserved_key_conflict_rejected":true,
+    "missing_context_field_rejected":true,
+    "unknown_context_field_rejected":true,
+    "bad_fingerprint_rejected":true
+  },
+  "regression_status": "PASS_RESEARCH_SYNTHETIC_INTEGRATION",
+  "resume_contract_status": "SAFE_TO_CONTINUE_RESEARCH_ONLY",
+  "recovery_point": "Recovery root V3 + scientific-context binder + reuse contract v1.1 + integration PASS.",
+  "residual_risk": [
+    "Raw qros_typed_dag.execute_manifest can still be called directly with an unbound manifest; reuse contract prevents scientific REUSE but creation is not yet impossible by construction.",
+    "Historical exact maskpack regression remains blocked by unavailable certified bytes.",
+    "No production adoption or shard11 authorization exists."
+  ],
+  "prevention_added": [
+    "Scientific context canonical schema",
+    "Reserved scientific-context action input",
+    "Strict context field/fingerprint validation",
+    "Reuse quarantine for unbound artifacts",
+    "Parent-state mismatch requires verification rather than automatic reuse"
+  ],
+  "current_frontier": "V259 scientific / isolated architecture research progressing",
+  "next_automatic_action": "Add a scientific DAG execution wrapper that always binds validated scientific context before invoking the raw typed DAG, mark raw executor technical-only by contract, and red-team bypass/mutation/action-key propagation. Do not authorize shard11.",
+  "receipt_sha256": "93202942fe11efd8ef9f8fa0c157225f77c0eb7d136d70751d4f5e7819b799a1"
+}
