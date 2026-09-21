@@ -1,0 +1,1 @@
+{"conflict_winner_count": 1, "conflicting_workers": 8, "conflicts_rejected": 7, "crash_before_publish_no_final": true, "identical_idempotent_existing": 7, "identical_one_published": true, "identical_workers": 8, "sequential_conflict_no_overwrite": true, "sequential_idempotence_pass": true, "status": "PASS"}
