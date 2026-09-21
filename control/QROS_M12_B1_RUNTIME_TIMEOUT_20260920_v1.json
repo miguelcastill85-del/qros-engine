@@ -1,0 +1,31 @@
+{
+  "schema": "QROS_M12_B1_RUNTIME_ATTEMPT_RECEIPT_1.0",
+  "date": "2026-09-20",
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "objective": "Measure M12 current GA1 baseline before any FAST_CORE implementation.",
+  "benchmark_route": {
+    "branch": "perf/seed0076-m12-profiler-v1-20260920",
+    "commit": "f21969f8f2f3bdeda528ad5b1e96b06182355a52"
+  },
+  "attempt": {
+    "action": "Single runtime attempt to checkout exact benchmark branch, run static contract test, verify materialized NQX carriers and discover existing M12 prerequisites.",
+    "result": "TransportTimeout",
+    "b1_measurement_produced": false,
+    "benchmark_results_read": false,
+    "scientific_work_modified": false
+  },
+  "anti_stall_behavior": {
+    "retry_same_runtime": false,
+    "alternate_runtime_route_attempted": false,
+    "diagnostic_chain_started": false,
+    "persistence_only_after_failure": true
+  },
+  "scientific_frontier_preserved": "V257",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "m15_modified": false
+  },
+  "next_action": "Do not repeat this runtime path in-loop. On the next invocation, recover the M12 benchmark branch and execute B1 only if a responsive compute runtime is already available; otherwise leave the benchmark blocked and continue only with independent analysis that advances the same performance objective without claiming timing results."
+}

@@ -4,8 +4,8 @@
   "status": "ACTIVE",
   "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
   "stable_frontier_version": "V257",
-  "current_blocker": "NONE_FOR_AUDIT_PREPARATION__COMPUTE_ONLY_REQUIRED_FOR_MEASURED_BENCHMARK",
-  "next_automatic_action": "RECOVER perf/seed0076-m12-profiler-v1-20260920 @ f21969f8f2f3bdeda528ad5b1e96b06182355a52; execute only the preregistered M12 B1 benchmark when a responsive compute runtime with the verified NQX data is available. Do not build the production extended worker, do not retry failed runtimes in-loop, and do not modify M15 until M12 bottlenecks are measured.",
+  "current_blocker": "M12_B1_COMPUTE_RUNTIME_TRANSPORT_TIMEOUT",
+  "next_automatic_action": "Do not repeat this runtime path in-loop. On the next invocation, recover the M12 benchmark branch and execute B1 only if a responsive compute runtime is already available; otherwise leave the benchmark blocked and continue only with independent analysis that advances the same performance objective without claiming timing results.",
   "handoff_git_blob_sha1": "87f1475e42754489082eef551780b1191d1aa908",
   "anti_freeze_v2": {
     "status": "ACTIVE_MANDATORY",
@@ -49,6 +49,12 @@
       "6_IF_NO_SUCH_ACTION_EXISTS_PERSIST_AND_EXIT"
     ],
     "stale_handoff_rule": "If any older handoff conflicts with a newer durable audit/decision on main, newer durable authority wins and the stale next_action must be rewritten before work continues.",
-    "user_visible_progress_rule": "Each update must state current objective, completed delta, and exact next action; never narrate repeated attempts."
+    "user_visible_progress_rule": "Each update must state current objective, completed delta, and exact next action; never narrate repeated attempts.",
+    "last_action": {
+      "objective": "Measure M12 current GA1 baseline before any FAST_CORE implementation.",
+      "action": "M12 B1 runtime attempt",
+      "result": "BLOCKED_BY_INFRASTRUCTURE_TRANSPORT_TIMEOUT",
+      "retry_same_runtime": false
+    }
   }
 }
