@@ -1,0 +1,60 @@
+{
+  "authority": {
+    "branch_head_at_validation": "529164a10ae3bc4157aa3605b05d63f77b2c01f0",
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "scientific_frontier": "V259",
+    "scientific_state": "PREREGISTERED_NO_RESULTS"
+  },
+  "blast_radii": {
+    "decision": "NONE",
+    "scientific": "NONE",
+    "technical": "Recovery root V2 and verifier identity only."
+  },
+  "code": {
+    "git_blob_sha1": "584a441c3b8e501153e021e11d437851551f4c85",
+    "path": "research/ga1_compiled_dag_factor_ir_v1/qros_recovery_verifier.py",
+    "schema": "QROS_EVIDENCE_NATIVE_RECOVERY_VERIFIER_2.0"
+  },
+  "date": "2026-09-21",
+  "next_action": "Append canonical verifier PASS and recovery-root-v2 supersession to a new ledger v3; derive recovery root v3 from authenticated evidence; then continue to proof-carrying REUSE_CONTRACT evaluator.",
+  "output": {
+    "git_blob_sha1": "539cff8a4ae64a1a2ae2275a4a1921af606513c8",
+    "path": "research/ga1_compiled_dag_factor_ir_v1/tests/recovery_verifier_redteam_output_v2.json"
+  },
+  "proposition_equivalence": "Same recovery proposition as v1, with stricter typed artifact/path/handoff/scientific target checks; no scientific data, gate or economic result changed.",
+  "receipt_sha256": "d9358db1bef46c5c215ea725a97ed0825ff51d7e03361045a14f03e73fa9204f",
+  "schema": "QROS_GA1_CANONICAL_RECOVERY_VERIFIER_V2_RECEIPT_1.0",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "shard11_open": false,
+    "shards1_10_recomputed": false
+  },
+  "status": "PASS",
+  "supersession": {
+    "canonical": "research/ga1_compiled_dag_factor_ir_v1/qros_recovery_verifier.py",
+    "legacy_keep_as_evidence": [
+      "research/ga1_compiled_dag_factor_ir_v1/qros_recovery_root_verifier.py"
+    ],
+    "reason": "Recovery root V2 references pre-v2 verifier blob 3ccee2521424227547153df7ae394f496f8251be while canonical verifier is 584a441c3b8e501153e021e11d437851551f4c85.",
+    "recovery_root_v2_status": "SUPERSEDED_BY_VERIFIED_EVIDENCE_TECHNICAL_ONLY"
+  },
+  "test": {
+    "git_blob_sha1": "fda1c48b5696d53d24f8b53d7485a455dcbb19c9",
+    "path": "research/ga1_compiled_dag_factor_ir_v1/tests/run_recovery_verifier_redteam_v2.py"
+  },
+  "validation": {
+    "binary_artifact_pass": true,
+    "handoff_split_rejected": true,
+    "ledger_tamper_rejected": true,
+    "missing_artifact_rejected": true,
+    "path_traversal_rejected": true,
+    "receipt_self_hash_tamper_rejected": true,
+    "reference_tamper_rejected": true,
+    "root_self_hash_tamper_rejected": true,
+    "scientific_firewall_open_rejected": true,
+    "stale_pointer_rejected": true,
+    "valid_fixture_pass": true
+  }
+}
