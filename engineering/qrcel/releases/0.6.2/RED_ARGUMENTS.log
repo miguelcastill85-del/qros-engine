@@ -1,0 +1,33 @@
+test_abbreviated_identity_cannot_override_root (cognitive.tests.test_admission.AdmissionTests.test_abbreviated_identity_cannot_override_root) ... FAIL
+test_abbreviated_run_cannot_change_lock_key (cognitive.tests.test_admission.AdmissionTests.test_abbreviated_run_cannot_change_lock_key) ... FAIL
+
+======================================================================
+FAIL: test_abbreviated_identity_cannot_override_root (cognitive.tests.test_admission.AdmissionTests.test_abbreviated_identity_cannot_override_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6f103cda0069/qrcel_admission_062_20260921/cognitive/tests/test_admission.py", line 82, in test_abbreviated_identity_cannot_override_root
+    def test_abbreviated_identity_cannot_override_root(self):self.abbreviation_probe('repo-root',['--repo-r','/other'],'ENTRY_IDENTITY_OVERRIDE')
+                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/6f103cda0069/qrcel_admission_062_20260921/cognitive/tests/test_admission.py", line 81, in abbreviation_probe
+    p=subprocess.run(cmd,stdin=subprocess.DEVNULL,capture_output=True,text=True,timeout=6);self.assertNotEqual(p.returncode,0,p.stdout);self.assertIn(error,p.stdout)
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : {"repo_root": "/other"}
+
+
+======================================================================
+FAIL: test_abbreviated_run_cannot_change_lock_key (cognitive.tests.test_admission.AdmissionTests.test_abbreviated_run_cannot_change_lock_key)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/6f103cda0069/qrcel_admission_062_20260921/cognitive/tests/test_admission.py", line 83, in test_abbreviated_run_cannot_change_lock_key
+    def test_abbreviated_run_cannot_change_lock_key(self):self.abbreviation_probe('run-id',['--run-i','B'],'KERNEL_RUN_ID_ABBREVIATION')
+                                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/6f103cda0069/qrcel_admission_062_20260921/cognitive/tests/test_admission.py", line 81, in abbreviation_probe
+    p=subprocess.run(cmd,stdin=subprocess.DEVNULL,capture_output=True,text=True,timeout=6);self.assertNotEqual(p.returncode,0,p.stdout);self.assertIn(error,p.stdout)
+                                                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : {"run_id": "B"}
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.238s
+
+FAILED (failures=2)

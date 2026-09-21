@@ -4,37 +4,37 @@
   "date": "2026-09-21",
   "release": {
     "repository": "miguelcastill85-del/qros-engine",
-    "commit": "4f4eea7eb281ae0ac5e149109ddf5b9d2d3ff6e0",
-    "branch": "qrcel/storage-budget-0.6.1-20260921",
-    "version": "0.6.1-experimental",
+    "commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+    "branch": "qrcel/local-admission-0.6.2-20260921",
+    "version": "0.6.2-experimental",
     "manifest_path": "cognitive/COGNITIVE_MANIFEST.json",
-    "manifest_blob_sha1": "4a1f48faecc6f352afac0b32302d9995a68fb1a3",
-    "manifest_sha256": "0e2f9d15f96bc2b1b9e908dde5000d87ae568e36aaa8956c09daafeccd53f008",
+    "manifest_blob_sha1": "f3f8784a6ea28aa6f3ff7a252ad50536a296df3f",
+    "manifest_sha256": "bab683da6d0e0fb63a8afc4ff8671d209f12513cfe20ea33f84808fee1e036f0",
     "bootstrap_path": "cognitive/trusted_bootstrap.py",
-    "bootstrap_sha256": "cd97b58c5d7d5b30c9142612c3852c0107946f8c532a6fa6b615625c88c8c512"
+    "bootstrap_sha256": "722d07d618b62f598fef618b3a3835a64400abf69cec1720f241ed3a011faf0a"
   },
   "acceptance": {
-    "path": "cognitive/checkpoints/storage_061/ACCEPTANCE.json",
-    "sha256": "149a9bfb889935282cc83c84bade50127effe90d7e41821e0884a0c44f4397ba",
-    "targeted_tests_passed": 12,
-    "new_regressions": 3,
+    "path": "cognitive/checkpoints/admission_062/ACCEPTANCE.json",
+    "sha256": "aff58896b34056be66dce846bba890efb39996376e719fba9abeee74256f8ba0",
+    "targeted_tests_passed": 26,
+    "new_regressions": 14,
     "historical_tests_preserved": 220,
-    "scope": "Q06_STORAGE_CAP_COMPATIBILITY"
+    "scope": "Q07_COOPERATIVE_LOCAL_LAUNCHER_AND_ARGUMENT_IDENTITIES"
   },
   "run_queue": {
-    "path": "cognitive/checkpoints/storage_061/RUN_QUEUE.json",
-    "sha256": "c295c4fec4cac02975637685b1e387913f69f2ce74117cbab694ea90df44268d"
+    "path": "cognitive/checkpoints/admission_062/RUN_QUEUE.json",
+    "sha256": "c1614984d7c93b148cfe0e8a0b78674e97a925dc7dc851d92460bc453ddba379"
   },
   "durable_session": {
-    "path": "engineering/qrcel/releases/0.6.1/SESSION.json",
-    "sha256": "80d886a738c14b68a9d7264176164d9405243896c46b918c24c89b94c599c4e5",
-    "checkpoint_path": "engineering/qrcel/releases/0.6.1/SESSION_CHECKPOINT.json",
-    "checkpoint_sha256": "e7cc5e4f12a38130ac3399d2d743ac66fdca703c66c8cdfa39b36110269b4639",
+    "path": "engineering/qrcel/releases/0.6.2/SESSION.json",
+    "sha256": "30c7046e0085a3aef031b674d0729266332dbcf55c602521d298a50173a479e9",
+    "checkpoint_path": "engineering/qrcel/releases/0.6.2/SESSION_CHECKPOINT.json",
+    "checkpoint_sha256": "568dca47988272ee42237f0f2b59a67ec5de8fb8a469e6f6982e268a1dc2ee13",
     "capability_reusable": false
   },
   "fresh_release_validation": {
-    "path": "engineering/qrcel/releases/0.6.1/FRESH_VALIDATION.json",
-    "sha256": "af22e83451bfdc9e6aa4b0c0290d669fe4eec29379c118190a20fb1bc36f07f9"
+    "path": "engineering/qrcel/releases/0.6.2/FRESH_VALIDATION.json",
+    "sha256": "13b5011b6169e4413593d0080585f15a580b15028327f247149764748acc483e"
   },
   "reference_epoch": 191,
   "reference_role": "HISTORICAL_ENGINEERING_ONLY",
@@ -43,7 +43,7 @@
   "full_qrcel_complete": false,
   "promoted": false,
   "parity": "INSUFFICIENT_EVIDENCE",
-  "next_action": "RESOLVE_SINGLE_WRITER_ADMISSION_AND_FULL_SYSTEM_EVALUATION_PREREQUISITES",
+  "next_action": "RESOLVE_FULL_SYSTEM_EVALUATION_PREREQUISITES",
   "background_running": false,
   "automatic_execution_in_every_chat": false,
   "capability_recheck_required": true,
@@ -87,13 +87,22 @@
     "candidate_promoted": false,
     "historical_evaluation_of_release": "0.6.0-experimental",
     "Q06_remediated_by_release": "0.6.1-experimental",
-    "Q07": "ADMISSION_POLICY_PENDING"
+    "Q07": "CLOSED_LOCAL_COOPERATIVE_LAUNCHER_BY_0.6.2"
   },
   "large_synthetic_recovery_capsule": {
-    "path": "engineering/qrcel/releases/0.6.1/RECOVERY_CAPSULE.json",
-    "sha256": "4807330d0e1d2cea0bada0a2be1b092e289d1303704399d49dbad17e01acfbde",
+    "path": "engineering/qrcel/releases/0.6.2/RECOVERY_CAPSULE.json",
+    "sha256": "898dba1886434e8e8a84fd67a147a7168d4b66fe811b4c105e6811cbe95f6eb0",
     "encoding": "gzip+base64 per file",
     "max_decoded_bytes_per_file": 4194304,
     "scope": "SYNTHETIC_NON_SCIENTIFIC_NOT_STRATEGY_PROGRESS"
+  },
+  "admission": {
+    "scope": "COOPERATIVE_LOCAL_VERIFIED_KERNEL_LAUNCHER",
+    "default_wait_seconds": 10,
+    "max_wait_seconds": 15,
+    "distributed_fencing": false,
+    "direct_api_covered": false,
+    "summary_path": "engineering/qrcel/releases/0.6.2/SUMMARY.json",
+    "summary_sha256": "b06e399db29b5a79b62d3f3a66402e5cf710d9783dd30ee4209b36b21d209fe7"
   }
 }

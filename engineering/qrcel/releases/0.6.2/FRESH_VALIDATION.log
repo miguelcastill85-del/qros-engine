@@ -1,0 +1,1 @@
+PASS: four writers, 100 exact results, 200 events, same checkpoint, fresh restore zero new tasks, session capability
