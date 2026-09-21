@@ -51,16 +51,31 @@ for side in (1,-1):
         raise SystemExit("XAU_POINT_SCALING_EVENT_MISMATCH")
     point_scaling_counts["BUY" if side==1 else "SELL"]=sum(len(x) for x in a)
 
-# Mirror BUY path into SELL path around a fixed physical-price center.
-center=2500.0
-mirror_bid=np.rint((2.0*center-(bid_001*point_001))/point_001).astype(np.int64)
-mirror_high=2.0*center-low_001
-mirror_low=2.0*center-high_001
-mirror_level=2.0*center-level
+# Mirror BUY path into SELL path using exact integer coordinates.
+# Existing generator canary already covers both sides with production-style buffers;
+# this metamorphic test isolates side symmetry without decimal threshold ambiguity.
+rng_mirror=np.random.default_rng(7600762)
+nb_mirror=50
+per_mirror=7
+nt_mirror=nb_mirror*per_mirror
+first_mirror=np.arange(0,nt_mirror,per_mirror,dtype=np.int64)
+last_mirror=first_mirror+per_mirror-1
+bid_mirror=np.cumsum(rng_mirror.integers(-3,4,nt_mirror,dtype=np.int64))+10000
+point_mirror=1.0
+high_mirror=np.array([bid_mirror[s:e+1].max() for s,e in zip(first_mirror,last_mirror)],dtype=np.float64)
+low_mirror=np.array([bid_mirror[s:e+1].min() for s,e in zip(first_mirror,last_mirror)],dtype=np.float64)
+level_mirror=(high_mirror+low_mirror)/2.0
+atr_mirror=np.ones(nb_mirror,dtype=np.float64)
+level_id_mirror=np.arange(nb_mirror,dtype=np.int64)
+center_ticks=20000
+sell_bid=2*center_ticks-bid_mirror
+sell_high=2*center_ticks-low_mirror
+sell_low=2*center_ticks-high_mirror
+sell_level=2*center_ticks-level_mirror
 
-buy=tick_crosses_scalar(bid_001,first,last,high_001,low_001,level,level_id,atr,1,point_001)
-sell=tick_crosses_scalar(mirror_bid,first,last,mirror_high,mirror_low,mirror_level,level_id,atr,-1,point_001)
-sell_alt=tick_crosses_alt(mirror_bid,first,last,mirror_high,mirror_low,mirror_level,level_id,atr,-1,point_001)
+buy=tick_crosses_scalar(bid_mirror,first_mirror,last_mirror,high_mirror,low_mirror,level_mirror,level_id_mirror,atr_mirror,1,point_mirror,buffers=(0.0,))
+sell=tick_crosses_scalar(sell_bid,first_mirror,last_mirror,sell_high,sell_low,sell_level,level_id_mirror,atr_mirror,-1,point_mirror,buffers=(0.0,))
+sell_alt=tick_crosses_alt(sell_bid,first_mirror,last_mirror,sell_high,sell_low,sell_level,level_id_mirror,atr_mirror,-1,point_mirror,buffers=(0.0,))
 if sell!=sell_alt:
     raise SystemExit("SELL_MIRROR_INDEPENDENT_GENERATOR_MISMATCH")
 if buy!=sell:
