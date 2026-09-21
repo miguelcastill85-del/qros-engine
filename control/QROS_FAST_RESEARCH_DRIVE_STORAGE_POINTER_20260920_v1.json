@@ -1,0 +1,50 @@
+{
+  "schema": "QROS_FAST_RESEARCH_DRIVE_STORAGE_POINTER_1.0",
+  "date": "2026-09-20",
+  "status": "ACTIVE",
+  "policy": "DRIVE_PRIMARY_GITHUB_LIGHTWEIGHT_AUTHORITY_LIBRARY_NOT_PRIMARY",
+  "drive_root": {
+    "title": "QROS_FAST_RESEARCH",
+    "id": "1ps-_I4FXli3GlEqRfyX0vpBHYqSlRg9X",
+    "url": "https://drive.google.com/drive/folders/1ps-_I4FXli3GlEqRfyX0vpBHYqSlRg9X"
+  },
+  "folders": {
+    "RUNS": {
+      "id": "1ckt6wcmMGkutMtiJgs6gsVC8INBPU8iU",
+      "url": "https://drive.google.com/drive/folders/1ckt6wcmMGkutMtiJgs6gsVC8INBPU8iU",
+      "purpose": "Run specs, resumable checkpoints, logs and temporary durable run state."
+    },
+    "CACHE": {
+      "id": "1Z4hq75hpiYzAHuIYLlcQPNRxJu-ISFr3",
+      "url": "https://drive.google.com/drive/folders/1Z4hq75hpiYzAHuIYLlcQPNRxJu-ISFr3",
+      "purpose": "Content-addressed bars, indicators, atomic masks and reusable carriers/caches."
+    },
+    "RESULTS": {
+      "id": "14lJr_xW_iDcWjl5NV5RMWhhgdlD2tMav",
+      "url": "https://drive.google.com/drive/folders/14lJr_xW_iDcWjl5NV5RMWhhgdlD2tMav",
+      "purpose": "Research outputs, class mappings, summaries and final GA1 research artifacts."
+    },
+    "CERTIFICATION": {
+      "id": "1q0XQZK8Y3MxFmhimNz8YRomt85HSR7Vh",
+      "url": "https://drive.google.com/drive/folders/1q0XQZK8Y3MxFmhimNz8YRomt85HSR7Vh",
+      "purpose": "Only candidates promoted from FAST research: parity, robustness, holdout, MT5 and final certification evidence."
+    }
+  },
+  "existing_carrier_store": {
+    "title": "QROS_CARRIER_STORE_2018_2026",
+    "id": "1qwGkUH0QF2BasqVZm1WsdG0tbJrmMlQv",
+    "url": "https://drive.google.com/drive/folders/1qwGkUH0QF2BasqVZm1WsdG0tbJrmMlQv",
+    "reuse": true,
+    "note": "Do not duplicate raw XAUUSD/NQX carrier corpora into QROS_FAST_RESEARCH."
+  },
+  "storage_rules": [
+    "Raw carriers remain in QROS_CARRIER_STORE_2018_2026.",
+    "Heavy research artifacts and caches go to Drive, not ChatGPT Library.",
+    "GitHub stores code, lightweight manifests, hashes, pointers and final receipts only.",
+    "Library is not used as the primary durable store for new QROS FAST runs.",
+    "Do not duplicate large artifacts across Drive and Library unless explicitly required for recovery.",
+    "Research FAST and Certification remain physically and logically separated."
+  ],
+  "current_scientific_frontier": "V257",
+  "scientific_effect": "NONE_STORAGE_PLANE_ONLY"
+}

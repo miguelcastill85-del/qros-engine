@@ -5,7 +5,7 @@
   "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
   "stable_frontier_version": "V257",
   "current_blocker": "M12_B1_CODE_NOT_LOCAL_AND_CONTAINER_GITHUB_DNS_UNAVAILABLE",
-  "next_automatic_action": "Do not retry git clone or runtime networking in-loop. On a future invocation, run B1 only if the benchmark code is already materialized locally or a responsive runtime with GitHub access is available. Otherwise continue only with independent static analysis of the same M12 performance objective.",
+  "next_automatic_action": "Use Drive-backed QROS FAST storage for future heavy research artifacts. Do not upload new large QROS run outputs to ChatGPT Library. Preserve existing carrier store and resume FAST research simplification from the current M12 benchmark/engine redesign checkpoint.",
   "handoff_git_blob_sha1": "87f1475e42754489082eef551780b1191d1aa908",
   "anti_freeze_v2": {
     "status": "ACTIVE_MANDATORY",
@@ -56,5 +56,11 @@
       "result": "BLOCKED_BY_INFRASTRUCTURE_NO_GITHUB_DNS",
       "retry_same_path": false
     }
+  },
+  "qros_fast_storage": {
+    "status": "ACTIVE",
+    "pointer_path": "control/QROS_FAST_RESEARCH_DRIVE_STORAGE_POINTER_20260920_v1.json",
+    "drive_root_id": "1ps-_I4FXli3GlEqRfyX0vpBHYqSlRg9X",
+    "policy": "DRIVE_PRIMARY_GITHUB_LIGHTWEIGHT_AUTHORITY_LIBRARY_NOT_PRIMARY"
   }
 }
