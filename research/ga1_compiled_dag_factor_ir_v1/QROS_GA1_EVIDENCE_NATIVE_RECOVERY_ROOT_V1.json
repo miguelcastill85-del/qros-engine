@@ -1,0 +1,109 @@
+{
+  "active_blockers": [
+    {
+      "artifact_blob_sha1": "cbcdb0a4b19f8cf28b0241ab6eb14a08517abbb7",
+      "id": "HISTORICAL_MASKPACK_BYTES_UNAVAILABLE",
+      "scope": "historical regression only",
+      "status": "BLOCKED_BY_INFRASTRUCTURE_SUBTASK_ONLY"
+    }
+  ],
+  "admissible_frontier": {
+    "BLOCKED": ["Exact historical maskpack byte regression"],
+    "CRITICAL": ["Materialize and verify evidence-native recovery root + event ledger"],
+    "NOT_YET_ADMISSIBLE": ["Shard11 authorization","bulk remaining-shard execution","economic PnL","GA2","holdout","new seed","production architecture promotion"],
+    "PARALLEL": ["Harden proof-carrying artifact/reuse verification software on isolated branch"],
+    "QUARANTINED": ["Any production-readiness claim for typed DAG/Factor IR"]
+  },
+  "authority_vector": {
+    "CODE_AUTHORITY": {
+      "event_canary": "287da51ffba33d4620e39a8bebbb99b4fc75cb3b",
+      "factor_ir": "6418fda2c6ec7400f95018754b348ddbc488caad",
+      "factor_ir_store": "2ff5f4b6ad84f7c085b5a218d32d59cdbe5f6bf6",
+      "geometry_compiler": "a412451465abdbcb5de0b8178f0f3c7f20d479a9",
+      "maskpack_regression": "5bbcbc7ecbf7438ea71162aa0cde75396f40d2e1",
+      "typed_action": "1340c779bea16808a092894a21671653124ff33c",
+      "typed_dag": "d3f3059cba13980e7f51202384c08accc5425a7a"
+    },
+    "DATA_AUTHORITY": {
+      "historical_scientific": "Frozen Seed0076 DEV/input identities carried by durable completion receipts; no new historical data execution authorized.",
+      "research_validation": "Synthetic/non-scientific fixtures only for current branch validation.",
+      "status": "SPLIT_BY_SCOPE"
+    },
+    "EXECUTION_AUTHORITY": {
+      "factor_ir_store_git_blob_sha1": "2ff5f4b6ad84f7c085b5a218d32d59cdbe5f6bf6",
+      "research_branch_head": "c36ae04202282469a1cf636697a0e8aa671ab3f2",
+      "typed_dag_git_blob_sha1": "d3f3059cba13980e7f51202384c08accc5425a7a"
+    },
+    "OPERATIONAL_AUTHORITY": {
+      "handoff_git_blob_sha1": "cd83c7416497225243c553243ca69a43ff38e7b8",
+      "main_drift": "IRRELEVANT_DRIFT_QRCEL_ONLY",
+      "main_head": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+      "seed0076_pointer_git_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d"
+    },
+    "SCIENTIFIC_AUTHORITY": {
+      "economic_pnl_read": false,
+      "ga1_completed": 10,
+      "ga1_total": 60,
+      "ga2_open": false,
+      "holdout_open": false,
+      "scientific_state": "PREREGISTERED_NO_RESULTS",
+      "shard11_open": false,
+      "source": "main V259"
+    }
+  },
+  "blast_radii": {
+    "DECISION_BLAST_RADIUS": "NONE for Seed0076 scientific decisions. Production adoption remains prohibited.",
+    "SCIENTIFIC_BLAST_RADIUS": "NONE. No shards recomputed, no thesis/gates/data periods changed, no economic reads.",
+    "TECHNICAL_BLAST_RADIUS": "Research prototype code/publication semantics only; legacy unsafe typed-action publisher invalidated."
+  },
+  "date": "2026-09-21",
+  "drift": {
+    "main_change_scope": "QRCEL engineering only",
+    "main_vs_seed0076": "IRRELEVANT_DRIFT",
+    "research_branch": "COMPATIBLE_TECHNICAL_PROGRESS",
+    "seed0076_pointer": "NO_DRIFT"
+  },
+  "event_ledger": {
+    "file_sha256": "670478d4a584eaa90077fc8eb4249497f2e29fb7d7b3041630a78f6d8658f6b4",
+    "head_sha256": "73c1bd561f17583c101b4e93377a618d971934fe654616f9ebbfcbb964b7a2e0",
+    "path": "research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_EVIDENCE_NATIVE_EVENT_LEDGER_v1.jsonl",
+    "records": 10
+  },
+  "evidence_status": {
+    "INVALIDATED": ["Legacy qros_typed_action os.replace publisher path only"],
+    "QUARANTINED": ["Historical regression claims requiring unavailable H1/M12/M15/M2 certified maskpack bytes"],
+    "REUSE": ["V259 stable scientific frontier","Shard10 completion receipt","Architecture audit","Fuzz receipt under proposition-equivalent action-key semantics","Generator/maskpack canary v2","Immutable publisher concurrency receipt","Crash-window recovery receipt","Typed DAG executor receipt","Publication unification receipt"],
+    "VERIFY_ONLY": []
+  },
+  "last_clean_state": "Seed0076 V259 with shard10 PASS durable, 10/60 completed, architecture research isolated, no economic exposure.",
+  "last_completed_action": "Centralize qros_typed_action publication on immutable no-clobber CAS.",
+  "last_persisted_action": {"commit":"c36ae04202282469a1cf636697a0e8aa671ab3f2","receipt_blob_sha1":"790a5504bc7bf78a84d27828e8fe77bb7dba080d"},
+  "last_validated_action": "Publication unification PASS; DAG-used action-key functions unchanged by proposition-equivalence test.",
+  "minimum_scientifically_valid_delta": ["Persist recovery root and append-only ledger","Implement verifier that validates root self-hash, event-ledger chain, referenced Git-blob identities and receipt self-hashes where present","Red-team verifier against stale pointer/reference tampering and missing artifact"],
+  "next_action": "Persist this recovery root and ledger, then implement and adversarially validate a local recovery-root verifier. Do not authorize shard11.",
+  "objective": "Continue Seed0076 architecture validation without recomputing shards1-10 or opening economic information, while deriving state from authenticated evidence instead of conversational chronology.",
+  "provenance_status": {
+    "environment": {"byteorder":"little","implementation":"CPython","numba":"0.65.1","numpy":"2.3.5","platform":"Linux-6.18.44-x86_64-with-glibc2.41","python":"3.13.5"},
+    "historical_heavy_maskpack_bytes": "NO_DISPONIBLE",
+    "provenance_gap": "Exact historical byte-regression cannot be performed without certified heavy artifacts or later parity-only recomputation authority.",
+    "research_code_recoverable": true
+  },
+  "recovery_root_sha256": "fb82a4a4ce1f0e359f2e30efa8aaf7a1061bac42c0aed20c8c110b2e865505d6",
+  "reusable_evidence_set": [
+    {"git_blob_sha1":"5a88937d571e4bcc938c9ce71570092e0abfae6d","path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json"},
+    {"git_blob_sha1":"540aa07bbeeb9c62d1288d6974ac6e61b3b83a67","path":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V259_v1.json"},
+    {"git_blob_sha1":"f445e7b496b00524fd515b620cafedd2776512bf","path":"control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD10_NQX_BUY_M2_COMPLETION_20260921_v1.json"},
+    {"git_blob_sha1":"8aaaf683c8f3e8acc555a59c187765399e5f4ee4","path":"control/QROS_GA1_FAST_V3_ADVERSARIAL_ARCHITECTURE_AUDIT_20260921_v1.json"},
+    {"git_blob_sha1":"2e4793453b6ab7ef843714d8e7a20aa5c0134866","path":"research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_TYPED_DAG_EXECUTOR_REDTEAM_RECEIPT.json"},
+    {"git_blob_sha1":"ad7a9e261a2a086323d655672c2ae1c121641f20","path":"research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_FACTOR_IR_CRASH_WINDOW_RECOVERY_RECEIPT.json"},
+    {"git_blob_sha1":"790a5504bc7bf78a84d27828e8fe77bb7dba080d","path":"research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_PUBLICATION_UNIFICATION_RECEIPT.json"}
+  ],
+  "schema": "QROS_GA1_EVIDENCE_NATIVE_RECOVERY_ROOT_1.0",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "status": "VERIFIED_RECOVERY_ROOT",
+  "verified_recovery_root": {
+    "last_validated_research_action": "PUBLICATION_UNIFICATION_PASS",
+    "research_anchor": {"branch":"research/ga1-compiled-dag-factor-ir-v1-20260921","branch_head":"c36ae04202282469a1cf636697a0e8aa671ab3f2"},
+    "scientific_anchor": {"pointer_git_blob_sha1":"5a88937d571e4bcc938c9ce71570092e0abfae6d","stable_frontier":"V259","target_git_blob_sha1":"540aa07bbeeb9c62d1288d6974ac6e61b3b83a67"}
+  }
+}
