@@ -1,61 +1,33 @@
 {
-  "schema": "QROS_PUBLIC1000_CURRENT_CHAT_HANDOFF_POINTER_1.0",
-  "date": "2026-09-21",
-  "status": "ACTIVE",
-  "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
-  "stable_frontier_version": "V258",
-  "stable_frontier_target": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V258_v1.json",
-  "stable_frontier_target_git_blob_sha1": "c1e5df1786060cf050c07a584b913bf7fe4a37af",
-  "current_blocker": null,
-  "next_automatic_action": "Execute exactly Seed0076 GA1 shard10 NQX/BUY/M2 under FAST V2 checkpointed technical process isolation. Reuse valid frozen DEV and causal caches; build only M2-specific missing caches; complete global primary plus independent reduction before authorizing shard11. Keep economic PnL, GA2, holdout and new seeds closed.",
-  "anti_freeze_v2": {
-    "status": "ACTIVE_MANDATORY",
-    "governance_path": "governance/QROS_ANTI_FREEZE_RUNTIME_ENFORCEMENT_v2.0.json",
-    "governance_git_blob_sha1": "badfbf162f3bc3ccf499bb903d54b72a4865df6c",
-    "turn_contract": ["AUTHORITY_BUNDLE","ONE_ACTION","PERSIST_AND_EXIT"],
-    "timeout_rule": "PERSIST_ONLY_THEN_EXIT"
+  "schema":"QROS_PUBLIC1000_CURRENT_CHAT_HANDOFF_POINTER_1.1",
+  "date":"2026-09-21",
+  "status":"ACTIVE",
+  "stable_frontier_version":"V259",
+  "stable_frontier_target":"control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V259_v1.json",
+  "stable_frontier_target_git_blob_sha1":"540aa07bbeeb9c62d1288d6974ac6e61b3b83a67",
+  "current_blocker":null,
+  "next_automatic_action":"Build and adversarially validate QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1 only on an isolated research branch. Require exact M12/M15/M2 regression plus independent generator canaries, provenance tamper rejection, future-perturbation causal tests and crash/restart recovery before any production adoption. Keep shard11, bulk GA1, economic PnL, GA2, holdout and new seeds closed.",
+  "architecture_audit":{
+    "path":"control/QROS_GA1_FAST_V3_ADVERSARIAL_ARCHITECTURE_AUDIT_20260921_v1.json",
+    "git_blob_sha1":"8aaaf683c8f3e8acc555a59c187765399e5f4ee4",
+    "decision":"ORIGINAL_PROPOSAL_REJECTED_AS_STATED",
+    "replacement_candidate":"QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1",
+    "replacement_status":"CANDIDATE_NOT_IMPLEMENTED"
   },
-  "live_no_stall_contract": {
-    "version": "2.2_FAST_RESEARCH_V2",
-    "current_objective": "Execute NQX/BUY/M2 shard10 with the M12/M15-validated FAST V2 architecture.",
-    "current_route": "fast/seed0076-research-v1-20260920",
-    "current_route_commit": "5b878a807992f469082e1c57536c84ca0d0f9b7c",
-    "current_run_id": "SEED0076_NQX_BUY_M2_SHARD10_FAST_V2",
-    "last_clean_point": "SHARD09_NQX_BUY_M15_GLOBAL_PRIMARY_EQUALS_INDEPENDENT_ORACLE_PASS",
-    "shard09_completion_receipt": "control/QROS_FAST_V2_M15_STRUCTURAL_PASS_20260921_v1.json",
-    "shard09_completion_receipt_git_blob_sha1": "acb8ecc12bfefd3c3a04a1bdb9342cca960673d7",
-    "shard10_authorization": "control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD10_AUTHORIZATION_20260921_v1.json",
-    "shard10_authorization_git_blob_sha1": "15f2d94cd41ad56a7b97c042fa1ddc8c8b7d5b94",
-    "shard10": {
-      "asset": "NQX",
-      "side": "BUY",
-      "timeframe": "M2",
-      "shard_id": "4f405970730cf6916e6de08efc7c3bd62aa2912023c21f2df6ce2938f6ee7bf3",
-      "expected_signal_configs": 804672,
-      "expected_config_root_sha256": "752e5b82983e673a9c7fab28e11c750f8f5b66808674f5ee6769dd4d9cb560a9"
-    },
-    "execution_rule": "One scientific shard. Technical process isolation and idempotent fragment checkpoints are permitted only for memory/runtime management; partial fragments are never scientific results.",
-    "failure_rule": "On timeout preserve completed fragment receipts, quarantine incomplete partials, reduce granularity and continue without recomputing closed work.",
-    "scientific_result": "SHARD09_M15_PASS_SHARD10_AUTHORIZED",
-    "economic_pnl_read": false,
-    "ga2_open": false,
-    "holdout_open": false,
-    "new_seed_open": false,
-    "fast_v2_validation_receipt": "control/QROS_FAST_M12_V2_GOLDEN_PASS_RECEIPT_20260921_v1.json",
-    "fast_v2_prototypes": {
-      "group_worker": "research/fast/seed0076/prototypes/qros_fast_v2_group_worker_validated_20260921.py",
-      "group_worker_blob_sha1": "3d624638e78d558e1fe88d6000caeee5338d45fb",
-      "common": "research/fast/seed0076/prototypes/qros_fast_v2_common_validated_20260921.py",
-      "common_blob_sha1": "cbd0f66c71e78078a7ba44f070597a4f3e6eb354",
-      "reducer": "research/fast/seed0076/prototypes/qros_fast_v2_reduce_validated_20260921.py",
-      "reducer_blob_sha1": "56ff414c732398080a0ea41846605b9bee907292"
-    }
+  "scientific_checkpoint":{
+    "completed_shards":10,
+    "remaining_shards":50,
+    "last_closed_shard":"NQX/BUY/M2",
+    "last_completion_receipt":"control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD10_NQX_BUY_M2_COMPLETION_20260921_v1.json",
+    "last_completion_receipt_git_blob_sha1":"f445e7b496b00524fd515b620cafedd2776512bf",
+    "shard11_open":false,
+    "economic_pnl_read":false,
+    "ga2_open":false,
+    "holdout_open":false,
+    "new_seed_open":false
   },
-  "qros_fast_storage": {
-    "status": "ACTIVE",
-    "pointer_path": "control/QROS_FAST_RESEARCH_DRIVE_STORAGE_POINTER_20260920_v1.json",
-    "drive_root_id": "1ps-_I4FXli3GlEqRfyX0vpBHYqSlRg9X",
-    "run_folder_id": "18aLTm7EtI67v81Dia1Qsf8N-pKLeSIkE",
-    "library_primary": false
+  "anti_stall":{
+    "status":"ACTIVE_MANDATORY",
+    "rule":"Do not recompute shards1-10; prototype work is isolated; a failed architecture test changes method instead of retrying identical execution."
   }
 }
