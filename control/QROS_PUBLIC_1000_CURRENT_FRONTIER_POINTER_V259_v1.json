@@ -1,0 +1,62 @@
+{
+  "schema":"QROS_PUBLIC1000_FRONTIER_TARGET_8.1",
+  "version":"V259",
+  "state":"DEVELOPMENT_RUNNING",
+  "scientific_state":"PREREGISTERED_NO_RESULTS",
+  "campaign":"PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "seed":"WEB_SEED_0076",
+  "phase":"GA1_ARCHITECTURE_AUDIT_HOLD_AFTER_SHARD10_PASS",
+  "supersedes_frontier_version":"V258",
+  "completed_transition":{
+    "shard_ordinal":10,
+    "asset":"NQX",
+    "side":"BUY",
+    "timeframe":"M2",
+    "completion_receipt_path":"control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD10_NQX_BUY_M2_COMPLETION_20260921_v1.json",
+    "completion_receipt_git_blob_sha1":"f445e7b496b00524fd515b620cafedd2776512bf",
+    "status":"PASS",
+    "processed_signal_configs":804672,
+    "distinct_mask_class_count":296068,
+    "semantic_class_root_sha256":"e722365a6e0bbb6a5f5baab7e905c6dd0a24ef340fb81a6b172bba1ae7af4930",
+    "full_alias_mapping_root_sha256":"3afa5f6a77cda3926e7ce16af07568dd571f2bf0d9d68cb275e8641c7bea2844",
+    "primary_equals_independent_reducer":true
+  },
+  "verified_counts":{
+    "shards_total":60,
+    "ga1_formally_completed_shards":10,
+    "ga1_remaining_shards":50
+  },
+  "architecture_audit":{
+    "path":"control/QROS_GA1_FAST_V3_ADVERSARIAL_ARCHITECTURE_AUDIT_20260921_v1.json",
+    "git_blob_sha1":"8aaaf683c8f3e8acc555a59c187765399e5f4ee4",
+    "original_fast_v3_proposal":"REJECTED_AS_STATED",
+    "replacement_candidate":"QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1",
+    "replacement_status":"CANDIDATE_NOT_IMPLEMENTED",
+    "production_change_authorized":false
+  },
+  "sequencing_policy":{
+    "path":"governance/QROS_PUBLIC1000_SEED0076_GA1_COMPLETE_BEFORE_ECONOMIC_GATE_POLICY_v1.0.json",
+    "git_blob_sha1":"9d4b1b038c75653f72f84024d5b7a6581123a61b",
+    "status":"UNCHANGED_ACTIVE",
+    "note":"No bulk remaining-shard execution is authorized by this checkpoint."
+  },
+  "new_ga1_authorized":false,
+  "authorization_scope":"NONE_ARCHITECTURE_AUDIT_HOLD",
+  "shard11_open":false,
+  "first_gate_execution_authorized":false,
+  "economic_pnl_read":false,
+  "holdout_open":false,
+  "ga2_open":false,
+  "new_seed_open":false,
+  "current_blocker":null,
+  "gates":{
+    "M12_FAST_GOLDEN":"PASS_CLOSED",
+    "SHARD09_NQX_BUY_M15":"PASS_CLOSED",
+    "SHARD10_NQX_BUY_M2":"PASS_CLOSED",
+    "FAST_V3_ORIGINAL_PROPOSAL":"REJECTED_AS_STATED",
+    "COMPILED_TYPED_DAG_FACTOR_IR":"RESEARCH_CANDIDATE",
+    "SHARD11":"CLOSED_PENDING_ARCHITECTURE_DECISION"
+  },
+  "next_action":"On an isolated research branch, build only the minimal QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1 prototype with content-addressed action keys and durable code/environment identity. Validate exact regressions against M12, M15 and M2 plus independent generator canaries, provenance-tamper tests, future-perturbation temporal tests and crash/restart tests. Do not run remaining shards in bulk and do not open shard11 until a later durable checkpoint explicitly authorizes the chosen execution architecture.",
+  "resume_contract":"Do not recompute shards1-10. Do not treat the rejected global family-mask-sharing proposal as authorized. Do not authorize shard11, bulk GA1, economic PnL, GA2, holdout or new seeds from this frontier. The architecture audit is a research hold, not a scientific rejection of Seed0076."
+}
