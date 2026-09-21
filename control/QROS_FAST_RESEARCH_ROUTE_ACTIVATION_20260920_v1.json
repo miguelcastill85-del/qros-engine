@@ -1,0 +1,34 @@
+{
+  "schema": "QROS_FAST_RESEARCH_ROUTE_ACTIVATION_1.0",
+  "date": "2026-09-20",
+  "status": "ACTIVE_CANDIDATE_ROUTE",
+  "branch": "fast/seed0076-research-v1-20260920",
+  "commit": "74fbfa39de9bd4e6da5d6158d326c9224078469a",
+  "run_id": "SEED0076_M12_GOLDEN_FAST_V1",
+  "drive_run_folder_id": "18aLTm7EtI67v81Dia1Qsf8N-pKLeSIkE",
+  "design": {
+    "scientific_domains_per_worker_invocation": 1,
+    "exposed_execution_groups": 0,
+    "group_merge_required": false,
+    "merge_oracle_required_in_fast_research": false,
+    "cws_required": false,
+    "github_required_during_compute": false,
+    "resume_file": "resume.json",
+    "summary_file": "summary.json"
+  },
+  "promotion_gate": {
+    "exact_m12_golden_parity_required": true,
+    "expected_configs": 804672,
+    "expected_distinct_mask_classes": 248010,
+    "expected_duplicate_aliases": 556662,
+    "expected_zero_event_aliases": 69351,
+    "expected_semantic_root": "44cf066910a98f8d2a0988efe9f0bec14834683934369fa9972bb59e870161b0",
+    "expected_alias_root": "c5bec36e0b78c896f81578de5a69b42fd6f673a54630efbb8311f33e7e09c0a7"
+  },
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "m15_open": false
+  }
+}

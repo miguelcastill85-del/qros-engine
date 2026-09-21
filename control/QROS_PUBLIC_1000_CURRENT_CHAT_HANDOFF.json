@@ -4,8 +4,8 @@
   "status": "ACTIVE",
   "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
   "stable_frontier_version": "V257",
-  "current_blocker": "M12_B1_CODE_NOT_LOCAL_AND_CONTAINER_GITHUB_DNS_UNAVAILABLE",
-  "next_automatic_action": "Use Drive-backed QROS FAST storage for future heavy research artifacts. Do not upload new large QROS run outputs to ChatGPT Library. Preserve existing carrier store and resume FAST research simplification from the current M12 benchmark/engine redesign checkpoint.",
+  "current_blocker": "QROS_FAST_M12_GOLDEN_WAITING_FOR_RESPONSIVE_LOCAL_COMPUTE",
+  "next_automatic_action": "Recover fast/seed0076-research-v1-20260920 @ 74fbfa39de9bd4e6da5d6158d326c9224078469a and execute SEED0076_M12_GOLDEN_FAST_V1 as one full-domain invocation using local/materialized Drive data. No 24-group topology, no merge/oracle, no CWS, no GitHub dependency during compute. Promote FAST research route only after exact M12 golden parity.",
   "handoff_git_blob_sha1": "87f1475e42754489082eef551780b1191d1aa908",
   "anti_freeze_v2": {
     "status": "ACTIVE_MANDATORY",
@@ -27,40 +27,28 @@
     "continuation_owner": "CWS_GLOBAL_GOVERNOR_PLUS_DEK_V3_PLUS_FENCED_HEAVY_SUPERVISOR"
   },
   "live_no_stall_contract": {
-    "version": "1.0",
-    "purpose": "Keep one current objective in working memory and prevent route drift.",
-    "current_objective": "Measure M12 current GA1 baseline before any FAST_CORE implementation.",
-    "current_route": "perf/seed0076-m12-profiler-v1-20260920",
-    "current_route_commit": "33f7800b13e32128b223b01dca0b33321074e445",
+    "version": "2.0_FAST_RESEARCH",
+    "current_objective": "Prove QROS FAST single-domain execution on NQX/BUY/M12 with exact golden parity.",
+    "current_route": "fast/seed0076-research-v1-20260920",
+    "current_route_commit": "74fbfa39de9bd4e6da5d6158d326c9224078469a",
+    "current_run_id": "SEED0076_M12_GOLDEN_FAST_V1",
+    "drive_run_folder_id": "18aLTm7EtI67v81Dia1Qsf8N-pKLeSIkE",
     "forbidden_parallel_routes": [
+      "24-group M12 benchmark topology",
       "production extended worker",
+      "CWS/lease work",
       "new governance layer",
-      "new seed",
-      "M15 execution before benchmark evidence",
-      "runtime retry chains",
-      "tool-discovery loops"
+      "M15 before M12 FAST parity",
+      "new seed"
     ],
-    "decision_loop": [
-      "1_RECOVER_CURRENT_OBJECTIVE",
-      "2_ATTEMPT_ONE_PRODUCTIVE_ACTION",
-      "3_IF_VERIFIABLE_DELTA_CONTINUE_FROM_DELTA",
-      "4_IF_NO_DELTA_OR_INFRA_FAILURE_RECORD_BLOCKER_ONCE",
-      "5_PIVOT_ONLY_TO_AN_INDEPENDENT_ACTION_THAT_ADVANCES_THE_SAME_OBJECTIVE",
-      "6_IF_NO_SUCH_ACTION_EXISTS_PERSIST_AND_EXIT"
-    ],
-    "stale_handoff_rule": "If any older handoff conflicts with a newer durable audit/decision on main, newer durable authority wins and the stale next_action must be rewritten before work continues.",
-    "user_visible_progress_rule": "Each update must state current objective, completed delta, and exact next action; never narrate repeated attempts.",
-    "last_action": {
-      "objective": "Measure M12 current GA1 baseline before any FAST_CORE implementation.",
-      "action": "Single encapsulated B1 attempt",
-      "result": "BLOCKED_BY_INFRASTRUCTURE_NO_GITHUB_DNS",
-      "retry_same_path": false
-    }
+    "execution_rule": "One full scientific domain per invocation. Persist only resume.json, summary.json and final artifacts. Heavy outputs go to Drive.",
+    "failure_rule": "One attempt only per runtime path. If infrastructure fails, persist once and do not retry in-loop."
   },
   "qros_fast_storage": {
     "status": "ACTIVE",
     "pointer_path": "control/QROS_FAST_RESEARCH_DRIVE_STORAGE_POINTER_20260920_v1.json",
     "drive_root_id": "1ps-_I4FXli3GlEqRfyX0vpBHYqSlRg9X",
-    "policy": "DRIVE_PRIMARY_GITHUB_LIGHTWEIGHT_AUTHORITY_LIBRARY_NOT_PRIMARY"
+    "run_folder_id": "18aLTm7EtI67v81Dia1Qsf8N-pKLeSIkE",
+    "library_primary": false
   }
 }
