@@ -1,0 +1,47 @@
+{
+  "architectural_invariants": [
+    "Node CAS object combines action payload, provenance and output bytes atomically; no split receipt/artifact state.",
+    "Dependency output hashes participate in descendant action keys.",
+    "Manifest validation rejects missing dependencies and cycles before execution.",
+    "Run receipt is published only after all nodes validate.",
+    "Crash recovery derives state from immutable node CAS objects rather than mutable progress counters."
+  ],
+  "authority": {
+    "main_drift": "QRCEL_ONLY_ORTHOGONAL_CONFIRMED",
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "stable_frontier": "V259"
+  },
+  "code": {
+    "dag_test_output_sha256": "ea33c4d9d94766d14e7f849bea43ba30341dc5310c523d6d2a52944306ac5c6e",
+    "dag_test_sha256": "1a545cb047aed88077b83ddffd9c61f0e2a07cc4d2dc73f0f91708ded115ac33",
+    "qros_typed_dag_sha256": "aefda43f8ce256a8e4d030ac595d6043dcab5249b706ef05399adb8abe6580e8"
+  },
+  "date": "2026-09-21",
+  "next_action": "Remove duplicated unsafe publication code from qros_typed_action by centralizing immutable CAS publication, then rerun publisher/store/DAG regressions. Historical byte-regression blocker remains isolated.",
+  "receipt_sha256": "7e4555cb6555037faaa1f10a5dbc43bd50d53209d3fe6e066dfee0f3f923ccc0",
+  "results": {
+    "cold_execution_nodes": 4,
+    "crash_resume_executed_nodes": 2,
+    "crash_resume_reused_nodes": 2,
+    "cycle_rejected": true,
+    "duplicate_workers_pass": true,
+    "missing_dependency_rejected": true,
+    "stale_parent_invalidated_descendants": [
+      "a",
+      "c",
+      "d"
+    ],
+    "truncated_node_rejected": true,
+    "unaffected_sibling_reused": "b",
+    "warm_reuse_nodes": 4
+  },
+  "schema": "QROS_GA1_TYPED_DAG_EXECUTOR_REDTEAM_RECEIPT_1.0",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "shard11_open": false,
+    "shards1_10_recomputed": false
+  },
+  "status": "PASS_SYNTHETIC"
+}
