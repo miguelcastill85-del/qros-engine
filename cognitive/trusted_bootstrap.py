@@ -6,6 +6,8 @@ are compiled exclusively from captured, manifest-verified source bytes. This is
 not a sandbox against a hostile interpreter, OS administrator or same-UID writer.
 """
 import argparse
+from contextlib import contextmanager
+import fcntl
 import hashlib
 import importlib.abc
 import importlib.util
@@ -13,6 +15,7 @@ import json
 import os
 from pathlib import Path
 import resource
+import re
 import signal
 import stat
 import subprocess
@@ -96,6 +99,63 @@ class VerifiedImporter(importlib.abc.MetaPathFinder,importlib.abc.Loader):
         if package:module.__path__=[]
         exec(compile(data,module.__file__,'exec'),module.__dict__)
 
+def entry_arguments(arguments, entry):
+    # argparse in historical entrypoints accepts abbreviations. Reject reserved
+    # identity prefixes here so the lock key and the eventual write target agree.
+    for arg in arguments:
+        key=arg.split('=')[0]
+        if key.startswith('--'):
+            require(not any(option.startswith(key) for option in
+                            ('--repo-root','--release-blob','--manifest-blob')),
+                    'ENTRY_IDENTITY_OVERRIDE')
+            if entry=='kernel':
+                require(not ('--run-id'.startswith(key) and key!='--run-id'),
+                        'KERNEL_RUN_ID_ABBREVIATION')
+    if entry!='kernel':return None
+    parser=argparse.ArgumentParser(add_help=False,allow_abbrev=False)
+    parser.add_argument('--run-id',required=True)
+    parsed,_=parser.parse_known_args(arguments)
+    require(re.fullmatch(r'[A-Za-z0-9_-]{1,80}',parsed.run_id) is not None,'KERNEL_RUN_ID')
+    return parsed.run_id
+
+@contextmanager
+def kernel_admission(root, run_id, wait_seconds):
+    """Local cooperative admission for this launcher, not distributed fencing.
+
+    Keep the lock inode permanently: unlinking it could split concurrent owners.
+    The OS releases flock when the worker closes or dies. No task is retried here.
+    """
+    require(isinstance(run_id,str) and re.fullmatch(r'[A-Za-z0-9_-]{1,80}',run_id)
+            is not None,'KERNEL_RUN_ID')
+    require(type(wait_seconds) in (int,float) and 0<=wait_seconds<=15,'ADMISSION_BUDGET')
+    handles=[]
+    try:
+        directory_flags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC
+        fd=os.open(root,directory_flags);handles.append(fd)
+        fd=os.open('cognitive',directory_flags,dir_fd=fd);handles.append(fd)
+        try:os.mkdir('admission',mode=0o700,dir_fd=fd)
+        except FileExistsError:pass
+        fd=os.open('admission',directory_flags,dir_fd=fd);handles.append(fd)
+        info=os.fstat(fd)
+        require(info.st_uid==os.geteuid() and info.st_mode&0o077==0,'ADMISSION_DIRECTORY_UNSAFE')
+        lock=os.open(run_id+'.lock',os.O_RDWR|os.O_CREAT|os.O_NOFOLLOW|os.O_NONBLOCK|os.O_CLOEXEC,
+                     0o600,dir_fd=fd);handles.append(lock)
+        info=os.fstat(lock)
+        require(stat.S_ISREG(info.st_mode) and info.st_uid==os.geteuid() and
+                info.st_nlink==1 and info.st_mode&0o077==0,'ADMISSION_LOCK_UNSAFE')
+        deadline=time.monotonic()+wait_seconds
+        while True:
+            try:
+                fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
+                break
+            except BlockingIOError:
+                remaining=deadline-time.monotonic()
+                require(remaining>0,'KERNEL_ADMISSION_TIMEOUT')
+                time.sleep(min(0.025,remaining))
+        yield
+    finally:
+        for fd in reversed(handles):os.close(fd)
+
 def worker(args):
     resource.setrlimit(resource.RLIMIT_CPU,(args.cpu,args.cpu))
     resource.setrlimit(resource.RLIMIT_AS,(args.memory_mib*1024*1024,)*2)
@@ -107,20 +167,24 @@ def worker(args):
     module=__import__('cognitive.'+args.entry,fromlist=['main'])
     if args.entry=='verify_release':argv=['--repo-root',args.repo_root,'--manifest-blob',args.release_blob]
     else:argv=['--repo-root',args.repo_root,'--release-blob',args.release_blob]
-    require(not any(x.split('=')[0] in ('--repo-root','--release-blob','--manifest-blob') for x in args.arguments),'ENTRY_IDENTITY_OVERRIDE')
+    run_id=entry_arguments(args.arguments,args.entry)
     sys.argv=[module.__file__,*argv,*args.arguments]
+    if args.entry=='kernel':
+        with kernel_admission(args.repo_root,run_id,args.admission_wait):return module.main()
     return module.main()
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__)
+    p=argparse.ArgumentParser(description=__doc__,allow_abbrev=False)
     p.add_argument('--repo-root',required=True);p.add_argument('--release-blob',required=True)
     p.add_argument('--entry',choices=['session','kernel','verify_release'],default='session')
     p.add_argument('--wall',type=int,default=30);p.add_argument('--cpu',type=int,default=20)
     p.add_argument('--memory-mib',type=int,default=512);p.add_argument('--worker',action='store_true',help=argparse.SUPPRESS)
+    p.add_argument('--admission-wait',type=float,default=10.0)
     p.add_argument('arguments',nargs=argparse.REMAINDER)
     args=p.parse_args();args.arguments=args.arguments[1:] if args.arguments[:1]==['--'] else args.arguments
     require(sys.flags.isolated and sys.flags.no_site and sys.dont_write_bytecode,'REQUIRE_ISOLATED_NO_SITE_NO_BYTECODE_FLAGS')
     require(1<=args.wall<=300 and 1<=args.cpu<=300 and 64<=args.memory_mib<=2048,'RESOURCE_BUDGET')
+    require(0<=args.admission_wait<=15,'ADMISSION_BUDGET')
     if args.worker:return worker(args)
     started=time.monotonic()
     command=[sys.executable,'-I','-S','-B',str(Path(__file__).resolve()),'--worker',*sys.argv[1:]]
@@ -144,6 +208,7 @@ def main():
                 print(json.dumps({'status':'FAIL_CLOSED','child_exit':code,'wall_seconds':time.monotonic()-started,
                     'error':'WALL_BUDGET_EXCEEDED' if code==124 else 'BOUNDED_WORKER_FAILED','detail':errors.decode(errors='replace'),
                     'child_error':child_error,
+                    'retryable_local_admission':child_error=='KERNEL_ADMISSION_TIMEOUT',
                     'background_running':False,'scientific_dispatch_authorized':False}))
             return code if 0<=code<=255 else 2
         finally:

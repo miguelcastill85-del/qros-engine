@@ -1,0 +1,31 @@
+test_abbreviated_identity_cannot_override_root (cognitive.tests.test_admission.AdmissionTests.test_abbreviated_identity_cannot_override_root) ... ok
+test_abbreviated_run_cannot_change_lock_key (cognitive.tests.test_admission.AdmissionTests.test_abbreviated_run_cannot_change_lock_key) ... ok
+test_argument_key_matches_last_exact_occurrence (cognitive.tests.test_admission.AdmissionTests.test_argument_key_matches_last_exact_occurrence) ... ok
+test_deadline_has_no_kernel_side_effect (cognitive.tests.test_admission.AdmissionTests.test_deadline_has_no_kernel_side_effect) ... ok
+test_four_writers_never_overlap (cognitive.tests.test_admission.AdmissionTests.test_four_writers_never_overlap) ... ok
+test_independent_runs_do_not_share_lock (cognitive.tests.test_admission.AdmissionTests.test_independent_runs_do_not_share_lock) ... ok
+test_invalid_key_or_budget_has_no_lock_side_effect (cognitive.tests.test_admission.AdmissionTests.test_invalid_key_or_budget_has_no_lock_side_effect) ... ok
+test_owner_cancellation_releases_lock_and_reaps_child (cognitive.tests.test_admission.AdmissionTests.test_owner_cancellation_releases_lock_and_reaps_child) ... ok
+test_sigkill_worker_releases_lock (cognitive.tests.test_admission.AdmissionTests.test_sigkill_worker_releases_lock) ... ok
+test_stable_inode_survives_release (cognitive.tests.test_admission.AdmissionTests.test_stable_inode_survives_release) ... ok
+test_unsafe_directory_rejected (cognitive.tests.test_admission.AdmissionTests.test_unsafe_directory_rejected) ... ok
+test_unsafe_lock_links_and_modes_rejected (cognitive.tests.test_admission.AdmissionTests.test_unsafe_lock_links_and_modes_rejected) ... ok
+test_waiter_cancellation_does_not_unlock_owner (cognitive.tests.test_admission.AdmissionTests.test_waiter_cancellation_does_not_unlock_owner) ... ok
+test_zero_wait_is_nonblocking_when_occupied (cognitive.tests.test_admission.AdmissionTests.test_zero_wait_is_nonblocking_when_occupied) ... ok
+test_cancellation_reaps_worker (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_cancellation_reaps_worker) ... ok
+test_identity_override_is_rejected (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_identity_override_is_rejected) ... ok
+test_loader_ignores_source_swap_after_capture (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_loader_ignores_source_swap_after_capture) ... ok
+test_loader_rejects_unverified_module (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_loader_rejects_unverified_module) ... ok
+test_memory_allocation_is_bounded (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_memory_allocation_is_bounded) ... ok
+test_namespace_exists_only_for_verified_descendants (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_namespace_exists_only_for_verified_descendants) ... ok
+test_real_entry_rejects_added_matching_bytecode (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_real_entry_rejects_added_matching_bytecode) ... ok
+test_real_isolated_entry_uses_pinned_source (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_real_isolated_entry_uses_pinned_source) ... ok
+test_wall_deadline_terminates_worker (cognitive.tests.test_bootstrap_hardening.BootstrapTests.test_wall_deadline_terminates_worker) ... ok
+test_kernel_can_write_two_mib (cognitive.tests.test_storage_budget.StorageBudgetTests.test_kernel_can_write_two_mib) ... ok
+test_kernel_output_acceptance_stays_one_mib (cognitive.tests.test_storage_budget.StorageBudgetTests.test_kernel_output_acceptance_stays_one_mib) ... ok
+test_session_stays_bounded_to_one_mib (cognitive.tests.test_storage_budget.StorageBudgetTests.test_session_stays_bounded_to_one_mib) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 4.366s
+
+OK
