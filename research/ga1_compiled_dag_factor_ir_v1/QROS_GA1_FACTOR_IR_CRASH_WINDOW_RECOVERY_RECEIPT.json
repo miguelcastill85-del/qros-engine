@@ -1,0 +1,39 @@
+{
+  "authority": {
+    "main_drift": "QRCEL_ONLY_ORTHOGONAL_CONFIRMED",
+    "research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "stable_frontier": "V259"
+  },
+  "code": {
+    "crash_window_test_sha256": "917eced038013ed6979263bfcc57aeb5eaafb9157a5c8236a4495172ff6b3b1f",
+    "qros_factor_ir_store_sha256": "0a19a11d2d58e83f0b439156a7061759690669c02e518feb3119c7e7a30375f7"
+  },
+  "date": "2026-09-21",
+  "next_action": "Build the minimal typed DAG node executor using action-keyed immutable artifacts and explicit dependency closure; red-team cycles, missing dependencies, stale cache reuse, duplicate workers, partial manifests, and topological recovery. Historical byte-regression blocker remains isolated.",
+  "receipt_sha256": "dfb7fa6b842fe6624e60d2c71dcbbb62a8dfdecd65e31a9efbab2c808c713c27",
+  "recovery_invariant": {
+    "conflicting_staging": "preserve as forensic evidence",
+    "old_identical_staging": "explicit age-gated GC only",
+    "recent_staging": "preserve to avoid racing active writers",
+    "same_inode_staging": "safe immediate cleanup after final is observed"
+  },
+  "results": {
+    "conflicting_orphan_preserved": true,
+    "hard_crash_after_link_final_valid": true,
+    "hard_crash_before_link_no_final": true,
+    "old_identical_orphan_gc": true,
+    "recent_orphan_preserved": true,
+    "retry_after_prelink_crash_published": true,
+    "retry_idempotent": true,
+    "same_inode_orphan_cleaned": true
+  },
+  "schema": "QROS_GA1_FACTOR_IR_CRASH_WINDOW_RECOVERY_RECEIPT_1.0",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "shard11_open": false,
+    "shards1_10_recomputed": false
+  },
+  "status": "PASS"
+}
