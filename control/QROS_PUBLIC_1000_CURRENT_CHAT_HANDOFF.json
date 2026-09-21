@@ -5,7 +5,7 @@
   "handoff_path": "control/QROS_PUBLIC_1000_CHAT_MIGRATION_HANDOFF_20260920_GA1_SHARD09_CAPSULE_v1.json",
   "stable_frontier_version": "V257",
   "current_blocker": "M12_B1_COMPUTE_RUNTIME_TRANSPORT_TIMEOUT",
-  "next_automatic_action": "Do not repeat this runtime path in-loop. On the next invocation, recover the M12 benchmark branch and execute B1 only if a responsive compute runtime is already available; otherwise leave the benchmark blocked and continue only with independent analysis that advances the same performance objective without claiming timing results.",
+  "next_automatic_action": "Recover perf/seed0076-m12-profiler-v1-20260920 @ b0114d9cb210ff38d8d87ba9337ea8890165da0d. If a responsive compute runtime is available, execute preregistered B1 M12 timing. If not, continue only with independent static analysis of the same benchmark objective; do not modify M15, build new infrastructure, or claim timing results.",
   "handoff_git_blob_sha1": "87f1475e42754489082eef551780b1191d1aa908",
   "anti_freeze_v2": {
     "status": "ACTIVE_MANDATORY",
@@ -31,7 +31,7 @@
     "purpose": "Keep one current objective in working memory and prevent route drift.",
     "current_objective": "Measure M12 current GA1 baseline before any FAST_CORE implementation.",
     "current_route": "perf/seed0076-m12-profiler-v1-20260920",
-    "current_route_commit": "f21969f8f2f3bdeda528ad5b1e96b06182355a52",
+    "current_route_commit": "b0114d9cb210ff38d8d87ba9337ea8890165da0d",
     "forbidden_parallel_routes": [
       "production extended worker",
       "new governance layer",
@@ -52,9 +52,10 @@
     "user_visible_progress_rule": "Each update must state current objective, completed delta, and exact next action; never narrate repeated attempts.",
     "last_action": {
       "objective": "Measure M12 current GA1 baseline before any FAST_CORE implementation.",
-      "action": "M12 B1 runtime attempt",
-      "result": "BLOCKED_BY_INFRASTRUCTURE_TRANSPORT_TIMEOUT",
-      "retry_same_runtime": false
+      "action": "Static hot-path amplification model",
+      "result": "PASS_STATIC_NO_TIMING_CLAIMS",
+      "branch": "perf/seed0076-m12-profiler-v1-20260920",
+      "commit": "b0114d9cb210ff38d8d87ba9337ea8890165da0d"
     }
   }
 }

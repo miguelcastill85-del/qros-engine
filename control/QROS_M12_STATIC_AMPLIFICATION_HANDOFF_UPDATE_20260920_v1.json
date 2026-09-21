@@ -1,0 +1,27 @@
+{
+  "schema": "QROS_M12_STATIC_AMPLIFICATION_HANDOFF_UPDATE_1.0",
+  "date": "2026-09-20",
+  "status": "PASS",
+  "branch": "perf/seed0076-m12-profiler-v1-20260920",
+  "commit": "b0114d9cb210ff38d8d87ba9337ea8890165da0d",
+  "key_static_findings": {
+    "repeated_config_root_hash_calls": 19312128,
+    "eliminable_config_hash_calls_if_root_bound_once": 18507456,
+    "theoretical_config_hash_call_reduction_pct": 92,
+    "structural_state_builds_current": 288,
+    "structural_state_builds_if_shared_once": 12,
+    "indicator_array_extractions_current": 864,
+    "indicator_array_extractions_if_shared_once": 36,
+    "unused_zlib_compress_calls": 268224,
+    "minimum_p_tobytes_calls": 804672,
+    "merge_plus_oracle_full_artifact_sha256_passes": 144
+  },
+  "timing_claims": false,
+  "scientific_frontier_preserved": "V257",
+  "scientific_firewall": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "m15_modified": false
+  }
+}
