@@ -1,0 +1,124 @@
+{
+  "schema": "QROS_FAST_M12_EXECUTION_CHECKPOINT_1.0",
+  "date": "2026-09-20",
+  "objective": "Execute SEED0076_M12_GOLDEN_FAST_V1 as one full NQX/BUY/M12 domain and require exact golden parity before M15.",
+  "authority": {
+    "migration_main_head_verified": "0f6df5336a9542a1c76870c604f32704c4bf4c50",
+    "stable_frontier": "V257",
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "route_branch": "fast/seed0076-research-v1-20260920",
+    "route_commit_after_spec_correction": "ddacf6efdcda4dccb0d7e9ef528492dc9af9087b",
+    "run_spec_blob_sha1": "c41cbe2203cc657f806bc6959ede54a6f53c036c",
+    "wrapper_blob_sha1": "2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f",
+    "worker_blob_sha1": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041"
+  },
+  "golden": {
+    "processed_signal_configs": 804672,
+    "distinct_mask_class_count": 248010,
+    "duplicate_config_count": 556662,
+    "zero_event_class_alias_count": 69351,
+    "ordered_config_id_stream_root_sha256": "07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714",
+    "semantic_class_root_sha256": "44cf066910a98f8d2a0988efe9f0bec14834683934369fa9972bb59e870161b0",
+    "full_alias_mapping_root_sha256": "c5bec36e0b78c896f81578de5a69b42fd6f673a54630efbb8311f33e7e09c0a7"
+  },
+  "verified_data": {
+    "point": 0.1,
+    "dev_records": 59940260,
+    "dev_bytes": 1018984420,
+    "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "source_carriers": [
+      {
+        "name": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+        "bytes": 100816656,
+        "sha256": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b"
+      },
+      {
+        "name": "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+        "bytes": 113466374,
+        "sha256": "53f827fa0b611d9e2b00db78b1da29b1c41f0d2d7d7e912ddcec12de42984a24"
+      },
+      {
+        "name": "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip",
+        "bytes": 111669173,
+        "sha256": "48463c8dd2b020356fd9b21caea470cec4e9340d8a8fd0e25bea8fcb0c512c8b"
+      }
+    ]
+  },
+  "verified_preflight": {
+    "signal_config_count": 804672,
+    "ordered_config_id_stream_root_sha256": "07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714",
+    "bar_cache": {
+      "M12": {
+        "bars": 56660,
+        "file_sha256": "490adcd280b837633ead83865d1f1be21704723df0566ac94d79b8f3649c887d",
+        "content_root_sha256": "5a19012f418f86d69d8fa380db5c9b8c7e21d91c2fe6fd0b2a057ebbd8653fab"
+      },
+      "M15": {
+        "bars": 45312,
+        "file_sha256": "7004293a015d521fb2178f308a09a4723892a5d96e458b90cf33763155418f20",
+        "content_root_sha256": "535189415d8b12f3de9346e4dac50de648825ea2c61a33f775f164eb8d92f043"
+      },
+      "H1": {
+        "bars": 11341,
+        "file_sha256": "9ae2cf18bc803061d73e3b84dcbf11d72e150b956029d21a5b51311a0a9ad60b",
+        "content_root_sha256": "86fda7e2f573de702d8899ea355e7c63466afefe34df14b6636863997f3fa19b"
+      }
+    },
+    "indicator_cache": {
+      "M12": {
+        "file_sha256": "e5ecdbfb95fd9a4774423b83734047bab0568cfda1ad389a5a16955f8deae6ae",
+        "content_root_sha256": "e089eeb6cd604c4637e313ff8166915b7a6f581afefd49dc277e86b4c956cefd"
+      },
+      "M15": {
+        "file_sha256": "decc46b290146443b6c1f6a5267e613400a65402911b910dbb088d96e91f469a",
+        "content_root_sha256": "fc50fde34dc057773da439c15d1a3f24259aefd9f84932e787c19cc546e81cbe"
+      },
+      "H1": {
+        "file_sha256": "90b6c0661570114af1e7d254f90a2d5371adac29b957926ce467c4808bb46b95",
+        "content_root_sha256": "50c826a904e9f2c460e6d5ae378ea7c2810971e8af2e4bd83e943ecb8c1a00d0"
+      }
+    },
+    "tick_raw_cache_M12": {
+      "bytes": 124261014,
+      "sha256": "cce714b0d76087146238f0226bdb1a1cfb9dfed580a595b0cbbd808fe4944909",
+      "up_event_total": 3279535,
+      "down_event_total": 2933335
+    }
+  },
+  "corrections": {
+    "run_spec_receipt": "control/QROS_FAST_M12_RUN_SPEC_CORRECTION_RECEIPT_20260920_v1.json",
+    "correction": "remove only terminal literal bytes 5C 6E; semantics/golden/universe unchanged"
+  },
+  "execution": {
+    "invocation_started": true,
+    "complete": false,
+    "summary_available": false,
+    "worker_receipt_available": false,
+    "runtime_block_receipt": "control/QROS_FAST_M12_RUNTIME_BLOCK_RECEIPT_20260920_v1.json",
+    "parity_decision": "NOT_AVAILABLE",
+    "partial_sqlite_sha256": "0270801d779ab301dfe3f4173ca8ec641e07efb7958ab6be8bf824a11630b9bf",
+    "partial_journal_sha256": "7f140927143a5688e92c20b288e57d412cbaad324a44d1859f44dc2cf282e32f",
+    "partial_progress_is_scientific_result": false
+  },
+  "storage": {
+    "drive_root_id": "1ps-_I4FXli3GlEqRfyX0vpBHYqSlRg9X",
+    "drive_run_folder_id": "18aLTm7EtI67v81Dia1Qsf8N-pKLeSIkE",
+    "carrier_store_id": "1qwGkUH0QF2BasqVZm1WsdG0tbJrmMlQv",
+    "heavy_partial_uploaded_to_library": false,
+    "drive_checkpoint_write_status": "BLOCKED_BY_CONNECTOR_OAUTH_PARENT_FOLDER_LIMITATION",
+    "durable_lightweight_checkpoint": "GITHUB"
+  },
+  "gates": {
+    "M12_FAST_GOLDEN": "PENDING_NO_RESULT",
+    "FAST_PROMOTION": "CLOSED",
+    "M15": "CLOSED",
+    "economic_pnl": "CLOSED",
+    "GA2": "CLOSED",
+    "holdout": "CLOSED",
+    "new_seeds": "CLOSED"
+  },
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "next_automatic_action": "On a responsive compute runtime, rehash/reuse the verified M12 inputs and caches if present; if not present, rematerialize deterministically from the verified Drive carriers using the frozen code pins. Execute one full FAST M12 invocation only. Promote FAST and open M15 only after exact 7-field golden parity."
+}
