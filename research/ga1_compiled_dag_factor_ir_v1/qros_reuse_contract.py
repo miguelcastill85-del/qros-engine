@@ -1,6 +1,7 @@
 from __future__ import annotations
 import hashlib, json, struct
 from typing import Any
+from qros_typed_action import validate_environment_manifest
 
 NODE_MAGIC=b"QROS_TYPED_DAG_NODE_V1\n"
 NODE_LEN=struct.Struct(">Q")
@@ -120,6 +121,10 @@ def evaluate_reuse(*,node_object:bytes,proof:dict[str,Any],request:dict[str,Any]
     if proof["action_key"]!=node["header"]["action_key"]:
         return {"decision":"INVALIDATE","reasons":["PROOF_ACTION_KEY_MISMATCH"]}
     payload=node["payload"]
+    try:
+        validate_environment_manifest(payload.get("environment"))
+    except Exception as e:
+        return {"decision":"INVALIDATE","reasons":["ARTIFACT_ENVIRONMENT_INVALID:" + str(e)]}
     if not isinstance(request,dict):
         return {"decision":"QUARANTINE","reasons":["REQUEST_INVALID"]}
     expected_action=request.get("action_payload")
@@ -128,6 +133,10 @@ def evaluate_reuse(*,node_object:bytes,proof:dict[str,Any],request:dict[str,Any]
     expected_parent=request.get("parent_state")
     if not isinstance(expected_action,dict) or not isinstance(expected_context,dict) or not expected_context:
         return {"decision":"QUARANTINE","reasons":["REQUEST_PROVENANCE_INCOMPLETE"]}
+    try:
+        validate_environment_manifest(expected_action.get("environment"))
+    except Exception as e:
+        return {"decision":"QUARANTINE","reasons":["REQUEST_ENVIRONMENT_INVALID:" + str(e)]}
     if not isinstance(expected_parent,str) or not expected_parent:
         return {"decision":"QUARANTINE","reasons":["REQUEST_PARENT_STATE_REQUIRED"]}
     if proof["parent_state"]!=expected_parent:
