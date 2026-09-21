@@ -1,0 +1,1 @@
+{"blob_drift_rejected": true, "ledger_tamper_rejected": true, "missing_artifact_rejected": true, "non_json_artifact_accepted": true, "path_traversal_rejected": true, "receipt_self_hash_drift_rejected": true, "root_tamper_rejected": true, "status": "PASS", "valid_root_pass": true}
