@@ -1,0 +1,64 @@
+{
+  "schema":"QROS_PROJECT_ORCHESTRATOR_MAX_V2_CHECKPOINT_1.0",
+  "checkpoint_id":"QROS_ORCH_DATA_GATE_20260921_R1",
+  "date":"2026-09-21",
+  "GLOBAL_STATE":"V259_PRESERVED__DATA_GATE_PROVISIONAL__PARALLEL_RESEARCH_ALLOWED",
+  "AUTHORITY_VECTOR":{
+    "DATA_AUTHORITY":{"physical":"QROS_FULL_HISTORY_HEAD_v2.json","semantic":"research/data_provenance_max_v2/QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_20260921_R1.json","status":"PROVISIONAL_VERIFY_ONLY"},
+    "SCIENTIFIC_AUTHORITY":{"repo":"miguelcastill85-del/qros-engine","main":"f2a513c56e297b5ec72db07568c71c12d65a638d","frontier":"V259","state":"PREREGISTERED_NO_RESULTS"},
+    "CODE_AUTHORITY":{"data_verifier":"research/data_provenance_max_v2/qros_data_provenance_verify_v1.py","restore_code":"QROS_RESTORE_FULL_HISTORY_CARRIER_v1.py"},
+    "EXECUTION_AUTHORITY":{"economic_pnl":false,"holdout":false,"ga2":false,"new_shard11":false},
+    "OPERATIONAL_AUTHORITY":{"branch":"research/data-provenance-max-v2-20260921"}
+  },
+  "CURRENT_MILESTONE":"Resolve minimum data semantic gates required before any new economic backtest.",
+  "FRONTIERS":{
+    "CRITICAL_FRONTIER":"TIMEBASE_AND_SOURCE_PROVENANCE",
+    "INFORMATION_FRONTIER":"Recover independent raw-clock comparison/acquisition evidence only if new material evidence appears.",
+    "PARALLEL_FRONTIER":"V259 non-economic architecture hardening under existing gates.",
+    "BLOCKED_FRONTIER":["DIRECT_SOURCE_ACQUISITION_BINDING","MATERIAL_GAP_CLASSIFICATION_REQUIRING_RESOLVED_CALENDAR"],
+    "QUARANTINED_FRONTIER":["named-session semantics","UTC cross-asset alignment","DST-dependent civil-day features","NQX roll/back-adjustment assumptions"],
+    "SUPERSEDED_FRONTIER":["repeat full-carrier integrity scans solely to infer provider/timezone","identical source-search retries"]
+  },
+  "TRUE_BOTTLENECK":{
+    "id":"TIMEBASE_AND_SOURCE_PROVENANCE",
+    "type":"BOTTLENECK_FOR_NEXT_ECONOMIC_MILESTONE_NOT_GLOBAL_EXECUTION_BLOCK",
+    "evidence":[
+      "Physical custody and carrier integrity are already verified.",
+      "Recovered contracts explicitly leave broker/server timezone and DST unresolved.",
+      "No exact provider/acquisition receipt for the raw RAR identities was recovered from GitHub, Project/Library, or Dropbox.",
+      "Later Darwinex MT5 logs are downstream environment evidence and do not bind the historical RAR acquisition.",
+      "Gap/session classification cannot be made authoritative until the clock/calendar mapping is resolved."
+    ],
+    "falsification_attempts":[
+      "Searched exact raw archive identities for acquisition/export/provider receipts.",
+      "Searched for independent winter/summer timezone result artifacts.",
+      "Checked for an alternative full reread path; rejected because byte reread cannot identify source/time semantics."
+    ]
+  },
+  "ALTERNATIVE_PATHS":[
+    {"path":"Full carrier reread","decision":"REJECTED_LOW_INFORMATION_VALUE","reason":"Cannot resolve provider/timezone identity."},
+    {"path":"Assume Darwinex time policy from later logs","decision":"REJECTED_UNJUSTIFIED_INFERENCE","reason":"No exact acquisition binding."},
+    {"path":"Independent timebase comparison if a bound reference artifact emerges","decision":"AUTHORIZED_ON_NEW_EVIDENCE","reason":"Can directly discriminate clock hypotheses."},
+    {"path":"Continue V259 non-economic architecture hardening","decision":"AUTHORIZED_PARALLEL","reason":"Independent of unresolved economic time/session semantics."}
+  ],
+  "PRIORITY_DECISION":"Freeze data gate fail-closed and avoid repeated source searches; maintain parallel non-economic scientific progress.",
+  "PRIMARY_MAX_PROTOCOL":"DATA/PROVENANCE MAX v2",
+  "SUPPORTING_PROTOCOL":"PROJECT ORCHESTRATOR MAX v2 light",
+  "MINIMUM_SCIENTIFIC_PATH":[
+    "new material source/acquisition or independent clock evidence",
+    "resolve timezone/DST policy",
+    "bind calendar/session model",
+    "classify material gaps adaptively using existing carriers",
+    "recheck semantic fingerprint and reproducibility",
+    "promote data only if all critical gates PASS"
+  ],
+  "NEXT_ACTION":"Do not retry the same missing-source search. Continue the already-authorized independent V259 non-economic frontier until new material data evidence appears.",
+  "WHY_THIS_ACTION":"Additional carrier scans or source-search retries have near-zero expected evidence delta, while V259 non-economic hardening can still reduce project risk without consuming PnL/holdout.",
+  "WHAT_NOT_TO_DO_YET":["new economic PnL","holdout","SuperGate economic use","session-sensitive promotion","UTC/DST joins","silent cleaning/deduplication/imputation","production adoption"],
+  "GATES_PRESERVED":["V259","PREREGISTERED_NO_RESULTS","economic_pnl=false","holdout=false","ga2=false","new_shard11=false","raw immutable"],
+  "RESOURCE_IMPACT":{"full_history_recompute":false,"holdout_consumed":false,"economic_information_consumed":false,"new_raw_versions":0},
+  "EXPECTED_EVIDENCE_DELTA":"Data branch now proves what is physically verified, what remains semantically unresolved, and why further identical auditing cannot change the decision.",
+  "STOP_CONDITION":"Stop data auditing now unless new evidence can resolve SOURCE/TIMEBASE or a material anomaly appears.",
+  "PERSISTENCE_TARGET":"research/data-provenance-max-v2-20260921",
+  "NEXT_AUTOMATIC_ACTION":"Resume the current V259 research-only frontier from its latest durable recovery root; keep RETEST/rearm excluded and all economic gates closed."
+}
