@@ -1,0 +1,132 @@
+{
+  "authority": {
+    "first10_scope_blob_sha1": "ab31ded2702f57b54eebc052f1c8aa2737cf2479",
+    "frozen_data_binding_git_blob_sha1": "d5de576cd4c81f80931418d40f9f7877c114d03d",
+    "frozen_dev_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "main_frontier": "V259",
+    "main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "prior_remote_parts_11of11_receipt_blob_sha1": "f74afc915f7fc6bdf42ab99b063de307af958476",
+    "research_branch": "research/seed0076-first-gate10-20260922"
+  },
+  "causal_boundary": {
+    "classify_zero_and_crossed_before_fills": true,
+    "do_not_rewrite_frozen_thesis": true,
+    "do_not_turn_unavailable_event_into_economic_rejection": true,
+    "keep_raw_intact": true,
+    "no_global_invalidation_from_local_quote_error_without_mask_overlap_proof": true,
+    "preserve_mask_class_m": 303572
+  },
+  "code": {
+    "audit_file": "scripts/qros_xau_dev_packed17_data_audit_v1.py",
+    "audit_sha256": "a906e56815f638c95d2fa5c5c27707735d5a3e8550e81e8f0807d87804d38d03",
+    "numpy": "2.3.5",
+    "raw_audit_file": "control/QROS_SEED0076_XAU_DEV_RAW_DATA_AUDIT_20260922_v1.json",
+    "raw_audit_sha256": "7bea8284832c198069ae78dbb04318dbd5cd6d8089c2e04964a7f83e8acfe6e2",
+    "rehydration_file": "scripts/qros_xau_dev_first8_rehydrate_v1.py",
+    "rehydration_sha256": "699586454549752243e67e25df12032f70dc42539665e5e059a60008fbd50bca",
+    "runtime_python": "3.13.5",
+    "source_receipt_file": "control/QROS_SEED0076_XAU_DEV_FIRST8_REHYDRATION_RECEIPT_20260922_v1.json",
+    "source_receipt_sha256": "3c354a70c73b7320d53c8149f0693f5b5bb2268f9a608337721dee40772d7ace"
+  },
+  "date": "2026-09-22",
+  "next_automatic_action": "On isolated research branch, bind authenticated broker clock and classify quote anomalies by immutable tick indices. Recover XAU BUY M1 303572 exact event-mask classes and aliases with original full-mask roots; validate source/anchor/physical tick parity before first10 DEV economic scoring. No holdout.",
+  "schema": "QROS_SEED0076_XAU_DEV_FIRST8_RECOVERY_AND_RAW_AUDIT_CHECKPOINT_1.0",
+  "scientific_campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "scientific_impact": {
+    "INFERIDO": "A whole-tape call to the existing W09B validate_ticks would fail closed because 74 source ticks have Ask below Bid. No evidence this whole-tape integration has been run historically.",
+    "NO_DISPONIBLE": "Exact frozen 303572 XAU BUY M1 event mask payloads, broker timezone/DST session file, authenticated zero-spread origin, MT5 broker stop acceptance.",
+    "VERIFICADO": "The exact frozen DEV prefix is restored and its original 17-byte tick stream contains 74 crossed quotes and 942184 zero-spread ticks. Timestamp sequence does not decrease."
+  },
+  "source_carriers": [
+    {
+      "drive_file_id": "14wIm9bBPq7eRikgLp03swoVNmztgkfmN",
+      "ordinal": 1,
+      "zip_name": "QROS_XAU_FULL_HISTORY_v2_part001-of-035.zip",
+      "zip_sha256": "d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70"
+    },
+    {
+      "drive_file_id": "1w_JxSuVpInp44EcUC9fgxlCILQuAbqY5",
+      "ordinal": 2,
+      "zip_name": "QROS_XAU_FULL_HISTORY_v2_part002-of-035.zip",
+      "zip_sha256": "159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a"
+    },
+    {
+      "drive_file_id": "1QL-oatGoYum_tSlNmlF3djbVYB6EkKwD",
+      "ordinal": 3,
+      "zip_name": "QROS_XAU_FULL_HISTORY_v2_part003-of-035.zip",
+      "zip_sha256": "ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9"
+    },
+    {
+      "drive_file_id": "193S2vMhoS63si1A6ZJnVxQ_9i6rSqa12",
+      "ordinal": 4,
+      "zip_name": "QROS_XAU_FULL_HISTORY_v2_part004-of-035.zip",
+      "zip_sha256": "241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241"
+    },
+    {
+      "drive_file_id": "15ivpOfYuvtL1buanKyGu9LYBLY4NINgM",
+      "ordinal": 5,
+      "zip_name": "QROS_XAU_FULL_HISTORY_v2_part005-of-035.zip",
+      "zip_sha256": "3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad"
+    },
+    {
+      "drive_file_id": "1XHZBUU-YvyeHDWZjxWdDevenG5G3AT3c",
+      "ordinal": 6,
+      "zip_name": "QROS_XAU_FULL_HISTORY_v2_part006-of-035.zip",
+      "zip_sha256": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8"
+    },
+    {
+      "drive_file_id": "1Ho7uAW5eqoUktE1rVQsU4rYHsrUKpJ1r",
+      "ordinal": 7,
+      "zip_name": "QROS_XAU_FULL_HISTORY_v2_part007-of-035.zip",
+      "zip_sha256": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185"
+    },
+    {
+      "drive_file_id": "1cido_oBhY_TjDWc30lfyFna0Oeo_1C_9",
+      "ordinal": 8,
+      "zip_name": "QROS_XAU_FULL_HISTORY_v2_part008-of-035.zip",
+      "zip_sha256": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b"
+    }
+  ],
+  "states": {
+    "branch": "DEVELOPMENT_RUNNING",
+    "broker_session_audit_complete": false,
+    "data_identity_recovered": true,
+    "economic_pnl_read": false,
+    "first_gate_execution_authorized": false,
+    "holdout_open": false,
+    "main_science": "PREREGISTERED_NO_RESULTS",
+    "mask_replay_verified": false,
+    "raw_data_scan_complete": true,
+    "shard11_open": false
+  },
+  "unresolved_risks": [
+    "Some raw zero-spread records may be valid; cannot globally delete without source provenance.",
+    "Crossed ticks may be irrelevant to a candidate; do not reject whole histories unless affected event proof exists.",
+    "The raw tick timestamp numeric field alone does not prove the broker timezone/session/DST mapping.",
+    "Frozen XAU event mask replay bytes absent in active runtime; economic scoring remains closed."
+  ],
+  "verified_result": {
+    "checkpoint_recovery": "PART_BY_PART_WITH_ATOMIC_CHECKPOINTS_AND_FULL_PREFIX_SHA",
+    "crossed_quote_ticks": 74,
+    "dev_bytes": 2573500596,
+    "dev_records": 151382388,
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "exact_adjacent_duplicates": 23,
+    "no_imputation": true,
+    "nonmonotonic_timestamp_count": 0,
+    "nonpositive_ask": 0,
+    "nonpositive_bid": 0,
+    "raw_data_scan_records": 151382388,
+    "raw_quote_flags_counts": {
+      "2": 64201599,
+      "4": 62915923,
+      "6": 24264866
+    },
+    "raw_timestamp_first_ms": 1516885566846,
+    "raw_timestamp_last_ms": 1577836737796,
+    "same_timestamp_adjacent": 22513793,
+    "source_payload_hashes_verified": 8,
+    "source_zip_parts_verified": 8,
+    "zero_spread_ticks": 942184
+  }
+}
