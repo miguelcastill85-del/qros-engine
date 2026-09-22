@@ -1,0 +1,75 @@
+{
+  "schema": "QROS_DATA_PROVENANCE_TIMEBASE_FALSIFICATION_RECEIPT_1.0",
+  "receipt_id": "QROS_TIMEBASE_STRUCTURAL_FALSIFICATION_20260921_R1",
+  "status": "PASS_PARTIAL_SEMANTICS_NO_TIMEZONE_PROMOTION",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "authority": {
+    "main": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "frontier": "V259",
+    "data_checkpoint": "QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_20260921_R1"
+  },
+  "execution": {
+    "code_path": "research/data_provenance_max_v2/qros_timebase_structural_audit.py",
+    "code_git_blob": "a430684dd12e498418fddac247aa3bdbfbae89c7",
+    "executed_code_sha256": "e07fd10f55e942ec8d7ae5712d2e80f06a91deeaaf6cc30f8c79cb52da101e46",
+    "output_sha256": "c25832ecc832ad16d3532313ceb16544c6966e1db40be290b78f06c4ee6b459b",
+    "output_payload_sha256": "61f739d03bfd7ffa70e7f362e71e4931213c276e56af541ba83d8a60b472e265",
+    "method": "bounded-memory vectorized scan of first and last authenticated ZIP carrier per asset; >=60m structural gaps only"
+  },
+  "verified_findings": {
+    "NQX_part001": {
+      "records": 20000000,
+      "reversals": 0,
+      "gaps_ge_60m": 170,
+      "dominant_gap_pair": "23:59->01:00",
+      "dominant_count": 131
+    },
+    "NQX_part028": {
+      "records": 19817687,
+      "reversals": 0,
+      "gaps_ge_60m": 32,
+      "dominant_gap_pair": "23:59->01:00",
+      "dominant_count": 25
+    },
+    "XAU_part001": {
+      "records": 20000000,
+      "reversals": 0,
+      "gaps_ge_60m": 73,
+      "dominant_gap_pair": "23:58->01:01",
+      "dominant_count": 35
+    },
+    "XAU_part035": {
+      "records": 17060968,
+      "reversals": 0,
+      "gaps_ge_60m": 29,
+      "dominant_gap_pair": "23:58->01:01",
+      "dominant_count": 24
+    },
+    "timestamp_lineage_semantics": "Existing exact NQX PACKED17 cache declares timestamp_ms as server-clock epoch encoding only; timezone unresolved.",
+    "conclusion": "Treating timestamp integers as true UTC is rejected as unproven/unsafe. Source/server-clock label encoding is supported; exact timezone offset and DST binding remain unresolved."
+  },
+  "external_policy_context": {
+    "Darwinex_terminal_time": "New York Close; GMT+3 during US DST, GMT+2 otherwise",
+    "role": "CONTEXT_ONLY_NOT_DATASET_BINDING",
+    "binding_to_raw": "NOT_PROVEN"
+  },
+  "gates": {
+    "TIMESTAMP_MEANING": "PARTIAL_PASS_SERVER_CLOCK_ENCODING",
+    "TIMEZONE_OFFSET": "FAIL_CLOSED",
+    "DST_POLICY": "FAIL_CLOSED",
+    "NAMED_SESSION_USE": "QUARANTINED",
+    "UTC_CROSS_ASSET_JOIN": "QUARANTINED"
+  },
+  "blast_radii": {
+    "byte": "NONE",
+    "semantic": "TIME_SESSION_ALIGNMENT",
+    "scientific": "CONDITIONAL_ON_TIME_SENSITIVE_GENEALOGIES",
+    "decision": "NONE_FOR_V259"
+  },
+  "blocked_subroute": {
+    "id": "NQX_MT5_TICK_AUDIT_V5_EXACT_EVIDENCE_PAYLOAD",
+    "state": "BLOCKED_BY_INFRASTRUCTURE_SUBTASK_ONLY",
+    "reason": "execution log/configs recovered but exact evidence ZIP/report payload not materialized; do not retry automatically"
+  },
+  "next_automatic_action": "Continue via independent symbol/schema/cross-asset and parser-lineage routes; do not return to missing MT5 tick-audit payload unless new material evidence appears."
+}
