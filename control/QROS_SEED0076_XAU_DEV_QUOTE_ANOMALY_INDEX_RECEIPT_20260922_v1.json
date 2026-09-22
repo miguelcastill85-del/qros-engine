@@ -1,0 +1,46 @@
+{
+  "archive_library_path": "/QROS/RISE_AUDIT_MAX_V2/XAU_DEV_REHYDRATION_20260922/QROS_SEED0076_XAU_DEV_QUOTE_ANOMALY_INDEX_20260922.zip",
+  "cross_index_sha256": "7148f5951e61b3a6578ce46f720d221fd0a33eb44a84cfb999b85075cd1d51e1",
+  "crossed_index_domain": {
+    "first": 2151910,
+    "last": 54933949,
+    "no_crossed_after_row": 54933949
+  },
+  "crossed_tick_count": 74,
+  "date": "2026-09-22",
+  "frozen_scope": "XAUUSD/BUY/M1, first10 research branch; no PnL",
+  "index_schema": "QROS_XAU_DEV_QUOTE_ANOMALY_INDEX_1.0",
+  "manifest_sha256": "73049a78b1b45a47135e86dcc878511d0403d8626bcef53b91ffee820d684a36",
+  "next_automatic_action": "Use this content-addressed map to quarantine only affected signal/execution paths after exact XAU M1 masks and real broker session/quote policy are bound; prove independent source data/scorer trade-by-trade before economics.",
+  "parent_checkpoint_sha256": "ee7fc63261ea5285b990bd21dc73bdb6fbb0eb87f4ca83c20888164d61165543",
+  "schema": "QROS_SEED0076_XAU_DEV_QUOTE_ANOMALY_INDEX_RECEIPT_1.0",
+  "scientific_contract": {
+    "cannot_assume_zero_spread_fake": true,
+    "economic_pnl_read": false,
+    "event_localization": "SCORER_ADMISSION_PENDING_EXACT_MASK_AND_TICK_ANCHORS",
+    "first_gate_authorized": false,
+    "holdout_open": false,
+    "no_fill_from_zero_or_crossed_without_broker_provenance": true,
+    "no_mask_shuffling": true,
+    "no_raw_mutation": true,
+    "physical_carrier_sequence": "ORIGINAL_ZERO_BASED_INDEX",
+    "signal_feature_dependency_scope": "NOT_YET_AUDITED"
+  },
+  "source_code": {
+    "path": "scripts/qros_xau_dev_quote_anomaly_index_v1.py",
+    "sha256": "3cc3dfcddc622b31f799a6fdde3117e20e155c8c08ece054bc64e2cf2bfd77b5"
+  },
+  "source_dev_records": 151382388,
+  "source_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "status": "VERIFIED_CONTENT_ADDRESSED_READ_ONLY",
+  "tests": {
+    "failed": 0,
+    "idempotent_readback": "PASS",
+    "passed": 8,
+    "path": "scripts/test_qros_xau_dev_quote_anomaly_index_v1.py",
+    "sha256": "5d08b6eede4386e9f5112db46efa168d94553f8d4257c4c39efa654d3df62285",
+    "tamper_detection": true
+  },
+  "zero_index_sha256": "5e3c50c8262a340cd9046dc8695d1308a93cf8d0fabbde1c7a4acd4bdf1d0d00",
+  "zero_tick_count": 942184
+}
