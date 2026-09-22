@@ -1,0 +1,105 @@
+{
+  "schema":"QROS_DATA_SOURCE_RECOVERY_RECEIPT_1.0",
+  "receipt_id":"QROS_DATA_SOURCE_RECOVERY_20260921_R1",
+  "date":"2026-09-21",
+  "assets":["XAUUSD","NDX/NQX"],
+  "objective":"Recover exact SOURCE->ACQUISITION binding and independently resolve source-clock semantics without assuming Darwinex or UTC.",
+  "authority_inputs":{
+    "scientific_main":"f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "scientific_frontier":"V259",
+    "data_checkpoint":"research/data_provenance_max_v2/QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_20260921_R1.json",
+    "physical_head":"QROS_FULL_HISTORY_HEAD_v2.json"
+  },
+  "searched_scopes":[
+    {
+      "scope":"GitHub:miguelcastill85-del/qros-engine",
+      "queries":[
+        "NDX_201801251306_202607270911 acquisition",
+        "NDX_201801251306_202607270911 export",
+        "NDX_201801251306_202607270911 Darwinex",
+        "XAUUSD_201801251306_202607242354 acquisition",
+        "XAUUSD_201801251306_202607242354 export",
+        "XAUUSD_201801251306_202607242354 Darwinex",
+        "CopyTicksRange Darwinex NDX XAUUSD",
+        "TICK_MASTER source receipt Darwinex"
+      ],
+      "direct_acquisition_binding_found":false
+    },
+    {
+      "scope":"Project/Library",
+      "queries":[
+        "exact raw archive basenames + acquisition/export/Darwinex/CopyTicksRange",
+        "NQX_TICK_MASTER source receipt Darwinex",
+        "XAUUSD_TICK_MASTER_v500 source receipt Darwinex",
+        "NDX M3 timezone Darwinex winter summer server clock parity"
+      ],
+      "direct_acquisition_binding_found":false,
+      "downstream_evidence_found":[
+        "QROS canonical contracts/manifests",
+        "Darwinex-Demo MT5 runtime logs",
+        "timezone winter/summer test invocation traces"
+      ]
+    },
+    {
+      "scope":"Dropbox",
+      "queries":[
+        "NDX_201801251306_202607270911",
+        "XAUUSD_201801251306_202607242354",
+        "NQX_TICK_MASTER Darwinex",
+        "XAUUSD_TICK_MASTER_v500 Darwinex",
+        "CopyTicksRange NDX XAUUSD Darwinex"
+      ],
+      "direct_acquisition_binding_found":false
+    }
+  ],
+  "findings":{
+    "SOURCE_IDENTITY":{
+      "status":"NO_DISPONIBLE_DIRECT_BINDING",
+      "statement":"No recovered receipt binds the exact RAR archive identities to a provider/account/export operation in the searched durable scopes."
+    },
+    "DOWNSTREAM_DARWINEX_EVIDENCE":{
+      "status":"VERIFIED_BUT_NON_BINDING",
+      "statement":"Later MT5 logs show QROS tests executed in Darwinex-Demo / Tradeslide Trading Tech Limited, including XAUUSD history downloads and NDX timezone-labelled test invocations. This does not prove that the historical RAR archives were acquired from Darwinex."
+    },
+    "TIMEBASE":{
+      "status":"UNRESOLVED",
+      "statement":"Recovered NQX data contracts explicitly identify the clock as broker/server clock with timezone/DST unresolved. XAU labels that call numeric timestamps UTC are not accepted as authority absent an acquisition/time-authority binding."
+    },
+    "TIMEZONE_PARITY_TRACES":{
+      "status":"EXECUTION_TRACE_ONLY",
+      "statement":"Winter/summer timezone-labelled NDX test configurations are visible in runtime logs, but no recovered result artifact establishes the winning offset or maps the raw archive clock to UTC/DST. Successful tester completion is not semantic proof."
+    },
+    "PROVENANCE":{
+      "status":"PROVENANCE_INCOMPLETE",
+      "statement":"RAW archive identity -> canonical/carrier lineage is strong; provider/source -> acquisition -> raw archive binding remains unresolved."
+    },
+    "REPRODUCIBILITY":{
+      "status":"PARTIAL_PASS",
+      "statement":"ZIP multipart -> PACKED17 restoration is reproducible with recovered code and exact hashes. The exact named RAR/CSV -> PACKED17 producer implementations were not recovered as standalone code in the searched scopes, so end-to-end reconstruction is not yet proven."
+    }
+  },
+  "adversarial_guards":[
+    "Do not infer source provider from later Darwinex MT5 logs.",
+    "Do not infer UTC from epoch-like integer encoding.",
+    "Do not infer a DST rule from winter/summer filenames.",
+    "Do not treat tester success as timezone parity.",
+    "Do not recompute or clean raw carriers.",
+    "Do not open economic PnL or holdout."
+  ],
+  "blast_radii":{
+    "byte":"NONE",
+    "semantic":"Named sessions, civil-day boundaries, UTC joins, DST-sensitive aggregations, holiday/early-close classification, and any historical specification assumptions remain conditional.",
+    "scientific":"Potentially broad only for descendants depending on unresolved time/session semantics; dependency proof required before invalidation.",
+    "decision":"No V259 economic decision exists to invalidate; legacy economic results require targeted dependency audit before any reclassification."
+  },
+  "data_gate":"PROVISIONAL_VERIFY_ONLY_NO_PROMOTION",
+  "state":"BLOCKED_BY_INFRASTRUCTURE_SUBTASK_ONLY",
+  "blocked_subtask":"DIRECT_SOURCE_ACQUISITION_BINDING",
+  "global_project_blocked":false,
+  "parallel_frontier_authorized":[
+    "V259 non-economic architecture hardening under existing gates",
+    "independent timebase discrimination if exact comparison artifacts are recovered",
+    "dependency mapping for session/time-sensitive legacy results without reading new PnL"
+  ],
+  "next_automatic_action":"Persist current data pointer and stop retrying identical acquisition searches. Re-enter source-binding search only on new material evidence. Keep data promotion closed; continue an independent authorized frontier."
+}
