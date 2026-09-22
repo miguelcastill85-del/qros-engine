@@ -1,0 +1,142 @@
+{
+  "schema": "QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_2.0",
+  "checkpoint_id": "QROS_DATA_PROVENANCE_MAX_V2_20260921_R2",
+  "created_date": "2026-09-21",
+  "GLOBAL_STATE": "DATA_PROVENANCE_HARDENING_ACTIVE_V259_PRESERVED",
+  "DATASET_ID": [
+    "NQX_PACKED17_FULL_2018_2026.bin",
+    "XAU_PACKED17_CENT_FULL_2018_2026.bin"
+  ],
+  "DATA_AUTHORITY": "PROVISIONAL_VERIFY_ONLY",
+  "SOURCE_STATUS": "STRONGLY_CORROBORATED_NOT_CRYPTOGRAPHICALLY_BOUND",
+  "RAW_PRESERVATION_STATUS": "PASS_NO_RAW_MUTATION",
+  "CONTENT_IDENTITY": "PASS",
+  "SEMANTIC_IDENTITY": "PARTIAL_PASS_MT5_BIDASK_FLAGS_AND_INTERNAL_SYMBOL_LINEAGE",
+  "SCHEMA_STATUS": "PASS_PACKED17; SOURCE_CSV_SCHEMA_DOCUMENTED; PRODUCER_CHAIN_PARTIAL",
+  "TIMEBASE_STATUS": "PARTIAL_PASS_SERVER_CLOCK_ENCODING; EXACT_OFFSET_UNRESOLVED",
+  "DST_STATUS": "FAIL_CLOSED_UNRESOLVED_FOR_EXACT_RAW",
+  "BID_ASK_STATUS": "PASS_WITHIN_MT5_TICK_MODEL; BUY Ask->Bid; SELL Bid->Ask",
+  "COVERAGE_STATUS": "PASS_STRUCTURAL; SESSION_CALENDAR_EXPECTATION_PROVISIONAL",
+  "CHRONOLOGY_STATUS": "PASS_FULL_RECEIPTS_PLUS_BOUNDARY_REVALIDATION",
+  "DUPLICATE_STATUS": "PARTIAL; REPEATED_TIMESTAMP_NOT_DUPLICATE; XAU_EXACT_CONSECUTIVE_23_PRESERVED; NQX_GLOBAL_EXACT_DUP_COUNT_NOT_RECOVERED",
+  "GAP_STATUS": "PARTIAL; STRUCTURAL_BOUNDARY_PATTERNS_IDENTIFIED; FULL_MATERIAL_TAXONOMY_INCOMPLETE",
+  "CORRUPTION_STATUS": "NO_MATERIAL_CORRUPTION_DETECTED_WITHIN_VERIFIED_SCOPE",
+  "PROVENANCE_STATUS": "RAW_TO_CARRIER_STRONG; SOURCE_TO_ACQUISITION_EDGE_INCOMPLETE",
+  "REPRODUCIBILITY_STATUS": "PASS_ZIP_RESTORE_MECHANISM_CANARY; PRIOR_FULL_REAL_CARRIER_RECEIPTS_REUSED",
+  "KNOWN_ANOMALIES": [
+    "NQX: 46 LF-only line endings preserved under passing archive CRC.",
+    "NQX: zero/crossed spreads preserved; repeated timestamps are legitimate until stronger duplicate identity proves otherwise.",
+    "XAU: 1,691,627 zero-spread states, 2,218 crossed-spread states, 23 exact consecutive raw lines reported/preserved.",
+    "Epoch-shaped timestamp integers are source/server-clock label encodings, not authorized UTC."
+  ],
+  "QUARANTINED_RANGES": [],
+  "QUARANTINED_SEMANTIC_SCOPES": [
+    "named-session features requiring exact timezone",
+    "UTC-dependent XAU<->NQX joins",
+    "DST-sensitive day/session boundaries",
+    "holiday/early-close full gap classification",
+    "NDX roll/back-adjustment assumptions until exact provider binding"
+  ],
+  "BYTE_BLAST_RADIUS": "NONE_DETECTED",
+  "SEMANTIC_BLAST_RADIUS": "TIME/SESSION/CROSS_ASSET_ALIGNMENT + CONDITIONAL_INSTRUMENT_CLASS",
+  "SCIENTIFIC_BLAST_RADIUS": "DEPENDENCY_CONDITIONAL; V259 STATE UNCHANGED",
+  "DECISION_BLAST_RADIUS": "NONE_NEW; NO ECONOMIC DECISION OPENED",
+  "CORRECTIONS_APPLIED": [
+    "Added deterministic fail-closed standard-ZIP carrier restorer; no raw bytes changed.",
+    "Corrected a local auditor false-fail caused by assuming ZIP SHA was embedded in PART_META; rerun PASS.",
+    "Rejected UTC interpretation as unproven; retained source/server-clock labeling."
+  ],
+  "DERIVED_DATASET_ID": "NONE_CREATED",
+  "HASHES": {
+    "NQX_carrier_sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+    "XAU_carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+    "timebase_output_sha256": "c25832ecc832ad16d3532313ceb16544c6966e1db40be290b78f06c4ee6b459b",
+    "cross_asset_output_sha256": "2acac3fc832bf9b8474d278bf49e9da94cf65902385277d7019940373944626d",
+    "zip_restore_canary_carrier_sha256": "646ef6c54775f87de10d06e18fb765bbc7b4a17fadd381fd02283201bcff8110"
+  },
+  "RECEIPTS": [
+    "QROS_TIMEBASE_STRUCTURAL_FALSIFICATION_20260921_R1.json",
+    "QROS_CROSS_ASSET_STRUCTURAL_IDENTITY_20260921_R1.json",
+    "QROS_MT5_TICK_SEMANTICS_20260921_R1.json",
+    "QROS_ZIP_RESTORE_CANARY_20260921_R1.json",
+    "QROS_SOURCE_CORROBORATION_20260921_R1.json"
+  ],
+  "DATA_GATE": {
+    "SOURCE_RESOLVED": "FAIL_CLOSED_HASH_BOUND_ACQUISITION_MISSING",
+    "BYTE_INTEGRITY": "PASS",
+    "SCHEMA_VALID": "PASS",
+    "TIMEBASE_RESOLVED": "PARTIAL_FAIL_CLOSED_ON_OFFSET_DST",
+    "BID_ASK_SEMANTICS_RESOLVED": "PASS",
+    "COVERAGE_AUDITED": "PASS_STRUCTURAL_PROVISIONAL_SESSION",
+    "CHRONOLOGY_AUDITED": "PASS",
+    "MATERIAL_GAPS_CLASSIFIED": "PARTIAL_FAIL_CLOSED",
+    "PROVENANCE_SUFFICIENT": "FAIL_CLOSED_FOR_PROMOTION",
+    "REPRODUCIBILITY_ACCEPTABLE": "PASS_FOR_ZIP_CARRIER_RESTORE; PRODUCER_RAW_TO_PACKED17_LINEAGE_PARTIAL",
+    "OVERALL": "PROVISIONAL_NO_PROMOTION_NO_NEW_ECONOMIC_PNL"
+  },
+  "AUTHORIZED_SCIENTIFIC_USE": [
+    "byte/integrity/schema/chronology diagnostics",
+    "non-economic Bid/Ask microstructure diagnostics under source/server-clock labels",
+    "server-clock phase features only when explicitly labeled as such and not interpreted as named sessions",
+    "reproduction of already-authorized carrier-level structural checks"
+  ],
+  "AUTHORITY_VECTOR": {
+    "DATA_AUTHORITY": "QROS_DATA_PROVENANCE_MAX_V2_20260921_R2 on research branch",
+    "SCIENTIFIC_AUTHORITY": "main V259 / PREREGISTERED_NO_RESULTS",
+    "CODE_AUTHORITY": "research/data-provenance-max-v2-20260921 for audit-only tools",
+    "EXECUTION_AUTHORITY": "no economic execution authorized",
+    "OPERATIONAL_AUTHORITY": "verified Library carriers/manifests + research branch receipts"
+  },
+  "CURRENT_MILESTONE": "Close promotion-critical data semantics without recomputing authenticated carriers",
+  "CRITICAL_FRONTIER": "Exact source/acquisition binding -> exact timezone/DST binding -> full material gap/calendar classification",
+  "PARALLEL_FRONTIER": [
+    "raw-to-PACKED17 producer lineage recovery or independent reconstruction oracle",
+    "dependency map: identify which existing research actually depends on named-session/UTC semantics"
+  ],
+  "BLOCKED_FRONTIER": [
+    "exact NQX MT5 tick-audit evidence ZIP/report payload not materialized",
+    "zstd Python-module canary in current runtime"
+  ],
+  "TRUE_BOTTLENECK": "HASH_BOUND_SOURCE_ACQUISITION_AND_TIMEBASE_BINDING",
+  "BOTTLENECK_EVIDENCE": "Carrier rereads cannot establish provider/timezone; multiple independent structural and MT5-semantic checks already pass.",
+  "ALTERNATIVE_PATHS": [
+    "recover exact acquisition/export receipt or raw hash binding",
+    "independent tick sample parity against authenticated Darwinex MT5 history",
+    "recover raw-to-PACKED17 producer and reproduce selected source rows independently",
+    "continue only server-clock-invariant research until source binding resolves"
+  ],
+  "PRIORITY_DECISION": "Do not full-scan or reopen PnL. Next highest-value independent action is producer-lineage recovery or dependency mapping, whichever becomes executable first.",
+  "PRIMARY_MAX_PROTOCOL": "DATA/PROVENANCE MAX v2",
+  "SUPPORTING_PROTOCOL": "PROJECT ORCHESTRATOR MAX v2 light",
+  "MINIMUM_SCIENTIFIC_PATH": [
+    "preserve current carrier identity",
+    "bind exact source/acquisition or independent exact tick parity",
+    "bind timezone/DST to raw",
+    "classify material gaps under proven calendar",
+    "re-run semantic/reproducibility gate only on affected delta",
+    "promote data authority if no material uncertainty remains"
+  ],
+  "NEXT_ACTION": "Recover/verify the raw-to-PACKED17 producer lineage and compare it against an independent parser on bounded source samples; if producer is unavailable, build a dependency map and quarantine only time-sensitive consumers.",
+  "WHY_THIS_ACTION": "It can close a promotion-critical provenance/common-mode-parser gap without multi-billion-tick recomputation or consuming holdout/PnL.",
+  "WHAT_NOT_TO_DO_YET": [
+    "no new economic PnL",
+    "no holdout",
+    "no named-session promotion",
+    "no full carrier recomputation",
+    "no silent cleaning",
+    "no provider assumption from compatibility alone"
+  ],
+  "GATES_PRESERVED": [
+    "V259",
+    "PREREGISTERED_NO_RESULTS",
+    "PnL closed",
+    "holdout closed",
+    "GA2 closed",
+    "shard11 closed"
+  ],
+  "RESOURCE_IMPACT": "low; bounded metadata/code/sample work only",
+  "EXPECTED_EVIDENCE_DELTA": "producer/version/parameters/row semantics binding OR explicit dependency quarantine map",
+  "STOP_CONDITION": "Stop this audit when all promotion-critical data gates are proven or remaining gaps require genuinely unavailable external evidence; then continue only scientifically independent work.",
+  "PERSISTENCE_TARGET": "research/data-provenance-max-v2-20260921",
+  "NEXT_AUTOMATIC_ACTION": "Proceed to raw-to-PACKED17 producer-lineage recovery; on first repeated blocker, switch to time-sensitive-consumer dependency mapping without retry loop."
+}
