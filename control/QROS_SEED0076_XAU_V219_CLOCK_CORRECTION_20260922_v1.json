@@ -1,0 +1,79 @@
+{
+  "date": "2026-09-22",
+  "earlier_error": {
+    "claim": "Historical broker timezone/DST authority unresolved in active runtime; no way to build session filters.",
+    "correction": "V219 seed-specific authority is frozen PASS and all four V219 historical transition samples have now been reproduced from the exact 151382388-record XAU DEV. The broad clock authority block was an incomplete-recovery false block, not missing scientific evidence.",
+    "invalidated_scope": "Only the earlier missing-clock assertion; do not invalidate cached bars, cached indicators, frozen structural GA1 receipts or raw DEV identity."
+  },
+  "empirical_byte_proof": {
+    "date_pairs": [
+      [
+        "2018-03-09T23:54:59.340",
+        "2018-03-12T01:01:00.044"
+      ],
+      [
+        "2018-11-02T23:54:59.788",
+        "2018-11-05T01:01:00.244"
+      ],
+      [
+        "2019-03-08T23:54:59.954",
+        "2019-03-11T01:01:00.044"
+      ],
+      [
+        "2019-11-01T23:54:59.493",
+        "2019-11-04T01:01:00.099"
+      ]
+    ],
+    "file": "XAU_V219_SOURCE_CLOCK_DST_RECHECK_20260922_v1.json",
+    "pairs_pass": 4,
+    "sampled_tick_pairs": [
+      [
+        6470269,
+        6470270
+      ],
+      [
+        57774320,
+        57774321
+      ],
+      [
+        78617101,
+        78617102
+      ],
+      [
+        140210981,
+        140210982
+      ]
+    ],
+    "sha256": "edc2b094a4eab3aedb4ae40c6cc2d7987f32abe9e65844433c52255af47e71c9"
+  },
+  "holdout_open": false,
+  "new_qualification": {
+    "NY_and_LONDON_session_filter_semantics": "V219_FROZEN_PRE_PNL",
+    "full_daily_DST_exhaustive_proof": "NOT_CLAIMED",
+    "source_clock_mapping": "VERIFIED_BY_EXISTING_V219_AUTHORITY_AND_FOUR_BYTE_LEVEL_CANARIES",
+    "source_server_M1_M5_M15_bar_anchor_compatibility": "PASS_UNCHANGED_V220_REPLAY",
+    "symbol_holiday_session_break_execution_calendar": "NOT_CERTIFIED_IN_THIS_RUNTIME"
+  },
+  "next_action": "Use recovered V219 mapping, preserve exact V220 all-TF carrier archives, and recover or rematerialize only frozen XAU BUY M1 mask carriers under pre-existing V221/V223 signal/session code; independently reproduce exact 303572-class semantic and alias roots before any DEV economic scoring. Independently verify actual per-symbol exit calendar before production execution.",
+  "no_pnl": true,
+  "official_darwinex_documentation": "https://help.darwinex.com/metatrader-time",
+  "other_verified_pins": {
+    "QROS_DARWINEX_MT5_TIME_AUTHORITY_V52_v1": "6bfa5e4ab87d7913a7ff190a58605252edce18fa",
+    "XAU_SOURCE_PROFILE": "19c0443a3b9ae60fe9aee671818de276e17fe66d"
+  },
+  "parent_research_checkpoint": {
+    "git_blob_sha1": "918066119a18f8823d0cf5992981e2cd95d80337",
+    "path": "control/QROS_SEED0076_XAU_V220_FULL_DEV_CARRIER_CHECKPOINT_20260922_v1.json",
+    "sha256": "c574b7c4f379bcf01334158263503393289411adb456ceb24abd77878cb39675"
+  },
+  "pre_frozen_clock_binding": {
+    "git_blob_sha1": "c16d561b66a51d3735960470ba893e53e6913d40",
+    "path": "control/QROS_PUBLIC_1000_SEED_0076_GLOBAL_CLOCK_SESSION_BINDING_V219_v1.json",
+    "state": "PASS_CLOCK_SESSION_FROZEN_PRE_PNL"
+  },
+  "schema": "QROS_SEED0076_XAU_V219_CLOCK_PROOF_RECOVERY_CORRECTION_1.0",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "shard11_open": false,
+  "source_clock_semantics": "Darwinex MT5 server civil labels as stored; +3h UTC during US DST and +2h UTC otherwise; server civil minus seven hours equals New York civil throughout DEV. No UTC relabeling or rewrites.",
+  "status": "SOURCE_CLOCK_V219_RECOVERED_AND_EMPIRICALLY_RECHECKED"
+}
