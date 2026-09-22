@@ -1,0 +1,58 @@
+name: qros-v259-gate-source-export
+
+on:
+  push:
+    branches:
+      - compute/seed0076-ten-shard-gates-20260922
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Freeze runner fingerprint and source package
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _qros_export
+          python - <<'PY'
+          import json,platform,sys,hashlib,pathlib,subprocess
+          roots=['scripts','governance','control','research']
+          files=[]
+          for root in roots:
+              p=pathlib.Path(root)
+              if not p.exists():
+                  continue
+              for f in sorted(x for x in p.rglob('*') if x.is_file()):
+                  b=f.read_bytes()
+                  files.append({'path':str(f),'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()})
+          out={
+            'schema':'QROS_V259_GATE_SOURCE_EXPORT_1.0',
+            'git_head':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+            'python':sys.version,
+            'platform':platform.platform(),
+            'files':files
+          }
+          raw=(json.dumps(out,sort_keys=True,separators=(',',':'))+'\n').encode()
+          pathlib.Path('_qros_export/SOURCE_MANIFEST.json').write_bytes(raw)
+          pathlib.Path('_qros_export/SOURCE_MANIFEST.sha256').write_text(hashlib.sha256(raw).hexdigest()+'  SOURCE_MANIFEST.json\n')
+          PY
+          tar --sort=name --mtime='UTC 2026-09-22' --owner=0 --group=0 --numeric-owner -czf _qros_export/qros-v259-gate-source.tar.gz scripts governance control research
+          sha256sum _qros_export/qros-v259-gate-source.tar.gz > _qros_export/qros-v259-gate-source.tar.gz.sha256
+      - name: Upload exact source bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: qros-v259-gate-source
+          path: _qros_export/
+          if-no-files-found: error
+          retention-days: 1
