@@ -1,0 +1,83 @@
+{
+  "schema": "QROS_SEED0076_TIMEBASE_DEPENDENCY_AUDIT_1.0",
+  "receipt_id": "QROS_SEED0076_TIMEBASE_DEPENDENCY_AUDIT_20260921_R1",
+  "status": "PASS_DEPENDENCY_MAP_WITH_LOCAL_QUARANTINE",
+  "authority": {
+    "current_scientific_frontier": "V259",
+    "main_head": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "universe_spec": "research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json",
+    "universe_spec_git_blob": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "semantics_contract": "control/QROS_PUBLIC_1000_SEED_0076_SIGNAL_SEMANTICS_CONTRACT_V210_v1.json",
+    "semantics_git_blob": "d636b3db4d06488d36f7b14eb9e853872f55a764"
+  },
+  "historical_reconciliation": {
+    "V212": {
+      "commit": "c4c946b15bcaf9e96d89502dbd12de5e6132cf03",
+      "finding": "Overpromoted absolute Darwinex historical session mapping from documentary policy plus reported user provenance; byte preservation still pending.",
+      "current_role": "SUPERSEDED_FOR_ABSOLUTE_PASS"
+    },
+    "V217": {
+      "commit": "2a0504886132adf4bedd8fe58c351924b7c449ae",
+      "finding": "Correctly downgraded V212; historical timezone/DST remained pending byte-level session-gap validation.",
+      "current_role": "VALID_CORRECTION"
+    },
+    "V218_NQX": {
+      "commit": "25287a60cd819dce8e9f8f51598da4bd85085ca3",
+      "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+      "records": 59940260,
+      "clock_evidence": "Exact DEV bytes + 499 raw calendar transitions + four US DST transition weekends + recurring ~23:55 Friday to ~01:00 Monday source-clock pattern.",
+      "status": "PASS_EMPIRICAL_CLOCK_MAPPING_WITH_PROVIDER_PROVENANCE_GAP"
+    },
+    "V219_XAU": {
+      "commit": "2e8c8aa0e8310cc69b4de1123d84085b3b805efc",
+      "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+      "records": 151382388,
+      "ga0": "PASS_EXACT_BYTES_AND_GA0"
+    },
+    "V219_GLOBAL_CLOCK": {
+      "commit": "2e9ea16c669ff69d41ea50e0cb5f390e7924625a",
+      "evidence": "NQX exact DEV session-gap behavior plus XAU exact DEV weekend/DST-adjacent gaps on 2018-2019; documentary Darwinex GMT+3/+2 policy.",
+      "status_under_new_data_max": "STRONG_EMPIRICAL_BINDING_NOT_SOURCE_ACQUISITION_PROOF"
+    }
+  },
+  "dependency_math": {
+    "base_cells": 4320,
+    "filter_package_count": 11176,
+    "raw_signal_configs": 48280320,
+    "session_family_variant_count": 6,
+    "session_containing_filter_packages": 1044,
+    "session_containing_filter_package_fraction": 0.09341445955619183,
+    "session_dependent_signal_configs": 4510080,
+    "non_session_signal_configs": 43770240,
+    "configs_per_shard": 804672,
+    "session_dependent_configs_per_shard": 75168,
+    "non_session_configs_per_shard": 729504,
+    "completed_shards": 10,
+    "completed_config_occurrences_total": 8046720,
+    "completed_session_dependent_occurrences_max": 751680,
+    "completed_non_session_occurrences": 7295040,
+    "calculation": "packages=1+sum(v_i)+sum_{i<j}v_i*v_j with v=[3,60,79,5,5,6,6,6,5,4]; SESSION packages=6+6*(179-6)=1044; base-cell configs multiply by 4320; per shard multiply 1044 by 72 base variants."
+  },
+  "scientific_classification": {
+    "SESSION_FILTER_CONFIGS": "QUARANTINED_VERIFY_ONLY_FOR_ECONOMIC_PROMOTION_UNTIL_EXACT_SOURCE_ACQUISITION_BINDING_OR_EQUIVALENT_INDEPENDENT_PARITY",
+    "NON_SESSION_SIGNAL_CONFIGS": "NOT_INVALIDATED_BY_PROVIDER_TIMEZONE_PROVENANCE_GAP",
+    "BAR_ANCHOR_SOURCE_CLOCK": "VERIFIED_AS_STORED_SOURCE_CLOCK_LABELS_FOR_DEV",
+    "ABSOLUTE_DARWINEX_PROVIDER_IDENTITY": "STRONGLY_CORROBORATED_NOT_HASH_BOUND",
+    "SAME_DAY_EXIT": "NO_CURRENT_STRUCTURAL_GA1_IMPACT_BECAUSE_ECONOMIC_PNL_CLOSED"
+  },
+  "blast_radii": {
+    "byte": "NONE",
+    "semantic": "SESSION family only plus downstream named-session conversions",
+    "scientific": "At most 751680 configuration occurrences among the 10 completed shards require provenance revalidation before economic use; 7295040 completed non-session occurrences are unaffected by this specific gap.",
+    "decision": "NONE_CURRENT; V259 economic PnL/holdout/GA2 remain closed."
+  },
+  "gates_preserved": [
+    "shards1-10 structural completion receipts are not deleted or rewritten",
+    "V259 architecture hold remains",
+    "economic PnL closed",
+    "holdout closed",
+    "GA2 closed",
+    "shard11 closed"
+  ],
+  "next_automatic_action": "Do not recompute completed shards. Carry an explicit SESSION provenance dependency bit into any future mask/economic gate. Continue data audit on full-history gap classification using proven source-clock labels without named-session assumptions, or close audit if that cannot change the current V259 architecture milestone."
+}
