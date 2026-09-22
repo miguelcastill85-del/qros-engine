@@ -1,0 +1,40 @@
+{
+  "cases": 1296,
+  "correct_engine_mismatches": 0,
+  "holdout_open": false,
+  "incorrect_engine_mismatches": 648,
+  "isolated_wrong_clock_minus_six_hours_only": true,
+  "mutated_copy_persisted": false,
+  "no_historical_pnl": true,
+  "original_source_fragment_crc32": "ee065503",
+  "per_rule": {
+    "LONDON": {
+      "correct_errors": 0,
+      "six_hour_mutation_detected_errors": 108
+    },
+    "LONDON_NY_OVERLAP": {
+      "correct_errors": 0,
+      "six_hour_mutation_detected_errors": 108
+    },
+    "NY_CLOSE_120": {
+      "correct_errors": 0,
+      "six_hour_mutation_detected_errors": 108
+    },
+    "NY_MIDDAY": {
+      "correct_errors": 0,
+      "six_hour_mutation_detected_errors": 108
+    },
+    "NY_OPEN_120": {
+      "correct_errors": 0,
+      "six_hour_mutation_detected_errors": 108
+    },
+    "NY_RTH": {
+      "correct_errors": 0,
+      "six_hour_mutation_detected_errors": 108
+    }
+  },
+  "schema": "QROS_XAU_V219_SEED0076_SESSION_CLOCK_NEGATIVE_CONTROL_1.0",
+  "source_git_blob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+  "status": "PASS_MISBOUND_CLOCK_MUTATION_DETECTED",
+  "window_comparisons": 7776
+}
