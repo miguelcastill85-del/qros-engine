@@ -1,0 +1,67 @@
+{
+  "schema": "QROS_GA1_CURRENT_RECOVERY_POINTER_1.0",
+  "status": "CURRENT",
+  "date": "2026-09-21",
+  "branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+  "branch_head_before_pointer": "ff2ea2c96ac53073917452a6eb7fcaf0b71aa330",
+  "scientific_main": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+  "scientific_frontier": "V259",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "verified_recovery_root": {
+    "path": "research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_EVIDENCE_NATIVE_RECOVERY_ROOT_V9.json",
+    "git_blob_sha1": "e0de9b178d2acd486cb7a5ad0c8e3200fb5f0fac",
+    "recovery_root_sha256": "7e54d1fd928bd4a4f923a63dccc6edc39bbacc5730fa0697a24d58242cc91860"
+  },
+  "verification_receipt": {
+    "path": "research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_RECOVERY_ROOT_V9_VERIFICATION_RECEIPT.json",
+    "git_blob_sha1": "31bd232faf077c47328539a16c48d114e9c48ed3",
+    "receipt_sha256": "6a0aa6d0b734c55e763baa312a00b00822c2580cb7fc5912818f32da8a76aa31"
+  },
+  "external_data_reconciliation": {
+    "path": "research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_DATA_PROVENANCE_R3_RECONCILIATION_RECEIPT.json",
+    "git_blob_sha1": "1222217e987655b206f69be581dbea750b9acff9",
+    "receipt_sha256": "e442e29ec1abcd5bfacef88edf3784091fadb17e70e46a57e5a0553b6c7dc5e1",
+    "data_branch": "research/data-provenance-max-v2-20260921",
+    "data_branch_head": "fd1db16a043afd17a5e7e0b2e16909839bcf7531",
+    "data_pointer_git_blob_sha1": "534983c5a89fb7fc8ff258ed5fbb51a8354864b0",
+    "data_checkpoint": "R3",
+    "data_gate": "PROVISIONAL_VERIFY_ONLY"
+  },
+  "validated_progress": [
+    "Adaptive bitmap synthetic PASS",
+    "GEOMETRY cross-timeframe independent parity PASS",
+    "Factor IR cross-domain synthetic PASS",
+    "Bounded-memory reducer scalar parity/chunk invariance PASS",
+    "Data provenance R3 reconciled into GA1 continuation state"
+  ],
+  "closed_by_policy": [
+    "SHARD11",
+    "BULK_GA1",
+    "ECONOMIC_PNL",
+    "GA2",
+    "HOLDOUT",
+    "NEW_SEEDS",
+    "PRODUCTION_ADOPTION"
+  ],
+  "blocked": [
+    "HISTORICAL_EXACT_M12_M15_M2_REGRESSION: BLOCKED_BY_INFRASTRUCTURE_SUBTASK_ONLY",
+    "SOURCE_ACQUISITION_HASH_BOUND_PROVENANCE: LOCAL_BLOCKED",
+    "INDEPENDENT_RETEST_REARM_GENERATOR_COVERAGE: OPERATOR_EXCLUDED_QUARANTINED"
+  ],
+  "do_not_repeat": [
+    "RETEST/rearm",
+    "identical source/provenance searches",
+    "full carrier rereads",
+    "closed shard recomputation",
+    "optional batch-manifest canary while mandatory gates cannot move"
+  ],
+  "incident_state": "CLOSED_NO_SCIENTIFIC_OR_DECISION_BLAST",
+  "current_frontier": "WAIT_FOR_MATERIAL_EVIDENCE_THAT_CAN_CHANGE_A_MANDATORY_GATE",
+  "resume_on": [
+    "certified historical exact regression artifacts become available",
+    "explicit operator route change for RETEST/rearm",
+    "new source/timebase evidence that changes the current data gate",
+    "new authority supersedes V259"
+  ],
+  "next_automatic_action": "On the first new material trigger, authenticate main V259/successor, this pointer, V9 verification receipt and the R3 reconciliation receipt; then continue only the newly unblocked proposition. Otherwise perform no optional hardening."
+}
