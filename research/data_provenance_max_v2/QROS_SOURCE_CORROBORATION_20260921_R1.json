@@ -1,0 +1,40 @@
+{
+  "schema": "QROS_DATA_PROVENANCE_SOURCE_CORROBORATION_MATRIX_1.0",
+  "receipt_id": "QROS_SOURCE_CORROBORATION_20260921_R1",
+  "status": "CORROBORATED_NOT_CRYPTOGRAPHICALLY_BOUND",
+  "verified_project_evidence": [
+    "Raw/canonical NQX lineage names source symbol NDX and alias NQX.",
+    "Raw/canonical XAU lineage names symbol XAUUSD.",
+    "Observed carrier flag domain 2/4/6 matches MT5 Bid/Ask tick-change flags.",
+    "Recovered Darwinex MT5 logs show NDX and XAUUSD history downloads/tests on a terminal synchronized with Tradeslide Trading Tech Limited."
+  ],
+  "verified_external_context": [
+    {
+      "fact": "Darwinex lists NDX as Nasdaq 100 under CFDs on indices and XAUUSD as Gold under CFDs on commodities.",
+      "source": "https://help.darwinex.com/es/activos-disponibles"
+    },
+    {
+      "fact": "Darwinex MetaTrader server time uses New York Close, GMT+3 during US DST and GMT+2 otherwise.",
+      "source": "https://help.darwinex.com/metatrader-time"
+    },
+    {
+      "fact": "MetaQuotes defines TICK_FLAG_BID=2 and TICK_FLAG_ASK=4; combination 6 means both changed.",
+      "source": "https://www.mql5.com/en/book/applications/timeseries/timeseries_ticks_mqltick"
+    }
+  ],
+  "unresolved_binding": [
+    "No recovered artifact cryptographically binds the exact raw RAR/CSV hashes to a specific Darwinex acquisition/export event.",
+    "Therefore official Darwinex timezone policy cannot yet be assigned to raw timestamps as a demonstrated fact.",
+    "Therefore NDX CFD classification cannot yet make roll/back-adjustment NOT_APPLICABLE for these exact raw bytes; it is conditional on provider binding."
+  ],
+  "classification": {
+    "SOURCE_IDENTITY": "STRONGLY_CORROBORATED_NOT_BOUND",
+    "PROVENANCE": "INCOMPLETE_AT_SOURCE_TO_ACQUISITION_EDGE",
+    "NDX_INSTRUMENT_CLASS": "CONDITIONAL_DARWINEX_NDX_INDEX_CFD",
+    "XAU_INSTRUMENT_CLASS": "CONDITIONAL_DARWINEX_XAUUSD_COMMODITY_CFD",
+    "ROLL_BACK_ADJUSTMENT": "CONDITIONAL_NOT_APPLICABLE_IF_DARWINEX_BINDING_IS_PROVEN",
+    "TIMEZONE_DST": "CONDITIONAL_DARWINEX_POLICY_NOT_YET_BOUND_TO_RAW"
+  },
+  "false_pass_guard": "Do not convert compatibility, naming or terminal logs into raw-provider identity without a hash-bound acquisition/export receipt or exact independent tick parity.",
+  "next_automatic_action": "Persist R2 frontier. Seek exact hash-bound source binding only when a new evidence path appears; continue independent non-economic lineage/reproducibility work meanwhile."
+}
