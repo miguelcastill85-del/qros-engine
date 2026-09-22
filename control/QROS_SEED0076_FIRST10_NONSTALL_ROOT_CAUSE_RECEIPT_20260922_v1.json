@@ -1,0 +1,82 @@
+{
+  "schema": "QROS_SEED0076_FIRST10_NONSTALL_ROOT_CAUSE_RECEIPT_1.0",
+  "date": "2026-09-22",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "authority": {
+    "main_head_at_read": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "main_frontier": "V259",
+    "pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "isolated_branch": "research/seed0076-first-gate10-20260922",
+    "scope_commit": "aa8fbdbcfd1483db5b50539d66f045bfdf8be22a",
+    "scope_policy": "governance/QROS_SEED0076_FIRST10_PREPNL_SCOPE_SUPERSESSION_20260922_v1.json",
+    "scope_policy_blob_sha1": "ab31ded2702f57b54eebc052f1c8aa2737cf2479"
+  },
+  "objective": "Eliminate repetitive recovery loops; preserve first ten structurally completed shards; enable deterministic DEV-only first gate once exact bytes are available; fail closed on individual missing inputs without halting independent work.",
+  "evidence": [
+    {
+      "status": "VERIFIED",
+      "fact": "V259 main pointer holds 10/60 GA1 completed, 50 unopened; economic scoring not yet executed."
+    },
+    {
+      "status": "VERIFIED",
+      "fact": "The user-directed first10 scheduling-only supersession is persisted in isolated research branch commit aa8fbdbc."
+    },
+    {
+      "status": "VERIFIED",
+      "fact": "The main structural audit P1_MASK_005 says heavy FAST V2 M2 masks were not persisted for direct downstream replay; P1_CODE_006 says local executed M2 helpers lack durable recoverable bytes."
+    },
+    {
+      "status": "VERIFIED",
+      "fact": "Main already has external-call-budget guard v2, 15 call hard cap; it cannot replace a persistent scientific executor."
+    },
+    {
+      "status": "NO_DISPONIBLE",
+      "fact": "Exact durable heavy mask-pack set and reproducible executed M2 helper bytes for all 10 shards in this active working runtime."
+    },
+    {
+      "status": "REPORTADO",
+      "fact": "A local-only source snapshot contains proposed session-quarantine / ten-shard documents, but matching authoritative main GitHub file paths and R3 data provenance checkpoint are not recoverable at those paths; do not treat these local documents as durable active scientific authority."
+    }
+  ],
+  "root_causes": [
+    "Control-plane policy held economic gates after 10 completed shards and forced repeat recovery when no explicit scoped supersession had been persisted.",
+    "Scientific receipts were durable but some GB-scale mask carriers and exact executed helpers remained local, so another chat cannot immediately resume backtesting from receipts alone.",
+    "Assistant used excessive discovery/reverification instead of a bounded source read and an executable delta; repeated calls are not a standalone runner.",
+    "Existing anti-stall budget guard caps tool calls but does not materialize input bytes, schedule an autonomous runner or guarantee cross-chat CPU execution."
+  ],
+  "corrections": [
+    "Reuse isolated branch first10 scope frozen before PnL; do not promote it to main without explicit authority readback.",
+    "Open only one bounded DEV-first economic work unit at a time; when it lacks bytes, persist exact missing identity once and advance any independent unit rather than rerun the same searches.",
+    "Reuse frozen W09B normalizer/W09 scorer and existing 15-call guard; no new distributed framework or universe enumeration.",
+    "Require one immutable preflight per input identity and content-addressed checkpoint for recoverable mask/DEV/runner artifacts; never classify missing data as economic failure.",
+    "Keep SESSION-dependent signals quarantined until source provenance dependency is recovered and frozen in a durable authority; never silently substitute session labels."
+  ],
+  "next_unit": {
+    "shard_ordinal": 1,
+    "domain": "XAUUSD/BUY/M1",
+    "expected_masks": 303572,
+    "raw_configs": 804672,
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "dev_bytes": 2573500596,
+    "required": "Exact DEV bytes plus event-mask carrier or deterministic rematerialization, frozen broker/session clock, reproducible code and existing normalizer/scorer",
+    "status": "PENDING_BYTE_RECOVERY"
+  },
+  "scientific_guards": {
+    "all_60_hypotheses_remain_preregistered": true,
+    "first10_scoped_execution": true,
+    "per_shard_q": "1/1200",
+    "unspent_alpha_recycled": false,
+    "shard11_open": false,
+    "holdout_open": false,
+    "ga2_scoring_pass": false,
+    "economic_pnl_read": false,
+    "mt5_parity_required_before_final": true
+  },
+  "checkpoint": {
+    "science": "PREREGISTERED_NO_RESULTS",
+    "execution": "STAGED_FIRST10_NOT_ECONOMICALLY_EXECUTED",
+    "last_verified_unit": "GA1_SHARD10_STRUCTURAL_PASS",
+    "next_automatic_action": "Use exactly the first shard XAUUSD/BUY/M1. Recover exact DEV and event-mask bytes once; if impossible persist input-specific unavailable evidence, continue independent recovery of next verified shard. Run frozen normalized execution and frozen scorer only after matching hashes. No reopening GA1 1-10."
+  },
+  "not_a_claim": "This receipt documents diagnosed architectural blockers and a staged recovery plan; it does not claim running or completing any real backtest, activating a persistent process, or fixing platform/network latency."
+}
