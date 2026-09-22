@@ -1,0 +1,156 @@
+{
+  "schema": "QROS_RISE_ANTI_STALL_INCIDENT_MAX_V2_1.0",
+  "INCIDENT_ID": "QROS_INC_DATA_PROVENANCE_FALSE_FAIL_AND_STALE_POINTER_20260921_R1",
+  "INCIDENT_STATE": "CLOSED",
+  "SEVERITY": "P2",
+  "AUTHORITY_VECTOR": {
+    "DATA_AUTHORITY": "research/data-provenance-max-v2-20260921 checkpoint R3",
+    "SCIENTIFIC_AUTHORITY": "main V259 / PREREGISTERED_NO_RESULTS",
+    "CODE_AUTHORITY": "main for science; isolated research branch for data audit tooling",
+    "EXECUTION_AUTHORITY": "no economic PnL, holdout, GA2, shard11 or new seeds",
+    "OPERATIONAL_AUTHORITY": "branch HEAD + R3 checkpoint + authenticated carrier manifests/receipts"
+  },
+  "SCIENTIFIC_STATE": "PREREGISTERED_NO_RESULTS",
+  "STALL_CLASSIFICATION": "FAILED_LOCAL_AUDITOR_FALSE_FAIL_RECOVERED + STALE_POINTER_RECOVERED; GLOBAL_PROCESS_NOT_STALLED",
+  "LAST_VERIFIED_PROGRESS": {
+    "before_incident": "cross-asset structural audit code persisted at commit 2036120086b30e737ba9b16401d81a32f4c5231a",
+    "after_recovery": "R3 authoritative checkpoint frozen at 61003ef51051d79dfbd1093a77df533673593b24; CURRENT pointer rebound at 3691c780ab4c40095156abe697452ce8b7f4d64f"
+  },
+  "LAST_KNOWN_GOOD": "R3 checkpoint bytes blob fa589a9ba72c370e2487cc8d25d13acd1aa7dcea with V259 gates preserved",
+  "FIRST_BAD_EVENT": "Local harness required ZIP full-file SHA inside PART_META.json although PART_META does not define that field.",
+  "ROOT_CAUSE_SET": {
+    "PRIMARY_CAUSE": "auditor metadata-contract assumption exceeded the actual PART_META schema",
+    "CONTRIBUTING_FACTORS": [
+      "ZIP identity exists externally in manifests/checkpoints, not necessarily inside PART_META",
+      "R3 checkpoint creation and CURRENT pointer update were separate non-atomic operations"
+    ],
+    "PROPAGATION_MECHANISM": "false local FAIL could have been misread as dataset failure; stale pointer could have sent a new worker back to R1",
+    "DETECTION_FAILURE": "no invariant enforced pointer target = latest authoritative checkpoint on branch HEAD",
+    "RECOVERY_FAILURE": "none after detection; blind retry was not used"
+  },
+  "EVIDENCE": {
+    "false_fail_recovery_receipt": {
+      "path": "research/data_provenance_max_v2/QROS_CROSS_ASSET_STRUCTURAL_IDENTITY_20260921_R1.json",
+      "blob_sha": "eb32e510c9a71b9e7aee7d30aa465c5d4eda95db",
+      "status": "PASS_STRUCTURAL_BOUNDARY_NO_PROVIDER_PROMOTION"
+    },
+    "R3_checkpoint": {
+      "path": "research/data_provenance_max_v2/QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_20260921_R3.json",
+      "blob_sha": "fa589a9ba72c370e2487cc8d25d13acd1aa7dcea",
+      "creation_commit": "61003ef51051d79dfbd1093a77df533673593b24"
+    },
+    "stale_pointer_before": {
+      "blob_sha": "7a1a0e3e580f58bdbd59ea7b4e93daac3260d27f",
+      "target": "QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_20260921_R1.json"
+    },
+    "pointer_after": {
+      "blob_sha": "534983c5a89fb7fc8ff258ed5fbb51a8354864b0",
+      "target": "QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_20260921_R3.json",
+      "update_commit": "3691c780ab4c40095156abe697452ce8b7f4d64f"
+    }
+  },
+  "COMPETING_HYPOTHESES": {
+    "H1": {
+      "hypothesis": "dataset/ZIP corruption caused the audit failure",
+      "evidence_against": "rerun PASS after correcting metadata-contract assumption; byte/carrier hashes unchanged",
+      "status": "FALSIFIED"
+    },
+    "H2": {
+      "hypothesis": "PART_META was stale or malformed",
+      "evidence_against": "its documented fields were sufficient and consistent; only absent optional ZIP SHA was wrongly required",
+      "status": "FALSIFIED"
+    },
+    "H3": {
+      "hypothesis": "authority drift after R3 could contaminate science",
+      "evidence_for": "CURRENT pointer remained on R1",
+      "evidence_against": "branch HEAD, R3 gates and science remained fail-closed; no economic downstream was authorized",
+      "status": "CONTAINED_NO_SCIENTIFIC_PROPAGATION"
+    },
+    "H4": {
+      "hypothesis": "global project was stalled",
+      "evidence_against": "R3 explicitly released unaffected V259 architecture frontier",
+      "status": "FALSIFIED"
+    }
+  },
+  "TECHNICAL_BLAST_RADIUS": "Pointer consumers on data-provenance branch and local audit harness only; no carrier bytes modified.",
+  "SCIENTIFIC_BLAST_RADIUS": "NONE_VERIFIED. V259, shards1-10, PREREGISTERED_NO_RESULTS and closed economic gates unchanged.",
+  "DECISION_BLAST_RADIUS": "NONE_VERIFIED. No promotion, PnL, holdout, GA2, shard11 or new-seed decision was opened.",
+  "VALID_WORK_PRESERVED": [
+    "all carrier hashes/manifests",
+    "R3 data checkpoint",
+    "cross-asset structural PASS",
+    "timebase/source blocker classifications",
+    "V259 architecture authority"
+  ],
+  "QUARANTINED_OUTPUTS": [
+    "automatic retries of missing acquisition/MT5 evidence",
+    "global data promotion",
+    "SESSION-dependent economic promotion pending source proof"
+  ],
+  "INVALIDATED_OUTPUTS": [
+    "the initial local false FAIL only",
+    "the pre-fix CURRENT pointer binding to R1 as current authority"
+  ],
+  "ATTEMPTS_AND_CAUSAL_NOVELTY": [
+    {
+      "attempt": "auditor rerun after metadata-contract correction",
+      "novelty": "changed validation proposition from nonexistent embedded ZIP SHA to external manifest-bound ZIP identity",
+      "result": "PASS"
+    },
+    {
+      "attempt": "authority recovery via branch HEAD and R3 readback",
+      "novelty": "resolved checkpoint/pointer conflict rather than repeating data scans",
+      "result": "STALE_POINTER_CONFIRMED"
+    },
+    {
+      "attempt": "pointer rebind",
+      "novelty": "minimal governance-state mutation only",
+      "result": "READBACK_PASS"
+    }
+  ],
+  "ESCAPE_ROUTES_EVALUATED": {
+    "RETRY_SAME_PROVENANCE_SEARCH": "REJECTED_INFORMATION_GAIN_LOW",
+    "REREAD_FULL_CARRIERS": "ELIMINATED_NOT_NEEDED",
+    "RECOMPUTE_SHARDS": "FORBIDDEN_AND_NOT_NEEDED",
+    "REPAIR_POINTER_AND_RELEASE_UNAFFECTED_FRONTIER": "SELECTED"
+  },
+  "SELECTED_ROUTE": "MINIMUM_SAFE_FIX_POINTER_REBIND + CONTINUE_INDEPENDENT_V259_ARCHITECTURE",
+  "FIX_APPLIED": "CURRENT data provenance pointer now binds R3 and explicitly preserves local blockers and V259 gates.",
+  "ADVERSARIAL_VALIDATION": {
+    "pointer_readback": "PASS",
+    "pointer_target_blob_matches_R3": "PASS",
+    "branch_ref_after_update": "3691c780ab4c40095156abe697452ce8b7f4d64f",
+    "economic_gates_preserved": "PASS",
+    "raw_bytes_mutated": false
+  },
+  "REGRESSION_STATUS": "PASS_WITHIN_GOVERNANCE_SCOPE",
+  "RESUME_CONTRACT_STATUS": {
+    "INPUT_IDENTITY": "compatible",
+    "CHECKPOINT": "R3 valid",
+    "SCIENTIFIC_STATE": "compatible V259",
+    "OLD_WRITERS": "none detected in this branch workflow",
+    "PARTIAL_OUTPUTS": "initial false FAIL invalidated only",
+    "IDEMPOTENCY": "pointer update content-addressed by previous blob SHA",
+    "DEPENDENCIES": "V259 research branch independent of unresolved source proof",
+    "GATES": "intact",
+    "status": "SAFE_TO_RESUME_UNAFFECTED_FRONTIER"
+  },
+  "RECOVERY_POINT": {
+    "data_branch_commit": "3691c780ab4c40095156abe697452ce8b7f4d64f",
+    "pointer_blob_sha": "534983c5a89fb7fc8ff258ed5fbb51a8354864b0",
+    "checkpoint": "R3"
+  },
+  "RESIDUAL_RISK": [
+    "SOURCE->ACQUISITION hash-bound provenance remains locally blocked",
+    "exact NQX MT5 tick-audit ZIP/report remains unavailable",
+    "full general data promotion remains closed"
+  ],
+  "PREVENTION_ADDED": [
+    "pointer records superseded blob and authoritative checkpoint blob",
+    "checkpoint/pointer drift classified as explicit incident family",
+    "future continuation must authenticate branch HEAD before trusting CURRENT pointer",
+    "embedded metadata fields cannot be assumed when identity is already carried by an external manifest"
+  ],
+  "CURRENT_FRONTIER": "V259_GA1_EXECUTION_ARCHITECTURE_AUDIT_HOLD with independent research-only nodes admissible",
+  "NEXT_AUTOMATIC_ACTION": "Resume the latest verified GA1 architecture recovery root; do not revisit RETEST/rearm; execute one independent synthetic/non-economic hardening node with actual decision value and persist it."
+}
