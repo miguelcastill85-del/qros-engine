@@ -1,0 +1,67 @@
+{
+  "schema": "QROS_SEED0076_NON_SESSION_REMATERIALIZER_VALIDATION_1.0",
+  "date": "2026-09-22",
+  "status": "PASS_RESEARCH_TO_GATE_INPUT",
+  "source": {
+    "base_worker_path": "scripts/qros_seed0076_ga1_group_worker_v222.py",
+    "base_worker_git_blob_sha1": "ec8d143e284727b1bd98a0dd10e9c349a62f2cd8",
+    "derived_worker_path": "scripts/qros_seed0076_ga1_group_worker_non_session_v1.py",
+    "derived_worker_sha256": "f6a4d1f389b8acf4867e4f31f087d7271883b26b8135c5abc5874a9d0248d247"
+  },
+  "runner": {
+    "python": "3.13.5",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "numpy": "2.3.5",
+    "numba": "0.65.1"
+  },
+  "enumeration": {
+    "full_filter_packages": 11176,
+    "safe_filter_packages": 10132,
+    "full_group_configs": 33528,
+    "safe_group_configs": 30396,
+    "full_shard_configs": 804672,
+    "safe_shard_configs": 729504
+  },
+  "differential_canaries": [
+    {
+      "domain": "NQX/BUY/H4",
+      "group": 0,
+      "trigger": "CLOSE_BREAK",
+      "full_aliases": 33528,
+      "safe_aliases": 30396,
+      "safe_missing_or_class_hash_mismatch": 0,
+      "full_receipt_file_sha256": "d4963268cbe7776b19db5c86df84e928abd076c7fd1385bbba7db222c93ebbf5",
+      "safe_receipt_file_sha256": "418bc131e87e9c75ca8135767f148ddbdb4744452ccda9787f5450122101e0d4"
+    },
+    {
+      "domain": "NQX/BUY/H4",
+      "group": 1,
+      "trigger": "TICK_BREAK",
+      "full_aliases": 33528,
+      "safe_aliases": 30396,
+      "safe_missing_or_class_hash_mismatch": 0,
+      "full_receipt_file_sha256": "959e561b38f75c2e7abc8c90361d205333a3b1e1ed429aa4f421079dde6b69e2",
+      "safe_receipt_file_sha256": "45d388fa9d6cc9de8795f9fc4fa66c5aac529c121f0a87439c07d12526efffa8"
+    },
+    {
+      "domain": "XAUUSD/BUY/M1",
+      "group": 0,
+      "trigger": "CLOSE_BREAK",
+      "full_aliases": 33528,
+      "safe_aliases": 30396,
+      "safe_missing_or_class_hash_mismatch": 0,
+      "full_receipt_file_sha256": "8d6e1f502a8529a87dbde37fae1563e15cfe0a408d0e81ed718d3ef9769aa557",
+      "safe_receipt_file_sha256": "a88702e5a93da7297657ac5a9452089a69ebf7076e61025ab794fa1adfa660af"
+    }
+  ],
+  "adversarial_interpretation": {
+    "close_and_tick_paths_covered": true,
+    "xau_and_nqx_covered": true,
+    "point_scaling_covered": ["0.01", "0.1"],
+    "safe_config_id_set_is_subset_of_full": true,
+    "safe_class_hash_for_every_canary_config_exact": true,
+    "mismatches": 0,
+    "economic_pnl_read": false
+  },
+  "decision": "APPROVE_NON_SESSION_REMATERIALIZER_FOR_THE_FROZEN_TEN_SHARD_GATE_INPUT_ONLY"
+}

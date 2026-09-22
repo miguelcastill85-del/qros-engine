@@ -1,0 +1,55 @@
+{
+  "schema": "QROS_SEED0076_DEPENDENCY_AWARE_FIRST_GATE_POLICY_1.0",
+  "date": "2026-09-22",
+  "status": "FROZEN_PRE_PNL",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "basis": {
+    "data_checkpoint": "research/data_provenance_max_v2/QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_20260921_R3.json",
+    "data_checkpoint_git_blob_sha1": "fa589a9ba72c370e2487cc8d25d13acd1aa7dcea",
+    "first_gate_contract": "governance/QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_v1.0.json",
+    "first_gate_contract_git_blob_sha1": "bc5ce2b52ca5734328283fb3c1d67ee1d93905c1",
+    "sequence_override": "governance/QROS_PUBLIC1000_SEED0076_TEN_SHARD_ECONOMIC_GATE_OVERRIDE_20260922_v1.json"
+  },
+  "dependency_partition": {
+    "rule": "A frozen signal configuration is NON_SESSION_SAFE iff its filters object does not contain the SESSION family.",
+    "filter_packages_total": 11176,
+    "non_session_filter_packages": 10132,
+    "session_dependent_filter_packages": 1044,
+    "base_tuples_per_shard": 72,
+    "non_session_configs_per_shard": 729504,
+    "session_dependent_configs_per_shard": 75168,
+    "authorized_completed_shards": 10,
+    "non_session_config_occurrences": 7295040,
+    "session_dependent_config_occurrences": 751680,
+    "config_id_preservation": "CONFIG_ID remains SHA256 of the original frozen canonical configuration bytes; removing SESSION configs from rematerialization does not renumber or rewrite any surviving CONFIG_ID."
+  },
+  "mask_semantics": {
+    "safe_rematerialization": "Generate masks only for original frozen configs without SESSION. No filter, threshold, base tuple or execution rule is changed.",
+    "class_identity": "Domain-qualified class_hash remains SHA256(domain_bytes || NUL || ordered uint64 source-record indices).",
+    "representative": "For economic safe subset, representative is the lexicographically smallest NON_SESSION_SAFE CONFIG_ID in that exact mask class. This does not transfer promotion to SESSION aliases.",
+    "session_aliases": "SESSION-dependent aliases remain QUARANTINED even when their DEV mask is byte-identical to a safe alias."
+  },
+  "multiplicity": {
+    "campaign_q": 0.05,
+    "per_shard_q": "1/1200",
+    "m_for_BY": "Use the full frozen distinct_mask_class_count of the completed shard, not the number of rematerialized safe classes.",
+    "quarantined_missing_classes": "For calculation only, unresolved session-only hypotheses occupy the unrecycled hypothesis budget and are equivalent to non-rejectable p=1 entries; they are NOT scientifically rejected.",
+    "safe_class_rank": "All safe raw p<1 sort before the synthetic p=1 quarantine mass, so their BY ranks are exactly their ranks among safe classes while denominator remains m_full * H_m_full.",
+    "unused_budget_recycled": false
+  },
+  "decision_semantics": {
+    "safe_survivor": "May advance only if the frozen first-gate requirements pass using full-shard m and the original anchor execution.",
+    "safe_failure": "May be rejected by the frozen gate.",
+    "session_only_or_session_alias": "QUARANTINED_NO_TERMINAL_DECISION until provenance dependency is resolved.",
+    "shard_terminal_status": "A shard may report completed safe-subset Gate A plus quarantined session dependency; it is not a full global-data promotion.",
+    "no_rescue": true,
+    "no_post_result_change": true
+  },
+  "scientific_firewalls": {
+    "holdout_open": false,
+    "shard11_open": false,
+    "remaining_50_ga1_execution": false,
+    "new_seed_open": false,
+    "session_dependent_economic_promotion": false
+  }
+}
