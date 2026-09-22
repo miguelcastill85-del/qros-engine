@@ -1,0 +1,71 @@
+{
+  "authority": {
+    "branch": "research/seed0076-first-gate10-20260922",
+    "carrier_group_manifest_git_blob_sha1": "d1aff1ea650bb27db3970b0ff76e48a4cfb316f3",
+    "latest_research_checkpoint_git_blob_sha1": "d1a27e4c4b1d6d96c5df11dbf577cf199f6a0188",
+    "main_frontier": "V259"
+  },
+  "date": "2026-09-22",
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "new_GA1_authorized": false,
+  "next_automatic_action": "Use these library group hashes as first-resort carriers; do not rebuild raw XAU bars/indicators. Hash-targeted lookup of exact 24 V224 XAU BUY M1 groups; if absent, rematerialize strictly those missing groups using pinned frozen source and V219 broker clock. Do not alter first10 scope or open DEV economics.",
+  "not_proved": [
+    "303572 XAU BUY M1 exact group masks absent",
+    "independent event-generator parity not executed",
+    "actual broker symbol holiday session schedule not independently certified"
+  ],
+  "portable_groups": {
+    "A_M1": {
+      "archive_sha_verified_after_library_download": true,
+      "byte_len": 179032556,
+      "decompress_integrity": "PASS",
+      "library_file_id": "libfile_b5e781c47b7c8191b65bcb5642a20c62",
+      "name": "QROS_XAU_V220_A_M1_20260922.tar.zst",
+      "sha256": "090800d73cb4258f610747ffbbd3606bfe21cecb787c3dad7bd46254552ef753",
+      "tar_entry_set": "PASS_VERIFIED_AT_CREATION"
+    },
+    "B_M2_M3": {
+      "archive_sha_verified_after_library_download": true,
+      "byte_len": 151627326,
+      "decompress_integrity": "PASS",
+      "library_file_id": "libfile_8bd126f40a908191a535ad9b46980cab",
+      "name": "QROS_XAU_V220_B_M2_M3_20260922.tar.zst",
+      "sha256": "53cb17e0aa38a009d00fd17588cf054dbe1985bb0dd5958a906220f77fc2b67b",
+      "tar_entry_set": "PASS_VERIFIED_AT_CREATION"
+    },
+    "C_M4_M5_M6": {
+      "archive_sha_verified_after_library_download": true,
+      "byte_len": 113338396,
+      "decompress_integrity": "PASS",
+      "library_file_id": "libfile_07fad04e46dc81918a4a25c67444131b",
+      "name": "QROS_XAU_V220_C_M4_M5_M6_20260922.tar.zst",
+      "sha256": "60325bb66a091a390f76f3c94becfe5f49f8388e688cbafac4c06d2241905718",
+      "tar_entry_set": "PASS_VERIFIED_AT_CREATION"
+    },
+    "D_M10_M12_M15_M20_M30": {
+      "archive_sha_verified_after_library_download": true,
+      "byte_len": 62078763,
+      "decompress_integrity": "PASS",
+      "library_file_id": "libfile_21d2840400b88191a8784a80f2d08ba8",
+      "name": "QROS_XAU_V220_D_M10_M12_M15_M20_M30_20260922.tar.zst",
+      "sha256": "29c5ec20e89da05e0c0921c409fde4a56ffe1dc95fbd0f4a613ecf8242617dfe",
+      "tar_entry_set": "PASS_VERIFIED_AT_CREATION"
+    },
+    "E_H1_H2_H3_H4_D1_W1": {
+      "archive_sha_verified_after_library_download": true,
+      "byte_len": 6689812,
+      "decompress_integrity": "PASS",
+      "library_file_id": "libfile_d9641e730ecc8191aafba54163ef4f9e",
+      "name": "QROS_XAU_V220_E_H1_H2_H3_H4_D1_W1_20260922.tar.zst",
+      "sha256": "257132dd92394e1a55b53e05d9cd7d0e422ce8bbe259cc6f84f6c91587cc7d66",
+      "tar_entry_set": "PASS_VERIFIED_AT_CREATION"
+    }
+  },
+  "schema": "QROS_SEED0076_XAU_V220_LIBRARY_FULL_READBACK_1.0",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "scope": "PRE_ECONOMIC_BID_BARS_AND_INDICATORS_ONLY",
+  "source_DEV_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "status": "PASS_ALL_FIVE_PORTABLE_CARRIER_SHARDS_REHYDRATABLE",
+  "verified_full_binary_cache_file_count": 34
+}
