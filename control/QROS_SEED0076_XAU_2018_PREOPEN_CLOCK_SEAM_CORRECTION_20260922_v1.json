@@ -1,0 +1,83 @@
+{
+  "schema": "QROS_SEED0076_XAU_2018_PREOPEN_CLOCK_SEAM_CORRECTION_1.0",
+  "date": "2026-09-22",
+  "status": "VERIFIED_LOCAL_HISTORICAL_SESSION_CONFLICT_QUARANTINED_NO_SCIENTIFIC_PROMOTION",
+  "authority": {
+    "scientific_main_version": "V259",
+    "scientific_main_pointer_git_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "research_branch": "research/seed0076-first-gate10-20260922",
+    "first10_scope_git_blob_sha1": "ab31ded2702f57b54eebc052f1c8aa2737cf2479",
+    "original_clock_binding_git_blob_sha1": "e841166c558c93a15fef16f174e55449b1f8164d",
+    "global_clock_binding_git_blob_sha1": "c16d561b66a51d3735960470ba893e53e6913d40",
+    "V220_carrier_checkpoint_git_blob_sha1": "918066119a18f8823d0cf5992981e2cd95d80337"
+  },
+  "scientific_source": {
+    "asset": "XAUUSD",
+    "period": "2018-2019 DEV",
+    "packed17_records": 151382388,
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "raw_data_mutated": false,
+    "bar_cache_M1_count": 681772,
+    "bar_cache_M1_file_sha256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59",
+    "anomaly_map_sha256": "57b2efaa7c3234bd17284eb87d67fa5066187924ba122a20ab006f9bb9e9c70b"
+  },
+  "findings": [
+    {
+      "classification": "VERIFIED",
+      "id": "CLOCK-2018-OPEN-28",
+      "description": "28 M1 bars from 2018-01-26 through 2018-03-07 are timestamped 01:00 server civil, while frozen V212 XAUUSD weekday open 18:01 America/New_York corresponds to 01:01 server under frozen V219 server=NY+7 mapping. The next observed server opening is 01:01 on 2018-03-08, before the 2018 US DST switch (March 11).",
+      "affected_raw_ticks_in_28_bars": 1742,
+      "preopen_bar_crossed_count": 0,
+      "preopen_bar_zero_spread_count": 1,
+      "historical_cause": "UNRESOLVED_NO_RETROACTIVE_BROKER_POLICY_ASSUMPTION"
+    },
+    {
+      "classification": "VERIFIED",
+      "id": "CLOCK-PARITY-V219",
+      "description": "All 681772 M1 bars have contiguous raw source-index coverage and first/last source-timestamp bucket parity; 4 US DST weekend crossover witnesses match frozen V219 mapping, 101 gaps longer than 48h observed. All out-of-frozen-session M1 bars are precisely the 28 early bars.",
+      "clock_claim_scope": "Source civil label, not Unix UTC instant; current official broker policy independently confirms DST offset but does not prove 2018 instrument schedule."
+    },
+    {
+      "classification": "VERIFIED",
+      "id": "CROSS-LAYER-FALSE-PASS",
+      "description": "Source clock V219 PASS and bar-cache V220 PASS can both be true while 28 raw M1 bars violate the separate frozen V212 executable-session opening. Correct hash does not imply executable price for these bars."
+    }
+  ],
+  "triple_blast_radius": {
+    "technical": "28 direct M1 bars, 1742 source ticks, and possibly descendant bars, indicators or session-filtered events. Transitive indicator influence cannot be confined to 28 bars before actual mask/EMA lineage mapping.",
+    "scientific": "Only XAU branches consuming these historical bars and executing during the mismatched opening window are uncertain; structural GA1 class roots and raw data remain preserved. Other ten completed shard receipts are not globally invalidated.",
+    "decision": "No early 2018 economic entries in those minutes; first10 DEV gate cannot open without a frozen-session consistency decision and exact masks."
+  },
+  "correction": {
+    "minimum": "Fail-close execution admission at 01:00 server civil for the 28 sessions under frozen V212; preserve source ticks and bar/indicator cache for audit. Research whether historical Darwinex 2018 opening was different; if proved, treat changed session rule as prospectively preregistered new execution policy branch, not retrospective optimization.",
+    "robust": "Permanent content-addressed gap index: bar_index/source_first/source_last, anomalous quote intersect map, independent full-source temporal parity plus synthetic DST and corrupt-hash canaries.",
+    "architectural": "Separate data observation availability from trade execution session eligibility, with distinct data-identity and broker-hours-policy version IDs. Bind all downstream normalized trades to both."
+  },
+  "regression": {
+    "script": "scripts/qros_seed0076_xau_clock_audit_v1.py",
+    "script_git_blob_sha1": "6df31b479ff14793b0fa3016c1cf7b419251543f",
+    "test": "scripts/test_qros_seed0076_xau_clock_audit_v1.py",
+    "test_git_blob_sha1": "4f146ed046265209df1f711e8ecdbe950a74e8aa",
+    "local_tests_normal": "14/14 PASS",
+    "local_tests_python_O": "14/14 PASS",
+    "real_data_audit": "PASS_WITH_EARLY_2018_QUARANTINE",
+    "independent_generator_parity": "NOT_RUN",
+    "historical_pnl": "NOT_RUN"
+  },
+  "artifacts": {
+    "full_local_report_sha256": "cd986a994480bb12dfbbb2aaa6520d22c58e0a9d4c408062773a668b1f06ffc8",
+    "full_local_report_git_blob_sha1": "50da20e778cf63b76e29131aa229cae742b97a11",
+    "archive_library_file_id": "libfile_e4391a9f1294819187a62eb06e591154",
+    "archive_library_path": "/QROS/RISE_AUDIT_MAX_V2/XAU_CLOCK_GAP_20260922/QROS_SEED0076_XAU_CLOCK_GAP_ADVERSARIAL_20260922.zip",
+    "archive_sha256": "5a4a1ad816ec47439af6c28dcb876bfd158c0e8f1a5d51ae938511176c68e5c6"
+  },
+  "gates": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "first_gate_execution_authorized": false,
+    "holdout_open": false,
+    "shard11_open": false,
+    "GA1_completed_structural_shards": 10,
+    "ga2_open": false
+  },
+  "next_automatic_action": "Build exact source-hash-pinned XAU BUY M1 group00 deterministic replay capsule and run only that missing mask group once exact V223 worker+support closure are available; verify group00 original delta-u32 SHA256 and group receipt SHA256 before attempting remaining 23. Keep early-2018 session quarantine and no economic PnL."
+}
