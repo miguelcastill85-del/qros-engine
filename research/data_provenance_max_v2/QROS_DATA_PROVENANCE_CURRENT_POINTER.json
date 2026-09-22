@@ -1,30 +1,60 @@
 {
-  "schema":"QROS_DATA_PROVENANCE_POINTER_1.0",
-  "status":"CURRENT",
-  "date":"2026-09-21",
-  "branch":"research/data-provenance-max-v2-20260921",
-  "scientific_main":"f2a513c56e297b5ec72db07568c71c12d65a638d",
-  "scientific_frontier":"V259",
-  "data_checkpoint":"research/data_provenance_max_v2/QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_20260921_R1.json",
-  "independent_verifier":"research/data_provenance_max_v2/qros_data_provenance_verify_v1.py",
-  "independent_result":"research/data_provenance_max_v2/QROS_DATA_PROVENANCE_INDEPENDENT_VERIFY_20260921_R1.json",
-  "source_recovery_receipt":"research/data_provenance_max_v2/QROS_DATA_SOURCE_RECOVERY_RECEIPT_20260921_R1.json",
-  "orchestrator_checkpoint":"research/data_provenance_max_v2/QROS_PROJECT_ORCHESTRATOR_DATA_GATE_CHECKPOINT_20260921_R1.json",
-  "DATA_GATE":"PROVISIONAL_VERIFY_ONLY_NO_PROMOTION",
-  "SOURCE_STATUS":"PROVENANCE_INCOMPLETE",
-  "BYTE_INTEGRITY":"PASS",
-  "SCHEMA_STATUS":"PASS_CARRIER_PARTIAL_SOURCE_SEMANTICS",
-  "TIMEBASE_STATUS":"UNRESOLVED_FAIL_CLOSED",
-  "DST_STATUS":"UNRESOLVED_FAIL_CLOSED",
-  "BID_ASK_STATUS":"PARTIAL_PASS",
-  "COVERAGE_STATUS":"STRUCTURAL_PASS_SESSION_EXPECTATION_PROVISIONAL",
-  "CHRONOLOGY_STATUS":"PASS",
-  "GAP_STATUS":"MATERIAL_TAXONOMY_BLOCKED_ON_TIMEBASE",
-  "REPRODUCIBILITY_STATUS":"PARTIAL_PASS",
-  "RAW_PRESERVATION_STATUS":"PASS_NO_RAW_MUTATION",
-  "AUTHORIZED_SCIENTIFIC_USE":["integrity/restore/schema/order diagnostics","server-clock-labelled non-economic diagnostics","dependency mapping"],
-  "FORBIDDEN_UNTIL_PROMOTION":["new economic PnL","holdout","session-sensitive conclusions","UTC/DST cross-asset joins","data promotion"],
-  "STOP_AUDITING":true,
-  "RESUME_DATA_AUDIT_ON":["new exact acquisition/export receipt","independent bound clock comparison","material carrier anomaly"],
-  "NEXT_AUTOMATIC_ACTION":"Continue independent V259 research-only hardening under existing gates; do not retry identical provenance searches."
+  "schema": "QROS_DATA_PROVENANCE_POINTER_1.1",
+  "status": "CURRENT",
+  "date": "2026-09-21",
+  "branch": "research/data-provenance-max-v2-20260921",
+  "branch_head_at_rebind": "61003ef51051d79dfbd1093a77df533673593b24",
+  "scientific_main": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+  "scientific_frontier": "V259",
+  "data_checkpoint": "research/data_provenance_max_v2/QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_20260921_R3.json",
+  "data_checkpoint_blob_sha": "fa589a9ba72c370e2487cc8d25d13acd1aa7dcea",
+  "cross_asset_identity_receipt": "research/data_provenance_max_v2/QROS_CROSS_ASSET_STRUCTURAL_IDENTITY_20260921_R1.json",
+  "cross_asset_identity_blob_sha": "eb32e510c9a71b9e7aee7d30aa465c5d4eda95db",
+  "DATA_GATE": "PROVISIONAL_VERIFY_ONLY",
+  "SOURCE_STATUS": "BLOCKED_SUBTASK_STRONGLY_CORROBORATED_NOT_HASH_BOUND",
+  "BYTE_INTEGRITY": "PASS",
+  "SCHEMA_STATUS": "PASS",
+  "TIMEBASE_STATUS": "PASS_EMPIRICAL_FOR_SEED0076_DEV_2018_2019_WITH_PROVIDER_BINDING_CONDITIONAL; FULL_GENERAL_PROMOTION_PROVISIONAL",
+  "DST_STATUS": "FULL_GENERAL_PROMOTION_PROVISIONAL",
+  "BID_ASK_STATUS": "PASS",
+  "COVERAGE_STATUS": "PASS_STRUCTURAL",
+  "CHRONOLOGY_STATUS": "PASS",
+  "GAP_STATUS": "PARTIAL_DEV_STRUCTURAL; FULL_GENERAL_TAXONOMY_INCOMPLETE",
+  "REPRODUCIBILITY_STATUS": "PASS_ZIP_RESTORE_MECHANISM + PRIOR_EXACT_DEV_MATERIALIZATION_RECEIPTS",
+  "RAW_PRESERVATION_STATUS": "PASS_NO_RAW_MUTATION",
+  "AUTHORIZED_SCIENTIFIC_USE": [
+    "integrity/restore/schema/order diagnostics",
+    "server-clock-labelled non-economic diagnostics",
+    "dependency mapping",
+    "isolated V259 synthetic/non-economic architecture hardening"
+  ],
+  "FORBIDDEN_UNTIL_PROMOTION": [
+    "new economic PnL",
+    "holdout",
+    "session-dependent economic promotion",
+    "global data promotion",
+    "shard11",
+    "GA2",
+    "new seeds"
+  ],
+  "LOCAL_BLOCKED_FRONTIER": [
+    "SOURCE->ACQUISITION hash-bound provenance edge",
+    "exact NQX MT5 tick-audit evidence ZIP/report payload"
+  ],
+  "QUARANTINED_FRONTIER": [
+    "automatic retries of missing acquisition/MT5 evidence",
+    "global data promotion",
+    "SESSION-dependent economic promotion until source provenance is resolved or an equivalent independent source proof is recovered"
+  ],
+  "STOP_DATA_AUDITING": true,
+  "RESUME_DATA_AUDIT_ON": [
+    "new exact acquisition/export receipt",
+    "independent bound clock comparison",
+    "material carrier anomaly"
+  ],
+  "NEXT_AUTOMATIC_ACTION": "Resume isolated V259 architecture research from its latest verified recovery root. Do not revisit RETEST/rearm. Select another independent synthetic/non-economic hardening node that can change architecture confidence, then persist and recalculate.",
+  "supersedes": {
+    "pointer_blob_sha": "7a1a0e3e580f58bdbd59ea7b4e93daac3260d27f",
+    "reason": "STALE_POINTER: previous CURRENT pointer remained bound to R1 after branch HEAD froze R3"
+  }
 }
