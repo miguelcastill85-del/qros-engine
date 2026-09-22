@@ -1,0 +1,60 @@
+{
+  "schema": "QROS_DATA_PROVENANCE_SOURCE_ACQUISITION_BLOCKER_1.0",
+  "receipt_id": "QROS_SOURCE_ACQUISITION_BINDING_BLOCKER_20260921_R1",
+  "status": "BLOCKED_BY_INFRASTRUCTURE_SUBTASK_ONLY",
+  "objective": "Recover an exact, independently recoverable SOURCE->ACQUISITION binding for the canonical XAUUSD and NDX raw archives without relying on memory or filename semantics.",
+  "searched": [
+    {
+      "surface": "GitHub qros-engine",
+      "queries": [
+        "raw archive basenames",
+        "Darwinex source/export",
+        "raw-to-PACKED17 producer"
+      ],
+      "result": "No hash-bound acquisition/export receipt recovered."
+    },
+    {
+      "surface": "Project/File Library",
+      "queries": [
+        "exact XAUUSD/NDX raw basenames",
+        "source_path",
+        "Downloads/MetaQuotes/export",
+        "producer names nqx_csv_stream_to_packed17/xau_packed17_cent_full_from_rar"
+      ],
+      "result": "Raw identities/manifests/contracts recovered; no exact acquisition receipt or producer source recovered."
+    },
+    {
+      "surface": "Dropbox",
+      "queries": [
+        "XAUUSD_201801251306_202607242354",
+        "NDX_201801251306_202607270911",
+        "Darwinex tick export XAUUSD NDX"
+      ],
+      "result": "0 matches for all three searches."
+    },
+    {
+      "surface": "Recovered MT5 evidence",
+      "target": "NQX_MT5_TICK_AUDIT_v5 MAR31/JUL24",
+      "result": "Execution log/config recovered, exact evidence ZIP/report payload not materialized; route quarantined from automatic retry."
+    }
+  ],
+  "alternatives_attempted": [
+    "Independent structural boundary scan of authenticated carriers.",
+    "MT5 official FLAGS/BidAsk semantic binding.",
+    "Empirical source-clock/DST pattern audit on exact Seed0076 DEV bytes through historical V218/V219 receipts.",
+    "Cross-asset structural identity audit.",
+    "Standard-ZIP deterministic restore canary."
+  ],
+  "preserved_evidence": {
+    "source_identity": "STRONGLY_CORROBORATED_NOT_CRYPTOGRAPHICALLY_BOUND",
+    "content_identity": "PASS",
+    "raw_to_carrier_lineage": "STRONG",
+    "provider_policy": "Darwinex current documentary policy recovered separately; not promoted to raw acquisition identity."
+  },
+  "why_indispensable_for_full_data_promotion": "The user-defined DATA PROMOTION contract requires source sufficiently identified and provenance sufficient; compatibility and clock-pattern evidence cannot cryptographically prove who acquired the exact raw bytes.",
+  "why_not_global_blocker": "V259 is currently an architecture-audit hold with economic PnL, holdout, GA2 and shard11 closed. Existing Seed0076 DEV bytes and structural GA1 work do not require reopening this missing acquisition edge to continue architecture-only validation.",
+  "resume_condition": "New material evidence: exact acquisition/export receipt, exact raw hash binding from Darwinex/MT5, or independently materialized exact historical tick parity sufficient to establish source identity.",
+  "do_not_retry_without_new_evidence": true,
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "next_automatic_action": "Recalculate global frontier and continue V259 architecture-only research. Keep data promotion provisional and carry SESSION provenance dependency forward."
+}
