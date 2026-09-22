@@ -1,0 +1,23 @@
+{
+  "exact_session_function_crc32": "ee065503",
+  "failures": {},
+  "frozen_full_engine_blob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+  "holdout_open": false,
+  "independent_reference": "Python zoneinfo NY and London from raw source civil minus seven hours",
+  "invalid_rule_rejected": true,
+  "no_economic_pnl": true,
+  "schema": "QROS_SEED0076_XAU_V221_SESSION_PREDICATE_INDEPENDENT_IANA_CANARY_1.0",
+  "scope_limitation": "Source-fragment comparison; independent reference calendar checks six session windows on sampled real timestamps and constructed transition boundaries. Not exact event-generator, full historical every-tick proof, nor per-symbol execution calendar.",
+  "six_rules_checked": {
+    "LONDON": 21827,
+    "LONDON_NY_OVERLAP": 21827,
+    "NY_CLOSE_120": 21827,
+    "NY_MIDDAY": 21827,
+    "NY_OPEN_120": 21827,
+    "NY_RTH": 21827
+  },
+  "source_server_civil_dates": 626,
+  "status": "PASS",
+  "synthetic_frozen_DST_and_session_boundaries": 11796,
+  "verified_historical_source_timestamp_samples": 10031
+}
