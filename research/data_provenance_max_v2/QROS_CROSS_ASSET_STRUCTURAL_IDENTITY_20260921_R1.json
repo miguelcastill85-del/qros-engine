@@ -1,0 +1,108 @@
+{
+  "schema": "QROS_DATA_PROVENANCE_CROSS_ASSET_IDENTITY_RECEIPT_1.0",
+  "receipt_id": "QROS_CROSS_ASSET_STRUCTURAL_IDENTITY_20260921_R1",
+  "status": "PASS_STRUCTURAL_BOUNDARY_NO_PROVIDER_PROMOTION",
+  "authority": {
+    "main": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "frontier": "V259"
+  },
+  "execution": {
+    "code_path": "research/data_provenance_max_v2/qros_cross_asset_structural_identity_audit.py",
+    "output_file": "QROS_CROSS_ASSET_STRUCTURAL_IDENTITY_AUDIT_20260921_R1.json",
+    "output_sha256": "2acac3fc832bf9b8474d278bf49e9da94cf65902385277d7019940373944626d",
+    "output_payload_sha256": "4837fb57f8ec3f03a82016e6edf79c033807747d273e490beb21c152b54284d0",
+    "scope": "first+last authenticated ZIP payload per asset plus full manifest identity; bounded-memory non-economic scan"
+  },
+  "verified_findings": {
+    "cross_checks": {
+      "distinct_carrier_roots": true,
+      "no_payload_hash_collision_in_scanned_boundaries": true,
+      "member_prefix_matches_asset": true
+    },
+    "NQX": {
+      "carrier_sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+      "unit": 0.1,
+      "first_boundary_price_range": {
+        "bid": [
+          6168,
+          7689.6
+        ],
+        "ask": [
+          6169,
+          7690.1
+        ]
+      },
+      "last_boundary_price_range": {
+        "bid": [
+          28074.5,
+          30719
+        ],
+        "ask": [
+          28075.3,
+          30721
+        ]
+      },
+      "flags_domain": [
+        2,
+        4,
+        6
+      ]
+    },
+    "XAU": {
+      "carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+      "unit": 0.01,
+      "first_boundary_price_range": {
+        "bid": [
+          1301.75,
+          1365.29
+        ],
+        "ask": [
+          1301.79,
+          1365.38
+        ]
+      },
+      "last_boundary_price_range": {
+        "bid": [
+          3939.54,
+          4382.06
+        ],
+        "ask": [
+          3944.4,
+          4382.9
+        ]
+      },
+      "flags_domain": [
+        2,
+        4,
+        6
+      ]
+    },
+    "conclusion": "No structural evidence of XAU/NQX carrier swapping or boundary-payload cross-contamination was found in the audited scope."
+  },
+  "false_fail_incident": {
+    "event": "Local execution harness initially required ZIP SHA inside PART_META.json although PART_META does not carry that field.",
+    "data_impact": "NONE",
+    "root_cause": "auditor assumption, not dataset",
+    "correction": "ZIP SHA check is optional in PART_META and remains independently verified against the external ZIP manifest/checkpoint.",
+    "rerun": "PASS"
+  },
+  "limitations": [
+    "Does not prove exact broker/provider acquisition binding.",
+    "Does not prove absence of one misplaced record in an unscanned interior payload.",
+    "Does not resolve NQX roll/back-adjustment semantics.",
+    "Does not resolve timezone/DST."
+  ],
+  "gates": {
+    "CROSS_ASSET_CONTAMINATION": "PASS_STRUCTURAL_BOUNDARY_PLUS_MANIFEST",
+    "SYMBOL_CONTAINER_IDENTITY": "PASS_INTERNAL_LINEAGE",
+    "SOURCE_PROVIDER_IDENTITY": "FAIL_CLOSED",
+    "NQX_ROLL_BACK_ADJUSTMENT": "UNRESOLVED"
+  },
+  "blast_radii": {
+    "byte": "NONE",
+    "semantic": "NONE_FROM_THIS_TEST",
+    "scientific": "NONE",
+    "decision": "NONE"
+  },
+  "next_automatic_action": "Audit the independent runtime/parser implementations for schema, FLAGS, carry-forward Bid/Ask, timestamp encoding and deterministic reconstruction; preserve provider/timezone gaps separately."
+}
