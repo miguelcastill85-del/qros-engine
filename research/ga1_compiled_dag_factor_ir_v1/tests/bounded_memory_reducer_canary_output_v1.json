@@ -1,22 +1,78 @@
 {
   "bounded_memory_contract": "selected chunks never exceed bitmap_chunk_bytes*8 rows; no full recipe mask is materialized by reducer",
   "cases": [
-    {"n": 0, "physical_bitmaps": 1, "recipes": 7},
-    {"n": 1, "physical_bitmaps": 2, "recipes": 7},
-    {"n": 7, "physical_bitmaps": 5, "recipes": 7},
-    {"n": 8, "physical_bitmaps": 5, "recipes": 7},
-    {"n": 9, "physical_bitmaps": 4, "recipes": 7},
-    {"n": 31, "physical_bitmaps": 5, "recipes": 7},
-    {"n": 64, "physical_bitmaps": 5, "recipes": 7},
-    {"n": 257, "physical_bitmaps": 5, "recipes": 7},
-    {"n": 4097, "physical_bitmaps": 5, "recipes": 7},
-    {"n": 11078, "physical_bitmaps": 5, "recipes": 7}
+    {
+      "n": 0,
+      "physical_bitmaps": 1,
+      "recipes": 7
+    },
+    {
+      "n": 1,
+      "physical_bitmaps": 2,
+      "recipes": 7
+    },
+    {
+      "n": 7,
+      "physical_bitmaps": 5,
+      "recipes": 7
+    },
+    {
+      "n": 8,
+      "physical_bitmaps": 5,
+      "recipes": 7
+    },
+    {
+      "n": 9,
+      "physical_bitmaps": 4,
+      "recipes": 7
+    },
+    {
+      "n": 31,
+      "physical_bitmaps": 5,
+      "recipes": 7
+    },
+    {
+      "n": 64,
+      "physical_bitmaps": 5,
+      "recipes": 7
+    },
+    {
+      "n": 257,
+      "physical_bitmaps": 5,
+      "recipes": 7
+    },
+    {
+      "n": 4097,
+      "physical_bitmaps": 5,
+      "recipes": 7
+    },
+    {
+      "n": 11078,
+      "physical_bitmaps": 5,
+      "recipes": 7
+    }
   ],
   "chunk_invariance_checks": 140,
-  "chunk_sizes_bytes": [1, 2, 7, 64, 4096],
+  "chunk_sizes_bytes": [
+    1,
+    2,
+    7,
+    64,
+    4096
+  ],
   "domains": [
-    {"asset": "XAUUSD", "scientific_context": "SYNTHETIC_NON_ECONOMIC", "side": "BUY", "tf": "M1"},
-    {"asset": "NQX", "scientific_context": "SYNTHETIC_NON_ECONOMIC", "side": "SELL", "tf": "H4"}
+    {
+      "asset": "XAUUSD",
+      "scientific_context": "SYNTHETIC_NON_ECONOMIC",
+      "side": "BUY",
+      "tf": "M1"
+    },
+    {
+      "asset": "NQX",
+      "scientific_context": "SYNTHETIC_NON_ECONOMIC",
+      "side": "SELL",
+      "tf": "H4"
+    }
   ],
   "environment": {
     "implementation": "CPython",
@@ -26,7 +82,18 @@
   },
   "factor_ir_scalar_oracle_parity_checks": 140,
   "invalid_parameter_rejections": 2,
-  "n_values": [0, 1, 7, 8, 9, 31, 64, 257, 4097, 11078],
+  "n_values": [
+    0,
+    1,
+    7,
+    8,
+    9,
+    31,
+    64,
+    257,
+    4097,
+    11078
+  ],
   "recipes_per_n": 7,
   "reducer_parity_comparisons": 700,
   "schema": "QROS_BOUNDED_MEMORY_REDUCER_CANARY_1.0",
