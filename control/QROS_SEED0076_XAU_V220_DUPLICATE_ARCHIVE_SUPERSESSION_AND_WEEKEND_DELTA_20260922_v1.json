@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_SEED0076_XAU_V220_DUPLICATE_ARCHIVE_SUPERSESSION_AND_WEEKEND_DELTA_1.0",
+  "date": "2026-09-22",
+  "status": "READ_ONLY_CORRECTION_AND_DUPLICATE_CLEANUP",
+  "authority": {
+    "main_frontier": "V259",
+    "main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "research_branch": "research/seed0076-first-gate10-20260922",
+    "group_manifest_path": "control/QROS_SEED0076_XAU_V220_CARRIER_GROUP_MANIFEST_20260922_v1.json",
+    "group_manifest_git_blob_sha1": "d1aff1ea650bb27db3970b0ff76e48a4cfb316f3",
+    "source_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "clock_v219_git_blob_sha1": "c16d561b66a51d3735960470ba893e53e6913d40"
+  },
+  "full_authoritative_portable_cache": {
+    "library_folder": "/QROS/RISE_AUDIT_MAX_V2/XAU_V220_FROZEN_CARRIERS_20260922",
+    "manifest_sha256": "8aa6b991eefda875c296c3190629d7319dd8e20a9eef92fe69b6d6e2a37efab1",
+    "groups_sha256": {
+      "A_M1": "090800d73cb4258f610747ffbbd3606bfe21cecb787c3dad7bd46254552ef753",
+      "B_M2_M3": "53cb17e0aa38a009d00fd17588cf054dbe1985bb0dd5958a906220f77fc2b67b",
+      "C_M4_M5_M6": "60325bb66a091a390f76f3c94becfe5f49f8388e688cbafac4c06d2241905718",
+      "D_M10_M12_M15_M20_M30": "29c5ec20e89da05e0c0921c409fde4a56ffe1dc95fbd0f4a613ecf8242617dfe",
+      "E_H1_H2_H3_H4_D1_W1": "257132dd92394e1a55b53e05d9cd7d0e422ce8bbe259cc6f84f6c91587cc7d66"
+    },
+    "local_group_hash_comparisons": "PASS_5_OF_5",
+    "independently_built_raw_cache_byte_parity": "PASS_34_OF_34",
+    "library_group_upload_status": "5_OF_5_REPORTED_SAVED",
+    "library_binary_full_readback": "NOT_ALL_FIVE_REVERIFIED_FROM_LIBRARY"
+  },
+  "superseded_duplicate_archive": {
+    "old_library_folder": "/QROS/RISE_AUDIT_MAX_V2/XAU_V220_CARRIER_REPLAY_20260922",
+    "old_manifest_path": "control/QROS_SEED0076_XAU_V220_ALL17_PORTABLE_PARTS_MANIFEST_20260922_v1.json",
+    "reason": "Duplicate eight-piece 510671078-byte archive was incomplete: part06 rejected due to Library quota. A separate complete five-group archive had already been independently persisted and matches all 34 bar/indicator file hashes and content roots.",
+    "generated_binary_parts_moved_to_trash": [
+      "00",
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "07"
+    ],
+    "duplicate_bytes_moved_to_trash": 443562214,
+    "actual_library_quota_reclaimed": "NOT_MEASURED",
+    "historical_source_and_recovery_receipts": "PRESERVED",
+    "old_partial_manifest_status": "SUPERSEDED_DO_NOT_REHYDRATE"
+  },
+  "independent_clock_delta": {
+    "frozen_clock_state": "V219_PASS_CONFIRMED",
+    "input_dev_unchanged": true,
+    "weekend_gap_count_friday_to_monday": 100,
+    "additional_gap_over_40h": {
+      "last_server_civil": "2019-04-18T23:58:57.753",
+      "next_server_civil": "2019-04-22T01:01:00.285",
+      "last_source_index": 84769348
+    },
+    "four_frozen_dst_boundary_pairs_exact": true,
+    "local_reproducer_sha256": "9bc0aacb018f19d20cad4064142ca02962fda792a3cc04be6819410bd5dcb1cf",
+    "local_library_path": "/QROS/RISE_AUDIT_MAX_V2/XAU_V220_CARRIER_REPLAY_20260922/XAUUSD_V219_CLOCK_RECHECK_20260922_v1.json",
+    "calendar_interpretation": "Stored Darwinex source-server civil labels; not UTC. An additional long non-Friday-to-Monday gap is documented, not automatically assigned a holiday cause."
+  },
+  "scientific_guard": {
+    "state": "PREREGISTERED_NO_RESULTS",
+    "frozen_structural_shards": 10,
+    "completed_24_XAU_mask_groups": "HISTORICAL_STRUCTURAL_RECEIPT_ONLY",
+    "exact_XAU_mask_bytes_available": "NO",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "shard11_open": false,
+    "first10_schedule": "STAGED_ON_ISOLATED_BRANCH_ONLY"
+  },
+  "next_automatic_action": "Reuse five complete hash-pinned archives and V219 clock. Before touching economics, recover exact original 24 XAU BUY M1 mask payloads or reconstruct only missing artifacts using frozen V223 worker and independent generator; reproduce 303572 distinct masks, semantic root cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4 and alias root 4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458."
+}
