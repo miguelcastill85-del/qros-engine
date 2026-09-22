@@ -1,0 +1,52 @@
+{
+  "schema": "QROS_DATA_PROVENANCE_ZIP_RESTORE_CANARY_RECEIPT_1.0",
+  "receipt_id": "QROS_ZIP_RESTORE_CANARY_20260921_R1",
+  "status": "PASS_RESEARCH_INFRASTRUCTURE",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "implementation": {
+    "restore_path": "research/data_provenance_max_v2/QROS_RESTORE_FULL_HISTORY_ZIP_v2.py",
+    "restore_git_blob": "a50811da198e4a65993145730fb42fef9497fe9f",
+    "executed_local_sha256": "cbfbc4912b10c90db493f1c57c79c82eac3c495965119fe737c081867923c2c8",
+    "test_path": "research/data_provenance_max_v2/tests/run_zip_restore_canary_v1.py"
+  },
+  "executed_canary": {
+    "records": 40003,
+    "bytes": 680051,
+    "carrier_sha256": "646ef6c54775f87de10d06e18fb765bbc7b4a17fadd381fd02283201bcff8110",
+    "valid_restore": "PASS_BYTE_EXACT",
+    "tampered_part": "REJECTED_BEFORE_RESTORE",
+    "reordered_manifest": "REJECTED_BEFORE_RESTORE",
+    "emitted_capability_receipt_sha256": "9b207787862c5e382a79f39a7c615dc58c3b7115f341faf6f3657bac5335a738"
+  },
+  "incident": {
+    "old_zstd_restore_canary": "BLOCKED_BY_INFRASTRUCTURE_SUBTASK_ONLY",
+    "cause": "Python zstandard module absent in current runtime",
+    "action": "Did not retry/install; switched to current standard-ZIP carrier route using Python stdlib."
+  },
+  "verified_guarantees": [
+    "part ZIP size/hash enforced",
+    "PART_META and manifest semantic identity enforced",
+    "payload size/hash enforced",
+    "record continuity and cross-part chronology enforced",
+    "final carrier byte count/row count/SHA256 enforced",
+    "atomic output publication",
+    "tamper and ordering failures fail closed"
+  ],
+  "limitations": [
+    "Synthetic canary proves restoration mechanism, not provider identity.",
+    "Full XAU/NQX restoration was not rerun because verified carriers already exist and anti-bureaucracy forbids gratuitous multi-GB recomputation.",
+    "Timezone/DST and acquisition provenance remain separate unresolved gates."
+  ],
+  "gates": {
+    "ZIP_RESTORE_REPRODUCIBILITY_IMPLEMENTATION": "PASS",
+    "FULL_REAL_RESTORE_RERUN": "REUSED_PRIOR_VERIFIED_RECEIPTS",
+    "DATA_PROMOTION": "NO"
+  },
+  "blast_radii": {
+    "byte": "NONE_REAL_DATA",
+    "semantic": "NONE",
+    "scientific": "NONE",
+    "decision": "NONE"
+  },
+  "next_automatic_action": "Advance checkpoint to R2 and isolate remaining promotion-critical gaps: exact source/acquisition binding, timezone/DST, material gap taxonomy and NQX contract/roll semantics."
+}
