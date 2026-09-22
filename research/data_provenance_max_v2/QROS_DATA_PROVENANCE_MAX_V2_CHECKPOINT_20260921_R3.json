@@ -1,0 +1,77 @@
+{
+  "schema": "QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_3.0",
+  "checkpoint_id": "QROS_DATA_PROVENANCE_MAX_V2_20260921_R3",
+  "date": "2026-09-21",
+  "GLOBAL_STATE": "DATA_PROVENANCE_PROVISIONAL_LOCAL_BLOCKER__GLOBAL_ORCHESTRATOR_RELEASED_TO_V259_ARCHITECTURE",
+  "AUTHORITY_VECTOR": {
+    "DATA_AUTHORITY": "research/data-provenance-max-v2-20260921 R3",
+    "SCIENTIFIC_AUTHORITY": "main V259 / PREREGISTERED_NO_RESULTS",
+    "CODE_AUTHORITY": "main for science; research branches isolated",
+    "EXECUTION_AUTHORITY": "no economic PnL, holdout, GA2 or shard11",
+    "OPERATIONAL_AUTHORITY": "authenticated carrier manifests/receipts + exact Seed0076 DEV receipts"
+  },
+  "DATA_GATE": {
+    "SOURCE_RESOLVED": "BLOCKED_SUBTASK_STRONGLY_CORROBORATED_NOT_HASH_BOUND",
+    "BYTE_INTEGRITY": "PASS",
+    "SCHEMA_VALID": "PASS",
+    "TIMEBASE_RESOLVED": "PASS_EMPIRICAL_FOR_SEED0076_DEV_2018_2019_WITH_PROVIDER_BINDING_CONDITIONAL; FULL_GENERAL_PROMOTION_PROVISIONAL",
+    "BID_ASK_SEMANTICS_RESOLVED": "PASS",
+    "COVERAGE_AUDITED": "PASS_STRUCTURAL",
+    "CHRONOLOGY_AUDITED": "PASS",
+    "MATERIAL_GAPS_CLASSIFIED": "PARTIAL_DEV_STRUCTURAL; FULL_GENERAL_TAXONOMY_INCOMPLETE",
+    "PROVENANCE_SUFFICIENT": "FAIL_CLOSED_FOR_GLOBAL_DATA_PROMOTION",
+    "REPRODUCIBILITY_ACCEPTABLE": "PASS_ZIP_RESTORE_MECHANISM + PRIOR_EXACT_DEV_MATERIALIZATION_RECEIPTS",
+    "OVERALL": "PROVISIONAL_VERIFY_ONLY"
+  },
+  "SEED0076_DEPENDENCY": {
+    "signal_universe": 48280320,
+    "session_dependent_configs": 4510080,
+    "session_fraction": 0.09341445955619183,
+    "non_session_configs": 43770240,
+    "completed_shards": 10,
+    "completed_config_occurrences": 8046720,
+    "completed_session_dependent_occurrences_max": 751680,
+    "completed_non_session_occurrences": 7295040,
+    "action": "No shard recomputation. SESSION subset carries provenance dependency bit before economic use; non-session subset not invalidated by this exact source-identity gap."
+  },
+  "HISTORICAL_RECONCILIATION": {
+    "V212": "absolute clock PASS superseded",
+    "V217": "valid correction/downgrade",
+    "V218": "NQX exact DEV byte + GA0 + empirical clock binding",
+    "V219": "XAU exact DEV byte + GA0; global empirical clock/session crosscheck",
+    "conclusion": "Prior governance already corrected the V212 overreach. New DATA/MAX audit tightens remaining distinction between empirical clock mapping and exact provider acquisition identity."
+  },
+  "BLOCKED_FRONTIER": [
+    "SOURCE->ACQUISITION hash-bound provenance edge",
+    "exact NQX MT5 tick-audit evidence ZIP/report payload"
+  ],
+  "QUARANTINED_FRONTIER": [
+    "automatic retries of missing acquisition/MT5 evidence",
+    "global data promotion",
+    "SESSION-dependent economic promotion until source provenance is resolved or an equivalent independent source proof is recovered"
+  ],
+  "TRUE_GLOBAL_BOTTLENECK": "V259_GA1_EXECUTION_ARCHITECTURE_AUDIT_HOLD",
+  "TRUE_DATA_BOTTLENECK": "SOURCE_ACQUISITION_BINDING",
+  "BOTTLENECK_FALSIFICATION": "Data source binding is not the current global bottleneck because V259 forbids economic PnL/shard11 independently; architecture research can proceed without consuming irreversible information.",
+  "PRIMARY_PROTOCOL_NEXT": "COMPUTE/SOFTWARE/INFRASTRUCTURE MAX under V259 architecture research",
+  "SUPPORTING_PROTOCOL": "DATA/PROVENANCE MAX carries dependency constraints only",
+  "GATES_PRESERVED": [
+    "V259",
+    "shards1-10 closed",
+    "shard11 closed",
+    "economic PnL closed",
+    "holdout closed",
+    "GA2 closed",
+    "new seeds closed"
+  ],
+  "PERSISTED_RECEIPTS": [
+    "QROS_TIMEBASE_STRUCTURAL_FALSIFICATION_20260921_R1.json",
+    "QROS_CROSS_ASSET_STRUCTURAL_IDENTITY_20260921_R1.json",
+    "QROS_MT5_TICK_SEMANTICS_20260921_R1.json",
+    "QROS_ZIP_RESTORE_CANARY_20260921_R1.json",
+    "QROS_SOURCE_CORROBORATION_20260921_R1.json",
+    "QROS_SEED0076_TIMEBASE_DEPENDENCY_AUDIT_20260921_R1.json",
+    "QROS_SOURCE_ACQUISITION_BINDING_BLOCKER_20260921_R1.json"
+  ],
+  "NEXT_AUTOMATIC_ACTION": "Resume isolated V259 architecture research from its latest verified recovery root. Do not revisit RETEST/rearm. Select another independent synthetic/non-economic hardening node that can change architecture confidence, then persist and recalculate."
+}
