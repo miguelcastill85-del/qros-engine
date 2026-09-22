@@ -1,0 +1,79 @@
+{
+  "schema": "QROS_DATA_PROVENANCE_MT5_TICK_SEMANTICS_RECEIPT_1.0",
+  "receipt_id": "QROS_MT5_TICK_SEMANTICS_20260921_R1",
+  "status": "PASS_SEMANTIC_MODEL_NO_RAW_SOURCE_BINDING",
+  "authority": {
+    "main": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "frontier": "V259"
+  },
+  "evidence": {
+    "qros_NQX_contract": {
+      "source_symbol": "NDX",
+      "aliases": [
+        "NQX",
+        "NDX"
+      ],
+      "source_clock": "BROKER_SERVER_TIME_UNRESOLVED_TIMEZONE_DST",
+      "blank_side_semantics": "CAUSAL_CARRY_FORWARD_LAST_OBSERVED_SIDE",
+      "execution": {
+        "buy_entry": "ASK",
+        "buy_exit": "BID",
+        "sell_entry": "BID",
+        "sell_exit": "ASK"
+      }
+    },
+    "qros_exact_cache": {
+      "timestamp_semantics": "server-clock epoch encoding only; timezone unresolved",
+      "flags_semantics": {
+        "2": "Bid",
+        "4": "Ask",
+        "6": "Bid+Ask"
+      },
+      "all_source_rows_preserved": true
+    },
+    "official_metaquotes": {
+      "flags": {
+        "TICK_FLAG_BID": 2,
+        "TICK_FLAG_ASK": 4,
+        "TICK_FLAG_LAST": 8,
+        "TICK_FLAG_VOLUME": 16,
+        "TICK_FLAG_BUY": 32,
+        "TICK_FLAG_SELL": 64
+      },
+      "field_behavior": "MqlTick fields remain populated with current/previous known values even when only one field changes.",
+      "CopyTicks_time": "from is milliseconds from 1970-01-01; tick history is delivered past-to-present.",
+      "refs": [
+        "https://www.mql5.com/en/book/applications/timeseries/timeseries_ticks_mqltick",
+        "https://www.mql5.com/en/docs/constants/structures/mqltick",
+        "https://www.mql5.com/en/docs/series/copyticks"
+      ]
+    }
+  },
+  "verified_conclusions": {
+    "flag_values_match_MT5_model": true,
+    "flags_2_4_6_mean_bid_ask_both": true,
+    "causal_last_known_other_side_is_consistent_with_MT5_tick_state_model": true,
+    "qros_buy_sell_bidask_execution_rule_is_semantically_coherent_with_quotes": true,
+    "source_provider_binding_from_this_test": false,
+    "timezone_resolution_from_this_test": false
+  },
+  "false_pass_guard": [
+    "Matching MT5 flags does not prove the RAR files were exported from Darwinex.",
+    "Epoch-shaped milliseconds do not prove UTC; QROS lineage explicitly labels them server-clock encoding.",
+    "Bid/Ask semantic consistency does not prove every historical quote is genuine."
+  ],
+  "gates": {
+    "SCHEMA_SEMANTIC_FLAGS": "PASS",
+    "BID_ASK_FIELD_IDENTITY": "PASS_WITHIN_MT5_TICK_MODEL",
+    "CARRY_FORWARD_SEMANTICS": "PASS_COMPATIBILITY",
+    "SOURCE_PROVIDER_IDENTITY": "FAIL_CLOSED",
+    "TIMEZONE_DST": "FAIL_CLOSED"
+  },
+  "blast_radii": {
+    "byte": "NONE",
+    "semantic": "REDUCED_BID_ASK_UNCERTAINTY",
+    "scientific": "NONE_NEGATIVE",
+    "decision": "NONE"
+  },
+  "next_automatic_action": "Recalculate data frontier: provider/acquisition and exact timezone/DST remain unresolved; proceed through reproducibility/lineage checks without reopening economic PnL."
+}
