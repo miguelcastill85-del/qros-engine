@@ -1,0 +1,43 @@
+{
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "independent_formulas_per_tf": 5,
+  "schema": "QROS_XAU_DEV_INDICATOR_NUMERIC_ORACLE_1.0",
+  "source_core": "SCIPY_LFILTER_NOT_QROS_INTERNAL",
+  "status": "PASS",
+  "timeframes": {
+    "M1": {
+      "bars": 681772,
+      "metrics": {
+        "ATR14_max_abs_error": 1.620301115501377e-13,
+        "ATR50_max_abs_error": 8.459899447643693e-14,
+        "EMA105_max_abs_error": 1.1368683772161603e-12,
+        "EMA20_max_abs_error": 1.1368683772161603e-12,
+        "EMA210_max_abs_error": 1.3642420526593924e-12
+      },
+      "oracle": "scipy.signal.lfilter independently seeded canonical EMA and Wilder TR"
+    },
+    "M15": {
+      "bars": 45551,
+      "metrics": {
+        "ATR14_max_abs_error": 8.604228440844963e-14,
+        "ATR50_max_abs_error": 4.363176486776865e-14,
+        "EMA105_max_abs_error": 6.821210263296962e-13,
+        "EMA20_max_abs_error": 6.821210263296962e-13,
+        "EMA210_max_abs_error": 6.821210263296962e-13
+      },
+      "oracle": "scipy.signal.lfilter independently seeded canonical EMA and Wilder TR"
+    },
+    "M5": {
+      "bars": 136544,
+      "metrics": {
+        "ATR14_max_abs_error": 9.9253938401489e-14,
+        "ATR50_max_abs_error": 4.5075054799781356e-14,
+        "EMA105_max_abs_error": 1.1368683772161603e-12,
+        "EMA20_max_abs_error": 9.094947017729282e-13,
+        "EMA210_max_abs_error": 9.094947017729282e-13
+      },
+      "oracle": "scipy.signal.lfilter independently seeded canonical EMA and Wilder TR"
+    }
+  }
+}
