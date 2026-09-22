@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_PUBLIC1000_SEED0076_TEN_SHARD_ECONOMIC_GATE_OVERRIDE_1.0",
+  "date": "2026-09-22",
+  "status": "FROZEN_PRE_PNL",
+  "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "operator_direction": "Backtest only the ten already-completed GA1 shards; open the first economic gate and continue subsequent frozen gates only for survivors until rejection or the next scientifically mandatory irreversible gate.",
+  "supersedes_for_execution_sequence_only": {
+    "path": "governance/QROS_PUBLIC1000_SEED0076_GA1_COMPLETE_BEFORE_ECONOMIC_GATE_POLICY_v1.0.json",
+    "git_blob_sha1": "9d4b1b038c75653f72f84024d5b7a6581123a61b",
+    "preserved": [
+      "frozen 60-shard universe",
+      "all existing GA1 shard identities",
+      "multiplicity accounting",
+      "holdout sealing",
+      "no post-result universe edits"
+    ]
+  },
+  "authorized_ga1_shards": {
+    "count": 10,
+    "ordinals": [1,2,3,4,5,6,7,8,9,10],
+    "completed_only": true,
+    "shard11_authorized": false,
+    "remaining_50_ga1_execution_authorized": false
+  },
+  "economic_gate_contract": {
+    "first_gate_contract": "governance/QROS_PUBLIC1000_SEED0076_SEQUENTIAL_FIRST_GATE_MULTIPLICITY_CONTRACT_v1.0.json",
+    "per_shard_q": "1/1200",
+    "campaign_q_basis_shards": 60,
+    "unused_budget_recycled": false,
+    "management_anchor": {
+      "stop": "OPPOSITE_FRACTAL",
+      "target": "NONE",
+      "breakeven": "OFF",
+      "trailing": "OFF",
+      "partial": "OFF",
+      "same_day_exit": true
+    },
+    "execution_profile": "CENTRAL",
+    "unit": "R",
+    "holdout": "CLOSED_DURING_FIRST_GATE"
+  },
+  "data_scope": {
+    "dev_period": "2018-2019",
+    "xau_dev_prefix_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "nqx_dev_prefix_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "data_authority_checkpoint": "research/data_provenance_max_v2/QROS_DATA_PROVENANCE_MAX_V2_CHECKPOINT_20260921_R3.json",
+    "data_authority_git_blob_sha1": "fa589a9ba72c370e2487cc8d25d13acd1aa7dcea",
+    "non_session_occurrences_across_completed_shards": 7295040,
+    "session_dependent_occurrences_max_across_completed_shards": 751680,
+    "session_policy": "SESSION-dependent hypotheses remain quarantined from terminal economic rejection/promotion until source-acquisition provenance is resolved or an equivalent independent source proof is bound. Non-session hypotheses may be evaluated because R3 explicitly states they are not invalidated by the source-identity gap.",
+    "no_silent_session_substitution": true
+  },
+  "gate_progression": {
+    "rule": "Only survivors from a completed valid gate may enter the next already-frozen gate.",
+    "no_rescue": true,
+    "no_post_result_parameter_change": true,
+    "no_new_management_profile": true,
+    "no_new_execution_profile": true,
+    "no_new_stress_profile": true,
+    "holdout_opening": "Only after the upstream frozen gates and an explicit holdout contract authorize it; DEV results can never be relabeled as holdout.",
+    "stop_on_zero_survivors": true
+  },
+  "scientific_firewalls": {
+    "new_ga1_authorized": false,
+    "shard11_open": false,
+    "new_seed_open": false,
+    "holdout_open_initially": false,
+    "ga2_first_gate_authorized_for_completed_10": true,
+    "economic_pnl_read_authorized_scope": "DEV 2018-2019; completed shards 1-10; non-session-safe hypothesis classes only until provenance dependency is cleared"
+  },
+  "next_action": "Materialize exact V259 code and exact DEV carriers in a qualified runner; resume reusable W09C artifacts where compatible; execute first-gate backtesting for the ten completed shards under the frozen scorer/execution contracts; persist each shard result before downstream survivor gates."
+}
