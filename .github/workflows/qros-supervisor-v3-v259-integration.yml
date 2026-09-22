@@ -1,0 +1,64 @@
+name: qros-supervisor-v3-v259-integration
+
+on:
+  push:
+    branches:
+      - engineering/supervisor-v3-v259-integration-20260921
+  pull_request:
+    paths:
+      - 'scripts/qros_heavy_job_supervisor_v3.py'
+      - 'scripts/qros_heavy_job_supervisor_tests_v3.py'
+      - 'scripts/qros_heavy_job_supervisor_lifecycle_tests_v3.py'
+      - 'scripts/qros_fenced_heavy_job_supervisor_v2.py'
+      - 'scripts/qros_fenced_heavy_job_supervisor_tests_v2.py'
+      - 'scripts/qros_recursive_effect_executor_v1.py'
+      - 'scripts/qros_recursive_progress_kernel_v1.py'
+      - '.github/workflows/qros-supervisor-v3-v259-integration.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify exact imported source hashes
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          expected = {
+            'scripts/qros_heavy_job_supervisor_v3.py':'03c368ab046cafc887cf397170af18a301c9f2702afede7434c786ab47ac9ab8',
+            'scripts/qros_heavy_job_supervisor_tests_v3.py':'d1ed05b7f5f40d217d55a5501601110ddc81c733daf59e8940ee69d14e5008a6',
+            'scripts/qros_heavy_job_supervisor_lifecycle_tests_v3.py':'24a977634781366c1a889ceef5292459e73c5bb357be0f5bed61cbee38c959a2',
+            'scripts/qros_fenced_heavy_job_supervisor_v2.py':'c8dc9fbcaffe7e3ab76958c1904ff2fa6cd683d0c5181168b3eaa4fce498dbf7',
+            'scripts/qros_fenced_heavy_job_supervisor_tests_v2.py':'04cd4628621c8e66e2b78901072af417fb6cc95d546fbefc5c45295742dd64dd',
+            'scripts/qros_recursive_effect_executor_v1.py':'7f293599ab6332be0ca45606a755563cbe881cc7195564c4130d4b47b52f4f23',
+            'scripts/qros_recursive_progress_kernel_v1.py':'129ec051ae8e366cf1d0306ffcc26fb77a2eaced5c554464459cf07f7404c3ed',
+          }
+          for p,want in expected.items():
+              got=hashlib.sha256(Path(p).read_bytes()).hexdigest()
+              if got!=want:
+                  raise SystemExit(f'HASH_MISMATCH {p} {got} != {want}')
+          print('PASS exact source hashes')
+          PY
+      - name: Compile integration set
+        run: |
+          python -m py_compile             scripts/qros_heavy_job_supervisor_v3.py             scripts/qros_heavy_job_supervisor_tests_v3.py             scripts/qros_heavy_job_supervisor_lifecycle_tests_v3.py             scripts/qros_fenced_heavy_job_supervisor_v2.py             scripts/qros_fenced_heavy_job_supervisor_tests_v2.py             scripts/qros_recursive_effect_executor_v1.py             scripts/qros_recursive_progress_kernel_v1.py
+      - name: Supervisor v3 regression suite
+        run: python scripts/qros_heavy_job_supervisor_tests_v3.py
+      - name: Supervisor v3 lifecycle corpus
+        run: python scripts/qros_heavy_job_supervisor_lifecycle_tests_v3.py
+      - name: Fenced bounded adapter suite
+        run: python scripts/qros_fenced_heavy_job_supervisor_tests_v2.py
+      - name: V259 recursive effect executor regression
+        run: python scripts/qros_recursive_effect_executor_tests_v1.py
+      - name: V259 recursive kernel exhaustive regression
+        run: python scripts/qros_recursive_progress_kernel_tests_v1.py

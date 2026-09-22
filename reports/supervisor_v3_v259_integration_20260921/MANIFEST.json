@@ -1,0 +1,71 @@
+{
+  "schema": "QROS_SUPERVISOR_V3_V259_INTEGRATION_MANIFEST_1.0",
+  "date": "2026-09-21",
+  "status": "INTEGRATION_CANDIDATE_NO_ACTIVATION",
+  "base": {
+    "main_commit": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "scientific_frontier": "V259",
+    "scientific_state": "PREREGISTERED_NO_RESULTS"
+  },
+  "source_candidate": {
+    "pr": 54,
+    "branch": "engineering/supervisor-v3-bounded-recovery-20260919",
+    "source_head": "7be9e1432386634a42802c4b1f7da92476950266",
+    "authority_reconciliation_commit": "c5e7d0af3b2b5a83dc2f666e3ff68ee5668faeb8"
+  },
+  "exact_imports": {
+    "scripts/qros_heavy_job_supervisor_v3.py": "9cf746742fa62e7f8dc68861417a43fa14696073",
+    "scripts/qros_heavy_job_supervisor_tests_v3.py": "c019a97e4321fb55251523d9a39b8386b47ba690",
+    "scripts/qros_heavy_job_supervisor_lifecycle_tests_v3.py": "0018734d86f25595be5e7ea4b542b9b78f688d29",
+    "scripts/qros_fenced_heavy_job_supervisor_v2.py": "eb18893369efe4a7f107177b10669354eb73fa05",
+    "scripts/qros_fenced_heavy_job_supervisor_tests_v2.py": "8350620254afa5a379069d068a2cf321cacb8d3c"
+  },
+  "dependency_compatibility": {
+    "scripts/qros_fenced_heavy_job_supervisor_v1.py": {
+      "v259_git_blob_sha1": "d82d21b9ee54391ceab002c1515458f379a2ea71",
+      "pr54_base_git_blob_sha1": "d82d21b9ee54391ceab002c1515458f379a2ea71",
+      "status": "EXACT"
+    },
+    "scripts/qros_fenced_runtime_lease_guard_v1.py": {
+      "v259_git_blob_sha1": "8eed504af981529b21933ef594aef77e9b9d06a5",
+      "pr54_base_git_blob_sha1": "8eed504af981529b21933ef594aef77e9b9d06a5",
+      "status": "EXACT"
+    }
+  },
+  "architectural_assessment": {
+    "v259_kernel_role": "durable transactional continuity, exactly-once effect intent, CAS/event chain, no polling",
+    "supervisor_v3_role": "bounded local child-process execution, log budget, process identity, local flock, symlink rejection, safe UNKNOWN/FOREIGN handling",
+    "relationship": "COMPLEMENTARY_NOT_YET_WIRED",
+    "known_v259_executor_gaps_addressed_by_supervisor_v3": [
+      "worker p.wait has no runtime deadline",
+      "stdout/stderr files have no explicit byte cap",
+      "receipt/artifact validation does not explicitly reject symlink chains",
+      "no stable local flock around controller claim creation"
+    ]
+  },
+  "validation_scope": [
+    "exact imported blob hashes",
+    "37 supervisor/fenced engineering tests",
+    "current V259 recursive effect executor regression",
+    "current V259 recursive kernel exhaustive regression"
+  ],
+  "not_claimed": [
+    "supervisor v3 is already wired into the recursive kernel",
+    "scientific execution authorization",
+    "economic PnL",
+    "holdout",
+    "GA2",
+    "MT5 parity",
+    "production activation",
+    "merge readiness before clean CI"
+  ],
+  "gates": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "shard11_open": false,
+    "production_adoption": false
+  },
+  "next_action": "Run clean CI on this V259-based branch. If PASS, freeze a compatibility receipt and design the minimum recursive-effect-executor v2 integration; do not create a second active control plane."
+}
