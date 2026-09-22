@@ -1,0 +1,156 @@
+{
+  "actual_execution": {
+    "bar_count_sum": 1924576,
+    "bar_price_side": "BID_UNMODIFIED_RAW",
+    "bar_receipt_sha256": "e666135dc8656c5f175da05bbdf14da484aef2b2dfaf2a1d3a6c344fb2d31b24",
+    "bar_timeframes": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M10",
+      "M12",
+      "M15",
+      "M20",
+      "M30",
+      "H1",
+      "H2",
+      "H3",
+      "H4",
+      "D1",
+      "W1"
+    ],
+    "expected_no_overnight": "NOT_A_BACKTEST",
+    "indicator_receipt_sha256": "cb001d6ac11fab926c7d80ecd40b0e6f3f88aad7c4e4ed36e8c1f046d525a8e8",
+    "indicator_sets": "V220_UNMODIFIED",
+    "point_used": 0.01
+  },
+  "authority": {
+    "first10_scope_git_blob_sha1": "ab31ded2702f57b54eebc052f1c8aa2737cf2479",
+    "main_pointer_git_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "original_XAU_source_profile_git_blob_sha1": "19c0443a3b9ae60fe9aee671818de276e17fe66d",
+    "research_branch": "research/seed0076-first-gate10-20260922",
+    "stable_frontier_at_execution": "V259"
+  },
+  "date": "2026-09-22",
+  "exact_code_pins": {
+    "bar_cache": "987ef26aca2507a94247bed7663493e6682aa869",
+    "bar_oracle": "b25f49273706d26ed04ad410c6ebbf89eb940af9",
+    "indicator_cache": "21a50b167e791f4474e3c358b81e40065c048280",
+    "indicator_formulas": "b3575c061607aaae9f4062ad623ff7083e2e0ffe"
+  },
+  "gates": {
+    "XAU_BUY_M1_alias_mapping_root": "4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458",
+    "XAU_BUY_M1_frozen_semantic_root": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+    "XAU_BUY_M1_mask_classes_expected": 303572,
+    "first_gate_economic_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "live_deployment": false,
+    "shard11_open": false
+  },
+  "next_automatic_action": "Use portable V220 all-TF bars and indicator carriers from Library, avoid rescanning 151M XAU ticks. Resolve exact Darwinex source clock and session pre-PnL. Search by frozen hashes for 24 XAU BUY M1 mask group payloads; if absent, rematerialize only those exact missing masks using pinned V223 worker and full frozen session rules, independently reproduce 303572 semantic classes and both roots before DEV economic gate. Keep first10 research scheduling separate from main V259.",
+  "portable_persistence": {
+    "archives_integrity": "5_OF_5_ZSTD_AND_TAR_MEMBER_PASS",
+    "cache_files_count": 34,
+    "group_archives_sha256": {
+      "A_M1": "090800d73cb4258f610747ffbbd3606bfe21cecb787c3dad7bd46254552ef753",
+      "B_M2_M3": "53cb17e0aa38a009d00fd17588cf054dbe1985bb0dd5958a906220f77fc2b67b",
+      "C_M4_M5_M6": "60325bb66a091a390f76f3c94becfe5f49f8388e688cbafac4c06d2241905718",
+      "D_M10_M12_M15_M20_M30": "29c5ec20e89da05e0c0921c409fde4a56ffe1dc95fbd0f4a613ecf8242617dfe",
+      "E_H1_H2_H3_H4_D1_W1": "257132dd92394e1a55b53e05d9cd7d0e422ce8bbe259cc6f84f6c91587cc7d66"
+    },
+    "group_manifest_file": "QROS_XAU_V220_CARRIER_GROUP_MANIFEST_20260922_v1.json",
+    "group_manifest_sha256": "8aa6b991eefda875c296c3190629d7319dd8e20a9eef92fe69b6d6e2a37efab1",
+    "library_folder": "/QROS/RISE_AUDIT_MAX_V2/XAU_V220_FROZEN_CARRIERS_20260922"
+  },
+  "quote_quality": {
+    "crossed_raw_tick_count": 74,
+    "direct_raw_mapping_file": "XAU_QUOTE_ANOMALY_DIRECT_BAR_MEMBERSHIP_17TF.npz",
+    "direct_raw_mapping_sha256": "57b2efaa7c3234bd17284eb87d67fa5066187924ba122a20ab006f9bb9e9c70b",
+    "m15_directly_affected": {
+      "all_bars": 45551,
+      "crossed": {
+        "directly_affected_bars": 66,
+        "max_anomalous_ticks_in_one_bar": 3,
+        "source_tick_count": 74
+      },
+      "either_directly_affected_bars": 37397,
+      "zero": {
+        "directly_affected_bars": 37349,
+        "max_anomalous_ticks_in_one_bar": 1428,
+        "source_tick_count": 942184
+      }
+    },
+    "m1_directly_affected": {
+      "all_bars": 681772,
+      "crossed": {
+        "directly_affected_bars": 70,
+        "max_anomalous_ticks_in_one_bar": 2,
+        "source_tick_count": 74
+      },
+      "either_directly_affected_bars": 199434,
+      "zero": {
+        "directly_affected_bars": 199365,
+        "max_anomalous_ticks_in_one_bar": 438,
+        "source_tick_count": 942184
+      }
+    },
+    "m5_directly_affected": {
+      "all_bars": 136544,
+      "crossed": {
+        "directly_affected_bars": 69,
+        "max_anomalous_ticks_in_one_bar": 2,
+        "source_tick_count": 74
+      },
+      "either_directly_affected_bars": 83403,
+      "zero": {
+        "directly_affected_bars": 83339,
+        "max_anomalous_ticks_in_one_bar": 880,
+        "source_tick_count": 942184
+      }
+    },
+    "original_ticks_mutated": false,
+    "scientific_limit": "Quote zero does not by itself prove synthetic or corrupt source; direct containment is not full indicator influence nor invalidity. Crossed BID may propagate to arbitrary later EMA observations; broker provenance needed before trading.",
+    "zero_spread_raw_tick_count": 942184
+  },
+  "schema": "QROS_SEED0076_XAU_V220_FULL_DEV_BAR_INDICATOR_CARRIER_CHECKPOINT_1.0",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "source": {
+    "asset": "XAUUSD",
+    "frozen_period": "2018-2019_DEV_ONLY",
+    "live_verified_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "point": 0.01,
+    "source_file_bytes": 2573500596,
+    "source_records": 151382388,
+    "unit": "integer_cents_0.01_XAUUSD"
+  },
+  "status": "VERIFIED_NON_ECONOMIC_CARRIER_REHYDRATION_PASS",
+  "unresolved": [
+    "broker source-clock timezone and DST authority still not verified; generated D1/W1/session masks NOT promoted to economic production",
+    "XAU BUY M1 frozen 24 group exact mask bytes/alias index not yet located or rematerialized",
+    "Independent event-generator parity and GA1 semantic/alias root reproduction not rerun",
+    "Quote crossed and zero-spread execution admission policy requires broker source proof before real economic trades"
+  ],
+  "validation": {
+    "all_receipt_sha256": {
+      "independent_numeric": "2bb8185b50c6e57e18ed924534533737807b56362b9ff553d90e682130092c1a",
+      "independent_raw": "c2826cca63b578885ce2bbd12596870c16073856d9d9ef9b1f9b61f73e5e21e1",
+      "original_bar_oracle": "e1b15d793a23e8100dac78b2713dfebd58897840758c4e83e59dc068fb4302e6"
+    },
+    "bar_original_oracle_git_blob_sha1": "b25f49273706d26ed04ad410c6ebbf89eb940af9",
+    "future_only_perturbation_timeframes": [
+      "M1",
+      "M15",
+      "M5"
+    ],
+    "independent_numeric_formula_checks": 15,
+    "independent_numeric_oracle": "scipy.signal.lfilter",
+    "independent_raw_direct_checks": 467,
+    "independent_raw_direct_timeframes": 17,
+    "original_bar_oracle_checks": 614,
+    "original_bar_oracle_failures": 0
+  }
+}
