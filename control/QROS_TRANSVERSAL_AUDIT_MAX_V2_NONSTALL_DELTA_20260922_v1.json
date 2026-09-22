@@ -1,0 +1,51 @@
+{
+  "schema": "QROS_TRANSVERSAL_AUDIT_MAX_V2_NONSTALL_DELTA_RECEIPT_1.0",
+  "date": "2026-09-22",
+  "scope": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA first10 GA1 execution admission and cross-layer provenance only",
+  "authority": {
+    "main_commit": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "main_frontier": "V259",
+    "main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "first10_branch": "research/seed0076-first-gate10-20260922",
+    "first10_scope_blob_sha1": "ab31ded2702f57b54eebc052f1c8aa2737cf2479",
+    "scorer_source_git_blob": "968f45bf45477b87d316edccb4aa1409d5d83019",
+    "normalizer_source_git_blob": "7774745805999db2faa59ff5f318c1e3072eeea5"
+  },
+  "verified_finding": "Primary scorer PRODUCTION manifest accepts an execution_receipt path and sha256 string plus execution_parity_pass=true without dereferencing the cited bytes. Primary normalizer separately rejects PRODUCTION because overlap policy is unbound. Upstream audit proved reducer parity does not mean independent generator parity, and discovered M2 missing replay carriers/helpers.",
+  "corrections": {
+    "prototype": "QROS first10 read-only receipt guard",
+    "mechanisms": [
+      "Git blob pinned authority",
+      "receipt path traversal and symlink containment",
+      "actual SHA-256 file reads",
+      "non-synthetic mode check",
+      "oracle receipt actual bytes and distinct generator code identities",
+      "DEV, maskpack and trade bytes hashed",
+      "per-shard unmet-dependency reporting",
+      "no production grant"
+    ],
+    "status": "PROTOTYPE_IN_ISOLATED_RUNTIME_NOT_INTEGRATED_IN_MAIN",
+    "production_grant": null
+  },
+  "tests": {
+    "local_isolated_pass": 9,
+    "local_isolated_total": 9,
+    "python_compile": "PASS",
+    "full_source_integration": "NOT_RUN",
+    "independent_generator_full_parity": "NOT_RUN",
+    "historical_backtest": "NOT_RUN",
+    "holdout": "SEALED"
+  },
+  "artifacts": {
+    "library_path": "/QROS/RISE_AUDIT_MAX_V2/QROS_TRANSVERSAL_AUDIT_MAX_V2_20260922.zip",
+    "library_source_file_id": "file_00000000cb6481f5bd9c663c6d9b8d26",
+    "bundle_sha256": "a4adce9324910d771bd9ae3b04190e47c23095deecddd0e72e7275d1ea59e15a",
+    "guard_script_sha256": "cb53613da93fe11f76db0e36de4b25e37be21e1330754a058b061cd5660ee2b4"
+  },
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "economic_gate": "CLOSED",
+  "holdout": "CLOSED",
+  "shard11": "CLOSED",
+  "no_scientific_invalidation_from_missing_economic_artifacts": true,
+  "next_automatic_action": "Run scope-bound preflight for XAUUSD BUY M1 when frozen DEV and exact mask carriers become available. Independently test production normalizer with overlapping events and source-provenance canaries on isolated branch before any scorer production promotion. Preserve first10 plan, q=1/1200 and all unspent budget."
+}
