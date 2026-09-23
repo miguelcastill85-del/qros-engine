@@ -1,7 +1,7 @@
 {
   "schema": "QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER_V1",
   "version": "2.1",
-  "status": "STAGED_PENDING_GITHUB_CI_AND_TERMINAL_RECONCILIATION",
+  "status": "ACTIVE_CODE_AND_AGENT_BOOTSTRAP",
   "repository": "miguelcastill85-del/qros-engine",
   "branch": "governance/qros-anti-stall-incident-max-v2-1-20260923",
   "source_root": "anti_stall",
@@ -10,7 +10,7 @@
   "drive_source_bridge_id": "1aM0FP16s_H1t2iwS4mhHjWiDzbK2Dv0f",
   "meta_audit_tests_local": 37,
   "windows_native": "UNVERIFIED",
-  "background_executor": "NOT_CONFIGURED",
+  "background_executor": "NOT_CONFIGURED_REQUIRES_EXTERNAL_TRIGGER_AND_DATA_ACCESS",
   "scientific_firewalls": {
     "holdout_open": false,
     "old_ga1_reopened": false,
@@ -21,5 +21,30 @@
     "direct_dev": "research/seed0076-direct-dev-backtest-20260922",
     "latest_direct_dev_closed": "XAU_M1_SIX_WINDOW_AUDIT",
     "next_direct_dev": "W3_STRICT_ALL_NEIGHBORS"
-  }
+  },
+  "activated_on_main_commit": "b5fcbd01f52902023d4340e902b61aaf7f909be8",
+  "release_ci": {
+    "workflow": "qros-anti-stall-v2-1",
+    "run_id": 35914901370,
+    "head_sha": "8676f67d7c435c4af466210f3f52daebfe8e9561",
+    "status": "PASS",
+    "tests": 37
+  },
+  "drive_raw_byte_rehash": {
+    "file_id": "1QujX1rPY9wIfcnXjLeJICSq6lOg9si2o",
+    "bytes": 33273,
+    "sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
+    "manifest_files": 14,
+    "status": "PASS"
+  },
+  "operating_rules": {
+    "start": "IDENTIFY_LANE_THEN_READ_EXACT_POINTER",
+    "recover": "VERIFY_REMOTE_BYTES_AND_PINS",
+    "execute": "ONE_STAGE_PER_INVOCATION",
+    "validate": "INDEPENDENT_META_AUDIT",
+    "persist": "ATOMIC_REMOTE_CHECKPOINT",
+    "continue": "NEXT_UNFINISHED_AUTHORIZED_STAGE"
+  },
+  "new_chat_auto_loading": "REQUIRES_CHATGPT_PROJECT_INSTRUCTIONS_TO_INCLUDE_BOOTSTRAP_OR_AGENT_TO_READ_AGENTS_MD",
+  "economic_result_status": "UNCHANGED"
 }
