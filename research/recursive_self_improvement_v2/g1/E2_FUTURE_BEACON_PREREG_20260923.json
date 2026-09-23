@@ -1,0 +1,63 @@
+{
+  "schema": "QROS_RSI_G1_E2_NIST_FUTURE_BEACON_TEMPORAL_CASES_PREREG_v1.0",
+  "family": "RSI-G1-E_CONTRACT-SIGNED_OBSERVATION_GUARD",
+  "scope": "Separate post-freeze temporal-randomness diagnostic of structural synthetic tamper cases only; not independent organizational custody; not model evaluation; not economic PnL; never a trading holdout.",
+  "authority": {
+    "scientific_frontier": "V259",
+    "main_scientific_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "g1_checkpoint_blob_sha1": "3b1f79f7ce4ce88ecfa22e8238f7930d5aeff12e",
+    "frozen_g1_code_sha256": "62b7a3417359d86c7d4fa781dfeb25a6969d00354c0a42bb0b1abeea0a28a76f",
+    "frozen_g1_test_sha256": "9163c046a8cf30b691952123181e45437c5249989e054c87031f21d7416c2855"
+  },
+  "external_seed": {
+    "beacon": "NIST Randomness Beacon v2, chainIndex 2",
+    "api_documentation": "https://csrc.nist.gov/projects/interoperable-randomness-beacons/beacon-20",
+    "exact_target_timestamp_utc": "2026-09-23T02:00:00.000Z",
+    "period_milliseconds": 60000,
+    "pulse_selection": "ONLY the chain-2 pulse with timeStamp exactly equal to exact_target_timestamp_utc; no next pulse, fallback, endpoint switch, hand-picked alternative or retrospective seed",
+    "preselected_nist_certificate_sha512_der": "87f27f431da3f584af6007fe045df13aaa81d831f335b6ee73f6334768f32d3ae10491e669b93a43e548b20370a6526c3def99643c25d8ad7bf5df95a3c2b45d",
+    "certificate_fingerprint_source": "NIST /beacon/2.0/pulse/last page read before source-freeze; its sampled pulse timestamp was 2026-09-22T23:25:00.000Z, before this preregistration",
+    "algorithm": "Verify certificate DER SHA512==pinned; verify NIST RSA PKCS1v15 SHA512 signature of binary pulse; check SHA512(signature_input+signature)==outputValue; then SHA256 domain-separated seed derived from outputValue",
+    "if_certificate_rotates": "FAIL_CLOSED; no fallback to unpinned certificate for this cohort",
+    "if_pulse_unavailable": "NO_RESULTS; do not use a different pulse for this cohort",
+    "future_commit_time_requirement": "GitHub preregistration and generator file commits must precede exact_target_timestamp_utc; else permanently invalidate this temporal claim"
+  },
+  "frozen_cases": {
+    "genealogy": "G1 same research genealogy; no new alpha/campaign",
+    "families": [
+      "positive_signed",
+      "missing_snapshot",
+      "alias_snapshot",
+      "snapshot_drift",
+      "toolset_mismatch",
+      "resource_overrun",
+      "signature_tamper",
+      "untrusted_signer",
+      "shared_signer",
+      "trust_root_tamper",
+      "exposed_corpus",
+      "duplicate_run_id",
+      "protocol_tamper",
+      "missing_custodian"
+    ],
+    "variants_per_family": 4,
+    "fixed_n": 56,
+    "determinism": "For every (family_index, replicate), derive synthetic fixture Ed25519 private key seed and mutation selection by SHA256 of pinned NIST outputValue, family_index and replicate; all keys synthetic and public-by-construction, never real trust roots",
+    "oracle": "Exact frozen G1 error label expected for each of the 13 tamper families; positive must yield structural precheck but never efficacy/promotion",
+    "critical_false_pass_tolerance": 0,
+    "adaptation_to_outcomes": "Forbidden: no revised categories, no replacing the chosen pulse, no dropping failed mutants, no selecting a different seed. Any repair creates explicit descendant and rerun as exposed DEV only.",
+    "multiple_testing": "56 deterministic structural software diagnostics, not 56 independent economic or model hypotheses and no inferential p-values"
+  },
+  "trust_and_limitations": {
+    "signed_beacon_verification": "MUST_PASS_BEFORE_NON_SYNTHETIC_CASE_GENERATION",
+    "external_seed_independence": "TEMPORAL_ONLY",
+    "organizational_custody": "NOT_VERIFIED",
+    "provider_model_snapshots": "NOT_AVAILABLE",
+    "full_system_matched_comparison": "NOT_EXECUTED",
+    "cases_after_generation": "DIAGNOSTIC_EXPOSED_TO_DEVELOPMENT",
+    "scientific_promotion_authorized": false,
+    "budget": "0 additional paid services and 0 model API calls"
+  },
+  "decision": "PREREGISTERED_NO_RESULTS",
+  "rollback": "No changes to G1, QRCEL 0.6.2 or V259; discard this isolated diagnostic if cryptographic signature cannot be authenticated"
+}
