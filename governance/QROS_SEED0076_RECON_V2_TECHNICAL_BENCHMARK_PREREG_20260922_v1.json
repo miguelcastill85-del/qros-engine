@@ -1,0 +1,80 @@
+{
+  "schema": "QROS_SEED0076_RECON_V2_BENCHMARK_PREREG_1.0",
+  "date": "2026-09-22",
+  "status": "FROZEN_BEFORE_FIRST_LOCAL_BENCHMARK",
+  "scope": "LANE_A_SYNTHETIC_GEOMETRY_ONLY_NOT_WHOLE_BACKTEST",
+  "scientific_campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "baseline": "Original GitHub scripts/qros_seed0076_gate_engine_v221.py geometry_eval exact blob 74290f11e7a95a25f54c5c9989af110de7dde4e2; baseline recomputes geometry per variant/carrier, packs and reconstructs event indices",
+  "candidate": "QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1_RESEARCH minimal bar-primitive factorization plus carrier bitmap recipes, exact event regeneration",
+  "frozen_variants": "79 GEOMETRY variants excluding OFF/OFF/OFF; 2 EMA fast parameters 9 and 35 = 158 independent variant evaluations per workload",
+  "representative_workloads": [
+    {
+      "label": "M2_TICK_T00_LIKE",
+      "bars": 50000,
+      "candidate_source_coordinates": 128538,
+      "source_index_order": "strict increasing",
+      "bar_coordinates": "sorted pseudo-random with repetitions",
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "M2",
+      "seed": 76001
+    },
+    {
+      "label": "M2_CLOSE_T00_LIKE",
+      "bars": 50000,
+      "candidate_source_coordinates": 11078,
+      "source_index_order": "strict increasing",
+      "bar_coordinates": "sorted pseudo-random with repetitions",
+      "asset": "NQX",
+      "side": "BUY",
+      "timeframe": "M2",
+      "seed": 76002
+    },
+    {
+      "label": "DENSE_CARRIER_STRESS",
+      "bars": 50000,
+      "candidate_source_coordinates": 251383,
+      "source_index_order": "strict increasing",
+      "bar_coordinates": "sorted pseudo-random with repetitions",
+      "asset": "XAUUSD",
+      "side": "SELL",
+      "timeframe": "M1",
+      "seed": 76003
+    }
+  ],
+  "comparison_protocol": {
+    "modes": [
+      "baseline_cold_compute_pack_events_serialize",
+      "factor_ir_cold_compile_gather_reconstruct_serialize",
+      "baseline_warm_materialized_mask_read_reconstruct",
+      "factor_ir_warm_load_primitive_IR_reconstruct"
+    ],
+    "determinism": "same generated bars/indicators/carriers; compare every packed mask, ordered source event bytes and domain-bound event hash across 158 variants; no PnL",
+    "repetitions": 3,
+    "metric_units": [
+      "wall_seconds",
+      "persistent_artifact_bytes",
+      "peak_RSS_kB_when_measurable",
+      "number_of_bar_primitive_evaluations",
+      "materialized_event_mask_count"
+    ],
+    "environment": "Record Python/NumPy/Numba/CPU/memory in receipt; compile no JIT required for geometry prototype",
+    "synthetic_limit": "Event-generator/fractal/backtest/whole-pipeline speed is NOT measured by this microbenchmark"
+  },
+  "ex_ante_decision": {
+    "geometry_cold_total_wall_speedup_threshold": 2,
+    "candidate_persisted_bytes_fraction_of_baseline_max": 0.8,
+    "exact_equality_required": true,
+    "peak_memory_max_factor": 1.5,
+    "require_both_TICK_and_CLOSE_pass": true,
+    "benefit_global_pipeline": "NO_CLAIM until later M12/M15/M2 full-pipeline regression and real-domain benchmark",
+    "if_fail": "Reject or revise factorization without modifying frozen scientific universe; no selective retrospective benchmark workloads"
+  },
+  "not_authorized": [
+    "new GA1 shards",
+    "economic PnL",
+    "GA2",
+    "holdout",
+    "production promotion"
+  ]
+}
