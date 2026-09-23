@@ -1,0 +1,36 @@
+{
+  "schema": "QRCEL_ENGINEERING_STATE_V1",
+  "status": "REPAIR_PHASE_COMPLETE_SHADOW_CANDIDATE",
+  "version": "0.2.1",
+  "scientific_authority_observed": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "commit": "c43176df7713f5833b48589a0e86d2ae63ac6700",
+    "manifest_path": "control/CONTROL_AUTHORITY_MANIFEST_v3.json",
+    "manifest_blob_sha1": "8e81e70881796288f79abfa0280e73676d19a06f",
+    "epoch": 189
+  },
+  "runtime_capability_inheritable": false,
+  "last_receipt": "cognitive/checkpoints/clean_recovery_021/VALIDATION_RECEIPT.json",
+  "background_running": false,
+  "scientific_authority_changed": false,
+  "promoted": false,
+  "parity": "INSUFFICIENT_EVIDENCE",
+  "next_action": "Review candidate integration using PHASE_CLOSURE.md; recover live authority and verify release before any use; no scientific dispatch",
+  "pending": [
+    "Authoritative evidence adapters for actual historical document schemas",
+    "Explicit delegation of evidence requirements by existing authority",
+    "Full QRCEL ontology and adversarial fixed point",
+    "New validation and sealed model-system evaluation",
+    "Operational shadow, canary and promotion gates"
+  ],
+  "rollback_target": "1635b8a8fa6ffeab76d26290eefbd40611ea1a45 (cognitive 0.2.0); scientific baseline unchanged",
+  "parent_candidate_commit": "1635b8a8fa6ffeab76d26290eefbd40611ea1a45",
+  "verified_followup": [
+    "F09 impossible task states",
+    "F10 structured errors and fixed JSON limits",
+    "F11 externally bound checkpoint provenance and extent",
+    "F12 observation consumers revalidate bound bytes"
+  ],
+  "repair_phase_complete": true,
+  "full_qrcel_complete": false
+}
