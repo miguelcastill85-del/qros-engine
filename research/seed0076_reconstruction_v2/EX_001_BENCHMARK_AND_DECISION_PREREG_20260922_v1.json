@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_SEED0076_RECONSTRUCTION_EX001_PREREG_1.0",
+  "date": "2026-09-22",
+  "trial_id": "SEED0076_V2_EX001",
+  "source_freeze_blob": "9bf449037590fea7f7cf014274f74552dd3ee8c0",
+  "hypothesis": "Typed bar-space GEOMETRY primitive reuse across distinct TICK and CLOSE carriers for same domain and structural state may eliminate recomputation while preserving masks.",
+  "status": "PREREGISTERED_BEFORE_FIRST_BENCHMARK",
+  "scientific_limit": "No new economic data, no full shard GA1 reruns; recorded M2 shapes are used as synthetic workload shape only.",
+  "synthetic_workload": {
+    "basis": "V259 architecture audit NQX BUY M2 carrier t00",
+    "full_NQX_M2_bars": 337134,
+    "heavy_TICK_carrier_candidates": 128538,
+    "CLOSE_carrier_candidates": 11078,
+    "GEOMETRY_variants": 79,
+    "EMA_fast_default": 35,
+    "repeat_trials": 3,
+    "mode": "same synthetic fixture seeded deterministically; baseline direct V221 geometry_eval per variant per candidate; factorized exact bar primitive compiler once and reuse for both carriers",
+    "measured": "compute wall+CPU, output bitmap SHA equality, cold logical compute with no application primitive cache, warm cache across both carriers, artifact pack/serialization bytes, resource RSS, repeat noise",
+    "excluded": "raw tick ingestion, bar/indicator feature creation, complete candidate generation, aliases, global reduction, statistics and execution simulation"
+  },
+  "precommitted_decision": {
+    "accept_minimal_technical_feasibility": "0 exact output mismatches across all 79 variants plus prior 288 independent event-generator cases and exact 3 original config-stream roots",
+    "continue_to_real_regression": "cold and shared-carrier combined synthetic wall >=2.0x faster in median, no physical event mask loss, feasible bounded RAM, no output hash changes",
+    "production_promotion": "NOT_ALLOWED by EX001 regardless of result; full real M12/M15/M2 exact root/count regression; independent stratified direct generator and real XAU/SELL; future/corruption/crash; >=2.0x median full-pipeline improvement on representative frozen inputs and peak RSS <=1.25x baseline or documented complexity-risk exception; immutable authoritative governance transition required",
+    "falsify": "Any mask mismatch, stale-key reuse, irrecoverable IR, unstable checkpoint or no feasible net end-to-end benefit stops this branch or limits it to measured domains."
+  },
+  "guardrails": {
+    "no_full60_enumeration": true,
+    "no_new_production_shards": true,
+    "no_pnl": true,
+    "no_holdout": true,
+    "previous_10_preserved": true,
+    "physical_mask_dedupe_not_hypothesis_dedupe": true
+  }
+}
