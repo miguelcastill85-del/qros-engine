@@ -1,0 +1,39 @@
+{
+  "schema": "QROS_RSI_G1_E2_NIST_EXECUTION_RECEIPT_v1.0",
+  "date_utc": "2026-09-23",
+  "authority": {
+    "scientific_frontier": "V259",
+    "main_scientific_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "preregistration_blob_sha1": "a9d4b52e6cc1ce7191cc7f2fb2a048020b3aecc7",
+    "generator_blob_sha1": "fbae33535e1279134362c6eedf0efd527a41ddce"
+  },
+  "requested_pulse": {
+    "chain_index": 2,
+    "timestamp_utc": "2026-09-23T02:00:00.000Z",
+    "endpoint": "https://beacon.nist.gov/beacon/2.0/pulse/time/1790128800000",
+    "substitution_allowed": false
+  },
+  "observation": {
+    "exact_endpoint_access": "BLOCKED_BY_RUNTIME_WEB_ACCESS",
+    "direct_open_result": "URL not accessible via available web tool",
+    "domain_scoped_fresh_search_result": "NO_RESULTS",
+    "pulse_bytes_observed": false,
+    "certificate_bytes_observed": false,
+    "certificate_sha512_verified": false,
+    "rsa_signature_verified": false,
+    "output_value_verified": false,
+    "frozen_56_case_generator_executed": false
+  },
+  "decision": "NO_RESULTS",
+  "reason": "The exact preregistered NIST pulse could not be retrieved through the available runtime. The protocol requires fail-closed behavior and explicitly forbids another pulse, endpoint substitution, or claiming PASS without cryptographic authentication.",
+  "scientific_promotion_authorized": false,
+  "main_mutated": false,
+  "g1_qrcel_promoted": false,
+  "ga1_shard11_opened": false,
+  "economic_pnl_opened": false,
+  "ga2_opened": false,
+  "holdout_opened": false,
+  "paid_service_calls": 0,
+  "model_api_calls": 0,
+  "status": "NO_RESULTS_FAIL_CLOSED"
+}
