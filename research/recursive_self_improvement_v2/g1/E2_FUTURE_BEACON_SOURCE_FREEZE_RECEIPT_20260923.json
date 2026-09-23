@@ -1,0 +1,55 @@
+{
+  "schema": "QROS_RSI_G1_E2_TEMPORAL_EXTERNAL_SEED_SOURCE_FREEZE_RECEIPT_v1.0",
+  "date_utc": "2026-09-23",
+  "objective": "Unblock work orthogonally from GitHub Actions billing: preregister exact future NIST signed entropy and freeze deterministic 56-case diagnostic code before its release. Do not treat this as custodian or model superiority evidence.",
+  "source_of_truth": {
+    "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "scientific_main_version": "V259",
+    "g1_original_checkpoint_blob_sha1": "3b1f79f7ce4ce88ecfa22e8238f7930d5aeff12e",
+    "preregistration": {
+      "path": "research/recursive_self_improvement_v2/g1/E2_FUTURE_BEACON_PREREG_20260923.json",
+      "git_blob_sha1": "a9d4b52e6cc1ce7191cc7f2fb2a048020b3aecc7",
+      "canonical_semantic_sha256": "1d979331b4dd4ec762a1cfc940259081744787e54195409002a83df776abcffe",
+      "commit_sha": "7cb52729df85597d65a01b3a8745d270fc89c6b5",
+      "commit_timestamp_utc": "2026-09-23T00:58:22Z"
+    },
+    "generator": {
+      "path": "research/recursive_self_improvement_v2/g1/e2_future_seed_runner.py",
+      "git_blob_sha1": "fbae33535e1279134362c6eedf0efd527a41ddce",
+      "sha256": "bda013f72b8a3ca02166226fecc2bb06a6563a7f6e842bffd3eaecf0b0be48a5",
+      "commit_sha": "ef45d9a17eff1c0a84ee5c0093e6306893ce6381",
+      "commit_timestamp_utc": "2026-09-23T01:02:00Z"
+    }
+  },
+  "future_seed": {
+    "source": "NIST Randomness Beacon Version 2.0 Beta (public signed randomness)",
+    "exact_time_utc": "2026-09-23T02:00:00.000Z",
+    "chain_index": 2,
+    "query": "https://beacon.nist.gov/beacon/2.0/pulse/time/1790128800000",
+    "certificate_api_base": "https://beacon.nist.gov/beacon/2.0/certificate/",
+    "pinned_cert_der_sha512": "87f27f431da3f584af6007fe045df13aaa81d831f335b6ee73f6334768f32d3ae10491e669b93a43e548b20370a6526c3def99643c25d8ad7bf5df95a3c2b45d",
+    "signed_verification": "RSA PKCS1 v1.5 SHA512 on binary NIST v2 pulse signatureInput, sha512(signatureInput||signatureValue)==outputValue; no alternate pulse/certificate on mismatch",
+    "two_git_commits_before_target": true
+  },
+  "local_tests": {
+    "kind": "PRE_FREEZE_SYNTHETIC_SMOKE_NOT_EXTERNAL",
+    "frozen_cases": 56,
+    "pass": 56,
+    "synthetic_generated_rsa_certificate_test": "PASS",
+    "synthetic_signature_tamper": "REJECTED",
+    "actual_nist_target_pulse_observed": false,
+    "real_model_calls": 0
+  },
+  "limitations": {
+    "external_temporal_seed_status": "WAIT_TARGET_PULSE",
+    "independent_organizational_custody": "NOT_AVAILABLE",
+    "provider_snapshots": "NOT_AVAILABLE",
+    "actual_matched_system_superiority": "NOT_TESTED",
+    "qrcel_promoted": false,
+    "scientific_main_mutated": false,
+    "cost": "zero paid services"
+  },
+  "next_automatic_action": "At/after 2026-09-23T02:00:00Z read NIST exact chain2 timestamp pulse; retrieve pinned NIST certificate (DER or PEM); verify cert SHA512, actual RSA signature and outputValue, then run unmodified frozen E2 generator with frozen G1 source for exactly 56 cases. If any API or certificate unavailable, fail closed and persist no-results receipt. Do not move target, change generator or promote G1/QRCEL/V259.",
+  "status": "PREREGISTERED_NO_RESULTS",
+  "scientific_promotion_allowed": false
+}
