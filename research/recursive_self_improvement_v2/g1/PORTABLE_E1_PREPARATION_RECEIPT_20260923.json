@@ -1,0 +1,57 @@
+{
+  "schema": "QROS_RSI_V2_G1_PORTABLE_E1_PREPARATION_RECEIPT_v1.0",
+  "date_utc": "2026-09-23",
+  "objective": "Prepare zero-GitHub-minutes E1 off-chat re-execution of frozen synthetic G1 tests on an independently operated Windows PC.",
+  "authority": {
+    "main_scientific_version": "V259",
+    "main_scientific_pointer_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "g1_checkpoint_sha1": "3b1f79f7ce4ce88ecfa22e8238f7930d5aeff12e",
+    "original_g1_zip_sha256": "499864661e001bce9bea15fd003e59c9419777e864ef2997de2b47500abd1d5f",
+    "original_g1_tar_sha256": "4092a9f5a85b587b2040ca8e8005a08ebe22beb42649052ff31cc891b2c6fc9f"
+  },
+  "delivery": {
+    "filename": "QROS_G1_EVIDENCIA_EXTERNA_PC_v1.zip",
+    "sha256": "ad3d516c6640fc91c0e969afb03760ea8bd47de89ba2cdec72e8bca11e84e4f1",
+    "bytes": 35377,
+    "library_path": "/QROS_RSI/QROS_G1_EVIDENCIA_EXTERNA_PC_v1.zip",
+    "library_file_id": "libfile_29d1ad63f78c8191a004c101d51473c4",
+    "file_id": "file_000000003ce8820e99d6b6690b4c0b80",
+    "includes": [
+      "portable_g1_runner.py",
+      "EJECUTAR_G1_EN_PC.cmd",
+      "LEEME_G1_PC.md",
+      "QROS_RSI_v2_G1_EVIDENCE_PACKAGE.zip"
+    ]
+  },
+  "frozen_auxiliary_files": {
+    "portable_g1_runner_py_sha256": "edc05c56f1e94f4fe567ed2285675484e21a5f38c2a7c5964772ae8856c570e7",
+    "portable_g1_runner_git_blob_sha1": "da5b3fc0877131e323b873be87d6f4224867f5d0",
+    "windows_cmd_sha256": "ff7cf043cb673b9d8b04a29f77d41f4f5dbf81e29151cc577ba4c3e345bb96c9",
+    "readme_sha256": "0850c9ec1908f9437b3768eac1d29b0741d3bf98c3955feae867bd18bdb3337227c3d0684212b896fce57af36ea"
+  },
+  "local_software_checks": {
+    "archived_source_byte_identity": "PASS",
+    "local_synthetic_tests": "14/14 PASS",
+    "tampered_zip": "REJECTED",
+    "missing_zip": "REJECTED",
+    "receipt_internal_log_digest": "PASS",
+    "deliverable_zip_crc": "PASS",
+    "initial_typo_fix": "PINN -> PINNED before successful rerun; invalid local draft was not published or distributed"
+  },
+  "external_evidence": {
+    "github_hosted_runs_for_branch_at_last_readback": 0,
+    "external_pc_execution": "NOT_YET_OBSERVED",
+    "offline_operator_machine_attestation": "SELF_REPORTED_ONLY",
+    "independent_custodian": "NOT_AVAILABLE",
+    "real_provider_snapshot": "NOT_AVAILABLE",
+    "real_matched_model_comparison": "NOT_EXECUTED"
+  },
+  "status": "E1_PORTABLE_PREPARED_LOCAL_SMOKE_PASS_EXTERNAL_RESULT_PENDING",
+  "scientific_promotion_authorized": false,
+  "zero_paid_service_calls": true,
+  "new_scientific_ga1_shards_authorized": false,
+  "economic_pnl_open": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "next_action": "Run prepared self-contained archive on a separately controlled PC with already installed Python + cryptography==46.0.4, then return the generated QROS_G1_PC_RECEIPT_*.zip for forensic validation. In parallel, preserve GitHub-hosted workflow dormant until actual billing guard verified. Local success alone does not qualify as external proof."
+}
