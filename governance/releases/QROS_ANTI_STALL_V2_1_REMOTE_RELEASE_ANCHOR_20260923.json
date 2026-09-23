@@ -1,0 +1,40 @@
+{
+  "schema": "QROS_ANTI_STALL_V2_1_RELEASE_ANCHOR_V1",
+  "release": "QROS_RISE_ANTI_STALL_INCIDENT_MAX_V2_1_META_AUDIT_20260923",
+  "status": "LOCALLY_TESTED_GOVERNANCE_CANDIDATE",
+  "authority_source": "GitHub governance branch, exact Git blob; binaries in Google Drive",
+  "base_main_commit": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+  "package": {
+    "drive_file_id": "1QujX1rPY9wIfcnXjLeJICSq6lOg9si2o",
+    "drive_folder_id": "1lfMh7r2SJiu2pIm6kSCAHmvKqLBFHNOG",
+    "filename": "QROS_RISE_ANTI_STALL_INCIDENT_MAX_V2_1_META_AUDIT_20260923.zip",
+    "bytes": 33273,
+    "sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
+    "file_manifest_in_zip": "FILE_MANIFEST_SHA256.json"
+  },
+  "validation": {
+    "local_python_tests_passed": 37,
+    "local_python_tests_failed": 0,
+    "independent_meta_audit": true,
+    "native_windows_execution": "NOT_TESTED",
+    "connected_drive_metadata_readback": "PASS",
+    "drive_remote_bytes_rehashed_after_upload": false,
+    "active_main_governor_installed": false
+  },
+  "scientific_firewalls": {
+    "original_main_V259_unchanged": true,
+    "old_60_shards_not_inspected": true,
+    "holdout_open": false,
+    "ga2_open": false,
+    "economic_result_changed": false
+  },
+  "direct_lane_checkpoint": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "branch_tree_at_snapshot": "a38062dddaa0353f56ec16edbd90592e03535df5",
+    "completed_configurations": 103548,
+    "physical_masks": 42894,
+    "last_closed": "XAU_M1_SIX_WINDOW_AUDIT",
+    "next_preregistered": "XAUUSD_M1_W3_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL_17258_CONFIGS"
+  },
+  "adoption_gate": "Verify exact Drive carrier SHA256 after retrieval; run CI; terminal reconcile against live main; then install active pointer on main; do not activate before these gates."
+}
