@@ -1,0 +1,78 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_W3_STRICT_EVIDENCE_NATIVE_RECOVERY_V1",
+  "scientific_seed": "WEB_SEED_0076",
+  "asset": "XAUUSD",
+  "timeframe": "M1",
+  "governance": {
+    "source_main": "control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
+    "version": "2.1",
+    "main_governance_blob": "cafaaa347c72308a97e2064258f3ddc185747bf8"
+  },
+  "authority": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "branch_tree_before": "a38062dddaa0353f56ec16edbd90592e03535df5",
+    "frozen_spec_blob": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "parent_six_window_audit_blob": "0493a38def007c0492205df8cd22dd699e2c8970",
+    "parent_cumulative_configs": 103548,
+    "parent_cumulative_physical_masks": 42894
+  },
+  "stage": "XAUUSD_M1_W3_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL",
+  "frozen_axes": {
+    "window": 3,
+    "tie_policy": "STRICT_ALL_NEIGHBORS",
+    "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+    "trigger": "CLOSE_BREAK",
+    "sides": [
+      "BUY",
+      "SELL"
+    ],
+    "original_V209_family_count": 7
+  },
+  "result_evidence_class": "VERIFIED_LOCAL_NOT_REMOTE_PROMOTED",
+  "execution": {
+    "new_semantic_configurations": 17258,
+    "new_physical_masks": 10019,
+    "buy_physical_masks": 4996,
+    "sell_physical_masks": 5023,
+    "buy_raw_candidates": 44706,
+    "sell_raw_candidates": 44266,
+    "original_gate_canaries": 218,
+    "independent_stratified_masks": 16,
+    "independent_exact_trade_rows": 10818,
+    "unresolved_mask_exits": 0,
+    "cumulative_semantic_if_remote_promoted": 120806,
+    "cumulative_physical_if_remote_promoted": 52913
+  },
+  "archive": {
+    "name": "QROS_SEED0076_DIRECT_M1_W3_STRICT_17258_EVIDENCE_20260923.zip",
+    "local_path": "/mnt/data/QROS_SEED0076_DIRECT_M1_W3_STRICT_17258_EVIDENCE_20260923.zip",
+    "bytes": 18067000,
+    "sha256": "48ad3d7f52a512b1f7ee1af7f6247abebe59d312cf2f963365702237cbd4946b",
+    "members": 40,
+    "internal_manifest_sha256": "97705c6c8a2694b4057ec8d420b830e5032eed12bf68610cb1fa251675902bdd",
+    "internal_checkpoint_sha256": "25f937c52633c9c3b4a9066cc2bcb15f7056e4f4398e0bf7d40bfe66bdcbb925",
+    "portable_verifier": "PASS_OFFLINE_STRUCTURE",
+    "remote_drive_id": null
+  },
+  "incident": {
+    "class": "TRANSIENT_UNPERSISTED_RESULT",
+    "root_cause": "The Google Drive uploader accepts only an authenticated connector-issued file_uri; generated local sandbox ZIP has no connector file reference exposed in this conversation despite verified local bytes.",
+    "routes_checked": [
+      "local SHA256 and independent portable verifier PASS",
+      "Google Drive folder exact enumeration shows no W3 strict evidence ZIP",
+      "conversation Files list has no W3 strict attachment file ID",
+      "Google Drive connector upload schema rejects raw local path/non-connector object"
+    ],
+    "no_scientific_recompute": true
+  },
+  "scientific_firewalls": {
+    "dev_2018_2019_economically_exposed": true,
+    "holdout_open": false,
+    "broker_commission_certified": false,
+    "old_60_shards_not_reopened": true,
+    "ga2_open": false,
+    "gate_A_approved": false
+  },
+  "status": "LOCAL_VERIFIED_DRIVE_UPLOAD_PENDING_NOT_PROMOTED",
+  "next_automatic_action": "Transfer exact 18067000-byte ZIP into Google Drive folder 1lfMh7r2SJiu2pIm6kSCAHmvKqLBFHNOG via authenticated connector file_uri; redownload and verify SHA256 48ad...; pin remote immutable Git anchor, then serially preregister W5 STRICT_ALL_NEIGHBORS. NEVER rerun closed W3 computation."
+}
