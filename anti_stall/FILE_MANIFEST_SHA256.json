@@ -1,0 +1,77 @@
+{
+  "files": [
+    {
+      "bytes": 602,
+      "path": ".github_qros_anti_stall_v2_1_OPTIONAL.yml",
+      "sha256": "f3b22051e663fd3e044e5039b496511f3f60eab41f115e9b861e1e3e20b297cd"
+    },
+    {
+      "bytes": 6683,
+      "path": "README_QROS_ANTI_STALL_V2_1.md",
+      "sha256": "60ea99a4eaa8faa6d3142d0235349838818ffb4d3d26d21dd23b8cbff27fa17f"
+    },
+    {
+      "bytes": 918,
+      "path": "control/QROS_RECONCILED_FRONTIER_VERIFIED_20260923_v1.json",
+      "sha256": "e0ac720b31a891dc6df7b1cc47729199c41ebff36a6948b0f29b6f1c4ef5a878"
+    },
+    {
+      "bytes": 3362,
+      "path": "control/QROS_SEED0076_DIRECT_RECOVERED_LANE_SNAPSHOT_20260923_v1.json",
+      "sha256": "541044b19502265c27cff0008a5c27365d92b8b2f2a5e904eda6e832ee1702ee"
+    },
+    {
+      "bytes": 2361,
+      "path": "governance/QROS_ANTI_STALL_INCIDENT_MAX_V2_1_POLICY.json",
+      "sha256": "b04b9182ceacbb981d9e3ebc802a0a87d11e23252298f10d07538b39507abfde"
+    },
+    {
+      "bytes": 3765,
+      "path": "governance/QROS_META_AUDIT_CONTRAST_20260923_v1.json",
+      "sha256": "9e389be5fc5d149ee652eaed9232fdb8d32cf37be6cc21bc888c81436fa0cbe2"
+    },
+    {
+      "bytes": 9111,
+      "path": "scripts/qros_anti_stall_v2_0_prototype_REFERENCE_ONLY.py",
+      "sha256": "362ea7941435cee1159052df1dec6378a62fb4ebf582529cc920bbbd241a98be"
+    },
+    {
+      "bytes": 17654,
+      "path": "scripts/qros_anti_stall_v2_1.py",
+      "sha256": "27e81704557653a3c0fe751d91c6783b69ffafc55543fdb5fcb12b57b5b0a02b"
+    },
+    {
+      "bytes": 4491,
+      "path": "scripts/qros_authority_reconciler_v2_1.py",
+      "sha256": "7c1d6f4c20ca52fffb591047951d90fd8bedda62ed83d5114d7e0ba4c2944955"
+    },
+    {
+      "bytes": 8693,
+      "path": "scripts/qros_meta_audit_v2_1.py",
+      "sha256": "3f47a03fe013786d98276eaa7514ea1f9f8b681431feb861fde5c504ce9c6f24"
+    },
+    {
+      "bytes": 3199,
+      "path": "tests/test_v2_0_prototype_REFERENCE_ONLY.py",
+      "sha256": "4a573810a862fa5c5852fa7841c1911a3a7691b9a9571b461da8c7011e93dff6"
+    },
+    {
+      "bytes": 3571,
+      "path": "tests/test_v2_1_authority_reconciler.py",
+      "sha256": "2f98521d1221cb592b8ea6b2ab1792ef138c5b1b6f5c400dfb7e378ebec037ca"
+    },
+    {
+      "bytes": 2678,
+      "path": "tests/test_v2_1_bounded_resources.py",
+      "sha256": "0b0a6808b8d851817174392595e6c7d7dd667fdaad2aac59b872972b00248f0b"
+    },
+    {
+      "bytes": 12858,
+      "path": "tests/test_v2_1_runner_meta_audit.py",
+      "sha256": "c669ce19dbfec5a7832c616581e4a934c4ab8ca3bbc1387f7dca74f56461636e"
+    }
+  ],
+  "holdout_open": false,
+  "schema": "QROS_ANTI_STALL_V2_1_SHA256_MANIFEST",
+  "scientific_changes": false
+}

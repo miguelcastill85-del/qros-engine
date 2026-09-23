@@ -1,0 +1,69 @@
+{
+  "baseline_code_git_blob": "6be60e24c9758ec9def15cb056ba8544c62ba07d0",
+  "baseline_policy_git_blob": "da44bcaaaef5906cf35f766169a96171a35eeee7",
+  "date": "2026-09-23",
+  "findings": [
+    {
+      "baseline": "main V259 pointer confused with later isolated direct DEV checkpoints",
+      "class": "STALE_AUTHORITY",
+      "correction": "scope by branch + exact live tree SHA + independently pinned per-lane snapshot; W13 and six-window audit detected as closed",
+      "id": "META-001",
+      "validation": "real GitHub + Drive readbacks, reconciler stage/counter tests"
+    },
+    {
+      "baseline": "declarative anti-loop rules with no per-stage durable state and journal split in v2 prototype",
+      "class": "OPERATIONAL_INTERRUPTION",
+      "correction": "single-stage idempotent closed-stage skip, embedded hash-chained events, atomic fsync state",
+      "id": "META-002",
+      "validation": "resume, crash, no-progress and forensic-event tests"
+    },
+    {
+      "baseline": "local receipt self-hash/JSON readback flag forgeable",
+      "class": "PROMOTION_PROTOCOL_VIOLATION",
+      "correction": "frozen plan external SHA, Git blob content pin, output bytes, separate Meta-Audit with mandatory supplied remote state pin and fresh Drive snapshot for full PASS",
+      "id": "META-003",
+      "validation": "tamper content + recompute self-hash + manipulate output caught with external pin"
+    },
+    {
+      "baseline": "POSIX-only blocking fcntl and subprocess.timeout may leave descendant worker process",
+      "class": "OPERATIONAL_INTERRUPTION",
+      "correction": "bounded cross-platform mutex, timeout process-tree kill and one-route-per-attempt hard cap",
+      "id": "META-004",
+      "validation": "POSIX interprocess lock contention and subprocess timeout tests pass; Windows untested"
+    },
+    {
+      "baseline": "reported progress could precede actual closed receipt",
+      "class": "TRANSIENT_UNPERSISTED_RESULT",
+      "correction": "PASS requires existent output hashes, event monotonicity and replay-safe state cursor",
+      "id": "META-005",
+      "validation": "fictitious progress, duplicate stage, plan tamper and output removal rejected"
+    }
+  ],
+  "holdout_open": false,
+  "limitations": [
+    "A verified Git blob SHA pins contents but not the authenticity of manually constructed connector proof JSON; require a fresh independent connector readback on adoption.",
+    "Google Drive metadata confirms identity and byte count but not remote ZIP SHA; download/re-hash before high-trust promotion.",
+    "Runner's Windows implementation cannot be certified without running on Windows.",
+    "No autonomous background work runs outside the chat unless an external runner is provisioned."
+  ],
+  "live_lane_reconciliation": {
+    "closed_configurations": 103548,
+    "closed_masks": 42894,
+    "main_v259": "UNTOUCHED",
+    "next_preregistered": "XAUUSD M1 W3 STRICT_ALL_NEIGHBORS BUY/SELL, 17258 configurations",
+    "source": "connected GitHub Git blobs and Google Drive metadata",
+    "status": "TECHNICALLY_RECONCILED_NO_ECONOMIC_PROMOTION"
+  },
+  "method": "independent second implementation plus dynamic adversarial test suite; no import of the audited runner by the meta-auditor",
+  "old_60_shards_accessed": false,
+  "prototype_v2_source": "scripts/qros_anti_stall_v2_0_prototype_REFERENCE_ONLY.py",
+  "recommendation": "Promote governance code and exact pointer only after GitHub + Drive durable readback; do not alter alpha or V259 scientific HEAD",
+  "schema": "QROS_META_AUDIT_CONTRAST_V1",
+  "scientific_promotion": false,
+  "tests": {
+    "failed": 0,
+    "passed": 37,
+    "scope": "local Python 3.13 + POSIX operational fixtures and independent Meta-Audit",
+    "windows_native_run": "NOT_EXECUTED"
+  }
+}

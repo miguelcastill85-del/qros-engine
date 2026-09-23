@@ -1,0 +1,18 @@
+{
+  "schema": "QROS_ANTI_STALL_INCIDENT_MAX_V2_1_POLICY",
+  "build_status": "LOCALLY_TESTED_GOVERNANCE_ONLY",
+  "scientific_effect": "NONE",
+  "supersedes_liveness_policy": "QROS_EXECUTION_ANTI_STALL_LIVENESS_POLICY_1.0",
+  "preserves_existing_incident_taxonomy": "QROS_INCIDENT_CLASSIFICATION_AND_REPORTING_V2",
+  "scope": "all QROS/RISE lanes, each with its own exact branch, snapshot and scientific locks",
+  "authority_rule": "Read live branch HEAD/tree first; never use another lane's stable pointer to restart this lane. GitHub code/receipt pins and Drive carrier readbacks must agree before promoting output.",
+  "single_action_rule": "run consumes at most one unclosed stage per invocation; status and already-complete stages never relaunch it",
+  "retry_rule": {"max_distinct_frozen_equivalent_routes": 2, "same_failed_route_rerun": false, "on_repeated_failure": "HALT_WITH_REUSABLE_CHECKPOINT", "on_no_progress": "ADVANCE_ONLY_IF_NEW_VERIFIED_EVIDENCE"},
+  "watchdog": {"mutex_timeout_seconds_default": 8, "mutex_timeout_seconds_max": 30, "worker_timeout_seconds_default": 120, "worker_timeout_seconds_max": 600, "timeout_response": "TERMINATE_PROCESS_TREE_AND_PERSIST_INCIDENT"},
+  "crash_rule": "Never implicitly repeat RUNNING after interruption; recover only if all expected output hashes were pre-pinned, otherwise hold evidence for external authoritative reconciliation",
+  "promotion_gate": "Independent Meta-Audit with remote state pin, Git blob anchor and connected Drive readback; local self-hash never proves immutable provenance",
+  "continuation_on_new_chat": "Fetch governance/QROS_ANTI_STALL_ACTIVE_POINTER_v2_1.json from current main, then lane-specific latest authority, then only the first pending stage",
+  "scientific_firewalls": {"holdout_open": false, "ga2_open": false, "new_old_shard_ga1_authorized": false, "changing_seed_to_make_progress": false},
+  "current_direct_lane": {"branch": "research/seed0076-direct-dev-backtest-20260922", "last_closed": "XAU_M1_SIX_WINDOW_AUDIT", "next_stage": "XAUUSD_M1_W3_STRICT_ALL_NEIGHBORS", "prior_configurations": 103548, "prior_masks": 42894},
+  "known_limits": ["no self-scheduling when chat is closed", "Windows process-tree kill not natively tested", "offline attestation depends on externally verified connector readback", "Drive metadata does not independently rehash ZIP bytes"]
+}

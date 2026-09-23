@@ -1,0 +1,40 @@
+name: qros-anti-stall-v2-1
+on:
+  pull_request:
+    paths:
+      - 'anti_stall/**'
+      - 'AGENTS.md'
+      - '.github/workflows/qros-anti-stall-v21.yml'
+      - 'control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  meta-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Exact source manifest integrity
+        run: |
+          python - <<'PY'
+          import json, pathlib, hashlib
+          root=pathlib.Path('anti_stall')
+          m=json.loads((root/'FILE_MANIFEST_SHA256.json').read_text())
+          absent=[]
+          for e in m['files']:
+              p=root/e['path']
+              if not p.exists(): absent.append(e['path']); continue
+              assert p.stat().st_size==e['bytes'], e['path']
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==e['sha256'], e['path']
+          # Original package contains one optional workflow + one prototype fixture, intentionally not deployed.
+          assert set(absent)=={'.github_qros_anti_stall_v2_1_OPTIONAL.yml','scripts/qros_anti_stall_v2_0_prototype_REFERENCE_ONLY.py','tests/test_v2_0_prototype_REFERENCE_ONLY.py'},absent
+          print('SOURCE_MANIFEST=PASS; deployed files=',len(m['files'])-len(absent))
+          PY
+      - name: Run independent Meta-Audit and anti-stall regressions
+        run: python -m unittest discover -s anti_stall/tests -p 'test_v2_1_*.py' -v
+      - name: Ensure no scientific gate or market-data mutation
+        run: python -c "import json; p=json.load(open('control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json')); assert not p['scientific_firewalls']['holdout_open'] and not p['scientific_firewalls']['old_ga1_reopened'] and not p['scientific_firewalls']['economic_result_changed']"
