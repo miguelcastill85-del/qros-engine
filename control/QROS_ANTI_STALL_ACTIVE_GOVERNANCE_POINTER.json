@@ -1,0 +1,25 @@
+{
+  "schema": "QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER_V1",
+  "version": "2.1",
+  "status": "STAGED_PENDING_GITHUB_CI_AND_TERMINAL_RECONCILIATION",
+  "repository": "miguelcastill85-del/qros-engine",
+  "branch": "governance/qros-anti-stall-incident-max-v2-1-20260923",
+  "source_root": "anti_stall",
+  "source_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
+  "drive_package_id": "1QujX1rPY9wIfcnXjLeJICSq6lOg9si2o",
+  "drive_source_bridge_id": "1aM0FP16s_H1t2iwS4mhHjWiDzbK2Dv0f",
+  "meta_audit_tests_local": 37,
+  "windows_native": "UNVERIFIED",
+  "background_executor": "NOT_CONFIGURED",
+  "scientific_firewalls": {
+    "holdout_open": false,
+    "old_ga1_reopened": false,
+    "economic_result_changed": false
+  },
+  "lane_scope": {
+    "original_public1000_main": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "direct_dev": "research/seed0076-direct-dev-backtest-20260922",
+    "latest_direct_dev_closed": "XAU_M1_SIX_WINDOW_AUDIT",
+    "next_direct_dev": "W3_STRICT_ALL_NEIGHBORS"
+  }
+}
