@@ -1,0 +1,12 @@
+{
+  "schema": "QROS_RSI_G1_EXTERNAL_RUN_INTENT_1.0",
+  "one_off": true,
+  "operator_confirmed_hard_zero_paid_spend": false,
+  "operator_check_instructions": "Verify GitHub Settings > Billing and licensing > Budgets and alerts, paid Actions budget $0 and Stop usage when budget limit is reached enabled, plus sufficient included Actions minutes. Replace false with true only after verification.",
+  "plan_git_blob_sha1": "990bc6809e98184d83f07b6856bd37f2887b981f",
+  "frozen_source_git_blob_sha1": "b09cec56c60b6061f8c56ddef9e4b319507d8a81",
+  "runner_script_git_blob_sha1": "39eca90f09de937475b5b83fbe4a68e167081282",
+  "single_purpose": "GitHub-hosted standard Ubuntu ephemeral re-run of G1's existing frozen 14 synthetic cases; NO model calls, NO private external datasets, NO scientific-state writes, NO MT5.",
+  "activation": "Commit this JSON as RUN_EXTERNAL_INTENT.json on the isolated RSI research branch with commit message containing [RUN_RSI_G1_EXTERNAL] after checking budget. DO NOT commit before that.",
+  "postrun": "Retrieve run ID/job and artifact; verify repository/ref/head sha, external GitHub runner, 14/14 original tests and hashes. Commit receipt only if all externally verifiable. A PASS has no independent-custodian/model-success implications."
+}
