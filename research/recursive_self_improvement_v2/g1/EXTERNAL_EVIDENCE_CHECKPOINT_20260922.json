@@ -1,0 +1,80 @@
+{
+  "schema": "QROS_RSI_V2_G1_EXTERNAL_EVIDENCE_PREPARATION_CHECKPOINT_1.0",
+  "date": "2026-09-22",
+  "objective": "Identify a verifiable external execution route for preregistered G1 software tests with no unapproved charges, and isolate full-model/custodian gaps.",
+  "scientific_authority": {
+    "campaign": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "version": "V259",
+    "pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "state": "PREREGISTERED_NO_RESULTS",
+    "completed_shards": 10,
+    "total_shards": 60,
+    "shard11_open": false,
+    "holdout_open": false,
+    "economic_pnl_read": false,
+    "ga2_open": false
+  },
+  "g1_authority": {
+    "branch": "research/rsi-v2-g1-evidence-contract-20260922",
+    "checkpoint_blob_sha1": "3b1f79f7ce4ce88ecfa22e8238f7930d5aeff12e",
+    "state": "RESEARCH_CANDIDATE",
+    "promoted": false
+  },
+  "implemented": {
+    "plan": {
+      "path": "research/recursive_self_improvement_v2/g1/EXTERNAL_EVIDENCE_PLAN_v1.json",
+      "sha1": "990bc6809e98184d83f07b6856bd37f2887b981f"
+    },
+    "runner": {
+      "path": "research/recursive_self_improvement_v2/g1/ci_external_runner.py",
+      "sha1": "39eca90f09de937475b5b83fbe4a68e167081282"
+    },
+    "workflow": {
+      "path": ".github/workflows/qros-rsi-g1-external-evidence-v1.yml",
+      "sha1": "0b8b26052d8754db49114408080754eb6e39659a",
+      "trigger": "only push of RUN_EXTERNAL_INTENT.json on isolated research branch",
+      "runs_on": "ubuntu-24.04",
+      "timeout_minutes": 5
+    },
+    "intent_template": {
+      "path": "research/recursive_self_improvement_v2/g1/RUN_EXTERNAL_INTENT.template.json",
+      "sha1": "69e2fe0da23f08311bfbf9f98724af3b09b797bd",
+      "enabled": false
+    },
+    "status": "PREPARED_NO_RUN",
+    "github_run_count_at_readback": 0
+  },
+  "external_research": {
+    "github_actions_private": "Quota-based. GitHub Free documentation lists 2000 included minutes monthly; current user plan/remaining allowance unverified.",
+    "github_actions_standard_public": "No GitHub Actions runner-minute charge in public repos; only if sanitizing and publishing G1 code approved separately.",
+    "github_attestation_private_free": "NOT_AVAILABLE; public repo or Enterprise Cloud private required per docs.",
+    "github_models_free_inference": "UNAVAILABLE; GitHub Models retired 2026-07-30.",
+    "openai_api_vs_chatgpt_plus": "SEPARATE_BILLING; no free API allowance inferred from Plus.",
+    "future_randomness": "drand or NIST signed post-freeze pulse can supply unpredictable new seed after candidate precommit for deterministic oracle tasks, not substitute for independent organizational custody.",
+    "external_source_urls": [
+      "https://docs.github.com/en/billing/concepts/product-billing/github-actions",
+      "https://docs.github.com/en/billing/how-tos/set-up-budgets",
+      "https://docs.github.com/en/actions/how-tos/secure-your-work/use-artifact-attestations/use-artifact-attestations",
+      "https://docs.github.com/en/github-models",
+      "https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus",
+      "https://drand.love/developer/http-api/"
+    ]
+  },
+  "blocked_subtasks": {
+    "E1": "OPERATOR_BILLING_GUARD_EVIDENCE_NOT_AVAILABLE; no run launched.",
+    "E2": "NO_ACTUAL_INDEPENDENT_CUSTODIAN; future-beacon alternative only supports temporally independent case selection.",
+    "E3": "NO_CONFIRMED_PROVIDER_SNAPSHOT_ACCESS_OR_API_CREDITS; full matched-model performance untested."
+  },
+  "results": {
+    "source_files_readback_verified": 4,
+    "external_jobs_triggered": 0,
+    "external_model_calls": 0,
+    "new_scientific_results": 0,
+    "claims_of_superiority": false,
+    "independent_evaluator": false
+  },
+  "cost_guard": "No automatic run or API key. Do not treat a self-asserted budget flag as independent billing evidence. Some $0 budget settings may block even included minutes; operator must confirm their billing behavior. Official docs guarantee no further Actions use beyond included quota without payment method.",
+  "next_automatic_action": "Once verified remaining quota and a no-extra-cost billing configuration are available, freeze intended commit and create RUN_EXTERNAL_INTENT.json containing plan/source/runner pins with single-use marker [RUN_RSI_G1_EXTERNAL]. Then authenticate GitHub run, test artifact SHA and run provenance; do not promote G1 or alter scientific V259.",
+  "state": "RESEARCH_CANDIDATE_PREPARED_EXTERNAL_E1",
+  "rollback": "Ignore isolated additive research branch; main V259 and QRCEL 0.6.2 remain unchanged."
+}
