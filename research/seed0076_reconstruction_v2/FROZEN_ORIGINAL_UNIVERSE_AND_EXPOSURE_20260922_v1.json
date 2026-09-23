@@ -1,0 +1,182 @@
+{
+  "schema": "QROS_SEED0076_RECONSTRUCTION_V2_FREEZE_1.0",
+  "timestamp_utc": "2026-09-22",
+  "seed": "WEB_SEED_0076",
+  "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "source_of_truth": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "main_commit_at_freeze": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "pointer_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "pointer_git_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V259_v1.json",
+    "target_blob_sha1": "540aa07bbeeb9c62d1288d6974ac6e61b3b83a67",
+    "ontology_path": "research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json",
+    "ontology_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "shard_plan_path": "control/QROS_PUBLIC_1000_SEED_0076_GATE_A_SHARD_PLAN_V213_v1.json",
+    "shard_plan_blob_sha1": "0b4f724ccf683907b05013687c581deadfc2ecc1",
+    "active_sequence_policy_blob_sha1": "9d4b1b038c75653f72f84024d5b7a6581123a61b",
+    "architecture_audit_blob_sha1": "8aaaf683c8f3e8acc555a59c187765399e5f4ee4"
+  },
+  "preservation": {
+    "original_seed": "SAME_ID_UNCHANGED",
+    "original_ontology": "FROZEN_UNCHANGED",
+    "original_shard_count": 60,
+    "formally_completed_shards": 10,
+    "pending_shards_frozen": 50,
+    "configs_per_shard": 804672,
+    "original_config_total": 48280320,
+    "management_profiles": 3710,
+    "execution_profiles": 3,
+    "stress_profiles": 7,
+    "completed_shard_refs": [
+      {
+        "asset": "XAUUSD",
+        "side": "BUY",
+        "timeframe": "M1",
+        "path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_XAUUSD_BUY_M1_COMPLETION_V224_v1.json",
+        "git_blob_sha1": "19e47f7a25fb88eac1ba871dccfc56f79b9d9647",
+        "completed_structural": true,
+        "recorded_class_count": 303572,
+        "recorded_semantic_root_sha256": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4"
+      },
+      {
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "H1",
+        "path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_H1_COMPLETION_V229_v1.json",
+        "git_blob_sha1": "0dcb37ac70f3b233322ff3aa931e9ab066c034df",
+        "completed_structural": true,
+        "recorded_class_count": null,
+        "recorded_semantic_root_sha256": null
+      },
+      {
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "H2",
+        "path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_H2_COMPLETION_V230_v1.json",
+        "git_blob_sha1": "369fcd0d84c99a205caa6111ff626b6378f6dbfd",
+        "completed_structural": true,
+        "recorded_class_count": null,
+        "recorded_semantic_root_sha256": null
+      },
+      {
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "H3",
+        "path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_H3_COMPLETION_V231_v1.json",
+        "git_blob_sha1": "99dcf9f49b62c142ae61613e471a67bf5600b1de",
+        "completed_structural": true,
+        "recorded_class_count": null,
+        "recorded_semantic_root_sha256": null
+      },
+      {
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "H4",
+        "path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_H4_COMPLETION_V237_v1.json",
+        "git_blob_sha1": "26140467d4946fa947b1ff5797c188ef9a24a134",
+        "completed_structural": true,
+        "recorded_class_count": null,
+        "recorded_semantic_root_sha256": null
+      },
+      {
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "M1",
+        "path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_M1_COMPLETION_V238_v1.json",
+        "git_blob_sha1": "05721e0362340a3fa7f58c60ba59d5482155b92b",
+        "completed_structural": true,
+        "recorded_class_count": null,
+        "recorded_semantic_root_sha256": null
+      },
+      {
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "M10",
+        "path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_M10_COMPLETION_V239_v1.json",
+        "git_blob_sha1": "b5bc8453c4f983b6e5efda521ea5cb163bfafab0",
+        "completed_structural": true,
+        "recorded_class_count": null,
+        "recorded_semantic_root_sha256": null
+      },
+      {
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "M12",
+        "path": "control/QROS_PUBLIC_1000_SEED_0076_GA1_SHARD_NQX_BUY_M12_COMPLETION_V240_v1.json",
+        "git_blob_sha1": "17dcc8e3b5f2a05c196ef950c1e4273cdad921f9",
+        "completed_structural": true,
+        "recorded_class_count": 248010,
+        "recorded_semantic_root_sha256": "44cf066910a98f8d2a0988efe9f0bec14834683934369fa9972bb59e870161b0"
+      },
+      {
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "M15",
+        "path": "control/QROS_FAST_V2_M15_STRUCTURAL_PASS_20260921_v1.json",
+        "git_blob_sha1": "acb8ecc12bfefd3c3a04a1bdb9342cca960673d7",
+        "completed_structural": true,
+        "recorded_class_count": 237636,
+        "recorded_semantic_root_sha256": "1715fe9d3a15db744c2b8fcdd54d62c61cf649cd176be6acbee685b53703e439"
+      },
+      {
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "M2",
+        "path": "control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD10_NQX_BUY_M2_COMPLETION_20260921_v1.json",
+        "git_blob_sha1": "f445e7b496b00524fd515b620cafedd2776512bf",
+        "completed_structural": true,
+        "recorded_class_count": 296068,
+        "recorded_semantic_root_sha256": "e722365a6e0bbb6a5f5baab7e905c6dd0a24ef340fb81a6b172bba1ae7af4930"
+      }
+    ],
+    "old_engine_and_all_artefacts": "IMMUTABLE_REFERENCE_NO_DELETION",
+    "old_execution": "PAUSED_ALREADY_BY_V259",
+    "old_execution_classification": "ARCHITECTURE_VALIDATION_HOLD",
+    "not_infrastructure_block": true
+  },
+  "exposure": {
+    "structural_count_and_mask_inspection": "EXPOSED_PARTIALLY_10_COMPLETED_SHARDS",
+    "historical_dev_2018_2019": "EXPOSED_FOR_STRUCTURAL_MASKS",
+    "economic_pnl_seed0076": "NOT_OBSERVED_PER_MAIN_V259",
+    "holdout": "SEALED_PER_MAIN_V259",
+    "not_fresh_independent_experiment": true,
+    "no_statistical_reset": true
+  },
+  "lanes": {
+    "A": {
+      "name": "ISOLATED_ENGINEERING_RESEARCH",
+      "branch": "research/seed0076-reconstruction-dag-ir-v1-20260922",
+      "architecture": "QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1",
+      "scope": "synthetic and golden read-only regressions only",
+      "promotion": "NOT_AUTHORIZED"
+    },
+    "B": {
+      "name": "SCIENTIFIC_RECONSTRUCTION_AUDIT",
+      "scope": "preregistered frozen original then separately identity-bound descendants only",
+      "causal_expansion": "NOT_AUTHORIZED_YET",
+      "independent_work_from_economic_results": true
+    }
+  },
+  "baseline": {
+    "source_audit": "control/QROS_GA1_FAST_V3_ADVERSARIAL_ARCHITECTURE_AUDIT_20260921_v1.json",
+    "measured_M2_components_subtotal_seconds": 502.09142,
+    "GEOMETRY_local_profile_seconds": 14.326566712,
+    "GEOMETRY_dominance": "approximately 87 percent of measured heavy-carrier family profile; not global end-to-end runtime",
+    "M12_reference": "control/QROS_FAST_M12_V2_GOLDEN_PASS_20260921_v1.json",
+    "M15_reference": "control/QROS_FAST_V2_M15_STRUCTURAL_PASS_20260921_v1.json",
+    "M2_reference": "control/QROS_PUBLIC_1000_SEED0076_GA1_SHARD10_NQX_BUY_M2_COMPLETION_20260921_v1.json"
+  },
+  "gate": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "execution_state": "OLD_ENGINE_PAUSED_NEW_PROTOTYPE_PREREGISTERED",
+    "pause_reason": "ARCHITECTURE_VALIDATION_HOLD",
+    "authorization_scope": "ISOLATED_TECHNICAL_RESEARCH_ONLY",
+    "shard11_open": false,
+    "GA1_new_shards_authorized": false,
+    "GA2_open": false,
+    "economic_pnl_read": false,
+    "holdout_open": false
+  },
+  "next_action": "Write minimal typed DAG/IR with semantic action keys, canonical source event masks, equivalence against independent direct causal generator on synthetic cases, exact original config stream regression M12/M15/M2 from frozen spec, adversarial provenance/crash/future canaries; do not claim production parity from synthetic success."
+}
