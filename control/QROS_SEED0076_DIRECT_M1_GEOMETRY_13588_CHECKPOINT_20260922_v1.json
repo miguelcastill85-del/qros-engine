@@ -1,0 +1,77 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_M1_ORIGINAL_GEOMETRY_DELTA_CHECKPOINT_1.0",
+  "date_local": "2026-09-22",
+  "authority": {
+    "research_branch": "research/seed0076-direct-dev-backtest-20260922",
+    "scientific_seed": "WEB_SEED_0076",
+    "original_V209_spec_git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "raw_DEV_XAU_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "previous_3670_checkpoint_git_blob_sha1": "d1e527e44a122f2dffc3dfa9206e0efa207d4ae7",
+    "previous_parent_portable_lock_sha256": "060c6f8152f8bbef3cc8facd0f4606e339a5c5ae9887e4a5d61e2a6eabc99ca1",
+    "geometry_delta_lock_sha256": "36660388967f78b0eb202a10dac76570557298883177a22661e017fac6bb8d06",
+    "complete_geometry_delta_checkpoint_sha256": "e2d17b08226d2a29eb5a220bc515d2104c339b9b1fad55889ec58512834095d6"
+  },
+  "portable": {
+    "library_path": "/QROS/SEED0076_DIRECT_DEV_BACKTEST_20260922/SIX_FAMILY_3670_VERIFIED_20260922/QROS_SEED0076_DIRECT_M1_GEOMETRY_13588_DELTA_20260922.zip",
+    "library_file_id": "libfile_efa5df436d7c8191b44f270d82bd62c0",
+    "ZIP_sha256": "a6d8d54e11ec491f66b642f3866e815c24469fa93841195d8c80a16bbfebf1d6",
+    "ZIP_bytes": 13195766,
+    "ZIP_files": 16,
+    "parent_archive_sha256": "13bd8cc759336a33f021fcf3e101013849cda3edd7eca4bee379f96e0d866b37",
+    "delta_only_no_RAW_no_duplicate_parent": true
+  },
+  "scope": {
+    "asset": "XAUUSD",
+    "tf": "M1",
+    "sides": [
+      "BUY",
+      "SELL"
+    ],
+    "base": {
+      "fractal_window": 3,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+      "trigger": "CLOSE_BREAK"
+    },
+    "original_V209_GEOMETRY_family_variants": 79,
+    "new_original_V209_configurations_each_side": 6794,
+    "new_semantic_configurations": 13588,
+    "new_physical_masks_BUY": 4115,
+    "new_physical_masks_SELL": 4104,
+    "new_physical_masks_total": 8219,
+    "reused_existing_mask_batch_configurations": 3670,
+    "reused_existing_physical_mask_count": 1864,
+    "total_original_eligible_semantic_configurations_so_far": 17258,
+    "total_distinct_physical_masks": 10083,
+    "preserved_hypothesis_multiplicity_minimum": 17258,
+    "original_60_shards": "FROZEN_OUT_OF_SCOPE_NOT_INSPECTED"
+  },
+  "execution": {
+    "method": "Natural bar-coordinate GEOMETRY feature compilation; exact existing source-index and stop candidate tapes; saved executable event trajectories reused; each new physical event mask simulated once.",
+    "fast_EMAs_compiled": 13,
+    "GEOMETRY_original_V221_unmodified_evaluator_exact_canaries": 130,
+    "independent_full_tick_geometry_mask_oracle_cases": 16,
+    "independent_exact_full_tick_trade_rows": 10710,
+    "complete_configuration_ID_and_physical_mask_hash_parity": "PASS",
+    "delta_tamper_missing_lock_orphan_stage_cases": 6,
+    "parent_25_file_lock_full_DEV_verifier": "PASS",
+    "incremental_geometry_and_economic_seconds_excluding_prior_DEV_hash": 12.481,
+    "initial_OOM_cause": "Full compressed parent mask matrix was decompressed once per row (~921 times) inside dictionary comprehension; fixed by a single decompression with shared views, no scientific semantics changed.",
+    "initial_OOM_invalid_production_artifacts": false
+  },
+  "scientific_state": "EXPLORATORY_DEV_EXPOSED_NOT_SELECTION_GRADE",
+  "exposure": {
+    "DEV_2018_2019": "ECONOMICALLY_EXPOSED_FOR_RELATED_SEED_GENEALOGY",
+    "new_clean_holdout_open": false,
+    "commission_included": false,
+    "broker_historical_early_close_calendar_independently_certified": false,
+    "configuration_pruning_on_PnL": false,
+    "portfolio_joint_risk_calculated": false
+  },
+  "promotion": {
+    "economic_selection_gate": "CLOSED",
+    "full_million_config_backtest": "NOT_YET_COMPLETED",
+    "global_performance_speedup_proven": false
+  },
+  "next_automatic_action": "Reuse both portable archives. Continue within original Seed0076 V209 using independently bounded next original base domain, not old shards; measure representative full-pipeline performance and maintain exact roots/exposure. No economic final approval until actual broker commission and historical sessions are authenticated."
+}
