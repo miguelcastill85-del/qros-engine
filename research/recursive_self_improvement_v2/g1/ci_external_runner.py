@@ -58,7 +58,7 @@ def main():
     require(intent.get("operator_confirmed_hard_zero_paid_spend") is True, "COST_GUARD_UNCONFIRMED")
     require(intent.get("plan_git_blob_sha1") == PLAN_BLOB_SHA1, "INTENT_PLAN_DRIFT")
     require(intent.get("frozen_source_git_blob_sha1") == checkpoint["immutable_source"]["git_blob_sha1"], "INTENT_SOURCE_DRIFT")
-    require(intent.get("runner_script_sha256") == digest(Path(__file__).read_bytes()), "RUNNER_SCRIPT_DRIFT")
+    require(intent.get("runner_script_git_blob_sha1") == git_blob(Path(__file__).read_bytes()), "RUNNER_SCRIPT_DRIFT")
     require(plan["decision"] == "E1_WORKFLOW_PREP_ONLY_NO_AUTOMATIC_BILLABLE_RUN", "PLAN_CHANGED")
     require(checkpoint["improvement"]["status"] == "RESEARCH_CANDIDATE", "G1_PROMOTION_STATE_DRIFT")
 
