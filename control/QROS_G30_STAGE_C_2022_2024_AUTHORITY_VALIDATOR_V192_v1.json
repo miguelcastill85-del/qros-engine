@@ -1,0 +1,61 @@
+{
+  "schema": "QROS_G30_STAGE_C_2022_2024_AUTHORITY_VALIDATOR_V192_v1",
+  "status": "PASS",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "candidate_authority_epoch": 192,
+  "parent_authority_epoch": 191,
+  "scope": "F03_F12_ONLY_PRE_STAGE_C_2022_2024",
+  "candidate": {
+    "path": "control/QROS_G30_STAGE_C_2022_2024_AUTHORITY_CANDIDATE_V192_v1.json",
+    "commit": "df99a5cf3092d35ece0a8fcdc721f3b1c9ce4037",
+    "git_blob_sha1": "47f30f9a73519abd84c4a0dd3debd272ecb06809",
+    "status": "PREREGISTERED_NO_RESULTS"
+  },
+  "parent_global_close": {
+    "path": "control/QROS_G30_F03_F12_STAGE_B_GLOBAL_CLOSE_V191R1_v1.json",
+    "commit": "89b6384c8a4028a18eccb0ad04f72c96ccf7ae14",
+    "global_close_root_sha256": "788d063d107fa37b3e590bd480572aeee6cce37b358aacafda5dc0c51b175d87"
+  },
+  "reconciliation": {
+    "campaign_identity": "PASS_EXACT",
+    "authority_epoch_chain_191_to_192": "PASS_EXACT",
+    "global_population_9237": "PASS_EXACT",
+    "global_buy_6183_sell_3054": "PASS_EXACT",
+    "nqx_population_6570": "PASS_EXACT",
+    "xauusd_population_2667": "PASS_EXACT",
+    "family_cells_f03_f12_nqx": "PASS_EXACT_10_OF_10",
+    "family_cells_f03_f12_xauusd": "PASS_EXACT_10_OF_10",
+    "nqx_master_root_sha256": "8b8cdd3579bec171ef531d764ad7bf45cb57622732ec63f367359786b530ad37",
+    "xauusd_master_root_sha256": "21be471313b17fc6ae9c1043eb69380e7406010f1c603f4913a093e2b27a49b5",
+    "stage_c_gate_vs_nqx_v58": "PASS_EXACT",
+    "stage_c_gate_vs_xau_v75": "PASS_EXACT",
+    "execution_semantics_frozen": "PASS_EXACT",
+    "all_passers_no_medoids_no_reranking": "PASS_EXACT",
+    "buy_sell_separate": "PASS_EXACT"
+  },
+  "stage_c_gate": {
+    "window_start_inclusive": "2022-01-01",
+    "window_end_exclusive": "2025-01-01",
+    "source_clock": "STORED_BROKER_SOURCE_CLOCK",
+    "minimum_trades": 30,
+    "pf_central_min": 1.20,
+    "pf_conservative_min": 1.10,
+    "pf_severe_min": 1.00,
+    "net_positive_all_costs": true,
+    "positive_full_years_central_required": [2022, 2023, 2024],
+    "independent_trade_parity_required": true
+  },
+  "guards_verified_before_promotion": {
+    "f13_touched": false,
+    "stage_c_strategy_pnl_read": false,
+    "stage_d_strategy_pnl_read": false,
+    "historical_holdout_opened": false,
+    "retuning": false,
+    "mt5": false,
+    "live": false,
+    "supergate": false
+  },
+  "validator_decision": "PASS_PROMOTION_AUTHORIZED",
+  "market_data_2022_plus_read_during_validation": false,
+  "next_action": "PERSIST_V192_PROMOTION_RECEIPT_THEN_OPEN_ONLY_STAGE_C_2022_2024_FOR_ALL_9237_STAGE_B_PASSERS"
+}

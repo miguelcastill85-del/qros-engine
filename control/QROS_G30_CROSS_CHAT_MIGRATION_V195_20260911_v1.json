@@ -1,0 +1,138 @@
+{
+  "schema": "QROS_G30_CROSS_CHAT_MIGRATION_V195_v1",
+  "created_at": "2026-09-11T18:47:00-03:00",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "branch": "g30-stage-b-preflight-f03-f12-v191r1",
+  "authority_epoch": 195,
+  "operational_status": "CAMPAIGN_ACTIVE",
+  "scientific_frontier": "V192_STAGE_C_AUTHORIZED_NOT_EXECUTED",
+  "user_directive": "PASS_CAMPAIGN_30_THROUGH_ALL_FROZEN_GATES_UP_TO_AVAILABLE_2026_DATA_WITHOUT_RETUNING",
+  "scope": "F03_F12_ONLY",
+  "f13": "EXCLUDED_DO_NOT_SEARCH_DO_NOT_EXECUTE",
+  "parent_authority": {
+    "stage_c_promotion_path": "control/QROS_G30_STAGE_C_2022_2024_AUTHORITY_PROMOTION_RECEIPT_V192_v1.json",
+    "stage_c_promotion_commit": "7414f80e0b576faffe691ed273738a1fc3b560a2",
+    "v194_checkpoint_path": "control/QROS_G30_CROSS_CHAT_CHECKPOINT_V194_20260911_v1.json",
+    "v194_checkpoint_commit": "5ac829a803b22e2d1a4978db3d5fb022a548d0b0",
+    "stage_b_global_close_commit": "89b6384c8a4028a18eccb0ad04f72c96ccf7ae14",
+    "stage_b_global_close_root_sha256": "788d063d107fa37b3e590bd480572aeee6cce37b358aacafda5dc0c51b175d87",
+    "obsolete_wrong_global_close_root": "788d596ac5f7d416275d912870cb3d6aa49ac73628ac1e795f0b4eb045605d87",
+    "obsolete_wrong_root_action": "DISCARD_DO_NOT_USE"
+  },
+  "stage_b": {
+    "status": "GLOBALLY_CLOSED_DO_NOT_RERUN_SCIENTIFICALLY",
+    "survivors_total": 9237,
+    "buy": 6183,
+    "sell": 3054,
+    "NQX": 6570,
+    "XAUUSD": 2667,
+    "population_by_family": {
+      "NQX": {"F03": 246, "F04": 104, "F05": 277, "F06": 257, "F07": 1637, "F08": 1545, "F09": 1187, "F10": 832, "F11": 312, "F12": 173},
+      "XAUUSD": {"F03": 229, "F04": 53, "F05": 29, "F06": 104, "F07": 151, "F08": 684, "F09": 229, "F10": 1027, "F11": 127, "F12": 34}
+    },
+    "population_rule": "ALL_PASSERS_ADVANCE_NO_MEDOIDS_NO_RERANKING"
+  },
+  "data_authority": {
+    "source": "DARWINEX_MT5_USER_CONFIRMED",
+    "clock": "DARWINEX_SERVER_SOURCE_CLOCK_AS_EXPORTED",
+    "NQX": {
+      "multipart": "28/28_MOUNTED_AT_MIGRATION",
+      "compressed_zip_bytes": 2663994339,
+      "carrier": "NQX_PACKED17_FULL_2018_2026.bin",
+      "carrier_bytes": 9516900679,
+      "records": 559817687,
+      "sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+      "first_timestamp_ms": 1516885570165,
+      "last_timestamp_ms": 1785143472709,
+      "out_of_order": 0,
+      "zero_spread": 48325,
+      "crossed_spread": 162,
+      "recovery_receipt_path": "control/QROS_G30_NQX_V2_RUNTIME_RECOVERY_RECEIPT_V195_20260911_v1.json"
+    },
+    "XAUUSD": {
+      "multipart": "35/35_MOUNTED_AT_MIGRATION",
+      "compressed_zip_bytes": 3988985549,
+      "carrier": "XAU_PACKED17_CENT_FULL_2018_2026.bin",
+      "carrier_bytes": 11850036456,
+      "records": 697060968,
+      "sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+      "first_timestamp_ms": 1516885566846,
+      "last_timestamp_ms": 1784937296372,
+      "out_of_order": 0,
+      "zero_spread": 1691627,
+      "crossed_spread": 2218,
+      "recovery_receipt_path": "control/QROS_G30_XAU_V2_RUNTIME_RECOVERY_RECEIPT_V194_20260911_v1.json",
+      "recovery_receipt_commit": "13635696b37fe796212e4123bdf81a860e8e1c10"
+    },
+    "packed17_clock_preservation": "PASS_TECHNICAL_EVIDENCE_IN_CHAT",
+    "runner_calendar_semantics": "PASS_TECHNICAL_EVIDENCE_IN_CHAT",
+    "clock_rule": "DO_NOT_REINTERPRET_STORED_TIMESTAMP_MS_AS_UTC; USE_STORED_BROKER_SOURCE_CLOCK"
+  },
+  "gates": {
+    "STAGE_C": {
+      "status": "AUTHORIZED_NOT_EXECUTED",
+      "period": "2022-01-01_INCLUSIVE_TO_2025-01-01_EXCLUSIVE",
+      "population": 9237,
+      "minimum_trades": 30,
+      "pf_central_min": 1.20,
+      "pf_conservative_min": 1.10,
+      "pf_severe_min": 1.00,
+      "net_positive_all_costs": true,
+      "positive_full_years_central": [2022, 2023, 2024],
+      "buy_sell_separate": true,
+      "independent_trade_parity_required": true,
+      "failure": "REJECTED_NO_RESCUE_NO_RETUNING_2025_2026_REMAINS_UNREAD",
+      "pass": "ADVANCE_TO_STAGE_D_ONLY"
+    },
+    "STAGE_D": {
+      "status": "LOCKED_UNTIL_STAGE_C_DURABLE_CLOSE",
+      "NQX_period": "2025-01-01_THROUGH_2026-07-27_PARTIAL",
+      "XAU_period": "2025-01-01_THROUGH_2026-07-24_PARTIAL",
+      "minimum_trades": 10,
+      "pf_central_min": 1.20,
+      "pf_conservative_min": 1.10,
+      "pf_severe_min": 1.00,
+      "net_positive_all_costs": true,
+      "positive_full_years_central": [2025],
+      "partial_2026": "INCLUDED_IN_AGGREGATE_METRICS_EXCLUDED_FROM_FULL_YEAR_POSITIVITY",
+      "independent_trade_parity_required": true,
+      "failure": "REJECTED_NO_SUPERGATE_RESCUE_NO_RETUNING",
+      "pass": "ADVANCE_TO_SUPERGATE"
+    },
+    "SUPERGATE": {
+      "status": "LOCKED_UNTIL_STAGE_D_PASS",
+      "requirements": ["causality_and_independent_parity", "bid_ask_and_costs", "neighbor_stability", "walk_forward_8_folds_min_6_pass", "WFE_min_0.50", "CPCV", "monte_carlo_min_10000", "bootstrap_blocks_and_years", "cost_slippage_latency_stress", "random_execution_failures", "best_trade_removal", "ablation", "leave_one_year_out", "positive_years", "MAE_MFE", "streaks_underwater", "temporal_sensitivity", "correlation_overlap", "marginal_contribution", "MT5_trade_by_trade_parity_after_research_supergate"]
+    },
+    "MT5": {"status": "NOT_AUTHORIZED_UNTIL_RESEARCH_SUPERGATE_PASS"}
+  },
+  "execution_contract": {
+    "entry_after_causal_signal_close": true,
+    "buy": "ASK_IN_BID_OUT",
+    "sell": "BID_IN_ASK_OUT",
+    "ambiguous_sl_tp": "SL_FIRST",
+    "gap": "FIRST_ACTUALLY_AVAILABLE_PRICE",
+    "zero_or_crossed_spread_artificial_fill": false,
+    "same_day_exit": true,
+    "one_position_per_asset": true,
+    "same_timestamp_reentry": "FORBIDDEN_STRICTLY_AFTER_PREV_EXIT"
+  },
+  "migration_guards": [
+    "DO_NOT_RESTART_STAGE_B",
+    "DO_NOT_REPLAY_F03_AS_NEW_SCIENTIFIC_SELECTION",
+    "DO_NOT_OPEN_F13",
+    "NO_MEDOIDS",
+    "NO_RERANKING",
+    "NO_RETUNING_AFTER_RESULTS",
+    "STAGE_C_RESULTS_MUST_CLOSE_DURABLY_BEFORE_STAGE_D",
+    "ONLY_STAGE_C_PASSERS_MAY_READ_STAGE_D_2025_2026",
+    "NO_SUPERGATE_RESCUE_FOR_STAGE_C_OR_STAGE_D_FAILURES",
+    "NO_MT5_BEFORE_RESEARCH_SUPERGATE_PASS"
+  ],
+  "runtime_at_migration": {
+    "NQX_zip_parts": 28,
+    "XAU_zip_parts": 35,
+    "xau_local_audit_receipt": "/mnt/data/QROS_XAU_V2_RUNTIME_STREAM_AUDIT_20260911_v1.json",
+    "note": "Runtime files are ephemeral; GitHub control artifacts are the durable migration authority."
+  },
+  "next_action_auto": "FETCH_THIS_V195_MIGRATION_AND_CURRENT_FRONTIER_POINTER; VERIFY_NQX_RECOVERY_RECEIPT_AND_CLOCK_SEMANTICS; RUN_STAGE_C_2022_2024_FOR_ALL_9237_F03_F12_CONFIGS_WITHOUT_MEDOIDS_RERANKING_OR_F13; DURABLY_CLOSE_STAGE_C; OPEN_STAGE_D_2025_2026_ONLY_FOR_STAGE_C_PASSERS; THEN_SUPERGATE; THEN_MT5_IF_AUTHORIZED"
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "QROS_G30_NQX_V2_RUNTIME_RECOVERY_RECEIPT_V195_v1",
+  "created_date": "2026-09-11",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "asset": "NQX",
+  "status": "PASS_PHYSICAL_INTEGRITY_PRIOR_CHAT_EXECUTION_DURABLY_RECORDED",
+  "evidence_note": "This receipt materializes the NQX recovery results already executed and verified in the current chat before migration; it is not a new economic backtest.",
+  "multipart": {
+    "required_parts": 28,
+    "mounted_parts_at_migration": 28,
+    "compressed_zip_bytes_observed_at_migration": 2663994339,
+    "outer_zip_sha256": "28/28_MATCH_CANONICAL_MANIFEST",
+    "payload_sha256": "28/28_MATCH_PART_META",
+    "record_ranges": "CONTIGUOUS",
+    "zip_crc": "28/28_PASS"
+  },
+  "canonical_carrier": {
+    "name": "NQX_PACKED17_FULL_2018_2026.bin",
+    "bytes": 9516900679,
+    "records": 559817687,
+    "sha256": "6da9cf67310c2c6689bd82c20882e5e8b652196147a458be58796e5103a22608",
+    "sha256_match": true,
+    "first_timestamp_ms": 1516885570165,
+    "last_timestamp_ms": 1785143472709,
+    "out_of_order": 0,
+    "zero_spread": 48325,
+    "crossed_spread": 162
+  },
+  "execution_semantics": {
+    "source": "Darwinex MT5 user-confirmed broker/server clock",
+    "packed17_preserves_source_calendar_clock": "PASS_TECHNICAL_EVIDENCE_IN_CHAT",
+    "utc_relabel": "FORBIDDEN",
+    "zero_or_crossed_spread_artificial_fill": "FORBIDDEN"
+  },
+  "economic_data_opened": false,
+  "stage_c_strategy_pnl_observed": false
+}

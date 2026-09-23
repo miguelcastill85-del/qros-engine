@@ -1,0 +1,108 @@
+{
+  "schema": "QROS_G30_CROSS_CHAT_CHECKPOINT_V192_20260910_v1",
+  "created_at_utc": "2026-09-11T00:35:00Z",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "branch": "g30-stage-b-preflight-f03-f12-v191r1",
+  "status": "CAMPAIGN_ACTIVE",
+  "authority_epoch": 192,
+  "scientific_frontier": "STAGE_C_2022_2024_AUTHORIZED_NOT_YET_EXECUTED",
+  "do_not_restart_from_stage_b": true,
+  "authoritative_refs": {
+    "stage_b_global_close": {
+      "path": "control/QROS_G30_F03_F12_STAGE_B_GLOBAL_CLOSE_V191R1_v1.json",
+      "commit": "89b6384c8a4028a18eccb0ad04f72c96ccf7ae14",
+      "global_close_root_sha256": "788d063d107fa37b3e590bd480572aeee6cce37b358aacafda5dc0c51b175d87"
+    },
+    "stage_c_candidate": {
+      "path": "control/QROS_G30_STAGE_C_2022_2024_AUTHORITY_CANDIDATE_V192_v1.json",
+      "commit": "df99a5cf3092d35ece0a8fcdc721f3b1c9ce4037",
+      "git_blob_sha1": "47f30f9a73519abd84c4a0dd3debd272ecb06809"
+    },
+    "stage_c_validator": {
+      "path": "control/QROS_G30_STAGE_C_2022_2024_AUTHORITY_VALIDATOR_V192_v1.json",
+      "commit": "b2caf5f124a0c76d267b12bf46b82269e1d3d957",
+      "git_blob_sha1": "7973b368ea72b9643cd0e09f07de49845ff2edd4",
+      "status": "PASS",
+      "decision": "PASS_PROMOTION_AUTHORIZED"
+    },
+    "stage_c_promotion_receipt": {
+      "path": "control/QROS_G30_STAGE_C_2022_2024_AUTHORITY_PROMOTION_RECEIPT_V192_v1.json",
+      "commit": "7414f80e0b576faffe691ed273738a1fc3b560a2",
+      "git_blob_sha1": "baf4195c85e6d5bab05a6e150e1ebf3e80b6dbe6",
+      "status": "PROMOTED_NO_RESULTS"
+    }
+  },
+  "closed_stage_b": {
+    "scope": "F03_F12_NQX_PLUS_XAU_ONLY",
+    "global_evaluated": 221119,
+    "global_pass": 9237,
+    "NQX_pass": 6570,
+    "XAUUSD_pass": 2667,
+    "BUY_pass": 6183,
+    "SELL_pass": 3054,
+    "F12_XAUUSD_stage_b_input": 884,
+    "F12_XAUUSD_stage_b_pass": 34,
+    "F12_XAUUSD_buy_pass": 30,
+    "F12_XAUUSD_sell_pass": 4
+  },
+  "stage_c_authorized_population": {
+    "rule": "ALL_STAGE_B_PASSERS_NO_MEDOIDS_NO_RERANKING",
+    "total": 9237,
+    "NQX": 6570,
+    "XAUUSD": 2667,
+    "BUY": 6183,
+    "SELL": 3054
+  },
+  "stage_c_frozen_gate": {
+    "window_start_inclusive": "2022-01-01",
+    "window_end_exclusive": "2025-01-01",
+    "source_clock": "STORED_BROKER_SOURCE_CLOCK",
+    "minimum_trades": 30,
+    "pf_central_min": 1.20,
+    "pf_conservative_min": 1.10,
+    "pf_severe_min": 1.00,
+    "net_positive_all_costs": true,
+    "positive_full_years_central_required": [2022, 2023, 2024],
+    "buy_sell_separate": true,
+    "independent_trade_parity_required": true
+  },
+  "execution_contract": {
+    "entry_after_causal_signal_close": true,
+    "buy_entry": "ASK",
+    "buy_exit": "BID",
+    "sell_entry": "BID",
+    "sell_exit": "ASK",
+    "ambiguous_sl_tp": "SL_FIRST",
+    "gap_execution": "FIRST_ACTUALLY_AVAILABLE_PRICE",
+    "zero_or_crossed_spread_artificial_fill_forbidden": true,
+    "same_day_exit": true,
+    "one_position_per_asset": true,
+    "same_timestamp_reentry_forbidden": true
+  },
+  "guards": {
+    "F13": "EXCLUDED_NO_RECOVERY_NO_DEPENDENCY",
+    "retuning": false,
+    "stage_d_locked": true,
+    "mt5_authorized_during_stage_c": false,
+    "supergate_authorized_during_stage_c": false,
+    "stage_c_results_exist": false
+  },
+  "legacy_control_warning": {
+    "control_HEAD_json_epoch": 191,
+    "control_STATE_json_epoch": 191,
+    "control_RUN_QUEUE_json_epoch": 191,
+    "instruction": "THESE_LEGACY_V191_FILES_PREDATE_STAGE_B_CLOSE_AND_V192_PROMOTION. DO_NOT_RESTART_STAGE_B FROM THEM. USE_THIS_CHECKPOINT_AND_V192_PROMOTION_RECEIPT_AS_THE_CAMPAIGN_FRONTIER."
+  },
+  "next_action": "AUDIT_CANONICAL_2022_2024_DATA_THEN_RUN_STAGE_C_FOR_ALL_9237_CONFIGS_F03_F12_ONLY_AND_PERSIST_DURABLE_STAGE_C_RESULTS",
+  "new_chat_recovery_protocol": [
+    "FETCH_THIS_CHECKPOINT_FIRST",
+    "VERIFY_STAGE_C_PROMOTION_RECEIPT_AT_COMMIT_7414f80e0b576faffe691ed273738a1fc3b560a2",
+    "VERIFY_VALIDATOR_PASS_AND_STAGE_B_GLOBAL_CLOSE_ROOT",
+    "DO_NOT_REPEAT_STAGE_B",
+    "DO_NOT_SEARCH_OR_EXECUTE_F13",
+    "DO_NOT_RETUNE_OR_RERANK",
+    "AUDIT_CANONICAL_2022_2024_DATA_BEFORE_METRICS",
+    "RUN_STAGE_C_ON_ALL_9237_AUTHORIZED_CONFIGS",
+    "KEEP_MT5_AND_SUPERGATE_LOCKED_UNTIL_STAGE_C_DURABLE_CLOSE_AND_SUBSEQUENT_AUTHORITY_PERMITS"
+  ]
+}

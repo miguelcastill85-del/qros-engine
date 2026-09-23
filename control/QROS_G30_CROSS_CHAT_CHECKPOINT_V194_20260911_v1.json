@@ -1,0 +1,74 @@
+{
+  "schema": "QROS_G30_CROSS_CHAT_CHECKPOINT_V194_v1",
+  "created_date": "2026-09-11",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "scope": "F03_F12_ONLY",
+  "authority_epoch": 194,
+  "status": "BLOCKED_BY_INFRASTRUCTURE",
+  "parent": {
+    "path": "control/QROS_G30_CROSS_CHAT_CHECKPOINT_V193_20260910_v1.json",
+    "commit": "e980168554a34cc9c71ad2cca95642cf39db278c",
+    "blob_sha": "c580a3d5970a088197aaa29fe76efc7422df657c",
+    "scientific_frontier": "V192_STAGE_C_AUTHORIZED_NOT_EXECUTED"
+  },
+  "scientific_state": {
+    "stage_b": "GLOBALLY_CLOSED",
+    "stage_b_survivors_total": 9237,
+    "nqx_survivors": 6570,
+    "xau_survivors": 2667,
+    "stage_c_window": "2022-01-01/2024-12-31",
+    "stage_c_execution": "NOT_EXECUTED",
+    "stage_c_strategy_pnl_observed": false,
+    "stage_d_authorized": false,
+    "supergate_authorized": false,
+    "mt5_authorized": false,
+    "f13_scope": "EXCLUDED"
+  },
+  "xau_runtime_recovery": {
+    "status": "PASS_PHYSICAL_INTEGRITY",
+    "receipt_path": "control/QROS_G30_XAU_V2_RUNTIME_RECOVERY_RECEIPT_V194_20260911_v1.json",
+    "receipt_commit": "13635696b37fe796212e4123bdf81a860e8e1c10",
+    "receipt_blob_sha": "dbba233b622c65d26f3e443d44d7a5d7554c715a",
+    "zip_parts": "35/35",
+    "outer_zip_sha256": "35/35_MATCH",
+    "payload_sha256": "35/35_MATCH",
+    "carrier_sha256": "c386dc3028943f7462f6091d1417a9733237be5e25b07aa5732c111ce11f92e4",
+    "carrier_sha256_match": true,
+    "records": 697060968,
+    "bytes": 11850036456,
+    "out_of_order": 0,
+    "zero_spread": 1691627,
+    "crossed_spread": 2218,
+    "stage_c_economic_results_opened": false
+  },
+  "clock_state": {
+    "broker_provenance": "DARWINEX_USER_CONFIRMED",
+    "source_clock": "DARWINEX_CLOCK_USER_CONFIRMED",
+    "published_policy": "GMT+2_OUTSIDE_US_DST_GMT+3_DURING_US_DST",
+    "csv_to_bin_timestamp_preservation": "PENDING_TECHNICAL_CHECK",
+    "utc_relabel": "FORBIDDEN_UNTIL_PRESERVATION_IS_PROVEN"
+  },
+  "remaining_runtime_blocker": {
+    "code": "STAGE_C_NQX_CANONICAL_V2_BYTES_NOT_MATERIALIZED_IN_CURRENT_RUNTIME",
+    "nqx_zip_parts_required": 28,
+    "nqx_zip_parts_mounted": 0,
+    "xau_zip_parts_required": 35,
+    "xau_zip_parts_mounted": 35,
+    "full_pre_metric_data_audit_complete": false,
+    "scientific_consequence": "FAIL_CLOSED_BEFORE_ANY_STAGE_C_ECONOMIC_METRIC",
+    "holdout_contamination": false
+  },
+  "required_resume_action": "MATERIALIZE_NQX_CANONICAL_V2_PART001_OF_028_THROUGH_PART028_OF_028; VERIFY_OUTER_ZIP_PAYLOAD_AND_FINAL_CARRIER_SHA256; COMPLETE_EXPLICIT_CLOCK_DST_PRESERVATION_AUDIT_FOR_STAGE_C_CALENDAR_SEMANTICS; THEN_RUN_STAGE_C_ON_ALL_9237_F03_F12_SURVIVORS_WITHOUT_MEDOIDS_RERANKING_OR_F13",
+  "guards": [
+    "PRESERVE_V192_STAGE_C_AUTHORIZATION",
+    "DO_NOT_RESTART_STAGE_B",
+    "ALL_9237_PASSERS_ADVANCE",
+    "NO_MEDOIDS",
+    "NO_RERANKING",
+    "NO_F13",
+    "NO_STAGE_D_BEFORE_DURABLE_STAGE_C_CLOSE",
+    "NO_SUPERGATE_BEFORE_STAGE_C_PASS",
+    "NO_MT5_BEFORE_AUTHORIZATION",
+    "NO_STAGE_C_METRICS_WITHOUT_BOTH_CANONICAL_DATA_ROUTES_AND_CLOCK_AUDIT"
+  ]
+}

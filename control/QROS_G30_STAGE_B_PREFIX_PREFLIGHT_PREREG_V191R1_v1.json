@@ -1,0 +1,73 @@
+{
+  "schema": "QROS_G30_STAGE_B_PREFIX_PREFLIGHT_PREREG_V191R1_v1",
+  "status": "PREREGISTERED_NO_MARKET_EXECUTION",
+  "created_date": "2026-09-09",
+  "campaign": "QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1",
+  "authority": {
+    "head_schema": "QROS_PERSISTENT_CONTROL_HEAD_V191",
+    "authority_epoch": 191,
+    "base_main_commit": "c0f3de8c66e0c3b642053bdc35f56f33a96740e6",
+    "population_correction_ref": "control/QROS_G30_ALL_PASSERS_ADVANCE_CORRECTION_V190_v1.json",
+    "stage_protocol_ref": "control/QROS_G30_EXPOSED_OBSERVATIONAL_STAGE_GATE_PROTOCOL_V190_v1.json"
+  },
+  "scope": {
+    "frontiers": "F03_THROUGH_F12_ONLY",
+    "purpose": "REMATERIALIZE_ONLY_THE_MINIMUM_AUTHENTICATED_2018_2021_PREFIX_INPUTS_REQUIRED_FOR_STAGE_B_WITHOUT_FULL_2018_2026_CARRIER_REBUILD",
+    "economic_results_authorized_by_this_artifact": false,
+    "stage_b_window": "SOURCE_CLOCK_2020_01_01_THROUGH_2021_12_31",
+    "2022_plus_bytes_forbidden": true,
+    "retuning": false,
+    "mt5": false,
+    "live": false
+  },
+  "runner": {
+    "path": "control/recovery/qros_g30_stage_b_prefix_preflight_v191r1.py",
+    "bytes": 9053,
+    "sha256": "174dbada5bb2108528d367a5d69c6e6a8a7a7a71829079d6d971cc758f64906e",
+    "cache_builder_ref": "control/recovery/qros_g30_cache_v58.py",
+    "cache_builder_sha256": "7dcd354bf776bc12e17a5b5c31677dc47c691be392d39dd2a7ac81fc7974b811"
+  },
+  "frozen_inputs": {
+    "NQX": {
+      "prefix_2018_2021": {"records":146521356,"bytes":2490863052,"sha256":"d2530ae084311e0b454f30a5d7a2bc0d0f4ca932bb81d9dd2252ba7295491a05"},
+      "dev_2018_2019": {"records":59940260,"bytes":1018984420,"sha256":"451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf","cache_sha256":"8e70138c358ac4a61b3eb602419fc3173640ae6fbcfa939364680dc03488a1ca"},
+      "stage_b_slice_2020_2021": {"records":86581096,"bytes":1471878632,"sha256":"f6cef828431a2f8153e9fc9a07aa78978069fb11eef32778b43ee5654ba11fd5"},
+      "prefix_cache_sha256": "2bad94f5051c41f00a5e6fd9f39efa4278488f12b0b2f6d95737386cddecf598"
+    },
+    "XAUUSD": {
+      "prefix_2018_2021": {"records":323662484,"bytes":5502262228,"sha256":"77da8423b07d7d33168d8b713ef691627f0698760461c7349fa5ccc5e49ceaeb"},
+      "dev_2018_2019": {"records":151382388,"bytes":2573500596,"sha256":"3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53","cache_sha256":"f5d847a51ffbbddd29dc4089aa65c04ebe4df01336b91af35223609551923e62"},
+      "stage_b_slice_2020_2021": {"records":172280096,"bytes":2928761632,"sha256":null},
+      "prefix_cache_sha256": "35abe473cfb9b02c51f525ccd3ef870bff51106005f94236e8197a9f4a2d8bfd"
+    }
+  },
+  "preflight_gates": [
+    "EXACT_PREFIX_SIZE_RECORD_COUNT_SHA256",
+    "NO_2022_PLUS_TIMESTAMP_PRESENT",
+    "MEMORY_BOUNDED_NONDECREASING_TIMESTAMP_AUDIT",
+    "EXACT_DEV_PREFIX_REMATERIALIZATION_SHA256",
+    "EXACT_DEV_CACHE_SHA256",
+    "EXACT_2018_2021_PREFIX_CACHE_SHA256",
+    "NQX_EXACT_STAGE_B_SLICE_SHA256",
+    "ATOMIC_DEV_EXTRACTION_AND_RECEIPT_WRITE"
+  ],
+  "selftest": {
+    "scope": "NON_MARKET_IO_AND_HASH_HELPERS_ONLY",
+    "tests": 3,
+    "passed": 3,
+    "status": "PASS",
+    "checks": ["FULL_FILE_SHA256","BOUNDED_SLICE_SHA256","ATOMIC_PREFIX_COPY"]
+  },
+  "scientific_firewall": {
+    "strategy_pnl_read_by_preflight": false,
+    "gate_a_selection_changed": false,
+    "all_33094_gate_a_passers_status_changed": false,
+    "stage_b_verdict_created": false,
+    "stage_c_opened": false,
+    "stage_d_opened": false,
+    "holdout_relabel": false,
+    "authority_head_promoted": false
+  },
+  "success_next_action": "REPLAY_F03_GATE_A_24_SHARDS_AND_REQUIRE_EXACT_DURABLE_HASH_PARITY; THEN_EVALUATE_STAGE_B_ON_ALL_1928_F03_PASSERS_UNDER_V190_WITH_BUY_SELL_SEPARATE",
+  "failure": "FAIL_CLOSED_RECORD_EXACT_INPUT_OR_CACHE_MISMATCH_NO_ECONOMIC_EXECUTION"
+}
