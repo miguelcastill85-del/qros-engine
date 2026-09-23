@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_M1_W5_STRICT_REMOTE_SHA_ANCHOR_V1",
+  "seed": "WEB_SEED_0076",
+  "asset": "XAUUSD",
+  "timeframe": "M1",
+  "window": 5,
+  "tie_policy": "STRICT_ALL_NEIGHBORS",
+  "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+  "trigger": "CLOSE_BREAK",
+  "sides": [
+    "BUY",
+    "SELL"
+  ],
+  "parent_w5_strict_prereg_blob_sha1": "b4c6461a17dcb3186e3f7a074376bd3bf64679be",
+  "parent_w3_strict_remote_anchor_blob_sha1": "18d96759fd0ecbbfdc531d82493f51a801847153",
+  "frozen_original_spec_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "raw_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "archive": {
+    "name": "QROS_SEED0076_DIRECT_M1_W5_STRICT_17258_EVIDENCE_20260923.zip",
+    "bytes": 10454398,
+    "sha256": "452c53b831258a33cefd51c1e75c92b5fa0c06a1e520aab49e8c454b6c31764b",
+    "members": 41,
+    "drive_file_id": "1rtwyAETd0qkOwaq5Gp41_J-TlGzmxFXG",
+    "drive_folder_id": "1lfMh7r2SJiu2pIm6kSCAHmvKqLBFHNOG",
+    "independent_remote_download_sha256_check": "PASS",
+    "portable_meta_audit": "PASS",
+    "adversarial_tamper_rejection": "PASS"
+  },
+  "execution": {
+    "new_semantic_configurations": 17258,
+    "buy_physical_masks": 4258,
+    "sell_physical_masks": 4210,
+    "new_physical_masks": 8468,
+    "buy_raw_candidates": 29248,
+    "sell_raw_candidates": 28973,
+    "original_V221_full_gate_sample_canaries_pass": 218,
+    "independent_stratified_physical_masks_checked": 16,
+    "independent_exact_full_tick_trade_rows": 8494,
+    "unresolved_selected_mask_exits": 0,
+    "cumulative_semantic_configurations": 138064,
+    "cumulative_physical_masks_by_cell": 61381
+  },
+  "scientific": {
+    "state": "DEVELOPMENT_RUNNING",
+    "dev_2018_2019_economically_exposed": true,
+    "holdout_open": false,
+    "broker_commission_certified": false,
+    "gate_A_approved": false,
+    "old_60_shards_out_of_scope": true,
+    "standalone_not_joint_buy_sell": true,
+    "no_alphas_selected": true
+  },
+  "next_serial_action": "PREREGISTER_ONLY_XAUUSD_M1_W7_STRICT_ALL_NEIGHBORS_ORIGINAL_V209"
+}
