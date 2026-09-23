@@ -1,0 +1,30 @@
+{
+  "detail": {
+    "BUY": {
+      "earliest_mismatch": null,
+      "event_tape_sha256": "eeb00c78aa4f48dbe2f1be292e905a514fef399fa8377a82c9c5b1490dcc0337",
+      "first_source_tick": 11040,
+      "signals": 22210
+    },
+    "SELL": {
+      "earliest_mismatch": null,
+      "event_tape_sha256": "bca05fec93e22ecf8556daa67eada319a9e2d1df259aa5af42dcdf89f5be7320",
+      "first_source_tick": 2755,
+      "signals": 22082
+    }
+  },
+  "holdout_open": false,
+  "independent_algorithm": "vectorized 3-bar shifted comparisons + cumulative last available fractal; first raw breakout per level BEFORE trend filter",
+  "invariants": {
+    "BUY_event_tape_equal": true,
+    "SELL_event_tape_equal": true,
+    "fractal_high_equal": true,
+    "fractal_low_equal": true,
+    "high_ids_equal": true,
+    "low_ids_equal": true
+  },
+  "schema": "SEED0076_DIRECT_M1_INDEPENDENT_EVENT_ORACLE_v1",
+  "scope": "XAUUSD M1 2018-2019, fractal window3, source-asym ties, one per level close-break, EMA9/20/50",
+  "shared_dependencies": "same canonical bars/indicators and source input. Not independent tick decoder or quote execution oracle.",
+  "status": "PASS"
+}
