@@ -1,0 +1,234 @@
+{
+  "schema": "QROS_SEED0076_LEGACY60_FREEZE_AND_RECONSTRUCTION_DUAL_LANE_1.0",
+  "date": "2026-09-22",
+  "mode": "USER_AUTHORIZED_RECONSTRUCTION_ENGINE_V2",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "stable_branch": "main",
+    "observed_main_commit": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "stable_pointer_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "stable_pointer_git_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "stable_target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V259_v1.json",
+    "stable_target_git_blob_sha1": "540aa07bbeeb9c62d1288d6974ac6e61b3b83a67",
+    "architecture_audit_blob_sha1": "8aaaf683c8f3e8acc555a59c187765399e5f4ee4",
+    "sequence_policy_blob_sha1": "9d4b1b038c75653f72f84024d5b7a6581123a61b",
+    "frozen_universe_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "shard_plan_blob_sha1": "0b4f724ccf683907b05013687c581deadfc2ecc1",
+    "new_research_branch": "research/seed0076-reconstruction-accel-v2-20260922",
+    "prior_research_pr56_branch": "research/seed0076-first-gate10-20260922",
+    "prior_research_pr56_not_merged": true
+  },
+  "identity": {
+    "original_seed": "WEB_SEED_0076",
+    "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "frozen_original_universe": "V209_V213_ORIGINAL_60_LOGICAL_SHARDS",
+    "reconstructed_equivalent_universe": "RESEARCH_PROTOTYPE_NO_PROMOTION",
+    "causally_expanded_descendants": [],
+    "engineering_version": "QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1_RESEARCH",
+    "same_seed": true,
+    "no_clean_new_holdout_claim": true
+  },
+  "state": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "execution_state": "CAMPAIGN_ACTIVE_RESEARCH_ONLY_ARCHITECTURE_HOLD",
+    "pause_reason": "ARCHITECTURE_VALIDATION_HOLD",
+    "authorization_scope": "TWO_ISOLATED_NON_ECONOMIC_RESEARCH_LANES",
+    "ga1_old_way_paused": true,
+    "new_shards_authorized": false,
+    "shard11_open": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "deployment_allowed": false,
+    "original_main_untouched": true
+  },
+  "legacy_universe": {
+    "logical_shards_frozen": 60,
+    "GA1_closed_shards": 10,
+    "GA1_untouched_shards": 50,
+    "raw_signal_configs": 48280320,
+    "per_shard_config_count": 804672,
+    "per_shard_base_rows": 72,
+    "per_shard_filter_packages": 11176,
+    "distinct_mask_classes_in_ten_closed": 2065443,
+    "ten_closed_receipts": [
+      {
+        "ordinal": 1,
+        "asset": "XAUUSD",
+        "side": "BUY",
+        "timeframe": "M1",
+        "scientific_status": "GA1_COMPLETION_RECEIPT_FROZEN",
+        "raw_configs": 804672,
+        "distinct_masks": 303572,
+        "receipt_git_blob_sha1": "19e47f7a25fb88eac1ba871dccfc56f79b9d9647",
+        "semantic_class_root_sha256": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+        "full_alias_mapping_root_sha256": "4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458",
+        "config_root_sha256": "96d664f4c4efb431dbd475355249b51aa49c8ac656ad5fd1caaf46d7086fc1c3"
+      },
+      {
+        "ordinal": 2,
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "H1",
+        "scientific_status": "GA1_COMPLETION_RECEIPT_FROZEN",
+        "raw_configs": 804672,
+        "distinct_masks": 165360,
+        "receipt_git_blob_sha1": "0dcb37ac70f3b233322ff3aa931e9ab066c034df",
+        "semantic_class_root_sha256": "6eea7db4b1a5b975eed8b97af5c8509e36894bc8c4b2bb645ba8f88dd33aac79",
+        "full_alias_mapping_root_sha256": "98218fd8d552e2db81450d664834078785e418ff1891d57b867e45e53a03ad9a",
+        "config_root_sha256": "0b615ea7dd35b8ef9ef39c97c6750223a07800a07631edb06daf900370b503ed"
+      },
+      {
+        "ordinal": 3,
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "H2",
+        "scientific_status": "GA1_COMPLETION_RECEIPT_FROZEN",
+        "raw_configs": 804672,
+        "distinct_masks": 105642,
+        "receipt_git_blob_sha1": "369fcd0d84c99a205caa6111ff626b6378f6dbfd",
+        "semantic_class_root_sha256": "8cc8292a0a8241caf4abc0f2281a1eb73dafebec61046979145b7e18a217ab74",
+        "full_alias_mapping_root_sha256": "5b45e900d052bfede7345067f52b30a226fce8c53852ddf9542c97974148a81f",
+        "config_root_sha256": "42eab98346bfbf2680ff9d28f5efa8c62eafc8520159a06f8192f9c7313eaf16"
+      },
+      {
+        "ordinal": 4,
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "H3",
+        "scientific_status": "GA1_COMPLETION_RECEIPT_FROZEN",
+        "raw_configs": 804672,
+        "distinct_masks": 80166,
+        "receipt_git_blob_sha1": "99dcf9f49b62c142ae61613e471a67bf5600b1de",
+        "semantic_class_root_sha256": "9a9630ff78c98ef2144acd031298b2b41aab647cfb63d07613b605da9de2a14e",
+        "full_alias_mapping_root_sha256": "00380a85d5cc28fd9d7e4b885c03150cfcc6bc3ddaf6f038f72581b482e0b5da",
+        "config_root_sha256": "69263b6d35afff3b17760f4742cefe718b9925392362c75a68c207fd85857525"
+      },
+      {
+        "ordinal": 5,
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "H4",
+        "scientific_status": "GA1_COMPLETION_RECEIPT_FROZEN",
+        "raw_configs": 804672,
+        "distinct_masks": 58647,
+        "receipt_git_blob_sha1": "26140467d4946fa947b1ff5797c188ef9a24a134",
+        "semantic_class_root_sha256": "4add80e4da8f5515d2bdb642e44015b073334e78d959ee11d2b6d6293a1d8231",
+        "full_alias_mapping_root_sha256": "6815cdc33156d677bc3a061e4d659e617c78b0cf417e4b91ce227b81518d80f7",
+        "config_root_sha256": "da93ef4605d4a8c94753248cacc3f75188fa7197e9728922fe4d8b5853c65b90"
+      },
+      {
+        "ordinal": 6,
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "M1",
+        "scientific_status": "GA1_COMPLETION_RECEIPT_FROZEN",
+        "raw_configs": 804672,
+        "distinct_masks": 317112,
+        "receipt_git_blob_sha1": "05721e0362340a3fa7f58c60ba59d5482155b92b",
+        "semantic_class_root_sha256": "0f2c15a1adcfa651c16d0fbab692708a474db73d588409a1a52c4be2a97920be",
+        "full_alias_mapping_root_sha256": "9aaca88b4ce00d64d508d574164f085a73745490bcff5962542471400e4086f5",
+        "config_root_sha256": "3230a84be5aab51fc0da9f1df22f38574db18ab4f81aed2c5f0d1336c07298fb"
+      },
+      {
+        "ordinal": 7,
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "M10",
+        "scientific_status": "GA1_COMPLETION_RECEIPT_FROZEN",
+        "raw_configs": 804672,
+        "distinct_masks": 253230,
+        "receipt_git_blob_sha1": "b5bc8453c4f983b6e5efda521ea5cb163bfafab0",
+        "semantic_class_root_sha256": "717c682c950414b7e0c2d31ee1610bcf0cbb15c0cbbe6345b5090afa07d01ee8",
+        "full_alias_mapping_root_sha256": "2e2454c9cd8b6bde7edf152a3fd05d7c677f18efea28e639c3040bdaa90f89e2",
+        "config_root_sha256": "a81a1fab5d48c38fc5a2b477b4968bf8130ff28e5906d410ac98a2ffd5db4f59"
+      },
+      {
+        "ordinal": 8,
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "M12",
+        "scientific_status": "GA1_COMPLETION_RECEIPT_FROZEN",
+        "raw_configs": 804672,
+        "distinct_masks": 248010,
+        "receipt_git_blob_sha1": "17dcc8e3b5f2a05c196ef950c1e4273cdad921f9",
+        "semantic_class_root_sha256": "44cf066910a98f8d2a0988efe9f0bec14834683934369fa9972bb59e870161b0",
+        "full_alias_mapping_root_sha256": "c5bec36e0b78c896f81578de5a69b42fd6f673a54630efbb8311f33e7e09c0a7",
+        "config_root_sha256": "07c6c3fc57503198b0db78afc6e587948b1cb449d745bc51cdd1604a3e4ca714"
+      },
+      {
+        "ordinal": 9,
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "M15",
+        "scientific_status": "GA1_COMPLETION_RECEIPT_FROZEN",
+        "raw_configs": 804672,
+        "distinct_masks": 237636,
+        "receipt_git_blob_sha1": "acb8ecc12bfefd3c3a04a1bdb9342cca960673d7",
+        "semantic_class_root_sha256": "1715fe9d3a15db744c2b8fcdd54d62c61cf649cd176be6acbee685b53703e439",
+        "full_alias_mapping_root_sha256": "d04413efa9f5cc1543dff7677be97d0ad102c0816ee84f22df0518892ea6fa4c",
+        "config_root_sha256": "46e39c9108d4eec03d847fe3b405bdd7777976ba048f27705abfb7a3c869f947"
+      },
+      {
+        "ordinal": 10,
+        "asset": "NQX",
+        "side": "BUY",
+        "timeframe": "M2",
+        "scientific_status": "GA1_COMPLETION_RECEIPT_FROZEN",
+        "raw_configs": 804672,
+        "distinct_masks": 296068,
+        "receipt_git_blob_sha1": "f445e7b496b00524fd515b620cafedd2776512bf",
+        "semantic_class_root_sha256": "e722365a6e0bbb6a5f5baab7e905c6dd0a24ef340fb81a6b172bba1ae7af4930",
+        "full_alias_mapping_root_sha256": "3afa5f6a77cda3926e7ce16af07568dd571f2bf0d9d68cb275e8641c7bea2844",
+        "config_root_sha256": "752e5b82983e673a9c7fab28e11c750f8f5b66808674f5ee6769dd4d9cb560a9"
+      }
+    ],
+    "interpretation": "Identities, counts, and roots are originally observed structural information; masks for some late shards need further portable-byte verification; receipt/metadata parity is not independent generator parity."
+  },
+  "exposure_ledger": {
+    "economic_exposure_according_to_main": "NONE_RECORDED_FOR_SEED0076",
+    "structural_exposure": {
+      "completed_shards": 10,
+      "distinct_masks": 2065443,
+      "all_completed_classes_already_exposed": true,
+      "known_bottleneck_observed": "NQX M2 geometry and carrier profiles; initial research cannot claim architecture blind to those observations",
+      "evidence_from_previous_research_branch": "Synthetic execution normalization, RAW XAU data-quality and real 2018 source-clock anomalies previously observed; these do not grant economic access"
+    },
+    "DEV_2018_2019": "STRUCTURAL_EXPOSED_WITHIN_GENEALOGY",
+    "holdout": "NO_RIGHT_TO_DECLARE_CLEAN_FROM_MOTOR_RESTART_ALONE",
+    "future_PnL": "MUST_RETAIN_FULL_GENEALOGY_MULTIPLICITY"
+  },
+  "two_lanes": {
+    "A": {
+      "goal": "Engineering prototype exact, repeatable DAG/factorized event-mask IR; existing frozen scientific universe; synthetic/technical only",
+      "no_economic_outputs": true
+    },
+    "B": {
+      "goal": "Read-only causal ontology and exposure audit, logic equivalence first; descendants only with own preregistration",
+      "new_causal_rules_authorized": false
+    }
+  },
+  "baseline_observed": {
+    "M2_group_files": 2554,
+    "M2_receipt_files": 819,
+    "M2_physical_group_bytes": 499780718,
+    "M2_recorded_core_subtotal_seconds": 502.09142,
+    "M2_primary_sqlite_reduce_seconds": 17.6,
+    "M2_numpy_reducer_seconds": 8.33,
+    "GEOMETRY_profile_share_approx": 0.87,
+    "limitations": "Mixed microbenchmarks and runtime receipts not valid as synthetic prototype global speedup claims"
+  },
+  "rejected_architecture": "GLOBAL_FAMILY_MASK_SHARE_FAST_V3_AS_STATED",
+  "candidate": "QROS_GA1_COMPILED_TYPED_DAG_FACTOR_IR_V1",
+  "promotion_gates": [
+    "full M12/M15/M2 event-mask roots parity on exact frozen data",
+    "independent direct event-generator canaries across BUY/SELL/rearm/retest/point/timebase",
+    "future-only perturbation",
+    "content-hash tamper rejection",
+    "lossless events and per-semantic config mapping",
+    "crash/restart verified",
+    "representative full-pipeline benchmark",
+    "preserved scientific authorization; no automatic promotion"
+  ],
+  "next_automatic_action": "In isolated Lane A, verify full frozen config-id root identity without masks, execute and benchmark a minimal geometry bar-factor IR against untouched V221 reference, then retrieve frozen event-mask golden datasets for M12/M15/M2 before full generator claims. Lane B only read-only ontology audit; neither opens GA1/GA2/PNL."
+}
