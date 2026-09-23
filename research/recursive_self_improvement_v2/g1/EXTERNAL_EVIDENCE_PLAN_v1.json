@@ -1,0 +1,56 @@
+{
+  "schema": "QROS_RSI_V2_G1_EXTERNAL_EVIDENCE_PLAN_1.0",
+  "date": "2026-09-22",
+  "objective": "Acquire genuine external evidence without converting research CI or self-signed claims into independent scientific proof.",
+  "authority": {
+    "scientific_frontier": "V259",
+    "scientific_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "research_checkpoint_blob_sha1": "3b1f79f7ce4ce88ecfa22e8238f7930d5aeff12e",
+    "g1_source_blob_sha1": "b09cec56c60b6061f8c56ddef9e4b319507d8a81"
+  },
+  "stage_E1": {
+    "goal": "External GitHub-hosted rerun of 14 frozen G1 synthetic tests and a separate hashlib/tarfile byte oracle",
+    "runner": "GitHub Actions standard Ubuntu 24.04",
+    "workflow": ".github/workflows/qros-rsi-g1-external-evidence-v1.yml",
+    "activation": "Explicit single-use RUN_EXTERNAL_INTENT.json commit on isolated research branch only; no automatic production/PR/main triggers",
+    "acceptance": [
+      "GitHub API shows genuine completed successful run on same commit SHA",
+      "Job log shows github-hosted Ubuntu runner, frozen source/plan byte hashes match, 14/14 unchanged tests pass",
+      "Retrieve downloadable run artifact, verify SHA256 and separately durable-commit receipt"
+    ],
+    "cost_constraint": "Before intent commit verify included GitHub Actions minutes and account hard $0 paid-spend block. A private repo on GitHub Free may consume included minutes; zero additional charges not guaranteed until account billing checked.",
+    "claimed_independence": "EXTERNAL_INFRASTRUCTURE_AND_INDEPENDENT_STANDARD_LIBRARY_HASH_ORACLE_ONLY",
+    "scientific_promotion_authorized": false
+  },
+  "stage_E2": {
+    "goal": "Fresh evaluation cases with a custodian external to the candidate and demonstrable lack of developer access until freeze",
+    "strong_route": "Named independent human/organization maintains private cases and grading code, externally pins SHA256, freezes permissions and attests timestamp, releases only signed aggregate outcomes and sufficient audit proof after candidate+baseline freeze",
+    "conditional_automated_route": "For tasks with mathematical/deterministic oracles, freeze public generator and scoring code before the future signed drand/NIST beacon pulse, bind first predetermined post-freeze pulse and use that seed for fresh cases. This is temporal independence of case selection, not independent organizational custody; validate beacon cryptographic signature before reliance.",
+    "external_custody_current": "NOT_AVAILABLE",
+    "preserve_development_exposure": true
+  },
+  "stage_E3": {
+    "goal": "Actually matched model/system evaluation with immutable provider model/revision metadata",
+    "hard_requirements": [
+      "Observed provider response model identifier AND supported immutable revision or equivalent provider attestation",
+      "Same actual selected model/revision, task clusters, resources, tools and scorer; if not possible declare mismatched treatment",
+      "Externally enforce token/tool/time budgets; persist provider-returned request IDs, model IDs, usage and timing",
+      "Independent scorer/custodian and predeclared sample size, margins and family coverage"
+    ],
+    "zero_cost_route": "Only if already available API trial/granted credits cover selected model and repeated runs; ChatGPT Plus is not API credit. Otherwise no $0 confirmatory model claim.",
+    "alternative": "Manual ChatGPT Plus randomized blind development comparison can inform design but not supply immutable provider snapshot nor trusted machine-observed usage.",
+    "no_unavailable_astra_alias": "Do not invent gpt-6-astra API access or an unlisted immutable model snapshot."
+  },
+  "rejected_shortcuts": [
+    "Duplicate Ed25519 keys operated by one person are not independent custody",
+    "GitHub-hosted execution of self-authored tests is not an independent scorer",
+    "Private GitHub Free artifact attestations are not available; link to GitHub Actions run and digest instead",
+    "GitHub Models inference API unavailable after 2026-07-30 retirement",
+    "Do not publish any QROS private scientific data or hidden benchmarks to make public attestation free"
+  ],
+  "decision": "E1_WORKFLOW_PREP_ONLY_NO_AUTOMATIC_BILLABLE_RUN",
+  "new_authorized_economic_reads": false,
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "g1_state": "RESEARCH_CANDIDATE",
+  "next_action": "Make E1 reproducible without automatic execution. To run: verify included-minute balance and set GitHub Actions paid spend hard stop at $0, then create single-use intent commit on research branch. Read back GitHub run/job and artifact; E2/E3 remain independently gated."
+}
