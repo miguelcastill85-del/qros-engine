@@ -1,0 +1,44 @@
+{
+  "schema": "QRCEL_MODEL_EXECUTION_PROTOCOL_V1",
+  "status": "READY_FOR_DEVELOPMENT_RESPONSES_NOT_EXECUTED",
+  "tracks": {
+    "NATIVE": [
+      "SOL_BASELINE",
+      "ASTRA_BASELINE"
+    ],
+    "SYSTEM": [
+      "SOL_BASELINE",
+      "SOL_CURRENT_QROS",
+      "SOL_QRCEL",
+      "ASTRA_REFERENCE",
+      "ASTRA_QRCEL"
+    ]
+  },
+  "required_matching_fields": [
+    "case_set_sha256",
+    "context_sha256",
+    "toolset_sha256",
+    "budget_sha256",
+    "reset_policy_sha256",
+    "rubric_sha256"
+  ],
+  "record_fields": [
+    "observed_model_id",
+    "mode",
+    "date",
+    "stack_sha256",
+    "provider_receipt_identity",
+    "responses_sha256"
+  ],
+  "unknown_model_identity": "Record null; do not infer from user nickname or route label",
+  "source_evidence": "Response ingestion proves only submitted bytes. Native execution requires separately observed provider/tool evidence. No metadata-only EXECUTED status.",
+  "scoring": "Per-case typed JSON exact match; no aggregate parity gate",
+  "limits": "12 exposed microcases cannot establish general programming, research, autonomy or non-inferiority. There is no sealed set or custodian here.",
+  "model_gain": "ASTRA_BASELINE minus SOL_BASELINE in matched NATIVE cells",
+  "system_gain": "SOL_QRCEL minus SOL_CURRENT_QROS under the common tool/resource envelope",
+  "interaction_gain": "(ASTRA_QRCEL minus ASTRA_REFERENCE) minus (SOL_QRCEL minus SOL_CURRENT_QROS), only if reference conditions match",
+  "native_runs_executed": 0,
+  "system_model_runs_executed": 0,
+  "paid_api_activation": false,
+  "parity": "INSUFFICIENT_EVIDENCE"
+}

@@ -1,0 +1,346 @@
+{
+  "correct": 15,
+  "full_architecture_selected": false,
+  "model_calls": 0,
+  "parity": "INSUFFICIENT_EVIDENCE",
+  "preregistration_sha256": "303b41a2f7edd7760626e810d93fae0af33e46f4d13c03a1f8c020e9fc775043",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "records": [
+    {
+      "artifact_bytes": 6337,
+      "attempts": [
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.03929713000002266
+        }
+      ],
+      "commit_count": 1,
+      "correct": true,
+      "scenario": "NORMAL",
+      "solver_calls": 48,
+      "variant": "REPLAY_ALL",
+      "wall_seconds": 0.03929713000002266
+    },
+    {
+      "artifact_bytes": 7230,
+      "attempts": [
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.04652909799983718
+        }
+      ],
+      "commit_count": 48,
+      "correct": true,
+      "scenario": "NORMAL",
+      "solver_calls": 48,
+      "variant": "ATOMIC_JSON_PREFIX",
+      "wall_seconds": 0.04652909799983718
+    },
+    {
+      "artifact_bytes": 14571,
+      "attempts": [
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.034974658000010095
+        }
+      ],
+      "commit_count": 48,
+      "correct": true,
+      "scenario": "NORMAL",
+      "solver_calls": 48,
+      "variant": "SQLITE_TRANSACTION_PREFIX",
+      "wall_seconds": 0.034974658000010095
+    },
+    {
+      "artifact_bytes": 6625,
+      "attempts": [
+        {
+          "exit_code": 75,
+          "stderr": "",
+          "stdout": "",
+          "wall_seconds": 0.02537776000008307
+        },
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.03158244999985982
+        }
+      ],
+      "commit_count": 1,
+      "correct": true,
+      "scenario": "CRASH_AFTER_NODE_16",
+      "solver_calls": 64,
+      "variant": "REPLAY_ALL",
+      "wall_seconds": 0.05696020999994289
+    },
+    {
+      "artifact_bytes": 7230,
+      "attempts": [
+        {
+          "exit_code": 75,
+          "stderr": "",
+          "stdout": "",
+          "wall_seconds": 0.029523388999905364
+        },
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.0405097550001301
+        }
+      ],
+      "commit_count": 48,
+      "correct": true,
+      "scenario": "CRASH_AFTER_NODE_16",
+      "solver_calls": 48,
+      "variant": "ATOMIC_JSON_PREFIX",
+      "wall_seconds": 0.07003314400003546
+    },
+    {
+      "artifact_bytes": 14571,
+      "attempts": [
+        {
+          "exit_code": 75,
+          "stderr": "",
+          "stdout": "",
+          "wall_seconds": 0.030534605000184456
+        },
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.030694910999955027
+        }
+      ],
+      "commit_count": 48,
+      "correct": true,
+      "scenario": "CRASH_AFTER_NODE_16",
+      "solver_calls": 48,
+      "variant": "SQLITE_TRANSACTION_PREFIX",
+      "wall_seconds": 0.06122951600013948
+    },
+    {
+      "artifact_bytes": 6625,
+      "attempts": [
+        {
+          "exit_code": 75,
+          "stderr": "",
+          "stdout": "",
+          "wall_seconds": 0.028839246999950774
+        },
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.034929379999994126
+        }
+      ],
+      "commit_count": 1,
+      "correct": true,
+      "scenario": "CRASH_BEFORE_NODE_COMMIT_16",
+      "solver_calls": 64,
+      "variant": "REPLAY_ALL",
+      "wall_seconds": 0.0637686269999449
+    },
+    {
+      "artifact_bytes": 7248,
+      "attempts": [
+        {
+          "exit_code": 75,
+          "stderr": "",
+          "stdout": "",
+          "wall_seconds": 0.036352798000052644
+        },
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.03368607500010512
+        }
+      ],
+      "commit_count": 48,
+      "correct": true,
+      "scenario": "CRASH_BEFORE_NODE_COMMIT_16",
+      "solver_calls": 49,
+      "variant": "ATOMIC_JSON_PREFIX",
+      "wall_seconds": 0.07003887300015776
+    },
+    {
+      "artifact_bytes": 14589,
+      "attempts": [
+        {
+          "exit_code": 75,
+          "stderr": "",
+          "stdout": "",
+          "wall_seconds": 0.02966819299990675
+        },
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.05084832399984407
+        }
+      ],
+      "commit_count": 48,
+      "correct": true,
+      "scenario": "CRASH_BEFORE_NODE_COMMIT_16",
+      "solver_calls": 49,
+      "variant": "SQLITE_TRANSACTION_PREFIX",
+      "wall_seconds": 0.08051651699975082
+    },
+    {
+      "artifact_bytes": 7981,
+      "attempts": [
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.029636746000051062
+        },
+        {
+          "exit_code": 2,
+          "stderr": "",
+          "stdout": "{\"error\": \"DURABLE_OUTPUT_INVALID\", \"scientific_dispatch\": false, \"status\": \"FAIL_CLOSED\"}\n",
+          "wall_seconds": 0.02748999100003857
+        }
+      ],
+      "commit_count": 1,
+      "correct": true,
+      "scenario": "CORRUPT_DURABLE_OUTPUT",
+      "solver_calls": 48,
+      "variant": "REPLAY_ALL",
+      "wall_seconds": 0.057126737000089634
+    },
+    {
+      "artifact_bytes": 8874,
+      "attempts": [
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.03898212000012791
+        },
+        {
+          "exit_code": 2,
+          "stderr": "",
+          "stdout": "{\"error\": \"DURABLE_OUTPUT_INVALID\", \"scientific_dispatch\": false, \"status\": \"FAIL_CLOSED\"}\n",
+          "wall_seconds": 0.026435535000018717
+        }
+      ],
+      "commit_count": 48,
+      "correct": true,
+      "scenario": "CORRUPT_DURABLE_OUTPUT",
+      "solver_calls": 48,
+      "variant": "ATOMIC_JSON_PREFIX",
+      "wall_seconds": 0.06541765500014662
+    },
+    {
+      "artifact_bytes": 14571,
+      "attempts": [
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.02861433299995042
+        },
+        {
+          "exit_code": 2,
+          "stderr": "",
+          "stdout": "{\"error\": \"DURABLE_OUTPUT_INVALID\", \"scientific_dispatch\": false, \"status\": \"FAIL_CLOSED\"}\n",
+          "wall_seconds": 0.027668475000155013
+        }
+      ],
+      "commit_count": 48,
+      "correct": true,
+      "scenario": "CORRUPT_DURABLE_OUTPUT",
+      "solver_calls": 48,
+      "variant": "SQLITE_TRANSACTION_PREFIX",
+      "wall_seconds": 0.05628280800010543
+    },
+    {
+      "artifact_bytes": 6337,
+      "attempts": [
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.033008588000029704
+        },
+        {
+          "exit_code": 2,
+          "stderr": "",
+          "stdout": "{\"error\": \"INPUT_IDENTITY_MISMATCH\", \"scientific_dispatch\": false, \"status\": \"FAIL_CLOSED\"}\n",
+          "wall_seconds": 0.03493834400001106
+        }
+      ],
+      "commit_count": 1,
+      "correct": true,
+      "scenario": "INPUT_IDENTITY_CHANGED",
+      "solver_calls": 48,
+      "variant": "REPLAY_ALL",
+      "wall_seconds": 0.06794693200004076
+    },
+    {
+      "artifact_bytes": 7230,
+      "attempts": [
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.0348796250000305
+        },
+        {
+          "exit_code": 2,
+          "stderr": "",
+          "stdout": "{\"error\": \"INPUT_IDENTITY_MISMATCH\", \"scientific_dispatch\": false, \"status\": \"FAIL_CLOSED\"}\n",
+          "wall_seconds": 0.028857019000042783
+        }
+      ],
+      "commit_count": 48,
+      "correct": true,
+      "scenario": "INPUT_IDENTITY_CHANGED",
+      "solver_calls": 48,
+      "variant": "ATOMIC_JSON_PREFIX",
+      "wall_seconds": 0.06373664400007328
+    },
+    {
+      "artifact_bytes": 14571,
+      "attempts": [
+        {
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"nodes\": 48, \"scientific_dispatch\": false, \"status\": \"PASS\"}\n",
+          "wall_seconds": 0.03164785899980416
+        },
+        {
+          "exit_code": 2,
+          "stderr": "",
+          "stdout": "{\"error\": \"INPUT_IDENTITY_MISMATCH\", \"scientific_dispatch\": false, \"status\": \"FAIL_CLOSED\"}\n",
+          "wall_seconds": 0.0319917090000672
+        }
+      ],
+      "commit_count": 48,
+      "correct": true,
+      "scenario": "INPUT_IDENTITY_CHANGED",
+      "solver_calls": 48,
+      "variant": "SQLITE_TRANSACTION_PREFIX",
+      "wall_seconds": 0.06363956799987136
+    }
+  ],
+  "schema": "QRCEL_CONTINUITY_COMPONENT_RESULTS_V1",
+  "scientific_writes": 0,
+  "scope": "DEVELOPMENT_SYNTHETIC_MECHANISM_COMPARISON_NOT_MODEL_BENCHMARK",
+  "scorer_sha256": "d196cc383247a6abb9f179bb8f1293a005e762b0f721200e2bb991bd255d8943",
+  "sealed_cases": 0,
+  "sqlite_version": "3.53.1",
+  "state": "PASS_COMPONENT_EXPERIMENT",
+  "total": 15,
+  "worker_sha256": "5eb92f2721925448601b85f59b96522a346418ed1dee77d9cdf480980d2e6b11"
+}

@@ -1,0 +1,28 @@
+test_coherent_hashes_do_not_allow_unregistered_progress (cognitive.tests.test_controller_adapter.AdapterTests.test_coherent_hashes_do_not_allow_unregistered_progress) ... ok
+test_every_transition_is_rejected (cognitive.tests.test_controller_adapter.AdapterTests.test_every_transition_is_rejected) ... ok
+test_next_preserves_original_item_and_stage (cognitive.tests.test_controller_adapter.AdapterTests.test_next_preserves_original_item_and_stage) ... ok
+test_original_v191_validates_without_writing (cognitive.tests.test_controller_adapter.AdapterTests.test_original_v191_validates_without_writing) ... ok
+test_registry_cannot_be_skipped (cognitive.tests.test_controller_adapter.AdapterTests.test_registry_cannot_be_skipped) ... ok
+test_tampered_head_fails_closed (cognitive.tests.test_controller_adapter.AdapterTests.test_tampered_head_fails_closed) ... ok
+test_changed_frontier_count_rejected (cognitive.tests.test_v191.V191Tests.test_changed_frontier_count_rejected) ... ok
+test_corrupt_sqlite_is_not_retried_as_contention (cognitive.tests.test_v191.V191Tests.test_corrupt_sqlite_is_not_retried_as_contention) ... ok
+test_duplicate_frontier_cannot_drop_population (cognitive.tests.test_v191.V191Tests.test_duplicate_frontier_cannot_drop_population) ... ok
+test_exposed_history_cannot_be_relabelled_clean (cognitive.tests.test_v191.V191Tests.test_exposed_history_cannot_be_relabelled_clean) ... ok
+test_f13_recovery_guard_rejected (cognitive.tests.test_v191.V191Tests.test_f13_recovery_guard_rejected) ... ok
+test_holdout_open_guard_rejected (cognitive.tests.test_v191.V191Tests.test_holdout_open_guard_rejected) ... ok
+test_inherited_registry_mutation_rejected (cognitive.tests.test_v191.V191Tests.test_inherited_registry_mutation_rejected) ... ok
+test_kernel_cannot_skip_declared_legacy_validation (cognitive.tests.test_v191.V191Tests.test_kernel_cannot_skip_declared_legacy_validation) ... ok
+test_legacy_mutation_rejected (cognitive.tests.test_v191.V191Tests.test_legacy_mutation_rejected) ... ok
+test_missing_delegation_remains_rejected (cognitive.tests.test_v191.V191Tests.test_missing_delegation_remains_rejected) ... ok
+test_observed_shadow_preserves_stage_subtask_and_no_dispatch (cognitive.tests.test_v191.V191Tests.test_observed_shadow_preserves_stage_subtask_and_no_dispatch) ... ok
+test_persistent_sqlite_startup_lock_is_bounded (cognitive.tests.test_v191.V191Tests.test_persistent_sqlite_startup_lock_is_bounded) ... ok
+test_real_sqlite_startup_lock_is_retried_then_succeeds (cognitive.tests.test_v191.V191Tests.test_real_sqlite_startup_lock_is_retried_then_succeeds) ... ok
+test_registry_mutation_rejected (cognitive.tests.test_v191.V191Tests.test_registry_mutation_rejected) ... ok
+test_representatives_cannot_replace_full_population (cognitive.tests.test_v191.V191Tests.test_representatives_cannot_replace_full_population) ... ok
+test_unregistered_queue_progress_fails_closed (cognitive.tests.test_v191.V191Tests.test_unregistered_queue_progress_fails_closed) ... ok
+test_v191_kernel_runs_and_resumes_without_duplicate_effects (cognitive.tests.test_v191.V191Tests.test_v191_kernel_runs_and_resumes_without_duplicate_effects) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.276s
+
+OK

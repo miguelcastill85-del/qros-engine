@@ -1,0 +1,103 @@
+{
+  "schema": "QRCEL_DURABLE_EXPOSURE_EVENTS_V1",
+  "replay": "register QRCEL_ROOT and its two children; call BenchmarkLedger.expose for every case/root/receipt hash; never certify sealed from absent rows",
+  "events": [
+    {
+      "case_id": "DEV-01",
+      "case_sha256": "715087ac67099c2dbca6fe922fcfe13dc22491498cd989dd8cbbbc160b4c55e7",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    },
+    {
+      "case_id": "DEV-02",
+      "case_sha256": "cef0a719c39e402a7671265e29236674888ef5580a8c511f30d40bcaead37e52",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    },
+    {
+      "case_id": "DEV-03",
+      "case_sha256": "8f9c97074728b134d44c5600030f030543572d17b009daa7c19ebca3224c44c2",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    },
+    {
+      "case_id": "DEV-04",
+      "case_sha256": "fcfb8928399d36f48fe1f0123a9691501c576dff9eea9849a8ccaf743e1623a2",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    },
+    {
+      "case_id": "DEV-05",
+      "case_sha256": "0db9abdfbe4787fb058c953d9a69a83847d7f38fe7f601ba1dc641300cfca994",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    },
+    {
+      "case_id": "DEV-06",
+      "case_sha256": "c91c180f50be41471c0686b4a67c55c0a87b0a0482a82d8b2f08d1612036a4d1",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    },
+    {
+      "case_id": "DEV-07",
+      "case_sha256": "c07087b9522a6290020540a8a9a01aa847d30b781299570a256acb3cda33fcf0",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    },
+    {
+      "case_id": "DEV-08",
+      "case_sha256": "161fddc53f3c59b0e421461593f7e3271c5027909248617978ca37f9e4e10fc5",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    },
+    {
+      "case_id": "DEV-09",
+      "case_sha256": "5d51c2e2d8d81b0e03fe586e320d64dfbac60af44295f061e951c58ee420c220",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    },
+    {
+      "case_id": "DEV-10",
+      "case_sha256": "b7926c7fff612cf6294a37dbcb8db4eeebe1032735e4e64c3f3afc82d0095964",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    },
+    {
+      "case_id": "DEV-11",
+      "case_sha256": "8a95009202afe0d63582f4e8528a41abf2727f34a3f0be79bbdecca1ca0eef67",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    },
+    {
+      "case_id": "DEV-12",
+      "case_sha256": "dbf562c50929c85cf59b2140c2a036ffcb1e792a3d5d1c52610eb8e7471abf65",
+      "prior_classification": "DEVELOPMENT_EXPOSED",
+      "status": "EXPOSED",
+      "root_family": "QRCEL_ROOT",
+      "receipt_sha256": "942bfbd5d89bb0469427268b12bfd982093f5c7fbe0411cd4203519c781bff7f"
+    }
+  ],
+  "sealed": false
+}

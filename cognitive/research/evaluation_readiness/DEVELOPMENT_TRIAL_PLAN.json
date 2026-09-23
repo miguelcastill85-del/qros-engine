@@ -1,0 +1,32 @@
+{
+  "schema": "QRCEL_CONTROLLED_DEVELOPMENT_TRIAL_PLAN_V1",
+  "status": "PREPARED_AWAITING_EXPLICIT_SUBAGENT_AUTHORIZATION",
+  "requested_routes": [
+    "gpt-5.6-sol",
+    "gpt-6-astra"
+  ],
+  "reasoning_effort": "medium",
+  "fork_turns": "none",
+  "agents": 2,
+  "same_solver_packet_sha256": "33bf07467dbd5053b688f9c8f49ae14191c2b17e00ffbb29a4f8d68e9fb2f7f7",
+  "same_context": "Only the common solver packet; no surrounding project history or gold answers",
+  "tools_policy": "NO_TOOLS_REQUESTED; this is an instruction, not a host sandbox. Tool compliance must be observed; otherwise mark comparability unverified.",
+  "score_entrypoint": "cognitive/research/model_development/score.py",
+  "scorer_sha256": "2146c3e7bfbe68d9cf3f9c7da1882ab6e5f201aa7d0b50cf3df5a9f492604f8b",
+  "gold_case_set_sha256": "de139b532410f306e7438348e3dbd288eeb51feac0bc5fb7160f33394cd942cc",
+  "case_count": 12,
+  "sampling_unit": "ONE_BATCH_PER_MODEL_NOT_12_INDEPENDENT_RUNS",
+  "track": "DEVELOPMENT_PIPELINE_SMOKE_TEST_ONLY",
+  "sealed": false,
+  "parity_claim_allowed": false,
+  "provider_model_id_policy": "Requested route is recorded separately from model identity actually exposed by execution tools. Never infer exact underlying model revision.",
+  "paid_api_or_services": false,
+  "main_or_scientific_mutations": false,
+  "after_authorization": [
+    "Launch the two configured model routes with identical solver packet and isolated history",
+    "Preserve actual tool receipts, route/config, outputs, timestamps and observable costs; unavailable metrics null",
+    "Score each raw response independently with the existing deterministic scorer",
+    "Record comparability limitations and microcase results; do not infer model/system parity",
+    "Use DEVELOPMENT findings to design the larger benchmark, with a separately frozen validation/sealed protocol before any confirmatory evaluation"
+  ]
+}

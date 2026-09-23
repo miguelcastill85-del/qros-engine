@@ -1,0 +1,42 @@
+{
+  "schema": "QRCEL_LOCAL_KERNEL_IMPLEMENTATION_RECEIPT_V1",
+  "version": "0.3.0-experimental",
+  "date": "2026-09-09",
+  "status": "IMPLEMENTED_TESTED_AND_EXECUTED_LOCAL_KERNEL",
+  "implemented": [
+    "Explicit task/input/code/authority bindings",
+    "Task DAG with full exported node descriptors",
+    "Host risk routing L0-L3 with L3 block",
+    "Two deterministic operations and independent methods for L1/L2",
+    "Bounded falsification for L2",
+    "Atomic output/evidence/completion commits",
+    "Append-only hashed event ledger and scoped claims",
+    "Durable errors and independent-task progress",
+    "Idempotent resume and no repeat of completed tasks",
+    "Externally hashed checkpoint restore with invariant equality",
+    "Local capability recomputed per process",
+    "Input/resource limits and no shell/network/model/financial dispatch"
+  ],
+  "test_receipt": "cognitive/checkpoints/kernel_030_final/VALIDATION_RECEIPT.json",
+  "tests_passed": 111,
+  "kernel_test_methods": 25,
+  "prior_methods": 86,
+  "cli_demo_receipt": "cognitive/checkpoints/kernel_cli_demo/DEMO_RECEIPT.json",
+  "demo_tasks_completed": 4,
+  "repeat_new_tasks": 0,
+  "clean_restore_new_tasks": 0,
+  "checkpoint_bytes_identical": true,
+  "full_qrcel_implemented": false,
+  "ontology_frozen": false,
+  "rise_fixed_point": false,
+  "model_calls": 0,
+  "model_parity": "INSUFFICIENT_EVIDENCE",
+  "scientific_promotion": false,
+  "remaining_full_scope": [
+    "Complete ontology sufficiency and RISE audit",
+    "Authoritative legacy/evidence integration adapters",
+    "Native solver/tool routing with observed identities",
+    "Matched NATIVE/SYSTEM model benchmarks and sealed evaluation",
+    "Operational scientific shadow/canary/promotion gates"
+  ]
+}

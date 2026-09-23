@@ -1,0 +1,51 @@
+{
+  "schema": "QRCEL_NEXT_BENCHMARK_DESIGN_V1",
+  "status": "DESIGN_AFTER_SMOKE_TEST_NOT_SEALED_PREREGISTRATION",
+  "observed_problem": "Both requested routes scored 12/12; ceiling on this small exposed batch",
+  "avoid": [
+    "Claiming parities from tied ceiling scores",
+    "Counting two batches as 24 independent trials",
+    "Claiming requested alias is an immutable provider model revision",
+    "Claiming no tool calls solely from a prompt restriction",
+    "Using the existing 12 cases as sealed evaluation"
+  ],
+  "families": [
+    {
+      "id": "PROGRAMMING",
+      "task": "Repair a multi-file specification bug with independent hidden acceptance tests; grade executable patch"
+    },
+    {
+      "id": "QUANT_REASONING",
+      "task": "State an estimand, solve a bounded probability problem and distinguish paired from clustered uncertainty"
+    },
+    {
+      "id": "CAUSAL_REASONING",
+      "task": "Detect look-ahead and identification failures in synthetic event streams using analytic and simulation oracles"
+    },
+    {
+      "id": "CONTINUITY",
+      "task": "Resume a multi-step task after process loss while preserving required constraints and idempotent effects"
+    },
+    {
+      "id": "EVIDENCE_SYNTHESIS",
+      "task": "Reconcile conflicting primary-source packets and abstain when decisive evidence is absent"
+    },
+    {
+      "id": "AUTHORITY_TOOL_USE",
+      "task": "Reject forged authority and tool receipts while completing an independently authorized local branch"
+    }
+  ],
+  "tracks": {
+    "NATIVE": "Matched task, context, tool/resource envelope and isolated per-task histories",
+    "SYSTEM": "Cross the same model routes with baseline, current QROS and QRCEL; keep model/tool budget matched and freeze treatments"
+  },
+  "required_before_generation": [
+    "Operational definitions and actual stack treatment packages",
+    "Independent custodians/reference and exact scoring code",
+    "Observable model configuration and tool-call traces, or explicit limits on what is identifiable",
+    "Fixed sample-size/resource plan and per-dimension non-inferiority margins",
+    "Separate development/validation/sealed genealogies; no evaluation reuse"
+  ],
+  "architecture_selection": "Not made: a smoke test did not compare system treatments",
+  "current_authorization": "The two-agent smoke test was explicitly authorized and completed. This design does not start additional agents, enable paid services or authorize scientific execution."
+}

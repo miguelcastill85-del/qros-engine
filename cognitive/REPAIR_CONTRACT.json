@@ -1,0 +1,28 @@
+{
+  "schema": "QRCEL_REPAIR_CONTRACT_V1",
+  "status": "SCOPE_FROZEN_BEFORE_TEST_RUN",
+  "scope": "F01_F08_LOCAL_SOFTWARE_HARDENING_ONLY",
+  "base_commit": "c43176df7713f5833b48589a0e86d2ae63ac6700",
+  "authorization": "User: adelante y construye las mejoras validadas",
+  "success": [
+    "F01 reject failed or wrong-scope content despite matching hashes",
+    "F02 derive dimensional checks from bound source content and reject contradictory packets",
+    "F03 bind manifest paths, blob identities and authenticated external anchor",
+    "F04 require typed campaign epoch schemas and unambiguous JSON",
+    "F05 inspect actual V189 queue without pretending runtime prerequisites are met",
+    "F06 reject cycles and self-dependencies",
+    "F07 resolve every dependency namespace",
+    "F08 validate output hash format, physical output bytes, inputs and exposure before recovery",
+    "Positive controls pass and preserve no-scientific-authorization semantics",
+    "Existing frozen sources remain byte-identical",
+    "Fresh-process reconstruction preserves exact state",
+    "All unimplemented scientific or model claims remain unverified"
+  ],
+  "threshold": "All required regressions and positive controls pass; zero scientific writes/economic reads",
+  "exposure": "DEVELOPMENT_EXPOSED_SYNTHETIC",
+  "full_qrcel_freeze_claim": false,
+  "model_benchmark": false,
+  "promotion": "SHADOW_CANDIDATE_ONLY",
+  "trade_dispatch": false,
+  "new_paid_resources": false
+}

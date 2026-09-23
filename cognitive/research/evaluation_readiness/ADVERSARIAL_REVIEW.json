@@ -1,0 +1,38 @@
+{
+  "schema": "QRCEL_ADVERSARIAL_REVIEW_V3",
+  "scope": "ONTOLOGY_AND_EVALUATION_CONTRACTS",
+  "full_rise_fixed_point": false,
+  "methods": [
+    "Cross-check claimed capabilities against executable source and observed receipts",
+    "Attack benchmark assumptions through seeded contamination, pseudoreplication, drift and fabricated gate receipts"
+  ],
+  "findings": [
+    {
+      "id": "A13",
+      "finding": "COMPLEX_END_TO_END was labeled NATIVE_MODEL_ADVANTAGE without observed paired trials",
+      "resolution": "Corrected to a partial-compensation hypothesis; empirical gap UNKNOWN"
+    },
+    {
+      "id": "A14",
+      "finding": "Prior interaction contrast mixes Astra baseline with Sol current-QROS treatment",
+      "resolution": "Specify symmetric factorial reference conditions before interaction inference"
+    },
+    {
+      "id": "A15",
+      "finding": "Absence of exposure record can be confused with sealed status",
+      "resolution": "Ledger never certifies sealed status; exposure propagates across the declared root genealogy"
+    },
+    {
+      "id": "A16",
+      "finding": "Repeated variants can inflate benchmark sample size and optional stopping can invalidate fixed-n intervals",
+      "resolution": "One unique independent task-cluster row; frozen sample size; no repeated looks as approval"
+    },
+    {
+      "id": "A17",
+      "finding": "Hashes and claimed PASS fields can masquerade as gate attestation",
+      "resolution": "Promotion inventory labels submissions unattested; never grants authority"
+    }
+  ],
+  "zero_delta_round": false,
+  "reason_no_fixed_point_claim": "New findings occurred; full model-system evidence and role-independent evaluation are not materialized."
+}

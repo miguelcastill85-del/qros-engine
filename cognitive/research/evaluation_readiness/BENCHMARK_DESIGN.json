@@ -1,0 +1,56 @@
+{
+  "schema": "QRCEL_BENCHMARK_DESIGN_V2",
+  "status": "DESIGN_ONLY_NOT_SEALED_PREREGISTRATION",
+  "NATIVE": [
+    "SOL_BASELINE",
+    "ASTRA_BASELINE"
+  ],
+  "SYSTEM": [
+    "SOL_BASELINE",
+    "SOL_CURRENT_QROS",
+    "SOL_QRCEL",
+    "ASTRA_BASELINE",
+    "ASTRA_CURRENT_QROS",
+    "ASTRA_QRCEL"
+  ],
+  "comparability": [
+    "same sampled task clusters",
+    "same tool/resource envelope",
+    "same data access and scorer rubric",
+    "provider-observed model id/config",
+    "reset contexts between cases",
+    "randomized order fixed before observations"
+  ],
+  "interaction": "(ASTRA_QRCEL - ASTRA_BASELINE) - (SOL_QRCEL - SOL_BASELINE); alternative current-QROS contrast requires both ASTRA_CURRENT_QROS and SOL_CURRENT_QROS",
+  "dimensions": [
+    "CORRECTNESS",
+    "CRITICAL_ERROR_RATE",
+    "TASK_COMPLETION",
+    "STATE_RECOVERY",
+    "REPRODUCIBILITY",
+    "PROGRAMMING",
+    "QUANT_REASONING",
+    "CAUSAL_REASONING",
+    "TOOL_USE",
+    "CONTINUITY",
+    "AUTOCORRECTION",
+    "EFFICIENCY"
+  ],
+  "uncertainty": "Fixed-n Hoeffding bounds with simultaneous Bonferroni coverage on paired independent task-cluster scores normalized to [0,1], higher-is-better; paired differences in [-1,1]. Conservative conditional calculation, not proof of sampling assumptions.",
+  "normalization": "Preregister per-dimension rubric, cost/resource caps and orientation; critical-error score must use higher-is-better orientation; raw critical events remain hard vetoes.",
+  "before_sealed": [
+    "freeze actual model/config/tool identities",
+    "freeze independent case genealogy and custodian",
+    "freeze all 12 margins and fixed n with resource feasibility",
+    "verify separation of architect/reference/scorer and data access",
+    "bind protocol and score-source hashes externally"
+  ],
+  "margins_and_sample_size": "UNSET_FOR_REAL_MODEL_EVALUATION; synthetic unit-test settings are not acceptance thresholds",
+  "optional_stopping": "PROHIBITED_FOR_THIS_FIXED_N_METHOD",
+  "model_runs": 0,
+  "sealed_cases": 0,
+  "sources": [
+    "https://www.cs.cmu.edu/~15850/notes/lec11.pdf",
+    "https://ai.stanford.edu/~ermon/papers/adaptive_bounds_nips2016.pdf"
+  ]
+}

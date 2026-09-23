@@ -1,0 +1,38 @@
+{
+  "schema": "QRCEL_DEVELOPMENT_DUAL_ROUTE_RESULT_V1",
+  "status": "DEVELOPMENT_PIPELINE_SMOKE_TEST_COMPLETE",
+  "rows": [
+    {
+      "requested_route": "gpt-5.6-sol",
+      "agent_execution_observed": true,
+      "actual_model_snapshot_id": null,
+      "correct": 12,
+      "cases": 12,
+      "critical_failures": 0,
+      "response_sha256": "b77f4c0a0f18825f96a416bf1fd41a9fa5b1856f9e822981feae78bff6a1435d"
+    },
+    {
+      "requested_route": "gpt-6-astra",
+      "agent_execution_observed": true,
+      "actual_model_snapshot_id": null,
+      "correct": 12,
+      "cases": 12,
+      "critical_failures": 0,
+      "response_sha256": "b77f4c0a0f18825f96a416bf1fd41a9fa5b1856f9e822981feae78bff6a1435d"
+    }
+  ],
+  "raw_responses_identical": true,
+  "correct_difference": 0,
+  "critical_failure_difference": 0,
+  "interpretation": "Ceiling on twelve exposed microcases; no measured separation. This does not establish model/system parity or architectural gain.",
+  "batches_per_route": 1,
+  "independent_task_cluster_sample_size": null,
+  "sealed": false,
+  "formal_native_benchmark_complete": false,
+  "formal_system_benchmark_complete": false,
+  "parity": "INSUFFICIENT_EVIDENCE",
+  "promotion_authorized": false,
+  "economic_reads": 0,
+  "source_receipt": "COLLABORATION_RECEIPT.json",
+  "next_action": "Freeze a larger task-family benchmark and matched stack conditions before validation; resolve independent role and tool-trace observability. Do not reuse exposed cases as sealed."
+}

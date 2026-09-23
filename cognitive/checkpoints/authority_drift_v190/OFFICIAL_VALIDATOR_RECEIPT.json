@@ -1,0 +1,17 @@
+{
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "-B",
+    "/workspace/scratch/432f759f1722/improvements/qros-engine/scripts/qros_control_authority_validator_v2.py",
+    "/workspace/scratch/432f759f1722/improvements/authority-v190-recheck/control/CONTROL_AUTHORITY_MANIFEST_v3.json",
+    "/workspace/scratch/432f759f1722/improvements/authority-v190-recheck/control/HEAD.json",
+    "/workspace/scratch/432f759f1722/improvements/authority-v190-recheck/control/persistent_execution/STATE.json",
+    "/workspace/scratch/432f759f1722/improvements/authority-v190-recheck/control/persistent_execution/RUN_QUEUE.json"
+  ],
+  "validator_sha256": "271c23579bbf2cbf5b5e3be624ab1fcb7d3ee75d8ebca5250919c297ad01b683",
+  "exit_code": 2,
+  "stdout": "{\"actual_blobs\":{\"head\":\"49dbac83a1e924c947fea6a095bd5960f472aacf\",\"run_queue\":\"c203dff13d1949674309b698a7d6c614ced07c84\",\"state\":\"aa4f9fae03fb65ff41f4fca0894ef0467d6a3ea2\"},\"authority_epoch\":190,\"campaign\":\"QROS_G30_PUBLIC_VOLATILITY_SHOCK_MOMENTUM_v1\",\"errors\":[\"AUTH_SOURCE_MISMATCH:head:None\"],\"manifest_git_blob_sha1\":\"b450847844b1be1102ddad84ca7ce13f60132c4f\",\"scientific_execution_authorized\":true,\"status\":\"FAIL\"}\n",
+  "stderr": "",
+  "economic_reads": 0,
+  "scientific_writes": 0
+}
