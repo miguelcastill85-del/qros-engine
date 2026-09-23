@@ -1,0 +1,114 @@
+{
+  "schema": "QROS_RSI_V2_G1_EVIDENCE_NATIVE_CHECKPOINT_1.0",
+  "date": "2026-09-22",
+  "objective": "Preregister, implement, falsify and preserve an isolated signed-observation evidence-admission preflight. No full-model self-improvement or strategy promotion claim.",
+  "authority": {
+    "scientific_main_head_at_recovery": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "scientific_frontier": "V259",
+    "scientific_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "ga1_completed": 10,
+    "ga1_total": 60,
+    "shard11_open": false,
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "qrcel_reference_version": "0.6.2-experimental",
+    "qrcel_release_commit": "99ffd41fd99fc1da5ab8a1df7af4ce84341e55bb",
+    "qrcel_promotion": false,
+    "ga1_research_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "ga1_recovery_pointer_blob_sha1": "1cc63d674e107f58fccb168419a3781d9f219ee4",
+    "ga1_recovery_root_v9_blob_sha1": "e0de9b178d2acd486cb7a5ad0c8e3200fb5f0fac",
+    "data_r3_reconciliation_blob_sha1": "1222217e987655b206f69be581dbea750b9acff9"
+  },
+  "baseline": {
+    "identity": "QRCEL 0.6.2 declarative treatment preflight",
+    "source_path": "cognitive/research/treatments/preflight.py",
+    "git_blob_sha1": "1065d7df89168792e28809a6cc2bb34ef62b802e",
+    "baseline_reexecuted": false,
+    "model_or_provider_baseline": "NO_DISPONIBLE",
+    "real_matched_baseline": "NOT_EXECUTED"
+  },
+  "improvement": {
+    "id": "RSI-G1-E_CONTRACT-SIGNED_OBSERVATION_GUARD",
+    "generation": 1,
+    "status": "RESEARCH_CANDIDATE",
+    "causal_hypothesis": "Pinned canonical protocol with separately signed runner and custodian claims can reject specified synthetic tampering classes. Separate signing keys alone cannot prove provider identity or organizational independence.",
+    "alternative_mechanisms": [
+      "prompt_only_cross_check",
+      "schema_only_validator",
+      "signed_observation_guard"
+    ],
+    "selected": "signed_observation_guard",
+    "dependencies": [
+      "Python 3.13.5",
+      "cryptography 46.0.4"
+    ],
+    "base_model_weights_modified": false
+  },
+  "frozen_workload": {
+    "model_arms": 6,
+    "task_families": 7,
+    "dimensions": 12,
+    "real_model_task_runs": 0,
+    "sealed_external_cases": 0,
+    "developer_visible_synthetic_tests": 14,
+    "real_acceptance_margins": "UNSET"
+  },
+  "immutable_source": {
+    "path": "research/recursive_self_improvement_v2/g1/CORE_SOURCE.tar.gz.b64",
+    "content_encoding": "base64 ASCII with final newline; decoded gzip tar",
+    "git_blob_sha1": "b09cec56c60b6061f8c56ddef9e4b319507d8a81",
+    "encoded_payload_sha256_without_final_newline": "7b5337bef114fccc2ecd0d143e2e096a291f126961b674acf6590549746ce570",
+    "decoded_tar_gz_sha256": "4092a9f5a85b587b2040ca8e8005a08ebe22beb42649052ff31cc891b2c6fc9f",
+    "contains": [
+      "PREREGISTRATION.json",
+      "evidence_guard.py",
+      "test_evidence_guard.py"
+    ],
+    "preregistration_sha256": "90bb79a3f64e2aee3683a009198001849b288afd098c89e3f201afd87471bae3",
+    "code_sha256": "62b7a3417359d86c7d4fa781dfeb25a6969d00354c0a42bb0b1abeea0a28a76f",
+    "test_sha256": "9163c046a8cf30b691952123181e45437c5249989e054c87031f21d7416c2855"
+  },
+  "local_execution_receipt": {
+    "status": "LOCAL_SYNTHETIC_DETERMINISTIC_PASS",
+    "tests_preregistered": 14,
+    "tests_passed": 14,
+    "tests_failed": 0,
+    "model_calls": 0,
+    "economic_reads": 0,
+    "independent_custodian_runs": 0,
+    "result_report_sha256": "fd47c3bcce966baf11f4923244ae4d84d3ef41c922c1593d387d0fd4bf150018",
+    "test_log_sha256": "68bd84e2d458b2aae3275698a7fe6fa0e93686760120234c51e2982fd16bdc0b",
+    "source_bundle_local_sha256": "e83bf60e2f96e04544e4a777820720e2ddd51afd01acaca3c588ecd835080838",
+    "test_executor_independent": false
+  },
+  "adversarial_finding": {
+    "id": "G1_COMMON_MODE_001",
+    "severity": "CRITICAL_FOR_CONFIRMATORY_USE",
+    "observation": "One principal controlling two signing keys can generate a fully signed synthetic bundle with fabricated provider IDs, budget logs and sealed claims.",
+    "falsification_scope": "Synthetic tests validate structural tamper rejection, not actual provider authenticity or independent custody.",
+    "independent_evaluator": "NO",
+    "regression_firewall": "No main/strategy/MT5/holdout/QRCEL active source modifications."
+  },
+  "accepted_improvements": [],
+  "rejected_improvements": [
+    "prompt_only_security_claim",
+    "schema_only_forgery_protection",
+    "global_self_improvement_claim"
+  ],
+  "net_benefit": "NO_REAL_OPERATIONAL_EFFECT_ESTIMATED",
+  "uncertainty": "No paired actual model tasks; development-visible test suite; dependency maintenance cost unmeasured.",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "closed_gates": [
+    "SHARD11",
+    "BULK_GA1",
+    "ECONOMIC_PNL",
+    "GA2",
+    "HOLDOUT",
+    "NEW_SEEDS",
+    "PRODUCTION_ADOPTION"
+  ],
+  "next_automatic_action": "Stop optional hardening. Resume this self-improvement genealogy only if a verifiable immutable provider/runner identity, equally enforced matched budgets, genuine independent fresh sealed custodian and observed run evidence become available. Do not use this preflight to promote QRCEL or the Seed0076 GA1 DAG branch; follow each branch's own authority.",
+  "rollback": "Ignore this additive research branch; QRCEL 0.6.2 and scientific V259 remain untouched."
+}
