@@ -3,7 +3,7 @@
   "version": "2.1",
   "status": "ACTIVE_CODE_AND_AGENT_BOOTSTRAP",
   "repository": "miguelcastill85-del/qros-engine",
-  "branch": "governance/qros-anti-stall-incident-max-v2-1-20260923",
+  "branch": "main",
   "source_root": "anti_stall",
   "source_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
   "drive_package_id": "1QujX1rPY9wIfcnXjLeJICSq6lOg9si2o",
@@ -46,5 +46,10 @@
     "continue": "NEXT_UNFINISHED_AUTHORIZED_STAGE"
   },
   "new_chat_auto_loading": "REQUIRES_CHATGPT_PROJECT_INSTRUCTIONS_TO_INCLUDE_BOOTSTRAP_OR_AGENT_TO_READ_AGENTS_MD",
-  "economic_result_status": "UNCHANGED"
+  "economic_result_status": "UNCHANGED",
+  "release_branch": "governance/qros-anti-stall-incident-max-v2-1-20260923",
+  "active_control_root": "control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
+  "main_scientific_pointer_unchanged": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+  "unattended_execution_requires": "explicit external task scheduler plus authenticated Drive data mount and budget controls",
+  "activation_scope": "repository and agents that read AGENTS.md; project chat needs instruction bootstrap"
 }
