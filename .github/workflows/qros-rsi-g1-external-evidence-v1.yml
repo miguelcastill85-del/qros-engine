@@ -1,0 +1,55 @@
+name: QROS RSI G1 external synthetic evidence (research only)
+
+# No automatic execution from source changes. A single-use research intent must
+# be committed deliberately after checking the account's zero-paid-spend budget.
+on:
+  push:
+    branches:
+      - research/rsi-v2-g1-evidence-contract-20260922
+    paths:
+      - research/recursive_self_improvement_v2/g1/RUN_EXTERNAL_INTENT.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qros-rsi-g1-external-evidence-only
+  cancel-in-progress: false
+
+jobs:
+  rerun-frozen-software-tests:
+    if: contains(github.event.head_commit.message, '[RUN_RSI_G1_EXTERNAL]')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout exact immutable commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Use controlled Python runtime
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install pinned synthetic-test dependency only
+        run: |
+          python -m pip install --disable-pip-version-check --only-binary=:all: 'cryptography==46.0.4'
+          python -m pip show cryptography
+
+      - name: Independently verify frozen archive and rerun the exact 14 tests
+        run: |
+          python research/recursive_self_improvement_v2/g1/ci_external_runner.py
+
+      - name: Preserve short-lived external receipt and logs
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qros-rsi-g1-external-synthetic-receipt
+          path: |
+            research/recursive_self_improvement_v2/g1/EXTERNAL_RUN_RECEIPT.json
+            research/recursive_self_improvement_v2/g1/EXTERNAL_TEST_LOG.txt
+          retention-days: 7
+          if-no-files-found: error
