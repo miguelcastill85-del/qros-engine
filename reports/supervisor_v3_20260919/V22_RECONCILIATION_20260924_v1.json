@@ -1,0 +1,64 @@
+{
+  "schema": "QROS_SUPERVISOR_V3_V22_RECONCILIATION_V1",
+  "date": "2026-09-24",
+  "authority": {
+    "main_commit": "1b0cc42ceb977fcfbb7125edf767903f66dd5dd1",
+    "main_governance_pointer_blob": "3996a65e3377da6976a5457177d6a169cee93ff3",
+    "governance_version": "2.2",
+    "scientific_frontier": "V259",
+    "scientific_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "candidate_head_before_receipt": "c5e7d0af3b2b5a83dc2f666e3ff68ee5668faeb8",
+    "candidate_source_blob": "9cf746742fa62e7f8dc68861417a43fa14696073",
+    "historical_reconciliation_blob": "b4c7388c6434d0755c012b7f95570f0295ea5ba0",
+    "isolated_v259_integration_sha": "ab3bc51608a3d9b41d9ccffb997417d7c88d9a80"
+  },
+  "observed": {
+    "main_v22_local_tests_reported": 45,
+    "main_v22_remote_ci": "NOT_RUN_ZERO_EXTRA_COST",
+    "v3_local_tests_reported": 37,
+    "v259_branch_integration_ci": "PASS_BEFORE_V22_NOT_CURRENT_MAIN_PARITY",
+    "windows_native": "UNVERIFIED"
+  },
+  "compatible_reusable_primitives": [
+    "strict spec and done provenance identity",
+    "artifact/symlink rejection",
+    "bounded log handling design",
+    "UNKNOWN_FOREIGN_PID_FAIL_CLOSED"
+  ],
+  "overlap_and_risks": [
+    {
+      "id": "DUPLICATE_PROCESS_CONTROLLER",
+      "finding": "v2.2 dispatch/watchdog and detached v3 controller independently own worker lifecycle; two writers/watchdogs can race."
+    },
+    {
+      "id": "RETRY_POLICY_CONFLICT",
+      "finding": "v3 allows retries of same spec up to 3; v2.2 permits no repetition of failed route and only 2 distinct preregistered equivalent routes."
+    },
+    {
+      "id": "PROCESS_GROUP_KILL_ESCAPE",
+      "finding": "v3 worker uses start_new_session and detached bootstrap; wrapping v3 controller inside the v2.2 watchdog is not a demonstrated kill-tree guarantee."
+    },
+    {
+      "id": "PREMATURE_SUCCESS_RISK",
+      "finding": "v3 controller returns 0 for RUNNING/BUSY, not only PASS. v2.2 must never treat a controller-exit 0 as completed output."
+    },
+    {
+      "id": "STALE_SCIENTIFIC_AUTHORITY",
+      "finding": "Old V255 operational checkpoint receipt is historical; V259 on current main and v2.2 pointer must be re-read before binding."
+    }
+  ],
+  "decision": "ENGINEERING_READ_ONLY_RECONCILED_NOT_INTEGRATED_NO_PRODUCTION_ADOPTION",
+  "minimal_route": "Retain v2.2 as sole dispatcher/watchdog/process owner. Reuse v3 validation and log-cap primitives only after extraction without launching its detached controller. Require pinned one-stage plan, bounded process ownership and independent kill/restart tests. Keep v3 opt-in and isolated.",
+  "gates": {
+    "source_identification": "PASS_GIT_BLOBS",
+    "static_role_analysis": "PASS_WITH_INTEGRATION_BLOCKERS",
+    "joint_v22_v3_runtime_tests": "NOT_EXECUTED",
+    "current_main_ci": "NOT_EXECUTED",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "shard11_open": false,
+    "merge_allowed": false
+  },
+  "next_action": "Prototype a single-owner bounded local worker adapter on a current-main-derived engineering branch; add adversarial tests for orphan, double dispatch, separate process group escape, identity drift and non-repeat. No v3 recursive kernel activation until proven."
+}
