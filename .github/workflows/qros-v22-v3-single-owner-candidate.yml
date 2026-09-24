@@ -1,0 +1,55 @@
+name: qros-v22-v3-single-owner-candidate
+on:
+  push:
+    branches:
+      - engineering/v22-v3-single-owner-candidate-20260924
+    paths:
+      - 'anti_stall/scripts/qros_v3_stateless_receipt_guard_v1.py'
+      - 'anti_stall/scripts/qros_anti_stall_v2_2_single_owner_candidate.py'
+      - 'anti_stall/scripts/qros_continuation_dispatch_v22_v3_single_owner_candidate.py'
+      - 'anti_stall/tests/test_v22_v3_single_owner_candidate.py'
+      - '.github/workflows/qros-v22-v3-single-owner-candidate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  engineering-single-owner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Ensure original v2.1/v2.2 files are byte-preserved
+        run: |
+          python - <<'PY'
+          import hashlib,pathlib
+          pins={'anti_stall/scripts/qros_anti_stall_v2_1.py':'59a5dc7d661e3983552f34b0d911a928df78d4b3',
+                'anti_stall/scripts/qros_continuation_dispatch_v2_2.py':'c8cdbc8d57e0370a657ce56989e206ad5e3c5eb5',
+                'anti_stall/scripts/qros_progress_watchdog_v2_2.py':'97971470f41b4552ba737b07b808235ca40a1273'}
+          for name,sha in pins.items():
+              raw=pathlib.Path(name).read_bytes()
+              got=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+              assert got==sha,f'FROZEN_MAIN_SOURCE_DRIFT:{name}'
+          print('PASS original v2.1/v2.2 source identity')
+          PY
+      - name: Compile candidate (no economic inputs)
+        run: |
+          python -m py_compile \
+            anti_stall/scripts/qros_v3_stateless_receipt_guard_v1.py \
+            anti_stall/scripts/qros_anti_stall_v2_2_single_owner_candidate.py \
+            anti_stall/scripts/qros_continuation_dispatch_v22_v3_single_owner_candidate.py \
+            anti_stall/tests/test_v22_v3_single_owner_candidate.py
+      - name: Execute 13 synthetic single-owner adversarial tests
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -m unittest discover -s anti_stall/tests \
+            -p test_v22_v3_single_owner_candidate.py -v
+      - name: Rerun original 45 v2.1/v2.2 regression tests unmodified
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -m unittest discover -s anti_stall/tests \
+            -p 'test_v2_*.py' -v
