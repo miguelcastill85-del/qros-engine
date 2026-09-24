@@ -76,5 +76,33 @@ class PreflightTests(unittest.TestCase):
         d=copy.deepcopy(BASE); d["external_oracle"]["may_select_candidates"]=True
         self.assertIn("EXTERNAL_CANDIDATE_SELECTION_FORBIDDEN",codes(d))
 
+
+    def test_boolean_closed_bar_offset_rejected(self):
+        d=copy.deepcopy(BASE); d["features"][0]["closed_bar_offset"]=True
+        self.assertIn("LOOKAHEAD_CLOSED_BAR_OFFSET",codes(d))
+    def test_future_usage_must_be_declared(self):
+        d=copy.deepcopy(BASE); del d["features"][0]["uses_future_data"]
+        self.assertIn("FUTURE_DEPENDENCY_UNDECLARED",codes(d))
+    def test_empty_feature_timeframe_rejected(self):
+        d=copy.deepcopy(BASE); d["features"][0]["source_timeframe"]=""
+        self.assertIn("FEATURE_TIMEFRAME_MISSING",codes(d))
+    def test_missing_feature_dependencies_rejected(self):
+        d=copy.deepcopy(BASE); del d["features"][0]["depends_on"]
+        self.assertIn("FEATURE_DEPENDENCY_INVALID",codes(d))
+    def test_nondict_feature_fails_closed(self):
+        d=copy.deepcopy(BASE); d["features"]=["invalid"]
+        self.assertIn("FEATURE_RECORD_INVALID",codes(d))
+    def test_boolean_depth_rejected(self):
+        d=copy.deepcopy(BASE); d["universe"]["interaction_depth"]=True
+        self.assertIn("INTERACTION_DEPTH_INVALID",codes(d))
+    def test_only_declarative_preflight(self):
+        d=copy.deepcopy(BASE)
+        self.assertEqual(mod.validate(d)["admission_level"],"DECLARATIVE_PREFLIGHT_ONLY_NO_CAUSAL_OR_PARITY_PROOF")
+    def test_same_actual_oracle_hash_not_certified(self):
+        d=copy.deepcopy(BASE)
+        d["parity"]["primary_source_sha256"]="a"*64
+        d["parity"]["oracle_source_sha256"]="a"*64
+        self.assertEqual(mod.validate(d)["admission_level"],"DECLARATIVE_PREFLIGHT_ONLY_NO_CAUSAL_OR_PARITY_PROOF")
+
 if __name__=="__main__":
     unittest.main()
