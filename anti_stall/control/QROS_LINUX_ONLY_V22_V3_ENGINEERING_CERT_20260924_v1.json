@@ -1,0 +1,88 @@
+{
+  "schema": "QROS_LINUX_ONLY_V22_V3_SINGLE_OWNER_ENGINEERING_CERT_V1",
+  "date": "2026-09-24",
+  "objective": "Integrate pinned Linux x86_64 seccomp no-fork/no-detach launcher into a single-owner anti-stall v2.2 research runner with v3-style stateless validation; omit native Windows testing as explicitly requested",
+  "authority": {
+    "base_main_commit": "1b0cc42ceb977fcfbb7125edf767903f66dd5dd1",
+    "base_main_public1000_frontier": "V259",
+    "main_governance_v22_blob": "3996a65e3377da6976a5457177d6a169cee93ff3",
+    "branch": "engineering/v22-v3-single-owner-candidate-20260924",
+    "source_commit_under_test": "35d535e004cd0b42e53fbc5b3aa654ea57ab89b1"
+  },
+  "source_blobs": {
+    "anti_stall/scripts/qros_anti_stall_v2_2_single_owner_candidate.py": "9a93083d277729f2e1b8ceb2208c74e4368147b7",
+    "anti_stall/scripts/qros_v3_stateless_receipt_guard_v1.py": "e726b798cc17123f12356d78759c63964e04205b",
+    "anti_stall/scripts/qros_continuation_dispatch_v22_v3_single_owner_candidate.py": "0a47eb785ab304b2f26c10bac3695045c45c27bc",
+    "anti_stall/scripts/qros_linux_seccomp_single_owner_v1.py": "83319390b7e2fe90da4c4873dae5155010d4c074",
+    "anti_stall/scripts/qros_linux_seccomp_single_process_launcher_v1.py": "e0d37267516125cb8de9354560158ad1c80faa48",
+    "anti_stall/tests/test_v22_v3_single_owner_candidate.py": "3c5047a59b48b2c21987ea1cd6c6a4b18e748d4b",
+    "anti_stall/tests/test_linux_seccomp_kernel_containment_v1.py": "4e456f50584a164aae2641df40ff2b623a227aa5",
+    ".github/workflows/qros-v22-v3-single-owner-candidate.yml": "052cffbd67c1c9371e63685fa02812564afd54b9"
+  },
+  "verified_remote_ci": {
+    "run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36070386732",
+    "job_id": 107869733121,
+    "result": "PASS",
+    "integrated_single_owner_tests": {
+      "pass": 19,
+      "total": 19,
+      "seccomp_specific": 4
+    },
+    "independent_kernel_tests": {
+      "pass": 9,
+      "total": 9,
+      "skipped": 0
+    },
+    "baseline_untouched_regressions": {
+      "pass": 45,
+      "total": 45
+    },
+    "total_pass": 73,
+    "meta_audit": "SUCCESS",
+    "validate": "SUCCESS",
+    "freeze_source": "SUCCESS"
+  },
+  "kernel_security": {
+    "seccomp_bpf": "FILTER_MODE_2",
+    "no_new_privs": 1,
+    "parent_proc_attestation_before_worker_exec": true,
+    "blocks": [
+      "fork",
+      "vfork",
+      "process-creating clone",
+      "clone3 ENOSYS -> blocked clone fallback",
+      "setsid",
+      "setpgid",
+      "unshare",
+      "setns"
+    ],
+    "allows": "normal threading via CLONE_THREAD",
+    "proof_in_frozen_outputs": true,
+    "worker_process_group_owned_by_single_parent": true,
+    "launcher_and_helper_sha256_required": true
+  },
+  "scope": "CODE_ONLY_OPT_IN_LINUX_X86_64_TRUSTED_SINGLE_PROCESS_WORKERS",
+  "windows": {
+    "native_testing": "NOT_EXECUTED_AT_OPERATOR_REQUEST",
+    "candidate_execution": "FAIL_CLOSED"
+  },
+  "never_claim": [
+    "full hostile-code sandbox, filesystem or network isolation",
+    "native Windows support",
+    "Darwinex account deployment",
+    "real M2/M12/M15 historical regression or Fast Core production speedup",
+    "economic result or MT5 parity"
+  ],
+  "science": {
+    "main_frontier_unchanged": true,
+    "old_10_shards_not_rerun": true,
+    "shard11_open": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "economic_pnl_read": false,
+    "new_seed_authorized": false,
+    "production_scientific_activation": false
+  },
+  "decision": "ENGINEERING_CODE_MERGE_ELIGIBLE_AS_OPT_IN_LIBRARY_ONLY_NO_SCIENTIFIC_ACTIVATION",
+  "next_action": "Before binding a real QROS capsule, authenticate current main/HEAD and exact source hashes, rematerialize and run non-economic historical M2/M12/M15 parity on broker data and check whether the runner needs subprocess/multiprocessing; reject incompatible plans without altering their scientific specification. Production activation requires separate capsule and gate receipts."
+}
