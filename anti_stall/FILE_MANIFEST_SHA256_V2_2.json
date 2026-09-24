@@ -1,0 +1,77 @@
+{
+  "base_active_governance_v2_1_gitblob_sha1": "cafaaa347c72308a97e2064258f3ddc185747bf8",
+  "files": [
+    {
+      "bytes": 17654,
+      "path": "anti_stall/scripts/qros_anti_stall_v2_1.py",
+      "sha256": "27e81704557653a3c0fe751d91c6783b69ffafc55543fdb5fcb12b57b5b0a02b"
+    },
+    {
+      "bytes": 4491,
+      "path": "anti_stall/scripts/qros_authority_reconciler_v2_1.py",
+      "sha256": "7c1d6f4c20ca52fffb591047951d90fd8bedda62ed83d5114d7e0ba4c2944955"
+    },
+    {
+      "bytes": 8693,
+      "path": "anti_stall/scripts/qros_meta_audit_v2_1.py",
+      "sha256": "3f47a03fe013786d98276eaa7514ea1f9f8b681431feb861fde5c504ce9c6f24"
+    },
+    {
+      "bytes": 4888,
+      "path": "anti_stall/scripts/qros_progress_watchdog_v2_2.py",
+      "sha256": "3f833b2f8e5f7a71df92e1cffbb682102883063b92059f43ea758fa582ea29ab"
+    },
+    {
+      "bytes": 6083,
+      "path": "anti_stall/scripts/qros_continuation_dispatch_v2_2.py",
+      "sha256": "589b2cf876d28b03ec5f4393b52bc5fceecd6e5facb30420213e23c952ba32cd"
+    },
+    {
+      "bytes": 3571,
+      "path": "anti_stall/tests/test_v2_1_authority_reconciler.py",
+      "sha256": "2f98521d1221cb592b8ea6b2ab1792ef138c5b1b6f5c400dfb7e378ebec037ca"
+    },
+    {
+      "bytes": 2678,
+      "path": "anti_stall/tests/test_v2_1_bounded_resources.py",
+      "sha256": "0b0a6808b8d851817174392595e6c7d7dd667fdaad2aac59b872972b00248f0b"
+    },
+    {
+      "bytes": 12858,
+      "path": "anti_stall/tests/test_v2_1_runner_meta_audit.py",
+      "sha256": "c669ce19dbfec5a7832c616581e4a934c4ab8ca3bbc1387f7dca74f56461636e"
+    },
+    {
+      "bytes": 6449,
+      "path": "anti_stall/tests/test_v2_2_nonstall.py",
+      "sha256": "7f86e8ebe7d79d420a98264f08d2b139d9f5488c381bb50b82198b854702e35e"
+    },
+    {
+      "bytes": 3829,
+      "path": "anti_stall/governance/QROS_LITERAL_NONSTALL_V2_2_POLICY.json",
+      "sha256": "1a6d5e285550cbb8a935d71055dc1e052647d547327750fbdc7827c97cc4d934"
+    },
+    {
+      "bytes": 4716,
+      "path": "anti_stall/README_QROS_LITERAL_NONSTALL_V2_2.md",
+      "sha256": "1fd2d9fa5d2dde9de9dd89bc492dad46d45ab4bb937829bdeaea473274c6d42d"
+    },
+    {
+      "bytes": 4933,
+      "path": "v21_tests.log",
+      "sha256": "f44bf45a0aaf54fcf1f5856b873b4365cc9cc1de747cb0cb9e11de6090b80078"
+    },
+    {
+      "bytes": 1948,
+      "path": "v22_tests.log",
+      "sha256": "4aa213fc016502b5c3c8a8f93ab783ec1c4c8535e360c637c56e2137c92996b9"
+    }
+  ],
+  "schema": "QROS_LITERAL_NONSTALL_V2_2_DELTA_AND_TEST_PACKAGE_MANIFEST",
+  "scientific_changes": false,
+  "tests": {
+    "total": 45,
+    "v21_regression_pass": 37,
+    "v22_new_pass": 8
+  }
+}
