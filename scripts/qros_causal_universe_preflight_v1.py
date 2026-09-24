@@ -45,6 +45,9 @@ def validate(doc):
     else:
         seen=set()
         for i,f in enumerate(feats):
+            if not isinstance(f,dict):
+                fail("FEATURE_RECORD_INVALID",f"features[{i}] must be an object",e)
+                continue
             fid=f.get("feature_id")
             if not fid:
                 fail("FEATURE_ID_MISSING",f"features[{i}].feature_id missing",e)
@@ -56,14 +59,18 @@ def validate(doc):
             if av not in ("CLOSED_BAR","CURRENT_TICK_CAUSAL","STATIC_PREREGISTERED"):
                 fail("FEATURE_AVAILABILITY_INVALID",f"{fid}: availability={av}",e)
             off=f.get("closed_bar_offset")
-            if av=="CLOSED_BAR" and (not isinstance(off,int) or off < 1):
+            if av=="CLOSED_BAR" and (type(off) is not int or off < 1):
                 fail("LOOKAHEAD_CLOSED_BAR_OFFSET",f"{fid}: CLOSED_BAR requires closed_bar_offset>=1",e)
             if f.get("uses_future_data") is True:
                 fail("LOOKAHEAD_EXPLICIT",f"{fid}: uses_future_data=true",e)
-            if f.get("source_timeframe") is None:
-                fail("FEATURE_TIMEFRAME_MISSING",f"{fid}: source_timeframe missing",e)
-            if not isinstance(f.get("depends_on",[]),list):
-                fail("FEATURE_DEPENDENCY_INVALID",f"{fid}: depends_on must be list",e)
+            elif f.get("uses_future_data") is not False:
+                fail("FUTURE_DEPENDENCY_UNDECLARED",f"{fid}: uses_future_data must be explicitly false",e)
+            tf=f.get("source_timeframe")
+            if not isinstance(tf,str) or not tf.strip():
+                fail("FEATURE_TIMEFRAME_MISSING",f"{fid}: source_timeframe missing or empty",e)
+            deps=f.get("depends_on")
+            if not isinstance(deps,list) or not all(isinstance(x,str) and x.strip() for x in deps):
+                fail("FEATURE_DEPENDENCY_INVALID",f"{fid}: depends_on must be a list of nonempty IDs",e)
 
     uni=doc.get("universe",{})
     axes=uni.get("parameter_axes")
@@ -74,7 +81,7 @@ def validate(doc):
     if raw is not None and declared != raw:
         fail("UNIVERSE_COUNT_MISMATCH",f"expected_raw_count={declared}, computed={raw}",e)
     depth=uni.get("interaction_depth")
-    if not isinstance(depth,int) or depth < 0:
+    if type(depth) is not int or depth < 0:
         fail("INTERACTION_DEPTH_INVALID","interaction_depth must be integer >=0",e)
     if not uni.get("interaction_depth_rationale"):
         fail("INTERACTION_DEPTH_RATIONALE_MISSING","interaction_depth_rationale missing",e)
@@ -116,7 +123,7 @@ def validate(doc):
     if ext.get("may_select_candidates") is not False:
         fail("EXTERNAL_CANDIDATE_SELECTION_FORBIDDEN","external engine may not select candidates in validation mode",e)
 
-    return {"status":"PASS" if not e else "FAIL","error_count":len(e),"errors":e}
+    return {"status":"PASS" if not e else "FAIL","admission_level":"DECLARATIVE_PREFLIGHT_ONLY_NO_CAUSAL_OR_PARITY_PROOF","error_count":len(e),"errors":e}
 
 def main():
     ap=argparse.ArgumentParser()
