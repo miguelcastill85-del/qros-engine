@@ -1,0 +1,13 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_CURRENT_CHAT_HANDOFF_POINTER_V1",
+  "target": "control/QROS_SEED0076_DIRECT_CHAT_MIGRATION_HANDOFF_20260923_v1.json",
+  "target_git_blob_sha1": "89c16e74bad4d23cb9e5e631ec08f17cdf6e592b",
+  "target_creation_commit": "a1f0af1c63d7f9dff36dbdd74401d425d8e70666",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "last_closed": "XAUUSD_M1_W7_STRICT_ALL_NEIGHBORS",
+  "completed_semantic_configs": 155322,
+  "pending": "XAUUSD_M1_W9_STRICT_ALL_NEIGHBORS",
+  "governance_main_pointer": "control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
+  "next_action": "READ_TARGET_AND_LIVE_BRANCH_TREE_VERIFY_THEN_EXECUTE_W9_ONLY_IF_NOT_SUPERSEDED",
+  "holdout_open": false
+}
