@@ -1,0 +1,57 @@
+name: qros-linux-engineering-postmerge-regression
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/qros-linux-engineering-postmerge-regression.yml'
+      - 'scripts/qros_causal_universe_preflight_v1.py'
+      - 'tests/test_qros_causal_universe_preflight_v1.py'
+      - 'anti_stall/scripts/qros_anti_stall_v2_2_single_owner_candidate.py'
+      - 'anti_stall/scripts/qros_linux_seccomp_single_owner_v1.py'
+      - 'anti_stall/scripts/qros_linux_seccomp_single_process_launcher_v1.py'
+      - 'anti_stall/tests/test_v22_v3_single_owner_candidate.py'
+      - 'anti_stall/tests/test_linux_seccomp_kernel_containment_v1.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  integrated-linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify source identity, platform and scientific firewalls
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib,platform,sys
+          assert sys.platform=="linux" and platform.machine().lower() in ("x86_64","amd64"),"Linux x86_64 required"
+          def blob(path):
+              b=pathlib.Path(path).read_bytes()
+              return hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()
+          pins={
+            'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json':'5a88937d571e4bcc938c9ce71570092e0abfae6d',
+            'control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json':'3996a65e3377da6976a5457177d6a169cee93ff3',
+            'scripts/qros_causal_universe_preflight_v1.py':'8d225057b48107ab5bfddc17bca794721b70b180',
+            'anti_stall/scripts/qros_anti_stall_v2_2_single_owner_candidate.py':'9a93083d277729f2e1b8ceb2208c74e4368147b7',
+            'anti_stall/scripts/qros_linux_seccomp_single_owner_v1.py':'83319390b7e2fe90da4c4873dae5155010d4c074',
+            'anti_stall/scripts/qros_linux_seccomp_single_process_launcher_v1.py':'e0d37267516125cb8de9354560158ad1c80faa48',
+            'anti_stall/scripts/qros_anti_stall_v2_1.py':'59a5dc7d661e3983552f34b0d911a928df78d4b3',
+            'anti_stall/scripts/qros_progress_watchdog_v2_2.py':'97971470f41b4552ba737b07b808235ca40a1273'
+          }
+          for p,expected in pins.items():assert blob(p)==expected,"PIN_DRIFT:"+p
+          scientific=json.loads(pathlib.Path('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json').read_text())
+          assert scientific['current_version']=='V259' and scientific['new_ga1_authorized'] is False and scientific['holdout_open'] is False and scientific['ga2_open'] is False
+          print('PASS pinned sources / V259 scientific gates / Linux x86_64')
+          PY
+      - name: PR55 prospective declarative preflight 22 tests
+        run: python -m unittest discover -s tests -p test_qros_causal_universe_preflight_v1.py -v
+      - name: Linux opt-in single-owner integrated 19 tests
+        run: python -m unittest discover -s anti_stall/tests -p test_v22_v3_single_owner_candidate.py -v
+      - name: Kernel seccomp no-fork 9 tests
+        run: python -m unittest discover -s anti_stall/tests -p test_linux_seccomp_kernel_containment_v1.py -v
+      - name: Original v2.1/v2.2 45 regression tests
+        run: python -m unittest discover -s anti_stall/tests -p 'test_v2_*.py' -v
