@@ -1,0 +1,403 @@
+{
+  "archive_digests": {
+    "ASYM_W11": {
+      "bytes": 5189657,
+      "members": 24,
+      "sha256": "3517f4757f7b5b07a1d14e59d098a5fb3f9ea702a29d66cefbab39dd5ea9f55e",
+      "zip_crc": "PASS"
+    },
+    "ASYM_W13": {
+      "bytes": 4510194,
+      "members": 24,
+      "sha256": "f3b971766b4a0e19ac4064d81dea0beb54ae2dc19164eadacb4d347f1fed456d",
+      "zip_crc": "PASS"
+    },
+    "ASYM_W5": {
+      "bytes": 11360897,
+      "members": 23,
+      "sha256": "caee3742655cc14a91f7d4623072297b9722429265576a2f48e80f753e5381ba",
+      "zip_crc": "PASS"
+    },
+    "ASYM_W7": {
+      "bytes": 7900677,
+      "members": 24,
+      "sha256": "e51a1af317fce75f0f985c5f6a31516a91fcd1e1d3112899748869d19daec6de",
+      "zip_crc": "PASS"
+    },
+    "ASYM_W9": {
+      "bytes": 6207799,
+      "members": 24,
+      "sha256": "49cc436ec524dfadc3633a7b25077604f133373799484b16cd08629375921976",
+      "zip_crc": "PASS"
+    },
+    "BASE_W3": {
+      "bytes": 6766976,
+      "members": 29,
+      "sha256": "13bd8cc759336a33f021fcf3e101013849cda3edd7eca4bee379f96e0d866b37",
+      "zip_crc": "PASS"
+    },
+    "GEOMETRY_W3": {
+      "bytes": 13195766,
+      "members": 16,
+      "sha256": "a6d8d54e11ec491f66b642f3866e815c24469fa93841195d8c80a16bbfebf1d6",
+      "zip_crc": "PASS"
+    },
+    "STRICT_W11": {
+      "bytes": 5001738,
+      "members": 43,
+      "sha256": "92d6e93e3b56cf992ff3aaa08a6386abb1f9aae2b9aa7b34cf47123993b88813",
+      "zip_crc": "PASS"
+    },
+    "STRICT_W13": {
+      "bytes": 4434198,
+      "members": 43,
+      "sha256": "f4bb1e1e067452b9be56827b3d8f2aea8a0cd72dcebd141ac2c82fef94928d8e",
+      "zip_crc": "PASS"
+    },
+    "STRICT_W3": {
+      "bytes": 18067000,
+      "members": 40,
+      "sha256": "48ad3d7f52a512b1f7ee1af7f6247abebe59d312cf2f963365702237cbd4946b",
+      "zip_crc": "PASS"
+    },
+    "STRICT_W5": {
+      "bytes": 10454398,
+      "members": 41,
+      "sha256": "452c53b831258a33cefd51c1e75c92b5fa0c06a1e520aab49e8c454b6c31764b",
+      "zip_crc": "PASS"
+    },
+    "STRICT_W7": {
+      "bytes": 7450858,
+      "members": 41,
+      "sha256": "e97747b22fcee0d00479d144cfb498ce8beb7eba43c743c39c60bb934c2e5531",
+      "zip_crc": "PASS"
+    },
+    "STRICT_W9": {
+      "bytes": 6087205,
+      "members": 48,
+      "sha256": "4f6b723289c996da4c6c4f465275aae1796437a85202a76e6614a5ec989ca498",
+      "zip_crc": "PASS"
+    }
+  },
+  "asset": "XAUUSD",
+  "asymmetric_6window_expected": 103548,
+  "executed_runners_have_expected_strict_cell_base": true,
+  "family_variant_counts": {
+    "EMA_CROSS_RECENCY": 4,
+    "GEOMETRY": 79,
+    "MOMENTUM": 5,
+    "SESSION": 6,
+    "TREND": 60,
+    "TREND_STRENGTH": 5,
+    "VOLATILITY": 5
+  },
+  "filter_packages_canonical_order_root_sha256": "46e386c0d5e3c02e54864325f6f97eb5dea571851ecd7a7fd011ee67ac3993f9",
+  "filter_packages_each_side": 8629,
+  "frozen_spec_git_blob": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "grid": {
+    "W11_ASYM": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_w11_7family_dev_v1/BUY_W11_SEMANTIC_MAP.jsonl": "63580c8b4cceeaf0888fb88d279f4906fc899ca70e4156354bb1dde3d1f1a83b",
+        "direct_w11_7family_dev_v1/SELL_W11_SEMANTIC_MAP.jsonl": "814b5e9b9a77220de3c870bb51df915457afd3a20179160aca34967377a41e96"
+      },
+      "physical_mask_ids_sorted_root_sha256": "d5d239e61be8a16d22d909cb826b87e945d79e360d7e32396308e64ba88ded7f",
+      "physical_masks_by_cell": 5780,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "4521197290a20b0379f55d455d94c90f3e027673987bfd27cba834b8db114992",
+      "strict_compressed_npz_physical_counts": null,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "window": 11
+    },
+    "W11_STRICT": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_w11_strict_7family_dev_v1/BUY_W11_STRICT_SEMANTIC_MAP.jsonl": "4b1e36f8a37643eebca737476ab027de00060bad236e56b5f315435b84f0ab14",
+        "direct_w11_strict_7family_dev_v1/SELL_W11_STRICT_SEMANTIC_MAP.jsonl": "bae442ef00f3063577415792f5341298b6390447df77d9c9bf2a7d3b23c632c8"
+      },
+      "physical_mask_ids_sorted_root_sha256": "53727f6e461ee7e3a9c2de1271fd8abe277e076cd24794e01683e797d6a31dcc",
+      "physical_masks_by_cell": 5936,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "d4513791ca0033208dfbe89562a9cf858d36e01ea0971e5d7a16303635d1eefe",
+      "strict_compressed_npz_physical_counts": {
+        "BUY": 3116,
+        "SELL": 2820
+      },
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "window": 11
+    },
+    "W13_ASYM": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_w13_7family_dev_v1/BUY_W13_SEMANTIC_MAP.jsonl": "9cc8376af415a7987977abfb0ae2a0df6a07666b21c75a14e69245d3646f7528",
+        "direct_w13_7family_dev_v1/SELL_W13_SEMANTIC_MAP.jsonl": "2c1fdb7001edf9d0cde6681a26a54a44f9e33bbedc494d62015f548726751b36"
+      },
+      "physical_mask_ids_sorted_root_sha256": "25081aad49263c170133baa049e07c7f51af20ae193d16a535d7b5ce7dfca8f8",
+      "physical_masks_by_cell": 5192,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "ac854a02325ee8a3ecc2c255d42a0d56343383f91fe3855323f8ac7cd33a5fa1",
+      "strict_compressed_npz_physical_counts": null,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "window": 13
+    },
+    "W13_STRICT": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_w13_strict_7family_dev_v1/BUY_W13_STRICT_SEMANTIC_MAP.jsonl": "e20a05bec25f31da7a7e1123b4d3dcda2f9fff16308f9649aabe3e21ece00e51",
+        "direct_w13_strict_7family_dev_v1/SELL_W13_STRICT_SEMANTIC_MAP.jsonl": "4f6aacab3b00646319b6557edc7549d29a6ae4592e817fd7c14764c4ebecbbac"
+      },
+      "physical_mask_ids_sorted_root_sha256": "17782c1e59111ac58fe2d5054e86e0da5ed07338b2dd20b52b058e725dbae6ca",
+      "physical_masks_by_cell": 5677,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "3bec37a8b5e04211be26293dc31bb5105499c07e17d41afcbf62c2051f20d98b",
+      "strict_compressed_npz_physical_counts": {
+        "BUY": 2949,
+        "SELL": 2728
+      },
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "window": 13
+    },
+    "W3_ASYM": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_geometry_extension_v1/NEW_SEMANTIC_CONFIG_MAP.jsonl": "8da26456577379ead3c5011f08801ed87acf4b2a3eece6a3d2b2123296b5c540",
+        "direct_six_family_mask_batch_v1/SEMANTIC_CONFIG_TO_PHYSICAL_MASK.jsonl": "b446d6e9cce8984429a6b8465c8add2b4e7f107a29baef54b2e832c01cad25ee"
+      },
+      "physical_mask_ids_sorted_root_sha256": "ebf84a78e87b484256640b131c32b9d673d8f56c528f34858f7bebbf8a6ca9f7",
+      "physical_masks_by_cell": 10083,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "f04bf3d3612b8e6c823acb6b478d1fe8d51f65405e83290b7362d638498f037c",
+      "strict_compressed_npz_physical_counts": null,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "window": 3
+    },
+    "W3_STRICT": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_w3_strict_7family_dev_v1/BUY_W3_STRICT_SEMANTIC_MAP.jsonl": "8ae4bd45b79e7642c5cdc843bc938ba62b89f74dfb698ce24c6b6282245bc04d",
+        "direct_w3_strict_7family_dev_v1/SELL_W3_STRICT_SEMANTIC_MAP.jsonl": "2916b88fa7bdfc3a6465026327a0b262096f5e9aaf598488d61e57cbd5d44af5"
+      },
+      "physical_mask_ids_sorted_root_sha256": "1875078d0c08313f7ea683538831c296f5e10f62435a3b6bb4803781b60747d7",
+      "physical_masks_by_cell": 10019,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "b863c540969a45e4141670524c3da8d53b2ba73b9ab63ae016041dcf773319e5",
+      "strict_compressed_npz_physical_counts": {
+        "BUY": 4996,
+        "SELL": 5023
+      },
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "window": 3
+    },
+    "W5_ASYM": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_w5_7family_dev_v1/BUY_W5_SEMANTIC_MAP.jsonl": "321f3e5c009907af136282168fe9e812967fb7f761cd0c11cebbfa0797067284",
+        "direct_w5_7family_dev_v1/SELL_W5_SEMANTIC_MAP.jsonl": "8793573583c5616dd30311b4f4d50237728ae71235a05ce7d39f92236033abb1"
+      },
+      "physical_mask_ids_sorted_root_sha256": "f0fa04efd22d7486f46f6e367ed3b2344446cbb6473ca7ffbc35a0002f24630d",
+      "physical_masks_by_cell": 8381,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "337537400bd11ead479fa6e108fc0d1f684f7c3383147bca391d04a967aca688",
+      "strict_compressed_npz_physical_counts": null,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "window": 5
+    },
+    "W5_STRICT": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_w5_strict_7family_dev_v1/BUY_W5_STRICT_SEMANTIC_MAP.jsonl": "ad6df29889a5e498e5043eb47eca6d7c7e83ef014ec7d7e09b3f25065927a04e",
+        "direct_w5_strict_7family_dev_v1/SELL_W5_STRICT_SEMANTIC_MAP.jsonl": "8e74a89ef8e014b6773c9b58779c4fdc111f29f68626c0dcbc2d57d47cbb33b5"
+      },
+      "physical_mask_ids_sorted_root_sha256": "9ce4464c75cfeaf366eec9c38b9ef6bbff99442e5014e523a3495c8a1e0e1fa5",
+      "physical_masks_by_cell": 8468,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "8affdfbaf826fcf9a465a6799ad55333eed176180507a5509d2ed9287241ddfd",
+      "strict_compressed_npz_physical_counts": {
+        "BUY": 4258,
+        "SELL": 4210
+      },
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "window": 5
+    },
+    "W7_ASYM": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_w7_7family_dev_v1/BUY_W7_SEMANTIC_MAP.jsonl": "5f036378be7dfcead4c047a530763d4731b2dda3a00305373fbead99b30084a5",
+        "direct_w7_7family_dev_v1/SELL_W7_SEMANTIC_MAP.jsonl": "90929ce854560617eb321ebdad02102231b61cbd9fe7929875aaa5795ded0292"
+      },
+      "physical_mask_ids_sorted_root_sha256": "b0d42d645aef48f5fca39da337042d46ebcddb15c30587527ce34993c2ba7338",
+      "physical_masks_by_cell": 7150,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "86b92e000670cacc6a7c1cc87b7787baf54759f73f692e92f34d6ce66d2ab1ef",
+      "strict_compressed_npz_physical_counts": null,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "window": 7
+    },
+    "W7_STRICT": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_w7_strict_7family_dev_v1/BUY_W7_STRICT_SEMANTIC_MAP.jsonl": "404f7de2e32cd01a872d85922a6e0a26f21e88b6f2e2d51ef35e6beb59bfc240",
+        "direct_w7_strict_7family_dev_v1/SELL_W7_STRICT_SEMANTIC_MAP.jsonl": "3efae50eab6aff5e94b7ea47de50c7b5fb9650f3faa1dcc424f75ebf068a859b"
+      },
+      "physical_mask_ids_sorted_root_sha256": "4970aff8658af27d354055bd4e20e2026985b03f10ddefab0dac730afac4a539",
+      "physical_masks_by_cell": 7448,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "1f3d870d2c5f43bebe9de906d080cc82262532f917619e3762fe65d2b3b1f460",
+      "strict_compressed_npz_physical_counts": {
+        "BUY": 3696,
+        "SELL": 3752
+      },
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "window": 7
+    },
+    "W9_ASYM": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_w9_7family_dev_v1/BUY_W9_SEMANTIC_MAP.jsonl": "9903f97beefd733da500a9eaeefd44d5463ebbb62b7e3c58bf13127c1f73fcb3",
+        "direct_w9_7family_dev_v1/SELL_W9_SEMANTIC_MAP.jsonl": "003c713a429b9d2e3ba20bbd1df7c69fe8627aefc44327fc7441105fd2e9c836"
+      },
+      "physical_mask_ids_sorted_root_sha256": "adec73ab05c3085904f21a4d3c1f34e458bf8aee73dc89cf3817be4a3755ce61",
+      "physical_masks_by_cell": 6308,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "c7ecb1075f481b36c9837f90f12573d20c00767df9d32d18c19b0bc2175fb7ca",
+      "strict_compressed_npz_physical_counts": null,
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "window": 9
+    },
+    "W9_STRICT": {
+      "BUY_configs": 8629,
+      "SELL_configs": 8629,
+      "cross_cell_semantic_uniqueness": "PASS",
+      "map_shas": {
+        "direct_w9_strict_7family_dev_v1/BUY_W9_STRICT_SEMANTIC_MAP.jsonl": "6e70e11537571bec2f6ea55cacdc79d1a56cabbcf34b01c509db00851af142bf",
+        "direct_w9_strict_7family_dev_v1/SELL_W9_STRICT_SEMANTIC_MAP.jsonl": "bb492eefa44013e5f815d4c90d783a5097b14fc6440b5f8ee5b08f764e456904"
+      },
+      "physical_mask_ids_sorted_root_sha256": "e6ba126f1a17a0140a64211747074ffd9874bbe3065e1b077b9333db0f0a2f32",
+      "physical_masks_by_cell": 6851,
+      "semantic_id_completeness": "PASS_EXHAUSTIVE",
+      "semantic_ids": 17258,
+      "semantic_ids_sorted_root_sha256": "9919b9d4ce3c3f451f42b498847b91dc1642b088db437a1d4dfd232292eb3ce0",
+      "strict_compressed_npz_physical_counts": {
+        "BUY": 3395,
+        "SELL": 3456
+      },
+      "tie_policy": "STRICT_ALL_NEIGHBORS",
+      "window": 9
+    }
+  },
+  "independent_expected_ID_coverage_12_of_12": "PASS",
+  "mutation_expected_cell_membership": "PASS",
+  "next_action": "Prepare supplemental runner-only replay correction and preregister one frozen rearm-axis cell; do not rewrite signed historical archives.",
+  "parent_asym_6window_audit_sha256": "ff00e2a5503a9b6d0814bc6d3d023996f001148882a56547286d11cd99007c79",
+  "period": "2018_2019_DEV_ALREADY_EXPOSED",
+  "physical_count_interpretation": "PER_CELL counts only; hash includes raw candidate tape and window, not portfolio orthogonality",
+  "physical_id_cross_cell_overlap_count": 0,
+  "physical_id_distinct_across_cells": 87293,
+  "physical_ids_global_sorted_root_sha256": "2dfbfdd408ca7bdd700577cca2cf59eb1f34b7602ecf0ab255329ada97654223",
+  "physical_masks_sum_by_cell": 87293,
+  "risk_firewall": {
+    "broker_commission_certified": false,
+    "broker_historical_schedule_certified": false,
+    "gate_A_approved": false,
+    "max_3_standalone_per_day_from_parent": true,
+    "no_overnight": true
+  },
+  "schema": "QROS_SEED0076_M1_12CELL_INDEPENDENT_ID_AND_ARCHIVE_AUDIT_V1",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "seed": "WEB_SEED_0076",
+  "semantic_configurations_total": 207096,
+  "semantic_cross_cell_collisions": 0,
+  "semantic_digest_recompute_all_207096": "PASS",
+  "semantic_ids_global_sorted_root_sha256": "f3a10d49e24b59139751b0595d114fda2031dec220e63873ba065a80fd8aca2f",
+  "source_helper_correction_status": "OPEN_NON_ECONOMIC_REPLAY_DEFECT_SUPPLEMENTAL_ENTRYPOINT_REQUIRED",
+  "strict_6window_expected": 103548,
+  "strict_manifest_SHA_members_6_of_6": "PASS",
+  "strict_manifest_members_verified": {
+    "STRICT_W11": 42,
+    "STRICT_W13": 42,
+    "STRICT_W3": 39,
+    "STRICT_W5": 40,
+    "STRICT_W7": 40,
+    "STRICT_W9": 47
+  },
+  "strict_source_helper_metadata_drift": [
+    {
+      "helper_base": "base={'asset':'XAUUSD','side':side,'timeframe':'M1','fractal_window':5,'tie_policy':'SOURCE_ASYMMETRIC','rearm_mode':'ONE_SIGNAL_PER_LEVEL','trigger':'CLOSE_BREAK'}",
+      "runner_base": "base={'asset':'XAUUSD','side':side,'timeframe':'M1','fractal_window':5,'tie_policy':'STRICT_ALL_NEIGHBORS','rearm_mode':'ONE_SIGNAL_PER_LEVEL','trigger':'CLOSE_BREAK'}",
+      "runner_sha256": "717ebb0d8e6b2cb92ea6a4c1d301bd6ffb59835cb5404b596e602c9b6a0c3323",
+      "source_sha256": "4195105d97e81dca937ba5b95d28c3bd154ef4eec06931be12444f313b849fee",
+      "window": 5
+    },
+    {
+      "helper_base": "base={'asset':'XAUUSD','side':side,'timeframe':'M1','fractal_window':5,'tie_policy':'SOURCE_ASYMMETRIC','rearm_mode':'ONE_SIGNAL_PER_LEVEL','trigger':'CLOSE_BREAK'}",
+      "runner_base": "base={'asset':'XAUUSD','side':side,'timeframe':'M1','fractal_window':7,'tie_policy':'STRICT_ALL_NEIGHBORS','rearm_mode':'ONE_SIGNAL_PER_LEVEL','trigger':'CLOSE_BREAK'}",
+      "runner_sha256": "a19e562a6d6196ad1587daba449dffde71ae2106b3a9bb75e78da38d32627b1f",
+      "source_sha256": "453e6be17e3c5db60b51502e4a058f996a852175f611c62020a37f5d776ecd11",
+      "window": 7
+    },
+    {
+      "helper_base": "base={'asset':'XAUUSD','side':side,'timeframe':'M1','fractal_window':5,'tie_policy':'SOURCE_ASYMMETRIC','rearm_mode':'ONE_SIGNAL_PER_LEVEL','trigger':'CLOSE_BREAK'}",
+      "runner_base": "base={'asset':'XAUUSD','side':side,'timeframe':'M1','fractal_window':9,'tie_policy':'STRICT_ALL_NEIGHBORS','rearm_mode':'ONE_SIGNAL_PER_LEVEL','trigger':'CLOSE_BREAK'}",
+      "runner_sha256": "5cdf96bf7681ab3d566956cf89db8b35208a1e5d863e1430c8a11fb689c1b6c5",
+      "source_sha256": "0846fa58c940480fbbb6eea3eef04630fea9d8403ae5098c5f9deb404cc39def",
+      "window": 9
+    },
+    {
+      "helper_base": "base={'asset':'XAUUSD','side':side,'timeframe':'M1','fractal_window':5,'tie_policy':'SOURCE_ASYMMETRIC','rearm_mode':'ONE_SIGNAL_PER_LEVEL','trigger':'CLOSE_BREAK'}",
+      "runner_base": "base={'asset':'XAUUSD','side':side,'timeframe':'M1','fractal_window':11,'tie_policy':'STRICT_ALL_NEIGHBORS','rearm_mode':'ONE_SIGNAL_PER_LEVEL','trigger':'CLOSE_BREAK'}",
+      "runner_sha256": "bd9742888af380666451883c0b5e07940743924fe4167d4c3ded614529c555ed",
+      "source_sha256": "e8235ef01d795cd233802a60ecc3ad67b8d3b3a195bfbf3aaf8f3fbc20b5d749",
+      "window": 11
+    },
+    {
+      "helper_base": "base={'asset':'XAUUSD','side':side,'timeframe':'M1','fractal_window':5,'tie_policy':'SOURCE_ASYMMETRIC','rearm_mode':'ONE_SIGNAL_PER_LEVEL','trigger':'CLOSE_BREAK'}",
+      "runner_base": "base={'asset':'XAUUSD','side':side,'timeframe':'M1','fractal_window':13,'tie_policy':'STRICT_ALL_NEIGHBORS','rearm_mode':'ONE_SIGNAL_PER_LEVEL','trigger':'CLOSE_BREAK'}",
+      "runner_sha256": "690750d6ef2d9c8546fe7e4054581a3068e6b9db5d175eb02995760238f5dba0",
+      "source_sha256": "45caff12b6161dd00932a33858877da4157089d1bebebd7ba6595e87a1cfcdf1",
+      "window": 13
+    }
+  ],
+  "test_type": "NO_PNL_NO_NEW_BACKTEST_METADATA_AND_CANONICAL_ID_ONLY",
+  "tf": "M1",
+  "unread": {
+    "economic_metrics": true,
+    "ga2": true,
+    "holdout": true,
+    "original_60_shards": true
+  },
+  "version": "FROZEN_ORIGINAL_V209",
+  "zip_sha_crc_13_of_13": "PASS"
+}
