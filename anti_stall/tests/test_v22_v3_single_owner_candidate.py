@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Only synthetic fixtures: no broker data, strategy outcomes, MT5 or holdout."""
-import hashlib, json, pathlib, sys, tempfile, unittest
+import hashlib, json, pathlib, shutil, sys, tempfile, unittest
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"scripts"))
@@ -8,6 +8,8 @@ from qros_anti_stall_v2_2_single_owner_candidate import invoke,Incident,sha_file
 from qros_continuation_dispatch_v22_v3_single_owner_candidate import dispatch
 import qros_anti_stall_v2_2_single_owner_candidate as candidate_runner
 import qros_v3_stateless_receipt_guard_v1 as stateless_validator
+import qros_linux_seccomp_single_owner_v1 as kernel_helper
+import qros_linux_seccomp_single_process_launcher_v1 as kernel_launcher
 
 AUTH={"repo":"owner/qros-fixture","branch":"engineering/frozen-fixture","base_commit":"b"*40}
 LOCK={"holdout_open":False,"ga2_open":False,"new_old_shard_ga1_authorized":False}
@@ -26,7 +28,7 @@ class SingleOwnerSynthetic(unittest.TestCase):
         self.temp=tempfile.TemporaryDirectory();self.root=pathlib.Path(self.temp.name)
     def tearDown(self):self.temp.cleanup()
 
-    def make(self,name="FIXTURE",source=WORKER,extra_routes=None,contract_edit=None,idle=.7,log_cap=1024,timeout=2.5):
+    def make(self,name="FIXTURE",source=WORKER,extra_routes=None,contract_edit=None,idle=.7,log_cap=1024,timeout=2.5,linux_seccomp=False):
         work=self.root/name;work.mkdir()
         (work/"worker.py").write_text(source)
         (work/"input.dat").write_bytes(b"pinned non-economic input")
@@ -66,6 +68,19 @@ class SingleOwnerSynthetic(unittest.TestCase):
              }
           }]
         }
+        if linux_seccomp:
+            launcher_path=work/"seccomp_launcher.py"
+            shutil.copyfile(pathlib.Path(kernel_launcher.__file__),launcher_path)
+            launch_item={"path":"seccomp_launcher.py","bytes":launcher_path.stat().st_size,"sha256":sha_file(launcher_path)}
+            plan["stages"][0]["inputs"].append(launch_item)
+            plan["stages"][0]["outputs"].append({"path":"kernel_proof.json","bytes":None,"sha256":None})
+            plan["stages"][0]["stateless_guard"]["linux_containment"]={
+              "mode":"LINUX_X86_64_NO_FORK_SECCOMP_V1",
+              "launcher_path":"seccomp_launcher.py",
+              "launcher_sha256":launch_item["sha256"],
+              "helper_sha256":sha_file(pathlib.Path(kernel_helper.__file__)),
+              "proof_path":"kernel_proof.json"
+            }
         pp=work/"plan.json";pp.write_text(json.dumps(plan,sort_keys=True))
         return work,pp,sha_file(pp),plan
 
@@ -74,6 +89,41 @@ class SingleOwnerSynthetic(unittest.TestCase):
         init=invoke(work,plan,pin,"init")
         self.assertEqual(init["status"],"INITIALIZED")
         return work,plan,pin,invoke(work,plan,pin,"run")
+
+    @unittest.skipUnless(sys.platform=="linux","Linux-only, Windows deliberately not tested")
+    def test_integrated_kernel_containment_and_receipt_parity(self):
+        work,p,pin,res=self.run_one(linux_seccomp=True,idle=1.4,timeout=3)
+        self.assertEqual(res["status"],"ONE_STAGE_PASS",res)
+        proof=json.loads((work/"kernel_proof.json").read_text())
+        self.assertEqual(proof["status"],"LINUX_KERNEL_ATTESTED_BEFORE_WORKER_EXEC")
+        self.assertTrue(proof["kernel_attestation"]["kernel_seccomp_verified"])
+        self.assertEqual(proof["kernel_attestation"]["proc_no_new_privs"],1)
+        self.assertEqual(invoke(work,p,pin,"status")["cursor"],1)
+
+    @unittest.skipUnless(sys.platform=="linux","Linux-only, Windows deliberately not tested")
+    def test_integrated_seccomp_fork_attempt_rejected(self):
+        source="import os\nos.fork()\n"
+        work,p,pin,res=self.run_one(source=source,linux_seccomp=True,idle=1.2,timeout=3)
+        self.assertEqual(res["status"],"HALTED_NO_FROZEN_ROUTE",res)
+        self.assertFalse((work/"guard_proof.json").exists())
+        self.assertTrue((work/"kernel_proof.json").exists())
+        self.assertEqual(invoke(work,p,pin,"status")["cursor"],0)
+
+    @unittest.skipUnless(sys.platform=="linux","Linux-only, Windows deliberately not tested")
+    def test_integrated_seccomp_launcher_tamper_fails_before_launch(self):
+        work,p,pin,plan=self.make(linux_seccomp=True)
+        (work/"seccomp_launcher.py").write_text("print('tampered')")
+        with self.assertRaises(Incident):
+            invoke(work,p,pin,"init")
+        self.assertFalse((work/"kernel_proof.json").exists())
+
+    @unittest.skipUnless(sys.platform=="linux","Linux-only, Windows deliberately not tested")
+    def test_integrated_seccomp_helper_pin_tamper_fails_before_launch(self):
+        work,p,pin,plan=self.make(linux_seccomp=True)
+        plan["stages"][0]["stateless_guard"]["linux_containment"]["helper_sha256"]="0"*64
+        p.write_text(json.dumps(plan,sort_keys=True));pin=sha_file(p)
+        with self.assertRaisesRegex(Incident,"KERNEL_HELPER_SOURCE_DRIFT"):
+            invoke(work,p,pin,"init")
 
     def test_runner_source_pin_tamper_rejected(self):
         work,p,pin,plan=self.make()

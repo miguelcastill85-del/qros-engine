@@ -122,6 +122,30 @@ def parse_plan(root,plan_path,expected_sha):
                 raise Incident('GUARDED_RUNNER_SOURCE_DRIFT')
             if sha_file(pathlib.Path(__file__).with_name('qros_v3_stateless_receipt_guard_v1.py'))!=guard['validator_sha256']:
                 raise Incident('GUARDED_VALIDATOR_SOURCE_DRIFT')
+            lc=guard.get('linux_containment')
+            if lc is not None:
+                if not isinstance(lc,dict) or lc.get('mode')!='LINUX_X86_64_NO_FORK_SECCOMP_V1':
+                    raise Incident('UNKNOWN_KERNEL_CONTAINMENT_MODE')
+                if os.name!='posix' or sys.platform!='linux':
+                    raise Incident('LINUX_X86_64_REQUIRED_FAIL_CLOSED')
+                for pin_name in ('helper_sha256','launcher_sha256'):
+                    assert_hex(lc.get(pin_name))
+                helper=pathlib.Path(__file__).with_name('qros_linux_seccomp_single_owner_v1.py')
+                if sha_file(helper)!=lc['helper_sha256']:
+                    raise Incident('KERNEL_HELPER_SOURCE_DRIFT')
+                launcher=under(root,lc.get('launcher_path'))
+                if launcher.is_symlink() or sha_file(launcher)!=lc['launcher_sha256']:
+                    raise Incident('SECCOMP_LAUNCHER_SOURCE_DRIFT')
+                if not any(i['path']==lc['launcher_path'] and
+                           i['sha256']==lc['launcher_sha256'] for i in step.get('inputs',[])):
+                    raise Incident('SECCOMP_LAUNCHER_NOT_HASHED_STAGE_INPUT')
+                if not isinstance(lc.get('proof_path'),str) or not any(
+                    o['path']==lc['proof_path'] for o in outputs):
+                    raise Incident('KERNEL_ATTESTATION_OUTPUT_NOT_FROZEN')
+                if lc['proof_path'] in (guard['proof_path'],guard['contract_path'],
+                                         contract['worker_receipt']):
+                    raise Incident('KERNEL_ATTESTATION_PATH_COLLISION')
+                under(root,lc['proof_path'])
             if guard.get('progress_path') is not None:under(root,guard['progress_path'])
         if step['kind']=='local':
             if not step.get('routes') or not step.get('inputs'):raise Incident('LOCAL_STAGE_NEEDS_FROZEN_ROUTES_AND_INPUTS')
@@ -240,8 +264,37 @@ def run_bounded_single_owner(argv,root,step):
     progress=under(root,g['progress_path']) if g.get('progress_path') else None
     if progress is not None and progress.is_file():
         verified_progress(root,progress,seen)  # existing bytes are the baseline
-    p=subprocess.Popen(argv,cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,
-                       start_new_session=True,close_fds=True)
+    lc=g.get('linux_containment')
+    kernel_attestation=None
+    if lc is not None:
+        from qros_linux_seccomp_single_owner_v1 import launch
+        p,kernel_attestation=launch(
+            argv,root,lc['launcher_path'],lc['launcher_sha256'],
+            ready_budget=min(2.0,max(0.2,deadline-time.monotonic())))
+        kernel_proof={
+            'schema':'QROS_LINUX_NO_FORK_SECCOMP_KERNEL_PROOF_V1',
+            'status':'LINUX_KERNEL_ATTESTED_BEFORE_WORKER_EXEC',
+            'kernel_attestation':kernel_attestation,
+            'worker_pid':p.pid,
+            'worker_argv_sha256':digest(canonical(argv)),
+            'launcher_sha256':lc['launcher_sha256'],
+            'helper_sha256':lc['helper_sha256'],
+            'scientific_promotion':False,
+            'windows_tested':False,
+        }
+        try:
+            atomic_json(under(root,lc['proof_path']),kernel_proof)
+        except BaseException:
+            try:os.killpg(p.pid,signal.SIGKILL)
+            except ProcessLookupError:pass
+            try:p.wait(timeout=2)
+            except subprocess.TimeoutExpired:p.kill();p.wait()
+            for pp in (p.stdout,p.stderr):
+                if pp and not pp.closed:pp.close()
+            raise
+    else:
+        p=subprocess.Popen(argv,cwd=root,stdout=subprocess.PIPE,stderr=subprocess.PIPE,
+                           start_new_session=True,close_fds=True)
     streams={p.stdout:'stdout',p.stderr:'stderr'}
     chunks={'stdout':bytearray(),'stderr':bytearray()}
     reason=None
