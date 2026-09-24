@@ -1,0 +1,59 @@
+{
+  "schema": "QROS_SEED0076_W5_V25_RETEST_SAMPLED_REALDATA_REMOTE_ANCHOR_V1",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "parent_scientific_pointer_gitblob_sha1": "1823165995a8133251c4b441014d328c74bc288c",
+  "parent_v24_remote_anchor_gitblob_sha1": "d612a30cc465d7cc72d77f43e93fb5455ca28acd",
+  "original_v209_spec_gitblob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "original_v220_code_gitblob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+  "frozen_w5_full_v209_prereg_blob_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+  "campaign": "QROS_WEB_SEED0076_XAUUSD_M1_W5_ASYM_REARM0_TICK_FULL_V209_20260924",
+  "scientific_scope": "ONE_SAME_PREREGISTERED_CELL_PRE_ECONOMIC_SAMPLED_ISOLATED_RETEST_ENTRY_NO_FULL_MASKS_OR_TRADES",
+  "real_source_pins": {
+    "raw_DEV_151382388_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "clean_M1_bars_sha256": "8fed642eb3f948a9e0612d7b9b0ece453a71b32e41609a8fcc84ee41bd713b13",
+    "clean_M1_indicators_sha256": "8a522e381d86684523a3707ec618f6825af25c103059fc368014291de742bdf6",
+    "valid_quote_full_raw_rearm_tape_sha256": "8e4cb5b630c44ae3a526bee81fde2493f7385619ba096c804275a9b79004bdd0"
+  },
+  "drive_release": {
+    "file_id": "1G-73ekL5gMvDNfRf5Yrg9QXJZmsYlp2_",
+    "url": "https://drive.google.com/file/d/1G-73ekL5gMvDNfRf5Yrg9QXJZmsYlp2_/view",
+    "filename": "QROS_W5_V25_REAL_RETEST_SAMPLED_ORACLES_20260924.zip",
+    "bytes": 9905,
+    "raw_zip_sha256": "a6d73d155f56804416b8b909826d51fa0560743cf1fe0bd70fada625b14af83d",
+    "internal_manifest_sha256": "f8f52d2c31e6298bc13e991193f8996fe01db3cf20a85ca0025daf623ec48b9a",
+    "internal_members": 5,
+    "independent_remote_raw_download_rehash": "PASS",
+    "CRC_and_all_internal_member_hashes": "PASS"
+  },
+  "source_code_SHA256": {
+    "QROS_W5_V25_RETEST_REAL_CAUSAL_ORACLES.py": "dbfcabeab3970573f43f0cfb43f359be4dd89180b8db57071ac06268898b1e0b",
+    "QROS_W5_V25_RETEST_EXPLICIT_ADVERSARIAL.py": "73666719f5a566ca2ea3bc30d7f30139ddfaf54f8c5777536aef5599948dd744"
+  },
+  "validated": {
+    "real_tick_isolated_retest_8channels_6variants_candidatelevel_independent_exact": 1920,
+    "real_tick_isolated_frozen_original_V220_valid_only_parity": 910,
+    "invalid_quote_real_windows_independent_guarded_parity": 1010,
+    "synthetic_cross_impl_checks": 384,
+    "explicit_expected_adversarial_outcomes": 19,
+    "unresolved_source_mismatch_count": 0,
+    "reproducibility_from_v24_full_parent_bundle": "YES"
+  },
+  "not_verified": {
+    "full_raw_tape_pending_block_and_final_rearm_FSM": "PENDING",
+    "full_10family_11176_filter_packages_each_side": "PENDING",
+    "all_22352_config_ID_real_mask_parity": "PENDING",
+    "new_W5_economic_PnL": "NOT_EXECUTED",
+    "broker_time_DST_certified": false,
+    "broker_commission_certified": false,
+    "MT5_parity": "NOT_RUN"
+  },
+  "firewalls": {
+    "prior_13_7family_cells_unchanged": true,
+    "W3_unstarted_untouched": true,
+    "holdout_open": false,
+    "GA2_open": false,
+    "new_W5_economic_results_observed": false
+  },
+  "status": "PRE_ECON_SAMPLED_RETEST_REAL_SOURCE_PASS_FULL_STATE_AND_10FAMILY_PENDING",
+  "next_action": "Create exact all-six-retest full-stateful V220 pending_block_until + rearm0 valid-quote production adapter for each of eight source buffer channels, compare independent full tape then compute all 11176 V209 ten-family mask packages per side before reading one W5 economic result. Close clock/DST/commission certification separately; do not touch W3, holdout or GA2."
+}
