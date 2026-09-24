@@ -1,0 +1,63 @@
+{
+  "schema": "QROS_FAST_CORE_SYNTHETIC_REPRO_REMOTE_ANCHOR_V1",
+  "lane": "ENGINEERING_ISOLATED_NOT_SCIENTIFIC_PROMOTION",
+  "origin": "USER_UPLOADED_SYNTHETIC_SIMULATION",
+  "source_archive_sha256": "3a030b5263da7410b94edfdd950c2fc888f093180000974e23e25b2e5aafdec5",
+  "evidence": {
+    "drive_file_id": "1BiWP1zt7_zwk8CsAqIoVYX76gYx3XiD_",
+    "drive_folder_id": "1q0XQZK8Y3MxFmhimNz8YRomt85HSR7Vh",
+    "filename": "QROS_FAST_CORE_SYNTHETIC_INDEPENDENT_REPRO_AUDIT_20260923.zip",
+    "bytes": 48442,
+    "sha256": "3a09c307d4cc11d0ae0778b79273d30ba2b9726bce9175d18c1f22361de5d8ec",
+    "remote_redownload_sha256": "PASS",
+    "zip_crc": "PASS",
+    "members": 7,
+    "internal_manifest_sha256": "9df2a0a938e77af4632d6b2a775765d4d779a27c45478fb264d7004f101137b3",
+    "receipt_sha256": "ca7b1542c2478b3205c02aed4aa9d1711f89aebe184bf37bec38e4dd219567b5"
+  },
+  "runtime": {
+    "os": "Linux-x86_64",
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "numba": "0.65.1",
+    "environment_full": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "reproduction": {
+    "origin_members_sha256": "10_OF_10_PASS",
+    "seeds": [
+      {
+        "seed": 20260923,
+        "cold_pairs": 7,
+        "warm_pairs": 7,
+        "cold_ratio": 2.1981883817538947,
+        "warm_ratio": 2.211175814138,
+        "original_config_signal_ledger_roots_match": true,
+        "trades": 19036
+      },
+      {
+        "seed": 20260924,
+        "cold_pairs": 7,
+        "warm_pairs": 7,
+        "cold_ratio": 2.0475975681699783,
+        "warm_ratio": 2.124486787024827,
+        "original_config_signal_ledger_roots_match": true,
+        "trades": 19858
+      }
+    ]
+  },
+  "scope_firewalls": {
+    "real_XAUUSD_NQX_speedup": "NOT_MEASURED",
+    "original_V209_whole_scope_parity": "NOT_TESTED",
+    "economic_QROS_V5_parity": "NOT_TESTED",
+    "holdout_open": false,
+    "real_GA1_expanded": false,
+    "code_promoted": false,
+    "production_modified": false
+  },
+  "authority_links": {
+    "main_governance_pointer_git_blob": "cafaaa347c72308a97e2064258f3ddc185747bf8",
+    "direct_lane_w11_official_anchor_blob": "002e856a124ea26835c3d9c32c7d6ff141477616",
+    "direct_lane_next_prereg_W13_blob": "9cd1820bed2d8b4cd34a9e29203abb84fcffd1a6"
+  },
+  "next_automatic_action": "PREREGISTER_REAL_CLOSED_SHARD_A_B_PROFILE_IN_SEPARATE_ENGINEERING_LANE_WITHOUT_OPENING_HOLDOUT"
+}
