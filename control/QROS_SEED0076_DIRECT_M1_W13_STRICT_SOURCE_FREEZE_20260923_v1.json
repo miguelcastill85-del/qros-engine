@@ -1,0 +1,48 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_M1_W13_STRICT_SOURCE_FREEZE_V1",
+  "stage": "SOURCE_FROZEN_PRE_ECONOMIC",
+  "lane": "research/seed0076-direct-dev-backtest-20260922",
+  "seed": "WEB_SEED_0076",
+  "asset": "XAUUSD",
+  "timeframe": "M1",
+  "window": 13,
+  "tie_policy": "STRICT_ALL_NEIGHBORS",
+  "rearm": "ONE_SIGNAL_PER_LEVEL",
+  "trigger": "CLOSE_BREAK",
+  "sides": [
+    "BUY",
+    "SELL"
+  ],
+  "fractal_center_observable": "i=p+7; strictly >/< all six closed left and six closed right bars",
+  "frozen_V209_spec_git_blob": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "frozen_V221_gate_engine_blob": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+  "frozen_structural_v220_blob": "805044c9918a87456a95e150a1c9a1292112cf4c",
+  "frozen_config_stream_blob": "a01268bd8bab639977b22c419926d94306754bba",
+  "source_raw_expected_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "prereg_blob": "9cd1820bed2d8b4cd34a9e29203abb84fcffd1a6",
+  "parent_W11_remote_anchor_blob": "002e856a124ea26835c3d9c32c7d6ff141477616",
+  "parent_W11_archive_sha256": "92d6e93e3b56cf992ff3aaa08a6386abb1f9aae2b9aa7b34cf47123993b88813",
+  "local_freeze_json_sha256": "6f74a55257623d07dbfc2f45ae1f04141b2150ba2dd97103db3d8f5d4cbf69fb",
+  "source_sha256": {
+    "direct_w13_strict_7family_dev_v1.py": "45caff12b6161dd00932a33858877da4157089d1bebebd7ba6595e87a1cfcdf1",
+    "run_w13_strict_side_v1.py": "690750d6ef2d9c8546fe7e4054581a3068e6b9db5d175eb02995760238f5dba0",
+    "audit_w13_strict_original_gates.py": "a97db309e0642ccb8efb38c27f6a36da5ae5af2286727f9a1158f3a2a3bafe9c",
+    "independent_w13_strict_execution_oracle_v1.py": "95b2573e2eac635668dfc7e0763f8734844fb6bcb33470ba737c2469b14d5938"
+  },
+  "pre_economic_validation": {
+    "synthetic_fixtures": 9,
+    "three_way_parity": "PASS",
+    "future_mutation_causality": "PASS",
+    "original_filter_packages_per_side": 8629,
+    "full_real_economic_results": "NOT_OBSERVED_WHEN_FROZEN"
+  },
+  "scientific_firewalls": {
+    "dev": "2018_2019_ALREADY_EXPOSED",
+    "holdout_open": false,
+    "ga2_open": false,
+    "gate_A_approved": false,
+    "broker_commission_certified": false,
+    "old_60_shards_out_of_scope": true
+  },
+  "next_action": "EXECUTE_W13_STRICT_ONLY_USING_FROZEN_SOURCES_THEN_INDEPENDENT_TICK_ORACLE"
+}
