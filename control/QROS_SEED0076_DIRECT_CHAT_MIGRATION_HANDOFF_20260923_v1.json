@@ -1,0 +1,90 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_CHAT_MIGRATION_HANDOFF_V1",
+  "created_at_local": "2026-09-23T21:16:00-03:00",
+  "purpose": "Resume in a new chat without repeating completed XAUUSD M1 direct DEV backtest or confusing historical main science authority",
+  "authority_priority": [
+    "main/control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
+    "main/control/QROS_CHAT_PROJECT_BOOTSTRAP_v2_1.md",
+    "research/seed0076-direct-dev-backtest-20260922 live branch tree and this lane handoff",
+    "exact GitHub frozen source/receipts and exact Google Drive carriers"
+  ],
+  "governance": {
+    "active_pointer_blob": "cafaaa347c72308a97e2064258f3ddc185747bf8",
+    "active_version": "2.1",
+    "bootstrap_blob": "c0a82abec69078d96fc74b5d80e5d7229b0a221f",
+    "separate_main_legacy_science": "V259; do not substitute for direct lane"
+  },
+  "lane": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "observed_pre_handoff_tree_sha": "b6d28b1ac03d8ee8cb1cdb584e563eb070b1f292",
+    "seed": "WEB_SEED_0076",
+    "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "frozen_original_spec_path": "research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json",
+    "frozen_original_spec_git_blob": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf"
+  },
+  "last_closed": {
+    "stage": "XAUUSD_M1_W7_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL",
+    "anchor_path": "control/QROS_SEED0076_DIRECT_M1_W7_STRICT_REMOTE_SHA_ANCHOR_20260923_v1.json",
+    "anchor_blob": "c092b2a585709171405df9db035861a8ed1b0755",
+    "cumulative_semantic_configs": 155322,
+    "cumulative_physical_masks_by_cell": 68829,
+    "drive_w7_id": "1H8WYCWfrk2mPIwGli7z23MSd7ll_dhYD",
+    "drive_w7_bytes": 7450858,
+    "drive_w7_sha256": "e97747b22fcee0d00479d144cfb498ce8beb7eba43c743c39c60bb934c2e5531"
+  },
+  "next_only": {
+    "stage": "XAUUSD_M1_W9_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL",
+    "prereg_path": "control/QROS_SEED0076_DIRECT_M1_W9_STRICT_PREREG_20260923_v1.json",
+    "prereg_blob": "1bca2f5739bc440848001d566a65335a8b31856f",
+    "expected_new_semantic_configs": 17258,
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "window": 9,
+    "tie": "STRICT_ALL_NEIGHBORS",
+    "rearm": "ONE_SIGNAL_PER_LEVEL",
+    "trigger": "CLOSE_BREAK",
+    "sides": [
+      "BUY",
+      "SELL"
+    ],
+    "original_frozen_compatible_filter_packages_per_side": 8629,
+    "do_not_claim_executed_until_carrier_and_independent_oracle_pass": true
+  },
+  "target_scope": {
+    "current_m1_six_windows_two_tie_policies_expected": 207096,
+    "current_m1_scope_remaining_if_no_new_result": 51774,
+    "original_universe_raw_signal_configs_both_assets_all_timeframes_and_axes": 48280320,
+    "counts_exclude_management_overlays_and_stress": true,
+    "remaining_strict_windows_after_w9": [
+      "W11",
+      "W13"
+    ]
+  },
+  "data": {
+    "raw_xau_dev_period": "2018-2019_ALREAD_Y_ECONOMICALLY_EXPOSED",
+    "raw_tick_count": 151382388,
+    "raw_bytes": 2573500596,
+    "raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "carrier_location_note": "Rehydrate exact existing verified Drive evidence and frozen source only as needed; do not reopen previous 60-shard lineage"
+  },
+  "drive": {
+    "folder_id": "1lfMh7r2SJiu2pIm6kSCAHmvKqLBFHNOG",
+    "last_closed_w7_id": "1H8WYCWfrk2mPIwGli7z23MSd7ll_dhYD",
+    "require_remote_download_sha256_on_promotion": true
+  },
+  "scientific": {
+    "scientific_state": "DEVELOPMENT_RUNNING",
+    "holdout_open": false,
+    "dev_2018_2019_economically_exposed": true,
+    "broker_commission_certified": false,
+    "broker_historical_early_close_calendar_certified": false,
+    "gate_A_approved": false,
+    "ga2_open": false,
+    "no_overnight": true,
+    "max_new_entries_per_day": 3,
+    "legacy_60_shards": "FROZEN_OUT_OF_SCOPE"
+  },
+  "strict_recovery": "Fetch newest live direct-lane branch tree first. If W9 has gained a later independently verified checkpoint, use it; otherwise execute only preregistered W9. Do not treat these snapshot counters as current if branch advanced.",
+  "next_automatic_action": "Execute only preregistered W9 STRICT original V209 XAUUSD M1, independently audit full tick sample, persist ZIP in Google Drive, re-download SHA-256, publish external GitHub anchor, then preregister W11 STRICT.",
+  "eta_caveat": "No validated end-to-end sustained throughput estimate; distinguish 207096 M1 current restricted sweep from 48280320 complete raw original spec, and from later management overlays. Do not invent finish date."
+}
