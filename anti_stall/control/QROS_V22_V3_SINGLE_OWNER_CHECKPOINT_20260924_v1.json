@@ -1,0 +1,70 @@
+{
+  "schema": "QROS_V22_V3_SINGLE_OWNER_ISOLATED_CANDIDATE_CHECKPOINT_V1",
+  "date": "2026-09-24",
+  "objective": "Reuse v3-style stateless receipt and byte validation within one v2.2 guarded direct-worker ownership, without changing scientific semantics",
+  "authority": {
+    "main_commit": "1b0cc42ceb977fcfbb7125edf767903f66dd5dd1",
+    "main_scientific_frontier": "V259",
+    "stable_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "anti_stall_v22_pointer_blob": "3996a65e3377da6976a5457177d6a169cee93ff3",
+    "candidate_branch": "engineering/v22-v3-single-owner-candidate-20260924",
+    "source_commit_under_test": "8b98f96a957f0086182621151646d0f3b70ab3f1"
+  },
+  "original_files_unchanged": {
+    "v21_runner": "59a5dc7d661e3983552f34b0d911a928df78d4b3",
+    "v22_dispatcher": "c8cdbc8d57e0370a657ce56989e206ad5e3c5eb5",
+    "v22_watchdog": "97971470f41b4552ba737b07b808235ca40a1273"
+  },
+  "implemented_git_blobs": {
+    "anti_stall/scripts/qros_v3_stateless_receipt_guard_v1.py": "e726b798cc17123f12356d78759c63964e04205b",
+    "anti_stall/scripts/qros_anti_stall_v2_2_single_owner_candidate.py": "037d3059f3a4be03b95979a51623312a89d5a999",
+    "anti_stall/scripts/qros_continuation_dispatch_v22_v3_single_owner_candidate.py": "0a47eb785ab304b2f26c10bac3695045c45c27bc",
+    "anti_stall/tests/test_v22_v3_single_owner_candidate.py": "0e51991887d051d55586fab9a3bcfbcc5f40126d",
+    ".github/workflows/qros-v22-v3-single-owner-candidate.yml": "ca71a62e9029f0eb9a44e5df157cd9dd58d79f9d"
+  },
+  "verified_remote_ci": {
+    "run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36062935032",
+    "job_id": 107845929849,
+    "conclusion": "SUCCESS",
+    "adversarial_single_owner": {
+      "pass": 15,
+      "total": 15
+    },
+    "existing_v21_v22": {
+      "pass": 45,
+      "total": 45
+    },
+    "total_pass": 60,
+    "baseline_source_blob_verification": "PASS"
+  },
+  "negative_control": {
+    "initial_run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36062549399",
+    "initial_test_failures": 2,
+    "root_causes": [
+      "fixture shared mutable authority dict let mutated contract change plan authority too",
+      "contract hash mismatch raised GuardFailure rather than normalized Incident"
+    ],
+    "corrections": [
+      "independently clone contract authority",
+      "normalize ValueError/OSError/TypeError to Incident before launch"
+    ],
+    "final_run": "SUCCESS"
+  },
+  "limitations": [
+    "Direct-worker no-detached-descendants flag is a frozen assertion, not independent OS proof against malicious worker detaching a descendant",
+    "Windows native process tree cleanup not certified",
+    "Does not reuse v3 controller or assert full parity with original v3 implementation",
+    "No data broker, MT5, real PnL, real historical M2/M12/M15 benchmark or remote provenance beyond GitHub CI source readback",
+    "No scientific adoption or shard11 authorization"
+  ],
+  "scientific_firewalls": {
+    "holdout_open": false,
+    "ga2_open": false,
+    "shard11_open": false,
+    "bulk_ga1": false,
+    "economic_pnl_read": false,
+    "production_adoption": false
+  },
+  "state": "ENGINEERING_CANDIDATE_REMOTE_CI_PASS_PRODUCTION_ADOPTION_PENDING",
+  "next_automatic_action": "Obtain separate OS-level containment proof for detached descendants or enforce single-process execution via certified sandbox; rerun native Windows or fail closed there; then non-economic real-source M2/M12/M15 parity and perf benchmark before any release."
+}
