@@ -1,0 +1,77 @@
+{
+  "schema": "QROS_XAU_REAL_M2_M12_M15_CARRIER_INDICATOR_PARITY_RECEIPT_V1",
+  "date": "2026-09-24",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "scope": "2018_2019_DEV_ONLY_NO_PNL",
+  "authority": {
+    "main_at_validation": "2e2015beede5844f2be0180494d1f667fa8b771f",
+    "frontier": "V259",
+    "frontier_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "anti_stall": "v2.2",
+    "research_source_branch": "research/seed0076-first-gate10-20260922",
+    "research_source_commit": "b89bd286aafaebc101f02338a79908db8389cd9b",
+    "frozen_manifest_git_blob": "d1aff1ea650bb27db3970b0ff76e48a4cfb316f3",
+    "indicator_formula_git_blob": "b3575c061607aaae9f4062ad623ff7083e2e0ffe",
+    "bar_builder_git_blob": "987ef26aca2507a94247bed7663493e6682aa869"
+  },
+  "physical_inputs_verified": {
+    "A_M1_archive_sha256": "090800d73cb4258f610747ffbbd3606bfe21cecb787c3dad7bd46254552ef753",
+    "B_M2_M3_archive_sha256": "53cb17e0aa38a009d00fd17588cf054dbe1985bb0dd5958a906220f77fc2b67b",
+    "D_M10_M12_M15_archive_sha256": "29c5ec20e89da05e0c0921c409fde4a56ffe1dc95fbd0f4a613ecf8242617dfe",
+    "source_dev_raw_sha256_from_frozen_manifest_not_recomputed_this_run": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "extracted_M1_M2_M12_M15_bars_and_M2_M12_M15_indicator_file_sha256": "ALL_EXACT_MATCH",
+    "zstd_integrity": "PASS",
+    "tar_whitelist": "PASS",
+    "original_formula_git_blob_from_library_control_zip": "BYTE_EXACT_MATCH"
+  },
+  "verified_results": {
+    "independent_pandas_full_bar_rows_by_tf": {
+      "M2": 341392,
+      "M12": 56939,
+      "M15": 45551
+    },
+    "total_full_bar_rows": 443882,
+    "full_bar_field_parity": "ZERO_MISMATCH",
+    "completion_source_index_full_parity": "ZERO_MISMATCH",
+    "independent_scipy_full_ema_atr_comparisons": 87,
+    "independent_numeric_mismatches": 0,
+    "original_source_exact_all_field_array_comparisons": 108,
+    "original_source_exact_array_mismatches": 0,
+    "future_only_perturbation_all_indicators_each_tf": "PREFIX_UNCHANGED"
+  },
+  "library_bundle": {
+    "library_file_id": "libfile_661b2dd160cc81919975f7d85403c7e5",
+    "path": "/QROS/RISE_AUDIT_MAX_V2/XAU_REAL_M2_M12_M15_VERIFIED_20260924/QROS_XAU_REAL_M2_M12_M15_VALIDACION_20260924.zip",
+    "bytes": 303424,
+    "sha256": "03da89ee55425e6bb24677dc9fc8aa4ebfb8102cc9d2f54c7fa8e7cf52fbd0e5",
+    "members": 7,
+    "library_download_raw_sha256_reverified": true,
+    "individual_script_sha256": {
+      "independent_oracle": "a311e4cf54b91efcd740340d7ae3296ce9271c4463979ea8d791072d0d4b63f7",
+      "original_replay": "58166e3e1ac91a594778046be39c9b8180e094094a73e607044a5befc74d7adf"
+    },
+    "individual_receipt_sha256": {
+      "independent_oracle": "4f0ce83e862a029c2aa23ccf66c5d6d391f4217eb676ef555b30e3b008343d99",
+      "original_replay": "44698f94edb777f195ca338cf02dd0c9ba259cab5bdd891afca0e0a89c6ddc1b",
+      "checkpoint": "bce12e741e6c232c33e6e940ad4669662951cb1830c252377591280d7fc0e1f4"
+    }
+  },
+  "gates": {
+    "bar_carrier_recovery": "PASS",
+    "full_bar_independent_oracle": "PASS",
+    "original_indicator_full_replay": "PASS",
+    "independent_numeric_oracle": "PASS",
+    "non_economic": "PASS",
+    "raw_tick_replay_this_run": "NOT_EXECUTED",
+    "event_mask_alias_parity": "PENDING_EXACT_MASK_BYTES",
+    "NQX_real_M2_M12_M15": "PENDING_INDEPENDENT_RECOVERY",
+    "broker_symbol_holiday_calendar": "NOT_CERTIFIED",
+    "production_adoption": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "shard11_open": false,
+    "read_economic_pnl": false,
+    "mt5_parity": "NOT_EXECUTED"
+  },
+  "next_automatic_action": "Recover exact NQX DEV PACKED17 prefix and M2/M12/M15 original golden artifacts, verify independently; then recover XAU frozen exact group masks and independent event oracle without opening economic PnL or shard11."
+}
