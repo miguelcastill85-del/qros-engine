@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_LITERAL_NONSTALL_V2_2_RELEASE_ANCHOR_V1",
+  "status": "RELEASE_TESTED_PENDING_MAIN_POINTER_PROMOTION",
+  "repo": "miguelcastill85-del/qros-engine",
+  "branch": "governance/qros-literal-nonstall-v2-2-20260923",
+  "base_main_commit": "9d3cb72adcd5ae949003c8abe60b132220b6ebd0",
+  "base_governance_blob": "cafaaa347c72308a97e2064258f3ddc185747bf8",
+  "bundle": {
+    "drive_file_id": "1fA7a8-C9jbZ_J64rVDVKk9MRZpDELDJ7",
+    "size_bytes": 32820,
+    "sha256": "a561919fc07595361a5ea014722811d37e0fbcd0058573c7bb7576a3ea991900",
+    "members": 14,
+    "internal_sha256_checks": 13,
+    "remote_download_rehash": "PASS"
+  },
+  "source_bridge": {
+    "drive_file_id": "1Qe7HNF6Kys_VrBinNZzwWK60GxDB8BkO",
+    "size_bytes": 30485,
+    "sha256": "91d5f2bc2fb3e1b16a2309d11ce1eea1c849f32dac33fb6aa3e22a8483226634"
+  },
+  "git_readback": {
+    "watchdog_blob": "97971470f41b4552ba737b07b808235ca40a1273",
+    "dispatcher_blob": "c8cdbc8d57e0370a657ce56989e206ad5e3c5eb5",
+    "test_blob": "7386ba66054545ed3c549b655a49d66ad3df87a8",
+    "policy_blob": "94cf5d02068526869818d19186c0ef13007ad2d3",
+    "readme_blob": "e245fdba69fa74ce126af33011e441e5efa5a61e",
+    "manifest_blob": "d7f574e56b762fd52d72184970f0d9d8da0c30b6",
+    "all_six_content_equal_pinned_bridge": true
+  },
+  "tests": {
+    "existing_v21_regressions": 37,
+    "new_v22_adversarial": 8,
+    "pass_total": 45,
+    "native_windows": "NOT_VERIFIED",
+    "github_remote_ci": "NOT_RUN_ZERO_EXTRA_COST"
+  },
+  "runtime_policy": {
+    "ordinary_route_wall_sec": 120,
+    "idle_no_verified_progress_sec": 45,
+    "overall_dispatch_sec": 180,
+    "max_distinct_equivalent_routes": 2,
+    "same_route_retry": 0,
+    "safe_independent_queue_fallback": true,
+    "heavy_presharded_route_cap_sec": 600,
+    "heavy_idle_cap_sec": 90
+  },
+  "firewalls": {
+    "holdout_open": false,
+    "GA2_open": false,
+    "old_ga1_reopened": false,
+    "no_economic_code_changes": true,
+    "main_scientific_pointer_unchanged": true
+  },
+  "direct_lane_last_verified": {
+    "pointer_branch": "research/seed0076-direct-dev-backtest-20260922",
+    "pointer_blob_before_release": "ae3863b21f041d43768b667a8e4da5755ecf8160",
+    "last_closed": "XAUUSD_M1_W3_SOURCE_ASYMMETRIC_RETURN_INSIDE_OR_LEVEL_REPLACED_CLOSE_BREAK_BUY_SELL",
+    "cumulative_semantic": 224354,
+    "next": "AUDIT_FROZEN_V209_REMAINING_BASE_AXIS_ORDER_AND_PREREGISTER_EXACTLY_ONE_NEXT_CAUSAL_CELL_NO_PNL"
+  },
+  "activation_rule": "Fast-forward main to exact release branch commit after independent readback, then CAS-update only anti-stall governance pointer. Never alter PUBLIC1000 scientific pointer."
+}
