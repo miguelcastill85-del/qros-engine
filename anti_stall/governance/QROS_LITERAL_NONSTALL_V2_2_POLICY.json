@@ -1,0 +1,50 @@
+{
+  "schema": "QROS_LITERAL_NONSTALL_V2_2_POLICY",
+  "status": "RELEASE_CANDIDATE_PENDING_REMOTE_PIN",
+  "scope": "QROS/RISE governance and engineering only; no change to scientific semantics, execution economics, MT5, gate A, holdout or GA2",
+  "supersedes_liveness_only": "QROS_ANTI_STALL_INCIDENT_MAX_V2_1_POLICY",
+  "authority": {
+    "governance_main_pointer": "control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
+    "live_lane_pointer_required_each_invocation": true,
+    "queue_sha256_must_be_pinned_externally": true,
+    "plan_and_source_input_sha256_required": true,
+    "never_auto_replace_exact_authority_with_similar_file": true,
+    "preserve_closed_receipts_and_raw_anchors": true,
+    "direct_scientific_lane_separate_from_main": "research/seed0076-direct-dev-backtest-20260922"
+  },
+  "interactive_default_budgets": {
+    "mutex_wait_seconds_default": 8,
+    "one_local_route_absolute_wall_seconds": 120,
+    "one_local_route_no_verified_byte_progress_seconds": 45,
+    "one_dispatch_total_seconds": 180,
+    "max_distinct_preregistered_equivalent_routes": 2,
+    "max_retries_of_same_failed_route": 0,
+    "automatic_alternate_route": true,
+    "automatic_dependency_safe_independent_work_after_route_failure": true
+  },
+  "heavy_pre_sharded_job_exception": {
+    "allowed_only_in_externally_pinned_plan": true,
+    "max_worker_absolute_wall_seconds": 600,
+    "max_no_verified_byte_progress_seconds": 90,
+    "hard_requirement": "Chunks must produce content-addressed durable receipts and be independently resumable. No 600-second monolithic job without safe chunk evidence.",
+    "in_chat_dispatch_cap_remains_seconds": 180
+  },
+  "liveness_contract": {
+    "progress_counts_only_after_independent_file_size_and_sha256_check": true,
+    "heartbeat_touch_or_counter_without_new_bytes": "NOT_PROGRESS",
+    "initial_old_progress_receipt": "BASELINE_NOT_PROGRESS",
+    "worker_stalled": "KILL_PROCESS_TREE_KEEP_VALID_PARTIAL_SHARDS_FREEZE_INCIDENT",
+    "first_failed_route": "AUTOMATICALLY_SELECT_NEXT_FROZEN_CAUSALLY_EQUIVALENT_ROUTE_WITHOUT_REPREREGISTRATION",
+    "all_frozen_routes_failed": "DEFER_SCIENTIFIC_STAGE_WITH_EXACT_INCIDENT_THEN_RUN_NEXT_UNBLOCKED_INDEPENDENT_JOB",
+    "dependent_on_failed_stage": "DO_NOT_RUN_OR_PROMOTE",
+    "no_independent_job": "LEAVE_VERIFIABLE_CHECKPOINT_AND_REPORT_EXACT_BLOCKER",
+    "already_closed_stage": "NO_OP_NEVER_REPEAT",
+    "crashed_RUNNING_stage": "ONLY_INDEPENDENT_PREPINNED_OUTPUT_HASH_RECOVERY_OR_DEFER_NO_IMPLICIT_RERUN",
+    "any_scientific_or_authority_mismatch": "FAIL_CLOSED_NO_FALLBACK_CHANGES_SCIENTIFIC_SPECIFICATION",
+    "remote_api_timeout": "LIMIT_CONNECTOR_ATTEMPTS_AND_SWITCH_TO_KNOWN_EXACT_AUTHORITY_READBACK_IF_POSSIBLE; IN_PROCESS_WATCHDOG_APPLIES_ONLY_TO_LOCAL_SUBPROCESSES"
+  },
+  "statuses_for_non_promotion_receipts": ["BUDGET_EXHAUSTED_SAFE_DEFER","DEPENDENCY_BLOCKED_SAFE_SKIP","HALTED_NO_RELAUNCH","EXTERNAL_PROOF_REQUIRED_SAFE_SKIP","INTERRUPTED_NEEDS_INDEPENDENT_RECOVERY"],
+  "science_locks": {"holdout_open":false,"ga2_open":false,"new_old_shard_ga1_authorized":false,"changing_seed_to_make_progress":false,"read_exposed_DEV_is_not_new_holdout":true,"new_alpha_selected":false},
+  "release_gates": ["V2_1_EXISTING_37_REGRESSION_TESTS_PASS","V2_2_NEW_8_ADVERSARIAL_TESTS_PASS","GITHUB_READBACK_EXACT_BLOBS","GOOGLE_DRIVE_PACKAGE_RAW_SHA256_REDOWNLOAD_PASS","MANIFEST_INTEGRITY_PASS","MAIN_GOVERNANCE_POINTER_CAS_PROMOTION"],
+  "limits": ["No autonomous execution when ChatGPT session ends without authenticated external scheduler","Windows tree kill follows inherited v2.1 taskkill route but has not been tested on native Windows","Authenticated remote SHA checks require downloading real bytes; Drive metadata alone is insufficient","Policy does not authorize changing economic definitions or unfreezing held-out data"]
+}
