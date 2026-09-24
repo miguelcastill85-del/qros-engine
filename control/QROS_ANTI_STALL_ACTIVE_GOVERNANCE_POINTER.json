@@ -1,55 +1,82 @@
 {
   "schema": "QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER_V1",
-  "version": "2.1",
+  "version": "2.2",
   "status": "ACTIVE_CODE_AND_AGENT_BOOTSTRAP",
   "repository": "miguelcastill85-del/qros-engine",
   "branch": "main",
-  "source_root": "anti_stall",
-  "source_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
-  "drive_package_id": "1QujX1rPY9wIfcnXjLeJICSq6lOg9si2o",
-  "drive_source_bridge_id": "1aM0FP16s_H1t2iwS4mhHjWiDzbK2Dv0f",
-  "meta_audit_tests_local": 37,
-  "windows_native": "UNVERIFIED",
-  "background_executor": "NOT_CONFIGURED_REQUIRES_EXTERNAL_TRIGGER_AND_DATA_ACCESS",
+  "legacy_v21_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
+  "source_package_sha256": "a561919fc07595361a5ea014722811d37e0fbcd0058573c7bb7576a3ea991900",
+  "drive_package_id": "1fA7a8-C9jbZ_J64rVDVKk9MRZpDELDJ7",
+  "drive_source_bridge_id": "1Qe7HNF6Kys_VrBinNZzwWK60GxDB8BkO",
+  "release_anchor_path": "control/QROS_LITERAL_NONSTALL_V22_RELEASE_20260923_v1.json",
+  "release_anchor_git_blob_sha1": "68761e86a1d1b01d0190387c3f8fa83ff72f4453",
+  "release_git_commit": "72ebba4225102c989f37fc096418d3c328939095",
+  "base_governance_pointer_blob_sha1": "cafaaa347c72308a97e2064258f3ddc185747bf8",
+  "test_evidence": {
+    "v21_regressions_local": 37,
+    "v22_new_adversarial_local": 8,
+    "total_local_pass": 45,
+    "github_remote_ci": "NOT_RUN_ZERO_EXTRA_COST",
+    "windows_native": "UNVERIFIED"
+  },
+  "watchdog": {
+    "ordinary_route_hard_seconds": 120,
+    "ordinary_no_verified_byte_progress_seconds": 45,
+    "one_dispatch_total_budget_seconds": 180,
+    "max_distinct_frozen_equivalent_routes": 2,
+    "repeat_same_failed_route": false,
+    "heavy_presharded_wall_cap_seconds": 600,
+    "heavy_presharded_idle_cap_seconds": 90,
+    "on_no_progress": "KILL_PROCESS_TREE_FREEZE_VALID_PARTIAL_OUTPUTS_AUTO_SWITCH_TO_NEXT_EQUIVALENT_ROUTE",
+    "on_all_routes_failed": "DEFER_SCIENTIFIC_DEPENDENTS_AND_ADVANCE_ONLY_INDEPENDENT_READY_WORK",
+    "heartbeat_without_new_verified_bytes": "IGNORED",
+    "mutex_timeout_seconds_default": 8
+  },
+  "scope": "governance_only_no_new_market_data_no_economic_change",
+  "source_paths": [
+    "anti_stall/scripts/qros_anti_stall_v2_1.py",
+    "anti_stall/scripts/qros_progress_watchdog_v2_2.py",
+    "anti_stall/scripts/qros_continuation_dispatch_v2_2.py"
+  ],
+  "provenance": {
+    "archive_sha256_rehash_after_connected_drive_download": "PASS",
+    "archive_bytes": 32820,
+    "internal_member_hashes_verified": 13,
+    "github_source_files_exact_pinned_bridge_readback": 6,
+    "release_anchor_pinned_git_blob_readback": true
+  },
   "scientific_firewalls": {
     "holdout_open": false,
     "old_ga1_reopened": false,
+    "ga2_open": false,
     "economic_result_changed": false
   },
   "lane_scope": {
     "original_public1000_main": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
-    "direct_dev": "research/seed0076-direct-dev-backtest-20260922",
-    "latest_direct_dev_closed": "XAU_M1_SIX_WINDOW_AUDIT",
-    "next_direct_dev": "W3_STRICT_ALL_NEIGHBORS"
+    "direct_dev_branch": "research/seed0076-direct-dev-backtest-20260922",
+    "direct_dev_current_pointer": "control/QROS_SEED0076_DIRECT_CURRENT_CHAT_HANDOFF.json",
+    "direct_dev_pointer_must_be_read_fresh_every_invocation": true,
+    "last_verified_direct_closed": "XAUUSD_M1_W3_SOURCE_ASYMMETRIC_RETURN_INSIDE_OR_LEVEL_REPLACED_CLOSE_BREAK_BUY_SELL",
+    "last_verified_direct_semantic_count": 224354,
+    "direct_next": "AUDIT_FROZEN_V209_REMAINING_BASE_AXIS_ORDER_AND_PREREGISTER_EXACTLY_ONE_NEXT_CAUSAL_CELL_NO_PNL",
+    "never_override_direct_pointer_with_stale_governance_hint": true
   },
-  "activated_on_main_commit": "b5fcbd01f52902023d4340e902b61aaf7f909be8",
-  "release_ci": {
-    "workflow": "qros-anti-stall-v2-1",
-    "run_id": 35914901370,
-    "head_sha": "8676f67d7c435c4af466210f3f52daebfe8e9561",
-    "status": "PASS",
-    "tests": 37
+  "runtime_contract": {
+    "one_successful_stage_per_invocation": true,
+    "automatic_distinct_route_failover": true,
+    "automatic_dependency_safe_fallback": true,
+    "explicit_original_plan_sha256_pin": true,
+    "progress_only_after_independent_file_sha256": true,
+    "never_mark_deferred_job_PASS": true,
+    "do_not_restart_closed_job": true
   },
-  "drive_raw_byte_rehash": {
-    "file_id": "1QujX1rPY9wIfcnXjLeJICSq6lOg9si2o",
-    "bytes": 33273,
-    "sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
-    "manifest_files": 14,
-    "status": "PASS"
-  },
-  "operating_rules": {
-    "start": "IDENTIFY_LANE_THEN_READ_EXACT_POINTER",
-    "recover": "VERIFY_REMOTE_BYTES_AND_PINS",
-    "execute": "ONE_STAGE_PER_INVOCATION",
-    "validate": "INDEPENDENT_META_AUDIT",
-    "persist": "ATOMIC_REMOTE_CHECKPOINT",
-    "continue": "NEXT_UNFINISHED_AUTHORIZED_STAGE"
-  },
-  "new_chat_auto_loading": "REQUIRES_CHATGPT_PROJECT_INSTRUCTIONS_TO_INCLUDE_BOOTSTRAP_OR_AGENT_TO_READ_AGENTS_MD",
-  "economic_result_status": "UNCHANGED",
-  "release_branch": "governance/qros-anti-stall-incident-max-v2-1-20260923",
-  "active_control_root": "control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
-  "main_scientific_pointer_unchanged": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
-  "unattended_execution_requires": "explicit external task scheduler plus authenticated Drive data mount and budget controls",
-  "activation_scope": "repository and agents that read AGENTS.md; project chat needs instruction bootstrap"
+  "activation_scope": "GitHub repository code and agents that read AGENTS.md / exact active governance pointer; ChatGPT chats must read live pointer",
+  "background_executor": "NOT_CONFIGURED_REQUIRES_EXTERNAL_TRIGGER_AND_AUTHENTICATED_DATA_ACCESS",
+  "main_scientific_pointer_unchanged": true,
+  "limitations": [
+    "Native Windows process group termination remains unverified",
+    "Local supervisor cannot enforce a hard kill on connector-hosted API calls",
+    "Drive metadata alone is insufficient without raw ZIP rehash",
+    "No unattended work after chat termination without authorized scheduler"
+  ]
 }
