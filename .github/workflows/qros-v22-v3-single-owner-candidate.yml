@@ -41,7 +41,7 @@ jobs:
             anti_stall/scripts/qros_anti_stall_v2_2_single_owner_candidate.py \
             anti_stall/scripts/qros_continuation_dispatch_v22_v3_single_owner_candidate.py \
             anti_stall/tests/test_v22_v3_single_owner_candidate.py
-      - name: Execute 13 synthetic single-owner adversarial tests
+      - name: Execute 15 synthetic single-owner adversarial tests
         env:
           PYTHONDONTWRITEBYTECODE: '1'
         run: |

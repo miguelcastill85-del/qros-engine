@@ -6,6 +6,8 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/"scripts"))
 from qros_anti_stall_v2_2_single_owner_candidate import invoke,Incident,sha_file
 from qros_continuation_dispatch_v22_v3_single_owner_candidate import dispatch
+import qros_anti_stall_v2_2_single_owner_candidate as candidate_runner
+import qros_v3_stateless_receipt_guard_v1 as stateless_validator
 
 AUTH={"repo":"owner/qros-fixture","branch":"engineering/frozen-fixture","base_commit":"b"*40}
 LOCK={"holdout_open":False,"ga2_open":False,"new_old_shard_ga1_authorized":False}
@@ -58,7 +60,9 @@ class SingleOwnerSynthetic(unittest.TestCase):
              "stateless_guard":{
                "contract_path":"contract.json","contract_sha256":sha_file(cp),
                "proof_path":"guard_proof.json","max_log_bytes":log_cap,"idle_seconds":idle,
-               "direct_worker_no_detached_descendants":True
+               "direct_worker_no_detached_descendants":True,
+               "candidate_runner_sha256":sha_file(pathlib.Path(candidate_runner.__file__)),
+               "validator_sha256":sha_file(pathlib.Path(stateless_validator.__file__))
              }
           }]
         }
@@ -70,6 +74,20 @@ class SingleOwnerSynthetic(unittest.TestCase):
         init=invoke(work,plan,pin,"init")
         self.assertEqual(init["status"],"INITIALIZED")
         return work,plan,pin,invoke(work,plan,pin,"run")
+
+    def test_runner_source_pin_tamper_rejected(self):
+        work,p,pin,plan=self.make()
+        plan["stages"][0]["stateless_guard"]["candidate_runner_sha256"]="0"*64
+        p.write_text(json.dumps(plan,sort_keys=True));pin=sha_file(p)
+        with self.assertRaisesRegex(Incident,"GUARDED_RUNNER_SOURCE_DRIFT"):
+            invoke(work,p,pin,"init")
+
+    def test_validator_source_pin_tamper_rejected(self):
+        work,p,pin,plan=self.make()
+        plan["stages"][0]["stateless_guard"]["validator_sha256"]="0"*64
+        p.write_text(json.dumps(plan,sort_keys=True));pin=sha_file(p)
+        with self.assertRaisesRegex(Incident,"GUARDED_VALIDATOR_SOURCE_DRIFT"):
+            invoke(work,p,pin,"init")
 
     def test_exact_artifact_and_proof_pass(self):
         work,p,pin,res=self.run_one()

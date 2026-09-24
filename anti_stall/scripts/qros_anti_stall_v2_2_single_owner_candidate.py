@@ -96,7 +96,7 @@ def parse_plan(root,plan_path,expected_sha):
         if guard is not None:
             if step['kind']!='local' or not isinstance(guard,dict):
                 raise Incident('STATELESS_GUARD_LOCAL_ONLY')
-            required=('contract_path','contract_sha256','proof_path','max_log_bytes','idle_seconds','direct_worker_no_detached_descendants')
+            required=('contract_path','contract_sha256','proof_path','max_log_bytes','idle_seconds','direct_worker_no_detached_descendants','candidate_runner_sha256','validator_sha256')
             if any(k not in guard for k in required):raise Incident('GUARD_CONTRACT_INCOMPLETE')
             from qros_v3_stateless_receipt_guard_v1 import read_frozen_contract
             try:
@@ -116,6 +116,12 @@ def parse_plan(root,plan_path,expected_sha):
                 raise Incident('GUARD_IDLE_BUDGET_INVALID')
             if guard['direct_worker_no_detached_descendants'] is not True:
                 raise Incident('UNVERIFIED_CHILD_TREE_POLICY')
+            assert_hex(guard['candidate_runner_sha256'])
+            assert_hex(guard['validator_sha256'])
+            if sha_file(pathlib.Path(__file__))!=guard['candidate_runner_sha256']:
+                raise Incident('GUARDED_RUNNER_SOURCE_DRIFT')
+            if sha_file(pathlib.Path(__file__).with_name('qros_v3_stateless_receipt_guard_v1.py'))!=guard['validator_sha256']:
+                raise Incident('GUARDED_VALIDATOR_SOURCE_DRIFT')
             if guard.get('progress_path') is not None:under(root,guard['progress_path'])
         if step['kind']=='local':
             if not step.get('routes') or not step.get('inputs'):raise Incident('LOCAL_STAGE_NEEDS_FROZEN_ROUTES_AND_INPUTS')
