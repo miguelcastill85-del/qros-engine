@@ -1,0 +1,94 @@
+{
+  "schema": "QROS_SEED0076_W5_CAMPAIGN_BOUND_LITERAL_NONSTALL_V23_REMOTE_RELEASE_ANCHOR_V1",
+  "status": "SYNTHETIC_PRE_ECON_GATE_PASS_REALDATA_AND_FULL_TEN_FAMILY_PARITY_PENDING",
+  "branch_scope": "research/seed0076-direct-dev-backtest-20260922",
+  "feature_branch": "fix/seed0076-w5-campaign-bound-nonstall-v23-20260924",
+  "parent_live_scientific_pointer_blob_sha1": "8370decb2c8e033c4b60662e72f03b22516ae899",
+  "parent_tip": "6a4ce532764e685b7a264c9ccac9b7f7bf20bfd3",
+  "active_governance_main_pointer_blob_sha1": "3996a65e3377da6976a5457177d6a169cee93ff3",
+  "parent_sole_W5_prereg_blob_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+  "parent_13_economically_closed_cells_semantic": 224354,
+  "archive": {
+    "drive_file_id": "11xlP7SoYFSB32rvDqau0lm72gZhlulA2",
+    "name": "QROS_W5_ANTISTALL_V23_PARITY_RECOVERY_20260924.zip",
+    "size_bytes": 794578,
+    "sha256": "969a722d14f20c3c56a4ebae72639509d46fc7171a18d109dfcc555c4beac5cd",
+    "member_manifest_git_path": "scripts/seed0076/w5_v23/RELEASE_MANIFEST_V23.json",
+    "member_manifest_git_blob_sha1": "b42f92a7aba94de58d8eec6a9d4e28e9d0548a6f",
+    "members": 42,
+    "verified_internal_sha256": 41,
+    "raw_connected_drive_download_rehash": "PASS",
+    "zip_crc": "PASS"
+  },
+  "source_remote_readback": {
+    "all_11_text_blobs_equal_pinned_bridge": true,
+    "synthetic_runner_git_blob_sha1": "d4eab814eac3a744ff85e2f2019395b652ad86af",
+    "controller_git_blob_sha1": "7c0579b4d99a2b1a71d1b6590d7b2a4cf17d701c",
+    "mtf_corrected_adapter_git_blob_sha1": "a66e9e2dccc344fb5f17fdc651f9e9991d6fa523",
+    "data_preflight_git_blob_sha1": "3a802f37772b8b13f6db6fd6a87efa2521508c18",
+    "synthetic_receipt_git_blob_sha1": "c3c0f9a71894c01d81ba465aedf9a107746d2cfe",
+    "synthetic_receipt_sha256": "2f0a7190967cb2f4a5abefd55a9e0c5e16a5aca590ba133adb680cc765c2f94f"
+  },
+  "tests": {
+    "v21_regression": 37,
+    "v22_adversarial": 8,
+    "w5_primary_independent_synthetic": 21,
+    "v23_campaign_binding_and_interrupted_recovery": 12,
+    "data_preflight_negative": 5,
+    "total_local_pass": 83,
+    "real_darwinex_2018_2019_backtest": "NOT_RUN",
+    "github_remote_CI": "NOT_RUN",
+    "MT5": "NOT_RUN",
+    "native_windows": "NOT_RUN"
+  },
+  "operational_fix": {
+    "original_gap": "v2.2 main governance not bound to exact W5 frozen runnable queue; dispatcher returned after one PASS, old CI only v2.1, original raw ticks not mounted",
+    "bounded_routes": [
+      "FROZEN_NUMBA_AND_INDEPENDENT_ORACLES",
+      "FROZEN_PYTHON_AND_INDEPENDENT_ORACLES"
+    ],
+    "route_wall_seconds": 42,
+    "no_verified_byte_idle_seconds": 28,
+    "invocation_budget_seconds": 110,
+    "queue_sha256_local_host_specific": "eda17f4494e497a7286ca37ecc7b88f1dcb15c65763b7329fd0795fe6a72044a",
+    "frozen_plan_sha256_local_host_specific": "e1a1ef881f95160e382a3a2f3e76a0b31f3b66cfa03555146d8f4348a1e3344d",
+    "synthetic_stage": "ONE_STAGE_PASS",
+    "next_external_stage": "EXTERNAL_PROOF_REQUIRED_SAFE_SKIP",
+    "repeat_invocation_new_pass_count": 0,
+    "interrupted_stage_exact_pinned_outputs_recover_without_rerun": true,
+    "tampered_output_fails_closed": true,
+    "invalid_guide": "Never use host-specific queue hash on different machine; regenerate exact plans from pinned immutable source and repin externally."
+  },
+  "scientific_fix": {
+    "v221_mtf_boundary_defect": "LEFT_MINUS_ONE_ONE_COMPLETED_BAR_LATE",
+    "corrected_adapter": "RIGHT_MINUS_ONE_SYNTHETIC_BOUNDARY_AND_RANDOM_PREFIX_TESTS_PASS",
+    "original_v221_immutable": true,
+    "raw_quote_guard_original_v220_absent": true,
+    "guarded_reference_synthetic_tested": true,
+    "invalid_quote_production_numba_validation": "PENDING_ACTUAL_TICKS",
+    "RETEST_ENTRY_full_semantics": "PENDING_ACTUAL_TICKS",
+    "BREAKOUT_BUFFER_full_coverage": "CANONICAL_IDS_ONLY_NOT_ECONOMIC",
+    "seven_other_gate_families": "FROZEN_V221_EXACT_SOURCE_WITH_PREVIOUS_7_FAMILY_FIXTURES",
+    "broker_calendar": "NOT_CERTIFIED"
+  },
+  "data": {
+    "raw_tick_size": 2573500596,
+    "raw_tick_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "bars_m1_sha256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56bbb8a71a7457f59",
+    "indicators_m1_sha256": "f30da86f6c11b5a6573b3571ffd3c3621bbe4d51134258c89d956d6f9ab115b5",
+    "raw_mounted_during_release": false,
+    "raw_exact_drive_filename_search": "NOT_FOUND",
+    "zip_multipart_drive_folder_result": "FOUND_NOT_RECONSTRUCTED"
+  },
+  "firewalls": {
+    "holdout_open": false,
+    "GA2_open": false,
+    "Gate_A_approved": false,
+    "economic_result_for_new_cell": "NOT_OBSERVED",
+    "backtest_real_data_not_executed": true,
+    "old_60_shards_reopened": false,
+    "prior_closed_13_cells_not_rerun": true,
+    "W3_pending_preserved": true
+  },
+  "next_automatic_action": "Recover exact packed17 DEV raw, M1 Bid bars and M1 indicator cache by authoritative SHA without restarting 13 closed cells; run qros_w5_realdata_preflight_v1.py; independently validate historical Darwinex sessions/DST, production valid-quote guarded tick/rearm and original RETEST_ENTRY full-ten-family masks. Only if preeconomic gates all PASS start the one preregistered W5 paired-side chunked DEV backtest; no holdout or GA2."
+}
