@@ -1,0 +1,49 @@
+{
+  "schema": "QROS_PR55_CURRENT_MAIN_V259_PROSPECTIVE_COMPATIBILITY_V1",
+  "date": "2026-09-24",
+  "main_authority": {
+    "main_sha": "1b0cc42ceb977fcfbb7125edf767903f66dd5dd1",
+    "scientific_frontier": "V259",
+    "active_project_policy_blob": "601163a50089e03e233e4573d3f11444d21a7073",
+    "exact_factorized_enumeration_policy_blob": "9dd081e87a255176108823f63f064ae28dea2bc7",
+    "root_genealogy_holdout_firewall_blob": "2ea843efc7fdd7d0760e3094a0636426bf85c4bc"
+  },
+  "pr55": {
+    "proposed_policy_blob": "e9a79d9c285f262d5b5f3a897c4e75420d2e1de9",
+    "corrected_preflight_blob": "8d225057b48107ab5bfddc17bca794721b70b180",
+    "ci_pass_receipt_blob": "bae8a8f4374c5e5e26ee3bb547afc05d944b842a",
+    "targeted_ci_run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36061936460",
+    "test_count": 22,
+    "ci_status": "SUCCESS"
+  },
+  "features_already_mandatory_in_main": [
+    "one active causal seed; no speculative parallel universes",
+    "complete enumerated finite causal universe and RISE fixed point before economic selection",
+    "exact factorized enumeration with two independent enumerators and deterministic config ID mapping",
+    "genealogy-wide holdout firewall and exposure propagation",
+    "non-retroactive protection of V259 and existing scientific identity"
+  ],
+  "additive_advisory_capabilities": [
+    "explicit declared feature observability and broker bar-clock metadata",
+    "proposed independent signal-oracle requirement beyond enumerator parity",
+    "prospective semantic event collision and multiplicity flags",
+    "metamorphic execution/cost/timestamp tests specified but not executed by declarative validator"
+  ],
+  "collision_limits": [
+    "Proposed expected_raw_count is product of axis lengths only; does not validate semantic/constraint-graph admissible count or the main exact factorization proof",
+    "A PASS from proposed validator checks JSON declarations, not actual broker timebase, independently reproduced event masks, MT5, or physical data hashes",
+    "The proposed policy cannot rewrite or supersede active v1.4, v1.1 compiler, or root holdout firewall without explicit audited adoption",
+    "No formal GitHub review recorded despite 22/22 remote unit tests; merge remains separate governance decision"
+  ],
+  "decision": "OPT_IN_DECLARATIVE_PREFLIGHT_CODE_CANDIDATE_REVIEW_ONLY",
+  "current_main_modified": false,
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "restrictions": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "shard11_open": false,
+    "new_seeds_open": false
+  },
+  "next_action": "Review the opt-in PR55 validator as prospective supplementary schema protection, preserve active policy precedence, require real data clock and independent signal-parity receipts before promotion. Do not auto-merge old V255 authority."
+}
