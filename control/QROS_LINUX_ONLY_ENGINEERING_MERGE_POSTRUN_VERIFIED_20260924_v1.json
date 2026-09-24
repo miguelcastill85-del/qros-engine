@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_LINUX_ONLY_ENGINEERING_MAIN_MERGE_POSTRUN_VERIFICATION_V1",
+  "date": "2026-09-24",
+  "objetivo": "Integrar sin prueba Windows, únicamente como biblioteca opt-in Linux x86_64, PR55 causal preflight y PR58 single-owner Anti-Stall con seccomp y comprobar la coexistencia en main sin alterar ciencia",
+  "autoridad": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "main_at_integrated_ci": "6223fd84cf80ff78accb3c78ce61e6e19e0afe5a",
+    "pr58_merge_commit": "e9db8ea40059cc1e0c798033de2149ff41d866a6",
+    "pr55_merge_commit": "9596a2b02d30b924525ed380b8394e9ea24fca82",
+    "public1000_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "scientific_frontier": "V259",
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "anti_stall_governance_pointer_blob": "3996a65e3377da6976a5457177d6a169cee93ff3",
+    "anti_stall_governance_version": "2.2"
+  },
+  "datos": {
+    "type": "ONLY_SYNTHETIC_UNIT_AND_KERNEL_GATES_NO_BROKER_DATA",
+    "xauusd_historical_regression": "NOT_EXECUTED",
+    "nqx_historical_regression": "NOT_EXECUTED",
+    "holdout": "SEALED"
+  },
+  "trabajo_ejecutado": [
+    "PR58 opt-in Linux single-owner guard and seccomp code merged into main",
+    "PR55 prospective declarative schema validator merged into main without policy activation",
+    "Original v2.1/v2.2 scripts preserved at exact old Git blob identities",
+    "CI main combined suites rerun after both PR merges on GitHub-hosted Ubuntu"
+  ],
+  "resultados_verificados": {
+    "github_actions_run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36070859389",
+    "github_actions_job_id": 107871222154,
+    "result": "PASS",
+    "pr55_declarative_tests": 22,
+    "integrated_single_owner_tests": 19,
+    "linux_kernel_seccomp_tests": 9,
+    "baseline_v21_v22_tests": 45,
+    "total": 95,
+    "skipped_linux_seccomp_tests": 0,
+    "source_blob_authentication": "PASS",
+    "scientific_firewall_readback": "PASS"
+  },
+  "gates": {
+    "technical_code_merge": "PASS",
+    "combined_main_ci": "PASS",
+    "linux_x86_64_single_process_research_route": "PASS_SYNTHETIC_ONLY",
+    "windows": "EXCLUDED_BY_USER_UNTESTED_FAIL_CLOSED",
+    "real_m2_m12_m15_regression": "NOT_EXECUTED",
+    "mt5_trade_parity": "NOT_EXECUTED",
+    "deployment_authorized": false,
+    "economic_pnl_read": false,
+    "shard11_open": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "production_adoption": false
+  },
+  "problemas": [
+    "Real M2/M12/M15 historical non-economic parity not verified against frozen Darwinex carriers",
+    "Seccomp no-fork route is incompatible with runners that require subprocess or multiprocessing unless architecture is adapted and independently verified",
+    "No Windows support or test by explicit user request; Windows remains fail-closed",
+    "Linux seccomp is not filesystem/network isolation or safe untrusted-code sandbox"
+  ],
+  "causa_raiz": "Earlier supervisor v3 launched a second owner of processes and allowed detached workers to escape outer process-group kill; reduced to stateless validator plus pinned Linux kernel-enforced single-process route. Earlier PR55 preflight declared rather than demonstrated independent signal parity; merged as optional declarative validator only.",
+  "correcciones": [
+    "Require frozen hashes for launcher, helper, main runner and validator and verify kernel status before exec",
+    "Persist kernel proof as a stage output; reject modified source, fork, clone, detach and forged worker receipt",
+    "Preserve active Anti-Stall v2.2 original logic and avoid two active process controllers",
+    "Run 95 independent main CI cases without Windows and keep public1000 science sealed"
+  ],
+  "estado_cientifico": "PREREGISTERED_NO_RESULTS",
+  "estado_ingenieria": "MERGED_MAIN_LINUX_ONLY_OPT_IN_ENGINEERING_CI_PASS_NO_REAL_BACKTEST",
+  "impacto_portafolio": "NONE_NO_NEW_TRADES_NO_RECALCULATED_PNL",
+  "siguiente_accion_automatica": "Recover authenticated M2/M12/M15 historical carrier partitions and code pins, test non-economic event/config parity and worker process compatibility in isolated Linux research lane; require exact data provenance and independent oracle before changing default backtest runner or authorizing shard11. No Windows testing requested and no MT5 deployment granted."
+}
