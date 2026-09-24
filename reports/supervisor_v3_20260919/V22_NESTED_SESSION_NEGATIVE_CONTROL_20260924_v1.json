@@ -1,0 +1,18 @@
+{
+  "schema": "QROS_SUPERVISOR_V3_V22_NESTED_SESSION_NEGATIVE_CONTROL_V1",
+  "date": "2026-09-24",
+  "parent_report": "reports/supervisor_v3_20260919/V22_RECONCILIATION_20260924_v1.json",
+  "parent_blob_sha1": "a9c722bcb513891a979ddda1d8b0aa9086deb617",
+  "scope": "LOCAL_POSIX_SYNTHETIC_PROCESS_GROUP_NEGATIVE_CONTROL_NOT_QROS_INTEGRATION_TEST",
+  "local_probe_sha256": "ba40929b058e0ad290fe60418e8570097fda3fb9bca5acb3a304142db375c0a9",
+  "probe_git_blob_sha1_expected": "92fa8232cbf2e0aecf0abc71f52ca379e7e0f517",
+  "tests": {
+    "shared_group_outer_killpg_kills_child": "PASS",
+    "nested_start_new_session_child_survives_outer_killpg": "PASS"
+  },
+  "cleanup": "SIGKILL_ISSUED_IN_FINALLY_FOR_SURVIVING_CHILD",
+  "interpretation": "A nested process controller which uses start_new_session can leave a live worker after the v2.2 outer process group is killed. The candidate v3 code spawns detached bootstrap and workers in independent sessions; do not nest its controller under v2.2 watchdog until process ownership is independently proven.",
+  "integration_allowed": false,
+  "scientific_promotion": false,
+  "next_action": "Use v2.2 as the sole owner/dispatcher; extract v3 stateless receipt/spec validators and bound logging only, then test Linux and Windows under exact current-main authority. No dual-controller merge."
+}
