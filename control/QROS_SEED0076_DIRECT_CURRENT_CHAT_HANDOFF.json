@@ -1,16 +1,17 @@
 {
   "schema": "QROS_SEED0076_DIRECT_CURRENT_CHAT_HANDOFF_POINTER_V1",
-  "target": "control/QROS_SEED0076_DIRECT_CHAT_MIGRATION_HANDOFF_20260923_POST_W11_v1.json",
-  "target_git_blob_sha1": "9f2aa2b8d3cffdc1d750322b3e44fd51e1f6ebdc",
-  "target_creation_commit": "0f498890d8d8c96a424298158b755cbe39d96d03",
+  "target": "control/QROS_SEED0076_DIRECT_CHAT_MIGRATION_HANDOFF_20260923_POST_W13_v1.json",
+  "target_git_blob_sha1": "a489d9be1afeab7200617777c5e1438d1803762a",
+  "target_creation_commit": "c3ff475ad334a84cd0f3909fc0fbd84113248ea9",
   "branch": "research/seed0076-direct-dev-backtest-20260922",
-  "last_closed": "XAUUSD_M1_W11_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL",
-  "completed_semantic_configs": 189838,
-  "pending": "XAUUSD_M1_W13_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL",
+  "last_closed": "XAUUSD_M1_W13_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL",
+  "completed_semantic_configs": 207096,
+  "completed_physical_masks_by_cell": 87293,
+  "pending": "AUDIT_EXACT_M1_SIX_WINDOWS_TWO_TIE_POLICIES_COMPLETENESS_PRE_PNL",
   "governance_main_pointer": "control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
-  "next_action": "EXECUTE_ONLY_PREREGISTERED_W13_STRICT_ORIGINAL_V209_XAUUSD_M1_BUY_SELL_THEN_INDEPENDENT_ORACLE_AND_REMOTE_SHA",
+  "anchor_blob_sha1": "f63da3e0f2cff0a5b499ad109d404652b9ed2ed2",
+  "drive_file_id": "1ATY29mtrEmh43bN4SZdYdTTzSaDlmAQe",
+  "next_action": "AUDIT_M1_SIX_WINDOWS_TWO_TIE_COVERAGE_PRE_PNL_THEN_PREREGISTER_ONLY_ONE_NEXT_CAUSAL_AXIS",
   "holdout_open": false,
-  "completed_physical_masks_by_cell": 81616,
-  "prereg_blob_sha1": "9cd1820bed2d8b4cd34a9e29203abb84fcffd1a6",
-  "remaining_stage_status": "PREREGISTERED_NO_RESULTS"
+  "remaining_stage_status": "NOT_STARTED_COVERAGE_AUDIT"
 }
