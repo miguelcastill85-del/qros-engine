@@ -8,6 +8,9 @@ on:
       - 'anti_stall/scripts/qros_anti_stall_v2_2_single_owner_candidate.py'
       - 'anti_stall/scripts/qros_continuation_dispatch_v22_v3_single_owner_candidate.py'
       - 'anti_stall/tests/test_v22_v3_single_owner_candidate.py'
+      - 'anti_stall/scripts/qros_linux_seccomp_single_owner_v1.py'
+      - 'anti_stall/scripts/qros_linux_seccomp_single_process_launcher_v1.py'
+      - 'anti_stall/tests/test_linux_seccomp_kernel_containment_v1.py'
       - '.github/workflows/qros-v22-v3-single-owner-candidate.yml'
   workflow_dispatch:
 permissions:
@@ -47,6 +50,12 @@ jobs:
         run: |
           python -m unittest discover -s anti_stall/tests \
             -p test_v22_v3_single_owner_candidate.py -v
+      - name: Prove Linux kernel seccomp containment (nine adversarial tests)
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -m unittest discover -s anti_stall/tests \
+            -p test_linux_seccomp_kernel_containment_v1.py -v
       - name: Rerun original 45 v2.1/v2.2 regression tests unmodified
         env:
           PYTHONDONTWRITEBYTECODE: '1'
