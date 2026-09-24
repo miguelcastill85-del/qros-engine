@@ -1,0 +1,130 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_CHAT_HANDOFF_POST_W5_CAMPAIGN_BOUND_ANTISTALL_V23_PARTIAL_PASS_V1",
+  "date": "2026-09-24",
+  "project": "Trading algoritmico",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "objective": "Eliminate literal anti-stall orchestration gap for the one preregistered W5 FULL V209 cell; retain the 13 previously closed cells, no W3 rerun, no holdout.",
+  "authority": {
+    "governance_main_pointer_sha1": "3996a65e3377da6976a5457177d6a169cee93ff3",
+    "science_previous_pointer_sha1": "8370decb2c8e033c4b60662e72f03b22516ae899",
+    "science_prereg_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+    "original_V209_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "original_V220_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "original_V221_blob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+    "release_anchor_path": "control/QROS_SEED0076_W5_LITERAL_NONSTALL_V23_SYNTHETIC_RELEASE_REMOTE_SHA_ANCHOR_20260924_v1.json",
+    "release_anchor_blob_sha1": "71f15f43cc55761784d48a609bbb3b12f6daa1f2",
+    "release_anchor_creation_commit": "73f53d83f2bc214a5e8bff062f3aec417415a4f0"
+  },
+  "data": {
+    "asset": "XAUUSD",
+    "signal_tf": "M1",
+    "window": 5,
+    "tie_policy": "SOURCE_ASYMMETRIC",
+    "rearm": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+    "trigger": "TICK_BREAK",
+    "side": [
+      "BUY",
+      "SELL"
+    ],
+    "DEV_exposed": "2018_2019",
+    "raw_ticks_expected": 151382388,
+    "raw_size_bytes": 2573500596,
+    "raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "M1_BID_BARS_sha256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56bbb8a71a7457f59",
+    "M1_INDICATORS_sha256": "f30da86f6c11b5a6573b3571ffd3c3621bbe4d51134258c89d956d6f9ab115b5",
+    "raw_mounted_here": false,
+    "raw_exact_filename_google_drive_search": "NOT_FOUND",
+    "historical_multi_zip_folders_google_drive": "DISCOVERED_NOT_MATERIALIZED"
+  },
+  "work_done": {
+    "one_exact_campaign_bound_queue": true,
+    "one_W5_only": true,
+    "local_v22_dispatch_automatic_multi_stage_loop": true,
+    "bounded_watchdog_seconds": 42,
+    "idle_timeout_seconds": 28,
+    "default_dispatch_seconds": 110,
+    "maximum_distinct_equivalent_routes": 2,
+    "frozen_JIT_and_Python_backends": true,
+    "source_git_code_mirrored_and_exact_content_readback": true,
+    "pinned_archive_google_drive_id": "11xlP7SoYFSB32rvDqau0lm72gZhlulA2",
+    "pinned_archive_sha256": "969a722d14f20c3c56a4ebae72639509d46fc7171a18d109dfcc555c4beac5cd",
+    "pinned_archive_members": 42,
+    "internal_SHA256_checks": 41,
+    "connected_drive_redownload_sha_verified": true
+  },
+  "verified_results": {
+    "existing_v21_regression_tests": 37,
+    "v22_adversarial_tests": 8,
+    "W5_original_vs_independent_synthetic_and_source_tests": 21,
+    "v23_pipeline_failover_resume_security_tests": 12,
+    "realdata_negative_preflight_tests": 5,
+    "total_local_pass": 83,
+    "synthetic_prereg_config_ids": 22352,
+    "per_side_original_filter_packages": 11176,
+    "synthetic_receipt_sha256": "2f0a7190967cb2f4a5abefd55a9e0c5e16a5aca590ba133adb680cc765c2f94f",
+    "synthetic_gate": "PASS_SYNTHETIC_ONLY",
+    "full_original_quote_guards_actual_ticks": "NOT_YET_TESTED",
+    "independent_trade_by_trade_actual_ticks": "NOT_YET_TESTED",
+    "historical_PnL_for_new_W5": "NOT_RUN",
+    "repeat_run_duplicate_completed_stages": 0,
+    "interrupted_PINNED_exact_output_recovery": "PASS",
+    "tampered_output_fail_closed": "PASS",
+    "remote_CI": "NOT_RUN_ZERO_ADDITIONAL_COST",
+    "native_Windows": "NOT_TESTED"
+  },
+  "gates": {
+    "synthetic_source_parity": "PASS",
+    "W5_V209_enumerator_and_ID_parity": "PASS",
+    "MTF_boundary_causal_synthetic_adaptor": "PASS",
+    "realdata_input_SHA": "PENDING",
+    "Darwinex_broker_time_DST": "PENDING",
+    "guarded_valid_quote_production_numba_parity": "PENDING",
+    "retest_entry_original_V220_parity": "PENDING",
+    "full_10_family_raw_mask_independent_parity": "PENDING",
+    "broker_commission": "NOT_CERTIFIED",
+    "Gate_A": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5": false
+  },
+  "problems": [
+    "Original v2.2 governance had no campaign-bound W5 queue or real-data materializer.",
+    "v2.2 dispatcher deliberately stopped after one PASS and needed outer bounded continuation.",
+    "Original frozen V221 MTF completion index is conservatively one completed bar late at the exact boundary.",
+    "Original V220 tick generator uses Bid only without an invalid Bid/Ask spread guard.",
+    "Original historical 2.57GB packed17 file not available as a local mounted file in this chat."
+  ],
+  "root_causes": [
+    "Governance/runner integration omitted when W5 was preregistered.",
+    "No realdata source locator/recovery job for original 2018–2019 carrier pinned by exact bytes.",
+    "Source original V221 uses searchsorted(side=left)-1; corrected adapter independently tested at edge with side=right-1."
+  ],
+  "corrections": [
+    "Created immutable W5 v2.3 runnable bundle: six source/test modules and negative realdata preflight with SHA-pinned 42 ZIP members.",
+    "Integrated v2.2 bounded runner as actual W5 queue, with two frozen backends and multi-step continuation until blocked/exhausted.",
+    "Added recovery of a crashed RUNNING stage only after all original source and output byte+SHA pins validate.",
+    "Tested patched MTF adapter without changing historical V221 source; full real-data parity still required.",
+    "Persisted release ZIP in connected Drive and source mirror+release anchor in GitHub research branch; no main governance mutation."
+  ],
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "last_closed": "W5_CAMPAIGN_BOUND_NONSTALL_V23_SYNTHETIC_SOURCE_PARITY_AND_RECOVERY_SECURITY_83_LOCAL_TESTS",
+  "next_pending": "RECOVER_PINNED_XAU_DEV_CARRIERS_AND_INDEPENDENT_FULL_10_FAMILY_W5_TICK_PRE_ECON_REALDATA_VALIDATION",
+  "next_stage_status": "REALDATA_NOT_MOUNTED_PRE_ECON_PARTIAL_PASS",
+  "risk_limits": {
+    "BUY_entry_Ask_SELL_entry_Bid": true,
+    "max_daily_new_entries_standalone": 3,
+    "no_overnight": true,
+    "no_GA2": true,
+    "no_holdout": true,
+    "no_old_60_shards": true
+  },
+  "impact_portfolio": {
+    "new_approved_alpha": false,
+    "new_W5_trades": 0,
+    "prior_13_seven_family_configs_intact": 224354,
+    "new_preregistered_W5_configs_not_executed": 22352,
+    "independent_portfolio_contribution": "NOT_ASSESSED"
+  },
+  "next_automatic_action": "Recover exact XAU DEV packed17 tick file (2,573,500,596 bytes, pinned SHA256), M1 bars and indicators via previously uploaded multipart history and connected storage, in bounded chunks with external receipts; run qros_w5_realdata_preflight_v1.py; verify Darwinex time/DST and production Bid/Ask valid quote/rearm0/retest/MTF full ten-family independent parity before executing only the preregistered 22352-config W5 DEV paired-side chunked economic backtest. Do not reopen W3 or holdout/GA2.",
+  "background_execution": "NOT_CONFIGURED; requires separately authorized external scheduler/self-hosted runner and authenticated access; no promise of work after this reply."
+}
