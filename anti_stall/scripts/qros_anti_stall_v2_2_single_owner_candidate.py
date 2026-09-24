@@ -99,7 +99,10 @@ def parse_plan(root,plan_path,expected_sha):
             required=('contract_path','contract_sha256','proof_path','max_log_bytes','idle_seconds','direct_worker_no_detached_descendants')
             if any(k not in guard for k in required):raise Incident('GUARD_CONTRACT_INCOMPLETE')
             from qros_v3_stateless_receipt_guard_v1 import read_frozen_contract
-            contract=read_frozen_contract(root,guard['contract_path'],guard['contract_sha256'])
+            try:
+                contract=read_frozen_contract(root,guard['contract_path'],guard['contract_sha256'])
+            except (ValueError,OSError,TypeError) as exc:
+                raise Incident('GUARD_CONTRACT_FAIL_CLOSED:'+str(exc)) from exc
             if contract['lane_id']!=p['lane_id'] or contract['stage_id']!=sid or contract['authority']!=p['authority']:
                 raise Incident('GUARD_CROSS_LANE_OR_STAGE_AUTHORITY')
             if contract['proof_path']!=guard['proof_path'] or not any(o['path']==guard['proof_path'] for o in outputs):
