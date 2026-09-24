@@ -30,7 +30,7 @@ class SingleOwnerSynthetic(unittest.TestCase):
         (work/"input.dat").write_bytes(b"pinned non-economic input")
         contract={
           "schema":"QROS_V3_STATELESS_GUARD_CONTRACT_V1",
-          "authority":AUTH,"lane_id":"TEST_LANE","stage_id":"ONE_STAGE",
+          "authority":dict(AUTH),"lane_id":"TEST_LANE","stage_id":"ONE_STAGE",
           "expected_receipt":{"job_id":"FIXTURE","spec_sha256":"f"*64},
           "worker_receipt":"worker_receipt.json",
           "artifacts":[{"path":"result.bin","bytes":len(DATA),"sha256":ART_SHA}],
