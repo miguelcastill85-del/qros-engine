@@ -1,0 +1,75 @@
+{
+  "schema": "QROS_CAUSAL_UNIVERSE_PREFLIGHT_FIXTURE_1.0",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "economic_firewall": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "economic_scoring_authorized": false
+  },
+  "causal_hypothesis": {
+    "mechanism_id": "FAILED_AUCTION_REJECTION",
+    "genealogy_id": "TEST_GENEALOGY",
+    "mechanism_fingerprint": "sha256:test",
+    "observable_before_entry": true
+  },
+  "bar_clock": {
+    "timezone_authority": "BROKER_AUTH",
+    "session_calendar": "SESSION_AUTH",
+    "bar_origin": "BROKER_SESSION_ANCHORED",
+    "dst_policy": "EXPLICIT",
+    "partial_bar_policy": "DISALLOW_UNLESS_EXPLICIT"
+  },
+  "features": [
+    {
+      "feature_id": "range_high",
+      "source_timeframe": "M15",
+      "availability": "CLOSED_BAR",
+      "closed_bar_offset": 1,
+      "depends_on": ["bid", "ask"],
+      "uses_future_data": false
+    },
+    {
+      "feature_id": "reclaim_tick",
+      "source_timeframe": "TICK",
+      "availability": "CURRENT_TICK_CAUSAL",
+      "closed_bar_offset": 0,
+      "depends_on": ["bid", "ask"],
+      "uses_future_data": false
+    }
+  ],
+  "universe": {
+    "parameter_axes": {
+      "sweep_points": [1, 2, 3],
+      "reclaim_ticks": [1, 2],
+      "context": ["OFF", "EMA_ORDER"]
+    },
+    "expected_raw_count": 12,
+    "interaction_depth": 2,
+    "interaction_depth_rationale": "Two operators are causally complementary; no third operator is needed for the mechanism.",
+    "parameter_neighborhood_preregistered": true,
+    "semantic_normalization_exact_only": true,
+    "near_duplicate_reduces_n_tests": false
+  },
+  "genealogy_collision": {
+    "mechanism_fingerprint_required": true,
+    "exact_event_mask_collision_check_pre_pnl": true,
+    "collision_changes_genealogy_without_new_preregistration": false
+  },
+  "parity": {
+    "independent_enumerator_required": true,
+    "independent_signal_oracle_required": true,
+    "independent_execution_oracle_required": true,
+    "primary_and_oracle_source_must_differ": true
+  },
+  "multiplicity": {
+    "n_tests_authority": "FROZEN_GLOBAL_EXACT_HYPOTHESIS_COUNT",
+    "campaign_level_null_calibration_required": true,
+    "cross_shard_duplicate_policy": "GLOBAL_EXACT_MASK_ALIAS"
+  },
+  "external_oracle": {
+    "consumes_frozen_anchors_for_execution": true,
+    "may_generate_candidates": false,
+    "may_select_candidates": false
+  }
+}

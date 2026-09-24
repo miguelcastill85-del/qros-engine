@@ -1,0 +1,112 @@
+{
+  "schema": "QROS_CAUSAL_UNIVERSE_BACKTEST_HARDENING_AUDIT_1.0",
+  "date": "2026-09-20",
+  "status": "PASS_WITH_PROSPECTIVE_CORRECTIONS",
+  "objective": "Audit the proposed external-validation architecture with priority on causal hypothesis backtesting, universe construction, configuration/variant completeness, anti-lookahead, multiplicity, cross-genealogy dedupe and independent parity; persist corrections without altering frozen V255 science.",
+  "authority": {
+    "main_commit": "95c1f280afc05b09a0df3867847edbf2c6dc3245",
+    "stable_frontier": "V255",
+    "frontier_pointer_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "frontier_pointer_blob_sha1": "8ddf9ae9481f8c30a0ed4603aae07050a8619c09",
+    "frontier_target_path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER_V255_v1.json",
+    "frontier_target_blob_sha1": "4b19ee8c84e47332cc2b2117010deb0d0edbde12",
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false
+  },
+  "findings": [
+    {
+      "id": "CUH-01_EXTERNAL_ENGINE_ORDERING",
+      "severity": "HIGH",
+      "status": "FAIL_CORRECTED_PROSPECTIVELY",
+      "finding": "The prior proposal placed Qlib/LEAN/Nautilus too early as the main improvement. Execution-engine independence cannot repair an incomplete, semantically drifting or retrospectively expanded causal universe.",
+      "correction": "External engines are constrained to signal-oracle, execution-oracle or separately preregistered sandbox roles. They may not generate or select candidates in validation mode."
+    },
+    {
+      "id": "CUH-02_ENUMERATOR_PARITY_NOT_SIGNAL_PARITY",
+      "severity": "CRITICAL",
+      "status": "FAIL_CORRECTED_PROSPECTIVELY",
+      "finding": "Two independent enumerators prove equality of the configuration set, not equality of causal feature/event interpretation.",
+      "correction": "Add mandatory INDEPENDENT_SIGNAL_ORACLE_PARITY between config freeze and development backtest."
+    },
+    {
+      "id": "CUH-03_BAR_MTF_OBSERVABILITY_BINDING",
+      "severity": "CRITICAL",
+      "status": "GAP_IN_INSPECTED_UNIVERSE_ARTIFACTS_CORRECTED_PROSPECTIVELY",
+      "finding": "The inspected machine-universe and fixed-point artifacts enumerate MTF/timeframe dimensions but do not themselves bind bar origin, partial-bar policy and per-feature closed-bar availability. The audit does not claim such bindings are absent elsewhere.",
+      "correction": "Require explicit bar-clock and per-feature observability bindings before universe closure. CLOSED_BAR features require closed_bar_offset>=1."
+    },
+    {
+      "id": "CUH-04_RISE_FIXED_POINT_SCOPE",
+      "severity": "HIGH",
+      "status": "PASS_EXISTING_SCOPE_STRENGTHENED",
+      "finding": "Existing receipt correctly limits fixed point to the frozen genealogy radius. Risk remains that downstream users interpret fixed point as universal strategy-space exhaustion.",
+      "correction": "Policy makes this limitation a hard wording invariant and requires an ex-ante interaction-depth rationale."
+    },
+    {
+      "id": "CUH-05_UNIVERSE_INTERACTION_DEPTH",
+      "severity": "HIGH",
+      "status": "GAP_CORRECTED_PROSPECTIVELY",
+      "finding": "A hard max_active_filter_families=2 is computationally useful but is not, by itself, a causal proof that depth-3+ interactions are unnecessary.",
+      "correction": "Every future campaign must preregister interaction depth and causal rationale. Depth is expanded only for causal mechanism coverage, never because PnL suggests more search."
+    },
+    {
+      "id": "CUH-06_PARAMETER_SURFACE_RETROFIT",
+      "severity": "HIGH",
+      "status": "FAIL_CLOSED_PROSPECTIVELY",
+      "finding": "Plateau/sensitivity analysis can become retrospective if neighboring parameter points are added only after a profitable cell appears.",
+      "correction": "Parameter neighborhoods and boundary points must be frozen before economic results."
+    },
+    {
+      "id": "CUH-07_CROSS_GENEALOGY_ALIAS",
+      "severity": "HIGH",
+      "status": "FAIL_CLOSED_PROSPECTIVELY",
+      "finding": "Within-shard exact event-mask aliases are controlled, but the inspected contracts do not by themselves establish a project-wide pre-PnL collision gate against prior genealogies.",
+      "correction": "Require mechanism fingerprint plus exact event-mask collision audit against prior genealogies before economic scoring. Near duplicates are annotated only and cannot reduce N_TESTS."
+    },
+    {
+      "id": "CUH-08_MULTIPLICITY_GLOBAL_CALIBRATION",
+      "severity": "MEDIUM",
+      "status": "HARDENED_PROSPECTIVELY",
+      "finding": "The frozen per-shard BY allocation is explicit and conservative, but the campaign-level operating characteristics under actual cross-shard dependence are not demonstrated by the inspected contract alone.",
+      "correction": "Keep existing frozen current policy unchanged; require prospective campaign-level null calibration/permutation diagnostic in addition to the formal multiplicity contract."
+    },
+    {
+      "id": "CUH-09_BACKTEST_METAMORPHIC_TESTING",
+      "severity": "HIGH",
+      "status": "FAIL_CORRECTED_PROSPECTIVELY",
+      "finding": "Trade-by-trade parity can still allow shared semantic errors if both implementations copy the same assumption.",
+      "correction": "Add metamorphic invariants for future truncation, cost/slippage monotonicity, bar resample causality, timestamp order, Bid/Ask sides and naive-vs-optimized parity."
+    },
+    {
+      "id": "CUH-10_RETROACTIVE_SCIENTIFIC_MUTATION",
+      "severity": "CRITICAL",
+      "status": "PASS_FAIL_CLOSED",
+      "finding": "Applying these corrections directly to frozen V255 would invalidate config identities and preregistration.",
+      "correction": "Policy is prospective-only. V255 receives no universe, parameter, multiplicity or economic change."
+    }
+  ],
+  "validation": {
+    "method": "LOCAL_STANDARD_LIBRARY_UNIT_TESTS_NO_MARKET_DATA_NO_PNL",
+    "test_file": "tests/test_qros_causal_universe_preflight_v1.py",
+    "tests_run": 14,
+    "tests_passed": 14,
+    "tests_failed": 0,
+    "validator_sha256": "f3641f3df297d5f85aebc7e95dd3ff579804d1d8c6d59645ebc1dc85ab747beb",
+    "policy_sha256": "825c6f2edd7d93e27697f47aa4a7b46dd66ff4f305dc44888d79847779535f87",
+    "test_sha256": "47d1d564683199b34e6f9bcd428c182b3028115c272066a8d2ba25ed95302349",
+    "fixture_sha256": "15a549c8d9d1e30a80936040ce8e27b62475bab3837bdade2bd2f204fc3cbee5"
+  },
+  "scientific_effect": {
+    "current_v255": "NONE",
+    "current_w09c": "NONE",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_started": false,
+    "prospective_effect": "Adds a pre-PnL causal-universe hardening gate for new campaigns/descendants after explicit adoption."
+  },
+  "next_automatic_action": "Persist policy, validator, fixture, tests and this audit on an isolated branch; read back exact bytes; open a review PR. Do not merge or alter V255 scientific authority automatically."
+}

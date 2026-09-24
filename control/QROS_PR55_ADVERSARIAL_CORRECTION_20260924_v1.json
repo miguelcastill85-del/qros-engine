@@ -1,0 +1,55 @@
+{
+  "schema": "QROS_PR55_CAUSAL_PREFLIGHT_ADVERSARIAL_CORRECTION_V1",
+  "date": "2026-09-24",
+  "branch": "audit/causal-universe-backtest-hardening-v1-20260920",
+  "authority": {
+    "main_at_review": "1b0cc42ceb977fcfbb7125edf767903f66dd5dd1",
+    "scientific_frontier": "V259",
+    "main_pointer_git_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "governance": "ANTI_STALL_V2_2"
+  },
+  "source": {
+    "original_git_blob_sha1": "43269eebb42fd33d2b08a429a104e126171c6f68",
+    "corrected_git_blob_sha1": "8d225057b48107ab5bfddc17bca794721b70b180",
+    "corrected_sha256": "01afd0d01139dce1498c117c2990dd4499bd3cdf9c8ab80f58f8f54f51790434"
+  },
+  "tests": {
+    "original_git_blob_sha1": "1a16e5242b213f1b8ca3d032bbc838fefb237d8a",
+    "corrected_git_blob_sha1": "7ffa58d7b9069810057d1ccd972f20e3fc85aa11",
+    "original_local_regressions_pass": 14,
+    "additional_independent_local_tests_pass": 9,
+    "new_tests_committed_to_pr": 8,
+    "negative_original_probes": 10,
+    "scope": "LOCAL_PYTHON_TEST_ONLY_NO_MARKET_DATA",
+    "generic_ci_checks": [
+      "freeze-source:SUCCESS",
+      "validate:SUCCESS"
+    ],
+    "warning": "Generic validate workflow did not execute the PR55 unit test file; targeted remote suite not certified"
+  },
+  "corrections": [
+    "CLOSED_BAR_OFFSET_MUST_BE_INT_NOT_BOOL",
+    "USES_FUTURE_DATA_MUST_BE_EXPLICIT_FALSE",
+    "NONEMPTY_SOURCE_TIMEFRAME",
+    "EXPLICIT_TYPED_FEATURE_DEPENDENCIES",
+    "FEATURE_ENTRIES_FAIL_CLOSED",
+    "INTERACTION_DEPTH_INT_NOT_BOOL",
+    "DECLARATIVE_PREFLIGHT_LABEL_NOT_SCIENTIFIC_PARITY_PROOF"
+  ],
+  "still_not_proven": [
+    "Actual broker clock authenticity",
+    "Real oracle generator independence",
+    "Exact signal/trade parity",
+    "Exact constrained-universe cardinality where constraints apply",
+    "Current-main integration and no overlapping policy conflicts"
+  ],
+  "status": "ENGINEERING_REPAIRED_PROSPECTIVE_CANDIDATE_NOT_MERGE_APPROVED",
+  "firewalls": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "shard11_open": false,
+    "production_adoption": false
+  },
+  "next_action": "Independently rerun targeted 22-test suite on a clean checkout; compare policy against main causal-universe-first v1.4; add actual evidence binding before any scientific promotion. Do not auto-merge."
+}

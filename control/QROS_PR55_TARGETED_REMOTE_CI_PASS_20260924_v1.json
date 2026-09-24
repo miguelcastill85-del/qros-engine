@@ -1,0 +1,32 @@
+{
+  "schema": "QROS_PR55_TARGETED_REMOTE_CI_PASS_V1",
+  "date": "2026-09-24",
+  "scoped_to": "ENGINEERING_DECLARATIVE_PREFLIGHT_ONLY",
+  "branch": "audit/causal-universe-backtest-hardening-v1-20260920",
+  "source_commit": "80f590819161f3af191ddd419b8d5ba2d494a495",
+  "source_git_blob": "8d225057b48107ab5bfddc17bca794721b70b180",
+  "tests_git_blob": "7ffa58d7b9069810057d1ccd972f20e3fc85aa11",
+  "workflow_path": ".github/workflows/qros-pr55-adversarial-targeted.yml",
+  "workflow_run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36061936460",
+  "job_id": 107842683713,
+  "conclusion": "SUCCESS",
+  "test_command": "python -m unittest discover -s tests -p test_qros_causal_universe_preflight_v1.py -v",
+  "tests_run": 22,
+  "tests_passed": 22,
+  "tests_failed": 0,
+  "coverage_lock": "22 declared test functions",
+  "evidence": "LIVE_GITHUB_ACTIONS_LOG_READBACK",
+  "scope_limits": [
+    "no market data",
+    "no real causal/independent event parity",
+    "policy vs active main not yet adopted",
+    "does not authorize economic PnL"
+  ],
+  "scientific_firewalls": {
+    "holdout_open": false,
+    "ga2_open": false,
+    "shard11_open": false
+  },
+  "merge_approved": false,
+  "next_action": "Compare prospective policy with current active main and preserve non-retroactive semantics. No automated merge."
+}

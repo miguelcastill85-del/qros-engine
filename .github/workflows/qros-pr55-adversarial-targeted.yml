@@ -1,0 +1,36 @@
+name: qros-pr55-adversarial-targeted
+on:
+  push:
+    branches:
+      - audit/causal-universe-backtest-hardening-v1-20260920
+    paths:
+      - 'scripts/qros_causal_universe_preflight_v1.py'
+      - 'tests/test_qros_causal_universe_preflight_v1.py'
+      - '.github/workflows/qros-pr55-adversarial-targeted.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preflight-declarative-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run all 22 targeted preflight tests
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python -m unittest discover -s tests -p test_qros_causal_universe_preflight_v1.py -v
+      - name: Enforce declared 22-test coverage without economic data
+        run: |
+          python - <<'PY'
+          import ast,pathlib
+          p=pathlib.Path('tests/test_qros_causal_universe_preflight_v1.py')
+          root=ast.parse(p.read_text())
+          n=sum(isinstance(x,ast.FunctionDef) and x.name.startswith('test_') for cls in root.body if isinstance(cls,ast.ClassDef) for x in cls.body)
+          assert n==22, f'targeted_test_count_drift={n}'
+          print('PASS 22 declared adversarial/legacy tests; declarative schema only')
+          PY

@@ -1,0 +1,116 @@
+{
+  "schema": "QROS_CAUSAL_UNIVERSE_BACKTEST_HARDENING_POLICY_1.0",
+  "status": "PROSPECTIVE_MANDATORY_CANDIDATE_PENDING_REVIEW",
+  "scope": "ALL_NEW_QROS_RISE_CAMPAIGNS_AND_NEW_DESCENDANTS_CREATED_AFTER_ADOPTION",
+  "non_retroactivity": "DO_NOT_CHANGE_FROZEN_V255_OR_ANY_ALREADY_HASH_FROZEN_UNIVERSE; annotate only unless a separate correction receipt invalidates frozen science",
+  "objective": "Strengthen causal-hypothesis construction, universe completeness, semantic dedupe, independent signal parity and execution parity before economic scoring.",
+  "stage_order": [
+    "DATA_AUDIT",
+    "PREREGISTRATION",
+    "CAUSAL_SCOPE",
+    "CAUSAL_OBSERVABILITY_BINDING",
+    "UNIVERSE_ADEQUACY_AUDIT",
+    "UNIVERSE_BUILD",
+    "SEMANTIC_NORMALIZATION_EXACT_DEDUPE",
+    "CROSS_GENEALOGY_COLLISION_AUDIT",
+    "RISE_FIXED_POINT",
+    "UNIVERSE_ONTOLOGY_FROZEN",
+    "CONFIG_HASH_FREEZE",
+    "INDEPENDENT_ENUMERATOR_PARITY",
+    "INDEPENDENT_SIGNAL_ORACLE_PARITY",
+    "DEVELOPMENT_BACKTEST",
+    "GATE_A",
+    "HOLDOUT",
+    "SUPERGATE",
+    "MT5_PARITY",
+    "PORTFOLIO_MARGINAL_ANALYSIS",
+    "FINAL_DECISION"
+  ],
+  "hard_invariants": {
+    "economic_pnl_before_freeze": false,
+    "holdout_open_before_gate_a": false,
+    "external_engine_candidate_generation": false,
+    "external_engine_candidate_selection": false,
+    "post_result_parameter_addition": false,
+    "future_bar_or_future_tick_feature_access": false,
+    "bar_clock_implicit": false,
+    "cross_genealogy_exact_collision_unchecked": false,
+    "independent_signal_oracle_required": true,
+    "independent_execution_oracle_required": true,
+    "exact_only_pre_pnl_dedupe": true,
+    "near_duplicate_dedupe_may_reduce_n_tests": false
+  },
+  "required_bindings": {
+    "bar_clock": [
+      "timezone_authority",
+      "session_calendar",
+      "bar_origin",
+      "dst_policy",
+      "partial_bar_policy"
+    ],
+    "feature_observability": [
+      "feature_id",
+      "source_timeframe",
+      "availability",
+      "closed_bar_offset",
+      "depends_on"
+    ],
+    "universe": [
+      "parameter_axes",
+      "interaction_depth",
+      "interaction_depth_rationale",
+      "parameter_neighborhood_preregistered",
+      "expected_raw_count",
+      "canonical_noop_values"
+    ],
+    "genealogy": [
+      "genealogy_id",
+      "mechanism_fingerprint",
+      "parent_genealogy_ids",
+      "exact_event_mask_collision_check_pre_pnl"
+    ],
+    "parity": [
+      "independent_enumerator_required",
+      "independent_signal_oracle_required",
+      "independent_execution_oracle_required"
+    ],
+    "multiplicity": [
+      "n_tests_authority",
+      "cross_shard_duplicate_policy",
+      "campaign_level_null_calibration_required"
+    ],
+    "external_oracle": [
+      "consumes_frozen_anchors_for_execution",
+      "may_generate_candidates",
+      "may_select_candidates"
+    ]
+  },
+  "external_engine_roles": {
+    "signal_oracle": "May independently rematerialize frozen signals from the same frozen specification and data; may not alter configuration space.",
+    "execution_oracle": "Consumes frozen event anchors plus ordered Bid/Ask data and returns trade ledger; may not generate or rank signals.",
+    "research_sandbox": "May explore only inside a separately preregistered campaign with its own genealogy and exposure state."
+  },
+  "universe_rules": {
+    "fixed_point_scope": "A RISE fixed point proves closure only inside the preregistered causal genealogy radius, never universal strategy-space exhaustion.",
+    "interaction_depth": "Depth must be justified ex ante by the causal mechanism. Larger depth is not authorized merely to search more combinations.",
+    "parameter_surface": "Neighborhoods and boundary points used later for plateau/sensitivity analysis must be frozen before economic results.",
+    "semantic_normalization": "Remove only proven no-op representation differences, normalize commutative ordering, and preserve a reversible alias map.",
+    "exact_mask_dedupe": "Exact event-mask equivalence may collapse aliases pre-PnL; near-equivalence may only be annotated, not removed or excluded from N_TESTS unless separately proven exact.",
+    "cross_genealogy": "Exact semantic/event collisions with prior genealogies must be classified as alias/descendant/collision before economic scoring."
+  },
+  "metamorphic_backtest_tests": [
+    "FUTURE_TRUNCATION_INVARIANCE: removing ticks after decision time cannot change an already-issued signal",
+    "COST_MONOTONICITY: increasing explicit cost with identical fills cannot improve net_R",
+    "SLIPPAGE_MONOTONICITY: adverse slippage with identical path cannot improve entry/exit economics",
+    "TIMESTAMP_ORDER_STABILITY: equal timestamps respect carrier_sequence deterministically",
+    "BAR_RESAMPLE_CAUSALITY: a bar/MTF feature cannot include quotes after its declared close",
+    "BID_ASK_SIDE_INVARIANT: BUY uses Ask entry/Bid exit; SELL uses Bid entry/Ask exit",
+    "NAIVE_OPTIMIZED_PARITY: optimized and reference implementations match trade-by-trade on bounded fixtures"
+  ],
+  "adoption_gate": {
+    "validator": "scripts/qros_causal_universe_preflight_v1.py",
+    "required_test_receipt": "control/QROS_CAUSAL_UNIVERSE_BACKTEST_HARDENING_AUDIT_20260920_v1.json",
+    "economic_effect": "NONE_UNTIL_SEPARATE_SCIENTIFIC_ADOPTION",
+    "current_v255_effect": "NONE"
+  }
+}
