@@ -1,0 +1,105 @@
+{
+  "schema": "QROS_SEED0076_W5_V28_LIBRARY_BYTE_READBACK_ANCHOR_V1",
+  "date_utc": "2026-09-25",
+  "scientific_lane": "research/seed0076-direct-dev-backtest-20260922",
+  "parent_pointer_blob_sha1": "c3436492ad6a9555b8164a755c79f323e5087c2a",
+  "causal_cell": "XAUUSD_M1_W5_SOURCE_ASYMMETRIC_RETURN_INSIDE_OR_LEVEL_REPLACED_TICK_BREAK_BUY_SELL_FULL_V209",
+  "source_raw_ticks_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "original_prereg_blob_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+  "original_semantic_id_stream_sha256": "bb1e97c99fc1eb3c1acab53f77232c00fae61feafb5b8b63941c1e68e0e53b75",
+  "audit_status": "PASS_COMPLETE_22352_EXPLORATORY_ONLY",
+  "total_semantic_configs": 22352,
+  "total_distinct_physical_masks": 14459,
+  "verified_economic_route_shards": 104,
+  "independent_real_tick_trade_parity": {
+    "routes_passed": 56,
+    "routes_total": 56,
+    "trades_identical": 1125,
+    "fields_identical": 12375,
+    "scope": "representative_stratified_plus_4_pre_economic_frozen_cases_NOT_full_22352_trade_by_trade"
+  },
+  "storage": {
+    "provider": "ChatGPT Project personal Library",
+    "path": "/QROS_SEED0076_W5_V28_EVIDENCE_20260925",
+    "readback": "PASS_ALL_9_ZIP_BYTEWISE_SHA256_EQUAL_ORIGINAL_AND_ZIP_CRC_PLUS_CSV_ROW_SHA",
+    "master": {
+      "name": "QROS_SEED0076_W5_V28_MASTER_COMPLETE_22352_RESULTS_AND_REPRODUCTION.zip",
+      "bytes": 7988906,
+      "sha256": "b2943f96a8b0eb946a9899b52e63a354d33971c88baa0b29dfd58f8e116a3e62",
+      "library_file_id": "libfile_ec62d620c5a8819188f5b83ebef2d2a0"
+    },
+    "channels": [
+      {
+        "index": 0,
+        "bytes": 48292524,
+        "sha256": "196de55420e5c29f3ef776d32179842309826585e2fd7d6580fe73f95561ffa2",
+        "library_file_id": "libfile_e033f72638688191816a2e0c212a5e99"
+      },
+      {
+        "index": 1,
+        "bytes": 9970035,
+        "sha256": "e9dbaf55d02d196bfa122dd23cd78e6050957d028929f0c75c0bcb367ef3c16e",
+        "library_file_id": "libfile_c34fa31f66b081918b2c78f7d939eb33"
+      },
+      {
+        "index": 2,
+        "bytes": 8374654,
+        "sha256": "0a409c8ae4cb6d70fed00d6d250aecf2e71fc1971ae8657f1c52d01f327401e6",
+        "library_file_id": "libfile_a93a12bfc6388191a11892d79a53492b"
+      },
+      {
+        "index": 3,
+        "bytes": 6042626,
+        "sha256": "98273ee8c58160de831d71e8667c329b6df35441919ca2ef37fc47d889626dae",
+        "library_file_id": "libfile_4cc9d707edb0819190a88e7456fb8d97"
+      },
+      {
+        "index": 4,
+        "bytes": 47774164,
+        "sha256": "79d30dd8c734c845025583261fd50bd88392c0ce03d21764f8d82eb4d351ea76",
+        "library_file_id": "libfile_b0152564d61c8191b286951da9c84549"
+      },
+      {
+        "index": 5,
+        "bytes": 9750697,
+        "sha256": "583b967c4a5f560e27cf415e350d34567d07b5b29df72bb0ffb201658c444923",
+        "library_file_id": "libfile_c610db5a52b881918331a6717207b0dd"
+      },
+      {
+        "index": 6,
+        "bytes": 8244467,
+        "sha256": "a12a9c61166a7999f33bf0c38746f70a45a3ce9d3448af565c88f66d3734ef02",
+        "library_file_id": "libfile_553bc201653c81919f34b1690a3ce9cb"
+      },
+      {
+        "index": 7,
+        "bytes": 6087466,
+        "sha256": "c1065ab90c72ab9d7ffe7f8509a7eeb0fb115a2d8787985681a74e6d9d423e95",
+        "library_file_id": "libfile_1dad2b393bdc8191bd2a66d3da8e587d"
+      }
+    ],
+    "csv": {
+      "name": "V28_ALL_22352_EXPLORATORY_2018_2019_DEV_RESULTS.csv",
+      "rows": 22352,
+      "bytes": 10072581,
+      "sha256": "30e65116e28f48e7939cab031ca0470b4be52d03225c2194daf106571cee66e2",
+      "library_file_id": "libfile_008bf612219c8191b60f75d41be7f3b0"
+    }
+  },
+  "source_archive_receipts": [
+    "RECEIPTS/V28_INDEPENDENT_COMPLETE_EXPOSED_DEV_ECONOMIC_BYTE_ID_AUDIT.json",
+    "RECEIPTS/V28_ALL_56_ROUTE_REAL_INDEPENDENT_PARITY_MASTER_RECEIPT.json",
+    "RECEIPTS/V28_EXPLORATORY_22352_DESCRIPTIVE_NONSELECTIVE_SUMMARY.json"
+  ],
+  "scientific_firewalls": {
+    "development_2018_2019_exposed": true,
+    "costs_not_broker_certified": true,
+    "calendar_not_broker_certified": true,
+    "holdout_open": false,
+    "ga2_open": false,
+    "gate_a_approved": false,
+    "MT5_trade_parity_pending": true,
+    "no_new_alpha_approved": true
+  },
+  "continuation_fix": "Close last verified step in exact live branch pointer after durable library byte rehash, do not repeat V25/V26/V27/V28, keep broker-certification gating distinct from developer's host runtime limitations."
+}

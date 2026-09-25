@@ -1,0 +1,23 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_M1_W7_REMOTE_IMMUTABLE_ANCHOR_V1",
+  "seed": "WEB_SEED_0076",
+  "asset": "XAUUSD",
+  "timeframe": "M1",
+  "fractal_window": 7,
+  "source": "FROZEN_ORIGINAL_V209",
+  "parent_w5_lock_sha256": "c5148859d36ec0c94efee0f6450ed57ca0ca79543458a7c093509e375c635720",
+  "w7_external_lock_sha256": "87a312a5955f5019ffb5a56561febb07fc4367f86c0a42e47ab7389bebb52fce",
+  "w7_zip_sha256": "e51a1af317fce75f0f985c5f6a31516a91fcd1e1d3112899748869d19daec6de",
+  "w7_zip_bytes": 7900677,
+  "drive_file_id": "10Rh8kFLSCfrYq_Wcl20w9maxxX28rNw7",
+  "drive_folder_id": "1lfMh7r2SJiu2pIm6kSCAHmvKqLBFHNOG",
+  "new_semantic_configurations": 17258,
+  "new_physical_masks": 7150,
+  "original_filter_canaries_pass": 218,
+  "independent_sampled_full_tick_trade_rows_pass": 8162,
+  "dev_2018_2019_exposed": true,
+  "broker_commission_certified": false,
+  "holdout_open": false,
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "next_serial_domain": "XAUUSD_M1_W9"
+}

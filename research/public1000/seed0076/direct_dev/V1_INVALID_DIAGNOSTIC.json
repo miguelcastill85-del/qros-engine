@@ -1,0 +1,104 @@
+{
+  "PF_R": null,
+  "annual": null,
+  "asset": "XAUUSD",
+  "candidate_event_count": 44292,
+  "configs": [
+    {
+      "definition": {
+        "asset": "XAUUSD",
+        "filters": {
+          "TREND": {
+            "ema_triple": [
+              9,
+              20,
+              50
+            ],
+            "mode": "EMA_ORDER"
+          }
+        },
+        "fractal_window": 3,
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "side": "BUY",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "timeframe": "M1",
+        "trigger": "CLOSE_BREAK"
+      },
+      "semantic_config_id": "d6f62bb436eeda68dd6bc75f66a2b5f6f39768a2f067509df997808fa14ae07a"
+    },
+    {
+      "definition": {
+        "asset": "XAUUSD",
+        "filters": {
+          "TREND": {
+            "ema_triple": [
+              9,
+              20,
+              50
+            ],
+            "mode": "EMA_ORDER"
+          }
+        },
+        "fractal_window": 3,
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "side": "SELL",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "timeframe": "M1",
+        "trigger": "CLOSE_BREAK"
+      },
+      "semantic_config_id": "8cb4b6a553fcaed488b503b5960610c92aad009a130fbab6d9d0d7bb5ea0ca83"
+    }
+  ],
+  "economic_result_status": "INVALID_UNRESOLVED_EXIT_SESSIONS_AND_SEQUENCE",
+  "execution": "first valid positive-spread quote in signal-available M1 bar; stop takes priority; actual first available quote on gaps; max three new positions per server day combined across sides; one active position per asset",
+  "execution_profile": "EXPLORATORY_STOP_OPPOSITE_FRACTAL_NO_TP_PLANNED_FLAT_23_50_SERVER",
+  "execution_quote": "BUY_ASK_BID_EXIT__SELL_BID_ASK_EXIT",
+  "expectancy_R": null,
+  "fees": "NO_BROKER_COMMISSION_INCLUDED; actual observed variable Bid/Ask spread included; NOT_FINAL_NET_PNL",
+  "full_universe_scored": false,
+  "generated_signals": {
+    "BUY": 22210,
+    "SELL": 22082
+  },
+  "gross_R_including_historical_spread": null,
+  "holdout_open": false,
+  "m1_frozen_archive_sha256": "090800d73cb4258f610747ffbbd3606bfe21cecb787c3dad7bd46254552ef753",
+  "max_drawdown_R": null,
+  "old_60_shards_inspected": false,
+  "period": "2018-2019_DEV_EXPOSED",
+  "planned_flat_count": null,
+  "rejected_counts": {
+    "already_active": 10906,
+    "invalid_source_index": 0,
+    "no_usable_entry_quote": 1,
+    "no_usable_exit_quote": 25,
+    "nonpositive_risk": 39,
+    "out_of_session": 266,
+    "three_daily": 31611
+  },
+  "resolved_trades_after_unresolved_unsafe": true,
+  "schema": "SEED0076_DIRECT_EXPLORATORY_DEV_BACKTEST_V1",
+  "seed": "WEB_SEED_0076",
+  "session": "01:01--23:50 Darwinex server; last daily close before 23:59, Friday 23:55; historical 01:00 anomalies inadmissible",
+  "source_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "stop_count": null,
+  "timeframe": "M1",
+  "timings_seconds": {
+    "fractals": 0.41377375299998675,
+    "sequential_execution": 3.092052421000062,
+    "signals": 0.4766259359998912,
+    "total_excluding_dev_hash_read": 3.992579206999835
+  },
+  "trades": 1444,
+  "trades_file": "trades_exploratory_dev.csv",
+  "trades_sha256": "274ee0655c8ae67d9aca0a1508c46087765a76c705a89f5cfb71691571bdaad7",
+  "unresolved_server_dates": [
+    "2018-05-28",
+    "2018-07-04",
+    "2018-12-24",
+    "2018-12-31",
+    "2019-01-07",
+    "2019-01-14",
+    "2019-02-18"
+  ]
+}

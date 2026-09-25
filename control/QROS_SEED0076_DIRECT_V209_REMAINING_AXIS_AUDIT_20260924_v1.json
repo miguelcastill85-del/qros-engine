@@ -1,0 +1,711 @@
+{
+  "authority": {
+    "V209_spec_git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "V220_structural_git_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "direct_branch_tip_before_audit": "9c15c39253242125ba547200667adf8ab92c2151",
+    "direct_live_pointer_gitblob_sha1": "ae3863b21f041d43768b667a8e4da5755ecf8160",
+    "governance_main_v22_pointer_gitblob_sha1": "3996a65e3377da6976a5457177d6a169cee93ff3",
+    "original_enumerator_git_blob_sha1": "a01268bd8bab639977b22c419926d94306754bba",
+    "parent_13cell_global_canonical_id_root_sha256": "0df63dbbfafeec20a46391c10b063cda7c6c6107363c0e3953a22c3b5762f5a6",
+    "parent_W3_rearm0_archive_sha256": "53d170432304efed7c9b4db96be1042f7eddea6c062944a25bda0b08407f0b65",
+    "parent_W3_rearm0_remote_anchor_git_blob_sha1": "334c43046ce5c0b0dc8bc2f01ff1c909b3527394"
+  },
+  "family_coverage": {
+    "closed_13_seven_family_configurations": 224354,
+    "full_filter_package_order_root_sha256": "3c0dfe0adf69c2fd0e82f36df15fc3a0537cb0a90646008b2f7a95408394e5e9",
+    "full_original_filter_families": [
+      "BREAKOUT_BUFFER",
+      "EMA_CROSS_RECENCY",
+      "GEOMETRY",
+      "MOMENTUM",
+      "MULTI_TF",
+      "RETEST_ENTRY",
+      "SESSION",
+      "TREND",
+      "TREND_STRENGTH",
+      "VOLATILITY"
+    ],
+    "full_original_filter_packages_per_side": 11176,
+    "full_spec_13_parent_tuples_theoretical_configurations": 290576,
+    "previous_seven_family_packages_per_side": 8629,
+    "previous_seven_family_scope": [
+      "EMA_CROSS_RECENCY",
+      "GEOMETRY",
+      "MOMENTUM",
+      "SESSION",
+      "TREND",
+      "TREND_STRENGTH",
+      "VOLATILITY"
+    ],
+    "previous_uncovered_full_V209_packages_per_side": 2547,
+    "seven_filter_package_order_root_sha256": "89502d08690f81918061db3b22cded6441761d21703ce30781535badb226bdfc",
+    "uncovered_exact_semantic_ids_for_13_prior_tuples": 66222,
+    "uncovered_prior_family_packages_are_not_assumed_invalid": true,
+    "variants_per_family": {
+      "BREAKOUT_BUFFER": 3,
+      "EMA_CROSS_RECENCY": 4,
+      "GEOMETRY": 79,
+      "MOMENTUM": 5,
+      "MULTI_TF": 6,
+      "RETEST_ENTRY": 6,
+      "SESSION": 6,
+      "TREND": 60,
+      "TREND_STRENGTH": 5,
+      "VOLATILITY": 5
+    }
+  },
+  "gates": {
+    "GA2_open": false,
+    "Gate_A_approved": false,
+    "MT5_parity": false,
+    "RISE_FIXED_POINT": false,
+    "broker_commission_certified": false,
+    "broker_historical_schedule_certified": false,
+    "full_V209_universe_ontology_frozen": false,
+    "holdout_open": false,
+    "new_cell_development_executed": false,
+    "new_cell_source_frozen": false
+  },
+  "grid": {
+    "closed_seven_family_subcells": 13,
+    "coverage_rows": [
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "DEFERRED_USER_EXCLUDES_W3",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "DEFERRED_USER_EXCLUDES_W3",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "DEFERRED_USER_EXCLUDES_W3",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "DEFERRED_USER_EXCLUDES_W3",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "DEFERRED_USER_EXCLUDES_W3",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "DEFERRED_USER_EXCLUDES_W3",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "DEFERRED_USER_EXCLUDES_W3",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "DEFERRED_USER_EXCLUDES_W3",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "DEFERRED_USER_EXCLUDES_W3",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 3
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "PREREGISTERED_NO_RESULTS",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 5
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 7
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 9
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 11
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 13
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 13
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 13
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 13
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "NOT_STARTED",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "TICK_BREAK",
+        "window": 13
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "SOURCE_ASYMMETRIC",
+        "trigger": "CLOSE_BREAK",
+        "window": 13
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 13
+      },
+      {
+        "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 13
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 13
+      },
+      {
+        "rearm_mode": "LEVEL_REPLACED_ONLY",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 13
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "NOT_STARTED",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "TICK_BREAK",
+        "window": 13
+      },
+      {
+        "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+        "status": "CLOSED_7FAMILY_ONLY",
+        "tie_policy": "STRICT_ALL_NEIGHBORS",
+        "trigger": "CLOSE_BREAK",
+        "window": 13
+      }
+    ],
+    "grid_status_counts": {
+      "CLOSED_7FAMILY_ONLY": 13,
+      "DEFERRED_USER_EXCLUDES_W3": 9,
+      "NOT_STARTED": 49,
+      "PREREGISTERED_NO_RESULTS": 1
+    },
+    "next_new_pair": [
+      5,
+      "SOURCE_ASYMMETRIC",
+      "RETURN_INSIDE_OR_LEVEL_REPLACED",
+      "TICK_BREAK"
+    ],
+    "paired_XAU_M1_base_tuples": 72,
+    "unclosed_W3_explicitly_deferred": 9,
+    "unclosed_non_W3_before_new_prereg": 50,
+    "unclosed_total": 59
+  },
+  "next_automatic_action": "Freeze exact W5 SOURCE_ASYMMETRIC RETURN_INSIDE TICK_BREAK original V220 raw tick + rearm0 with independently validated Bid/Ask quote filtering, V221 gates, MTF nonlookahead and original 11176 package stream before first new DEV PnL.",
+  "original_axes": {
+    "asset": [
+      "XAUUSD",
+      "NQX"
+    ],
+    "fractal_window": [
+      3,
+      5,
+      7,
+      9,
+      11,
+      13
+    ],
+    "rearm_mode": [
+      "RETURN_INSIDE_OR_LEVEL_REPLACED",
+      "LEVEL_REPLACED_ONLY",
+      "ONE_SIGNAL_PER_LEVEL"
+    ],
+    "side": [
+      "BUY",
+      "SELL"
+    ],
+    "tie_policy": [
+      "SOURCE_ASYMMETRIC",
+      "STRICT_ALL_NEIGHBORS"
+    ],
+    "timeframe": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "M10",
+      "M12",
+      "M15",
+      "M20",
+      "M30",
+      "H1",
+      "H2",
+      "H3",
+      "H4"
+    ],
+    "trigger": [
+      "TICK_BREAK",
+      "CLOSE_BREAK"
+    ]
+  },
+  "original_base_axis_order": [
+    "asset",
+    "side",
+    "timeframe",
+    "fractal_window",
+    "tie_policy",
+    "rearm_mode",
+    "trigger"
+  ],
+  "original_config_stream_sort": "Each base row and each filter package sorted by UTF8 canonical JSON; this is an ID streaming order, NOT the declared axis-value priority. This audit chooses axis-value order prospectively within the XAU M1 paired-side lane; it does not reclassify historical completions into a prefix.",
+  "original_full_V209_counts": {
+    "base_cells": 4320,
+    "execution_profiles": 3,
+    "filter_package_count": 11176,
+    "management_raw_cartesian": 5880,
+    "management_valid": 3710,
+    "raw_signal_configs": 48280320,
+    "stress_profiles": 7
+  },
+  "prospective_order_policy": {
+    "first_pending_non_W3_close_only": {
+      "fractal_window": 5,
+      "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "CLOSE_BREAK"
+    },
+    "first_pending_without_W3_exclusion": {
+      "fractal_window": 3,
+      "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "TICK_BREAK"
+    },
+    "reason": "Explicit user instruction no W3 repeat; original V209 window order [3,5,7,9,11,13]; tie/asym first, RETURN_INSIDE first, TICK_BREAK first.",
+    "rule": "First unclosed paired-side XAUUSD M1 base tuple in original V209 axis-value order after explicitly excluding any W3 execution in this turn. No economic scores used. Each pair is BUY then SELL and maps to two original side-specific bases. All W3 leftover axes remain PENDING, not exhausted or rejected.",
+    "selected_new_tuple": {
+      "fractal_window": 5,
+      "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+      "tie_policy": "SOURCE_ASYMMETRIC",
+      "trigger": "TICK_BREAK"
+    },
+    "selection_grade": "NO_PNL_USED"
+  },
+  "schema": "QROS_SEED0076_V209_EXPLICIT_ORDER_AND_REMAINING_UNIVERSE_AUDIT_V1",
+  "scientific_lane": "research/seed0076-direct-dev-backtest-20260922",
+  "scope": {
+    "GA2_open": false,
+    "asset": "XAUUSD",
+    "closed_13_cells_preserved": true,
+    "economic_metrics_unread": true,
+    "historical_2018_2019_DEV_exposed": true,
+    "holdout_open": false,
+    "only_user_exclusion": "NO_NEW_W3_EXECUTION_NOW",
+    "other_seeds_not_opened": true,
+    "paired_sides": [
+      "BUY",
+      "SELL"
+    ],
+    "seed": "WEB_SEED_0076",
+    "timeframe": "M1"
+  },
+  "source_validation": {
+    "V220_code_git_blob_SHA1_PASS": true,
+    "canonical_config_id_parity": "PASS_22352_IDENTICAL_BYTES",
+    "independent_full_filter_enumerator_parity": "PASS_11176_EXACT_CANONICAL_ROWS",
+    "original_enumerator_git_blob_SHA1_PASS": true,
+    "parent_last_closed_ZIP_raw_SHA256_PASS": true,
+    "spec_git_blob_SHA1_PASS": true
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "QROS_W11_STRICT_SOURCE_FREEZE_V1",
+  "parent_w9_archive_sha256": "4f6b723289c996da4c6c4f465275aae1796437a85202a76e6614a5ec989ca498",
+  "frozen_V209_spec_git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "w11_prereg_git_blob_sha1": "e9c418b6987cb45009d00efb4d30acf9c160f489",
+  "parent_w9_anchor_git_blob_sha1": "57039c196cde6ae129e8825f62d80508d0c3d145",
+  "execution_policy": "ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_STRICT_ALL_TEN_NEIGHBORS",
+  "first_observable_bar": "i=p+6",
+  "derivation_script_local": "/mnt/data/seed0076/build_w11_strict_from_frozen_w9.py",
+  "derivation_rule": "Deterministic fixed-axis W9-to-W11 clone with exact whitelisted numeric transforms, isolated W11 workspace, no W9 output carrier reuse",
+  "source_sha256": {
+    "audit_w11_strict_original_gates.py": "947b6c6d502e8c61e1b9084ef2f4622f423544c37d410eae30af648ec0bdc5ac",
+    "direct_w11_strict_7family_dev_v1.py": "e8235ef01d795cd233802a60ecc3ad67b8d3b3a195bfbf3aaf8f3fbc20b5d749",
+    "independent_w11_strict_execution_oracle_v1.py": "8abe5c2dea274da8f05c7897f8ef7435a60afb5845c38de471740e36bd812123",
+    "run_w11_strict_side_v1.py": "bd9742888af380666451883c0b5e07940743924fe4167d4c3ded614529c555ed",
+    "verify_w11_strict_portable_v1.py": "6e24be25ef174fbf154c1851534e0546877003adb4ae253b24a1ff5a30805749"
+  },
+  "local_freeze_sha256": "a77d35aebc1438e0b380d8511f4b4349dd25715fff41668f9b20757b66e8a8bc",
+  "py_compile": "PASS",
+  "synthetic_3way_strict_event_parity_cases": 9,
+  "economic_results_observed": false,
+  "holdout_open": false
+}

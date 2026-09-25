@@ -1,0 +1,107 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_M1_3670_VERIFIED_CHECKPOINT_1.0",
+  "date_local": "2026-09-22",
+  "objective": "Direct original Seed0076 six-family M1 2018-2019 DEV backtest with no work on frozen historical shards.",
+  "authority": {
+    "research_branch": "research/seed0076-direct-dev-backtest-20260922",
+    "original_seed": "WEB_SEED_0076",
+    "V209_spec_git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "frozen_data_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "portable_lock_sha256": "060c6f8152f8bbef3cc8facd0f4606e339a5c5ae9887e4a5d61e2a6eabc99ca1",
+    "exact_full_internal_checkpoint_sha256": "87df6c2f29c0672568aaabfd6b0f146181b3ac13bb26165997c388f3157f8235"
+  },
+  "provenance": {
+    "portable_library_file_id": "libfile_c8edcb1e5bd8819186e809f54909fc56",
+    "portable_library_path": "/QROS/SEED0076_DIRECT_DEV_BACKTEST_20260922/SIX_FAMILY_3670_VERIFIED_20260922/QROS_SEED0076_DIRECT_M1_3670_FULL_EVIDENCE_20260922.zip",
+    "portable_archive_sha256": "13bd8cc759336a33f021fcf3e101013849cda3edd7eca4bee379f96e0d866b37",
+    "portable_archive_bytes": 6766976,
+    "archive_files": 29,
+    "contains_raw_or_full_bars": false,
+    "all_25_pinned_files_sha256_verified": true
+  },
+  "executed": {
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "period": "2018-2019_DEV_ALREADY_ECONOMICALLY_EXPOSED",
+    "sides": [
+      "BUY",
+      "SELL"
+    ],
+    "fractal_window": 3,
+    "tie_policy": "SOURCE_ASYMMETRIC",
+    "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+    "trigger": "CLOSE_BREAK",
+    "six_original_V209_families": [
+      "TREND",
+      "MOMENTUM",
+      "VOLATILITY",
+      "SESSION",
+      "EMA_CROSS_RECENCY",
+      "TREND_STRENGTH"
+    ],
+    "family_packages_per_side": 1835,
+    "semantic_hypotheses_preserved": 3670,
+    "raw_candidate_events": 96999,
+    "distinct_physical_masks": 1864,
+    "distinct_BUY_masks": 921,
+    "distinct_SELL_masks": 943,
+    "distinct_mask_hypothesis_mapping_full": true,
+    "mask_generation_seconds_excluding_initial_input_hash": 3.020612,
+    "economic_trajectory_and_mask_simulation_seconds_from_clean_engine": 5.004,
+    "standalone_trade_occurrences_across_all_masks": 1703581,
+    "standalone_not_joint_portfolio": true
+  },
+  "gates": {
+    "original_2_config_joint_portfolio_exact_trade_by_trade": {
+      "status": "PASS",
+      "rows": 1432,
+      "columns": 11
+    },
+    "independent_stratified_raw_tick_simulator": {
+      "status": "PASS",
+      "physical_masks": 12,
+      "trade_rows": 10722
+    },
+    "original_frozen_V221_filter_reference_sample": {
+      "status": "PASS",
+      "semantic_cases": 84
+    },
+    "full_3670_uncached_filter_reference": {
+      "status": "TIMEOUT_INCONCLUSIVE_NOT_PASS",
+      "interpretation": "Do not retry identical slow method; use minimal independent cached oracle for future growth."
+    },
+    "economic_replay_files_sha256_equal_after_cleanup": true,
+    "tamper_and_orphan_stage_cases": {
+      "status": "PASS",
+      "cases": 7
+    },
+    "full_source_bar_ind_runtime_hashes": {
+      "status": "PASS"
+    },
+    "holdout_open": false,
+    "broker_commission_verified": false,
+    "full_historical_symbol_session_calendar_certified": false
+  },
+  "scientific_state": "EXPLORATORY_DEV_EXPOSED_NOT_SELECTION_GRADE",
+  "execution_state": "SIX_FAMILY_DIRECT_M1_BATCH_VERIFIED_PORTABLE",
+  "old_60_shard_state": "FROZEN_OUT_OF_SCOPE_NOT_READ_OR_RERUN_IN_THIS_EXECUTION",
+  "economic_pnl_selected_winners": false,
+  "net_profit_factor_certified": false,
+  "multiplicity_minimum_tests": 3670,
+  "portfolio_marginal_analysis": "NOT_PERFORMED",
+  "root_cause_prior_stall": "Repeated evaluation of carrier-specific equivalent event masks and per-event full tick scans. In the new direct narrow-domain pipeline primitive predicates and each executable event trajectory are computed once and reused by all matching hypotheses.",
+  "corrections": [
+    "Canonical original configuration IDs retained independently from physical mask deduplication.",
+    "Shared raw event tapes, packed-bitmap physical dedupe and first-stop trajectory cache; no approximation of entry/stop/exit.",
+    "Exactly matched previous observed two-config portfolio and 12 independent full-tick sampled physical masks.",
+    "Content-addressed offline portable archive and external pinned lock, 7 fail-closed provenance/partial-stage tests."
+  ],
+  "caveats": [
+    "Fixed 19:30 server-civil flat is already-exposed exploratory overlay, not independently certified per-symbol 2018-19 historical broker schedule.",
+    "Actual historical spreads included, broker commission omitted; no final net alpha inference.",
+    "3,670 hypothesis tests remain 3,670 for multiplicity; 1,864 is purely computational physical dedupe.",
+    "Current 2018-19 DEV never returns to holdout status for related Seed0076 genealogy.",
+    "No general speedup claim across full original multi-asset universe until matched representative global benchmark."
+  ],
+  "next_automatic_action": "Within fixed M1 core and original seed, add only the V209 GEOMETRY-compatible packages using cached raw candidates and per-event trajectories. Precompute bar-coordinate geometry primitives once and use original unmodified V221 geometry evaluator on stratified canaries. Preserve the 3,670 already closed six-family calculations and 1,864 trajectory aliases; record new semantic identities and exploratory exposure. No other historical shard work."
+}

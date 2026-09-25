@@ -1,0 +1,55 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_W5_STRICT_PREREG_V1",
+  "scientific_seed": "WEB_SEED_0076",
+  "source": "FROZEN_V209",
+  "frozen_spec_git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "parent_strict_w3_remote_anchor_path": "control/QROS_SEED0076_DIRECT_M1_W3_STRICT_REMOTE_SHA_ANCHOR_20260923_v1.json",
+  "parent_strict_w3_remote_anchor_blob_sha1": "18d96759fd0ecbbfdc531d82493f51a801847153",
+  "parent_strict_w3_zip_sha256": "48ad3d7f52a512b1f7ee1af7f6247abebe59d312cf2f963365702237cbd4946b",
+  "unit_id": "XAUUSD_M1_W5_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL",
+  "asset": "XAUUSD",
+  "timeframe": "M1",
+  "fractal_window": 5,
+  "tie_policy": "STRICT_ALL_NEIGHBORS",
+  "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+  "trigger": "CLOSE_BREAK",
+  "sides": [
+    "BUY",
+    "SELL"
+  ],
+  "original_V209_compatible_filter_families": [
+    "EMA_CROSS_RECENCY",
+    "GEOMETRY",
+    "MOMENTUM",
+    "SESSION",
+    "TREND",
+    "TREND_STRENGTH",
+    "VOLATILITY"
+  ],
+  "filter_packages_per_side": 8629,
+  "semantic_configuration_count": 17258,
+  "development_period": "2018_2019_ECONOMICALLY_EXPOSED",
+  "raw_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "runner_semantics": "Same strict tie both neighbors, w5 confirmation after two right closed bars; BUY Ask SELL Bid; original stop-first and first-executable gap; 19:30 server flat overlay exploratory; compute raw break consumption before filters.",
+  "constraints": {
+    "max_new_entries_daily": 3,
+    "no_overnight": true,
+    "holdout_open": false,
+    "broker_commission_certified": false,
+    "legacy_60_shards": "FROZEN_OUT_OF_SCOPE"
+  },
+  "audit_gates": [
+    "EXACT_SOURCE_INPUT_HASHES",
+    "INDEPENDENT_FRACTAL5_STRICT_ORACLE",
+    "ORIGINAL_FROZEN_V221_FILTER_CANARIES",
+    "INDEPENDENT_SAMPLE_TICK_TRADE_PARITY",
+    "SEMANTIC_CONFIG_ID_PARITY",
+    "ZIP_MANIFEST_AND_REMOTE_DRIVE_SHA256",
+    "GITHUB_EXTERNAL_ANCHOR"
+  ],
+  "no_pnl_pruning": true,
+  "scientific_state": "PREREGISTERED_NO_RESULTS_FOR_W5_STRICT",
+  "parent_cumulative_semantic_configurations": 120806,
+  "parent_cumulative_physical_masks_by_cell": 52913,
+  "next_automatic_action": "RUN_ONLY_PREREGISTERED_W5_STRICT_ALL_NEIGHBORS_XAUUSD_M1_OR_RECORD_RECOVERABLE_INFRA_BLOCKER"
+}

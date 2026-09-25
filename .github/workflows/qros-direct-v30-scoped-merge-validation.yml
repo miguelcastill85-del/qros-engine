@@ -1,0 +1,91 @@
+name: qros-direct-v30-scoped-merge-validation
+on:
+  push:
+    branches: [integration/seed0076-direct-v30-research-20260925]
+  pull_request:
+    paths:
+      - 'control/QROS_DIRECT_W5_V30_SCOPED_MERGE_SNAPSHOT_20260925_v1.json'
+      - '.github/workflows/qros-direct-v30-scoped-merge-validation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  v30-exact-code-only-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate 79 direct source blobs and isolated V30 handoff; preserve main V259
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib
+          def blob(path):
+              b=pathlib.Path(path).read_bytes()
+              return hashlib.sha1(b'blob '+str(len(b)).encode()+bytes([0])+b).hexdigest()
+          a=json.loads(pathlib.Path('control/QROS_DIRECT_W5_V30_SCOPED_MERGE_SNAPSHOT_20260925_v1.json').read_text())
+          s=json.loads(pathlib.Path('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json').read_text())
+          assert blob('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json')==a['science']['main_pointer_git_blob']
+          assert s['current_version']=='V259' and s['shard11_open'] is False
+          pins=a['imported_git_blobs']
+          assert len(pins)==79,len(pins)
+          for path,pin in pins.items():assert blob(path)==pin,'IMPORTED_BLOB_DRIFT:'+path
+          assert not pathlib.Path('control/QROS_SEED0076_DIRECT_CURRENT_CHAT_HANDOFF.json').exists()
+          assert a['excluded']==['AGENTS.md:main_authority','control/QROS_SEED0076_DIRECT_CURRENT_CHAT_HANDOFF.json:mutable_research_pointer']
+          snap=a['v30_snapshot'];j=json.loads(pathlib.Path(snap['frozen_handoff']).read_text())
+          assert blob(snap['frozen_handoff'])==snap['expected_git_blob']
+          assert blob(snap['frozen_anchor'])==snap['expected_anchor_git_blob']
+          assert j['gates']['Gate_A_approved'] is False and j['gates']['holdout_open'] is False and j['gates']['GA2_open'] is False
+          assert j['gates']['old_60_shards_untouched'] is True
+          assert j['verified_results']['exact_trades']==26754
+          assert a['science']['Gate_A'] is False and a['science']['production'] is False
+          print('PASS 79/79 direct Git blobs, frozen V30 anchor+target, V259 unchanged, old 60/10 excluded')
+          PY
+      - name: Independently reenumerate V209 full factor grid (no economic scoring)
+        run: |
+          set -e
+          spec=research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json
+          python scripts/qros_seed_universe_enumerator_a_v2.py "$spec" --out /tmp/enum_a.json
+          python scripts/qros_seed_universe_enumerator_b_v3.py "$spec" --out /tmp/enum_b.json
+          python - <<'PY'
+          import json
+          a=json.load(open('/tmp/enum_a.json'));b=json.load(open('/tmp/enum_b.json'))
+          for k in ['base_tuple_count','base_tuple_root_sha256','filter_package_count','filter_package_root_sha256','raw_signal_config_count','management_valid_count','management_root_sha256','execution_profile_count','stress_profile_count']:
+              assert a[k]==b[k],('INDEPENDENT_ENUMERATOR_MISMATCH',k)
+          assert a['base_tuple_count']==4320 and a['filter_package_count']==11176
+          assert a['raw_signal_config_count']==48280320 and a['management_valid_count']==3710
+          assert a['execution_profile_count']==3 and a['stress_profile_count']==7
+          print('PASS two independent V209 factor enumerators 4320x11176; no 48m materialization')
+          PY
+      - name: Independently freeze direct W5 22352 signal IDs from original V209 grammar
+        run: |
+          python - <<'PY'
+          import json,sys,hashlib
+          sys.path.insert(0,'scripts')
+          from qros_seed0076_config_stream import filter_packages,config_bytes
+          spec=json.load(open('research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json'))
+          f=filter_packages(spec);assert len(f)==11176
+          want={'BUY':'0dbaf56a5a8f0b1fce3b4c92fc44f0fc6146a237e9f23eaf6da75e4be82eecb5','SELL':'d2a130f42f4ab077437fe237363b863bf49c3631c2b9e482aa2121d93c9cc47b'}
+          root=hashlib.sha256()
+          for side in ('BUY','SELL'):
+              base=dict(asset='XAUUSD',side=side,timeframe='M1',fractal_window=5,tie_policy='SOURCE_ASYMMETRIC',rearm_mode='RETURN_INSIDE_OR_LEVEL_REPLACED',trigger='TICK_BREAK')
+              h=hashlib.sha256()
+              for fp in f:
+                  v=hashlib.sha256(config_bytes(base,fp)).digest();h.update(v);root.update(v)
+              assert h.hexdigest()==want[side],('SIDE_ID_ROOT_DRIFT',side,h.hexdigest())
+          assert root.hexdigest()=='bb1e97c99fc1eb3c1acab53f77232c00fae61feafb5b8b63941c1e68e0e53b75'
+          print('PASS W5 11176 BUY +11176 SELL prereregistered IDs, full ten-family canonical order')
+          PY
+      - name: Confirm main prospective causal preflight tests
+        run: python -m unittest discover -s tests -p test_qros_causal_universe_preflight_v1.py -v
+      - name: Direct source parse, without accessing economic results
+        run: |
+          python - <<'PY'
+          import ast,pathlib
+          files=[p for d in ['scripts/direct_backtest/seed0076','scripts/seed0076/w5_v23'] for p in pathlib.Path(d).glob('*.py')]
+          for p in files:ast.parse(p.read_text(encoding='utf8'),filename=str(p))
+          assert len(files)==15,len(files)
+          print('PASS direct research scripts parse; economic V28 archived source is external and not claimed CI-executed')
+          PY

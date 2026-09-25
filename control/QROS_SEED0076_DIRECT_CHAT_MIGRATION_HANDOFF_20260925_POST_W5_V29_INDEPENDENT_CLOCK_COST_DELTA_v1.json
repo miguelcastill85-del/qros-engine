@@ -1,0 +1,58 @@
+{
+  "schema": "QROS_W5_V29_POST_INDEPENDENT_BROKER_AUDIT_HANDOFF",
+  "authority": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "prior_pointer_sha": "932b00eca81fcfaf4091aed740713d8564464922",
+    "prior_V28_target_sha": "50ee5acdc9f591fe40fdeb31c198a2fccae63b14",
+    "prior_V28_supplemental_oracle_sha": "3454edc7ba0ca9f1564ab4a28440bec1cc746690",
+    "v29_anchor_path": "control/QROS_SEED0076_W5_V29_INDEPENDENT_CLOCK_COST_DELTA_RECEIPT_20260925_v1.json",
+    "v29_anchor_sha": "7c84f381ed76686f74cae258c7b4d62c22909a65",
+    "V219_verified_standard_clock_sha": "c16d561b66a51d3735960470ba893e53e6913d40"
+  },
+  "objective": "Preserve completed 22352 W5 full10 exposed-DEV economic backtest, 104 shards and prior supplemental oracle; finish only new independent broker evidence and source audit.",
+  "data": {
+    "original_raw_ticks": 151382388,
+    "raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "V28_master_zip_sha256": "b2943f96a8b0eb946a9899b52e63a354d33971c88baa0b29dfd58f8e116a3e62",
+    "V28_semantic": 22352,
+    "V28_physical": 14459,
+    "V28_shards": 104
+  },
+  "work_executed": "Independent SHA+CRC check all 8 channel archives and 146 master ZIP members, all CSV IDs, 7893 alias economic equality (route batch provenance ignored), full 151382388 raw timestamps 101 long gaps against pinned V219 DST mapping; no PnL reread for selection or recomputation.",
+  "verified_results": {
+    "V29_ZIP_SHA256": "68a863602a6a01c585d83d989a4fd710312c74bf0de161e17bd8d87d5c49dfdb",
+    "V29_JSON_SHA256": "2c784e56e4f9d8cee9cc9bbc0ba8cd439eb7823e74a001477f0bfc42974c8019",
+    "V29_script_SHA256": "73ad4c1603ff7854ecb0f88b7f90c9cf356faa61f8d89860c57a641700a42086",
+    "V28_existing_prior_56_route_independent_execution": "PASS_1125_TRADES_12375_FIELDS",
+    "V28_new_supplemental_independent_corrected_candidate_streams": "PASS_56_OF_56",
+    "V29_146_member_sha": "PASS",
+    "V29_7893_alias_economic_equality": "PASS",
+    "V29_101_long_gaps": "100_NORMAL_WEEKLY_01XX_1_LATE_REOPEN_2019_02_18_10_06",
+    "V29_hypothetical_additional_10_cent_point_R_positive": {
+      "BUY": 204,
+      "SELL": 180
+    }
+  },
+  "gates": {
+    "standard_DST_clock": "EXISTING_V219_FROZEN_REVERIFIED",
+    "historical_symbol_special_hours": "NOT_CERTIFIED",
+    "historical_account_specific_commission": "NOT_CERTIFIED",
+    "all_physical_masks_full_trade_by_trade_parity": "NOT_COMPLETE",
+    "Gate_A": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false
+  },
+  "problems": "Historical broker original acquisition/source-binding, 2018-19 gold special hours and actual account commission are not yet matched to authenticated contemporaneous primary evidence.",
+  "root_cause": "Completed V28 only exploratory spread plus hypothetical costs; standard clock already passed V219, but full historical special hours and commission remain open.",
+  "correction": "Reconcile rather than overwrite newer V28 supplemental oracle. Preserve original V28 archive and all previously completed 13 cells. No W3.",
+  "state": "DEVELOPMENT_RUNNING",
+  "portfolio_impact": "NONE_APPROVED",
+  "library": {
+    "path": "/QROS_SEED0076_W5_V29_EVIDENCE_20260925",
+    "zip_id": "libfile_c35c8bf7a9548191b386a0e13d8fd035",
+    "json_id": "libfile_16eae285b2c08191ba2dd31fe88dff17",
+    "source_id": "libfile_a229e5f680e8819185ed09162d03cc0f"
+  },
+  "next_action": "Recover contemporaneous historical 2018-19 Darwinex XAUUSD broker special session/holiday and account-specific commission proof; independently extend full trade-by-trade execution parity on existing V28 tapes; if missing retain exploratory-only, no 60 shard reruns, W3, holdout, GA2."
+}

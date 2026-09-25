@@ -1,0 +1,97 @@
+{
+  "schema": "QROS_SEED0076_W5_V24_PRE_ECON_SANITIZED_DATA_ADDENDUM_V1",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "parent_pointer_blob_sha1": "fa0e9260eb7cba7cfb6d1afd09acffe3bba230ce",
+  "parent_v23_release_anchor_blob_sha1": "71f15f43cc55761784d48a609bbb3b12f6daa1f2",
+  "scope": "One and only one preregistered WEB_SEED_0076 XAUUSD M1 W5 SOURCE_ASYMMETRIC RETURN_INSIDE_OR_LEVEL_REPLACED TICK_BREAK BUY SELL; 11176 V209 filter packages/side; 22352 canonical config IDs; same genealogy; no W3; no economics observed for new W5.",
+  "reason": "Pre-economic full source audit recovered original 151382388 ticks and discovered one-character copied bar SHA typo plus 942258 invalid Bid/Ask quotes including 27 minute bars with no tradable quotes. Original frozen V220 uses bid-only OHLC, causing 8708 high and 1771 low changes versus independently sanitized OHLC. New W5 data quality correction required before observing any W5 economic outcome; historic V209/V220/V221 and older archives must remain unchanged.",
+  "original_prereg_blob_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+  "original_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "original_raw_bytes": 2573500596,
+  "original_raw_rows": 151382388,
+  "original_M1_bid_bars_sha256_from_prior_signed_7family_manifest": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59",
+  "prereg_M1_bid_bars_SHA_typo": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56bbb8a71a7457f59",
+  "prior_7family_W5_zip_sha256": "caee3742655cc14a91f7d4623072297b9722429265576a2f48e80f753e5381ba",
+  "original_M1_indicators_sha256": "f30da86f6c11b5a6573b3571ffd3c3621bbe4d51134258c89d956d6f9ab115b5",
+  "derived_valid_quote_only_M1_bars_sha256": "8fed642eb3f948a9e0612d7b9b0ece453a71b32e41609a8fcc84ee41bd713b13",
+  "derived_valid_quote_only_M1_indicators_sha256": "8a522e381d86684523a3707ec618f6825af25c103059fc368014291de742bdf6",
+  "derived_valid_quote_only_M5_bars_sha256": "e8e61dd194b622af5810bec9a3dfb07dd5812c6bfc9126a949945af2ec997bd1",
+  "derived_valid_quote_only_M15_bars_sha256": "35aa0c4cf573a4af84e6b859ff9f6339f25d60e5176197eda05991e7971140ab",
+  "real_quote_audit": {
+    "zero_spread": 942184,
+    "crossed_spread": 74,
+    "nonpositive": 0,
+    "out_of_order": 0,
+    "empty_valid_quote_M1_bars_dropped_without_imputation": 27,
+    "invalid_tickets_in_dropped_empty_minutes": 70,
+    "original_M1_bars": 681772,
+    "sanitized_M1_bars": 681745,
+    "changed_original_highs": 8708,
+    "changed_original_lows": 1771
+  },
+  "real_raw_tick_pre_econ_gates": {
+    "buffer_values": [
+      0,
+      0.05,
+      0.1,
+      0.25
+    ],
+    "per_side": [
+      "BUY",
+      "SELL"
+    ],
+    "independent_offline_full_tape_rearm0_channels_pass": 8,
+    "independent_python_window_raw_checks_pass": 240,
+    "independent_python_sample_events": 1260,
+    "raw_counts_8_channels": [
+      333695,
+      323603,
+      307757,
+      280559,
+      332530,
+      321473,
+      309599,
+      290603
+    ],
+    "rearmed_counts_8_channels": [
+      333695,
+      241686,
+      164521,
+      85427,
+      332530,
+      241443,
+      164401,
+      86221
+    ],
+    "raw_rearm_tape_sha256": "8e4cb5b630c44ae3a526bee81fde2493f7385619ba096c804275a9b79004bdd0"
+  },
+  "real_mtf_causality": {
+    "sanitized_M5_bars": 136543,
+    "sanitized_M15_bars": 45551,
+    "independent_context_index_checks_pass": 185092,
+    "old_V221_source_preserved": true,
+    "corrected_MTF_boundary_adapter_from_v23": true
+  },
+  "limitations": {
+    "all_ten_filter_families_real_mask_oracle": "PENDING",
+    "RETEST_ENTRY_touch_close_reclaim_real_tick": "PENDING",
+    "broker_timezone_DST_calendar": "UNVERIFIED",
+    "broker_commission": "UNVERIFIED",
+    "current_v23_12_pipeline_replay": "TIMED_OUT_NO_CURRENT_PASS",
+    "current_71_other_tests": "PASS",
+    "economic_PnL": "NOT_RUN",
+    "portfolio": "NOT_EVALUATED"
+  },
+  "scientific_firewalls": {
+    "holdout_open": false,
+    "GA2_open": false,
+    "Gate_A_approved": false,
+    "old_13_cells_unchanged": true,
+    "old_60_shards_unopened": true,
+    "W3_unstarted_user_deferred": true,
+    "only_one_new_W5_cell": true
+  },
+  "prospective_source_policy": "Freeze new derived valid-quote caches by SHA before any new W5 economic scores; exclude invalid zero/crossed quotes from both raw tick crosses and returns, remove 27 invalid-only M1 buckets without fake fills, aggregate M5/M15 from valid M1, and evaluate session-only variants as uncertified until actual Darwinex timezone/DST is independently proven.",
+  "status": "PRE_ECON_CORRECTION_FREEZE_PROPOSAL_WITH_BYTES_VERIFIED_NO_ECONOMIC_RESULTS",
+  "next_action": "Finish original V220 RETEST_ENTRY touch/close reclaim and all 10-family causal masks on SHA-pinned valid-quote W5 tape; independent exact per-mask tests and broker clock/cost gating BEFORE chunked W5 economic DEV."
+}

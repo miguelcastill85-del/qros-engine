@@ -1,0 +1,87 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_CHAT_MIGRATION_HANDOFF_POST_W3_REARM0_V1",
+  "lane": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "seed": "WEB_SEED_0076",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "original_V209_spec_git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "main_scientific_pointer_separate": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json"
+  },
+  "governance": {
+    "main_active_pointer": "control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
+    "git_blob_sha1": "cafaaa347c72308a97e2064258f3ddc185747bf8",
+    "version": "2.1",
+    "one_stage_per_invocation": true
+  },
+  "parent": {
+    "last_closed": "XAUUSD_M1_SIX_WINDOWS_TWO_TIE_POLICIES_12_CELL_INDEPENDENT_COMPLETENESS_AUDIT_AND_REPLAY_GUARD",
+    "anchor_git_blob_sha1": "9405bb2d8fcc262bfa4092d504b91628171e7bc9",
+    "semantic_configurations": 207096,
+    "physical_masks_by_cell": 87293
+  },
+  "last_closed": {
+    "stage": "XAUUSD_M1_W3_SOURCE_ASYMMETRIC_RETURN_INSIDE_OR_LEVEL_REPLACED_CLOSE_BREAK_BUY_SELL",
+    "status": "DEVELOPMENT_RUNNING",
+    "prereg_git_blob_sha1": "c02d6b23d3fa0bfea0f1b05a31b12b678fef00b8",
+    "pre_econ_frozen_source_git_blob_sha1": "e4094d315c19db5219d2a6735a30c42e45c88cc4",
+    "pre_econ_frozen_source_archive_sha256": "e27fd501894dc40188b6a041915de641b65e82b84579b64b1cf656ec1533aa0d",
+    "remote_execution_anchor_path": "control/QROS_SEED0076_DIRECT_M1_W3_REARM0_REMOTE_SHA_ANCHOR_20260923_v1.json",
+    "remote_execution_anchor_git_blob_sha1": "334c43046ce5c0b0dc8bc2f01ff1c909b3527394",
+    "remote_execution_anchor_commit": "eb47a72e984b6546aa08778b807f2b9dd1e88b85",
+    "drive_archive_id": "1qk_ApfW2Nt-MTzx6vdMDCN3ScikBHMG0",
+    "drive_archive_size": 20771350,
+    "drive_archive_sha256": "53d170432304efed7c9b4db96be1042f7eddea6c062944a25bda0b08407f0b65",
+    "checkpoint_member_sha256": "cc1da9090801402cea918260f985825007fc2cfa549d493e9504335e2ed5f23a",
+    "independent_audit_member_sha256": "a797dedb2c40fe2c59e23bb040bb49a66ce0285607c3d96a7700b072f2d9f0a6",
+    "new_semantic": 17258,
+    "new_masks_by_cell": 10158,
+    "BUY_semantic": 8629,
+    "SELL_semantic": 8629,
+    "BUY_masks": 5043,
+    "SELL_masks": 5115,
+    "BUY_independent_full_tick_rows": 5381,
+    "SELL_independent_full_tick_rows": 4907,
+    "original_V221_gate_canaries": 228,
+    "independent_exact_trade_rows": 10288,
+    "no_unresolved": true,
+    "cumulative_semantic": 224354,
+    "cumulative_physical_masks_by_cell": 97451,
+    "canonical_global_13cell_root_sha256": "0df63dbbfafeec20a46391c10b063cda7c6c6107363c0e3953a22c3b5762f5a6"
+  },
+  "incident": {
+    "type": "V220_INVALID_QUOTE_RETURN_SYNTHETIC_CAUSALITY",
+    "prior_source_immutable": true,
+    "source_frozen_before_w3_economic_execution": true,
+    "invalid_quote_ticks_observed": 942258,
+    "actual_new_W3_accepted_event_differences_BUY": 0,
+    "actual_new_W3_accepted_event_differences_SELL": 0,
+    "independent_bid_ask_fsm_pass": true
+  },
+  "scientific": {
+    "development_period": "2018_2019_ECONOMICALLY_EXPOSED",
+    "state": "DEVELOPMENT_RUNNING",
+    "gate_A_approved": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "mt5_parity": false,
+    "broker_commission_certified": false,
+    "historical_broker_calendar_certified": false,
+    "new_alpha_selected": false,
+    "combined_portfolio_evaluated": false,
+    "multiplicity_minimum_N_TESTS": 224354,
+    "old_60_shards_out_of_scope": true
+  },
+  "next_only": {
+    "action": "AUDIT_FROZEN_V209_REMAINING_BASE_AXIS_ORDER_AND_PREREGISTER_EXACTLY_ONE_NEXT_CAUSAL_CELL_NO_PNL",
+    "do_not_repeat": [
+      "M1_SOURCE_ASYMMETRIC_ONE_SIGNAL_WINDOWS_3_5_7_9_11_13",
+      "M1_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_WINDOWS_3_5_7_9_11_13",
+      "M1_W3_SOURCE_ASYMMETRIC_RETURN_INSIDE_OR_LEVEL_REPLACED"
+    ],
+    "economic_results_for_next_cell": "NOT_OBSERVED",
+    "holdout_open": false
+  },
+  "next_automatic_action": "Read latest live direct pointer and new W3 rearm0 immutable anchor and Drive SHA; inspect ORIGINAL frozen V209 base-axis order, dedupe semantic/causal exact, preregister precisely one next original unopened base cell without PnL; do not run it until independent pre-economic source freeze. No holdout, GA2, or original 60 shard access."
+}

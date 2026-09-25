@@ -1,0 +1,111 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_FROM_SCRATCH_V28_INDEPENDENT_NON_ECONOMIC_VALIDATION_ADDENDUM_V1",
+  "date_local": "2026-09-24",
+  "objective": "Adversarially audit ONLY the NEW Seed0076 direct W5 ten-family universe; explicitly exclude the earlier 60 planned and 10 historical GA1 shards/maskpacks.",
+  "authority": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "verified_branch_before_addendum": "ebf85f591ad29f35884fcce2b6719e7caa7aa0df",
+    "direct_current_pointer_git_blob": "ae3931a8c1e13f50a45b9dc86360854f4d27282a",
+    "direct_v28_target_git_blob": "50ee5acdc9f591fe40fdeb31c198a2fccae63b14",
+    "direct_v28_immutable_library_anchor_git_blob": "287b38c34b8c6a549a54420bd57ff0fc94cd9c4f",
+    "prereg_W5_blob": "40275ce4fc0454759a181d9e3d7e8757630134da",
+    "frozen_V209_spec_blob": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "original_V220_structural_blob": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "original_V221_gate_blob": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+    "original_V28_master_sha256": "b2943f96a8b0eb946a9899b52e63a354d33971c88baa0b29dfd58f8e116a3e62",
+    "source_DEV_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_60_shards": "ARCHIVAL_OUT_OF_SCOPE_NOT_USED"
+  },
+  "data": {
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "original_FRACTAL_WINDOW": 5,
+    "tie": "SOURCE_ASYMMETRIC",
+    "rearm": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+    "trigger": "TICK_BREAK",
+    "sides": [
+      "BUY",
+      "SELL"
+    ],
+    "period": "2018_2019_DEVELOPMENT_EXPOSED",
+    "raw_ticks": 151382388,
+    "candidate_raw_eight_channels": 2499819,
+    "frozen_V209_filter_families": 10,
+    "filter_packages_per_side": 11176
+  },
+  "verified_execution": {
+    "new_v26_independent_all_48_full_original_V220_stateful_retest": "PASS",
+    "reconciled_to_original_v28_v26_counts": "PASS_48_48",
+    "v27_original_executable_quote_correction": {
+      "all_24_CLOSE_routes_change_timestamp_or_root": true,
+      "all_24_TOUCH_routes_unchanged": true,
+      "SELL_CLOSE_routes_with_candidate_count_change": 6,
+      "total_removed_old_nonexecutable_candidates": 7
+    },
+    "v28_final_V27_56_route_broker_quote_independent_audit": "PASS_ALL_56_OF_56",
+    "final_candidate_event_occurrences": 4893665,
+    "full_original_frozen_candidate_source_and_bar_sha256_verified": 56,
+    "all_final_event_quotes_bid_positive_ask_greater_bid": true,
+    "all_event_bars_source_index_bounds_verified": true,
+    "all_CLOSE_reclaim_signals_at_first_valid_quote_of_final_bar": true,
+    "CLOSE_bar_channel_occurrences_independently_checked": 258490,
+    "CLOSE_bar_channel_occurrences_initially_nonexecutably_quoted": 1020,
+    "frozen_V209_filter_package_canonical_sha256": "3c0dfe0adf69c2fd0e82f36df15fc3a0537cb0a90646008b2f7a95408394e5e9",
+    "independent_all_22352_semantic_config_csv_identity": "PASS",
+    "BUY_semantic_stream_sha256": "0dbaf56a5a8f0b1fce3b4c92fc44f0fc6146a237e9f23eaf6da75e4be82eecb5",
+    "SELL_semantic_stream_sha256": "d2a130f42f4ab077437fe237363b863bf49c3631c2b9e482aa2121d93c9cc47b",
+    "combined_stream_sha256": "bb1e97c99fc1eb3c1acab53f77232c00fae61feafb5b8b63941c1e68e0e53b75",
+    "actual_V28_exploratory_results_CSV_sha256": "30e65116e28f48e7939cab031ca0470b4be52d03225c2194daf106571cee66e2",
+    "all_CSV_rows_development_exposed": true,
+    "all_CSV_rows_cost_and_historical_calendar_certificates_false": true,
+    "historical_clock_DST_conditional": {
+      "official_Darwinex_document": "https://help.darwinex.com/metatrader-time",
+      "policy": "New_York_Close_server_GMT_plus2_winter_plus3_US_DST",
+      "raw_weekends_over_24h": 104,
+      "normal_Monday_01_local_server_reopens": 100,
+      "exceptional_weekday_or_late_market_reopens_unclassified": 4,
+      "independent_US_UK_IANA_session_test_real_timestamps": 50137,
+      "original_V221_session_rules_independently_exact": 6,
+      "all_mismatches": 0,
+      "source_to_acquisition_hash_bound": false,
+      "global_calendar_certified": false
+    }
+  },
+  "durable_artifacts": {
+    "new_independent_audit_bundle": {
+      "library_id": "libfile_606a2724967c819186d0cedad9e7c883",
+      "path": "/QROS/SEED0076_DIRECT_FROM_SCRATCH/V28_INDEPENDENT_VALIDATION_20260925/QROS_SEED0076_DIRECT_V28_INDEPENDENT_VALIDATION_20260925.zip",
+      "zip_bytes": 67588,
+      "zip_sha256": "38e9b08ce647b46bfbdf09067dbfd78a4a936b8b0b2d2243d41dec269434aceb",
+      "readback": "PASS_CRC_SHA_ALL_28_MEMBERS"
+    },
+    "independent_full_V26_archive": {
+      "library_id": "libfile_a6f92e925fd4819191087669b28d125d",
+      "sha256": "99b596eb11780fe58aabd73ca3b5fd99a0b5a14bafac90a9020d003b8519928f",
+      "status": "SUPPLEMENTAL_ORIGINAL_V220_PARITY_NOT_FINAL_V27_EXECUTION"
+    }
+  },
+  "problems": [
+    "No recovered source->Darwinex acquisition hash-bound receipt for exact 2018-2019 raw carrier; NY+7h mapping passes empirical/official IANA tests only.",
+    "Historical full gold holiday and early close account-specific calendar not independently certified; 4 exceptional long market closures remain separately flagged.",
+    "Exact 2018-2019 Darwinex XAU account- and entity-specific paid commission/fee records have not been recovered; current 2026 published tariffs cannot be silently applied retrospectively.",
+    "V28 has 1125 trades/12375 fields independently compared in 56 representative routes but NOT exhaustive trade-by-trade parity of all 22352 semantic IDs."
+  ],
+  "cause_root": "Scope drift was fixed by routing through the actual direct V28 authority instead of obsolete GA1; remaining uncertainty is historical broker provenance/cost and full independent execution—not old maskpack availability.",
+  "corrections": [
+    "Independent fresh all-48 V220 proof reconciled with already closed V28 V26 readback; no repeats of old shards or economic results.",
+    "Independent full 56 route V27 quote/availability check distinguishes critical V27 CLOSE correction from original V220 V26 and validates each root on original raw Bid/Ask.",
+    "Independent V209 canonical factor enumeration and all 22352 V28 CSV IDs checked byte-exact without reading or selecting economic outcomes.",
+    "Independent DST/session audit preserves conditional provider binding and flags 4 unusual historical gaps without inventing holidays."
+  ],
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "evidence_class": "VERIFIED_NON_ECONOMIC_ENGINEERING_AND_CONDITIONAL_CLOCK_ONLY",
+  "Gate_A_approved": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "MT5_parity_complete": false,
+  "new_alpha_selected": false,
+  "portfolio_marginal_impact": "NONE_NO_NEW_TRADES_OR_SELECTION",
+  "next_automatic_action": "Do not rerun V25-V28, old 60/10 shards or W3. In this new direct lane, obtain historical XAUUSD broker source/export hash binding, 2018-2019 holiday/early-close schedule and real account commission evidence. Independently audit remaining trade execution strata then full trade-by-trade if needed for Gate A. Until independently certified retain V28 EXPOSED_DEV_EXPLORATORY; no holdout, GA2, MT5 promotion or portfolio risk."
+}

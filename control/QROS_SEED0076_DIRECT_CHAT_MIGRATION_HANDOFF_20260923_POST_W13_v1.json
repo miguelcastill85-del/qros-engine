@@ -1,0 +1,61 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_CHAT_MIGRATION_HANDOFF_POST_W13_V1",
+  "purpose": "Cross-chat resume without repeating closed W13 STRICT or conflating PUBLIC1000 main science with direct DEV lane",
+  "governance": {
+    "main_pointer": "control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
+    "blob_sha1": "cafaaa347c72308a97e2064258f3ddc185747bf8",
+    "version": "2.1",
+    "one_stage_per_invocation": true
+  },
+  "lane": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "seed": "WEB_SEED_0076",
+    "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "original_frozen_spec_gitblob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "main_scientific_pointer_separate": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json"
+  },
+  "last_closed": {
+    "stage": "XAUUSD_M1_W13_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL",
+    "remote_anchor_path": "control/QROS_SEED0076_DIRECT_M1_W13_STRICT_REMOTE_SHA_ANCHOR_20260923_v1.json",
+    "remote_anchor_blob_sha1": "f63da3e0f2cff0a5b499ad109d404652b9ed2ed2",
+    "remote_anchor_commit": "06b2b4bff239b50c583821cac6f86eb3ffc3de3e",
+    "prereg_blob_sha1": "9cd1820bed2d8b4cd34a9e29203abb84fcffd1a6",
+    "source_freeze_blob_sha1": "42cd650506066984e3354997b5ca9550230a0364",
+    "semantic_new": 17258,
+    "physical_new": 5677,
+    "cumulative_semantic": 207096,
+    "cumulative_physical_by_cell": 87293,
+    "independent_full_tick_trade_rows": 5883,
+    "original_V221_full_gate_canaries": 218,
+    "drive_file_id": "1ATY29mtrEmh43bN4SZdYdTTzSaDlmAQe",
+    "zip_sha256": "f4bb1e1e067452b9be56827b3d8f2aea8a0cd72dcebd141ac2c82fef94928d8e",
+    "zip_bytes": 4434198,
+    "remote_readback": "PASS"
+  },
+  "next_only": {
+    "action": "AUDIT_EXACT_M1_SIX_WINDOWS_TWO_TIE_POLICIES_COMPLETENESS_PRE_PNL",
+    "scope": "Verify frozen per-window config-ID coverage, causal tie separation, cumulative counts and remote anchors for XAUUSD M1; only after that preregister exactly one next causal axis",
+    "no_new_backtest_until_audit": true,
+    "no_holdout": true
+  },
+  "data": {
+    "raw_xau_dev_2018_2019_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "ticks": 151382388,
+    "bytes": 2573500596,
+    "source_status": "VERIFIED_DURING_W13_EXECUTION",
+    "historical_2018_2019_exposed": true
+  },
+  "scientific": {
+    "state": "DEVELOPMENT_RUNNING",
+    "holdout_open": false,
+    "ga2_open": false,
+    "gate_A_approved": false,
+    "no_alphas_selected": true,
+    "broker_commission_certified": false,
+    "broker_early_close_calendar_certified": false,
+    "standalone_buy_sell_only": true,
+    "mt5_parity_pending": true,
+    "old_60_shards_frozen_out_of_scope": true
+  },
+  "next_automatic_action": "Read live direct branch pointer; verify W13 remote anchor and Drive SHA; audit six-window two-tie XAU M1 coverage before preregistering any next causal axis. Do not reopen W13."
+}

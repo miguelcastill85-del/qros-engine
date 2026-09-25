@@ -1,0 +1,58 @@
+{
+  "schema": "QROS_SEED0076_W3_ASYM_REARM0_PRE_ECON_SOURCE_FREEZE_REMOTE_SHA_ANCHOR_V1",
+  "phase": "PRE_ECON_FROZEN_NO_RESULTS",
+  "governance_main_pointer_blob_sha1": "cafaaa347c72308a97e2064258f3ddc185747bf8",
+  "authority_direct_pointer_prior_blob": "9c53fad5305f1fd2008cd7faef62cd6827520df5",
+  "parent_12cell_audit_anchor_blob_sha1": "9405bb2d8fcc262bfa4092d504b91628171e7bc9",
+  "prereg_gitblob_sha1": "c02d6b23d3fa0bfea0f1b05a31b12b678fef00b8",
+  "original_frozen_V209_spec_gitblob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "original_frozen_V220_structural_gitblob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+  "original_frozen_V221_gate_gitblob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+  "original_frozen_config_stream_gitblob_sha1": "a01268bd8bab639977b22c419926d94306754bba",
+  "raw_tick_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "m1_bar_sha256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59",
+  "m1_indicators_sha256": "f30da86f6c11b5a6573b3571ffd3c3621bbe4d51134258c89d956d6f9ab115b5",
+  "frozen_economic_runner_sha256": "0bf34f38f25627b69a460c32b47ec03d5d945839fcc442a95a3604b423be6d03",
+  "frozen_full_raw_valid_quote_oracle_sha256": "4387fe75214103c6ea97d0130f198b86a0db6a2d5997549f32e6ec6e8a69754c",
+  "archive": {
+    "name": "QROS_SEED0076_W3_REARM0_PRE_ECON_SOURCE_FROZEN_20260923.zip",
+    "bytes": 1142882,
+    "sha256": "e27fd501894dc40188b6a041915de641b65e82b84579b64b1cf656ec1533aa0d",
+    "members": 23,
+    "drive_id": "1G8lnSELSiF0rm4zi5GPk4fdrLPslBCOH",
+    "remote_raw_readback_sha256": "PASS",
+    "all_member_sha256_verified": true
+  },
+  "pre_econ_gates": {
+    "original_source_gitblob_parity": true,
+    "source_input_raw_bar_indicator_sha256": true,
+    "w3_asymmetric_structural_original_independent": "PASS_681772_BARS",
+    "zero_atr_buffer_unconsumed_full_close_tape": "PASS",
+    "original_rearm_code2_previous_W3_raw_tape": "EXACT_PASS_BUY_SELL",
+    "corrected_rearm_code0_independent_fsm_all_raw_events": "EXACT_PASS_BUY_SELL",
+    "synthetic_adversarial_case_groups": 9,
+    "invalid_quotes_in_dev_ticks": 942258,
+    "changed_accepted_raw_candidates_after_invalid_quote_guard": {
+      "BUY": 0,
+      "SELL": 0
+    },
+    "buy_pre_fsm_raw": 49730,
+    "sell_pre_fsm_raw": 50229,
+    "BUY_pre_econ_corrected_raw": 49730,
+    "SELL_pre_econ_corrected_raw": 50229,
+    "full_two_side_v209_packages": 17258,
+    "prior_closed_parent_semantic": 207096
+  },
+  "scientific": {
+    "state": "PREREGISTERED_NO_RESULTS",
+    "dev": "2018_2019_ALREADY_EXPOSED",
+    "economic_results_seen_for_new_cell": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "broker_commission_certified": false,
+    "broker_calendar_certified": false,
+    "original_60_shards_out_of_scope": true,
+    "mt5_pending": true
+  },
+  "next_only_action": "EXECUTE_ONLY_SOURCE_FROZEN_W3_ASYMMETRIC_RETURN_INSIDE_REARM0_BUY_THEN_SELL_AND_EACH_SIDE_INDEPENDENT_FULL_TICK_ORACLE; NEVER_OPEN_HOLDOUT; PERSIST_DRIVE_ZIP_AND_GITHUB_ANCHOR_AFTER_BOTH_PASS"
+}

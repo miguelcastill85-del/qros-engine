@@ -1,0 +1,184 @@
+{
+  "GA2_open": false,
+  "historical_PnL_read": false,
+  "holdout_open": false,
+  "members": {
+    "PRE_ECON_SYNTH_RECEIPT.json": {
+      "bytes": 2108,
+      "sha256": "2f0a7190967cb2f4a5abefd55a9e0c5e16a5aca590ba133adb680cc765c2f94f"
+    },
+    "README_QROS_W5_ANTISTALL_V23.md": {
+      "bytes": 5235,
+      "sha256": "31502bf68243e881615c5e1f0b08af34112e61366d48cf819b8a66ebb15a89f6"
+    },
+    "anti_stall/scripts/qros_anti_stall_v2_1.py": {
+      "bytes": 17654,
+      "sha256": "27e81704557653a3c0fe751d91c6783b69ffafc55543fdb5fcb12b57b5b0a02b"
+    },
+    "anti_stall/scripts/qros_authority_reconciler_v2_1.py": {
+      "bytes": 4491,
+      "sha256": "7c1d6f4c20ca52fffb591047951d90fd8bedda62ed83d5114d7e0ba4c2944955"
+    },
+    "anti_stall/scripts/qros_continuation_dispatch_v2_2.py": {
+      "bytes": 6083,
+      "sha256": "589b2cf876d28b03ec5f4393b52bc5fceecd6e5facb30420213e23c952ba32cd"
+    },
+    "anti_stall/scripts/qros_meta_audit_v2_1.py": {
+      "bytes": 8693,
+      "sha256": "3f47a03fe013786d98276eaa7514ea1f9f8b681431feb861fde5c504ce9c6f24"
+    },
+    "anti_stall/scripts/qros_progress_watchdog_v2_2.py": {
+      "bytes": 4888,
+      "sha256": "3f833b2f8e5f7a71df92e1cffbb682102883063b92059f43ea758fa582ea29ab"
+    },
+    "anti_stall/tests/test_v2_1_authority_reconciler.py": {
+      "bytes": 3571,
+      "sha256": "2f98521d1221cb592b8ea6b2ab1792ef138c5b1b6f5c400dfb7e378ebec037ca"
+    },
+    "anti_stall/tests/test_v2_1_bounded_resources.py": {
+      "bytes": 2678,
+      "sha256": "0b0a6808b8d851817174392595e6c7d7dd667fdaad2aac59b872972b00248f0b"
+    },
+    "anti_stall/tests/test_v2_1_runner_meta_audit.py": {
+      "bytes": 12858,
+      "sha256": "c669ce19dbfec5a7832c616581e4a934c4ab8ca3bbc1387f7dca74f56461636e"
+    },
+    "anti_stall/tests/test_v2_2_nonstall.py": {
+      "bytes": 6449,
+      "sha256": "7f86e8ebe7d79d420a98264f08d2b139d9f5488c381bb50b82198b854702e35e"
+    },
+    "legacy/source_pins/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json": {
+      "bytes": 5291,
+      "sha256": "8edd65844e7b65376baffe0615d2671e9bae18804f713c53f3fa3357ba38c233"
+    },
+    "legacy/source_pins/qros_seed0076_config_stream.py": {
+      "bytes": 3935,
+      "sha256": "ca7d30880a9fa808d6e62e9828f158dc7bfae693cf72267162c260f1dae05ad7"
+    },
+    "legacy/source_pins/qros_seed0076_gate_engine_v221.py": {
+      "bytes": 8890,
+      "sha256": "5007116f4bab1ff17b4c871165359978ffe7e2f191f82a25494b305cf0af3184"
+    },
+    "legacy/source_pins/qros_seed0076_structural_v220.py": {
+      "bytes": 13242,
+      "sha256": "bc488a967dc79de705a137c26e2a7ae86d35f55838a7cf18b0d3385590df7334"
+    },
+    "qros_w5_mtf_causal_adapter_v1.py": {
+      "bytes": 2222,
+      "sha256": "3fb8008273f59b1e86a9e9902e342ee700b3a0b806743a4d4f8d02e9f0d683d0"
+    },
+    "qros_w5_pipeline_tests_v23.py": {
+      "bytes": 5312,
+      "sha256": "3104fcdb535b7d069796c05c29520048f67f09e123ea880587b0033f0ba17890"
+    },
+    "qros_w5_pipeline_v23.py": {
+      "bytes": 9732,
+      "sha256": "4a1e95cd08f100aa965a7bb9d35edf8ab98b0dbe6e75724f2739758f9f75f0ff"
+    },
+    "qros_w5_pre_econ_v1.py": {
+      "bytes": 11233,
+      "sha256": "bbc5065ca65250b288a799a7100565ea83748d562822e191e0d5b160d3167476"
+    },
+    "qros_w5_realdata_preflight_tests_v1.py": {
+      "bytes": 1181,
+      "sha256": "a7920bdfa26f5d3de20672db1edc1558f4e6203607f18e68f3795719065fb5c5"
+    },
+    "qros_w5_realdata_preflight_v1.py": {
+      "bytes": 4117,
+      "sha256": "67c641118caf65fc0818cf519981324862cc7d33277a535f17df25204778b54b"
+    },
+    "qros_w5_source_tests_v1.py": {
+      "bytes": 5354,
+      "sha256": "1af979c1f29ae9a79d45eb502b7a5a216a6cc0edf4ce4941b418f3b058098be8"
+    },
+    "qros_w5_stage_entry_v1.py": {
+      "bytes": 1621,
+      "sha256": "9efe3a91503ffcdfef61fa873c79df6471e305be577865ba101c6bf85446d4c3"
+    },
+    "test_evidence/bootstrap_final.log": {
+      "bytes": 76,
+      "sha256": "e3c24a2b06f31f102a6dd799b09f06b25c4017827c19d560ebe6edf59465524f"
+    },
+    "test_evidence/dispatch_final.json": {
+      "bytes": 1207,
+      "sha256": "0a84b5b12b96bc88ee8d1b2a952031f3ec75b6467cea9b0f2187cdc621d78baa"
+    },
+    "test_evidence/frozen_smoke/QROS_W5_CONTINUATION_RESULT.json": {
+      "bytes": 522,
+      "sha256": "42db22a6f32a685c2fb1b093a62fb1f8b54c9038d2a63aedb080a12a0258d49f"
+    },
+    "test_evidence/frozen_smoke/W5_EXACT_FROZEN_QUEUE.json": {
+      "bytes": 1495,
+      "sha256": "eda17f4494e497a7286ca37ecc7b88f1dcb15c65763b7329fd0795fe6a72044a"
+    },
+    "test_evidence/frozen_smoke/W5_QUEUE_EXTERNAL_PIN.json": {
+      "bytes": 3393,
+      "sha256": "6979ec814b69ee63ee4a3db63fd2628e9d6bcb1995260287a5e010beece5024d"
+    },
+    "test_evidence/idempotent_final.json": {
+      "bytes": 498,
+      "sha256": "4342c16d02ff54917ee41ca375258c3e94e7b48c7e5246919873b621908dfecf"
+    },
+    "test_evidence/realdata_negative_tests.log": {
+      "bytes": 97,
+      "sha256": "0e0521ed7d2fcee382270388a1c00e4e1f0ccf95b91a3dd0450fcf866392a1ee"
+    },
+    "test_evidence/v21_regression.log": {
+      "bytes": 99,
+      "sha256": "3661c30245d87185f998b351a009cdda65876a2aca241d51a6d1fe303996f194"
+    },
+    "test_evidence/v22_regression.log": {
+      "bytes": 788,
+      "sha256": "3c06f034ac22037ff77acd1fb30f2810c6e275aeacadcc00e7f878a33ec76fb8"
+    },
+    "test_evidence/v23_pipeline_tests_retry.log": {
+      "bytes": 1744,
+      "sha256": "237cc1a49923c2c020d4dbd54392e069cfc3c6c8a460336908ba3923d90233e9"
+    },
+    "test_evidence/w5_source_tests.log": {
+      "bytes": 98,
+      "sha256": "df67a62ca00433edba8d845baa9c70351e008ad49e4c65dd77b9cb4da35baa47"
+    },
+    "v209/AUDIT_V209_REMAINING_AXES.json": {
+      "bytes": 21346,
+      "sha256": "d86dc72aedbb1ec6f098d982085872f560a87758436d6768fc8d71f1290283d5"
+    },
+    "v209/BUY_CONFIG_IDS_11176.bin": {
+      "bytes": 357632,
+      "sha256": "0dbaf56a5a8f0b1fce3b4c92fc44f0fc6146a237e9f23eaf6da75e4be82eecb5"
+    },
+    "v209/FROZEN_ORIGINAL_V209_SPEC.json": {
+      "bytes": 5291,
+      "sha256": "8edd65844e7b65376baffe0615d2671e9bae18804f713c53f3fa3357ba38c233"
+    },
+    "v209/INDEPENDENT_PREREG_ORACLE_RECEIPT.json": {
+      "bytes": 1360,
+      "sha256": "47adc55e6ff81daa12a2acf206c444e104b69ba20929df9fe52a6c799ab45296"
+    },
+    "v209/MANIFEST.json": {
+      "bytes": 2173,
+      "sha256": "59c2b0415cecafb91ef3387b20affcd21e7bcda7574aaa11cfd1de55ca7940d2"
+    },
+    "v209/PREREG_W5_ASYM_REARM0_TICK_FULL_V209.json": {
+      "bytes": 6555,
+      "sha256": "9e9f912f72d3335b286596adae9a8e7333608e8ffee8a2f9bc92e83265b41a93"
+    },
+    "v209/SELL_CONFIG_IDS_11176.bin": {
+      "bytes": 357632,
+      "sha256": "d2a130f42f4ab077437fe237363b863bf49c3631c2b9e482aa2121d93c9cc47b"
+    }
+  },
+  "original_tick_carrier_inside_archive": false,
+  "reference_parent_direct_git_blob": "8370decb2c8e033c4b60662e72f03b22516ae899",
+  "reference_prereg_blob": "40275ce4fc0454759a181d9e3d7e8757630134da",
+  "schema": "QROS_W5_LITERAL_NONSTALL_V23_EXACT_MEMBER_MANIFEST",
+  "synthetic_receipt_sha256": "2f0a7190967cb2f4a5abefd55a9e0c5e16a5aca590ba133adb680cc765c2f94f",
+  "tests": {
+    "negative_realdata": 5,
+    "total": 83,
+    "v21": 37,
+    "v22": 8,
+    "v23_integration": 12,
+    "w5_source": 21
+  }
+}

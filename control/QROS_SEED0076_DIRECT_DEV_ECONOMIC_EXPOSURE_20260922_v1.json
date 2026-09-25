@@ -1,0 +1,128 @@
+{
+  "V1": {
+    "diagnostic_resolved_trade_rows": 1444,
+    "forensic_original_output_preserved": true,
+    "generated_signals": {
+      "BUY": 22210,
+      "SELL": 22082
+    },
+    "invalid_root_cause": "23:50 planned flat not executable on 7 early-close dates; missing exit left scanner able to evaluate following signals, invalidating entire aggregate rather than only 25 missing trades.",
+    "missing_exit_dates": [
+      "2018-05-28",
+      "2018-07-04",
+      "2018-12-24",
+      "2018-12-31",
+      "2019-01-07",
+      "2019-01-14",
+      "2019-02-18"
+    ],
+    "missing_exits": 25,
+    "provisional_metrics": "INVALID_SUPERSEDED_DO_NOT_USE",
+    "source_file": "seed0076_direct_dev_backtest_v1.py",
+    "status": "INVALID_UNRESOLVED_EXIT_SESSIONS_AND_SEQUENCE"
+  },
+  "V2": {
+    "code_sha256": "49011cdc993fa1bfeb42bbf14e18b1c4e17c93e295aadffcc81d282240d5a59e",
+    "commission_included": false,
+    "execution_overlay": "FIXED_19_30_SERVER_CIVIL_FLAT_EXPLORATORY_DIFFERENT_FROM_ORIGINAL_SESSION_CLOSE_PROFILE",
+    "generated_signals": {
+      "BUY": 22210,
+      "SELL": 22082
+    },
+    "gross_R_descriptor": "Spread inclusive, no broker commissions, no independently certified holiday calendar; cannot be interpreted as final net",
+    "missing_exits": 0,
+    "observed_spread_included": true,
+    "provisional_PF_R": 0.6538817118682857,
+    "provisional_total_R": -491.8867246718767,
+    "selection_basis": "single operational early-close correction based on quote coverage; NOT chosen by economic PnL; nonetheless entire DEV already exposed",
+    "status": "EXPLORATORY_DEV_EXPOSED_COMMISSION_AND_CALENDAR_UNCERTIFIED",
+    "trades": 1432,
+    "trades_csv_sha256": "71145e5f767c418f955f9db34684cfd58c6540734772664b4a57405671588af9"
+  },
+  "authorization": "User explicitly requested direct backtesting of the SAME seed while freezing and excluding all old shard workflows.",
+  "benchmark_limitation": {
+    "not_a_global_performance_claim": true,
+    "one_2_config_dev_run_v2_seconds_excluding_sha_and_rehydrate": 4.910471626999879
+  },
+  "configs": {
+    "BUY": "d6f62bb436eeda68dd6bc75f66a2b5f6f39768a2f067509df997808fa14ae07a",
+    "SELL": "8cb4b6a553fcaed488b503b5960610c92aad009a130fbab6d9d0d7bb5ea0ca83"
+  },
+  "date_utc": "2026-09-23",
+  "exposure": {
+    "2018_2019_DEV_economic_exposure": "EXPOSED_FOR_ENTIRE_RELATED_SEED_GENEALOGY",
+    "forward_data_observed_here": false,
+    "full_universe_scored": false,
+    "holdout_economics_opened_here": false,
+    "hypotheses_evaluated": 2,
+    "multiplicity_at_least": 2,
+    "no_independent_retest_claim": true,
+    "trigger": "Actual simulated PnL and metrics inspected for first 2 configurations in V1 then V2. V1 invalid but still economically exposed."
+  },
+  "gates": {
+    "full_rise_fixed_point": false,
+    "new_48m_sweep_authorized_by_user_but_not_executed": true,
+    "old_universe_mutated": false,
+    "original_60_shard_gate_affected": false,
+    "original_shards_reopened": false,
+    "production_release_authorized": false,
+    "scientific_result_class": "EXPLORATORY_DEV_EXPOSED_UNCERTIFIED"
+  },
+  "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "independent_event_generator": {
+    "BUY_events": 22210,
+    "SELL_events": 22082,
+    "independent_quote_execution_oracle": false,
+    "independent_tick_decoder": false,
+    "scope": "Exactly these two XAU M1 CLOSE_BREAK, ONE_SIGNAL_PER_LEVEL, w3/source asymmetric/EMA9-20-50 settings only.",
+    "shared_bar_and_indicator_inputs": true,
+    "six_exact_comparisons": {
+      "BUY_event_tape_equal": true,
+      "SELL_event_tape_equal": true,
+      "fractal_high_equal": true,
+      "fractal_low_equal": true,
+      "high_ids_equal": true,
+      "low_ids_equal": true
+    },
+    "status": "PASS"
+  },
+  "next_action": "Build simple filter-to-event-mask combinator on M1 raw candidate tape. Deduplicate identical physical event tapes while retaining canonical SEMANTIC_CONFIGURATION_ID and all hypothesis counts. Independent execution oracle on sampled trades and broker commission/session cost contracts before interpreting full-universe economic results. Scale only after an actual measured full-domain test.",
+  "original_universe_spec": {
+    "full_original_config_count_reported": 48280320,
+    "git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "path": "research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json"
+  },
+  "preservation": {
+    "new_branch": "research/seed0076-direct-dev-backtest-20260922",
+    "old_60_shards": "FROZEN_NOT_INSPECTED_OR_RECALCULATED_IN_DIRECT_DEV_WORK",
+    "original_scientific_state_not_REDEFINED": true,
+    "stable_main_unchanged": true
+  },
+  "quote_quality": {
+    "historical_2018_preopen_28_bars": "PRESERVED_NOT_TREATED_EXECUTABLE",
+    "source_quote_spread_zero_and_crossed": "RAW_PRESERVED_ENTRY_EXIT_SKIPS_BOTH",
+    "weekdays_with_last_valid_quote_before_23_50": 19
+  },
+  "receipt_sha256": "7eee189728b4cbde52791bf5e25ac4d75a878f06109d17310920557c21018485",
+  "schema": "QROS_SEED0076_DIRECT_DEV_ECONOMIC_EXPOSURE_RECEIPT_1.0",
+  "scientific_seed": "WEB_SEED_0076",
+  "source": {
+    "asset": "XAUUSD",
+    "bytes": 2573500596,
+    "frozen_m1_archive_sha256": "090800d73cb4258f610747ffbbd3606bfe21cecb787c3dad7bd46254552ef753",
+    "period": "2018-2019_DEV",
+    "records": 151382388,
+    "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "timeframe": "M1"
+  },
+  "validation": {
+    "48million_configs": "NOT_RUN",
+    "full_M1_independent_simulator": "NOT_DONE",
+    "full_M1_numpy_independent_generator": "PASS",
+    "future_only_synthetic_perturbation": "PASS",
+    "holdout": "NOT_OPENED",
+    "stop_gap_ask_bid_quotes": "PASS",
+    "v1_seven_tests": "PASS",
+    "v2_seven_tests": "PASS"
+  }
+}
