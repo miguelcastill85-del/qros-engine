@@ -1,0 +1,68 @@
+name: qros-v223-linux-seccomp-synthetic-structural
+on:
+  push:
+    branches: [research/ga1-v259-real-carrier-reconcile-20260924]
+    paths:
+      - 'research/ga1_compiled_dag_factor_ir_v1/tests/qros_v223_linux_seccomp_synthetic_structural_probe_v1.py'
+      - '.github/workflows/qros-v223-linux-seccomp-synthetic-structural.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-v223-non-economic-structural:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ee921dc21ea8e5b9d631b47b68053453aa201e23
+          path: pinned-main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Source and policy pins (fail-closed)
+        run: |
+          python - <<'PY'
+          import hashlib, pathlib, json, platform, sys
+          assert sys.platform=='linux' and platform.machine().lower() in ('x86_64','amd64')
+          pins={
+            'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json':'5a88937d571e4bcc938c9ce71570092e0abfae6d',
+            'research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_CURRENT_RECOVERY_POINTER.json':'fdaf00cfbdb82a194cd650890d79aedb17130662',
+            'research/ga1_compiled_dag_factor_ir_v1/tests/qros_v223_linux_seccomp_synthetic_structural_probe_v1.py':'86979156190a643ddb8d22cf22c90472dae0ba00',
+            'research/ga1_compiled_dag_factor_ir_v1/qros_independent_event_canary.py':'287da51ffba33d4620e39a8bebbb99b4fc75cb3b',
+            'research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json':'c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf',
+            'scripts/qros_seed0076_build_bar_cache_v220.py':'987ef26aca2507a94247bed7663493e6682aa869',
+            'scripts/qros_seed0076_indicators_v220.py':'b3575c061607aaae9f4062ad623ff7083e2e0ffe',
+            'scripts/qros_seed0076_ga1_shard_worker_v223.py':'c77e0a5156c5bb1a874d3c33fde49f162a2a3041',
+            'scripts/qros_seed0076_config_stream.py':'a01268bd8bab639977b22c419926d94306754bba',
+            'scripts/qros_seed0076_gate_engine_v221.py':'74290f11e7a95a25f54c5c9989af110de7dde4e2',
+            'scripts/qros_seed0076_carrier_masks_v221.py':'0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25',
+            'scripts/qros_seed0076_structural_v220.py':'805044c9918a87456a95e150a1c9a1292112cf4c',
+            'pinned-main/anti_stall/scripts/qros_linux_seccomp_single_owner_v1.py':'83319390b7e2fe90da4c4873dae5155010d4c074',
+            'pinned-main/anti_stall/scripts/qros_linux_seccomp_single_process_launcher_v1.py':'e0d37267516125cb8de9354560158ad1c80faa48'
+          }
+          for f,h in pins.items():
+            b=pathlib.Path(f).read_bytes()
+            assert hashlib.sha1(b'blob '+str(len(b)).encode()+b'\0'+b).hexdigest()==h,'GIT_BLOB_DRIFT:'+f
+          ptr=json.loads(pathlib.Path('pinned-main/control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json').read_text())
+          assert ptr['current_version']=='V259' and ptr['shard11_open'] is False
+          assert ptr['economic_pnl_read'] is False and ptr['holdout_open'] is False and ptr['ga2_open'] is False
+          rp=json.loads(pathlib.Path('research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_CURRENT_RECOVERY_POINTER.json').read_text())
+          assert rp['verification_receipt']['git_blob_sha1']=='d6044ffc9a9afc77e7e7309a06a02484435e2c9d'
+          assert 'RETEST_REARM' in rp['closed_by_policy'] or any('RETEST' in x for x in rp['blocked'])
+          print('PASS EXACT_FROZEN_SOURCE_AND_V259_POINTER_PINS',len(pins))
+          PY
+      - name: Install pinned JIT scientific dependencies
+        run: python -m pip install --disable-pip-version-check "numpy==2.0.2" "numba==0.60.0"
+      - name: Synthetic original V223 structural/tick/causal gates under actual Linux seccomp
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '1'
+          NUMBA_NUM_THREADS: '1'
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python research/ga1_compiled_dag_factor_ir_v1/tests/qros_v223_linux_seccomp_synthetic_structural_probe_v1.py
