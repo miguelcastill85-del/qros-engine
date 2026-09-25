@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v2",
+  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v3",
   "status": "DEVELOPMENT_RUNNING",
   "product": "QROS Mobile Research Studio",
   "scope": "MOBILE_APP_ONLY_ANDROID_FIRST_IOS_LATER",
@@ -15,12 +15,12 @@
     "code_branch": "product/mobile-m2-ledger-prototype-20260925",
     "scientific_main": "DO_NOT_MODIFY"
   },
-  "active_delivery": "ANDROID_FLUTTER_M0_BUILT_WITH_SYNTHETIC_ONLY",
-  "mobile_frontend_status": "ANDROID_DEBUG_APK_VERIFIED_TEST_ONLY",
+  "active_delivery": "ANDROID_M1_SIGNED_SYNTHETIC_READ_ONLY_TEST_ONLY",
+  "mobile_frontend_status": "ANDROID_M1_DEBUG_APK_BUILT_CRYPTO_TESTS_PASS",
   "existing_mobile_html": "product/mobile-demo/index.html",
   "existing_mobile_html_status": "TEST_ONLY_WEB_MOCK_NOT_INSTALLABLE_MOBILE_APP",
-  "backend": "LINUX_CXX20_QROS_M2_INFRASTRUCTURE_ONLY_NOT_WINDOWS_CUSTOMER_APPLICATION",
-  "m2_status": "LINUX_INTEGRATION_PASS_AUTHENTICATED_EVIDENCE_AND_EXTERNAL_HEAD_PENDING",
+  "backend": "LINUX_CXX20_M2_INFRASTRUCTURE_PLUS_LOCAL_PYTHON_SIGNED_SYNTHETIC_READONLY_TEST_GATEWAY",
+  "m2_status": "LINUX_INTEGRATION_PASS_REAL_M2_AUTHENTICATED_EVIDENCE_AND_DYNAMIC_EXTERNAL_HEAD_PENDING",
   "hard_exclusions": [
     "WINDOWS_UI",
     "MAC_DESKTOP_UI",
@@ -38,8 +38,8 @@
     "use_only_synthetic_data_until_authorized": true,
     "paid_services_activation": false
   },
-  "next_automatic_action": "Build server-only authenticated evidence receipts and independent immutable HEAD on isolated mobile backend; keep all remote mutation endpoints disabled. Then connect Android client read-only and run device installation/UX testing. Do not add desktop UI or activate costs.",
-  "release_gate": "CI_APK_PASS_ONLY; PHYSICAL_DEVICE, BACKEND_AUTHN_AUTHZ, TRUST_ANCHOR, SIGNING_AND_PRIVACY_NOT_PASSED",
+  "next_automatic_action": "Design separately governed monotonic immutable external witness and opt-in authenticated HTTPS read-only demo ingress, test real Android installation and pairing, and only then bind actual canonical M2 research receipts. Maintain zero client scientific mutation; never resume Windows UI.",
+  "release_gate": "M1_DEBUG_APK_ONLY; PHYSICAL_DEVICE_INSTALL, DYNAMIC_EXTERNAL_WITNESS, TLS_INGRESS, TENANT_AUTHZ, DEPENDENCY_LOCKFILE, RELEASE_SIGNING_AND_PRIVACY_NOT_VERIFIED",
   "verified_milestones": {
     "ANDROID_M0_NATIVE_VERTICAL_SLICE": {
       "status": "PASS_ENGINEERING_TEST_ONLY",
@@ -61,8 +61,37 @@
       "physical_android_install": "NOT_RUN",
       "release_signed": "NO",
       "production_research_ready": false
+    },
+    "MOBILE_M1_SIGNED_SYNTHETIC_READONLY": {
+      "status": "PASS_ENGINEERING_TEST_ONLY",
+      "tested_commit": "4d8d70e5ebb8bfdefaddd2be188b75659ad4c824",
+      "github_actions_run_id": 36095871557,
+      "backend_job_id": 107947912214,
+      "android_job_id": 107947949748,
+      "backend_tests": "23_OF_23_PASS",
+      "flutter_tests": "13_OF_13_PASS",
+      "flutter_analyzer": "ZERO_ISSUES",
+      "apk_filename": "app-debug.apk",
+      "apk_bytes": 141575502,
+      "apk_sha256": "106dfeceb971d26655e93d2d3d87361a96ca321af9233df66593006b4fa74f2d",
+      "ci_receipt_path": "product/mobile/receipts/M1_CI_RAW_BUILD_RECEIPT.json",
+      "ci_receipt_git_blob_sha1": "489e8032ec9718b623b9f6642a3f4fbb9f00e77f",
+      "verified_receipt_path": "product/mobile/receipts/QROS_MOBILE_M1_VERIFIED_ENGINEERING_PASS_20260925.json",
+      "verified_receipt_git_blob_sha1": "d5224a2e915c0008134de0574d26339542e7ff2b",
+      "github_artifact_id": 10847207764,
+      "github_artifact_expiry_utc": "2026-09-30T04:55:31Z",
+      "real_android_device": "NOT_RUN",
+      "public_https_ingress": "NOT_DEPLOYED",
+      "independent_dynamic_external_head": "NOT_DEPLOYED",
+      "real_research_receipt_bound": "NO",
+      "broker_data": "NONE",
+      "scientific_gate_pass": false,
+      "public_release_allowed": false
     }
   },
   "security_design_doc": "product/mobile/MOBILE_ANDROID_M0_META_AUDIT_THREAT_MODEL_v1.md",
-  "android_build_incident_doc": "product/mobile/MOBILE_ANDROID_M0_BUILD_INCIDENT_20260925.json"
+  "android_build_incident_doc": "product/mobile/MOBILE_ANDROID_M0_BUILD_INCIDENT_20260925.json",
+  "active_m1_experiment_pointer": "product/mobile/MOBILE_M1_EXPERIMENT_POINTER.json",
+  "security_review_path": "product/mobile/MOBILE_M1_META_AUDIT.md",
+  "device_installation_guide": "product/mobile/docs/QROS_M1_ANDROID_INSTALLATION_TEST_ONLY.md"
 }

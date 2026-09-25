@@ -25,9 +25,9 @@
     "status": "PASS_LOCAL_TEST_ONLY"
   },
   "mobile_test": "PENDING_REAL_FLUTTER_RUN",
-  "next_automatic_action": "Pin exact source blobs in isolated GitHub branch; run backend unittest and Android Flutter CI, correct defects and publish only after machine-verifiable test receipts; no public gateway, real data or scientific transitions.",
-  "phase": "SIGNED_SYNTHETIC_READONLY_BACKEND_AND_FLUTTER_CLIENT",
-  "schema": "QROS_MOBILE_M1_ISOLATED_EXPERIMENT_POINTER_V1",
+  "next_automatic_action": "Design separately governed monotonic immutable external witness and opt-in authenticated HTTPS read-only demo ingress, test real Android installation and pairing, and only then bind actual canonical M2 research receipts. Maintain zero client scientific mutation; never resume Windows UI.",
+  "phase": "SIGNED_SYNTHETIC_READONLY_ANDROID_M1_ENGINEERING_PASS",
+  "schema": "QROS_MOBILE_M1_ISOLATED_EXPERIMENT_POINTER_V2",
   "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
   "signed_fixture": {
     "anchor_body_sha256": "13232d1cfef35495692db5447bd1deb825fa5650b9459e3e9694a907f44048ac",
@@ -39,5 +39,24 @@
   "source_commit_exact": "eb49837221e8df7e1cc054d03c8a921e497b20e6",
   "source_m2_experiment_pointer_blob_sha1": "8a0d531db36e4a4555e43a1f2ad84bb8ac130d63",
   "source_mobile_head_blob_sha1": "15921b43aedb8263ed168c61c8a00a584b35bd80",
-  "status": "DEVELOPMENT_RUNNING"
+  "status": "DEVELOPMENT_RUNNING",
+  "tested_source_commit": "4d8d70e5ebb8bfdefaddd2be188b75659ad4c824",
+  "github_actions_run_id": 36095871557,
+  "engineering_receipt_path": "product/mobile/receipts/QROS_MOBILE_M1_VERIFIED_ENGINEERING_PASS_20260925.json",
+  "engineering_receipt_git_blob_sha1": "d5224a2e915c0008134de0574d26339542e7ff2b",
+  "raw_ci_receipt_path": "product/mobile/receipts/M1_CI_RAW_BUILD_RECEIPT.json",
+  "raw_ci_receipt_git_blob_sha1": "489e8032ec9718b623b9f6642a3f4fbb9f00e77f",
+  "verification": {
+    "backend_tests": "23_OF_23_PASS",
+    "flutter_tests": "13_OF_13_PASS",
+    "analyze": "ZERO_ISSUES",
+    "apk_rehashed_against_ci": "PASS",
+    "apk_bytes": 141575502,
+    "apk_sha256": "106dfeceb971d26655e93d2d3d87361a96ca321af9233df66593006b4fa74f2d",
+    "physical_android_device": "NOT_RUN",
+    "public_https_demo": "NOT_DEPLOYED",
+    "independent_live_witness": "NOT_DEPLOYED",
+    "paid_services": "NONE_ACTIVATED_BUT_PRIVATE_GITHUB_ACTIONS_MINUTES_CONSUMED_QUOTA_UNKNOWN"
+  },
+  "original_pointer_sha1": "b36772eeeb462e23e4016c7221fe817d0df4d75e"
 }

@@ -1,0 +1,17 @@
+{
+  "apk_bytes": 141575502,
+  "apk_sha256": "106dfeceb971d26655e93d2d3d87361a96ca321af9233df66593006b4fa74f2d",
+  "backend_auth_tests": "PASS_PREVIOUS_REQUIRED_JOB",
+  "dart_sdk_version": "3.9.2",
+  "data_source": "SYNTHETIC_ONLY",
+  "device_install_test": "NOT_RUN",
+  "external_dynamic_witness": "NOT_DEPLOYED",
+  "flutter_tests": "PASS_PREVIOUS_REQUIRED_STEP",
+  "flutter_version": "3.35.4",
+  "live_trading_enabled": false,
+  "production_release_approved": false,
+  "schema": "QROS_MOBILE_M1_ANDROID_BUILD_RECEIPT_V1",
+  "scientific_gate_pass": false,
+  "source_commit": "4d8d70e5ebb8bfdefaddd2be188b75659ad4c824",
+  "status": "PASS_ENGINEERING_TEST_ONLY"
+}
