@@ -1,0 +1,144 @@
+{
+  "schema": "QROS_W5_V33_206_OF_710_DIRECT_ORIGINAL_DRIVE_SOURCE_AND_MASK_PARITY_SHA_ANCHOR_20260925_V1",
+  "date_utc": "2026-09-25",
+  "objective": "Restore exact 2018–2019 original XAUUSD DEV ticks from Google Drive and advance predeclared V33 CH0+CH4 read-only independent trade parity without re-executing original 192/710 shards, historical 60/10 old GA1 or exploratory V28 scoring.",
+  "authority": {
+    "source_branch": "research/seed0076-direct-dev-backtest-20260922",
+    "prior_direct_branch_head": "1ac386350f0d81798702eb46090be21f11624811",
+    "prior_direct_pointer_git_blob": "79d6f9eb7361204bf73be326572702eb172d4cfb",
+    "prior_v33_anchor_git_blob": "3f35387e8f541913051858dafeda788ce3df4d80",
+    "prior_v33_original_archive_sha256": "ad8b3a35edd24193d9da21d8ab705b79a8e2b6602c6d11cbd9a020ad46fc8354",
+    "main_scientific_frontier": "V259",
+    "main_pointer_git_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "frozen_v33_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "frozen_v33_original_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+    "original_v28_ch0_archive_sha256": "196de55420e5c29f3ef776d32179842309826585e2fd7d6580fe73f95561ffa2",
+    "original_v28_ch4_archive_sha256": "79d30dd8c734c845025583261fd50bd88392c0ce03d21764f8d82eb4d351ea76"
+  },
+  "data": {
+    "origin": "CONNECTED_GOOGLE_DRIVE",
+    "drive_path": "QROS_CARRIER_STORE_2018_2026/XAUUSD/FULL_2018_2026",
+    "source_drive_folder_id": "15lar_swBxKjjt0dkhrp0YRf7MrRjqLZZ",
+    "source_drive_layout_manifest_id": "1r797INR2hMRYa36N4kCcP4pn-jp5HBVr",
+    "source_drive_layout_manifest_sha256": "ed228163aa41658f4308b0498e0ad0955d70f7c2c8cb057c4aedf77d5f49bf9c",
+    "original_8_zip_parts": [
+      {
+        "part": "001",
+        "drive_id": "14wIm9bBPq7eRikgLp03swoVNmztgkfmN",
+        "bytes": 102025545,
+        "sha256_verified": "d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70"
+      },
+      {
+        "part": "002",
+        "drive_id": "1w_JxSuVpInp44EcUC9fgxlCILQuAbqY5",
+        "bytes": 100422805,
+        "sha256_verified": "159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a"
+      },
+      {
+        "part": "003",
+        "drive_id": "1QL-oatGoYum_tSlNmlF3djbVYB6EkKwD",
+        "bytes": 99870071,
+        "sha256_verified": "ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9"
+      },
+      {
+        "part": "004",
+        "drive_id": "193S2vMhoS63si1A6ZJnVxQ_9i6rSqa12",
+        "bytes": 101825467,
+        "sha256_verified": "241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241"
+      },
+      {
+        "part": "005",
+        "drive_id": "15ivpOfYuvtL1buanKyGu9LYBLY4NINgM",
+        "bytes": 101538275,
+        "sha256_verified": "3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad"
+      },
+      {
+        "part": "006",
+        "drive_id": "1XHZBUU-YvyeHDWZjxWdDevenG5G3AT3c",
+        "bytes": 102849303,
+        "sha256_verified": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8"
+      },
+      {
+        "part": "007",
+        "drive_id": "1Ho7uAW5eqoUktE1rVQsU4rYHsrUKpJ1r",
+        "bytes": 104515054,
+        "sha256_verified": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185"
+      },
+      {
+        "part": "008",
+        "drive_id": "1cido_oBhY_TjDWc30lfyFna0Oeo_1C_9",
+        "bytes": 104291866,
+        "sha256_verified": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b"
+      }
+    ],
+    "zip_parts_SHA256": "PASS_8_OF_8_ACTUAL_DOWNLOADED_BYTES",
+    "zip_all_full_member_crc": "PASS_8_OF_8",
+    "raw_dev_ticks": 151382388,
+    "record_bytes": 17,
+    "raw_dev_bytes": 2573500596,
+    "raw_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "source_raw_quotes_modified": false,
+    "source_intermediate_part6_dev_prefix_sha256": "44c46261b9f63772af3c3b2b9c1895564e768a194d8037617a96d74d92b0496f",
+    "source_part7_dev_prefix_sha256": "99d8caade1f227ea86cf71be969cedb47347303bd437cda7a3750c352696750b",
+    "source_restore_receipt_sha256": "91807473fee7d63ebeed31c2b799c7c2efb3d830495e2b84921be6e42d89db4c",
+    "reused_prior_original_pre_PnL_V28_source": true
+  },
+  "verified": {
+    "prior_192_original_V33_receipts_sha256": "PASS_192_OF_192_EXACT_ARCHIVED",
+    "original_all_710_predeclared_queue_sha256": "PASS",
+    "original_runner_sha256": "PASS",
+    "new_V33_shard_receipts": 14,
+    "new_channel_counts": {
+      "CH0": 7,
+      "CH4": 7
+    },
+    "new_mask_occurrences": 266,
+    "new_independent_trade_by_trade_equalities": 25969,
+    "new_11_field_equalities": 285659,
+    "current_completed_shards": 206,
+    "total_predeclared_shards": 710,
+    "current_pending_shards": 504,
+    "by_channel_completed": {
+      "CH0": 78,
+      "CH4": 128
+    },
+    "cumulative_V33_mask_occurrences": 3962,
+    "cumulative_V33_sampled_signals": 491482,
+    "cumulative_V33_exact_independent_trades": 304670,
+    "cumulative_V33_exact_fields": 3351370,
+    "cumulative_valid_empty_masks": 3,
+    "original_V33_incremental_builder": "PASS_206_OF_206_RECEIPT_FROZEN_PREFIX_AND_INTERNAL_SHA",
+    "fresh_archive_members_crc": "PASS_213_OF_213",
+    "prior_192_receipts_modified": false,
+    "new_economic_PnL_read": false
+  },
+  "durability": {
+    "new_archive_name": "QROS_W5_V33_VERIFIED_206_OF_710_MASK_PARITY_SHARDS_20260925.zip",
+    "new_archive_bytes": 497773,
+    "new_archive_sha256": "325ae8819194afc6aa578653c25245b10b0973d77ca4073a0591523403c1e3af",
+    "new_archive_Library_file_id": "libfile_338faeaebcdc81919f52c825b781e1fe",
+    "new_archive_Library_path": "/QROS_SEED0076_W5_V33_GOOGLE_DRIVE_RESUME_20260925/QROS_W5_V33_VERIFIED_206_OF_710_MASK_PARITY_SHARDS_20260925.zip",
+    "new_archive_Library_raw_readback": "PASS_BYTE_SHA256_CRC_213_MEMBERS",
+    "new_master_receipt_sha256": "dd1ae5d7e14e0517218a39aef0960fd7c49bb47f9f2b341d7ffe6472a612042e",
+    "new_internal_manifest_sha256": "9f787caef5cccd972cf6ec5167bd9b7307cf0773ede4beaef9e41a6d6a1b2c03",
+    "input_rehydration_receipt_sha256": "4baafc97d3db944fe22d0b02fd14e9b1839af99ea1efdc46a8e34b727f70839e"
+  },
+  "gates": {
+    "source_drive_access": "PASS",
+    "raw_original_dev_8_zip_and_full_sha": "PASS",
+    "independent_V33_predeclared_parity": "206_OF_710_PASS",
+    "complete_V33_predeclared_parity": "PENDING_504",
+    "original_2018_2019_Darwinex_account_commission": "UNCERTIFIED",
+    "original_XAUUSD_2018_2019_full_special_sessions": "UNCERTIFIED",
+    "full_22352_exhaustive_trade_parity": "NOT_CERTIFIED",
+    "economic_PnL_read": false,
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "mt5_parity": false,
+    "prior_old_60_10_shards_used": false
+  },
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "portfolio_impact": "NONE_NO_ALPHA_OR_NEW_RISK",
+  "next_automatic_action": "Resume ONLY original V33 frozen plan from the first uncompleted CH0 r0_w1_batch005 ordinals 163–182 and CH4 r0_w1_batch009 ordinals [122–127,129–142]; original 206 SHA-verifiable receipts persist inside new Library ZIP. Execute in bounded atomic shards with periodic Library+Git CAS checkpoint; independently recover authoritative Darwinex XAUUSD 2018–2019 account-specific fees and complete holiday/special-hours schedule. Keep Gate A, holdout, GA2, MT5 and old 60/10 shard lane closed."
+}
