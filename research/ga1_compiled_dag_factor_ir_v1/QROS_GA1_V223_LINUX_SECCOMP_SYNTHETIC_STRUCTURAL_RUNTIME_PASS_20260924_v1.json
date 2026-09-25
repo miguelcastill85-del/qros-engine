@@ -1,0 +1,112 @@
+{
+  "schema": "QROS_GA1_V223_LINUX_SECCOMP_SYNTHETIC_STRUCTURAL_RUNTIME_PASS_V1",
+  "date_local": "2026-09-24",
+  "ci_time_utc": "2026-09-25T00:38:42Z",
+  "OBJETIVO": "Execute original frozen V223 structural states, actual Numba tick-crossing and causal trend/geometry filters under attested Linux x86_64 seccomp on synthetic-only ticks, without executing the quarantined RETEST/rearm branch, real GA1 shards, MT5 or economic metrics.",
+  "AUTORIDAD": {
+    "scientific_main": "ee921dc21ea8e5b9d631b47b68053453aa201e23",
+    "frontier": "V259",
+    "stable_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "research_branch": "research/ga1-v259-real-carrier-reconcile-20260924",
+    "research_pointer_before": "fdaf00cfbdb82a194cd650890d79aedb17130662",
+    "v9_verified_receipt_blob": "d6044ffc9a9afc77e7e7309a06a02484435e2c9d",
+    "frozen_v223_worker_blob": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+    "frozen_structural_blob": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "frozen_config_stream_blob": "a01268bd8bab639977b22c419926d94306754bba",
+    "frozen_gate_engine_blob": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+    "frozen_carrier_mask_blob": "0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25",
+    "frozen_bar_builder_blob": "987ef26aca2507a94247bed7663493e6682aa869",
+    "frozen_indicator_formula_blob": "b3575c061607aaae9f4062ad623ff7083e2e0ffe",
+    "frozen_spec_v209_blob": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "independent_scalar_oracle_blob": "287da51ffba33d4620e39a8bebbb99b4fc75cb3b",
+    "linux_seccomp_helper_blob": "83319390b7e2fe90da4c4873dae5155010d4c074",
+    "linux_seccomp_launcher_blob": "e0d37267516125cb8de9354560158ad1c80faa48",
+    "corrected_test_blob": "2518b910b36017ebd1b052529e9c4fbb753ce345",
+    "workflow_blob": "9683977d0771989bf655527e5e4cc2cabc2677b7",
+    "tested_commit": "d3d3a856971a6ba6e85bdcfdefd3eefce1c7d2da"
+  },
+  "DATOS": {
+    "type": "SYNTHETIC_NON_BROKER",
+    "generated_bars_M2": 720,
+    "generated_ticks": 2880,
+    "generated_prices": "deterministic sine-based independent synthetic BID/ASK with positive synthetic spread",
+    "real_Darwinex_data_read": false
+  },
+  "TRABAJO_EJECUTADO": [
+    "Generated deterministic synthetic ticks and rebuilt M1/M2 bars and all indicators using exact original frozen production code",
+    "Executed original frozen V223 build_structural_cache and raw_cache_for TICK_BREAK BUY and SELL under Linux seccomp, with Numba JIT and physical process-group ownership",
+    "Reproduced structural states against independent scalar implementation for two fractal/tie cases",
+    "Reproduced four raw tick-crossing channels for BUY and SELL against independent scalar implementation",
+    "Validated causal previous-bar EMA TREND and structural GEOMETRY masks independently from the original CarrierMaskEngine",
+    "Fixed initial test harness path to nested pinned-main checkout without altering original frozen scientific code"
+  ],
+  "RESULTADOS_VERIFICADOS": {
+    "independent_checks": 22,
+    "structural_checks": 8,
+    "tick_crossing_channel_checks": 8,
+    "causal_gate_checks": 6,
+    "by_side": {
+      "BUY": {
+        "tick_cross_events_by_buffer": [
+          42,
+          44,
+          41,
+          44
+        ],
+        "empty_gate_events": 42,
+        "trend_events": 29,
+        "trend_plus_geometry_events": 14
+      },
+      "SELL": {
+        "tick_cross_events_by_buffer": [
+          55,
+          51,
+          51,
+          48
+        ],
+        "empty_gate_events": 55,
+        "trend_events": 38,
+        "trend_plus_geometry_events": 28
+      }
+    },
+    "kernel_attestation": {
+      "mode": "LINUX_X86_64_NO_FORK_SECCOMP_V1",
+      "Seccomp": 2,
+      "NoNewPrivs": 1,
+      "owns_process_group": true
+    },
+    "ci_run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36078453576",
+    "ci_job_id": 107894824383,
+    "ci_conclusion": "SUCCESS",
+    "initial_failed_ci_run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36078376420",
+    "initial_failed_root_cause": "TEST_HARNESS_PINNED_MAIN_PATH_INCORRECT_BEFORE_WORKER_LAUNCH",
+    "initial_failure_retained": true
+  },
+  "GATES": {
+    "synthetic_original_v223_structural_tick_and_causal_filters": "PASS",
+    "certified_real_historical_maskpack_and_alias_parity": "NOT_EXECUTED_MISSING_CERTIFIED_HEAVY_BYTES",
+    "true_full_original_v223_process": "NOT_EXECUTED_RETEST_REARM_QUARANTINED",
+    "real_NQX_XAU_M2_M12_M15_indicator_parity": "PASS_ALREADY_FROZEN_SEPARATE_RECEIPTS",
+    "broker_clock_full_calendar": "PROVISIONAL_ONLY",
+    "native_Windows": "EXCLUDED_BY_OPERATOR_UNTESTED_FAIL_CLOSED",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "shard11_open": false,
+    "production_adoption": false
+  },
+  "PROBLEMAS": [
+    "Exact original historical maskpack/index/alias bytes unavailable, cannot turn synthetic parity into certified historic parity",
+    "Full original V223 process intentionally not invoked: includes operator-excluded RETEST/rearm branches",
+    "Linux-only seccomp prohibits subprocess/multiprocessing if later worker requires it"
+  ],
+  "CAUSA_RAIZ": "Historical pack availability and quarantined scientific branch, not execution failure of the isolated structural/tick primitives.",
+  "CORRECCIONES": [
+    "First CI harness nested checkout path corrected, workflow repinned by exact Git blob",
+    "No change to original code, scientific pointers, source data or historical receipts"
+  ],
+  "ESTADO_CIENTIFICO": "PREREGISTERED_NO_RESULTS",
+  "ESTADO_INGENIERIA": "SYNTHETIC_ORIGINAL_V223_STRUCTURAL_TICK_CAUSAL_RUNTIME_PASS_LINUX_ONLY",
+  "IMPACTO_PORTAFOLIO": "NONE",
+  "SIGUIENTE_ACCION_AUTOMATICA": "At first appearance of original certified H1/M12/M15/M2 maskpack,index,alias bytes matching frozen SHA-256, perform read-only independent event-by-event Factor IR historical comparison. Do not recompute closed shards or execute RETEST/rearm; keep main V259 economics, GA2, holdout and shard11 closed. Separately, if a newly authorized non-economic replay capsule excludes RETEST/rearm, test complete runtime with explicit frozen inputs."
+}
