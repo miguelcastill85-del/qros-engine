@@ -32,7 +32,7 @@ jobs:
           pins={
             'control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json':'5a88937d571e4bcc938c9ce71570092e0abfae6d',
             'research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_CURRENT_RECOVERY_POINTER.json':'fdaf00cfbdb82a194cd650890d79aedb17130662',
-            'research/ga1_compiled_dag_factor_ir_v1/tests/qros_v223_linux_seccomp_synthetic_structural_probe_v1.py':'86979156190a643ddb8d22cf22c90472dae0ba00',
+            'research/ga1_compiled_dag_factor_ir_v1/tests/qros_v223_linux_seccomp_synthetic_structural_probe_v1.py':'2518b910b36017ebd1b052529e9c4fbb753ce345',
             'research/ga1_compiled_dag_factor_ir_v1/qros_independent_event_canary.py':'287da51ffba33d4620e39a8bebbb99b4fc75cb3b',
             'research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json':'c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf',
             'scripts/qros_seed0076_build_bar_cache_v220.py':'987ef26aca2507a94247bed7663493e6682aa869',
