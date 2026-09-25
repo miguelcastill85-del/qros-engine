@@ -1,0 +1,44 @@
+name: qros-v220-real-structural-function-ast-verify
+on:
+  push:
+    branches: [research/ga1-v259-real-carrier-reconcile-20260924]
+    paths:
+      - '.github/workflows/qros-v220-real-structural-function-ast-verify.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pinned-original-two-function-ast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: b89bd286aafaebc101f02338a79908db8389cd9b
+          path: frozen
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Check two frozen original V220 ASTs against locally executed full-real functions
+        run: |
+          python - <<'PY'
+          import ast,hashlib,pathlib,sys
+          f=pathlib.Path('frozen/scripts/qros_seed0076_structural_v220.py')
+          raw=f.read_bytes()
+          got=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\\0'+raw).hexdigest()
+          assert got=='805044c9918a87456a95e150a1c9a1292112cf4c', 'FROZEN_SOURCE_GIT_BLOB_DRIFT'
+          print('PASS_ORIGINAL_SOURCE_GIT_BLOB',got,'python',sys.version.split()[0])
+          p=ast.parse(raw.decode('utf-8'))
+          expected={
+            'structural_states':'622ac24b68fbe3c9a1a7c1460808b0f4d02a09da32bd9510cd61c614ea4b8a13',
+            'box_history4':'fa071b91be99803d4a15051204de429fcd8a5f59899bf665f7cde8d054e37645',
+          }
+          for name,pin in expected.items():
+              xs=[x for x in p.body if isinstance(x,ast.FunctionDef) and x.name==name]
+              assert len(xs)==1,'ORIGINAL_FUNCTION_NOT_UNIQUE:'+name
+              digest=hashlib.sha256(ast.dump(xs[0],annotate_fields=True,include_attributes=False).encode()).hexdigest()
+              print('ORIGINAL_V220_FUNCTION_AST_SHA256',name,digest)
+              assert digest==pin,'LOCALLY_EXECUTED_SOURCE_NOT_IDENTICAL_AT_AST:'+name
+          print('PASS_2_OF_2_AST_EXACT_ORIGINAL_V220_NON_ECONOMIC')
+          PY
