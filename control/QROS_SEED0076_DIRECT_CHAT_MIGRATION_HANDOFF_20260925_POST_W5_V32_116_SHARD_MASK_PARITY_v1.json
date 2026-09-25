@@ -1,0 +1,73 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_POST_V32_116_SHARD_INDEPENDENT_MASK_PARITY_HANDOFF_V1",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "parent_pointer_blob_sha": "d4e3f6836d8eab47e4e0594e6e9fd5ecbd2c09c6",
+    "parent_v31_handoff_sha": "e6dafd86b6a76dc1b41eaa0c6326043155d14434",
+    "parent_v31_anchor_sha": "da8404fe10289d3d7cbb141d75f673072e173c21",
+    "v32_immutable_anchor_path": "control/QROS_SEED0076_W5_V32_116_SHARD_INDEPENDENT_MASK_PARITY_SHA_ANCHOR_20260925_v1.json",
+    "v32_anchor_sha": "a181fcf792a64b75034186c409e08f1bfce0fd59",
+    "original_v28_prereg_sha": "40275ce4fc0454759a181d9e3d7e8757630134da"
+  },
+  "objective": "Preserve original complete 22352 W5 full10 exploratory 2018-19 backtest and complete ex-ante defined all-mask independent trade parity on four small channels, representative CH0/4, no duplicate economic replay.",
+  "data": {
+    "raw_xau_ticks": 151382388,
+    "original_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_v28_semantic_configs": 22352,
+    "original_v28_unique_physical_masks": 14459,
+    "original_v28_economic_shards_untouched": 104
+  },
+  "executed": {
+    "V30": "CH1_CH5_27_SHARDS_293_MASK_OCCURRENCES_26754_EXACT_TRADES_294294_FIELDS",
+    "V31": "ALL_56_ORIGINAL_FROZEN_CANDIDATE_TAPES_SOURCE_BID_ASK_CROSSCHECK_PASS",
+    "V32": "116_SHA_RECEIPTED_SHARDS_896_MASK_OCCURRENCES_113124_SAMPLED_EVENTS_80516_EXACT_TRADES_885676_EXACT_FIELDS",
+    "v32_completed_per_channel": {
+      "CH0": 31,
+      "CH2": 14,
+      "CH3": 14,
+      "CH4": 31,
+      "CH6": 13,
+      "CH7": 13
+    },
+    "cumulative_independent_mask_occurrences_not_unique": 1189,
+    "cumulative_exact_independent_trades": 107270,
+    "cumulative_matching_fields": 1179970,
+    "genuinely_zero_signal_masks_correctly_handled": 2
+  },
+  "validated": {
+    "v32_original_frozen_plan_sha256": "60775cadd4f4c1d7b26ea34a8667db862ff61b12ff73fd1ae108bd3c4aff82ab",
+    "v32_original_all_116_tasks_exact_identity": "PASS",
+    "v32_zero_signal_erratum": "PASS_NO_PLAN_OR_COMPLETED_SHARD_CHANGED",
+    "v32_full_internal_manifest_member_sha256": "PASS_124_OF_124",
+    "v32_crc": "PASS",
+    "v32_archive_raw_library_byte_readback": "PASS",
+    "v32_zip_sha256": "3be95e1c69078fcba52f9a5a319a905d987044d23af09ac872e17eb745811b8d"
+  },
+  "problems": {
+    "historical_2018_19_account_specific_Darwinex_XAU_commission": "NOT_RECOVERED",
+    "historical_2018_19_complete_XAU_holiday_special_hours": "NOT_RECOVERED",
+    "CH0_CH4_remaining_mask_parity": "NOT_EXHAUSTIVE",
+    "full_22352_semantic_config_independent_trade_parity": "NOT_COMPLETE"
+  },
+  "root_cause": "V28 scientifically frozen as exploratory spread/hypothetical costs; surviving full-mask independent execution parity deferred for the original large CH0/CH4 partitions; historical broker primary source unavailable.",
+  "corrections": "Keep genuinely empty original mask ordinals and their exact zero fills; repaired V32 independent diagnostic runner without modifying frozen ex-ante plan or already completed receipts. All prior V28-V31 anchors and original scientific pointers preserved.",
+  "state": "DEVELOPMENT_RUNNING",
+  "gates": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "commission_2018_19_certified": false,
+    "holiday_calendar_2018_19_certified": false,
+    "original_W3_deferred": true,
+    "old_60_shards_untouched": true
+  },
+  "portfolio_impact": "NONE_APPROVED",
+  "persistence": {
+    "v32_git_anchor_sha": "a181fcf792a64b75034186c409e08f1bfce0fd59",
+    "v32_library_file_id": "libfile_8fb3c6794ae4819196b671c6cd69a733",
+    "v32_library_zip_sha256": "3be95e1c69078fcba52f9a5a319a905d987044d23af09ac872e17eb745811b8d"
+  },
+  "next_automatic_action": "Recover live V32 pointer/anchor. Build a new ex-ante frozen no-PnL independent parity plan for ONLY previously untested CH0+CH4 original masks, bounded shards by hash; preserve all V28-V32 results. Separately acquire historical 2018-19 primary broker account commission and symbol holiday/special-hours calendar; maintain Gate A/holdout/GA2/MT5 locked if not certified."
+}
