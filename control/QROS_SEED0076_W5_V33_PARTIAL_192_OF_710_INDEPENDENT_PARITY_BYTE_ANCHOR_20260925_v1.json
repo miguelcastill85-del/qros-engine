@@ -1,0 +1,106 @@
+{
+  "schema": "QROS_SEED0076_W5_V33_PARTIAL_192_VERIFIED_MASK_PARITY_SHA_ANCHOR_V1",
+  "authority": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "previous_v32_live_pointer_sha1": "aa9ea12ffef8fa1d4e30322d75aeaf0b7640ac06",
+    "previous_v32_anchor_sha1": "a181fcf792a64b75034186c409e08f1bfce0fd59",
+    "v33_pnf_blind_plan_git_blob_sha1": "3f88c26db37daa71d5234bfb61a7e9ba0763c91f",
+    "v33_pre_exec_runner_git_blob_sha1": "afbd552496e580e47594ad5b059127b2ae0f12d2",
+    "prior_V28_original_anchor_git_blob_sha1": "287b38c34b8c6a549a54420bd57ff0fc94cd9c4f"
+  },
+  "data": {
+    "original_raw_ticks": 151382388,
+    "original_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_V28_semantic_configs_economic_exposed_dev_complete": 22352,
+    "original_V28_economic_shards_untouched": 104
+  },
+  "plan": {
+    "original_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "frozen_preexec_shards": 710,
+    "remaining_original_CH0_CH4_mask_occurrences": 13652,
+    "previous_310_original_masks_excluded_with_frozen_V32_prefix": true,
+    "remaining_masks_BUY_CH0": 6813,
+    "remaining_masks_SELL_CH4": 6839,
+    "max_sampled_source_events_per_mask": 128
+  },
+  "verified": {
+    "status": "DEVELOPMENT_RUNNING_192_HASHED_SHARDS_SCIENTIFIC_PARTIAL_PASS",
+    "completed_shards": 192,
+    "remaining_shards": 518,
+    "completed_CH0": 71,
+    "completed_CH4": 121,
+    "additionally_verified_mask_occurrences": 3696,
+    "additionally_sampled_source_events": 457510,
+    "independent_exact_trades": 278701,
+    "matching_trade_fields": 3065711,
+    "legitimate_zero_signal_masks": 3,
+    "all_receipts_individual_sha256": "PASS_192_192",
+    "all_receipts_match_frozen_predeclared_queue_prefix": "PASS",
+    "CH0_next_original_route": "r0_w1_batch005",
+    "CH0_next_original_ordinals": [
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40
+    ],
+    "CH4_next_original_route": "r0_w1_batch008",
+    "CH4_next_original_ordinals": [
+      264,
+      265,
+      266,
+      267,
+      268,
+      269
+    ]
+  },
+  "prior_independent": {
+    "V30_V32_cumulative_tested_mask_occurrences_not_global_unique": 1189,
+    "V30_V32_independent_exact_trades": 107270,
+    "V30_V32_matching_fields": 1179970,
+    "V31_all_56_original_candidate_quote_tapes": "PASS_4893665_EVENTS_3933457_SUCCESSFUL_LITERAL_QUOTE_ENTRY_EXIT"
+  },
+  "archive": {
+    "provider": "ChatGPT personal Library",
+    "preexec_full_frozen_queue_plan_file_id": "libfile_14af9a8feaa88191ad315f093049c2e3",
+    "preexec_frozen_plan_zip_sha256": "5b13470e52952a52c9bff69a1248246ebb69f96ec815ef87b79963a2515119d7",
+    "partial_receipts_library_id": "libfile_829934b715a481919357f24002d32c14",
+    "partial_receipts_library_path": "/QROS_SEED0076_W5_V33_EVIDENCE_20260925/QROS_W5_V33_VERIFIED_192_OF_710_MASK_PARITY_SHARDS_20260925.zip",
+    "bytes": 465620,
+    "sha256": "ad8b3a35edd24193d9da21d8ab705b79a8e2b6602c6d11cbd9a020ad46fc8354",
+    "members": 199,
+    "all_member_crc_and_sha256": "PASS_199_CRC_198_PAYLOAD_SHA",
+    "remote_library_raw_byte_readback_equal_local": true,
+    "master_sha256": "68d008ecacab75392b3e860bcf2538f737414e6419ee5d07a0371586aa85df7f",
+    "manifest_sha256": "74138f97e7eee5816dbeaa3e0b0c017daa003da97649ad2bc15e531152620f2d"
+  },
+  "science": {
+    "original_w5_V28_economic_backtest_complete_exploratory_only": true,
+    "V33_diagnostic_no_new_PnL": true,
+    "historical_broker_commission_certified": false,
+    "historical_complete_symbol_calendar_certified": false,
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "old_W3_shards_unrepeated": true,
+    "original_60_shards_untouched": true
+  },
+  "root_cause": "The 2018-19 XAU primary account commission and full exact historical special trading hours remain unavailable. Full independent CH0/CH4 mask replay is 192/710 frozen chunks completed, not exhaustively complete.",
+  "next_automatic_action": "Resume only exact next pending V33 predeclared mask-shard by SHA of original frozen 710-task plan: CH0 batch005 ordinal21 and CH4 batch008 ordinal264. Bound each worker and persist atomic receipt per SHA, reconcile partial immutable archive instead of restarting. Never open Gate A holdout GA2 MT5 or new W3 while broker primary source unverified."
+}
