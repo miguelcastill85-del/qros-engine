@@ -1,0 +1,29 @@
+{
+  "android_apk_from_failed_run": "NOT_BUILT",
+  "backend_contract": "PASS_37_OF_37",
+  "economic_pnl_tests": 0,
+  "failed_ci_run_id": 36100392429,
+  "failed_source_commit": "641c703a5f9d3945b62f32a54008d9bfae8260c5",
+  "failure_findings": [
+    {
+      "cause": "single-line if around mounted snackbar",
+      "code": "curly_braces_in_flow_control_structures",
+      "file": "product/mobile/flutter_app/lib/ui/factory_portfolio_screens.dart",
+      "line": 32
+    },
+    {
+      "cause": "DropdownButtonFormField.value deprecated in Flutter 3.35",
+      "code": "deprecated_member_use",
+      "file": "product/mobile/flutter_app/lib/ui/hypothesis_studio_screen.dart",
+      "line": 161
+    }
+  ],
+  "failure_stage": "FLUTTER_ANALYZER",
+  "ga2_open": false,
+  "holdout_open": false,
+  "new_source_manifest_path": "product/mobile/g1/G1_SOURCE_MANIFEST_V2.json",
+  "old_source_manifest_path": "product/mobile/g1/G1_SOURCE_MANIFEST.json",
+  "repair": "Add braces and replace value with initialValue; freeze exact repaired blobs in manifest V2; rerun CI including all tests before any engineering PASS.",
+  "schema": "QROS_MOBILE_G1_CI_INCIDENT_V1",
+  "scientific_main_changed": false
+}

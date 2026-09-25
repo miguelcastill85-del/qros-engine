@@ -29,9 +29,11 @@ class UniverseFactoryScreen extends StatelessWidget {
       'scientific_approval': false,
     };
     await Clipboard.setData(ClipboardData(text: const JsonEncoder.withIndent('  ').convert(export)));
-    if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-      content: Text('Solo el borrador sintético fue copiado. Sin recibo científico.'),
-    ));
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Solo el borrador sintético fue copiado. Sin recibo científico.'),
+      ));
+    }
   }
 
   @override

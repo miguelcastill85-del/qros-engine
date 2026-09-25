@@ -158,7 +158,7 @@ class _HypothesisStudioScreenState extends State<HypothesisStudioScreen> {
         _section('2', 'Contexto y señales', 'Cualquier observación debe provenir de la última vela cerrada.',
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             _axis('Activo de demostración', DropdownButtonFormField<String>(
-              key: const Key('g1-symbol'), value: _symbol,
+              key: const Key('g1-symbol'), initialValue: _symbol,
               items: const [
                 DropdownMenuItem(value: 'SIM_XAUUSD', child: Text('XAUUSD · sintético')),
                 DropdownMenuItem(value: 'SIM_NQX', child: Text('NQX · sintético')),
