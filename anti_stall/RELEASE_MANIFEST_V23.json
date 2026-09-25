@@ -1,0 +1,130 @@
+{
+  "date": "2026-09-25",
+  "files": [
+    {
+      "bytes": 1660,
+      "git_blob_sha1": "bcad544c54f0cc5c9dbab059c58090e7c394a68f",
+      "path": ".github/workflows/qros-executable-nonstall-v23.yml",
+      "sha256": "975ccdf358253cbfb27c9205abbc0837acb9f7c0b730d95dd2e8bb85c831462e"
+    },
+    {
+      "bytes": 4185,
+      "git_blob_sha1": "1d0e8df127dce05ac7471f5a17205e27d4e09bbc",
+      "path": "anti_stall/README_EXECUTABLE_NONSTALL_V23.md",
+      "sha256": "60749fca1f10c072a0af8b4005a2c7e48bdd917e4e9f0d7869f88825e5c1497c"
+    },
+    {
+      "bytes": 4716,
+      "git_blob_sha1": "e245fdba69fa74ce126af33011e441e5efa5a61e",
+      "path": "anti_stall/README_QROS_LITERAL_NONSTALL_V2_2.md",
+      "sha256": "1fd2d9fa5d2dde9de9dd89bc492dad46d45ab4bb937829bdeaea473274c6d42d"
+    },
+    {
+      "bytes": 3696,
+      "git_blob_sha1": "cb731482d076298061cdec2e40244851d14ed6e5",
+      "path": "anti_stall/examples/qros_v23_actual_execution_canary.py",
+      "sha256": "e733ba03a6ff7af435f6240b28b53db5ef3aa4f8248144c25aab483bd06d85c3"
+    },
+    {
+      "bytes": 3829,
+      "git_blob_sha1": "94cf5d02068526869818d19186c0ef13007ad2d3",
+      "path": "anti_stall/governance/QROS_LITERAL_NONSTALL_V2_2_POLICY.json",
+      "sha256": "1a6d5e285550cbb8a935d71055dc1e052647d547327750fbdc7827c97cc4d934"
+    },
+    {
+      "bytes": 17654,
+      "git_blob_sha1": "59a5dc7d661e3983552f34b0d911a928df78d4b3",
+      "path": "anti_stall/scripts/qros_anti_stall_v2_1.py",
+      "sha256": "27e81704557653a3c0fe751d91c6783b69ffafc55543fdb5fcb12b57b5b0a02b"
+    },
+    {
+      "bytes": 4491,
+      "git_blob_sha1": "4626e7aafd49081a466f764047db9a43688dca34",
+      "path": "anti_stall/scripts/qros_authority_reconciler_v2_1.py",
+      "sha256": "7c1d6f4c20ca52fffb591047951d90fd8bedda62ed83d5114d7e0ba4c2944955"
+    },
+    {
+      "bytes": 6083,
+      "git_blob_sha1": "c8cdbc8d57e0370a657ce56989e206ad5e3c5eb5",
+      "path": "anti_stall/scripts/qros_continuation_dispatch_v2_2.py",
+      "sha256": "589b2cf876d28b03ec5f4393b52bc5fceecd6e5facb30420213e23c952ba32cd"
+    },
+    {
+      "bytes": 9310,
+      "git_blob_sha1": "afdc7aba4199a6311b854acac986408faebb77ef",
+      "path": "anti_stall/scripts/qros_continuation_engine_v2_3.py",
+      "sha256": "8e64056939deb7c7918e3fd3da2d2c39bb19916e91acd5f5be4333065c737d5e"
+    },
+    {
+      "bytes": 8693,
+      "git_blob_sha1": "1f3d769c17a7bfda2b5e1966924128d97894001e",
+      "path": "anti_stall/scripts/qros_meta_audit_v2_1.py",
+      "sha256": "3f47a03fe013786d98276eaa7514ea1f9f8b681431feb861fde5c504ce9c6f24"
+    },
+    {
+      "bytes": 4888,
+      "git_blob_sha1": "97971470f41b4552ba737b07b808235ca40a1273",
+      "path": "anti_stall/scripts/qros_progress_watchdog_v2_2.py",
+      "sha256": "3f833b2f8e5f7a71df92e1cffbb682102883063b92059f43ea758fa582ea29ab"
+    },
+    {
+      "bytes": 3571,
+      "git_blob_sha1": "6bf4df42fdcf17f50f776d50ef0e9e497a22a415",
+      "path": "anti_stall/tests/test_v2_1_authority_reconciler.py",
+      "sha256": "2f98521d1221cb592b8ea6b2ab1792ef138c5b1b6f5c400dfb7e378ebec037ca"
+    },
+    {
+      "bytes": 2678,
+      "git_blob_sha1": "3d96ae7d4ba09f8344e340a63bba932bf0167157",
+      "path": "anti_stall/tests/test_v2_1_bounded_resources.py",
+      "sha256": "0b0a6808b8d851817174392595e6c7d7dd667fdaad2aac59b872972b00248f0b"
+    },
+    {
+      "bytes": 12858,
+      "git_blob_sha1": "1e3c03d4dea857477ecab15f3750a4eb85034978",
+      "path": "anti_stall/tests/test_v2_1_runner_meta_audit.py",
+      "sha256": "c669ce19dbfec5a7832c616581e4a934c4ab8ca3bbc1387f7dca74f56461636e"
+    },
+    {
+      "bytes": 6449,
+      "git_blob_sha1": "7386ba66054545ed3c549b655a49d66ad3df87a8",
+      "path": "anti_stall/tests/test_v2_2_nonstall.py",
+      "sha256": "7f86e8ebe7d79d420a98264f08d2b139d9f5488c381bb50b82198b854702e35e"
+    },
+    {
+      "bytes": 8479,
+      "git_blob_sha1": "1f91955d0f27a582e69a559789d2f5ef3f06399a",
+      "path": "anti_stall/tests/test_v2_3_execution_engine.py",
+      "sha256": "a270e4a84cde450f89c00bd4f46bb5e0e75d01513b6dfeefc64bd1119c872534"
+    },
+    {
+      "bytes": 1842,
+      "git_blob_sha1": "d68068bc5a52b2b60206f2a99f78266be89cd677",
+      "path": "anti_stall/tests/test_v2_3_watchdog_stable.py",
+      "sha256": "30adab03851c0435c1796e074a47017b4a8697287f4db6228e597178137ca6f1"
+    }
+  ],
+  "frozen_dependencies": {
+    "anti_stall/scripts/qros_anti_stall_v2_1.py": "59a5dc7d661e3983552f34b0d911a928df78d4b3",
+    "anti_stall/scripts/qros_continuation_dispatch_v2_2.py": "c8cdbc8d57e0370a657ce56989e206ad5e3c5eb5",
+    "anti_stall/scripts/qros_progress_watchdog_v2_2.py": "97971470f41b4552ba737b07b808235ca40a1273"
+  },
+  "local_tests": {
+    "github_actions": "NOT_RUN",
+    "legacy_v21_status": "PREVIOUSLY_REPORT_37_PASS_CURRENT_SUITE_NOT_REVERIFIED",
+    "legacy_v22_fixture_in_this_PY313_host": "4_OF_8_FAIL_OR_ERROR_DUE_PYTHON_STARTUP_APPROX_1_46S_VS_OLD_1S_TIMEOUT",
+    "new_v23_integration_and_stable_watchdog": "13/13_PASS",
+    "new_v23_live_non_economic_canary": "3_real_subprocess_stages_PASS_1_frozen_route_failover",
+    "new_v23_second_canary_reexecution": "ZERO"
+  },
+  "purpose": "Multi-stage actual worker orchestration without chat-only writing",
+  "schema": "QROS_LITERAL_NONSTALL_ACTUAL_EXECUTABLE_V23_RELEASE_MANIFEST",
+  "scientific_scope": {
+    "MT5_parity": false,
+    "W5_V33_scientific_pointer_untouched": true,
+    "economic_broker_data_used": false,
+    "ga2_open": false,
+    "holdout_open": false
+  },
+  "status": "LOCALLY_TESTED_REMOTE_CI_PENDING"
+}
