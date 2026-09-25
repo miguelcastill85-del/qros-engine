@@ -14,6 +14,7 @@ set(QROS_IDENTITY_FILES
     include/qros/qdata.hpp
     include/qros/research_contract.hpp
     include/qros/research_state.hpp
+    include/qros/research_ledger.hpp
     include/qros/sha256.hpp
     include/qros/time_authority.hpp
     include/qros/text_snapshot.hpp
@@ -22,6 +23,7 @@ set(QROS_IDENTITY_FILES
     src/qdata.cpp
     src/research_contract.cpp
     src/research_state.cpp
+    src/research_ledger.cpp
     src/sha256.cpp
     src/time_authority.cpp
     src/text_snapshot.cpp
@@ -71,7 +73,7 @@ string(SHA256 QROS_BUILD_CONTRACT_SHA256 "${QROS_BUILD_CONTRACT_INPUT}")
 file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/generated/qros")
 configure_file(cmake/build_identity.hpp.in "${CMAKE_BINARY_DIR}/generated/qros/build_identity.hpp" @ONLY)
 
-add_library(qros_core src/core.cpp src/custody.cpp src/qdata.cpp src/research_contract.cpp src/research_state.cpp src/sha256.cpp src/time_authority.cpp src/text_snapshot.cpp src/pipeline_common.cpp src/pipeline_data.cpp src/feature_graph.cpp src/universe.cpp src/backtest.cpp src/result_store.cpp src/gates.cpp src/vault.cpp src/portfolio.cpp src/pipeline_cli.cpp src/mt5_bridge.cpp)
+add_library(qros_core src/core.cpp src/custody.cpp src/qdata.cpp src/research_contract.cpp src/research_state.cpp src/research_ledger.cpp src/sha256.cpp src/time_authority.cpp src/text_snapshot.cpp src/pipeline_common.cpp src/pipeline_data.cpp src/feature_graph.cpp src/universe.cpp src/backtest.cpp src/result_store.cpp src/gates.cpp src/vault.cpp src/portfolio.cpp src/pipeline_cli.cpp src/mt5_bridge.cpp)
 target_include_directories(qros_core PUBLIC include "${CMAKE_BINARY_DIR}/generated")
 target_compile_options(qros_core PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
 target_compile_definitions(qros_core PRIVATE _GLIBCXX_ASSERTIONS)
@@ -107,6 +109,12 @@ target_link_libraries(qros_research_state_tests PRIVATE qros_core)
 target_compile_options(qros_research_state_tests PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
 target_compile_definitions(qros_research_state_tests PRIVATE _GLIBCXX_ASSERTIONS)
 add_test(NAME qros_research_state_tests COMMAND qros_research_state_tests)
+
+add_executable(qros_research_ledger_tests tests/test_research_ledger.cpp)
+target_link_libraries(qros_research_ledger_tests PRIVATE qros_core)
+target_compile_options(qros_research_ledger_tests PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
+target_compile_definitions(qros_research_ledger_tests PRIVATE _GLIBCXX_ASSERTIONS)
+add_test(NAME qros_research_ledger_tests COMMAND qros_research_ledger_tests)
 
 add_test(NAME qros_product_capabilities COMMAND qros_product capabilities)
 
