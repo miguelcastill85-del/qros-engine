@@ -1,0 +1,39 @@
+name: qros-executable-nonstall-v23
+on:
+  pull_request:
+    paths:
+      - 'anti_stall/**'
+      - '.github/workflows/qros-executable-nonstall-v23.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  local-only-real-subprocess-qualification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Frozen v2.1 and v2.2 source regression (no broker data)
+        run: python -m unittest discover -s anti_stall/tests -p 'test_v2_1_*.py' -v
+      - name: v2.3 actual scheduler, resume, failover and tamper tests
+        run: python -m unittest discover -s anti_stall/tests -p 'test_v2_3_*.py' -v
+      - name: Execute 3 ACTUAL local worker processes in one bounded call
+        run: python anti_stall/examples/qros_v23_actual_execution_canary.py --work /tmp/qros-v23-canary
+      - name: Verify no duplicate execution on rerun
+        run: |
+          python anti_stall/examples/qros_v23_actual_execution_canary.py --work /tmp/qros-v23-canary > /tmp/qros-v23-second.json
+          python - <<'PY'
+          import json
+          x=json.loads(open('/tmp/qros-v23-second.json').read()); assert x['actually_executed_jobs_this_invocation']==[]
+          assert x['status']=='PASS' and not x['holdout_open'] and not x['ga2_open']
+          print('EXACT_RESUME_NO_DUPLICATE_PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qros-v23-non-economic-test-receipts
+          path: /tmp/qros-v23-canary/QROS_V23_SMOKE_RECEIPT.json
+          if-no-files-found: warn
