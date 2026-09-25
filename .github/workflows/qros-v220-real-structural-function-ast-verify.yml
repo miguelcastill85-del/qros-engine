@@ -26,7 +26,7 @@ jobs:
           import ast,hashlib,pathlib,sys
           f=pathlib.Path('frozen/scripts/qros_seed0076_structural_v220.py')
           raw=f.read_bytes()
-          got=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\\0'+raw).hexdigest()
+          got=hashlib.sha1(b'blob '+str(len(raw)).encode()+bytes([0])+raw).hexdigest()
           assert got=='805044c9918a87456a95e150a1c9a1292112cf4c', 'FROZEN_SOURCE_GIT_BLOB_DRIFT'
           print('PASS_ORIGINAL_SOURCE_GIT_BLOB',got,'python',sys.version.split()[0])
           p=ast.parse(raw.decode('utf-8'))
