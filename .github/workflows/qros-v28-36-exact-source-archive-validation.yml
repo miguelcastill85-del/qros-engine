@@ -1,0 +1,75 @@
+name: qros-v28-36-exact-source-archive-validation
+on:
+  push:
+    branches: [integration/seed0076-v28-exact-archived-sources-20260925]
+  pull_request:
+    paths:
+      - 'research/public1000/seed0076/direct_dev/v28_exact_archive/**'
+      - '.github/workflows/qros-v28-36-exact-source-archive-validation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-source-and-independent-synthetic-economic-kernel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate manifest, full 36 original Git blobs, 254096 source bytes, V259 firewalls
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          python - <<'PY'
+          import ast,hashlib,json,pathlib
+          root=pathlib.Path('research/public1000/seed0076/direct_dev/v28_exact_archive')
+          doc=root/'QROS_V28_36_SOURCE_RELEASE_MANIFEST.json'
+          assert hashlib.sha256(doc.read_bytes()).hexdigest()=='933f1eb09ef254d409957171c820cf12363d9c5514bf8f35c46b8a7d19465a8f'
+          j=json.loads(doc.read_bytes())
+          assert j['schema']=='QROS_SEED0076_DIRECT_W5_V28_36_EXACT_SOURCE_RELEASE_MANIFEST_v1'
+          assert j['source_archive_sha256']=='b2943f96a8b0eb946a9899b52e63a354d33971c88baa0b29dfd58f8e116a3e62'
+          assert j['source_archive_bytes']==7988906 and j['source_archive_original_members']==147
+          assert len(j['files'])==36
+          assert sum(x['original_archive_path'].startswith('SOURCES/') for x in j['files'])==32
+          found=set()
+          for x in j['files']:
+              assert x['github_path']==str(root/x['original_archive_path'])
+              path=pathlib.Path(x['github_path']);raw=path.read_bytes()
+              assert path not in found;found.add(path)
+              assert len(raw)==x['bytes'],'BYTES_DRIFT:'+str(path)
+              assert hashlib.sha256(raw).hexdigest()==x['sha256'],'SHA256_DRIFT:'+str(path)
+              assert hashlib.sha1(b'blob '+str(len(raw)).encode()+bytes([0])+raw).hexdigest()==x['git_blob_sha1'],'GIT_BLOB_DRIFT:'+str(path)
+              ast.parse(raw.decode('utf-8'),filename=str(path))
+          assert sum(x['bytes'] for x in j['files'])==254096
+          assert set(root.rglob('*.py'))==found,'EXTRA_OR_MISSING_SOURCE'
+          stable=pathlib.Path('control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json')
+          raw=stable.read_bytes()
+          assert hashlib.sha1(b'blob '+str(len(raw)).encode()+bytes([0])+raw).hexdigest()=='5a88937d571e4bcc938c9ce71570092e0abfae6d'
+          p=json.loads(raw);assert p['current_version']=='V259' and p['shard11_open'] is False
+          assert j['main_gate_A'] is False and j['holdout_open'] is False and j['ga2_open'] is False and j['old_10_shards_out_of_scope'] is True
+          print('PASS EXACT ORIGINAL 36/36 Git SHA1 + SHA256 + byte sizes + AST; total 254096 bytes; V259 unchanged')
+          PY
+      - name: Execute original frozen V28 kernel against independent original synthetic oracle (no market data)
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+          NUMBA_NUM_THREADS: '1'
+        run: |
+          python -m pip install --disable-pip-version-check 'numpy==2.0.2' 'numba==0.60.0'
+          mkdir -p "${RUNNER_TEMP}/qros_original_v28_synthetic"
+          cp research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/{QROS_W5_V28_EXPLORATORY_ECONOMIC_SYNTHETIC_ORACLE_TEST.py,qros_w5_v28_frozen_exploratory_economic_kernel.py,REFERENCE_ONLY_seed0076_direct_dev_backtest_v2.py} "${RUNNER_TEMP}/qros_original_v28_synthetic/"
+          python "${RUNNER_TEMP}/qros_original_v28_synthetic/QROS_W5_V28_EXPLORATORY_ECONOMIC_SYNTHETIC_ORACLE_TEST.py"
+          python - <<'PY'
+          import hashlib,json,os,pathlib
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'qros_original_v28_synthetic/V28_EXPLORATORY_ECONOMIC_SYNTHETIC_ORACLE_RECEIPT.json'
+          b=p.read_bytes()
+          assert hashlib.sha256(b).hexdigest()=='d31ac82163e462aca4e2026a1a73f5d06fbda57213f06799dd828b890ffcf7a1'
+          x=json.loads(b)
+          assert x['status']=='PASS_BID_ASK_NO_OVERNIGHT_MAX3_PER_DAY_11_FIELDS'
+          assert len(x['tests'])==2 and sum(y['trade_by_trade_11_field_parity_count'] for y in x['tests'])==24
+          assert x['all_fields_checked']==264
+          assert x['real_dev_economic_PnL_read'] is False and x['broker_cost_certified'] is False
+          assert x['holdout_open'] is False and x['GA2_open'] is False
+          print('PASS frozen original V28 synthetic kernel independent oracle 24 trades x 11 fields == 264, zero new PnL')
+          PY

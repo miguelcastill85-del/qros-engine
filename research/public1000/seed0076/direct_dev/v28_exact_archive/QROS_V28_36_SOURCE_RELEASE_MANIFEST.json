@@ -1,0 +1,302 @@
+{
+  "files": [
+    {
+      "bytes": 3935,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "a01268bd8bab639977b22c419926d94306754bba",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/FROZEN_ORIGINAL_SOURCE/qros_seed0076_config_stream.py",
+      "original_archive_path": "FROZEN_ORIGINAL_SOURCE/qros_seed0076_config_stream.py",
+      "sha256": "ca7d30880a9fa808d6e62e9828f158dc7bfae693cf72267162c260f1dae05ad7"
+    },
+    {
+      "bytes": 8890,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/FROZEN_ORIGINAL_SOURCE/qros_seed0076_gate_engine_v221.py",
+      "original_archive_path": "FROZEN_ORIGINAL_SOURCE/qros_seed0076_gate_engine_v221.py",
+      "sha256": "5007116f4bab1ff17b4c871165359978ffe7e2f191f82a25494b305cf0af3184"
+    },
+    {
+      "bytes": 13242,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/FROZEN_ORIGINAL_SOURCE/qros_seed0076_structural_v220.py",
+      "original_archive_path": "FROZEN_ORIGINAL_SOURCE/qros_seed0076_structural_v220.py",
+      "sha256": "bc488a967dc79de705a137c26e2a7ae86d35f55838a7cf18b0d3385590df7334"
+    },
+    {
+      "bytes": 2222,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "a66e9e2dccc344fb5f17fdc651f9e9991d6fa523",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/MTF_CAUSAL_ADAPTER/qros_w5_mtf_causal_adapter_v1.py",
+      "original_archive_path": "MTF_CAUSAL_ADAPTER/qros_w5_mtf_causal_adapter_v1.py",
+      "sha256": "3fb8008273f59b1e86a9e9902e342ee700b3a0b806743a4d4f8d02e9f0d683d0"
+    },
+    {
+      "bytes": 14296,
+      "classification": "REFERENCE_ONLY",
+      "git_blob_sha1": "ee02fbe9b67ddd09862f6e6dd6115e65bda739f1",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/PARENT_W5_7FAMILY_REFERENCE_ONLY.py",
+      "original_archive_path": "SOURCES/PARENT_W5_7FAMILY_REFERENCE_ONLY.py",
+      "sha256": "76ac326d1303f4a4a9b438c87985b282072e906a0c37588e9f79b95a3096ea27"
+    },
+    {
+      "bytes": 1136,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "196a66bf24b2590a9d8c6d9ef2b12aac25e34835",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_BUILD_INDICATORS.py",
+      "original_archive_path": "SOURCES/QROS_W5_BUILD_INDICATORS.py",
+      "sha256": "f3741e7dd16984cc82b3506aaf3ddcc43c17d294eb205e3142e4918e2215a89c"
+    },
+    {
+      "bytes": 4140,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "27ca402d94c07f2cc279d5965c784e333ab9996f",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_MTF_VALID_CAUSAL_V24.py",
+      "original_archive_path": "SOURCES/QROS_W5_MTF_VALID_CAUSAL_V24.py",
+      "sha256": "f71d180452de3cbb6586e03838582641a3e5f89039066071b910055063cd44db"
+    },
+    {
+      "bytes": 10164,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "422b66a76e3026dbfb39fa0421fc5f8ecfa2b2e8",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_REAL_GUARDED_RAW_REARM_V24.py",
+      "original_archive_path": "SOURCES/QROS_W5_REAL_GUARDED_RAW_REARM_V24.py",
+      "sha256": "4cb0af000969fc545f36e2e590b4a8c53d7fdc53f9238b9e6cb594e1c42b1032"
+    },
+    {
+      "bytes": 4921,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "dccb42840c941468712b76b395a63117b84b98d0",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_SANITIZED_M1_CACHE_V24.py",
+      "original_archive_path": "SOURCES/QROS_W5_SANITIZED_M1_CACHE_V24.py",
+      "sha256": "c6d8dacb1e2a27cee1471a8af1b8f163b89ca85d0e5446e134f9ec672f9ac747"
+    },
+    {
+      "bytes": 12461,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "e9546723f7bf06f5d833774602729fc297ca3feb",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V24_MAKE_RECOVERY_RELEASE.py",
+      "original_archive_path": "SOURCES/QROS_W5_V24_MAKE_RECOVERY_RELEASE.py",
+      "sha256": "76865815171394966648427bd2a67c20e0a84ffb9b85f9741d4e3640f9eb00f0"
+    },
+    {
+      "bytes": 2740,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "e1a1767488db1737fb83e73bfbc52dd2a91c0ed2",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V24_PIN_ERRATUM_PREFLIGHT.py",
+      "original_archive_path": "SOURCES/QROS_W5_V24_PIN_ERRATUM_PREFLIGHT.py",
+      "sha256": "2096755d386fce59860c6458001a96fd76cd93a90ba22dd132628085d06a14db"
+    },
+    {
+      "bytes": 3387,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "2f3f5103d75b634a2176049d71ac4c6a09948916",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V25_RETEST_EXPLICIT_ADVERSARIAL.py",
+      "original_archive_path": "SOURCES/QROS_W5_V25_RETEST_EXPLICIT_ADVERSARIAL.py",
+      "sha256": "73666719f5a566ca2ea3bc30d7f30139ddfaf54f8c5777536aef5599948dd744"
+    },
+    {
+      "bytes": 9332,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "f00eb722aee19a89e2a7b9b007af40149065eecb",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V25_RETEST_REAL_CAUSAL_ORACLES.py",
+      "original_archive_path": "SOURCES/QROS_W5_V25_RETEST_REAL_CAUSAL_ORACLES.py",
+      "sha256": "dbfcabeab3970573f43f0cfb43f359be4dd89180b8db57071ac06268898b1e0b"
+    },
+    {
+      "bytes": 5608,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "fc4d44c7a55125065ae7771e74b11a956b31d403",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V26_FULL_STATE_AUDIT_AND_V24_ID_PARITY.py",
+      "original_archive_path": "SOURCES/QROS_W5_V26_FULL_STATE_AUDIT_AND_V24_ID_PARITY.py",
+      "sha256": "51562957f4c6221302bcdbdd41d292b89ca3f3b6d6cc28d2a1c0cf4b199e6292"
+    },
+    {
+      "bytes": 5226,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "5f89d8d0d88a41ab7b3fdb2a1338631d7cd0bc37",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V26_MATERIALIZE_VERIFIED_CANDIDATE_ROUTES.py",
+      "original_archive_path": "SOURCES/QROS_W5_V26_MATERIALIZE_VERIFIED_CANDIDATE_ROUTES.py",
+      "sha256": "e622f3e89c0b52376758ca1954b7c7c12bd5672f7b2c00be649d435b01f68a21"
+    },
+    {
+      "bytes": 7879,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "e6d3da4155fc38e5119c2dec48b1c9695c6fa46d",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V26_STATEFUL_RETEST_ONE_CHANNEL.py",
+      "original_archive_path": "SOURCES/QROS_W5_V26_STATEFUL_RETEST_ONE_CHANNEL.py",
+      "sha256": "85fe8b7ff60f9cf2afaedd12464fa7aaf6dea778904d15a0ed6c6e5e3fec883c"
+    },
+    {
+      "bytes": 13821,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "ea10c733b3e64ed0eca7e13e26289d5cc3093dd9",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V27_FULL_10F_MASK_SHARD.py",
+      "original_archive_path": "SOURCES/QROS_W5_V27_FULL_10F_MASK_SHARD.py",
+      "sha256": "3e8c0406e00a52aa02c1ee553cff34d5adcdb58aae8e5b2199e43ff5280403d4"
+    },
+    {
+      "bytes": 4097,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "ed420943e1f19e8cf3196679798d018154d783e8",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V27_INDEPENDENT_FULL10_MANIFEST_AUDIT.py",
+      "original_archive_path": "SOURCES/QROS_W5_V27_INDEPENDENT_FULL10_MANIFEST_AUDIT.py",
+      "sha256": "dd730caf81ee04c03479f97bd5d86245714bd03dd3cc5530278c3e2b120e84e3"
+    },
+    {
+      "bytes": 8622,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "58a02ecba6101d3f711289163a926c13cca5810a",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V27_REPAIR_CLOSE_CAUSAL_PARITY.py",
+      "original_archive_path": "SOURCES/QROS_W5_V27_REPAIR_CLOSE_CAUSAL_PARITY.py",
+      "sha256": "d88bd621863b4ea1606e9d98bb64a854f8f0bd3dac7663b9eaa3fe5dd11de3d9"
+    },
+    {
+      "bytes": 6118,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "28412f234741bc9f02a2ae89da3312d4949c6bb0",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V28_56_ROUTE_INDEPENDENT_REAL_TICK_PARITY.py",
+      "original_archive_path": "SOURCES/QROS_W5_V28_56_ROUTE_INDEPENDENT_REAL_TICK_PARITY.py",
+      "sha256": "c36e1a84f6db56c4d29c688a7e54568149c499b414092de0114994626fb514c1"
+    },
+    {
+      "bytes": 5307,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "ee99dd748c627b0806b96e3f80b171646db6c9e1",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V28_DURABLE_EIGHT_CHANNEL_EVIDENCE_ARCHIVER.py",
+      "original_archive_path": "SOURCES/QROS_W5_V28_DURABLE_EIGHT_CHANNEL_EVIDENCE_ARCHIVER.py",
+      "sha256": "a87d675a6be2b5d7bd0b9f86baa1624ce1eb55bc3ea5a6ed7e32e508bd8991d7"
+    },
+    {
+      "bytes": 4148,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "253289fcd82ef6176205d93f58d620f4faf09d21",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V28_EXPLORATORY_ECONOMIC_SYNTHETIC_ORACLE_TEST.py",
+      "original_archive_path": "SOURCES/QROS_W5_V28_EXPLORATORY_ECONOMIC_SYNTHETIC_ORACLE_TEST.py",
+      "sha256": "9489de637f59d5d0a04f11c49d6aa7218aaa86976357a3acbc2f336e8a0a7a5a"
+    },
+    {
+      "bytes": 4417,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "ed0195e63a601df3bbce2eec16ee011d26e13c3d",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V28_EXPORT_COMPLETE_EXPLORATORY_CSV.py",
+      "original_archive_path": "SOURCES/QROS_W5_V28_EXPORT_COMPLETE_EXPLORATORY_CSV.py",
+      "sha256": "7c9bec6531970f40c19f2f233fe221f696234eb23519523957b7bfa0118736fb"
+    },
+    {
+      "bytes": 11135,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "f8e305747804c9893873530e032198089f318a49",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V28_EXPOSED_DEV_ECONOMIC_MASK_SHARD.py",
+      "original_archive_path": "SOURCES/QROS_W5_V28_EXPOSED_DEV_ECONOMIC_MASK_SHARD.py",
+      "sha256": "5c0e1a88f6db1f097265a56e88a880859a80e3464c4f16b91006eca1acadfc0e"
+    },
+    {
+      "bytes": 2104,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "9ce3385c570a3a12313704524c6c475d3fe2ad6a",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V28_FROZEN_EXTREMA_PREPARE.py",
+      "original_archive_path": "SOURCES/QROS_W5_V28_FROZEN_EXTREMA_PREPARE.py",
+      "sha256": "c1433431ff68b488d20b8b441445b265f85fe7172b58a5a0efea4c488f3c23db"
+    },
+    {
+      "bytes": 6444,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "5e9386a1a0e7d165c12a8de67c30ad3133cad350",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V28_FROZEN_REAL_TICK_TRAJECTORY_SHARDS.py",
+      "original_archive_path": "SOURCES/QROS_W5_V28_FROZEN_REAL_TICK_TRAJECTORY_SHARDS.py",
+      "sha256": "a50aa19230e690ef0f0aef9e896429e5543e2a9b368bebcb701b3762acfd3dcf"
+    },
+    {
+      "bytes": 7489,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "6d41d44f3f7ec194423ee21689fab51eec95d336",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V28_INDEPENDENT_COMPLETE_ECONOMIC_ID_AND_METRICS_AUDIT.py",
+      "original_archive_path": "SOURCES/QROS_W5_V28_INDEPENDENT_COMPLETE_ECONOMIC_ID_AND_METRICS_AUDIT.py",
+      "sha256": "4e7b45963e5ac3ea22362faf1da5188171be26c26179d38917a44e3d687714dd"
+    },
+    {
+      "bytes": 4118,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "9b68cde5d9676d5bf944f66975a32ed120e38c21",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_V28_INDEPENDENT_REAL_TICK_TRADE_CANARIES.py",
+      "original_archive_path": "SOURCES/QROS_W5_V28_INDEPENDENT_REAL_TICK_TRADE_CANARIES.py",
+      "sha256": "14e519964262f01e7116f2e32b837698f939485acd53ecc5f51cab04e210087e"
+    },
+    {
+      "bytes": 3291,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "f39c8934704db7154330ee7d73881c718e0581cb",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/QROS_W5_VALID_QUOTE_BAR_AND_FRACTAL_AUDIT.py",
+      "original_archive_path": "SOURCES/QROS_W5_VALID_QUOTE_BAR_AND_FRACTAL_AUDIT.py",
+      "sha256": "5032f2c20d0fdbf0e296ec5675ed20eebb48e9d5b798e1a66c1f7741f148aa13"
+    },
+    {
+      "bytes": 12393,
+      "classification": "REFERENCE_ONLY",
+      "git_blob_sha1": "4e04cca7ba3ab604ec4f285797659ec4acf35823",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/REFERENCE_ONLY_direct_economic_event_cache_v1_1.py",
+      "original_archive_path": "SOURCES/REFERENCE_ONLY_direct_economic_event_cache_v1_1.py",
+      "sha256": "6f654a1418e07c7c37b114be24cf4b185222603718e87dddfb4a496ffe492785"
+    },
+    {
+      "bytes": 3529,
+      "classification": "REFERENCE_ONLY",
+      "git_blob_sha1": "4cf1269e0d0f24bb924ae0fa7fc52f4c5a3d1710",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/REFERENCE_ONLY_independent_w5_strict_execution_oracle_v1.py",
+      "original_archive_path": "SOURCES/REFERENCE_ONLY_independent_w5_strict_execution_oracle_v1.py",
+      "sha256": "4e7333c37d2b2766d494e767584acfefe7e1c18d5a19c5bde47953f7035147ce"
+    },
+    {
+      "bytes": 12827,
+      "classification": "REFERENCE_ONLY",
+      "git_blob_sha1": "ed18c62ee19da5440d8266e832fec2cc3b4959ac",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/REFERENCE_ONLY_seed0076_direct_dev_backtest_v2.py",
+      "original_archive_path": "SOURCES/REFERENCE_ONLY_seed0076_direct_dev_backtest_v2.py",
+      "sha256": "49011cdc993fa1bfeb42bbf14e18b1c4e17c93e295aadffcc81d282240d5a59e"
+    },
+    {
+      "bytes": 13242,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/frozen_structural.py",
+      "original_archive_path": "SOURCES/frozen_structural.py",
+      "sha256": "bc488a967dc79de705a137c26e2a7ae86d35f55838a7cf18b0d3385590df7334"
+    },
+    {
+      "bytes": 13628,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "9399e52c7a2fc805acd2ccb3ac07746b03d3facc",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/frozen_structural_v27_executable_close.py",
+      "original_archive_path": "SOURCES/frozen_structural_v27_executable_close.py",
+      "sha256": "761457c1066c43aa1564b70c89d65be14ab9951b21dd7d90e7e38cb035c5f098"
+    },
+    {
+      "bytes": 3893,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "b3575c061607aaae9f4062ad623ff7083e2e0ffe",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/qros_seed0076_indicators_v220.py",
+      "original_archive_path": "SOURCES/qros_seed0076_indicators_v220.py",
+      "sha256": "386924cd2e52e11acac1d2be4585d49b42ccf3da4c4bc0eb3d164b98632d354b"
+    },
+    {
+      "bytes": 3894,
+      "classification": "EXACT_EXECUTED_ARCHIVE_NOT_ACTIVATED",
+      "git_blob_sha1": "c538f5f07a3326c0090dc2f8f551e61c8de4f632",
+      "github_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/SOURCES/qros_w5_v28_frozen_exploratory_economic_kernel.py",
+      "original_archive_path": "SOURCES/qros_w5_v28_frozen_exploratory_economic_kernel.py",
+      "sha256": "d20eb16c169e54500683e2fcdf3c7e3e6a41a587cea7e26db432840915eccd26"
+    }
+  ],
+  "ga2_open": false,
+  "holdout_open": false,
+  "main_gate_A": false,
+  "old_10_shards_out_of_scope": true,
+  "schema": "QROS_SEED0076_DIRECT_W5_V28_36_EXACT_SOURCE_RELEASE_MANIFEST_v1",
+  "scientific": "EXPOSED_DEV_EXPLORATORY_ONLY_NO_NEW_PNL",
+  "source_archive": "QROS_SEED0076_W5_V28_MASTER_COMPLETE_22352_RESULTS_AND_REPRODUCTION.zip",
+  "source_archive_bytes": 7988906,
+  "source_archive_original_members": 147,
+  "source_archive_sha256": "b2943f96a8b0eb946a9899b52e63a354d33971c88baa0b29dfd58f8e116a3e62"
+}

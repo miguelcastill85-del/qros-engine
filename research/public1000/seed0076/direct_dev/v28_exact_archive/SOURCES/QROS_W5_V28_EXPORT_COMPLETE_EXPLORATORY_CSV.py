@@ -1,0 +1,22 @@
+from pathlib import Path
+import csv,json,os,hashlib,statistics
+R=Path(__file__).resolve().parent
+source=R/'V28_ALL_22352_EXPOSED_DEV_EXPLORATORY_COMPLETE_RESULTS.jsonl';out=R/'V28_ALL_22352_EXPLORATORY_2018_2019_DEV_RESULTS.csv';tmp=out.with_suffix('.csv.partial')
+cols=['side','config_index','semantic_config_id','physical_mask_id','channel','route','status','signals','trades','stops','flat_exits','R_spread_only','PF_spread_only','DD_R','hyp_extra_2pts_R','hyp_extra_5pts_R','hyp_PF_extra_2pts','hyp_PF_extra_5pts','trades_2018','R_2018','trades_2019','R_2019','reject_overlap','reject_session','reject_max3','reject_noquote','reject_stop_geometry','reject_unresolved','cost_certificate','calendar_certificate','development_exposure']
+summary={'BUY':[],'SELL':[]};seen=set();i=0
+with tmp.open('w',newline='') as f:
+ w=csv.DictWriter(f,fieldnames=cols);w.writeheader()
+ with source.open() as s:
+  for line in s:
+   x=json.loads(line);m=x['metrics'];key=(x['side'],x['physical_mask_id']);
+   if key not in seen:seen.add(key);summary[x['side']].append(m)
+   years=m['years'];a=years['2018'];b=years['2019'];aR=a.get('spread_only_R',a.get('R'));bR=b.get('spread_only_R',b.get('R'))
+   rr=m['rejections'];row={'side':x['side'],'config_index':x['config_index'],'semantic_config_id':x['semantic_config_id'],'physical_mask_id':x['physical_mask_id'],'channel':x['channel'],'route':x['route'],'status':m['status'],'signals':m['signal_count'],'trades':m['trades'],'stops':m.get('stops',0),'flat_exits':m.get('flat_exits',0),'R_spread_only':m['gross_spread_only_R'],'PF_spread_only':m['PF_spread_only'],'DD_R':m['DD_R'],'hyp_extra_2pts_R':m['hypothetical_roundtrip_cost_2pts_R'],'hyp_extra_5pts_R':m['hypothetical_roundtrip_cost_5pts_R'],'hyp_PF_extra_2pts':m.get('hypothetical_PF_2pts'),'hyp_PF_extra_5pts':m.get('hypothetical_PF_5pts'),'trades_2018':a['trades'],'R_2018':aR,'trades_2019':b['trades'],'R_2019':bR,'reject_overlap':rr[0],'reject_session':rr[1],'reject_max3':rr[2],'reject_noquote':rr[3],'reject_stop_geometry':rr[4],'reject_unresolved':rr[5],'cost_certificate':False,'calendar_certificate':False,'development_exposure':'ALREADY_EXPOSED_NOT_HOLDOUT'};w.writerow(row);i+=1
+ f.flush();os.fsync(f.fileno())
+os.replace(tmp,out);assert i==22352 and len(seen)==14459
+def quantify(side):
+ d=summary[side];active=[x for x in d if x['trades']];trades=[x['trades'] for x in active];PF=[x['PF_spread_only'] for x in active if x['PF_spread_only'] is not None];ys=[x for x in active if x['years']['2018']['trades'] and x['years']['2019']['trades']]
+ return {'unique_masks':len(d),'tradable_masks_dev_exposed':len(active),'PF_finite_calculable_count':len(PF),'PF_null_due_to_no_losses_or_no_trades_count':len(d)-len(PF),'median_trades_per_mask_with_trades':statistics.median(trades) if trades else None,'median_finite_PF_spread_only':statistics.median(PF) if PF else None,'both_years_with_trades':len(ys),'positive_gross_R_spread_only_masks':sum(x['gross_spread_only_R']>0 for x in active),'negative_gross_R_spread_only_masks':sum(x['gross_spread_only_R']<0 for x in active),'positive_gross_R_both_years_masks':sum(x['years']['2018'].get('spread_only_R',x['years']['2018'].get('R',0))>0 and x['years']['2019'].get('spread_only_R',x['years']['2019'].get('R',0))>0 for x in ys),'gross_R_positive_under_hyp_2_points':sum(x['hypothetical_roundtrip_cost_2pts_R']>0 for x in active),'gross_R_positive_under_hyp_5_points':sum(x['hypothetical_roundtrip_cost_5pts_R']>0 for x in active)}
+payload={'schema':'QROS_W5_V28_DESCRIPTIVE_EXPOSED_DEV_NO_SELECTION_SUMMARY','interpretation':'Counts/medians across tested dependent variants, never a portfolio return, no inference of independent alpha','side_diagnostics':{s:quantify(s) for s in summary},'results_csv':out.name,'results_csv_bytes':out.stat().st_size,'results_csv_sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'semantic_config_count':i,'physical_mask_count':len(seen),'broker_cost_certified':False,'historical_calendar_certified':False,'holdout_open':False,'GA2_open':False,'new_alpha_selected':False}
+p=R/'V28_EXPLORATORY_22352_DESCRIPTIVE_NONSELECTIVE_SUMMARY.json';tmp=p.with_suffix('.partial');tmp.write_text(json.dumps(payload,indent=2,sort_keys=True)+'\n');os.replace(tmp,p)
+print(json.dumps({'status':'CSV_22352_EXPLORATORY_COMPLETE','sha256':payload['results_csv_sha256'],'CSV_bytes':payload['results_csv_bytes'],'side_diagnostics':payload['side_diagnostics']}))
