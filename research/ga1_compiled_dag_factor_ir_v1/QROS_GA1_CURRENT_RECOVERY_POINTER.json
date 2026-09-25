@@ -14,7 +14,7 @@
   },
   "verification_receipt": {
     "path": "research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_RECOVERY_ROOT_V9_VERIFICATION_RECEIPT.json",
-    "git_blob_sha1": "31bd232faf077c47328539a16c48d114e9c48ed3",
+    "git_blob_sha1": "d6044ffc9a9afc77e7e7309a06a02484435e2c9d",
     "receipt_sha256": "6a0aa6d0b734c55e763baa312a00b00822c2580cb7fc5912818f32da8a76aa31"
   },
   "external_data_reconciliation": {
@@ -63,5 +63,25 @@
     "new source/timebase evidence that changes the current data gate",
     "new authority supersedes V259"
   ],
-  "next_automatic_action": "On the first new material trigger, authenticate main V259/successor, this pointer, V9 verification receipt and the R3 reconciliation receipt; then continue only the newly unblocked proposition. Otherwise perform no optional hardening."
+  "next_automatic_action": "Authentically reverify corrected V9 receipt blob, V9 root, R3 and current V259 main. Reuse new XAU/NQX real M2/M12/M15 verified source carriers; recover original heavy event-mask pack/index/mapping by exact frozen SHA before historical factor-IR regression. Never recompute closed shards or open economic gates.",
+  "reconciliation": {
+    "schema": "QROS_GA1_V9_POINTER_RECEIPT_BLOB_RECONCILED_20260924_v1",
+    "current_recovery_branch": "research/ga1-v259-real-carrier-reconcile-20260924",
+    "origin_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "original_pointer_blob": "1cc63d674e107f58fccb168419a3781d9f219ee4",
+    "correction_receipt": {
+      "path": "research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_V9_POINTER_BLOB_CORRECTION_20260924_v1.json",
+      "git_blob_sha1": "a77464ad9abbe73264a97cfe96a920d54daa6dd1"
+    },
+    "actual_v9_verification_receipt_blob": "d6044ffc9a9afc77e7e7309a06a02484435e2c9d",
+    "root_v9_blob": "e0de9b178d2acd486cb7a5ad0c8e3200fb5f0fac",
+    "r3_provenance_blob": "1222217e987655b206f69be581dbea750b9acff9",
+    "technical_only": true,
+    "science_unchanged": "MAIN_V259",
+    "new_non_economic_carrier_receipts": {
+      "xau": "a81433814acfade5782d0b14fa602ae7633f11cd",
+      "nqx": "3d9c3b0f4adcbc88d4476c1b7701408ac5e17fce"
+    },
+    "historical_maskpack_regression": "PENDING_CERTIFIED_HEAVY_ARTIFACTS"
+  }
 }
