@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v8",
+  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v9",
   "status": "DEVELOPMENT_RUNNING",
   "product": "QROS Mobile Research Studio",
   "scope": "MOBILE_APP_ONLY_ANDROID_FIRST_IOS_LATER",
@@ -15,11 +15,11 @@
     "code_branch": "product/mobile-m2-ledger-prototype-20260925",
     "scientific_main": "DO_NOT_MODIFY"
   },
-  "active_delivery": "G5_LOOPBACK_HTTPS_TENANT_SCOPED_SIGNED_SYNTHETIC_SNAPSHOT_TEST_ONLY",
-  "mobile_frontend_status": "ANDROID_G1_DEBUG_APK_VERIFIED_UNCHANGED_G2_TO_G5",
+  "active_delivery": "ANDROID_G6_SIGNED_G5_SNAPSHOT_VERIFIER_TEST_ONLY",
+  "mobile_frontend_status": "ANDROID_G6_DEBUG_APK_VERIFIED_IN_CI_PHYSICAL_DEVICE_PENDING",
   "existing_mobile_html": "product/mobile-demo/index.html",
   "existing_mobile_html_status": "TEST_ONLY_WEB_MOCK_NOT_INSTALLABLE_MOBILE_APP",
-  "backend": "G3_CXX_PY_PARITY_PLUS_G4_STRICT_SIGNED_DATA_AUDIT_LOCAL_WITNESS_PLUS_G5_SCOPED_LOOPBACK_TLS_DEMO",
+  "backend": "G3_CXX_PY_EXECUTION_PARITY_PLUS_G4_AUDIT_WITNESS_PLUS_G5_TLS_GATEWAY_PLUS_G6_FLUTTER_VERIFIER",
   "m2_status": "LINUX_INTEGRATION_PASS_REAL_M2_AUTHENTICATED_EVIDENCE_AND_DYNAMIC_EXTERNAL_HEAD_PENDING",
   "hard_exclusions": [
     "WINDOWS_UI",
@@ -38,8 +38,8 @@
     "use_only_synthetic_data_until_authorized": true,
     "paid_services_activation": false
   },
-  "next_automatic_action": "G6: implement Flutter Android opt-in synthetic G5 snapshot transport and independent Python/Dart verified receipt/parsing parity without replacing frozen M1 cryptography or falsely claiming external witness or public HTTPS; run Android CI full M1/G1 regression. Separately gate real Android physical installation/pairing, provider-entitlement custody, independently administered monotonic witness, release signing and tenant production OIDC. No real market PnL, holdout, GA2, MT5 or live orders.",
-  "release_gate": "G5_LOCAL_TEST_ONLY_PASS; FLUTTER_G6_CLIENT_PARITY, PHYSICAL_ANDROID_INSTALL, PUBLIC_CA_TLS, TENANT_PRODUCTION_OIDC, ADMIN-INDEPENDENT_EXTERNAL_WITNESS, REAL_DATA_LICENSE, RELEASE_SIGNING_NOT_VERIFIED",
+  "next_automatic_action": "G7: independently validate physical Android G6 install and authenticated pairing when a device is available; implement/test independent external monotonic witness and tenant production OIDC only with real external custody credentials. Complete local Android release-signing and production OIDC fail-closed canaries without paid activation where possible. No holdout, GA2, real market PnL, MT5 or live trading.",
+  "release_gate": "G6_ANDROID_CI_PASS; PHYSICAL_ANDROID_INSTALL, PUBLIC_CA_TLS, PRODUCTION_OIDC, INDEPENDENT_EXTERNAL_WITNESS, REAL_DATA_LICENSE, RELEASE_SIGNING, MT5 AND REAL ECONOMICS NOT VERIFIED",
   "verified_milestones": {
     "ANDROID_M0_NATIVE_VERTICAL_SLICE": {
       "status": "PASS_ENGINEERING_TEST_ONLY",
@@ -166,6 +166,27 @@
       "external_independent_witness": "NOT_DEPLOYED",
       "physical_android_install": "NOT_RUN",
       "real_data": "NONE",
+      "economic_tests": 0,
+      "scientific_gate_pass": false
+    },
+    "G6_ANDROID_SIGNED_SNAPSHOT_VERIFIER": {
+      "status": "PASS_ENGINEERING_TEST_ONLY",
+      "tested_commit": "c1f85224487fe161beba2fddcbce9d3e68b53392",
+      "github_actions_run_id": 36197217037,
+      "g6_python_tests": "3_OF_3_PASS",
+      "backend_regressions": "37_OF_37_PASS",
+      "flutter_tests": "26_OF_26_PASS",
+      "flutter_analyzer": "ZERO_ISSUES",
+      "apk_bytes": 141623410,
+      "apk_sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+      "receipt_path": "product/mobile/receipts/QROS_MOBILE_G6_VERIFIED_ENGINEERING_PASS_20260925.json",
+      "receipt_git_blob_sha1": "6f1424687e9f986b6d3e55630189376559f911a9",
+      "current_verified_head_path": "product/mobile/g6_verified/G6_CURRENT_HEAD.json",
+      "current_verified_head_git_blob_sha1": "cefbe41887d4ff686557ac11036267ef2bbef0e3",
+      "physical_android_install": "NOT_RUN",
+      "public_https": "NOT_DEPLOYED",
+      "external_independent_witness": "NOT_DEPLOYED",
+      "market_data": "NONE",
       "economic_tests": 0,
       "scientific_gate_pass": false
     }

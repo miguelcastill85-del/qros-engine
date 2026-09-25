@@ -1,0 +1,22 @@
+{
+  "schema": "QROS_MOBILE_G6_CURRENT_VERIFIED_HEAD_V1",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "tested_source_commit": "c1f85224487fe161beba2fddcbce9d3e68b53392",
+  "receipt_path": "product/mobile/receipts/QROS_MOBILE_G6_VERIFIED_ENGINEERING_PASS_20260925.json",
+  "receipt_git_blob_sha1": "6f1424687e9f986b6d3e55630189376559f911a9",
+  "source_manifest_git_blob_sha1": "25c3431e4833db0377879cf4d43f3b1407c92538",
+  "ci_run_id": 36197217037,
+  "apk_sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+  "apk_bytes": 141623410,
+  "flutter_tests": 26,
+  "backend_regressions": 37,
+  "g6_python_tests": 3,
+  "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "physical_android_install": "NOT_RUN",
+  "public_https": "NOT_DEPLOYED",
+  "external_witness": "NOT_DEPLOYED",
+  "economic_tests": 0,
+  "holdout_open": false,
+  "ga2_open": false,
+  "next_automatic_action": "G7: independently validate physical Android G6 install and authenticated pairing when a device is available; implement/test independent external monotonic witness and tenant production OIDC only with real external custody credentials. Complete local Android release-signing and production OIDC fail-closed canaries without paid activation where possible. No holdout, GA2, real market PnL, MT5 or live trading."
+}

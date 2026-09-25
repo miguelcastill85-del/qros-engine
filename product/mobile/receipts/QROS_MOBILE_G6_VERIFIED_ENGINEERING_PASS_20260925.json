@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_MOBILE_G6_VERIFIED_ENGINEERING_RECEIPT_V1",
+  "date_utc": "2026-09-25",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "evidence_class": "VERIFIED_GITHUB_ACTIONS_AND_INDEPENDENT_ZIP_APK_SHA256_REHASH",
+  "source": {
+    "branch": "product/mobile-g6-android-snapshot-20260925",
+    "tested_commit": "c1f85224487fe161beba2fddcbce9d3e68b53392",
+    "parent_g5_verified_commit": "69109c6570c6cbb48f807b1b417dbdfa0b53fa54",
+    "source_manifest_path": "product/mobile/g6/G6_SOURCE_MANIFEST.json",
+    "source_manifest_git_blob_sha1": "25c3431e4833db0377879cf4d43f3b1407c92538",
+    "exact_delta_files": 15
+  },
+  "ci": {
+    "run_id": 36197217037,
+    "job_id": 108275694335,
+    "conclusion": "success",
+    "url": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36197217037",
+    "g6_python_tests": "3_OF_3_PASS",
+    "backend_regressions": "37_OF_37_PASS",
+    "flutter_tests": "26_OF_26_PASS",
+    "flutter_analyze": "ZERO_ISSUES",
+    "artifact_id": 10890657188,
+    "artifact_name": "qros-mobile-g6-test-only-android",
+    "artifact_expiry_utc": "2026-09-28T22:40:32Z"
+  },
+  "apk": {
+    "bytes": 141623410,
+    "sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+    "artifact_zip_sha256": "04ad104276390f6c9879b2b510c6f2e2d293b9913b1dc48c51279c9abb66c9d4",
+    "independent_download_and_rehash": "PASS",
+    "format": "ANDROID_DEBUG_TEST_ONLY",
+    "release_signed": false,
+    "physical_device_install": "NOT_RUN"
+  },
+  "parity": {
+    "python_dart_signed_snapshot": "PASS",
+    "fixture_file_sha256": "113306105531d2d46ceda1203ec6077d742a88489b7eaa64bc7caeb427b34e78",
+    "canonical_payload_sha256": "e355e676080331593dc1bb0a50becfddf95a0de3508bb330bc3895f06ce83cb6",
+    "pinned_test_witness_head_sha256": "c3855bb53e8dddd4120f26ee0a294f069c97be58a4a7275779d016fb4cb22b13"
+  },
+  "safeguards": {
+    "market_data": "NONE",
+    "economic_backtests": 0,
+    "holdout_open": false,
+    "ga2_open": false,
+    "scientific_gate_pass": false,
+    "public_https": "NOT_DEPLOYED",
+    "production_oidc": "NOT_DEPLOYED",
+    "external_independently_administered_witness": "NOT_DEPLOYED",
+    "mt5": "NOT_RUN",
+    "live_trading": false,
+    "commercial_release_approved": false
+  },
+  "raw_ci_receipt": {
+    "path": "product/mobile/receipts/G6_ANDROID_CI_RAW_BUILD_RECEIPT_20260925.json",
+    "git_blob_sha1": "e35f2384735e71a089ce74f50b4f771d0cf5e1cf",
+    "sha256": "7ff19100825186877bc8d64b1cbf443c715df3b52e364237d8aba9b5bbd210ff"
+  },
+  "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "next_automatic_action": "G7: independently validate physical Android G6 install and authenticated pairing when a device is available; implement/test independent external monotonic witness and tenant production OIDC only with real external custody credentials. Complete local Android release-signing and production OIDC fail-closed canaries without paid activation where possible. No holdout, GA2, real market PnL, MT5 or live trading."
+}
