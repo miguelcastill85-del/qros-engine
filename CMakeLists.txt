@@ -128,6 +128,26 @@ else()
     message(FATAL_ERROR "Python3 interpreter required to execute authority-regression tests")
 endif()
 
+# Synthetic-only Linux crash injection: SIGKILL immediately after each of
+# the four durability boundaries. Uses actual qros_core, never local adapters.
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    add_executable(qros_m2_crash_driver tests/product_crash/m2_crash_driver.cpp)
+    target_link_libraries(qros_m2_crash_driver PRIVATE qros_core)
+    target_compile_options(qros_m2_crash_driver PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
+    target_compile_definitions(qros_m2_crash_driver PRIVATE _GLIBCXX_ASSERTIONS)
+
+    add_library(qros_m2_crash_shim SHARED tests/product_crash/kill_on_fsync.cpp)
+    target_link_libraries(qros_m2_crash_shim PRIVATE ${CMAKE_DL_LIBS})
+    target_compile_options(qros_m2_crash_shim PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
+
+    add_test(NAME qros_m2_process_crash_injection
+        COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_SOURCE_DIR}/tests/product_crash/test_crash_injection.py"
+                "$<TARGET_FILE:qros_m2_crash_driver>"
+                "$<TARGET_FILE:qros_m2_crash_shim>")
+    set_tests_properties(qros_m2_process_crash_injection PROPERTIES TIMEOUT 45)
+endif()
+
 add_executable(qros_pipeline_tests tests/test_pipeline.cpp)
 target_link_libraries(qros_pipeline_tests PRIVATE qros_core)
 target_compile_options(qros_pipeline_tests PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)

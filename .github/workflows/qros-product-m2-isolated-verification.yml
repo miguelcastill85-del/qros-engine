@@ -9,6 +9,7 @@ on:
       - 'include/qros/research_ledger.hpp'
       - 'src/research_ledger.cpp'
       - 'tests/test_research_ledger.cpp'
+      - 'tests/product_crash/**'
   workflow_dispatch:
 
 permissions:
