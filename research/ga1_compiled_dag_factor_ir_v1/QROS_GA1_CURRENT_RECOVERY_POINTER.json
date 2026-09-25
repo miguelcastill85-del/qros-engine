@@ -32,7 +32,10 @@
     "GEOMETRY cross-timeframe independent parity PASS",
     "Factor IR cross-domain synthetic PASS",
     "Bounded-memory reducer scalar parity/chunk invariance PASS",
-    "Data provenance R3 reconciled into GA1 continuation state"
+    "Data provenance R3 reconciled into GA1 continuation state",
+    "Authentic frozen XAU/NQX DEV M2/M12/M15 carriers and indicators verified exact against frozen SHAs",
+    "Unmodified Factor IR tested on six real engineering canary domains: 882982 causal bars, 30 independent technical mask and class-hash checks, 12 negative controls PASS",
+    "Original V223 worker exact frozen import closure verified 7/7 and Linux seccomp import-only CI PASS; Windows excluded"
   ],
   "closed_by_policy": [
     "SHARD11",
@@ -56,14 +59,14 @@
     "optional batch-manifest canary while mandatory gates cannot move"
   ],
   "incident_state": "CLOSED_NO_SCIENTIFIC_OR_DECISION_BLAST",
-  "current_frontier": "WAIT_FOR_MATERIAL_EVIDENCE_THAT_CAN_CHANGE_A_MANDATORY_GATE",
+  "current_frontier": "REAL_DATA_TECHNICAL_SEAM_PASS_ORIGINAL_HISTORICAL_MASKPACK_BYTES_PENDING",
   "resume_on": [
     "certified historical exact regression artifacts become available",
     "explicit operator route change for RETEST/rearm",
     "new source/timebase evidence that changes the current data gate",
     "new authority supersedes V259"
   ],
-  "next_automatic_action": "Authentically reverify corrected V9 receipt blob, V9 root, R3 and current V259 main. Reuse new XAU/NQX real M2/M12/M15 verified source carriers; recover original heavy event-mask pack/index/mapping by exact frozen SHA before historical factor-IR regression. Never recompute closed shards or open economic gates.",
+  "next_automatic_action": "On new certified ORIGINAL historical maskpack/index/mapping bytes, compare exact historical event masks to compiled typed DAG Factor IR without reopening closed shards or RETEST/rearm. Independently check full frozen worker execution only within a separately authorized non-economic replay capsule whose exact source/timebase/side inputs are pinned. Avoid additional generic artifact searches absent material trigger; keep V259 science immutable.",
   "reconciliation": {
     "schema": "QROS_GA1_V9_POINTER_RECEIPT_BLOB_RECONCILED_20260924_v1",
     "current_recovery_branch": "research/ga1-v259-real-carrier-reconcile-20260924",
@@ -82,6 +85,18 @@
       "xau": "a81433814acfade5782d0b14fa602ae7633f11cd",
       "nqx": "3d9c3b0f4adcbc88d4476c1b7701408ac5e17fce"
     },
-    "historical_maskpack_regression": "PENDING_CERTIFIED_HEAVY_ARTIFACTS"
+    "historical_maskpack_regression": "PENDING_CERTIFIED_HEAVY_ARTIFACTS",
+    "latest_verified_non_economic_delta": {
+      "path": "research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_REAL_CARRIER_AND_LINUX_DELTA_CURRENT_CHECKPOINT_20260924_v1.json",
+      "git_blob_sha1": "492f9b1759909d152280928ed24a78e62eeb2693",
+      "main_at_readback": "ee921dc21ea8e5b9d631b47b68053453aa201e23",
+      "scientific_main_frontier": "V259",
+      "scope": "ENGINEERING_TECHNICAL_RESEARCH_ONLY",
+      "frozen_v9_root_unchanged": true,
+      "real_technical_factor_ir_domains_pass": 6,
+      "independent_technical_recipe_checks_pass": 30,
+      "linux_v223_frozen_import_status": "PASS_LINUX_ONLY_IMPORT",
+      "original_historical_maskpack_parity": "NOT_EXECUTED_CERTIFIED_HEAVY_BYTES_MISSING"
+    }
   }
 }
