@@ -1,0 +1,16 @@
+{
+  "broker_data": false,
+  "classification": "LOCAL_IMPLEMENTED_CI_PENDING",
+  "economic_backtests": 0,
+  "parent_exact": "58b00efa53ff58b36216764c2c813f4a022a09a4",
+  "schema": "QROS_MOBILE_G5_SOURCE_MANIFEST_V1",
+  "source_sha256": {
+    ".github/workflows/qros-mobile-g5-tenant-https-gate.yml": "49930f36fd22914f4537eb6406ff66bf8445fe4885504731da2e4c2e1156e747",
+    "product/mobile/g5/G5_SECURITY_CONTRACT.md": "dcefd93498f413f95124ca8fb36456b512b96da804129079a9e05470c84d64ee",
+    "product/mobile/g5/anti_stall_gate.py": "8b7296018bbde01340ee129463e927499ece1b821ac6883677445edfe31d46ae",
+    "product/mobile/g5/integration.py": "e43d4955e84ad78f1a7d3325286fcc4f2439c897e970262d2fc6d4e86636f4c5",
+    "product/mobile/g5/proof_gateway.py": "9653e4f5c13c83a14b8d701def100f3bb1252f4b414adcd3bcf1aec184957ba4",
+    "product/mobile/g5/tests/test_gate.py": "55d0e03b8650f148c133e67ba7eaf0c55cbc0845c95ade7db1bb314f73349325",
+    "product/mobile/g5/tests/test_gateway.py": "6dca71c9c91c397827adfebdad4cdea5ad73364514f54b0767005b3ad20165c4"
+  }
+}

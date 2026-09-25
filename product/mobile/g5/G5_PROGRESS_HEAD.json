@@ -1,0 +1,13 @@
+{
+  "economic_tests": 0,
+  "g4_verified_head_blob_sha1": "bea1c0366bcde2b43f99188f52c2390351f7557d",
+  "ga2_open": false,
+  "holdout_open": false,
+  "mobile_g4_head_git_blob_sha1": "bebeca3f38d3116066516609205795eb3ed91c23",
+  "next_automatic_action": "Run G5 pinned source-and-tenant-TLS CI; rehash real artifact; promote G5 test-only verified HEAD. Do not claim real independently administered witness, production TLS or physical Android installation. Following G5, integrate synthetic signed snapshot in Flutter and run physical Android acceptance only if device/authorized environment available.",
+  "phase": "G5_SYNTHETIC_TLS_LOCAL_PAIRING_CI_PENDING",
+  "schema": "QROS_MOBILE_G5_PROGRESS_HEAD_V1",
+  "scientific_authority": false,
+  "source_parent_exact": "58b00efa53ff58b36216764c2c813f4a022a09a4",
+  "status": "DEVELOPMENT_RUNNING"
+}
