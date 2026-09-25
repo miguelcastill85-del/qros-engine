@@ -1,0 +1,64 @@
+{
+  "canonical_payload_sha256": "e355e676080331593dc1bb0a50becfddf95a0de3508bb330bc3895f06ce83cb6",
+  "known_prior_head": {
+    "sequence": 0,
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "payload": {
+    "audit_receipt": {
+      "audit_spec_sha256": "b693acf7004efae4501016942152d9234d236c82c7f52e243023ddbb6ee38d98",
+      "broker_timezone": "America/New_York",
+      "classification": "TEST_ONLY_NO_SCIENTIFIC_AUTHORITY",
+      "diagnostics": {
+        "crossed_spread_preserved": 0,
+        "invalid_execution_quotes": 0,
+        "large_gaps": 0,
+        "session_transitions": 0,
+        "zero_spread_preserved": 0
+      },
+      "economic_tests": 0,
+      "execution_eligible": true,
+      "ga2_open": false,
+      "holdout_open": false,
+      "imputation": "NONE",
+      "license_id": "license_fixture",
+      "rows": 2,
+      "schema": "QROS_G4_DATA_AUDIT_TEST_RECEIPT_V1",
+      "source_class": "SYNTHETIC_ONLY",
+      "source_id": "g6_fixture",
+      "source_sha256": "9fbd3f54d7660f82562ad6eb8fa025da91e71f998bbba6045576068f65026ce8",
+      "tenant": "tenant_A"
+    },
+    "campaign": "campaign_A",
+    "economic_backtests": 0,
+    "external_independent_custody": "NOT_DEPLOYED",
+    "ga2_open": false,
+    "head": {
+      "sequence": 1,
+      "sha256": "c3855bb53e8dddd4120f26ee0a294f069c97be58a4a7275779d016fb4cb22b13"
+    },
+    "holdout_open": false,
+    "project": "project_A",
+    "schema": "QROS_G5_SIGNED_SYNTHETIC_SNAPSHOT_V1",
+    "scientific_approval": false,
+    "source_class": "SYNTHETIC_ONLY",
+    "tenant": "tenant_A",
+    "witness_event": {
+      "body": {
+        "campaign": "campaign_A",
+        "classification": "TEST_ONLY_SYNTHETIC",
+        "created_utc": "2026-09-25T12:00:00Z",
+        "previous_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "schema": "QROS_G4_WITNESS_TEST_V1",
+        "sequence": 1,
+        "subject_sha256": "36696cace7d5eea61ad8d2b3f6bf87bcd1f71e18684318fa1dbebeca9b7a4151",
+        "tenant": "tenant_A",
+        "witness_id": "witness_fixture"
+      },
+      "signature_b64": "aNLM+KhwrwmnpUeYQk1ildr7wEfXY3B/48a51+fldAjlHFTNw5g+ARvov8cxy3VOXO2eJEI2y/36xOIv+1u5DA=="
+    }
+  },
+  "public_key_b64": "QwRr/kCSs+lJlOraFdzCDYqqB7ZY/TlU644O+4vcpd4=",
+  "schema": "QROS_G6_DART_PYTHON_PARITY_FIXTURE_V1",
+  "witness_id": "witness_fixture"
+}

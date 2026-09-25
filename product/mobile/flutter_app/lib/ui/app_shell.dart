@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../core/research_store.dart';
 import '../core/verified_demo.dart';
+import '../core/g5_snapshot.dart';
 import '../core/universe_store.dart';
 import 'factory_portfolio_screens.dart';
 import 'hypothesis_studio_screen.dart';
 import 'verified_demo_screen.dart';
+import 'g5_snapshot_screen.dart';
 import 'new_project_screen.dart';
 
 const qrosBackground = Color(0xFF09111F);
@@ -21,10 +23,11 @@ enum _LegacyDestination { projects, history, security }
 
 class QrosShell extends StatefulWidget {
   const QrosShell({super.key, required this.store,
-    required this.universeStore, required this.demoGateway});
+    required this.universeStore, required this.demoGateway, required this.g5Gateway});
   final ResearchStore store;
   final UniverseSessionStore universeStore;
   final DemoGateway demoGateway;
+  final G5SnapshotGateway g5Gateway;
 
   @override
   State<QrosShell> createState() => _QrosShellState();
@@ -57,7 +60,9 @@ class _QrosShellState extends State<QrosShell> {
         _LegacyDestination.history => _HistoryPage(store: widget.store),
         _LegacyDestination.security => _EvidencePage(store: widget.store, onOpenDemo: () =>
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway)))),
+            builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway))), onOpenG5: () =>
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (_) => G5SnapshotScreen(gateway: widget.g5Gateway)))),
       }),
     )));
   }
@@ -101,7 +106,9 @@ class _QrosShellState extends State<QrosShell> {
              onOpenIdea: () => setState(() => _page = 1)),
           3 => _EvidencePage(store: widget.store, onOpenDemo: () =>
              Navigator.of(context).push(MaterialPageRoute(
-               builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway)))),
+               builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway))), onOpenG5: () =>
+             Navigator.of(context).push(MaterialPageRoute(
+               builder: (_) => G5SnapshotScreen(gateway: widget.g5Gateway)))),
           _ => const PortfolioLabPlaceholder(),
         },
       ),
@@ -421,9 +428,10 @@ class _HistoryPage extends StatelessWidget {
 }
 
 class _EvidencePage extends StatelessWidget {
-  const _EvidencePage({required this.store, required this.onOpenDemo});
+  const _EvidencePage({required this.store, required this.onOpenDemo, required this.onOpenG5});
   final ResearchStore store;
   final VoidCallback onOpenDemo;
+  final VoidCallback onOpenG5;
 
   Future<void> _copyEvidence(BuildContext context) async {
     final contents = const JsonEncoder.withIndent('  ').convert(store.exportSyntheticEvidence());
@@ -463,7 +471,10 @@ class _EvidencePage extends StatelessWidget {
         const SizedBox(height: 14),
         OutlinedButton.icon(key: const Key('open-remote-demo'), onPressed: onOpenDemo,
           icon: const Icon(Icons.security_outlined), label: const Text('Consultar demo firmada')),
-      ])),
+        const SizedBox(height: 10),
+        FilledButton.icon(key: const Key('open-g6-snapshot'), onPressed: onOpenG5,
+          icon: const Icon(Icons.verified_user_outlined), label: const Text('Verificar snapshot G5 · G6')),
+      ])), 
       const SizedBox(height: 20),
       const SectionHeading('Exportación demostrativa'),
       QrosPanel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -480,7 +491,7 @@ class _EvidencePage extends StatelessWidget {
         ),
       ])),
       const SizedBox(height: 18),
-      const Text('QROS Mobile G1 · Demo de investigación, no utilizar para operar.',
+      const Text('QROS Mobile G6 · TEST_ONLY · No utilizar para operar.',
         style: TextStyle(color: qrosMuted, fontSize: 11, height: 1.5),
       ),
     ],
