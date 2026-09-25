@@ -1,0 +1,45 @@
+{
+  "schema": "QROS_W5_V33_EXANTE_FROZEN_ALL_REMAINING_CH0_CH4_MASK_PARITY_QUEUE_PIN_V1",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "prior_live_V32_pointer_git_blob_sha": "aa9ea12ffef8fa1d4e30322d75aeaf0b7640ac06",
+    "prior_V32_immutable_anchor_git_blob_sha": "a181fcf792a64b75034186c409e08f1bfce0fd59",
+    "original_W5_full10_V209_prereg_sha": "40275ce4fc0454759a181d9e3d7e8757630134da"
+  },
+  "frozen_before_V33_execution": true,
+  "economic_selection_used": false,
+  "scope": "ONLY_REMAINING_ORIGINAL_CH0_CH4_PHYSICAL_MASK_ORDINALS_AFTER_EXACT_V32_5_PREDECLARED_PER_ROUTE_REMOVE",
+  "original_raw_DEV_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+  "original_CH0_CH4_total_physical_mask_occurrences": 13962,
+  "already_V32_sampled_CH0_CH4_mask_occurrences": 310,
+  "total_remaining_mask_occurrences": 13652,
+  "remaining_per_channel": {
+    "CH0": 6813,
+    "CH4": 6839
+  },
+  "total_predeclared_hash_ready_shards": 710,
+  "max_ordinal_batch": 20,
+  "max_deterministic_accepted_source_signal_samples_per_mask": 128,
+  "plan_archive": {
+    "library_id": "libfile_14af9a8feaa88191ad315f093049c2e3",
+    "library_path": "/QROS_SEED0076_W5_V33_EVIDENCE_20260925/QROS_W5_V33_EXANTE_FROZEN_REMAINING_CH0_CH4_PLAN_20260925.zip",
+    "sha256": "5b13470e52952a52c9bff69f96ec815ef87b79963a2515119d7",
+    "bytes": 12108,
+    "original_remote_readback_equal_local": true,
+    "crc": "PASS",
+    "contains_frozen_plan_and_reproducer": true
+  },
+  "prior_V28_economic_backtest_shards_untouched": 104,
+  "gates": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "historical_account_commission_certified": false,
+    "historical_complete_symbol_special_hours_certified": false,
+    "no_W3_reexecution": true
+  },
+  "next_action": "Execute FIRST bounded predeclared V33 masks only under frozen plan SHA; save each hashed shard atomically; certify original broker historical source in independent lane when possible; defer all scientific promotions until full original CH0 CH4 mask parity and broker proof."
+}
