@@ -1,0 +1,87 @@
+{
+  "schema": "QROS_W5_V32_INDEPENDENT_116_SHARD_PNL_BLIND_PARITY_IMMUTABLE_ANCHOR_V1",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "parent_v31_pointer_sha1": "d4e3f6836d8eab47e4e0594e6e9fd5ecbd2c09c6",
+    "parent_v31_handoff_sha1": "e6dafd86b6a76dc1b41eaa0c6326043155d14434",
+    "parent_v31_anchor_sha1": "da8404fe10289d3d7cbb141d75f673072e173c21",
+    "parent_v30_anchor_sha1": "6a3b02c6cad6fc6386a76f7572ab642e6a779713",
+    "v28_original_anchor_sha1": "287b38c34b8c6a549a54420bd57ff0fc94cd9c4f",
+    "original_w5_prereg_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da"
+  },
+  "frozen_plan": {
+    "sha256": "60775cadd4f4c1d7b26ea34a8667db862ff61b12ff73fd1ae108bd3c4aff82ab",
+    "policy": "ALL_CH2_CH3_CH6_CH7_PHYSICAL_MASKS_PLUS_FIXED_FIVE_QUANTILE_MASK_ORDINALS_PER_ORIGINAL_CH0_CH4_ROUTE_BEFORE_ANY_V32_REPLAY",
+    "max_original_signals_per_mask": 128
+  },
+  "data": {
+    "original_ticks": 151382388,
+    "raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_v28_semantic_configs": 22352,
+    "original_v28_physical_masks": 14459,
+    "original_v28_economic_shards_untouched": 104
+  },
+  "v32": {
+    "completed_verifiable_shards": 116,
+    "all_planned_shards": 116,
+    "selected_mask_occurrences": 896,
+    "sampled_signal_events": 113124,
+    "identical_independent_trades": 80516,
+    "identical_trade_fields": 885676,
+    "shards_by_channel": {
+      "CH0": 31,
+      "CH2": 14,
+      "CH3": 14,
+      "CH4": 31,
+      "CH6": 13,
+      "CH7": 13
+    },
+    "mask_occurrences_by_channel": {
+      "CH0": 155,
+      "CH2": 147,
+      "CH3": 147,
+      "CH4": 155,
+      "CH6": 146,
+      "CH7": 146
+    },
+    "genuinely_zero_signal_original_masks": 2,
+    "zero_signal_v2_v28_both_zero_trades_rejections": true,
+    "pre_fix_runner_sha256": "64d7f4fcce688227c844c9995b40c2e5d74d6eb56787d5acf2afdbadfc929d76",
+    "corrected_runner_sha256": "69dd15ebe855ff5b4b8ddfe44f5e44dd9555785b2ab3ff4de4c825c8097ca358",
+    "previous_66_pass_receipts_preserved": true
+  },
+  "cumulative": {
+    "v30_plus_v32_mask_occurrences_not_global_unique": 1189,
+    "sampled_source_events": 150628,
+    "identical_independent_trades": 107270,
+    "identical_trade_fields": 1179970,
+    "prior_v31_all_56_raw_quote_tapes": "PASS_4893665_CANDIDATE_EVENTS_3933457_SUCCESSFUL_LITERAL_QUOTE_FILLS",
+    "full_22352_trade_by_trade_exhaustive": false
+  },
+  "archive": {
+    "library_file_id": "libfile_8fb3c6794ae4819196b671c6cd69a733",
+    "library_path": "/QROS_SEED0076_W5_V32_EVIDENCE_20260925/QROS_W5_V32_INDEPENDENT_116_SHARD_EXPANDED_MASK_PARITY_20260925.zip",
+    "bytes": 206841,
+    "sha256": "3be95e1c69078fcba52f9a5a319a905d987044d23af09ac872e17eb745811b8d",
+    "zip_members": 125,
+    "internal_124_payload_SHA256": "PASS",
+    "zip_CRC": "PASS",
+    "exact_remote_raw_library_readback": "PASS",
+    "manifest_SHA256": "8d84c21776e2d21fa08902600daefe241ac338f324cb0c04781f0d4516b6c5a5",
+    "master_SHA256": "76619989aacfdac9eeeccfe203015f112b7a53409b225149eafbcf4f9be2d30a"
+  },
+  "gates": {
+    "historical_broker_account_commission": "NOT_CERTIFIED",
+    "historic_all_symbol_special_hours": "NOT_CERTIFIED",
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "new_alpha_approved": false,
+    "new_PnL_in_v32": false,
+    "no_W3_reexecution": true,
+    "original_old_60_shards_untouched": true
+  },
+  "next_action": "Keep V28 economic evidence and V30-V32 independent receipts frozen. Preregister only additional independent all-mask CH0 CH4 parity by original frozen mask identity in bounded shards without PnL-based selection; independently search contemporaneous 2018-19 broker account commission and exact holiday/special hours primary source. No Gate A, holdout, GA2 or MT5 promotion without certified evidence."
+}
