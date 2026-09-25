@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_W5_POST_V31_ALL_56_QUOTE_PARITY_CHECKPOINT_V1",
+  "objective": "Complete independent raw quote causality checks across all 56 frozen V28 executable candidate tapes, preserving economic-exploratory V28 and post-V30 trade parity; continue only previously pending original mask-parity and broker historical evidence.",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "source_pointer_sha1": "bcbdecd5fe52341db82a0f5c70617a595bad857e",
+    "v30_source_handoff_sha1": "4baa705b5786ebc4ef20f620613f19b4544de6c1",
+    "source_v30_anchor_sha1": "6a3b02c6cad6fc6386a76f7572ab642e6a779713",
+    "v31_anchor_path": "control/QROS_SEED0076_W5_V31_ALL_56_FULL_REAL_TAPE_QUOTE_REMOTE_SHA_ANCHOR_20260925_v1.json",
+    "v31_anchor_sha1": "da8404fe10289d3d7cbb141d75f673072e173c21",
+    "original_V209_prereg_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da"
+  },
+  "data": {
+    "original_dev_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_raw_records": 151382388,
+    "original_22352_full10_exposed_dev_exploratory_complete": true,
+    "prior_V28_economic_shards": 104
+  },
+  "work_executed": "Recovered and exact-SHA+CRC checked remaining six frozen original V28 channel ZIP files without rerunning V28 economic backtest; independently checked literal raw Bid/Ask entry/exit price equality, valid quotes, entry after signal, intraday source-server time, stop/flat quote semantics on ALL candidate trajectories for 42 remaining routes; combined prior V30's 14 already closed routes by hash.",
+  "verified_results": {
+    "all_8_original_channel_zip_SHA256": "PASS",
+    "all_56_unique_candidate_tape_routes_quote_check": "PASS",
+    "all_original_candidate_events": 4893665,
+    "all_successful_original_candidate_entry_exit_quote_events": 3933457,
+    "prior_v30_new_shards": 27,
+    "prior_v30_293_mask_stratified_tick_parity_exact_trades": 26754,
+    "prior_v30_293_mask_exact_fields": 294294,
+    "new_v31_sha256_zip": "6bb22f7701f41db71264224a9b1549416857d7aef92bec93e8543eaa2a6a026c",
+    "new_v31_library_raw_readback": "PASS",
+    "new_v31_crc": "PASS",
+    "new_v31_reproducer_sha": "0451fa46cc34b1fa7912dbc3deaed0eae6580dffb1c32aa2cdbf7b5c6535707b"
+  },
+  "problems": {
+    "actual_historical_2018_19_Darwinex_XAU_account_commission": "NOT_RECOVERED",
+    "actual_complete_historical_symbol_special_session_calendar": "NOT_RECOVERED",
+    "all_22352_full_mask_exhaustive_independent_tick_execution": "PENDING",
+    "remaining_large_channel_CH0_CH4_physical_mask_stratified_independent_parity": "PENDING",
+    "remaining_small_CH2_CH3_CH6_CH7_all_mask_stratified_independent_parity": "PENDING"
+  },
+  "root_cause": "V28 intentionally economic-exploratory due lack of original contemporaneous account contract and special symbol hours; independent V30 replay stratified only two small channels; all eight frozen source archives were recoverable.",
+  "corrections": "No rerun of already verified 2018-19 raw restore, W3 or 104 original economic shards. Correctly separate full all-candidate literal quote consistency from nonexhaustive trade-by-trade parity.",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "gates": {
+    "broker_source_calibration": "NOT_CERTIFIED",
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "portfolio_integration": false,
+    "new_alpha_selected": false,
+    "W3_new_execution": false
+  },
+  "portfolio_marginal_impact": "NOT_EVALUATED",
+  "persistent": {
+    "library_v31_folder": "/QROS_SEED0076_W5_V31_EVIDENCE_20260925",
+    "library_v31_file_id": "libfile_1a3201e0dc20819181f081fb2a340143",
+    "library_v31_zip_SHA256": "6bb22f7701f41db71264224a9b1549416857d7aef92bec93e8543eaa2a6a026c",
+    "github_v31_anchor_sha1": "da8404fe10289d3d7cbb141d75f673072e173c21"
+  },
+  "next_automatic_action": "Continue ONLY remaining masked independent tick trade-by-trade parity: CH2/3/6/7 all physical masks in small hash-verified partitions; CH0/4 all batch routes using frozen PnL-blind ordinal masks before broadening. Separately recover contemporaneous Darwinex 2018-19 exact XAUUSD account commission and special-hours calendar. If missing, preserve EXPOSED_DEV_EXPLORATORY_ONLY, do not open Gate A, holdout, GA2, MT5."
+}
