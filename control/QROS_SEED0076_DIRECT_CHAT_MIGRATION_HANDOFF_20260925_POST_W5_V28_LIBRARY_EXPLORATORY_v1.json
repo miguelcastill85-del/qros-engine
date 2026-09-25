@@ -1,0 +1,59 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_CHAT_MIGRATION_HANDOFF_POST_V28_LIBRARY_ECONOMIC_EXPLORATORY_V1",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "source_parent_pointer_blob_sha1": "c3436492ad6a9555b8164a755c79f323e5087c2a",
+    "source_v25_target_blob_sha1": "ff358d5b9912e4f5d7b9863baaaa0bb0d62dab1a",
+    "v28_immutable_audit_anchor_path": "control/QROS_SEED0076_W5_V28_LIBRARY_BYTE_READBACK_ANCHOR_20260925_v1.json",
+    "v28_immutable_audit_anchor_blob_sha1": "287b38c34b8c6a549a54420bd57ff0fc94cd9c4f",
+    "prereg_blob_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da"
+  },
+  "last_closed": "W5_V28_ALL_22352_FULL10_EXPOSED_DEV_EXPLORATORY_ECONOMIC_EXECUTION_AND_INDEPENDENT_RECONCILIATION_PASS",
+  "last_economically_completed_cell": "XAUUSD_M1_W5_SOURCE_ASYMMETRIC_RETURN_INSIDE_OR_LEVEL_REPLACED_TICK_BREAK_BUY_SELL_FULL_V209",
+  "evidence": {
+    "source_dev_ticks_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_semantic_id_stream_sha256": "bb1e97c99fc1eb3c1acab53f77232c00fae61feafb5b8b63941c1e68e0e53b75",
+    "full10_filter_masks_sha256": "3fccc1a4f948b26f441888a5d9c14b9f3fa71d4d485fc867033e3b3a2862eb6d",
+    "semantic_configurations": 22352,
+    "per_side": 11176,
+    "unique_physical_masks": 14459,
+    "verified_economic_shards": 104,
+    "independent_real_trade_sample": "1125_TRADES_12375_FIELDS_56_ROUTE_REPRESENTATIVE_PASS_NOT_EXHAUSTIVE_TRADE_BY_TRADE",
+    "library_folder": "/QROS_SEED0076_W5_V28_EVIDENCE_20260925",
+    "master_library_file_id": "libfile_ec62d620c5a8819188f5b83ebef2d2a0",
+    "master_sha256": "b2943f96a8b0eb946a9899b52e63a354d33971c88baa0b29dfd58f8e116a3e62",
+    "independent_library_rehash": "PASS_NINE_ZIP_PLUS_CSV_22352_ROWS",
+    "anchor_git_verified": true
+  },
+  "preservation": {
+    "prior_13_paired_cells": "CLOSED_7FAMILY_ONLY_PRESERVED",
+    "prior_13_semantic_configurations": 224354,
+    "prior_13_result_bytes_untouched": true,
+    "original_60_shards_out_of_scope": true,
+    "W3_other_unstarted_tuples_user_deferred": 9
+  },
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "completed_substate": "EXPOSED_DEV_EXPLORATORY_COMPLETE_NO_FINAL_SELECTION",
+  "pending": "BROKER_SOURCE_CALENDAR_DST_AND_COMMISSION_CERTIFICATION_THEN_EXHAUSTIVE_IND_EXEC_PARITY_AND_GATE_A_DECISION_IF_VALID",
+  "gate_state": {
+    "holdout_open": false,
+    "ga2_open": false,
+    "gate_a_approved": false,
+    "broker_commission_certified": false,
+    "historical_broker_calendar_certified": false,
+    "MT5_parity_pending": true,
+    "no_new_alpha_selected": true
+  },
+  "next_automatic_action": "Read exact W5 V28 Git audit anchor and original prereg, certify historical Darwinex XAUUSD server-time DST/session schedule and actual commissions from recoverable source (do not invent); if unverifiable keep EXPLORATORY and independently audit available strata; do not redo closed V25-V28 or open W3/holdout/GA2; preserve one-cell serial queue until gate decision.",
+  "continuity_correction": {
+    "root_cause": "stale direct scientific pointer remained at V25 after V28 Library byte-verified completion",
+    "fix": "immutable V28 Library exact-hash anchor + new handoff + CAS pointer promotion",
+    "runtime_limits_not_fixed": [
+      "ChatGPT chat host process outside repository watchdog",
+      "connector calls cannot be forcibly killed by repository watchdog",
+      "no configured external background executor"
+    ],
+    "next_runtime_fix": "Require atomic exact-byte remote audit+handoff+CAS pointer promotion as terminal stage of every execution, strictly bounded connector retries; handoff long-running computation only to an external authorized scheduler with durable data."
+  }
+}
