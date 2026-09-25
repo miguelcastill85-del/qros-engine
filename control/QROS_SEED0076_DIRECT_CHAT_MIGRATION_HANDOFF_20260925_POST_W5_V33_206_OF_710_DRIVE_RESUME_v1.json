@@ -1,0 +1,75 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_V33_206_OF_710_DRIVE_RESTORED_PROGRESS_HANDOFF_V1",
+  "date": "2026-09-25",
+  "objective": "Continue exact frozen V33 direct-from-scratch CH0+CH4 independent parity after recovering original 2018–2019 XAUUSD from Google Drive; no replay of closed shards.",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "parent_pointer_blob_sha1": "79d6f9eb7361204bf73be326572702eb172d4cfb",
+    "parent_v33_192_target_blob_sha1": "e529cd1a06544fb304960be672284a2dc25d1275",
+    "parent_v33_192_anchor_blob_sha1": "3f35387e8f541913051858dafeda788ce3df4d80",
+    "new_v33_206_anchor_path": "control/QROS_SEED0076_W5_V33_206_OF_710_DRIVE_RAW_RESTORED_SHA_ANCHOR_20260925_v1.json",
+    "new_v33_206_anchor_git_blob_sha1": "414f282c55114a2db8283b09faca8942bb1faff1",
+    "original_v33_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "original_v33_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+    "main_science_pointer_git_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d"
+  },
+  "data": {
+    "asset": "XAUUSD",
+    "period": "EXPOSED_DEV_2018_2019",
+    "raw_original_ticks": 151382388,
+    "raw_dev_bytes": 2573500596,
+    "raw_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "source": "GOOGLE_DRIVE_ORIGINAL_PART001_008_ZIP_EXACT_8_OF_8",
+    "source_folder_id": "15lar_swBxKjjt0dkhrp0YRf7MrRjqLZZ",
+    "original_semantic_configs": 22352,
+    "V28_original_economic_shards_untouched": 104
+  },
+  "work_executed": [
+    "Downloaded exact original eight ZIP parts from the second Google Drive FULL_2018_2026 folder; 8/8 SHA256 and ZIP CRC PASS.",
+    "Rebuilt only the original 2018–2019 DEV raw prefix with a six-part SHA checkpoint, then part7 and part8; final raw prefix matched original exact SHA256.",
+    "Rehydrated exact original V30 and V28 source/simulator/CH0/CH4 tapes, frozen V33 710-task preregistration/runner and 192 exact prior SHA receipts.",
+    "Executed the next 14 PnL-blind preregistered CH0+CH4 independent trade-parity shards without re-running historical exploratory economics.",
+    "Ran unchanged original V33 incremental audit/builder and saved 206 receipt ZIP in Library; re-materialized original archived bytes and verified same 213-member ZIP/CRC/SHA256."
+  ],
+  "verified": {
+    "prior_original_shards_untouched": 192,
+    "original_predeclared_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "current_shards": 206,
+    "total_shards": 710,
+    "pending_shards": 504,
+    "by_channel": {
+      "CH0": 78,
+      "CH4": 128
+    },
+    "new_shards": 14,
+    "new_masks": 266,
+    "new_independent_exact_trades": 25969,
+    "new_exact_fields": 285659,
+    "cumulative_masks": 3962,
+    "cumulative_trades": 304670,
+    "cumulative_fields": 3351370,
+    "archive_library_id": "libfile_338faeaebcdc81919f52c825b781e1fe",
+    "archive_sha256": "325ae8819194afc6aa578653c25245b10b0973d77ca4073a0591523403c1e3af",
+    "archive_crc": "PASS_213_MEMBERS",
+    "archive_raw_library_readback": "PASS"
+  },
+  "problems": {
+    "remaining_504_V33_shards": "FROZEN_QUEUE_PENDING",
+    "historic_2018_19_account_specific_commission": "NOT_CERTIFIED",
+    "historic_2018_19_special_hours": "NOT_CERTIFIED",
+    "all_22352_semantic_config_independent_trade_parity": "NOT_COMPLETED"
+  },
+  "gates": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "MT5_parity": false,
+    "production": false,
+    "new_economic_PNL": false,
+    "old_60_10_shards_out_of_scope": true
+  },
+  "state": "DEVELOPMENT_RUNNING",
+  "portfolio_impact": "NONE",
+  "next_automatic_action": "From Library archive libfile_338faeaebcdc81919f52c825b781e1fe SHA 325ae..., verify frozen original V33 plan/root and rehydrate original Drive 8 ZIP 151382388 DEV ticks when needed; run only next CH0 r0_w1_batch005 ordinals163–182 and CH4 r0_w1_batch009 ordinals122–127,129–142. Continue in bounded SHA-receipted shards, persist incremental Library+Git CAS. Costs/special hours independently pending; keep Gate A, holdout, GA2, MT5 and old 60/10 closed."
+}
