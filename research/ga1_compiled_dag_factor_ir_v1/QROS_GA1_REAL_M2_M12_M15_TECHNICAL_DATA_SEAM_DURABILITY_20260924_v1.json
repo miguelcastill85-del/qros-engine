@@ -1,0 +1,94 @@
+{
+  "schema": "QROS_GA1_REAL_M2_M12_M15_TECHNICAL_DATA_SEAM_DURABILITY_RECEIPT_V1",
+  "date": "2026-09-24",
+  "objective": "Verify unmodified frozen original Factor IR on already-recovered real 2018–2019 DEV bars/indicator bytes for both assets and three historic TFs, only engineering masks never GA1 original frozen masks",
+  "authority": {
+    "main_at_execution": "ee921dc21ea8e5b9d631b47b68053453aa201e23",
+    "public1000_frontier": "V259",
+    "public1000_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "isolated_branch": "research/ga1-v259-real-carrier-reconcile-20260924",
+    "isolated_pointer_blob": "7f0a4d9c47e685055bb4cca99631d199698aee01",
+    "v9_root_blob": "e0de9b178d2acd486cb7a5ad0c8e3200fb5f0fac",
+    "v9_actual_verification_blob": "d6044ffc9a9afc77e7e7309a06a02484435e2c9d",
+    "r3_reconciliation_blob": "1222217e987655b206f69be581dbea750b9acff9",
+    "original_factor_ir_blob": "6418fda2c6ec7400f95018754b348ddbc488caad",
+    "xau_independent_carrier_receipt_blob": "a81433814acfade5782d0b14fa602ae7633f11cd",
+    "nqx_independent_carrier_receipt_blob": "3d9c3b0f4adcbc88d4476c1b7701408ac5e17fce"
+  },
+  "executed_code": {
+    "original_qros_factor_ir_sha256": "0a3659823189fcdfc0dee41f3dbe714a657c2f4caabf3a740bf042b28869cd66",
+    "original_qros_factor_ir_git_blob": "6418fda2c6ec7400f95018754b348ddbc488caad",
+    "technical_real_source_canary_sha256": "d373214ad6ce46aa840b1040c7c07de8804235cb9a7f3c52ba6eb64b6a60178a",
+    "technical_execution_raw_receipt_sha256": "e95c569e349b9d2c1db79af0cf994b648c39e4627a2545533893be1d8d01f1bc",
+    "library_full_sources": "/QROS/RISE_AUDIT_MAX_V2/GA1_REAL_IR_M2_M12_M15_20260924/QROS_GA1_REAL_FACTOR_IR_M2_M12_M15_CARREIRAS_20260924.zip",
+    "library_file_id": "libfile_7733eb26d4ec81919c57ce2c63325844",
+    "library_archived_zip_sha256": "c8e5df7e12b80230460e94bcacdd9b89d3d71c3c8f26d1a46d0c671e2ef39b38",
+    "library_raw_readback_and_member_sha256": "PASS_4_OF_4_PLUS_EXACT_IR_GIT_BLOB"
+  },
+  "verified": {
+    "status": "PASS_NON_ECONOMIC_TECHNICAL_SEAM_ONLY",
+    "real_domains": 6,
+    "domain_counts": [
+      {
+        "asset": "NQX",
+        "tf": "M2",
+        "bars": 337133
+      },
+      {
+        "asset": "XAUUSD",
+        "tf": "M2",
+        "bars": 341391
+      },
+      {
+        "asset": "NQX",
+        "tf": "M12",
+        "bars": 56659
+      },
+      {
+        "asset": "XAUUSD",
+        "tf": "M12",
+        "bars": 56938
+      },
+      {
+        "asset": "NQX",
+        "tf": "M15",
+        "bars": 45311
+      },
+      {
+        "asset": "XAUUSD",
+        "tf": "M15",
+        "bars": 45550
+      }
+    ],
+    "total_real_causal_bars": 882982,
+    "technical_recipe_mask_checks": 30,
+    "negative_domain_fail_closed_tests": 12,
+    "full_source_bar_and_indicator_input_hashes": "PASS_ALL_6_DOMAINS",
+    "independent_numpy_bool_mask_parity": "PASS_ALL_30_TECHNICAL_RECIPES",
+    "independent_domain_class_sha256_parity": "PASS_ALL_30_TECHNICAL_RECIPES",
+    "semantic_to_physical_bitmap_dedupe": "PASS_6_DOMAINS_FIVE_TO_FOUR",
+    "future_only_technical_mask_perturbation_prefix_unchanged": "PASS_6_DOMAINS"
+  },
+  "explicit_nonclaims": [
+    "Technical canary recipes are invented engineering probes, NOT any real GA1 frozen 804672-config event mask",
+    "Original certified H1/M12/M15/M2 heavy maskpack index and alias mapping bytes are not materialized and not proven equivalent to compiled IR",
+    "Not a broker symbol session calendar or entire data provenance approval",
+    "Not a profitable alpha, MQL5 parity, real execution speedup or GA1 continuation authorization"
+  ],
+  "mandatory_remaining_gates": {
+    "original_historical_exact_maskpack_regression": "PENDING_CERTIFIED_HISTORICAL_MASK_BYTES",
+    "source_provider_clock": "PROVISIONAL_VERIFY_ONLY",
+    "frozen_retest_rearm": "EXCLUDED_BY_USER",
+    "linux_seccomp_frozen_real_worker_compatibility": "STATIC_REVIEW_PENDING_RUNTIME_NOT_EXECUTED",
+    "production_adoption": false
+  },
+  "science": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "shard11_open": false,
+    "old_shards_recomputed": false,
+    "new_seed_open": false
+  },
+  "next_automatic_action": "Do not re-run closed historical shards; read exact pins and look for new certified historical heavy maskpacks only when material trigger appears. In separate independent engineering lane validate Linux seccomp compatibility with the exact frozen worker source graph without opening a scientific stage."
+}
