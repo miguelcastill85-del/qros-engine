@@ -1,0 +1,101 @@
+{
+  "authority": {
+    "experiment_branch": "product/mobile-m2-ledger-prototype-20260925",
+    "experiment_branch_observed_after_mobile_demo": "5ed37c5ad8a6da38bc8c9bae1cf79783acf72c70",
+    "main_modified_by_product_work": false,
+    "product_HEAD_modified": false,
+    "repo": "miguelcastill85-del/qros-engine",
+    "scientific_main_observed_commit": "24e0f8c8d7ae86070228c9d12ac74e68282d7a4b",
+    "scientific_main_stable_frontier_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "scientific_main_stable_version": "V259",
+    "source_product_HEAD_blob": "1b439c5f1a5b9d8903629a1d82e10c37ef90dcca",
+    "source_product_branch": "product/qros-research-studio-mvp-v1",
+    "source_product_commit": "e8fcc1ef626a5cc4f6382a10e1189d5bdf7f85dd",
+    "source_tested_commit": "6fe40836ee41d04bbbf5fe2e57611a046493a0f6"
+  },
+  "date_utc": "2026-09-25",
+  "decision": "PASS_LINUX_ENGINEERING_INTEGRATION_AND_PROCESS_CRASH_ONLY_NOT_M2_PRODUCT_APPROVAL",
+  "firewalls": {
+    "broker_carriers_read": false,
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "mt5_executed": false,
+    "production_research_ready": false,
+    "scientific_state_mutated": false
+  },
+  "linux_ci": {
+    "compiler": "GNU 13.3.0",
+    "final_run_id": 36091765954,
+    "final_url": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36091765954",
+    "full_ctest": {
+      "actual_core": true,
+      "failed": 0,
+      "passed": 17,
+      "total": 17
+    },
+    "full_native_build": "PASS",
+    "ledger_adversarial_assertions": 23,
+    "runner": "ubuntu-latest",
+    "sigkill_on_fsync_native_ctest": {
+      "cases": 4,
+      "injected_points": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "proof_limit": "PROCESS_KILL_ONLY_NOT_REAL_POWER_FAILURE",
+      "status": "PASS",
+      "test_name": "qros_m2_process_crash_injection"
+    },
+    "source_root_sha256": "8663c1414bc8c6fa1fb2db04fcdf1d24f81690924e8653b2cc0914506fb865db"
+  },
+  "mobile_m0": {
+    "app_store_build": "NOT_ATTEMPTED",
+    "backtest_engine_connection": "NONE",
+    "browser_test": "Playwright Chromium 390x844",
+    "format": "OFFLINE_SINGLE_HTML_NO_BACKEND",
+    "html_sha256": "e50fd7d947af8e068633ab7d0280dc577a49fe541fea02dad677a38f1cd38f58",
+    "payments_activated": false,
+    "scientific_authority": "NONE",
+    "screenshot_sha256": "56fce795f0d7c6ff6e3f926006a72eb311d9a544bae7cc3ca9e8378066aa8e68",
+    "status": "PASS_LOCAL_BROWSER_MOCK_ONLY",
+    "verified_actions": [
+      "4-tab navigation",
+      "project demo",
+      "JSON fixture export",
+      "false authority flags"
+    ]
+  },
+  "next_automatic_action": "Implement and adversarially validate authenticated evidence receipt binding and independent immutable external HEAD anchoring on isolated branch; do not promote M2 or expose mutation APIs until complete.",
+  "prior_ci_incident": {
+    "correction_commit": "6fe40836ee41d04bbbf5fe2e57611a046493a0f6",
+    "failure_run_id": 36091673481,
+    "incident_path": "product/experiments/M2_CI_FAILURE_AND_CORRECTION_20260925.json",
+    "root_cause": "GNU13 fortify unused-result warning in test-only fsync shim",
+    "status": "FAIL_PRESERVED"
+  },
+  "remaining_gates": [
+    "Trusted external immutable head anchor with rollback detection",
+    "Authenticated deterministic receipt binding for ALL TransitionContext claims",
+    "Mobile API actor authorization and tenant isolation before remote binding",
+    "Native Windows durable flush implementation and crash tests",
+    "Real power loss and filesystem portability not tested",
+    "Independent production evidence verifier still pending"
+  ],
+  "schema": "QROS_PRODUCT_M2_ENGINEERING_EVIDENCE_RECEIPT_V1",
+  "scope": "ISOLATED_PRODUCT_BRANCH_TEST_ONLY",
+  "source_blob_git_sha1": {
+    "CMakeLists.txt": "f634a41bc7c0e73af8fb1de1e2fac21b2cca378b",
+    "include/qros/research_ledger.hpp": "fe22314e0c32b73d7145693f96631b8014fcae4f",
+    "product/mobile-demo/index.html": "f4ff55466b4f57ea18a64eb1f1bbedb514a22a83",
+    "product/mobile-demo/test_mobile_ui.py": "754afe47bf73dd9f06c3139e44f379e0cf45d95b",
+    "src/research_ledger.cpp": "a9c5adf782c452e827dae9d3891964fbd4277019",
+    "tests/product_crash/kill_on_fsync.cpp": "0dfc296b3d79055561a34a8ba036a45f987b8341",
+    "tests/product_crash/m2_crash_driver.cpp": "56ac02d83ba312267dfb55cd7cf015dd28c5e689",
+    "tests/product_crash/test_crash_injection.py": "34da9269e5599b581099625bcc13008d954a390f",
+    "tests/test_research_ledger.cpp": "194bf2a07a9459259d59089e576ba292fccbdf0e"
+  },
+  "state": "DEVELOPMENT_RUNNING"
+}
