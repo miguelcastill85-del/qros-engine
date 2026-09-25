@@ -1,0 +1,43 @@
+{
+  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v1",
+  "status": "CAMPAIGN_ACTIVE",
+  "product": "QROS Mobile Research Studio",
+  "scope": "MOBILE_APP_ONLY_ANDROID_FIRST_IOS_LATER",
+  "authority": {
+    "scope_source": "USER_DIRECTIVE_2026-09-25",
+    "scope_contract_path": "product/mobile/QROS_MOBILE_ONLY_PRODUCT_CONTRACT_v1.md",
+    "scope_contract_git_blob_sha1": "30802ce1fc93d3553740126bf57de7d8668166b8",
+    "historical_windows_product_head": "product/PRODUCT_HEAD.json",
+    "historical_windows_product_head_sha1": "1b439c5f1a5b9d8903629a1d82e10c37ef90dcca",
+    "windows_head_status": "HISTORICAL_ENGINEERING_EVIDENCE_ONLY_SUPERSEDED_FOR_ACTIVE_PRODUCT_SCOPE",
+    "m2_experiment_pointer": "product/experiments/M2_ACTIVE_EXPERIMENT_POINTER.json",
+    "m2_experiment_pointer_sha1": "8a0d531db36e4a4555e43a1f2ad84bb8ac130d63",
+    "code_branch": "product/mobile-m2-ledger-prototype-20260925",
+    "scientific_main": "DO_NOT_MODIFY"
+  },
+  "active_delivery": "ANDROID_FLUTTER_MOBILE_VERTICAL_SLICE_TEST_ONLY",
+  "mobile_frontend_status": "NOT_YET_NATIVE_IMPLEMENTED",
+  "existing_mobile_html": "product/mobile-demo/index.html",
+  "existing_mobile_html_status": "TEST_ONLY_WEB_MOCK_NOT_INSTALLABLE_MOBILE_APP",
+  "backend": "LINUX_CXX20_QROS_M2_INFRASTRUCTURE_ONLY_NOT_WINDOWS_CUSTOMER_APPLICATION",
+  "m2_status": "LINUX_INTEGRATION_PASS_AUTHENTICATED_EVIDENCE_AND_EXTERNAL_HEAD_PENDING",
+  "hard_exclusions": [
+    "WINDOWS_UI",
+    "MAC_DESKTOP_UI",
+    "DESKTOP_INSTALLER",
+    "COMMERCIAL_DESKTOP_CLI",
+    "AUTOMATED_LIVE_TRADING",
+    "PROPRIETARY_ALPHA_DISTRIBUTION",
+    "BROKER_TICK_REDISTRIBUTION"
+  ],
+  "safeguards": {
+    "client_scientific_transition_authority": false,
+    "unrestricted_external_api": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "use_only_synthetic_data_until_authorized": true,
+    "paid_services_activation": false
+  },
+  "next_automatic_action": "Build TEST_ONLY installable Flutter Android vertical slice reusing only navigation and fixture concepts of existing mobile-demo/index.html; document tested Android build and security model; continue M2 authenticated evidence and immutable HEAD solely as backend dependencies without desktop UI development.",
+  "release_gate": "ANDROID_APP_AND_AUTHENTICATED_BACKEND_TESTS_REQUIRED; NO_LIVE_OR_PAID_RELEASE"
+}
