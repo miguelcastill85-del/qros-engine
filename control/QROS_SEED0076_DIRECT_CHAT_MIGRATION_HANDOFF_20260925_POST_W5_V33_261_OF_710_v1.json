@@ -1,0 +1,53 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_V33_261_OF_710_HANDOFF_v1",
+  "date": "2026-09-25",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "authority": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "prior_pointer_sha1": "10d8a9fbefcfdaa6a9ed7ba7194afe6023fc4d80",
+    "prior_target_sha1": "cf26631427cf17cc393792f4678db62afaa68755",
+    "anchor_path": "control/QROS_SEED0076_W5_V33_261_OF_710_GOOGLE_DRIVE_SHA_PARITY_ANCHOR_20260925_v1.json",
+    "anchor_git_blob_sha1": "9989756e7275a082fe391dba3a34fa12ce80f97f",
+    "original_frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "main_science_V259_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d"
+  },
+  "latest_verified": {
+    "completed": 261,
+    "total": 710,
+    "pending": 449,
+    "by_channel": {
+      "CH0": 101,
+      "CH4": 160
+    },
+    "sampled_physical_mask_occurrences_V33": 5029,
+    "sampled_source_signals_V33": 618923,
+    "exact_independent_trades_V33": 370674,
+    "exact_matching_fields_V33": 4077414,
+    "zero_signal_masks": 6,
+    "previous_206_exact_trades": 304670,
+    "new_exact_trades": 66004,
+    "new_matching_fields": 726044
+  },
+  "library": {
+    "library_id": "libfile_5e668c31f35881918b5a64524fafd4a6",
+    "library_path": "/QROS_SEED0076_W5_V33_GOOGLE_DRIVE_RESUME_20260925/QROS_W5_V33_VERIFIED_261_OF_710_MASK_PARITY_SHARDS_20260925.zip",
+    "ZIP_sha256": "eca1a92d6d8f2ec1aad6207cc2f8cbb45e6ec73105fa19e7cc4af6e047f380b5",
+    "ZIP_bytes": 625383,
+    "ZIP_members": 268,
+    "library_download_SHA256": "PASS_EXACT",
+    "internal_SHA_manifest_members": 267,
+    "master_receipt_SHA256": "869107cc653f3bae0f87ba32110c87408b340ef55c5e387b3ff4903fafbba9ae"
+  },
+  "gates": {
+    "direct_state": "DEVELOPMENT_RUNNING",
+    "full_V33_parity": "PENDING_449",
+    "broker_primary_2018_19_commission": "NOT_CERTIFIED",
+    "broker_primary_2018_19_special_hours": "NOT_CERTIFIED",
+    "Gate_A": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "MT5": false,
+    "portfolio_risk_activation": false
+  },
+  "next_automatic_action": "Restore 261-library ZIP by exact SHA, original Drive 8 ZIP and V28 CH0/CH4 tapes. Continue only original plan next CH0 r0_w1_batch007 ordinals 102–121 and CH4 r0_w1_batch011 ordinals 244–250. Bounded serial new shards, then original audit, new Library ZIP readback and Git CAS. No old 60/10 shards or V28 economic retests."
+}
