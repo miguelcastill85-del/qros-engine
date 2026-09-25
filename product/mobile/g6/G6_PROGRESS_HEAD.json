@@ -1,0 +1,20 @@
+{
+  "economic_tests": 0,
+  "expected_fixture_count": 1,
+  "expected_required_delta_files": 18,
+  "externally_administered_dynamic_witness": "NOT_DEPLOYED",
+  "g5_mobile_product_head_blob": "2b1c876a7c033e6cc5309b8ad2e77c3a27600839",
+  "g5_verified_head_blob": "5f95b28caa79a15126d50b91097681d41e202b29",
+  "ga2_open": false,
+  "holdout_open": false,
+  "main_scientific_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "next_automatic_action": "Verify exact G6 source delta and G5 immutable pins, run independent original G5 verifier plus G6 Python/Dart tests on deterministic signed fixture, Flutter analyze, full M1/G1/G6 tests, build Android debug APK, independently download/rehash, then promote G6 engineering receipt and mobile product HEAD v9 on PASS only. Do not claim physical installation, production external custody or real trading.",
+  "parent_exact": "69109c6570c6cbb48f807b1b417dbdfa0b53fa54",
+  "phase": "G6_ANDROID_SIGNED_G5_SYNTHETIC_PROOF_CI_PENDING",
+  "physical_android_install": "NOT_TESTED",
+  "public_https": "NOT_DEPLOYED",
+  "schema": "QROS_MOBILE_G6_PROGRESS_HEAD_V1",
+  "scientific_authority": false,
+  "status": "DEVELOPMENT_RUNNING",
+  "target_android_version": "0.6.0+6"
+}

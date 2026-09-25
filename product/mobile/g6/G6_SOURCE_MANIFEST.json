@@ -1,0 +1,30 @@
+{
+  "classification": "LOCAL_IMPLEMENTED_CI_PENDING",
+  "economic_tests": 0,
+  "expected_exact_delta_files": 18,
+  "fixture_expected_sha256": "2101511f1cb694e742b2c5947718293b4a4c8497196d537f30aed59e39fd4462",
+  "ga2_open": false,
+  "holdout_open": false,
+  "parent_exact": "69109c6570c6cbb48f807b1b417dbdfa0b53fa54",
+  "real_market_data": false,
+  "schema": "QROS_MOBILE_G6_SOURCE_MANIFEST_V1",
+  "scientific_authority": false,
+  "source_sha256": {
+    ".github/workflows/qros-mobile-g6-android-proof.yml": "b1869827661027d03232c8ffec2c98f3227980eaf24b91eb759ec717229b7403",
+    "product/mobile/flutter_app/assets/g6_offline_trust.json": "aec9c47239df924644e6205f012bac9d32346aebf9dcb155705e197223298646",
+    "product/mobile/flutter_app/assets/g6_signed_snapshot.json": "2101511f1cb694e742b2c5947718293b4a4c8497196d537f30aed59e39fd4462",
+    "product/mobile/flutter_app/lib/core/g6_demo_transport.dart": "9a2b28223e3aca93404f017e80db686fc88ad94788b4c4c57eafb3118760377c",
+    "product/mobile/flutter_app/lib/core/g6_signed_snapshot.dart": "7e68f99766c4a01508feb0f46b7ed148de956ce91f3dfdbdd83187f54ba500e4",
+    "product/mobile/flutter_app/lib/core/g6_snapshot_verifier.dart": "f21300375f7c8668a87792a3f44cafd4792117bebbfdd1e76c9711f86921f792",
+    "product/mobile/flutter_app/lib/main.dart": "ef5b5eeb5e52cef033f19bdcde63997bd06584abdbdadcbc15e80a7d303d19a7",
+    "product/mobile/flutter_app/lib/ui/g6_proof_screen.dart": "551a77c4fb1df019737e5cfe3d74c166ecafce6bb213e564d9b28c600521cfd7",
+    "product/mobile/flutter_app/pubspec.yaml": "91ae262acdff3d9fb93cb075563e1a502eea3b8ea2968fe06d13444c77bf566f",
+    "product/mobile/flutter_app/test/g6_snapshot_test.dart": "bc7ee4e627961919859f9ad8dfb5cb7cacb347e9539eaaec3888a0bea572ebe6",
+    "product/mobile/flutter_app/test/g6_widget_test.dart": "6071ee669acc1119629085f2f68cece79bd7430b294f53b1901c3e2046a12696",
+    "product/mobile/g6/DELIVERY_CONTRACT.md": "b0cec8b7d0a9cda5c58807271423e424d9534235dbfbb08c18916a91b16c867f",
+    "product/mobile/g6/anti_stall_gate.py": "1fca1a319772ea2a5ba165b934f57e57222b3bb6597323640b53b92e9c898a43",
+    "product/mobile/g6/generate_signed_fixture.py": "0d7b168b6128e28c3620e3487628a27124447db73406d10ba840b8af825feac6",
+    "product/mobile/g6/tests/test_g6_fixture.py": "1064a0f3b714990b44ed32c299d4c0ce91c69b4576816869bcd55c433722b43e",
+    "product/mobile/g6/tests/test_gate.py": "a230fb2f12db6821ca78ad0ef607658d6797217738e10001917ca30c2cd03ed2"
+  }
+}
