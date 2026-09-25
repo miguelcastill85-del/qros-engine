@@ -1,0 +1,84 @@
+name: qros-mobile-g3-fail-closed-delivery-test-only
+on:
+  push:
+    branches:
+      - product/mobile-g3-synthetic-execution-20260925
+    paths:
+      - 'product/mobile/g3/**'
+      - 'product/mobile/governance/QROS_MOBILE_DELIVERY_ANTI_STALL_POLICY_v1.md'
+      - '.github/workflows/qros-mobile-g3-evidence-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qros-g3-evidence-gate
+  cancel-in-progress: true
+jobs:
+  delivery:
+    name: g3-source-regression-exact-parity-evidence-gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject no-op review, missing code/tests or old-source mutation
+        run: python product/mobile/g3/anti_stall_gate.py --remote-git
+      - name: Compile independent G2 and G3 native engines with all warnings fatal
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/qros-native
+          g++ -std=c++20 -O2 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror product/mobile/g2/native/enumerator.cpp -o /tmp/qros-native/g2
+          g++ -std=c++20 -O2 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror product/mobile/g3/native/executor.cpp -o /tmp/qros-native/g3
+      - name: Retain M1/G1 Python cryptographic and universe regressions
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check -r product/mobile/backend/requirements.txt
+          cd product/mobile/backend
+          python -m unittest discover -s tests -v
+      - name: Retain exact G2 independent enumeration, process-crash and gate regressions
+        env:
+          QROS_G2_NATIVE_BINARY: /tmp/qros-native/g2
+        run: python -m unittest discover -s product/mobile/g2/tests -v
+      - name: New G3 synthetic Bid/Ask execution parity, randomized and security regressions
+        env:
+          QROS_G3_NATIVE_BINARY: /tmp/qros-native/g3
+        run: python -m unittest discover -s product/mobile/g3/tests -v
+      - name: Independently verify byte-identical G3 frozen trade ledger and build receipt
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/qros-g3-evidence
+          python product/mobile/g3/oracle.py < product/mobile/g3/tests/fixtures/g3_synthetic_golden.txt > /tmp/qros-g3-evidence/python.txt
+          /tmp/qros-native/g3 < product/mobile/g3/tests/fixtures/g3_synthetic_golden.txt > /tmp/qros-g3-evidence/native.txt
+          cmp /tmp/qros-g3-evidence/python.txt /tmp/qros-g3-evidence/native.txt
+          cmp /tmp/qros-g3-evidence/python.txt product/mobile/g3/tests/fixtures/g3_expected_trades.txt
+          python - <<'PY'
+          import hashlib,json,pathlib,subprocess,platform
+          d=pathlib.Path('/tmp/qros-g3-evidence');b=(d/'native.txt').read_bytes()
+          assert hashlib.sha256(b).hexdigest()=='d8ce45cfa9ab8b928b714c7f7fbe7b68030372b95c2d19591f9fbfa87c369253'
+          r={'schema':'QROS_G3_TEST_ONLY_CI_RECEIPT_V1',
+             'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+             'status':'PASS_ENGINEERING_G3_TEST_ONLY','source_delta_gate':'PASS_REQUIRED_STEP',
+             'g1_regression':'PASS_REQUIRED_STEP','g2_regression':'PASS_REQUIRED_STEP',
+             'g3_python_native_parity':'PASS_REQUIRED_STEP',
+             'g3_fixture_trades_sha256':hashlib.sha256(b).hexdigest(),
+             'fixture_record_count':3,'randomized_g3_scenarios':160,
+             'independent_cpp20':'STRICT_BUILD','python':platform.python_version(),
+             'real_market_data':'NONE','economic_backtests':0,
+             'holdout_open':False,'ga2_open':False,'scientific_gate_pass':False,
+             'new_apk':'NOT_BUILT','external_witness':'NOT_DEPLOYED',
+             'next_automatic_action':'Independently verify CI artifact against exact source commit; promote G3 engineering receipt and mobile HEAD v6 without rerunning G1/G2. Then implement licensed data audit and trust boundaries as separately governed G4.'}
+          (d/'G3_CI_RECEIPT.json').write_text(json.dumps(r,indent=2,sort_keys=True)+'\n')
+          print('G3_FROZEN_TRADE_LEDGER_PARITY_PASS',r['source_commit'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qros-mobile-g3-test-only-execution-evidence
+          retention-days: 3
+          if-no-files-found: error
+          path: |
+            /tmp/qros-g3-evidence/G3_CI_RECEIPT.json
+            /tmp/qros-g3-evidence/native.txt

@@ -1,0 +1,22 @@
+{
+  "economic_backtests": 0,
+  "external_witness": "NOT_DEPLOYED",
+  "fixture_record_count": 3,
+  "g1_regression": "PASS_REQUIRED_STEP",
+  "g2_regression": "PASS_REQUIRED_STEP",
+  "g3_fixture_trades_sha256": "d8ce45cfa9ab8b928b714c7f7fbe7b68030372b95c2d19591f9fbfa87c369253",
+  "g3_python_native_parity": "PASS_REQUIRED_STEP",
+  "ga2_open": false,
+  "holdout_open": false,
+  "independent_cpp20": "STRICT_BUILD",
+  "new_apk": "NOT_BUILT",
+  "next_automatic_action": "Independently verify CI artifact against exact source commit; promote G3 engineering receipt and mobile HEAD v6 without rerunning G1/G2. Then implement licensed data audit and trust boundaries as separately governed G4.",
+  "python": "3.12.14",
+  "randomized_g3_scenarios": 160,
+  "real_market_data": "NONE",
+  "schema": "QROS_G3_TEST_ONLY_CI_RECEIPT_V1",
+  "scientific_gate_pass": false,
+  "source_commit": "98837a31613b18c57e5a55fb386482d857b24c68",
+  "source_delta_gate": "PASS_REQUIRED_STEP",
+  "status": "PASS_ENGINEERING_G3_TEST_ONLY"
+}

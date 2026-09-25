@@ -1,0 +1,21 @@
+{
+  "classification": "IMPLEMENTED_LOCALLY_CI_NOT_YET_RUN",
+  "economic_backtests": 0,
+  "exact_required_new_paths_count": 12,
+  "ga2_open": false,
+  "holdout_open": false,
+  "parent_exact": "ac5bc7536ae4a977c71f443a39882efebcfd4604",
+  "schema": "QROS_MOBILE_G3_SOURCE_MANIFEST_V1",
+  "source_sha256": {
+    ".github/workflows/qros-mobile-g3-evidence-gate.yml": "0b3f6f8fa3abf402b1a274462062276ba398063d0d23d7641944fd9d2e360134",
+    "product/mobile/g3/G3_EXECUTION_CONTRACT.md": "695758f0ba9a4425a089a6ab6d327798b4281b00067ff719af100ea7df248559",
+    "product/mobile/g3/anti_stall_gate.py": "e0eb12707153dffd5fd363fe4ce3ec51e15dc39c1d2ff4c75369faf1a3ae0c5d",
+    "product/mobile/g3/native/executor.cpp": "8b3b12729ee32c95dc575c97025cc5043bb933e96b16a07a8bae5ef8e6d077bd",
+    "product/mobile/g3/oracle.py": "18724d1c9e96bc3f52231d2831822a9968755255b4ba11add9329be442921268",
+    "product/mobile/g3/tests/fixtures/g3_expected_trades.txt": "d8ce45cfa9ab8b928b714c7f7fbe7b68030372b95c2d19591f9fbfa87c369253",
+    "product/mobile/g3/tests/fixtures/g3_synthetic_golden.txt": "597d6b236ad65086be25caac470ae8335601504c820c030c63789a300038e23c",
+    "product/mobile/g3/tests/test_execution.py": "ccf4a43184c186711cb1a82160eb2fe4dae7002408f6e841d694f64a6e07854a",
+    "product/mobile/g3/tests/test_gate.py": "9bf1dd70c587b54755ddb69f43cf9b4f2f65003939c4ae0901c930de09d1d05d",
+    "product/mobile/governance/QROS_MOBILE_DELIVERY_ANTI_STALL_POLICY_v1.md": "2aea1cec344674d6981ddbb9c194d35252c0ffd86596600037d6b879ffd98db2"
+  }
+}

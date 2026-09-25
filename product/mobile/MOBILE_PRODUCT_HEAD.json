@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v5",
+  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v6",
   "status": "DEVELOPMENT_RUNNING",
   "product": "QROS Mobile Research Studio",
   "scope": "MOBILE_APP_ONLY_ANDROID_FIRST_IOS_LATER",
@@ -15,11 +15,11 @@
     "code_branch": "product/mobile-m2-ledger-prototype-20260925",
     "scientific_main": "DO_NOT_MODIFY"
   },
-  "active_delivery": "ANDROID_G1_VERIFIED_AND_G2_INDEPENDENT_ENUMERATOR_VERIFIED_TEST_ONLY",
-  "mobile_frontend_status": "ANDROID_G1_DEBUG_APK_VERIFIED",
+  "active_delivery": "G3_SYNTHETIC_INDEPENDENT_BID_ASK_EXECUTION_PARITY_TEST_ONLY",
+  "mobile_frontend_status": "ANDROID_G1_DEBUG_APK_VERIFIED_UNCHANGED_BY_G2_G3",
   "existing_mobile_html": "product/mobile-demo/index.html",
   "existing_mobile_html_status": "TEST_ONLY_WEB_MOCK_NOT_INSTALLABLE_MOBILE_APP",
-  "backend": "LINUX_CXX20_G2_INDEPENDENT_SYNTHETIC_ENUMERATOR_SHARDED_PLUS_M1_READONLY_DEMO",
+  "backend": "LINUX_CXX20_G3_PLUS_INDEPENDENT_PYTHON_SYNTHETIC_EXECUTION_ORACLE_WITH_G2_SHARDED_UNIVERSE_AND_M1_SIGNED_DEMO",
   "m2_status": "LINUX_INTEGRATION_PASS_REAL_M2_AUTHENTICATED_EVIDENCE_AND_DYNAMIC_EXTERNAL_HEAD_PENDING",
   "hard_exclusions": [
     "WINDOWS_UI",
@@ -38,8 +38,8 @@
     "use_only_synthetic_data_until_authorized": true,
     "paid_services_activation": false
   },
-  "next_automatic_action": "G3 implement independent C++20/Python chronological synthetic Bid/Ask simulator with exact trade-by-trade parity, SL-first ambiguity, executable gap fills, session end flattening, no overnight and max 3 entries/day. PR-gated exact tests and durable checkpoint. Never rerun G1/G2 verified source unless hashes drift.",
-  "release_gate": "G2_ENGINEERING_PASS_ONLY; G3 EXACT_SYNTHETIC_EXECUTION_PARITY, REAL_DEVICE, EXTERNAL_WITNESS, HTTPS_TENANT_AUTH, RELEASE_SIGNING_AND_DATA_LICENSE_NOT_PASSED",
+  "next_automatic_action": "G4: implement separately governed licensed-data audit and independent evidence trust boundary; begin with synthetic security canaries, strict timezone/DST and Bid/Ask audit, tenant/source license policy and fail-closed dynamic witness design. Do not open holdout, GA2, real PnL, MT5 or production API without independent gates. Keep verified G1/G2/G3 immutable.",
+  "release_gate": "G3_SYNTHETIC_ENGINEERING_PASS_ONLY; LICENSED_DATA_AUDIT, AUTHENTICATED_EXTERNAL_WITNESS, TENANT_TLS, PHYSICAL_ANDROID_DEVICE, MT5_PARITY, RELEASE_SIGNING_AND_REAL_MARKET_ECONOMICS_NOT_VERIFIED",
   "verified_milestones": {
     "ANDROID_M0_NATIVE_VERTICAL_SLICE": {
       "status": "PASS_ENGINEERING_TEST_ONLY",
@@ -112,6 +112,26 @@
       "receipt_git_blob_sha1": "e3e4b6ff59472870022c134b225c28475635bfdd",
       "synthetic_only": true,
       "economic_tests": 0,
+      "scientific_gate_pass": false
+    },
+    "G3_SYNTHETIC_EXECUTION_PARITY": {
+      "status": "PASS_ENGINEERING_TEST_ONLY",
+      "tested_source_commit": "98837a31613b18c57e5a55fb386482d857b24c68",
+      "github_actions_run_id": 36163668377,
+      "backend_regressions": "37_OF_37_PASS",
+      "g2_regressions": "31_OF_31_PASS",
+      "g3_new_tests": "22_OF_22_PASS",
+      "randomized_cross_engine_scenarios": 160,
+      "frozen_synthetic_trade_records": 3,
+      "frozen_trade_ledger_sha256": "d8ce45cfa9ab8b928b714c7f7fbe7b68030372b95c2d19591f9fbfa87c369253",
+      "receipt_path": "product/mobile/receipts/QROS_MOBILE_G3_VERIFIED_ENGINEERING_PASS_20260925.json",
+      "receipt_git_blob_sha1": "7060e6bc51a833fee581c280e4b0b3d0c327cf5d",
+      "g3_current_head_path": "product/mobile/g3_verified/G3_CURRENT_HEAD.json",
+      "g3_current_head_git_blob_sha1": "55eac915ee9026ee5e84dfebbd51e9daa8dae86b",
+      "market_data": "NONE",
+      "economic_backtests": 0,
+      "holdout_open": false,
+      "ga2_open": false,
       "scientific_gate_pass": false
     }
   },

@@ -1,0 +1,16 @@
+{
+  "schema": "QROS_MOBILE_G3_PROGRESS_HEAD_V1",
+  "phase": "G3_SYNTHETIC_PARITY_TEST_PENDING",
+  "parent_exact": "ac5bc7536ae4a977c71f443a39882efebcfd4604",
+  "mobile_product_head_blob": "dff6b0bb07b64fc8b528b0a4540dc601b8b984b3",
+  "g2_verified_head_blob": "1e2c9c96709cd58fa4813839e9dc1e5c01654b67",
+  "last_completed_gate": "G2_ENGINEERING_PASS_TEST_ONLY",
+  "status": "DEVELOPMENT_RUNNING",
+  "economic_tests": 0,
+  "holdout_open": false,
+  "ga2_open": false,
+  "scientific_authority": false,
+  "expected_regressions": {"g1_backend": 37, "g2": 31},
+  "required_new_g3_files": 12,
+  "next_automatic_action": "Run strictly pinned G3 source-regression-execution-parity CI. Preserve any failed result with exact cause; promote G3 verified receipt and product HEAD v6 only if all CI gates pass."
+}
