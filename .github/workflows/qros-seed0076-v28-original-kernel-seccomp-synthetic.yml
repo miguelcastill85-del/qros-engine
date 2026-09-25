@@ -1,0 +1,68 @@
+name: qros-seed0076-v28-original-kernel-seccomp-synthetic
+on:
+  push:
+    branches: [engineering/seed0076-v28-linux-seccomp-synthetic-20260925]
+  pull_request:
+    paths: ['.github/workflows/qros-seed0076-v28-original-kernel-seccomp-synthetic.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linux-original-v28-independent-synthetic-under-kernel-seccomp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run frozen V28 original 24-trade independent oracle under attested Linux kernel seccomp
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+          NUMBA_NUM_THREADS: '1'
+        run: |
+          python -m pip install --disable-pip-version-check 'numpy==2.0.2' 'numba==0.60.0'
+          python - <<'PY'
+          import hashlib,json,os,pathlib,shutil,signal,sys
+          assert sys.platform=='linux'
+          src=pathlib.Path('research/public1000/seed0076/direct_dev/v28_exact_archive')
+          manifest=src/'QROS_V28_36_SOURCE_RELEASE_MANIFEST.json'
+          assert hashlib.sha256(manifest.read_bytes()).hexdigest()=='933f1eb09ef254d409957171c820cf12363d9c5514bf8f35c46b8a7d19465a8f'
+          rules=json.loads(manifest.read_text())
+          by_path={x['original_archive_path']:x for x in rules['files']}
+          script_names=['QROS_W5_V28_EXPLORATORY_ECONOMIC_SYNTHETIC_ORACLE_TEST.py','qros_w5_v28_frozen_exploratory_economic_kernel.py','REFERENCE_ONLY_seed0076_direct_dev_backtest_v2.py']
+          work=pathlib.Path(os.environ['RUNNER_TEMP'])/'qros_v28_seccomp_synthetic';work.mkdir(parents=True)
+          for name in script_names:
+              original='SOURCES/'+name;data=(src/original).read_bytes()
+              assert len(data)==by_path[original]['bytes']
+              assert hashlib.sha256(data).hexdigest()==by_path[original]['sha256']
+              (work/name).write_bytes(data)
+          source=pathlib.Path('anti_stall/scripts/qros_linux_seccomp_single_owner_v1.py')
+          launcher=pathlib.Path('anti_stall/scripts/qros_linux_seccomp_single_process_launcher_v1.py')
+          def blob(path):
+              raw=path.read_bytes();return hashlib.sha1(b'blob '+str(len(raw)).encode()+bytes([0])+raw).hexdigest()
+          assert blob(source)=='83319390b7e2fe90da4c4873dae5155010d4c074'
+          assert blob(launcher)=='e0d37267516125cb8de9354560158ad1c80faa48'
+          sys.path.insert(0,str(source.resolve().parent))
+          from qros_linux_seccomp_single_owner_v1 import launch,sha256_file
+          target=work/'qros_linux_seccomp_single_process_launcher_v1.py';shutil.copyfile(launcher,target)
+          proc,proof=launch([sys.executable,script_names[0]],work,target.name,sha256_file(target),ready_budget=2)
+          try:
+              stdout,stderr=proc.communicate(timeout=120)
+              assert proc.returncode==0,(stdout[-2500:],stderr[-2500:])
+              assert proof['kernel_seccomp_verified'] and proof['proc_seccomp']==2 and proof['proc_no_new_privs']==1 and proof['owns_process_group']
+              assert b'"fields": 264' in stdout and b'"total_trades_checked": 24' in stdout
+              path=work/'V28_EXPLORATORY_ECONOMIC_SYNTHETIC_ORACLE_RECEIPT.json'
+              b=path.read_bytes()
+              assert hashlib.sha256(b).hexdigest()=='d31ac82163e462aca4e2026a1a73f5d06fbda57213f06799dd828b890ffcf7a1'
+              result=json.loads(b)
+              assert result['all_fields_checked']==264 and result['real_dev_economic_PnL_read'] is False
+              assert result['broker_cost_certified'] is False and result['holdout_open'] is False and result['GA2_open'] is False
+              print('PASS V28 ORIGINAL EXECUTABLE UNDER KERNEL SECCOMP',json.dumps(proof,sort_keys=True))
+              print('PASS ORIGINAL V28 INDEPENDENT SYNTHETIC 24 TRADES 264 FIELDS; NO ECONOMIC DATA; NO WINDOWS')
+          finally:
+              try:os.killpg(proc.pid,signal.SIGKILL)
+              except ProcessLookupError:pass
+              try:proc.wait(timeout=2)
+              except Exception:proc.kill();proc.wait()
+          PY
