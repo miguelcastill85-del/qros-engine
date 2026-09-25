@@ -1,0 +1,120 @@
+{
+  "base_design_commit": "809ddd3f6696177e3c20abaa7094ab94d0df748a",
+  "classification": "CORRECTED_AFTER_SECOND_REMOTE_WIDGET_HIT_TEST_FAILURE_REMOTE_CI_PENDING",
+  "dart_flutter_tests": "NOT_RUN_LOCALLY_FLUTTER_SDK_UNAVAILABLE",
+  "economic_tests": 0,
+  "first_failed_ci_run_id": 36100392429,
+  "first_failed_ci_source_commit": "641c703a5f9d3945b62f32a54008d9bfae8260c5",
+  "fixture_canonical_sha256": "9ad446079f4906156ed1a498f847bb4fa79e08a44710ecb69edc59941480c1de",
+  "fixture_toy_enumeration_sha256": "6b00b7f9350b70d20de0f0cecdc619950440ab757f6f96f2b74845e581a60800",
+  "ga2_open": false,
+  "historical_v1_manifest_sha256": "4bd9cfd59bfb6f5938201ef5b42e98836dc2cfc31e69d28e1e2f2b22f60873a3",
+  "historical_v2_manifest_git_blob_sha1": "0858ae2029388e0fc7e434d8ff1fd591e00ac349",
+  "holdout_open": false,
+  "independent_python_local_tests": "36 PASS and 1 SKIPPED (C++ source unavailable locally); check C++ in remote CI",
+  "mobile_only": true,
+  "mt5_executed": false,
+  "origin_m1_verified_commit": "3bb3ebf843e61fd5722664310a9907745f556ae7",
+  "schema": "QROS_MOBILE_G1_SOURCE_MANIFEST_V3",
+  "second_failed_ci_run_id": 36100633758,
+  "second_failed_ci_source_commit": "42b5e311c8cf0ce85650b6feee60d8e6bf9ef4e1",
+  "source_files": [
+    {
+      "bytes": 6544,
+      "git_blob_sha1": "0b3a5db4bbe411af1fee954d814955322229e4dd",
+      "path": ".github/workflows/qros-mobile-g1-idea-universe.yml",
+      "sha256": "3487e2a5a78a644bc285851b00aac3e99326d1118a6917e8a6573348f9366770"
+    },
+    {
+      "bytes": 7783,
+      "git_blob_sha1": "636a8a7ec5cc00cc0ad1c64354ae74fffeaa5c5e",
+      "path": "product/mobile/flutter_app/lib/core/universe_ir.dart",
+      "sha256": "f2c361fbb9feb546d11179f7f3a309b9601136e381df95f6818fdaddb7bb1387"
+    },
+    {
+      "bytes": 1110,
+      "git_blob_sha1": "01d0bd678dcec97dfce1f17abffe154e5c103144",
+      "path": "product/mobile/flutter_app/lib/core/universe_store.dart",
+      "sha256": "052184657084a116f9c89dd050c64e288db0d336970f9a04c01e4740d5e1a49f"
+    },
+    {
+      "bytes": 3050,
+      "git_blob_sha1": "96841eb6bbbe6eff8d13779387cff0a687aae2a0",
+      "path": "product/mobile/flutter_app/lib/main.dart",
+      "sha256": "40872b7808b28a8ff83c4fb8c1c3779bc9c00a522c155a6093972e3e5897a89a"
+    },
+    {
+      "bytes": 22613,
+      "git_blob_sha1": "08fac5169c0377a8b1f03a802d5e0f202321efae",
+      "path": "product/mobile/flutter_app/lib/ui/app_shell.dart",
+      "sha256": "458d691bf1f8b31fb84847a412ed423d73703902177da6aef66168e5bac3ef02"
+    },
+    {
+      "bytes": 11026,
+      "git_blob_sha1": "b1fe5dba508601de6ddb617e9b36b5770ab2f5e8",
+      "path": "product/mobile/flutter_app/lib/ui/hypothesis_studio_screen.dart",
+      "sha256": "0f980a1cfb9e7f3d036e18b2657afd30c73423e26aeec0d55e61f0e3695484b1"
+    },
+    {
+      "bytes": 7510,
+      "git_blob_sha1": "646f2d11062932bde0312ba961cda26c962bcb11",
+      "path": "product/mobile/flutter_app/lib/ui/factory_portfolio_screens.dart",
+      "sha256": "d39e4cc045433d3e149b55c09bda100d734082422da70badcf10fc40b5ff3ebe"
+    },
+    {
+      "bytes": 371,
+      "git_blob_sha1": "429b1f8307927e8658dce7b15027a3edc0bf0ffd",
+      "path": "product/mobile/flutter_app/pubspec.yaml",
+      "sha256": "1c2204dcd3d9c15b0546e37b002b9561fe41da094110bba9754fc95e7ab4969e"
+    },
+    {
+      "bytes": 5213,
+      "git_blob_sha1": "dcfc49b235fcf65dbe5ad34f7708dbe699ae8c49",
+      "path": "product/mobile/flutter_app/test/widget_test.dart",
+      "sha256": "3388422624a4e7f52f9d6ede0bf63ef4bb412cbd061f00aa2d88569608f5b299"
+    },
+    {
+      "bytes": 5217,
+      "git_blob_sha1": "ad4c4dab2c905830ccd0df6e47466d8b80a389f3",
+      "path": "product/mobile/flutter_app/test/universe_ir_test.dart",
+      "sha256": "bfc87ca89b77fffc1d102b93a14ac466c9d3fb2b36251d90d23f4bafcf1eceeb"
+    },
+    {
+      "bytes": 3337,
+      "git_blob_sha1": "499d05d4643b42d75d46a6fa395b45b51dc8b39d",
+      "path": "product/mobile/flutter_app/test/hypothesis_studio_widget_test.dart",
+      "sha256": "f38aa55b4b2e9c9d9eebb45e76276e2cc81d7cf1c511fdcc5039f21040d4498f"
+    },
+    {
+      "bytes": 1478,
+      "git_blob_sha1": "2c106701db611e6adea8b3a3d8c9479f69639715",
+      "path": "product/mobile/flutter_app/test/fixtures/universe_oracle.json",
+      "sha256": "97c59cef0c5cce67332a312bd0f5aad5eb7f7509e9b62a90f334165b34a32c6b"
+    },
+    {
+      "bytes": 4257,
+      "git_blob_sha1": "a6efe4d642dbe6d7c5a782075aee8671b26ee86c",
+      "path": "product/mobile/backend/universe_contract.py",
+      "sha256": "b61695c11f76044df52595cfac03d8f9748e659fbe3ab1f6b136c3051a6f7f84"
+    },
+    {
+      "bytes": 864,
+      "git_blob_sha1": "8b56973fbc7654732e027bf7c0887c77c1bb9565",
+      "path": "product/mobile/backend/generate_universe_fixture.py",
+      "sha256": "1dc66cc122fad4295571a3a95513dc9571f6f3b9553b2b6dbbe9de0abcceab48"
+    },
+    {
+      "bytes": 4254,
+      "git_blob_sha1": "7ce2ccb339c328d5b16651af154004172db16540",
+      "path": "product/mobile/backend/tests/test_universe_contract.py",
+      "sha256": "af1ee8b6f99270b63fe3e7069e4ec16a7bb862bc633db92146fef91da9e92538"
+    },
+    {
+      "bytes": 3340,
+      "git_blob_sha1": "4883de9d6d83633812d6139bc9c7fb5e719a63ea",
+      "path": "product/mobile/g1/G1_IDEA_TO_TYPED_IR_HANDOFF.md",
+      "sha256": "d9ae3cb5beec1479bae00511ed7555e7d0357c78e8a94ac2c05d3021a7a4d121"
+    }
+  ],
+  "toy_raw_count": 144
+}
