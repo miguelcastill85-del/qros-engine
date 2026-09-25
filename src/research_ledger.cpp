@@ -4,6 +4,7 @@
 #include <array>
 #include <algorithm>
 #include <cctype>
+#include <cerrno>
 #include <fstream>
 #include <iomanip>
 #include <limits>
@@ -11,6 +12,11 @@
 #include <stdexcept>
 #include <string_view>
 #include <vector>
+
+#if !defined(_WIN32)
+#include <fcntl.h>
+#include <unistd.h>
+#endif
 
 namespace qros::product {
 namespace {
@@ -200,6 +206,54 @@ Event parse_event(const std::string& raw) {
     return e;
 }
 
+// POSIX persistence: fsync the staged file, atomically install the committed
+// name without overwrite, and fsync the parent directory. Windows append
+// deliberately fails closed until a separate native Windows durability gate.
+void sync_file(const fs::path& path) {
+#if defined(_WIN32)
+    (void)path;
+    fail("WINDOWS_DURABILITY_NOT_VALIDATED");
+#else
+    const int fd = ::open(path.c_str(), O_RDONLY | O_CLOEXEC | O_NOFOLLOW);
+    if (fd < 0) fail("OPEN_FOR_FSYNC_FAILED");
+    int status;
+    do { status = ::fsync(fd); } while (status == -1 && errno == EINTR);
+    const int close_status = ::close(fd);
+    if (status == -1 || close_status != 0) fail("FILE_FSYNC_FAILED");
+#endif
+}
+
+void sync_directory(const fs::path& path) {
+#if defined(_WIN32)
+    (void)path;
+    fail("WINDOWS_DURABILITY_NOT_VALIDATED");
+#else
+    const int fd = ::open(path.c_str(), O_RDONLY | O_DIRECTORY | O_CLOEXEC | O_NOFOLLOW);
+    if (fd < 0) fail("DIRECTORY_OPEN_FOR_FSYNC_FAILED");
+    int status;
+    do { status = ::fsync(fd); } while (status == -1 && errno == EINTR);
+    const int close_status = ::close(fd);
+    if (status == -1 || close_status != 0) fail("DIRECTORY_FSYNC_FAILED");
+#endif
+}
+
+void commit_noreplace(const fs::path& pending, const fs::path& final_path) {
+#if defined(_WIN32)
+    (void)pending;
+    (void)final_path;
+    fail("WINDOWS_DURABILITY_NOT_VALIDATED");
+#else
+    // link() installs an atomic, no-clobber event name on one local filesystem.
+    // A crash between link/unlink leaves both names: inspect() refuses pending
+    // debris until an independently authorized reconciliation is completed.
+    if (::link(pending.c_str(), final_path.c_str()) != 0)
+        fail("ATOMIC_NO_REPLACE_COMMIT_FAILED");
+    sync_directory(final_path.parent_path());
+    if (::unlink(pending.c_str()) != 0) fail("REMOVE_PENDING_AFTER_COMMIT_FAILED");
+    sync_directory(final_path.parent_path());
+#endif
+}
+
 void assert_safe_directory(const fs::path& root) {
     if (fs::exists(root) && (fs::is_symlink(root) || !fs::is_directory(root)))
         fail("UNSAFE_LEDGER_DIRECTORY");
@@ -229,7 +283,7 @@ ResearchLedgerHead ResearchTransitionLedger::inspect() const {
     std::vector<std::uint64_t> indices;
     for (const auto& file : fs::directory_iterator(directory_)) {
         if (file.path().filename() == ".writer_lock") continue;
-        if (file.path().extension() == ".pending") continue; // uncommitted crash debris
+        if (file.path().extension() == ".pending") fail("UNRECONCILED_PENDING_EVENT");
         const auto filename = file.path().filename().string();
         if (filename.size() != 20 || filename.substr(16) != ".evt")
             fail("UNKNOWN_LEDGER_ENTRY");
@@ -274,7 +328,12 @@ ResearchLedgerEvent ResearchTransitionLedger::append(const ResearchTransitionReq
     if (!hex_digest(r.evidence_sha256)) fail("INVALID_EVIDENCE_SHA256");
     if (!hex_digest(expected.digest)) fail("INVALID_EXPECTED_SHA256");
     assert_safe_directory(directory_);
-    fs::create_directories(directory_);
+    if (!fs::exists(directory_)) {
+        const auto parent = directory_.parent_path();
+        if (parent.empty() || !fs::is_directory(parent) || fs::is_symlink(parent))
+            fail("INVALID_LEDGER_PARENT");
+        if (fs::create_directory(directory_)) sync_directory(parent);
+    }
     ScopedLock lock(directory_);
     const auto current = inspect();
     if (current.sequence != expected.sequence || current.digest != expected.digest ||
@@ -313,7 +372,8 @@ ResearchLedgerEvent ResearchTransitionLedger::append(const ResearchTransitionReq
         if (!output) fail("PENDING_WRITE_FAILED");
     }
     if (parse_event(read_bounded(pending_path)).digest != e.digest) fail("PENDING_READBACK_FAILED");
-    fs::rename(pending_path, final_path);
+    sync_file(pending_path);
+    commit_noreplace(pending_path, final_path);
     const auto live = inspect();
     if (live.sequence != e.sequence || live.digest != e.digest)
         fail("COMMITTED_READBACK_FAILED");

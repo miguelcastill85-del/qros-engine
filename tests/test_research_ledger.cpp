@@ -137,6 +137,19 @@ int main() {
         save(file_for(root, 2), good);
         check(another.verify_anchor(development.head).digest == development.head.digest,
               "verified chain intact after restoration");
+        // An interrupted write cannot be silently forgotten or auto-promoted.
+        const auto pending = fs::path(file_for(root, 5).string() + ".pending");
+        save(pending, "incomplete crash debris");
+        denied("pending debris blocks inspection", "UNRECONCILED_PENDING_EVENT", [&] {
+            (void)another.inspect();
+        });
+        denied("pending debris blocks append", "UNRECONCILED_PENDING_EVENT", [&] {
+            (void)another.append(request(ScientificState::DevelopmentRunning,
+                                        ScientificState::FrozenCandidate), development.head);
+        });
+        fs::remove(pending); // TEST_ONLY manual recovery after independently pinned HEAD
+        check(another.verify_anchor(development.head).sequence == 4,
+              "manual debris removal preserves verified anchored head");
         std::cout << "M2_LEDGER_LOCAL_TESTS_PASS checks=" << checks << "\n";
         fs::remove_all(root);
         return 0;
