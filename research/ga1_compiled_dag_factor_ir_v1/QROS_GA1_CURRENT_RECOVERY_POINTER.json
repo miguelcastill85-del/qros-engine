@@ -36,7 +36,8 @@
     "Authentic frozen XAU/NQX DEV M2/M12/M15 carriers and indicators verified exact against frozen SHAs",
     "Unmodified Factor IR tested on six real engineering canary domains: 882982 causal bars, 30 independent technical mask and class-hash checks, 12 negative controls PASS",
     "Original V223 worker exact frozen import closure verified 7/7 and Linux seccomp import-only CI PASS; Windows excluded",
-    "Frozen V223 structural/tick/causal primitives executed under kernel-attested Linux seccomp on 2880 synthetic ticks: 22 independent checks PASS, RETEST/rearm unexecuted"
+    "Frozen V223 structural/tick/causal primitives executed under kernel-attested Linux seccomp on 2880 synthetic ticks: 22 independent checks PASS, RETEST/rearm unexecuted",
+    "Frozen original V220 structural_states and box_history4 AST independently attested 2/2; XAU full real DEV M2/M12/M15 443882 rows, 36/36 fractal/tie variants and 144 full-array independent equalities PASS; no historical maskpack change."
   ],
   "closed_by_policy": [
     "SHARD11",
@@ -60,14 +61,14 @@
     "optional batch-manifest canary while mandatory gates cannot move"
   ],
   "incident_state": "CLOSED_NO_SCIENTIFIC_OR_DECISION_BLAST",
-  "current_frontier": "REAL_DATA_TECHNICAL_IR_AND_LINUX_V223_SYNTHETIC_RUNTIME_PASS_ORIGINAL_HISTORICAL_MASKPACK_PENDING",
+  "current_frontier": "REAL_XAU_FULL_V220_STRUCTURAL_AND_FACTOR_IR_SEAM_PASS_FROZEN_HISTORICAL_MASKPACK_PENDING",
   "resume_on": [
     "certified historical exact regression artifacts become available",
     "explicit operator route change for RETEST/rearm",
     "new source/timebase evidence that changes the current data gate",
     "new authority supersedes V259"
   ],
-  "next_automatic_action": "Require exact original certified historical maskpack/index/alias bytes matching frozen SHA-256 before read-only historical Factor IR parity. Original RETEST/rearm stays excluded; no closed shard recompute, no economic PnL, GA2, holdout, shard11, or production adoption. Synthetic frozen V223 structural/tick/gate Linux runtime 22/22 PASS is closed and need not be rerun.",
+  "next_automatic_action": "On first certified original historical maskpack+index+mapping bytes matching frozen hashes, perform read-only independent historical event mask parity. Do not repeat real structural tests, synthetic V223 tests, original closed shards or RETEST/rearm. V259 economic PnL/GA2/holdout/shard11 remain closed.",
   "reconciliation": {
     "schema": "QROS_GA1_V9_POINTER_RECEIPT_BLOB_RECONCILED_20260924_v1",
     "current_recovery_branch": "research/ga1-v259-real-carrier-reconcile-20260924",
@@ -111,6 +112,19 @@
       "ga2_open": false,
       "holdout_open": false,
       "shard11_open": false
+    },
+    "latest_verified_full_real_v220_structural": {
+      "path": "research/ga1_compiled_dag_factor_ir_v1/QROS_XAU_V220_FULL_REAL_STRUCTURAL_AST_PASS_20260924_v1.json",
+      "git_blob_sha1": "eafc92759676d70abee3f9e6e93333b38c724c4e",
+      "main_at_recovery": "ee921dc21ea8e5b9d631b47b68053453aa201e23",
+      "scientific_frontier": "V259",
+      "real_xau_dev_bars": 443882,
+      "full_frozen_axis_variants": 36,
+      "independent_full_array_equalities": 144,
+      "future_only_prefix_checks": 36,
+      "source_ast_exact_ci_run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36080231831",
+      "library_bundle_zip_sha256": "7207ec17c55fcc57a8ad23d80a672e945bf51c1bc50156a7ef55f7d4905c486a",
+      "scope": "REAL_STRUCTURAL_SEAM_ONLY_NOT_ORIGINAL_MASKPACK_PARITY"
     }
   }
 }
