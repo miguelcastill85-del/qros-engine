@@ -1,0 +1,71 @@
+{
+  "schema": "QROS_MOBILE_STRATEGY_FACTORY_DESIGN_RECEIPT_v1",
+  "date": "2026-09-25",
+  "evidence_class": "VERIFIED_CONNECTOR_BYTES_AND_STATIC_SPEC_LINT_ONLY",
+  "scope": "DESIGN_ONLY_NO_NEW_ENGINE_CODE_NO_PNL",
+  "verified_source_parent_commit": "3bb3ebf843e61fd5722664310a9907745f556ae7",
+  "source_mobile_product_head_git_blob_sha1": "e883f7dcc877ebbba5be79513e03893920dfa05a",
+  "design_files": {
+    "architecture": {
+      "path": "product/mobile/architecture/QROS_MOBILE_STRATEGY_FACTORY_RFC_v1.md",
+      "git_blob_sha1": "5c733bbd5cfda6183f9ace45d80aaf7f73546486"
+    },
+    "mobile_ux_and_code_mapping": {
+      "path": "product/mobile/architecture/QROS_MOBILE_UX_AND_MODULE_MIGRATION_v1.md",
+      "git_blob_sha1": "374767cb5f7b74aa3ebd0fa57fc8e1efb16eea85"
+    },
+    "finite_universe_schema_example": {
+      "path": "product/mobile/architecture/QROS_UNIVERSE_CONTRACT_DRAFT_v1.json",
+      "git_blob_sha1": "a72301c28756327789d4f3321b7cf8835089054c"
+    }
+  },
+  "static_validation": {
+    "checks": 20,
+    "failed": 0,
+    "toy_raw_cartesian_programs": 144,
+    "economic_tests": 0,
+    "universe_enumeration_executed": false,
+    "full_backtest_executed": false,
+    "real_data_accessed": false,
+    "actual_engine_benchmark_ran": false,
+    "android_ui_m3_implemented": false
+  },
+  "existing_source_mapping_verified": [
+    {
+      "path": "include/qros/research_contract.hpp",
+      "blob": "22a3c994bd291516f64dab636eb26594936f8e14",
+      "module": "existing_data_audit_strategy_contract_and_job"
+    },
+    {
+      "path": "include/qros/research_state.hpp",
+      "blob": "db3e28cd2a0c2d91b991add1b9ada11d07f18b29",
+      "module": "existing_state_policy_boolean_evidence_gate_NOT_PRODUCTION_AUTH"
+    },
+    {
+      "path": "include/qros/research_ledger.hpp",
+      "blob": "fe22314e0c32b73d7145693f96631b8014fcae4f",
+      "module": "existing_M2_test_only_hash_chain_external_witness_required"
+    },
+    {
+      "path": "product/mobile/flutter_app/lib/core/verified_demo.dart",
+      "blob": "1e9f2c7e0cacf20ea912db0ce3e345fa04b921d0",
+      "module": "existing_M1_signed_synthetic_demo_not_real_research"
+    }
+  ],
+  "scientific_firewalls": {
+    "main_not_modified_by_this_branch": true,
+    "holdout_open": false,
+    "ga2_open": false,
+    "real_pnl": false,
+    "mt5": false,
+    "public_approval": false
+  },
+  "limitations": [
+    "20 checks are static schema lint, not core execution or independent scientific parity",
+    "144 raw programs are a toy combinatorial count, not 144 tested strategies",
+    "No measured throughput, reliability, commercial cost or alpha",
+    "StrategyQuant comparison based on publicly documented functional descriptions, not source or IP reuse",
+    "Full live runtime/witness/tenant/API integration remains pending"
+  ],
+  "next": "G1: implement one Android synthetic IDEA_TO_TYPED_IR vertical slice with frozen canonicalizer and independent server parse parity; reject future-lookahead and unsafe blocks. G2 finite independent enumerator toy corpus; only then G4 scaled million-birth benchmark. Protect M1 demo and main."
+}
