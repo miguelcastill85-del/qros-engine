@@ -1,0 +1,82 @@
+name: qros-mobile-g2-enforced-progress-test-only
+on:
+  push:
+    branches:
+      - product/mobile-g2-independent-enumerators-20260925
+    paths:
+      - 'product/mobile/g2/**'
+      - '.github/workflows/qros-mobile-g2-progress-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: mobile-g2-enforced-progress
+  cancel-in-progress: true
+jobs:
+  g2-evidence-gate:
+    name: g2-source-parity-recovery-evidence-gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject no-op recovery, missing tests and source/authority drift
+        run: python product/mobile/g2/anti_stall_gate.py --remote-git
+      - name: Strict independent C++20 native generator build
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/qros-g2-bin
+          g++ -std=c++20 -O2 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror \
+            product/mobile/g2/native/enumerator.cpp -o /tmp/qros-g2-bin/qros_g2_enum
+      - name: Original G1 Python regressions, cryptographic M1 and sealed 144 fixture
+        run: |
+          set -euo pipefail
+          python -m pip install --disable-pip-version-check -r product/mobile/backend/requirements.txt
+          cd product/mobile/backend
+          python -m unittest discover -s tests -v
+      - name: Native/Python 144 row parity, corruption rejections and three real process crashes
+        env:
+          QROS_G2_NATIVE_BINARY: /tmp/qros-g2-bin/qros_g2_enum
+        run: python -m unittest discover -s product/mobile/g2/tests -v
+      - name: Fixed one-million-birth SYNTHETIC structural stress (no PnL)
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/qros-g2-evidence
+          python product/mobile/g2/benchmark_structural.py --native /tmp/qros-g2-bin/qros_g2_enum | tee /tmp/qros-g2-evidence/G2_MILLION_STRESS.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          b=json.loads(Path('/tmp/qros-g2-evidence/G2_MILLION_STRESS.json').read_text())
+          assert b['verified_row_parity']==1000000 and b['g1_economic_tests']==0
+          print('G2_EXACT_ONE_MILLION_SYNTHETIC_STRUCTURAL_PARITY_PASS')
+          PY
+      - name: Capture test-only durable CI receipt with test-gated assertions
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          base=Path('/tmp/qros-g2-evidence')
+          stress=json.loads((base/'G2_MILLION_STRESS.json').read_text())
+          data={'schema':'QROS_G2_CI_RECEIPT_V1','status':'PASS_ENGINEERING_CI_ONLY',
+                'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+                'git_branch':'product/mobile-g2-independent-enumerators-20260925',
+                'source_gate':'PASS_REQUIRED_STEP','baseline_g1_backend':'PASS_REQUIRED_STEP',
+                'independent_g2_native_python_parity':'PASS_REQUIRED_STEP',
+                'crash_recovery':'PASS_REQUIRED_STEP','million_stress':stress,
+                'real_market_data':'NONE','economic_backtests':0,'holdout_open':False,
+                'ga2_open':False,'production_approved':False,'external_dynamic_witness':'NOT_DEPLOYED',
+                'physical_android_install':'NOT_RUN','new_android_apk':'NOT_BUILT_G1_VERIFIED_APK_RETAINED'}
+          (base/'G2_CI_BUILD_RECEIPT.json').write_text(json.dumps(data,indent=2,sort_keys=True)+'\n')
+          print('G2_CI_RECEIPT_CREATED_TEST_GATED',data['source_commit'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qros-mobile-g2-test-only-evidence
+          retention-days: 3
+          if-no-files-found: error
+          path: /tmp/qros-g2-evidence/

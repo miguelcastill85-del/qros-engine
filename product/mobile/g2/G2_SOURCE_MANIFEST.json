@@ -1,0 +1,20 @@
+{
+  "classification": "LOCAL_IMPLEMENTED_CI_PENDING",
+  "economic_tests": 0,
+  "exact_parent_commit": "6a878ed10e26c616d6f326563ff3fa24bfdc7f3b",
+  "exact_parent_mobile_head_blob": "1a684a92fe65d1d53aeaabe5ddaf803c6710beef",
+  "new_files": 11,
+  "schema": "QROS_MOBILE_G2_SOURCE_MANIFEST_V1",
+  "scientific_state_mutated": false,
+  "source_file_sha256": {
+    ".github/workflows/qros-mobile-g2-progress-gate.yml": "b4729666d2b1b18c88669cf06da57e699d27728bded54a0acd305dc1a5c08ea3",
+    "product/mobile/g2/G2_ANTI_STALL_CONTROL.md": "38ed389378e3b87beac1eac72fe77f6474b7a02396d9d3f52c64afd8b7b36371",
+    "product/mobile/g2/anti_stall_gate.py": "a56e74f4fde6e0bc47eeceda66a32575da262c5c09534a021c43931f21f935ef",
+    "product/mobile/g2/benchmark_structural.py": "fc1136192c35c0d4fa898809739a83ffb7a3604591af0c6b95c881f6813d9b40",
+    "product/mobile/g2/native/enumerator.cpp": "ea1290795a4832cb02620fd191297295ff897ae3b4770d4a0ff441781327289d",
+    "product/mobile/g2/run_once.py": "971a668967796af590c5183129f1b878daa84eae263a68d3606c9469dd920f43",
+    "product/mobile/g2/shard_engine.py": "9cea3ed45acf85961595771c3c6d37456791fac59dfb3f54c655b9541ba2551d",
+    "product/mobile/g2/tests/test_g2.py": "88ea4df5eb2cb20543c3a04bc9ed4ea7c7b3c6cba868058a6b8a9dd4ba9f7622",
+    "product/mobile/g2/tests/test_gate.py": "45a725c3accbee0ae34a37ba69c514795c73f641922aa65f6bc6c9cc197fcf5a"
+  }
+}

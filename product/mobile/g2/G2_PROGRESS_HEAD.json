@@ -1,0 +1,17 @@
+{
+  "branch": "product/mobile-g2-independent-enumerators-20260925",
+  "ci_evidence": "PENDING",
+  "expected_synthetic_births": 144,
+  "g1_product_head_blob": "1a684a92fe65d1d53aeaabe5ddaf803c6710beef",
+  "ga2_open": false,
+  "holdout_open": false,
+  "last_completed_gate": "ANDROID_G1_ENGINEERING_PASS",
+  "local_evidence": "24 G2 tests previously passed before anti-stall gate tests; rerun required after freeze",
+  "next_automatic_action": "Run exact G2 source/test/CI no-op gate, independently verify Python/C++ 144 rows, process crash and restart at three boundaries, measured synthetic million-row stress. Persist verified G2 receipt only after CI succeeds. Next G3 synthetic exact Bid/Ask parity; do not rerun G1.",
+  "pnl_tests": 0,
+  "proposed_structural_stress_births": 1000000,
+  "schema": "QROS_MOBILE_G2_PROGRESS_HEAD_V1",
+  "scientific_result_claimed": false,
+  "source_parent_exact": "6a878ed10e26c616d6f326563ff3fa24bfdc7f3b",
+  "status": "DEVELOPMENT_RUNNING"
+}
