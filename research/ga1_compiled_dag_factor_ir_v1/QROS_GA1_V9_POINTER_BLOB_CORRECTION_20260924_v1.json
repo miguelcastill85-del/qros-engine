@@ -1,0 +1,57 @@
+{
+  "schema": "QROS_GA1_V9_POINTER_BLOB_CORRECTION_20260924_V1",
+  "date": "2026-09-24",
+  "scope": "ISOLATED_RESEARCH_RECOVERY_POINTER_ONLY_NO_SCIENTIFIC_REWRITE",
+  "objective": "Correct V9 verification-receipt Git blob misbound to V8 while preserving V9 root and V8 parent evidence; register authentic non-economic M2/M12/M15 carrier recovery as newly available material.",
+  "authority": {
+    "scientific_main_current_at_correction": "ee921dc21ea8e5b9d631b47b68053453aa201e23",
+    "scientific_frontier": "V259",
+    "stable_public1000_pointer_git_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "origin_branch": "research/ga1-compiled-dag-factor-ir-v1-20260921",
+    "origin_branch_head": "cac95adfc47dd8ba51f854d124a77bed3689ee3f",
+    "origin_current_recovery_pointer_blob": "1cc63d674e107f58fccb168419a3781d9f219ee4",
+    "target_branch": "research/ga1-v259-real-carrier-reconcile-20260924"
+  },
+  "incident": {
+    "category": "V9_VERIFICATION_RECEIPT_GIT_BLOB_MISBOUND_TO_V8",
+    "original_pointer_receipt_path": "research/ga1_compiled_dag_factor_ir_v1/QROS_GA1_RECOVERY_ROOT_V9_VERIFICATION_RECEIPT.json",
+    "original_pointer_wrong_blob_sha1": "31bd232faf077c47328539a16c48d114e9c48ed3",
+    "actual_v8_receipt_blob_sha1": "31bd232faf077c47328539a16c48d114e9c48ed3",
+    "actual_v9_receipt_blob_sha1": "d6044ffc9a9afc77e7e7309a06a02484435e2c9d",
+    "v9_receipt_declared_sha256": "6a0aa6d0b734c55e763baa312a00b00822c2580cb7fc5912818f32da8a76aa31",
+    "v9_receipt_subject_root_blob": "e0de9b178d2acd486cb7a5ad0c8e3200fb5f0fac",
+    "v9_root_declared_sha256": "7e54d1fd928bd4a4f923a63dccc6edc39bbacc5730fa0697a24d58242cc91860",
+    "v9_parent_v8_receipt_blob": "31bd232faf077c47328539a16c48d114e9c48ed3",
+    "data_r3_reconciliation_blob": "1222217e987655b206f69be581dbea750b9acff9",
+    "blast_radius": {
+      "technical": "ISOLATED_POINTER_ONLY",
+      "scientific": "NONE",
+      "economic": "NONE",
+      "historical_receipts": "UNMODIFIED"
+    }
+  },
+  "new_material": {
+    "xau_non_economic_main_receipt_blob": "a81433814acfade5782d0b14fa602ae7633f11cd",
+    "xau_real_M2_M12_M15_bar_rows": 443882,
+    "nqx_non_economic_main_receipt_blob": "3d9c3b0f4adcbc88d4476c1b7701408ac5e17fce",
+    "nqx_real_M2_M12_M15_bar_rows": 439106,
+    "nqx_exact_dev_ticks": 59940260,
+    "meaning": "AUTHENTIC_SOURCE_AND_FULL_FROZEN_BAR_AND_INDICATOR_BYTES_NOW_VERIFIED",
+    "not_proven": [
+      "Original frozen heavy event maskpack/index/mapping bytes are still missing",
+      "Compiled typed DAG historical event-mask parity not yet executed",
+      "Full provider binding remains provisional"
+    ]
+  },
+  "correction": "In descendant branch, replace only verification_receipt.git_blob_sha1 with actual V9 Git blob d604..., attach this correction receipt and preserve old mistaken pointer in origin history.",
+  "scientific_firewalls": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "shard11_open": false,
+    "bulk_ga1": false,
+    "retest_rearm_authorized": false,
+    "production_adoption": false
+  },
+  "next_action": "Verify corrected pointer byte identity; search only newly retrievable exact historic certified heavy maskpack payload using known SHA targets, never recompute shards1-10; if still unavailable, attempt newly unblocked independent non-economic M2/M12/M15 data seam/geometry checks and keep historical maskpack gate open."
+}
