@@ -1,0 +1,20 @@
+{
+  "classification": "REPAIRED_AFTER_MAIN_POINTER_PATH_MISMATCH_REMOTE_CI_PENDING",
+  "economic_backtests": 0,
+  "exact_parent_commit": "0b529a2624fd43794cbe2185702f2bac7d3b209e",
+  "failed_ci_run_id": 36176221779,
+  "previous_source_manifest_git_blob_sha1": "3e0257ab4218210c84b108a011cb42ffaac4b062",
+  "raw_broker_data": false,
+  "schema": "QROS_MOBILE_G4_SOURCE_MANIFEST_V2",
+  "source_sha256": {
+    ".github/workflows/qros-mobile-g4-trust-gate.yml": "fb6224125b36ec27efe98f0b1301933b4ddd5a38eaba63d0b4a8b1b32fe9290f",
+    "product/mobile/g4/G4_CI_INCIDENT_MAIN_POINTER_PATH_20260925.json": "2e49a2bde207ab84c30a1e9ef0e3dbdac9c9b376252089d835c7093095f7f436",
+    "product/mobile/g4/G4_SECURITY_CONTRACT.md": "e423f1afed5ca5832c3fe58cbbf16bfb9c236083cdd78fd0736e8855580e134b",
+    "product/mobile/g4/anti_stall_gate.py": "56db25a4b282e0cc08278eb6a55bf78834aea60acb632b31b22821b392167623",
+    "product/mobile/g4/data_audit.py": "4fa4722ff7eae4bd83e8ae870c273a17ee404e5cd9e5c218fe670eceb1ef42a7",
+    "product/mobile/g4/integration.py": "5204f10d73448abb8db6443033bf46e0054e2dfd747ad6e653dc45e91d09fbf0",
+    "product/mobile/g4/tests/test_g4.py": "6665cdb72917318c13c47bdfe220886bb00caa12d7ccb3b3a087704c94d04164",
+    "product/mobile/g4/tests/test_gate.py": "0ea41855fa4a55d53705532fbcb058c4e71f03716945a587d3a78518159ee8c4",
+    "product/mobile/g4/witness.py": "b1713e9ba183e9bbbdb7f32df36fba9cf80a7748114f1c718d004c3a881949a3"
+  }
+}

@@ -25,6 +25,8 @@ REQUIRED = {
   'product/mobile/g4/G4_SECURITY_CONTRACT.md',
   '.github/workflows/qros-mobile-g4-trust-gate.yml',
   'product/mobile/g4/G4_SOURCE_MANIFEST.json',
+  'product/mobile/g4/G4_SOURCE_MANIFEST_V2.json',
+  'product/mobile/g4/G4_CI_INCIDENT_MAIN_POINTER_PATH_20260925.json',
   'product/mobile/g4/G4_PROGRESS_HEAD.json',
 }
 
@@ -37,13 +39,13 @@ def fail(name: str) -> None:
 def git(repo: Path, *args: str) -> str:
     try:
         return subprocess.check_output(['git',*args],text=True,cwd=repo,stderr=subprocess.PIPE).strip()
-    except (OSError,subprocess.CalledProcessError):
-        fail('GIT_AUTHORITY_UNAVAILABLE')
+    except (OSError,subprocess.CalledProcessError) as exc:
+        fail('GIT_AUTHORITY_UNAVAILABLE:'+':'.join(args)+':'+str(exc))
 
 def verify(*, repo: Path = ROOT, remote: bool = False) -> dict[str, Any]:
     try:
         h=json.loads((repo/'product/mobile/g4/G4_PROGRESS_HEAD.json').read_text())
-        m=json.loads((repo/'product/mobile/g4/G4_SOURCE_MANIFEST.json').read_text())
+        m=json.loads((repo/'product/mobile/g4/G4_SOURCE_MANIFEST_V2.json').read_text())
     except (OSError,ValueError):
         fail('MISSING_OR_INVALID_HEAD_MANIFEST')
     if h.get('schema')!='QROS_MOBILE_G4_PROGRESS_HEAD_V1' or h.get('source_parent_exact')!=PARENT:
@@ -54,9 +56,14 @@ def verify(*, repo: Path = ROOT, remote: bool = False) -> dict[str, Any]:
         fail('SCIENTIFIC_FIREWALL_CHANGED')
     if h.get('mobile_product_head_blob')!=MOBILE_V6_BLOB or h.get('g3_verified_head_blob')!=G3_VERIFIED_BLOB or h.get('science_main_pointer_blob')!=SCIENCE_MAIN_BLOB:
         fail('PINNED_SOURCE_AUTHORITY_CHANGED')
-    hashed=REQUIRED-{'product/mobile/g4/G4_PROGRESS_HEAD.json','product/mobile/g4/G4_SOURCE_MANIFEST.json'}
-    if m.get('schema')!='QROS_MOBILE_G4_SOURCE_MANIFEST_V1' or m.get('exact_parent_commit')!=PARENT or set(m.get('source_sha256',{}))!=hashed:
+    hashed=REQUIRED-{'product/mobile/g4/G4_PROGRESS_HEAD.json','product/mobile/g4/G4_SOURCE_MANIFEST.json','product/mobile/g4/G4_SOURCE_MANIFEST_V2.json'}
+    if m.get('schema')!='QROS_MOBILE_G4_SOURCE_MANIFEST_V2' or m.get('exact_parent_commit')!=PARENT or set(m.get('source_sha256',{}))!=hashed:
         fail('INCOMPLETE_CODE_TEST_AND_WORKFLOW_CENSUS')
+    if m.get('previous_source_manifest_git_blob_sha1')!='3e0257ab4218210c84b108a011cb42ffaac4b062':
+        fail('PREVIOUS_SOURCE_MANIFEST_HISTORY_LOST')
+    prior=(repo/'product/mobile/g4/G4_SOURCE_MANIFEST.json')
+    if not prior.is_file() or prior.is_symlink() or hashlib.sha1(b'blob '+str(prior.stat().st_size).encode()+b'\0'+prior.read_bytes()).hexdigest()!='3e0257ab4218210c84b108a011cb42ffaac4b062':
+        fail('HISTORICAL_SOURCE_MANIFEST_MUTATED')
     if m.get('economic_backtests')!=0 or m.get('raw_broker_data') is not False:
         fail('UNAUTHORIZED_SOURCE_CLASS')
     for name,expected in m['source_sha256'].items():
@@ -72,8 +79,10 @@ def verify(*, repo: Path = ROOT, remote: bool = False) -> dict[str, Any]:
             fail('G3_PRODUCT_HEAD_MUTATED')
         if git(repo,'hash-object','product/mobile/g3_verified/G3_CURRENT_HEAD.json')!=G3_VERIFIED_BLOB:
             fail('G3_VERIFIED_HEAD_MUTATED')
-        if git(repo,'hash-object','control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json')!=SCIENCE_MAIN_BLOB:
-            fail('SCIENTIFIC_MAIN_POINTER_MUTATED')
+        # The product branch intentionally has no control/ scientific pointer.
+        # Fetch and verify the authoritative current GitHub main ref separately.
+        if git(repo,'rev-parse','origin/main:control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json')!=SCIENCE_MAIN_BLOB:
+            fail('SCIENTIFIC_MAIN_STABLE_POINTER_CHANGED')
         delta=set(filter(None,git(repo,'diff','--name-only',PARENT+'...HEAD').splitlines()))
         if delta!=REQUIRED:
             fail('NO_OP_OR_UNEXPECTED_DELTA:missing='+','.join(sorted(REQUIRED-delta))+';extra='+','.join(sorted(delta-REQUIRED)))

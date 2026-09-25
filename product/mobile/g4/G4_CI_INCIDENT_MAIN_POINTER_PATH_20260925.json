@@ -1,0 +1,14 @@
+{
+  "date_utc": "2026-09-25",
+  "economic_tests": 0,
+  "failed_code": "QROS_G4_ANTI_STALL_FAIL_CLOSED:GIT_AUTHORITY_UNAVAILABLE",
+  "first_failed_run_id": 36176221779,
+  "ga2_open": false,
+  "holdout_open": false,
+  "production_witness": false,
+  "repair": "Fetch origin/main explicitly in CI, inspect origin/main:control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json Git blob against known independent main SHA; preserve G3 mobile source pins. Improve gate error telemetry. Freeze corrected source manifest V2 without deleting failing V1 evidence.",
+  "root_cause": "The isolated mobile branch does not contain control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json. The V1 source gate erroneously tried git hash-object on that nonexistent local file, conflating mobile source and independently governed main science.",
+  "schema": "QROS_MOBILE_G4_CI_INCIDENT_V1",
+  "stage": "ANTI_STALL_GITHUB_MAIN_POINTER_CHECK",
+  "tested_source_commit": "4f76d72225184ccb1bea4c4573e368837a8bcb1f"
+}

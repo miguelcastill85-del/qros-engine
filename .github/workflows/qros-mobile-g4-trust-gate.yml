@@ -24,7 +24,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Pin G3 v6 unchanged, forbid no-op code-free reports, verify hashes
+      - name: Fetch scientific main pointer independently; source branch has no control directory
+        run: git fetch --no-tags --force origin main:refs/remotes/origin/main
+      - name: Pin G3 v6 and independently fetched scientific main pointer, forbid no-op source
         run: python product/mobile/g4/anti_stall_gate.py --remote-git
       - name: Install exact existing M1 crypto dependency (no new paid service)
         run: python -m pip install --disable-pip-version-check -r product/mobile/backend/requirements.txt
