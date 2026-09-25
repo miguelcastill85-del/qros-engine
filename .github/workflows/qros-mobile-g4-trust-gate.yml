@@ -1,0 +1,68 @@
+name: qros-mobile-g4-licensed-data-local-witness-test-only
+on:
+  push:
+    branches:
+      - product/mobile-g4-data-witness-20260925
+    paths:
+      - 'product/mobile/g4/**'
+      - '.github/workflows/qros-mobile-g4-trust-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: mobile-g4-security-canaries
+  cancel-in-progress: true
+jobs:
+  g4-evidence-gate:
+    name: g4-source-synthetic-license-dst-witness-evidence-gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Pin G3 v6 unchanged, forbid no-op code-free reports, verify hashes
+        run: python product/mobile/g4/anti_stall_gate.py --remote-git
+      - name: Install exact existing M1 crypto dependency (no new paid service)
+        run: python -m pip install --disable-pip-version-check -r product/mobile/backend/requirements.txt
+      - name: Run G4 security, DST, license, CAS, rollback, crash, anti-stall canaries
+        working-directory: product/mobile/g4
+        run: python -m unittest discover -s tests -v
+      - name: End-to-end synthetic entitlement to audit to separately signed witness
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/qros-g4-evidence
+          python product/mobile/g4/integration.py | tee /tmp/qros-g4-evidence/G4_LOCAL_TEST_WITNESS_INTEGRATION.json
+      - name: Freeze CI receipt only after every preceding required step succeeded
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          r=pathlib.Path('/tmp/qros-g4-evidence')
+          integration=json.loads((r/'G4_LOCAL_TEST_WITNESS_INTEGRATION.json').read_text())
+          assert integration['status']=='PASS_LOCAL_SEPARATE_TRUST_STORE_TEST_ONLY'
+          assert integration['economic_backtests']==0 and integration['holdout_open'] is False
+          assert integration['ga2_open'] is False and integration['signed_witness_sequence']==1
+          assert integration['independent_operational_custody']=='NOT_DEPLOYED'
+          sha=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          receipt={'schema':'QROS_G4_TEST_ONLY_CI_RECEIPT_V1',
+           'status':'PASS_G4_CI_TEST_ONLY','source_commit':sha,
+           'source_hash_and_anti_stall_gate':'PASS_REQUIRED_STEP',
+           'license_dst_bidask_security_tests':'PASS_REQUIRED_STEP',
+           'separate_local_witness_and_crash_tests':'PASS_REQUIRED_STEP',
+           'synthetic_integration':integration,'economic_backtests':0,
+           'scientific_main_mutated':False,'holdout_open':False,'ga2_open':False,
+           'actual_independent_remote_witness':'NOT_DEPLOYED',
+           'production_data_license':'NOT_VERIFIED','android_apk':'G1_VERIFIED_UNCHANGED'}
+          (r/'G4_CI_BUILD_RECEIPT.json').write_text(json.dumps(receipt,indent=2,sort_keys=True)+'\n')
+          print('G4_CI_RECEIPT_TEST_ONLY',sha)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qros-mobile-g4-test-only-security-evidence
+          retention-days: 3
+          if-no-files-found: error
+          path: /tmp/qros-g4-evidence/

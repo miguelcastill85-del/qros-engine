@@ -1,0 +1,15 @@
+{
+  "economic_backtests": 0,
+  "g3_verified_head_blob": "55eac915ee9026ee5e84dfebbd51e9daa8dae86b",
+  "ga2_open": false,
+  "holdout_open": false,
+  "last_completed_gate": "G3_INDEPENDENT_SYNTHETIC_EXECUTION_PARITY_PASS",
+  "mobile_product_head_blob": "619565d1668243d3cc289c730a61340105c9417f",
+  "next_automatic_action": "Run exact G4 isolated licensed-synthetic-audit and separately signed local witness CI. Preserve test failures; only promote G4 after GitHub PASS, independently downloaded raw receipt and hash readback. Next: external operator-owned witness and tenant-scoped HTTPS integration; physical Android test. Never grant new economic permissions via mobile.",
+  "phase": "G4_LICENSED_AUDIT_LOCAL_WITNESS_CI_PENDING",
+  "schema": "QROS_MOBILE_G4_PROGRESS_HEAD_V1",
+  "science_main_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "scientific_authority": false,
+  "source_parent_exact": "0b529a2624fd43794cbe2185702f2bac7d3b209e",
+  "status": "DEVELOPMENT_RUNNING"
+}
