@@ -1,0 +1,97 @@
+{
+  "schema": "QROS_GA1_REAL_CARRIER_AND_LINUX_ONLY_ENGINEERING_DELTA_CHECKPOINT_V1",
+  "date": "2026-09-24",
+  "objetivo": "Reconcile newly recovered exact historical XAU/NQX M2/M12/M15 carriers, independent technical typed Factor IR test and frozen V223 Linux-only seccomp import in isolated research branch without expanding frozen science",
+  "autoridad": {
+    "main_at_checkpoint": "ee921dc21ea8e5b9d631b47b68053453aa201e23",
+    "scientific_main_frontier": "V259",
+    "main_stable_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "isolated_branch": "research/ga1-v259-real-carrier-reconcile-20260924",
+    "source_branch_head_at_checkpoint": "b864563a01ad7b10ccfa65a77ddebbb7b43091da",
+    "corrected_recovery_pointer_blob": "7f0a4d9c47e685055bb4cca99631d199698aee01",
+    "original_v9_root_blob": "e0de9b178d2acd486cb7a5ad0c8e3200fb5f0fac",
+    "verified_v9_receipt_blob": "d6044ffc9a9afc77e7e7309a06a02484435e2c9d",
+    "data_r3_blob": "1222217e987655b206f69be581dbea750b9acff9",
+    "real_factor_ir_technical_receipt_blob": "d3350d8bc37142466e7e048076631f5abf9b0010",
+    "frozen_worker_seccomp_import_receipt_blob": "70d1de5ea5de641f1ae4c72bfc98359bd02ce829"
+  },
+  "datos": {
+    "period": "DEV_2018_2019_ONLY",
+    "assets": [
+      "NQX",
+      "XAUUSD"
+    ],
+    "historical_tf": [
+      "M2",
+      "M12",
+      "M15"
+    ],
+    "real_frozen_source_nqx_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "real_frozen_source_xau_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "real_original_bars_and_indicators_sha256": "PASS_6_DOMAINS",
+    "global_broker_symbol_holiday_calendar": "PROVISIONAL_ONLY"
+  },
+  "trabajo_ejecutado": [
+    "Recovered real and frozen M2/M12/M15 bars and indicators both assets and independent real-source numeric and temporal checks",
+    "Original Factor IR Git blob pinned and tested only on causal previous-closed-bar technical masks",
+    "Verified independent NumPy reference across 6 real asset/TF domains and 12 fail-closed controls",
+    "Persisted exact 4-file source+receipt bundle to personal Library, downloaded and byte/hash-verified",
+    "Found and corrected V9 recovery pointer's wrong V8 verification Git blob without rewriting original receipts",
+    "Executed exact frozen V223 worker --help inside independently attested kernel seccomp on Linux with its 4 frozen dependencies"
+  ],
+  "resultados_verificados": {
+    "historical_xau_bars": 443882,
+    "historical_nqx_bars": 439106,
+    "total_authentic_frozen_bars": 882988,
+    "technical_causally_available_bars": 882982,
+    "technical_domain_checks": 6,
+    "technical_recipe_independent_mask_and_class_hash_checks": 30,
+    "technical_negative_controls": 12,
+    "technical_future_prefix_checks": 6,
+    "semantic_alias_to_physical_bitmap_dedupe": "PASS_6_DOMAINS",
+    "linux_frozen_worker_import_source_hashes_verified": 7,
+    "linux_seccomp_kernel_before_worker_exec": {
+      "seccomp": 2,
+      "no_new_privs": 1,
+      "owns_process_group": true
+    },
+    "linux_frozen_worker_import_ci": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36076869464",
+    "original_maskpack_parity": "NOT_EXECUTED",
+    "actual_full_frozen_worker_execution": "NOT_EXECUTED"
+  },
+  "gates": {
+    "technical_factor_ir_real_data_seam": "PASS_6_DOMAINS_TECHNICAL_ONLY",
+    "original_ga1_historical_maskpack_parity": "PENDING_CERTIFIED_ORIGINAL_MASKPACK_INDEX_AND_MAPPING_BYTES",
+    "frozen_v223_linux_seccomp_import": "PASS_IMPORT_ONLY",
+    "frozen_worker_full_runtime": "NOT_EXECUTED",
+    "retest_rearm": "EXCLUDED_OPERATOR",
+    "broker_full_provider_calendar": "PROVISIONAL_VERIFY_ONLY",
+    "economic_pnl_read": false,
+    "shard11_open": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_seed_open": false,
+    "production_adoption": false
+  },
+  "problemas": [
+    "Original certified H1/M12/M15/M2 historical maskpack and alias/index payload bytes remain unavailable in targeted GitHub tree and prior Dropbox/Drive/File Library searches; historical root receipts alone cannot establish event-mask-by-event-mask parity.",
+    "Original XAU BUY M1 V224 group00 frozen raw mask and full 24-group masks not recovered.",
+    "Linux worker --help import does not demonstrate full runtime with NumPy/Numba and actual protected output contracts.",
+    "Broker source-clock holiday/early-close and admissibility of zero/crossed spread are not globally certified."
+  ],
+  "causa_raiz": "Scientific heavy mask payloads have not been recovered in the present infrastructure. Reconstructing them by recomputing closed shards would violate V259 and could contaminate historical evidence; avoid this route.",
+  "correcciones": [
+    "Reconcile technical source and input bytes by exact identities and separate from frozen scientific maskpack equivalence.",
+    "Correct V9 verification Git blob pointer to actual V9 receipt while leaving V8 parent and V9 root intact.",
+    "Use Ubuntu attested Linux-only kernel import test without Windows and without opening any shard."
+  ],
+  "estado_cientifico": "PREREGISTERED_NO_RESULTS",
+  "estado_ingenieria": "REAL_FROZEN_DATA_AND_IR_TECHNICAL_SEAM_PASS_LINUX_FROZEN_WORKER_IMPORT_PASS",
+  "impacto_portafolio": "NONE_NO_NEW_TRADES_OR_PNL",
+  "library": {
+    "technical_exact_source_bundle_id": "libfile_7733eb26d4ec81919c57ce2c63325844",
+    "technical_exact_source_zip_sha256": "c8e5df7e12b80230460e94bcacdd9b89d3d71c3c8f26d1a46d0c671e2ef39b38",
+    "technical_exact_source_bundle_readback": "PASS"
+  },
+  "siguiente_accion_automatica": "On new certified ORIGINAL historical maskpack/index/mapping bytes, compare exact historical event masks to compiled typed DAG Factor IR without reopening closed shards or RETEST/rearm. Independently check full frozen worker execution only within a separately authorized non-economic replay capsule whose exact source/timebase/side inputs are pinned. Avoid additional generic artifact searches absent material trigger; keep V259 science immutable."
+}
