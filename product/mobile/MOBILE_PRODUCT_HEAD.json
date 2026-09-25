@@ -1,6 +1,6 @@
 {
-  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v1",
-  "status": "CAMPAIGN_ACTIVE",
+  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v2",
+  "status": "DEVELOPMENT_RUNNING",
   "product": "QROS Mobile Research Studio",
   "scope": "MOBILE_APP_ONLY_ANDROID_FIRST_IOS_LATER",
   "authority": {
@@ -15,8 +15,8 @@
     "code_branch": "product/mobile-m2-ledger-prototype-20260925",
     "scientific_main": "DO_NOT_MODIFY"
   },
-  "active_delivery": "ANDROID_FLUTTER_MOBILE_VERTICAL_SLICE_TEST_ONLY",
-  "mobile_frontend_status": "NOT_YET_NATIVE_IMPLEMENTED",
+  "active_delivery": "ANDROID_FLUTTER_M0_BUILT_WITH_SYNTHETIC_ONLY",
+  "mobile_frontend_status": "ANDROID_DEBUG_APK_VERIFIED_TEST_ONLY",
   "existing_mobile_html": "product/mobile-demo/index.html",
   "existing_mobile_html_status": "TEST_ONLY_WEB_MOCK_NOT_INSTALLABLE_MOBILE_APP",
   "backend": "LINUX_CXX20_QROS_M2_INFRASTRUCTURE_ONLY_NOT_WINDOWS_CUSTOMER_APPLICATION",
@@ -38,6 +38,31 @@
     "use_only_synthetic_data_until_authorized": true,
     "paid_services_activation": false
   },
-  "next_automatic_action": "Build TEST_ONLY installable Flutter Android vertical slice reusing only navigation and fixture concepts of existing mobile-demo/index.html; document tested Android build and security model; continue M2 authenticated evidence and immutable HEAD solely as backend dependencies without desktop UI development.",
-  "release_gate": "ANDROID_APP_AND_AUTHENTICATED_BACKEND_TESTS_REQUIRED; NO_LIVE_OR_PAID_RELEASE"
+  "next_automatic_action": "Build server-only authenticated evidence receipts and independent immutable HEAD on isolated mobile backend; keep all remote mutation endpoints disabled. Then connect Android client read-only and run device installation/UX testing. Do not add desktop UI or activate costs.",
+  "release_gate": "CI_APK_PASS_ONLY; PHYSICAL_DEVICE, BACKEND_AUTHN_AUTHZ, TRUST_ANCHOR, SIGNING_AND_PRIVACY_NOT_PASSED",
+  "verified_milestones": {
+    "ANDROID_M0_NATIVE_VERTICAL_SLICE": {
+      "status": "PASS_ENGINEERING_TEST_ONLY",
+      "tested_commit": "1a4fbff7117ad151a30a4c6e0ee4ad5c5de795bb",
+      "github_actions_run_id": 36093694230,
+      "github_actions_job_id": 107941294408,
+      "github_artifact_id": 10845939749,
+      "artifact_expires_at": "2026-09-30T04:21:21Z",
+      "receipt_path": "product/mobile/receipts/QROS_ANDROID_M0_BUILD_PASS_20260925.json",
+      "receipt_git_blob_sha1": "f2b8031e015e9699e3bed830580154db37f421f0",
+      "flutter_version": "3.35.4",
+      "dart_version": "3.9.2",
+      "flutter_analyze": "PASS_NO_ISSUES",
+      "flutter_tests": "6_OF_6_PASS",
+      "apk_status": "BUILD_PASS_SHA256_INDEPENDENTLY_REHASHED",
+      "apk_filename": "app-debug.apk",
+      "apk_bytes": 141116006,
+      "apk_sha256": "4443afc92dcd84f2a98930d2f33d1d6cc91371b4b5984ebf6550639c84d621f9",
+      "physical_android_install": "NOT_RUN",
+      "release_signed": "NO",
+      "production_research_ready": false
+    }
+  },
+  "security_design_doc": "product/mobile/MOBILE_ANDROID_M0_META_AUDIT_THREAT_MODEL_v1.md",
+  "android_build_incident_doc": "product/mobile/MOBILE_ANDROID_M0_BUILD_INCIDENT_20260925.json"
 }
