@@ -1,0 +1,28 @@
+{
+  "schema": "QROS_MOBILE_ANDROID_M0_BUILD_INCIDENT_V1",
+  "date": "2026-09-25",
+  "status": "CORRECTED_SOURCE_RETEST_PENDING",
+  "failed_run": {
+    "id": 36093379999,
+    "source_commit": "2cd989ba85b47917f7c75ed59618172c9226de6b",
+    "result": "FAIL",
+    "failed_step": "flutter analyze --no-pub",
+    "root_cause": "flutter create 3.35.4 generated analysis_options.yaml including package:flutter_lints/flutter.yaml but original minimal pubspec omitted flutter_lints dev dependency; analyzer reported include_file_not_found",
+    "secondary_effect": "Widget tests and APK were correctly skipped; none may be reported as PASS"
+  },
+  "correction": {
+    "commit": "0059f4acc03cd33f695af9412970598da8c8ceb2",
+    "file": "product/mobile/flutter_app/pubspec.yaml",
+    "blob_sha1": "95f19134af6f5de90daec1ac98d5f0a6059fbfe3",
+    "delta": "Add pinned flutter_lints: 5.0.0 dev dependency compatible with generated Flutter analyzer config"
+  },
+  "firewalls": {
+    "no_synthetic_result_presented_as_real": true,
+    "scientific_main_untouched": true,
+    "holdout_closed": true,
+    "ga2_closed": true,
+    "mt5_not_run": true,
+    "paid_service_not_enabled": true
+  },
+  "next_action": "Re-run bounded Android workflow; require analyzer, model/widget tests, APK SHA256 and artifact receipt before M0 Android engineering PASS."
+}
