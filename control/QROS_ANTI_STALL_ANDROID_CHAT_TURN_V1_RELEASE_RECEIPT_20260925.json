@@ -1,0 +1,34 @@
+{
+  "schema": "QROS_ANTI_STALL_ANDROID_CHAT_V1_ATOMIC_GOVERNANCE_RELEASE",
+  "repo": "miguelcastill85-del/qros-engine",
+  "branch": "main",
+  "parent_commit": "287c3948afdffa2e4cbd97d82fbb2ac6ce8e3aaa",
+  "previous_governance_blob": "72952387eecd97db88dd434090b2c3f3b9eda86d",
+  "previous_agents_blob": "4a06ae583113ca73892034db1146792f42150baa",
+  "changes": "Add active per-turn Android ChatGPT Project continuation protocol, executable live-Git-snapshot preflight with fail-closed checks and 15 independently run local fixtures; preserve existing v2.4 external host as optional.",
+  "source_git_blobs": {
+    "governance/QROS_ANDROID_CHAT_TURN_ANTISTALL_V1.json": "38050cc3862f1dbda4d1950dcf5566da68aa29ed",
+    "anti_stall/chat/qros_android_turn_preflight_v1.py": "ac86250bca91258bc69334b539b19dcaf094f09e",
+    "anti_stall/chat/README_ANDROID_CHAT_V1.md": "45de1bc3494de748f42fa18c8cbe41015941d89d",
+    "anti_stall/tests/test_android_chat_preflight_v1.py": "59b23d8ba8b38825a5b87c3042e1e4d53528e737"
+  },
+  "local_test_result": "PASS_15_OF_15_SYNTHETIC_CHAOS_AND_GIT_BLOB_FIXTURE_TESTS",
+  "current_scientific_W5_at_review": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "pointer_blob": "31a4c737c603d2abce329467ecb67cd95529cc22",
+    "target_blob": "0f4967bcd4a9089a5f03b9e822cd92a8bebc2f2d",
+    "anchor_blob": "9989756e7275a082fe391dba3a34fa12ce80f97f",
+    "scientific_state": "DEVELOPMENT_RUNNING",
+    "Gate_A": false,
+    "holdout_open": false,
+    "ga2_open": false
+  },
+  "activation_limits": {
+    "Android_chat_protocol": "AVAILABLE_TO_PROJECT_INSTRUCTIONS_ON_NEXT_ACTIVE_TURN",
+    "app_native_auto_hook": "NOT_INSTALLED_NOT_POSSIBLE_VIA_GITHUB",
+    "offline_daemon": "NOT_AVAILABLE",
+    "windows_task": "OPTIONAL_NOT_REQUIRED_FOR_ANDROID_CHAT",
+    "connector_access": "REQUIRED_AT_EXECUTION_TIME"
+  },
+  "next_action": "On each new project chat turn verify current main governance pointer and relevant live scientific branch authority, then run authorized delta with available chat tools and persist exact proof; do not assume snapshots remain current."
+}

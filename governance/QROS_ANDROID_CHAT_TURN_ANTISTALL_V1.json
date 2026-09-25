@@ -1,0 +1,34 @@
+{
+  "schema": "QROS_ANDROID_CHAT_TURN_ANTISTALL_V1",
+  "mode": "CHAT_TURN_ONLY",
+  "repository": "miguelcastill85-del/qros-engine",
+  "main_governance_pointer": "control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
+  "scientific_branch": "research/seed0076-direct-dev-backtest-20260922",
+  "scientific_live_pointer": "control/QROS_SEED0076_DIRECT_CURRENT_CHAT_HANDOFF.json",
+  "activation": "Apply when user continues this ChatGPT Trading algoritmico Project on Android or another ChatGPT client; project instructions govern each new turn. Reading this repository file alone does not install a runtime into the ChatGPT app.",
+  "turn_protocol": [
+    "FETCH latest main governance pointer and live science branch pointer using authenticated GitHub connector; independently record exact blob SHA1 and branch tip",
+    "FETCH exact pointer-referenced handoff and anchor and independently check Git blob SHA1; fail closed on path or SHA drift",
+    "RECONCILE historical checkpoints and Library/Drive byte SHA256 to identify first unclosed shard; never replay closed shards without demonstrated corruption",
+    "CHOOSE one frozen original scientific stage and execute bounded chunk(s) with existing tool access during this response; switch only to frozen causally equivalent route if real progress ceases",
+    "VALIDATE independent route/candidate/execution parity and exact input/output byte identities before promoting any stage; lack of evidence is PENDING rather than PASS",
+    "PERSIST immutable receipt plus frozen handoff in GitHub/Library and CAS-update the live science pointer; verify readback before reporting durable PASS",
+    "CONTINUE with other legitimate dependent or independent work while this user turn has tools and budget; otherwise finish with a verifiable checkpoint and next automatic action for the next user turn"
+  ],
+  "never": [
+    "Claim code in GitHub automatically runs ChatGPT chats or background processes",
+    "Require Windows Task Scheduler for Android chat mode",
+    "Create or use a hidden background daemon or Promise of unattended work after reply",
+    "Open Gate A, holdout, GA2 or MT5 without the separate scientific receipt",
+    "Substitute remembered checkpoint or older branch for a newer live authority",
+    "Rerun old W3, the original 60 shards, or completed W5 V28 economic execution just to demonstrate liveness",
+    "Invent missing tick bytes, market fills or broker account-specific commissions"
+  ],
+  "platform_boundary": {
+    "android_chat": "Client and conversation entry point; only operates on tools available during each actively processed message",
+    "project_instructions": "Must include a continuation instruction to fetch this live pointer on each new chat; a GitHub commit cannot silently update the user's ChatGPT Project settings",
+    "work": "Optional user-selected longer interactive handoff in supported ChatGPT products, not implied by this repo policy",
+    "unattended_after_reply": "NOT_AVAILABLE_WITHOUT_SEPARATELY_AUTHORIZED_SCHEDULER"
+  },
+  "scientific_firewalls": {"holdout_open": false, "ga2_open": false, "Gate_A_approved": false}
+}

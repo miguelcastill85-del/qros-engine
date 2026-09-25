@@ -1,7 +1,7 @@
 {
   "schema": "QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER_V1",
   "version": "2.4",
-  "status": "EXECUTABLE_V24_MAIN_CODE_READY_USER_HOST_SCHEDULER_NOT_INSTALLED",
+  "status": "EXECUTABLE_V24_WITH_CHAT_ANDROID_PER_TURN_PROTOCOL_ACTIVE_WINDOWS_HOST_OPTIONAL",
   "repository": "miguelcastill85-del/qros-engine",
   "branch": "main",
   "legacy_v21_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
@@ -21,7 +21,9 @@
     "v23_new_actual_subprocess_local": 13,
     "v24_actual_host_oracle_local": 18,
     "v23_v24_current_linux_total_pass": 31,
-    "legacy_v21_current_linux": "36_PASS_1_1SECOND_FIXTURE_HOST_STARTUP_FAILURE"
+    "legacy_v21_current_linux": "36_PASS_1_1SECOND_FIXTURE_HOST_STARTUP_FAILURE",
+    "android_chat_preflight_fixture_local": 15,
+    "android_app_native_automation": "NOT_AVAILABLE_VIA_REPOSITORY"
   },
   "watchdog": {
     "ordinary_route_hard_seconds": 120,
@@ -44,7 +46,11 @@
     "anti_stall/scripts/qros_continuation_engine_v2_3.py",
     "anti_stall/scripts/qros_continuation_service_v2_4.py",
     "anti_stall/hosts/run_windows_task_v2_4.ps1",
-    "anti_stall/hosts/install_windows_task_v2_4.ps1"
+    "anti_stall/hosts/install_windows_task_v2_4.ps1",
+    "governance/QROS_ANDROID_CHAT_TURN_ANTISTALL_V1.json",
+    "anti_stall/chat/qros_android_turn_preflight_v1.py",
+    "anti_stall/chat/README_ANDROID_CHAT_V1.md",
+    "anti_stall/tests/test_android_chat_preflight_v1.py"
   ],
   "provenance": {
     "archive_sha256_rehash_after_connected_drive_download": "PASS",
@@ -88,10 +94,16 @@
     "external_live_pointer_and_target_exact_git_blob_check_before_and_after_each_service_cycle": true,
     "change_of_live_authority": "FAIL_CLOSED_NEEDS_NEW_PREREGISTERED_QUEUE",
     "interrupted_unpinned_job": "DO_NOT_RERUN_OR_FAKE_PASS",
-    "independent_local_checkpoint_and_sha_chain": true
+    "independent_local_checkpoint_and_sha_chain": true,
+    "android_chat_per_turn_recovery": true,
+    "mandatory_independent_live_main_scientific_target_anchor_git_blob_checks": true,
+    "in_turn_authorized_execution_only": true,
+    "after_each_stage_receipt_plus_git_cas_readback_required": true,
+    "project_instruction_entrypoint_required": true,
+    "no_pc_for_android_mode": true
   },
-  "activation_scope": "GitHub main verified executable v2.4 plus Windows Task Scheduler installer; real unattended host activation still requires local user installation, exact frozen job queue, market-data bytes and authenticated git; chats are not daemons.",
-  "background_executor": "WINDOWS_TASK_SCHEDULER_INSTALLER_AVAILABLE_USER_PC_ACTIVATION_PENDING",
+  "activation_scope": "ChatGPT Android or other client inside Trading algoritmico Project, during each active user turn when the project instructions invoke live GitHub pointers and available tools; Windows Task Scheduler optional, not required for chat mode. No app hook or unattended chat worker.",
+  "background_executor": "CHAT_PER_TURN_ONLY_AFTER_USER_MESSAGE; OPTIONAL_WINDOWS_HOST_NOT_INSTALLED",
   "main_scientific_pointer_unchanged": true,
   "limitations": [
     "Native Windows process group termination remains unverified",
@@ -101,11 +113,27 @@
     "Scheduled host task cannot be installed on a remote PC by this GitHub-only deployment",
     "v2.4 production requires exact frozen queue, authenticated git checkout, input/output pins and original market-data bytes",
     "Hosted ChatGPT connector calls cannot be killed by local watchdog",
-    "Private GitHub workflow v2.4 is MANUAL ONLY, not executed to avoid extra CI minutes"
+    "Private GitHub workflow v2.4 is MANUAL ONLY, not executed to avoid extra CI minutes",
+    "GitHub policy cannot silently install an Android app hook or edit ChatGPT Project instructions; each responding chat must retrieve the pointer as instructed.",
+    "No work continues after response completion without separately authorized scheduling; Android chat mode resumes on the next user turn."
   ],
   "previous_governance_pointer_git_blob_sha1": "3996a65e3377da6976a5457177d6a169cee93ff3",
   "previous_v22_release_anchor_git_blob_sha1": "68761e86a1d1b01d0190387c3f8fa83ff72f4453",
   "source_package_bytes": 63604,
   "source_package_library_file_id": "libfile_a42786262be88191a0a2c43fb92ca5ab",
-  "release_commit_resolution": "READ_AUTHENTICATED_MAIN_HEAD_AND_CONFIRM_NON_FORCED_FAST_FORWARD;NO_SELF_REFERENTIAL_COMMIT_PIN"
+  "release_commit_resolution": "READ_AUTHENTICATED_MAIN_HEAD_AND_CONFIRM_NON_FORCED_FAST_FORWARD;NO_SELF_REFERENTIAL_COMMIT_PIN",
+  "chat_turn_protocol": {
+    "version": "1.0",
+    "mode": "CHAT_TURN_ONLY",
+    "path": "governance/QROS_ANDROID_CHAT_TURN_ANTISTALL_V1.json",
+    "git_blob_sha1": "38050cc3862f1dbda4d1950dcf5566da68aa29ed",
+    "preflight_path": "anti_stall/chat/qros_android_turn_preflight_v1.py",
+    "preflight_blob_sha1": "ac86250bca91258bc69334b539b19dcaf094f09e",
+    "readme_path": "anti_stall/chat/README_ANDROID_CHAT_V1.md",
+    "test_path": "anti_stall/tests/test_android_chat_preflight_v1.py",
+    "immutable_receipt_path": "control/QROS_ANTI_STALL_ANDROID_CHAT_TURN_V1_RELEASE_RECEIPT_20260925.json",
+    "immutable_receipt_blob_sha1": "b0132796f8f5f498aa00cd2b00b4408f38412d1b",
+    "trigger": "NEXT_USER_MESSAGE_IN_PROJECT",
+    "background_execution": false
+  }
 }
