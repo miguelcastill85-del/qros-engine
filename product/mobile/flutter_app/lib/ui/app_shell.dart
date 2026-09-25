@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../core/research_store.dart';
 import '../core/verified_demo.dart';
+import '../core/universe_store.dart';
+import 'factory_portfolio_screens.dart';
+import 'hypothesis_studio_screen.dart';
 import 'verified_demo_screen.dart';
 import 'new_project_screen.dart';
 
@@ -14,9 +17,13 @@ const qrosTeal = Color(0xFF36D7B7);
 const qrosMuted = Color(0xFFA7B9CF);
 const qrosAmber = Color(0xFFFBD67A);
 
+enum _LegacyDestination { projects, history, security }
+
 class QrosShell extends StatefulWidget {
-  const QrosShell({super.key, required this.store, required this.demoGateway});
+  const QrosShell({super.key, required this.store,
+    required this.universeStore, required this.demoGateway});
   final ResearchStore store;
+  final UniverseSessionStore universeStore;
   final DemoGateway demoGateway;
 
   @override
@@ -31,12 +38,28 @@ class _QrosShellState extends State<QrosShell> {
       MaterialPageRoute(builder: (_) => NewProjectScreen(store: widget.store)),
     );
     if (!mounted || created != true) return;
-    setState(() => _page = 1);
+    _openLegacy(_LegacyDestination.projects);
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Borrador local creado. No está congelado ni validado.'),
-      ),
+      const SnackBar(content: Text('Borrador local creado. No está congelado ni validado.')),
     );
+  }
+
+  void _openLegacy(_LegacyDestination destination) {
+    final title = switch (destination) {
+      _LegacyDestination.projects => 'Proyectos',
+      _LegacyDestination.history => 'Historial',
+      _LegacyDestination.security => 'Seguridad',
+    };
+    Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: AnimatedBuilder(animation: widget.store, builder: (_, __) => switch (destination) {
+        _LegacyDestination.projects => _ProjectsPage(store: widget.store, onNewProject: _newProject),
+        _LegacyDestination.history => _HistoryPage(store: widget.store),
+        _LegacyDestination.security => _EvidencePage(store: widget.store, onOpenDemo: () =>
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway)))),
+      }),
+    )));
   }
 
   @override
@@ -44,47 +67,53 @@ class _QrosShellState extends State<QrosShell> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 74,
-        title: const Row(
-          children: [
-            QrosMark(),
-            SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('QROS', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, letterSpacing: 1)),
-                Text('MOBILE RESEARCH STUDIO', style: TextStyle(fontSize: 9, letterSpacing: 1.5, color: qrosMuted)),
-              ],
-            ),
-          ],
-        ),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.only(right: 14),
-            child: Center(child: StatusPill(label: 'TEST_ONLY', color: qrosAmber)),
+        title: const Row(children: [
+          QrosMark(), SizedBox(width: 10),
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text('QROS', style: TextStyle(fontSize: 22, fontWeight: FontWeight.w800, letterSpacing: 1)),
+            Text('MOBILE RESEARCH STUDIO', style: TextStyle(fontSize: 9, letterSpacing: 1.5, color: qrosMuted)),
+          ]),
+        ]),
+        actions: [
+          const Center(child: StatusPill(label: 'TEST_ONLY', color: qrosAmber)),
+          PopupMenuButton<_LegacyDestination>(
+            key: const Key('more-actions'),
+            tooltip: 'Más módulos y seguridad',
+            icon: const Icon(Icons.more_vert),
+            onSelected: _openLegacy,
+            itemBuilder: (_) => const [
+              PopupMenuItem(value: _LegacyDestination.projects, child: Text('Proyectos')),
+              PopupMenuItem(value: _LegacyDestination.history, child: Text('Historial')),
+              PopupMenuItem(value: _LegacyDestination.security, child: Text('Seguridad')),
+            ],
           ),
         ],
       ),
       body: AnimatedBuilder(
-        animation: widget.store,
-        builder: (context, _) {
-          return switch (_page) {
-            0 => _HomePage(store: widget.store, onNewProject: _newProject, onOpenProjects: () => setState(() => _page = 1)),
-            1 => _ProjectsPage(store: widget.store, onNewProject: _newProject),
-            2 => _HistoryPage(store: widget.store),
-            _ => _EvidencePage(store: widget.store, onOpenDemo: () =>
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway)))),
-          };
+        animation: Listenable.merge([widget.store, widget.universeStore]),
+        builder: (context, _) => switch (_page) {
+          0 => _HomePage(store: widget.store, onNewProject: _newProject,
+             onOpenProjects: () => _openLegacy(_LegacyDestination.projects),
+             onOpenIdea: () => setState(() => _page = 1)),
+          1 => HypothesisStudioScreen(store: widget.universeStore,
+             onOpenFactory: () => setState(() => _page = 2)),
+          2 => UniverseFactoryScreen(store: widget.universeStore,
+             onOpenIdea: () => setState(() => _page = 1)),
+          3 => _EvidencePage(store: widget.store, onOpenDemo: () =>
+             Navigator.of(context).push(MaterialPageRoute(
+               builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway)))),
+          _ => const PortfolioLabPlaceholder(),
         },
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: _page,
-        onDestinationSelected: (int next) => setState(() => _page = next),
+        onDestinationSelected: (next) => setState(() => _page = next),
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Inicio'),
-          NavigationDestination(icon: Icon(Icons.folder_outlined), selectedIcon: Icon(Icons.folder), label: 'Proyectos'),
-          NavigationDestination(icon: Icon(Icons.history), selectedIcon: Icon(Icons.history_toggle_off), label: 'Historial'),
-          NavigationDestination(icon: Icon(Icons.verified_user_outlined), selectedIcon: Icon(Icons.verified_user), label: 'Seguridad'),
+          NavigationDestination(icon: Icon(Icons.lightbulb_outline), selectedIcon: Icon(Icons.lightbulb), label: 'Hipótesis'),
+          NavigationDestination(icon: Icon(Icons.precision_manufacturing_outlined), selectedIcon: Icon(Icons.precision_manufacturing), label: 'Fábrica'),
+          NavigationDestination(icon: Icon(Icons.fact_check_outlined), selectedIcon: Icon(Icons.fact_check), label: 'Evidencias'),
+          NavigationDestination(icon: Icon(Icons.hub_outlined), selectedIcon: Icon(Icons.hub), label: 'Portafolio'),
         ],
       ),
     );
@@ -158,10 +187,11 @@ class SectionHeading extends StatelessWidget {
 }
 
 class _HomePage extends StatelessWidget {
-  const _HomePage({required this.store, required this.onNewProject, required this.onOpenProjects});
+  const _HomePage({required this.store, required this.onNewProject, required this.onOpenProjects, required this.onOpenIdea});
   final ResearchStore store;
   final VoidCallback onNewProject;
   final VoidCallback onOpenProjects;
+  final VoidCallback onOpenIdea;
 
   @override
   Widget build(BuildContext context) => ListView(
@@ -174,16 +204,24 @@ class _HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('LABORATORIO MÓVIL · M0', style: TextStyle(color: qrosTeal, fontSize: 11, letterSpacing: 1.3, fontWeight: FontWeight.w700)),
+            const Text('STRATEGY FACTORY · G1 · TEST_ONLY', style: TextStyle(color: qrosTeal, fontSize: 11, letterSpacing: 1.3, fontWeight: FontWeight.w700)),
             const SizedBox(height: 14),
             const Text('Investiga con evidencia,\nno con promesas.', style: TextStyle(fontSize: 26, height: 1.18, fontWeight: FontWeight.w900)),
             const SizedBox(height: 12),
             const Text(
-              'Organiza hipótesis y consulta lo que todavía falta validar. Solo proyectos sintéticos y borradores locales.',
+              'Escribe una idea, construye reglas observables y explora un universo sintético finito, sin ejecutar backtests económicos.',
               style: TextStyle(color: qrosMuted, height: 1.5, fontSize: 13),
             ),
             const SizedBox(height: 18),
             FilledButton.icon(
+              key: const Key('open-idea-action'),
+              onPressed: onOpenIdea,
+              icon: const Icon(Icons.account_tree_outlined),
+              label: const Text('Explorar una hipótesis'),
+              style: FilledButton.styleFrom(minimumSize: const Size.fromHeight(49)),
+            ),
+            const SizedBox(height: 10),
+            OutlinedButton.icon(
               key: const Key('new-project-action'),
               onPressed: onNewProject,
               icon: const Icon(Icons.add_circle_outline),
@@ -194,7 +232,7 @@ class _HomePage extends StatelessWidget {
         ),
       ),
       const SizedBox(height: 24),
-      const SectionHeading('Tu laboratorio', trailing: 'Datos sintéticos'),
+      const SectionHeading('Tu laboratorio', trailing: 'Pruebas sintéticas'),
       Row(
         children: [
           Expanded(child: _MetricCard(label: 'Proyectos', value: '${store.projects.length}', footnote: 'Demo y borradores', icon: Icons.folder_open_outlined)),
@@ -442,7 +480,7 @@ class _EvidencePage extends StatelessWidget {
         ),
       ])),
       const SizedBox(height: 18),
-      const Text('QROS Mobile M0 · Sin asesoramiento financiero · No utilizar para operar.',
+      const Text('QROS Mobile G1 · Demo de investigación, no utilizar para operar.',
         style: TextStyle(color: qrosMuted, fontSize: 11, height: 1.5),
       ),
     ],

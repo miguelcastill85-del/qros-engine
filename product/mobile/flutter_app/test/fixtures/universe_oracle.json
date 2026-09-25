@@ -1,0 +1,41 @@
+{
+  "oracle": {
+    "canonical_json": "{\"classification\":\"SYNTHETIC_ONLY\",\"constraints\":{\"ambiguous_sl_tp\":\"STOP_FIRST\",\"buy_entry\":\"ASK\",\"buy_exit\":\"BID\",\"gap_fill\":\"FIRST_EXECUTABLE\",\"max_entries_per_day\":3,\"overnight_allowed\":false,\"sell_entry\":\"BID\",\"sell_exit\":\"ASK\"},\"grammar\":{\"confirmation_bars\":[1,2],\"lookback_bars\":[5,10,15],\"maximum_holding_bars\":[8,12],\"stop_ratios\":[\"1/1\",\"2/1\",\"3/2\"]},\"holdout_open\":false,\"observability\":\"CLOSED_BAR_ONLY\",\"raw_births\":144,\"schema\":\"QROS_TYPED_UNIVERSE_DRAFT_V1\",\"scientific_authority\":false,\"sides\":[\"BUY\",\"SELL\"],\"status\":\"LOCAL_DRAFT_NOT_FROZEN\",\"symbol\":\"SIM_XAUUSD\",\"timeframes\":[\"M15\",\"M5\"]}",
+    "canonical_sha256": "9ad446079f4906156ed1a498f847bb4fa79e08a44710ecb69edc59941480c1de",
+    "raw_births": 144,
+    "toy_enumeration_sha256": "6b00b7f9350b70d20de0f0cecdc619950440ab757f6f96f2b74845e581a60800"
+  },
+  "raw_input": {
+    "confirmation_bars": [
+      2,
+      1
+    ],
+    "lookback_bars": [
+      15,
+      5,
+      10
+    ],
+    "max_entries_per_day": 3,
+    "maximum_holding_bars": [
+      12,
+      8
+    ],
+    "observability": "CLOSED_BAR_ONLY",
+    "overnight_allowed": false,
+    "sides": [
+      "SELL",
+      "BUY"
+    ],
+    "stop_ratios": [
+      "3/2",
+      "1/1",
+      "2/1"
+    ],
+    "symbol": "SIM_XAUUSD",
+    "timeframes": [
+      "M15",
+      "M5"
+    ]
+  },
+  "schema": "QROS_G1_CROSS_LANGUAGE_TEST_V1"
+}

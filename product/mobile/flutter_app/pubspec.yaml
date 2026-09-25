@@ -1,7 +1,7 @@
 name: qros_mobile_studio
-description: "QROS Mobile Research Studio - Android TEST_ONLY offline research prototype"
+description: "QROS Mobile Research Studio - Android TEST_ONLY hypothesis-to-typed-universe G1"
 publish_to: none
-version: 0.2.0+2
+version: 0.3.0+3
 
 environment:
   sdk: '>=3.5.0 <4.0.0'
