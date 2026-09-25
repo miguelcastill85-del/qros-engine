@@ -1,7 +1,7 @@
 {
-  "schema": "QROS_MOBILE_ANDROID_M0_BUILD_INCIDENT_V1",
+  "schema": "QROS_MOBILE_ANDROID_M0_BUILD_INCIDENT_V2",
   "date": "2026-09-25",
-  "status": "CORRECTED_SOURCE_RETEST_PENDING",
+  "status": "SECOND_UI_TEST_FIX_APPLIED_RETEST_PENDING",
   "failed_run": {
     "id": 36093379999,
     "source_commit": "2cd989ba85b47917f7c75ed59618172c9226de6b",
@@ -24,5 +24,21 @@
     "mt5_not_run": true,
     "paid_service_not_enabled": true
   },
-  "next_action": "Re-run bounded Android workflow; require analyzer, model/widget tests, APK SHA256 and artifact receipt before M0 Android engineering PASS."
+  "next_action": "Re-run bounded Flutter analyze and all model/widget tests; only build APK after they pass.",
+  "second_failed_run": {
+    "id": 36093549759,
+    "source_commit": "0059f4acc03cd33f695af9412970598da8c8ceb2",
+    "result": "FAIL",
+    "analyzer": "PASS_NO_ISSUES",
+    "model_tests": "PASS",
+    "widget_tests": "1_PASS_2_FAIL",
+    "root_cause": "Two UI tests called tester.ensureVisible on buttons not built yet in lazily constructed ListView; Flutter finder returned Bad state: No element",
+    "apk": "NOT_BUILT_TEST_GATE_FAILED"
+  },
+  "second_correction": {
+    "commit": "1a4fbff7117ad151a30a4c6e0ee4ad5c5de795bb",
+    "path": "product/mobile/flutter_app/test/widget_test.dart",
+    "blob": "f7ec5c4f11df2d8054b2e17ff1e1b5926506d66c",
+    "delta": "Replace ensureVisible on absent lazy child with scrollUntilVisible using the target page Scrollable; no production widget state logic changed"
+  }
 }
