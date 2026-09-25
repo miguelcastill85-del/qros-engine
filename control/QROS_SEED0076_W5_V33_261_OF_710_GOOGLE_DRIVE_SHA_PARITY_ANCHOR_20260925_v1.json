@@ -1,0 +1,81 @@
+{
+  "schema": "QROS_SEED0076_V33_261_OF_710_SHA_ONLY_INDEPENDENT_PARITY_CHECKPOINT_v1",
+  "date": "2026-09-25",
+  "objective": "Resume exact frozen V33 direct-from-scratch CH0/CH4 real-tick independent per-mask sampling with 55 NEW shards, preserving 206 preexisting SHA receipts and excluding old 60/10 shards entirely.",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "parent_branch_commit": "27cc650940761567ab59be6cca4ccac169b7c766",
+    "previous_live_pointer_blob": "10d8a9fbefcfdaa6a9ed7ba7194afe6023fc4d80",
+    "previous_206_anchor_git_blob": "414f282c55114a2db8283b09faca8942bb1faff1",
+    "scientific_main_sha": "28a5171638d9778fed04cc406c870b2ba2a20e51",
+    "scientific_pointer_git_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "frontier": "V259",
+    "frozen_v33_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "original_v33_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf"
+  },
+  "data": {
+    "asset": "XAUUSD",
+    "period": "2018–2019_DEVELOPMENT_EXPOSED",
+    "original_tick_count": 151382388,
+    "original_tick_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "source": "EXACT_EIGHT_GOOGLE_DRIVE_PARTS_LOCAL_SHA256_REVERIFIED",
+    "source_original_8_zip_SHA256": "PASS_8_OF_8",
+    "source_original_RAW_SHA256": "PASS",
+    "CH0_original_V28_archive_SHA256": "196de55420e5c29f3ef776d32179842309826585e2fd7d6580fe73f95561ffa2",
+    "CH4_original_V28_archive_SHA256": "79d30dd8c734c845025583261fd50bd88392c0ce03d21764f8d82eb4d351ea76"
+  },
+  "execution": {
+    "original_V33_archive_206_verified": "PASS_206_OF_206_EXACT_MEMBER_SHA",
+    "new_shards": 55,
+    "by_channel_new": {
+      "CH0": 23,
+      "CH4": 32
+    },
+    "original_runner_unchanged": true,
+    "full_FROZEN_PLAN_verified": true,
+    "independent_original_V33_builder_verified": true,
+    "new_economic_PnL": false,
+    "already_closed_206_untouched": true,
+    "old_60_10_shards_replayed": false
+  },
+  "verified": {
+    "completed": 261,
+    "total": 710,
+    "pending": 449,
+    "by_channel": {
+      "CH0": 101,
+      "CH4": 160
+    },
+    "sampled_physical_mask_occurrences_V33": 5029,
+    "sampled_source_signals_V33": 618923,
+    "exact_independent_trades_V33": 370674,
+    "exact_matching_fields_V33": 4077414,
+    "zero_signal_masks": 6,
+    "previous_206_exact_trades": 304670,
+    "new_exact_trades": 66004,
+    "new_matching_fields": 726044
+  },
+  "durability": {
+    "library_id": "libfile_5e668c31f35881918b5a64524fafd4a6",
+    "library_path": "/QROS_SEED0076_W5_V33_GOOGLE_DRIVE_RESUME_20260925/QROS_W5_V33_VERIFIED_261_OF_710_MASK_PARITY_SHARDS_20260925.zip",
+    "ZIP_sha256": "eca1a92d6d8f2ec1aad6207cc2f8cbb45e6ec73105fa19e7cc4af6e047f380b5",
+    "ZIP_bytes": 625383,
+    "ZIP_members": 268,
+    "library_download_SHA256": "PASS_EXACT",
+    "internal_SHA_manifest_members": 267,
+    "master_receipt_SHA256": "869107cc653f3bae0f87ba32110c87408b340ef55c5e387b3ff4903fafbba9ae"
+  },
+  "gates": {
+    "direct_state": "DEVELOPMENT_RUNNING",
+    "full_V33_parity": "PENDING_449",
+    "broker_primary_2018_19_commission": "NOT_CERTIFIED",
+    "broker_primary_2018_19_special_hours": "NOT_CERTIFIED",
+    "Gate_A": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "MT5": false,
+    "portfolio_risk_activation": false
+  },
+  "next_automatic_action": "Restore 261-library ZIP by exact SHA, original Drive 8 ZIP and V28 CH0/CH4 tapes. Continue only original plan next CH0 r0_w1_batch007 ordinals 102–121 and CH4 r0_w1_batch011 ordinals 244–250. Bounded serial new shards, then original audit, new Library ZIP readback and Git CAS. No old 60/10 shards or V28 economic retests."
+}
