@@ -11,7 +11,7 @@ import hashlib, json, math, os, pathlib, shutil, signal, sys, tempfile
 REPO=pathlib.Path(__file__).resolve().parents[3]
 SRC=REPO/"scripts"
 REF=REPO/"research/ga1_compiled_dag_factor_ir_v1"
-PINNED_MAIN=REPO.parent/"pinned-main"
+PINNED_MAIN=REPO/"pinned-main"
 SPEC=REPO/"research/public1000/seed0076/QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json"
 if not SPEC.is_file():raise RuntimeError("EXACT_FROZEN_V209_SPEC_REQUIRED")
 
