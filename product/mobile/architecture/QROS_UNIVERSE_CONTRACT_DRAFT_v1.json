@@ -1,0 +1,179 @@
+{
+  "schema": "QROS_MOBILE_UNIVERSE_CONTRACT_DRAFT_V1",
+  "classification": "DESIGN_ONLY_SYNTHETIC_EDUCATIONAL",
+  "is_frozen": false,
+  "scientific_authority": false,
+  "title": "Ejemplo educativo: compresión y ruptura de rango",
+  "status": "PREREGISTRATION_DRAFT_NO_RESULTS",
+  "owner_context": "PRODUCT_DEMO_NOT_PRIVATE_OWNER_ALPHA",
+  "hypothesis": {
+    "thesis": "Un patrón de compresión intradiaria seguido de una ruptura confirmada podría presentar comportamiento distinto al azar después de costes; todavía no existe evidencia.",
+    "mechanism_status": "MOTIVATED_HYPOTHESIS_NOT_CAUSAL_PROOF",
+    "disconfirmation": [
+      "No supera controles de costes predefinidos",
+      "La ventaja depende de un único parámetro aislado",
+      "Desaparece fuera del periodo de desarrollo o frente a controles"
+    ],
+    "semantic_genealogy": "SYMBOLIC_DEMO_ONLY"
+  },
+  "instrument": {
+    "symbol": "SIMULATED_XAU",
+    "ownership": "SYNTHETIC_ONLY_NO_BROKER_LICENSE",
+    "timezone": "EXPLICIT_SOURCE_TIMEZONE_REQUIRED_BEFORE_EXECUTION",
+    "raw_ticks_identity": null,
+    "normalized_data_identity": null
+  },
+  "partitions": {
+    "development": null,
+    "selection": null,
+    "validation": null,
+    "holdout": null,
+    "exposed": [],
+    "true_forward": null,
+    "require_disjoint_intervals": true,
+    "holdout_open": false
+  },
+  "execution": {
+    "entries_per_day_max": 3,
+    "positions_per_instrument_max": 1,
+    "overnight_allowed": false,
+    "fill_policy": {
+      "buy_entry": "ASK",
+      "buy_exit": "BID",
+      "sell_entry": "BID",
+      "sell_exit": "ASK",
+      "ambiguous_sl_tp": "STOP_FIRST",
+      "gap_fill": "FIRST_EXECUTABLE",
+      "zero_spread": "DATA_AUDIT_FLAG_NO_FREE_ADVANTAGE"
+    },
+    "cost_scenarios": [
+      "CENTRAL",
+      "CONSERVATIVE",
+      "SEVERE"
+    ]
+  },
+  "grammar": {
+    "operators_allowed": [
+      "AND",
+      "OR",
+      "GREATER_THAN",
+      "LESS_THAN",
+      "CROSS_CONFIRMED_CLOSED_BAR"
+    ],
+    "float_domains": "EXPLICIT_FINITE_GRID_ONLY",
+    "bounded_depth_max": 4,
+    "max_optional_filters": 2,
+    "recursion_allowed": false,
+    "dynamic_user_code_allowed": false,
+    "features": [
+      {
+        "role": "CONTEXT",
+        "block": "RECENT_RANGE_COMPRESSION",
+        "param": {
+          "lookback_bars": [
+            5,
+            10,
+            15
+          ]
+        },
+        "observability": "LAST_CLOSED_BAR_ONLY"
+      },
+      {
+        "role": "TRIGGER",
+        "block": "CONFIRMED_RANGE_BREAK",
+        "param": {
+          "confirmation_bars": [
+            1,
+            2
+          ]
+        },
+        "observability": "LAST_CLOSED_BAR_ONLY"
+      },
+      {
+        "role": "INITIAL_RISK",
+        "block": "FINITE_ATR_STOP_MULTIPLIER",
+        "param": {
+          "multiplier_rational": [
+            "1/1",
+            "3/2",
+            "2/1"
+          ]
+        },
+        "observability": "MEASURE_AT_ENTRY"
+      },
+      {
+        "role": "EXIT",
+        "block": "TIME_OR_STOP_EXIT",
+        "param": {
+          "max_bars": [
+            8,
+            12
+          ]
+        },
+        "observability": "CHRONOLOGICAL_ENGINE"
+      }
+    ],
+    "sides": [
+      "BUY",
+      "SELL"
+    ],
+    "timeframes": [
+      "M5",
+      "M15"
+    ],
+    "optional_filter_registry_version": null
+  },
+  "cardinality": {
+    "raw_product_count_for_example": 144,
+    "raw_product_formula": "2 sides * 2 timeframes * 3 context lookbacks * 2 trigger confirmations * 3 stops * 2 exits",
+    "number_of_valid_programs": null,
+    "number_of_exact_unique_programs": null,
+    "number_of_signal_mask_classes": null,
+    "number_of_economic_tests": 0,
+    "enumeration_coverage": "NONE_NOT_EXECUTED",
+    "complete_exhaustive_claim": false,
+    "max_raw_births_policy": 1000000
+  },
+  "frozen_bindings": {
+    "strategy_contract_sha256": null,
+    "search_space_sha256": null,
+    "data_spec_sha256": null,
+    "runner_sha256": null,
+    "execution_policy_sha256": null,
+    "cost_policy_sha256": null,
+    "canonicalizer_version": null,
+    "independent_enumerator_version": null
+  },
+  "prospective_search": {
+    "mode": "EXHAUSTIVE_IF_AUDITED_AND_WITHIN_BUDGET",
+    "other_modes": [
+      "REGISTERED_STRATIFIED_RANDOM",
+      "REGISTERED_EVOLUTIONARY_NON_EXHAUSTIVE"
+    ],
+    "minimize_redundancy_before_pnl": true,
+    "do_not_choose_seed_by_seen_pnl": true,
+    "count_all_attempted_tests": true,
+    "early_stop": "ONLY_BY_PREREGISTERED_RULES"
+  },
+  "gates": {
+    "data_audit": "NOT_RUN",
+    "preregistration": "NOT_FROZEN",
+    "rise_fixed_point": "NOT_RUN",
+    "independent_enumerator_parity": "NOT_RUN",
+    "development": "NOT_RUN",
+    "gate_a": "NOT_RUN",
+    "holdout": "SEALED_NO_DATA",
+    "supergate": "NOT_RUN",
+    "mt5": "NOT_RUN",
+    "portfolio_marginal": "NOT_RUN"
+  },
+  "permissions": {
+    "mobile_may_create_draft": true,
+    "mobile_may_request_freeze": true,
+    "mobile_can_authorize_holdout": false,
+    "mobile_can_approve_scientific_state": false,
+    "ai_can_create_rules_without_human_acceptance": false,
+    "server_witness_must_anchor_approval": true
+  },
+  "warning": "This schema and example are contract proposals; the 144 figure is a count of syntactic Cartesian candidates only and is not a backtest or claim of 144 unique strategies."
+}
