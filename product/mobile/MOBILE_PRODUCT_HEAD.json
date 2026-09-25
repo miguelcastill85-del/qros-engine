@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v7",
+  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v8",
   "status": "DEVELOPMENT_RUNNING",
   "product": "QROS Mobile Research Studio",
   "scope": "MOBILE_APP_ONLY_ANDROID_FIRST_IOS_LATER",
@@ -15,11 +15,11 @@
     "code_branch": "product/mobile-m2-ledger-prototype-20260925",
     "scientific_main": "DO_NOT_MODIFY"
   },
-  "active_delivery": "G4_LICENSED_SYNTHETIC_DATA_AUDIT_AND_LOCALLY_SEPARATED_MONOTONIC_WITNESS_TEST_ONLY",
-  "mobile_frontend_status": "ANDROID_G1_DEBUG_APK_VERIFIED_UNCHANGED_G2_G3_G4",
+  "active_delivery": "G5_LOOPBACK_HTTPS_TENANT_SCOPED_SIGNED_SYNTHETIC_SNAPSHOT_TEST_ONLY",
+  "mobile_frontend_status": "ANDROID_G1_DEBUG_APK_VERIFIED_UNCHANGED_G2_TO_G5",
   "existing_mobile_html": "product/mobile-demo/index.html",
   "existing_mobile_html_status": "TEST_ONLY_WEB_MOCK_NOT_INSTALLABLE_MOBILE_APP",
-  "backend": "G3_INDEPENDENT_EXECUTION_PLUS_G4_SIGNED_TEST_LICENSE_DST_AUDIT_AND_LOCAL_ED25519_WITNESS_NOT_DEPLOYED",
+  "backend": "G3_CXX_PY_PARITY_PLUS_G4_STRICT_SIGNED_DATA_AUDIT_LOCAL_WITNESS_PLUS_G5_SCOPED_LOOPBACK_TLS_DEMO",
   "m2_status": "LINUX_INTEGRATION_PASS_REAL_M2_AUTHENTICATED_EVIDENCE_AND_DYNAMIC_EXTERNAL_HEAD_PENDING",
   "hard_exclusions": [
     "WINDOWS_UI",
@@ -38,8 +38,8 @@
     "use_only_synthetic_data_until_authorized": true,
     "paid_services_activation": false
   },
-  "next_automatic_action": "G5 implement tenant-scoped opt-in read-only HTTPS integration against synthetic data only, obtain separately administered external monotonic witness and verify pin/read-only rollback from actual distinct custody; run physical Android install and authenticated pairing. If no trusted external admin/device credentials are available, complete independently valid local TLS/tenant canaries and persist BLOCKED_BY_INFRASTRUCTURE only for production trust gates, without changing G4 PASS or opening research holdout/GA2/real PnL.",
-  "release_gate": "G4_TEST_ONLY_PASS; G5_REAL_EXTERNAL_OPERATOR_IMMUTABILITY, TENANT_HTTPS_AUTHZ, PHYSICAL_ANDROID_INSTALL, RELEASE_SIGNING, REAL_LICENSE_AND_MARKET_DATA_AUDIT_NOT_PASSED",
+  "next_automatic_action": "G6: implement Flutter Android opt-in synthetic G5 snapshot transport and independent Python/Dart verified receipt/parsing parity without replacing frozen M1 cryptography or falsely claiming external witness or public HTTPS; run Android CI full M1/G1 regression. Separately gate real Android physical installation/pairing, provider-entitlement custody, independently administered monotonic witness, release signing and tenant production OIDC. No real market PnL, holdout, GA2, MT5 or live orders.",
+  "release_gate": "G5_LOCAL_TEST_ONLY_PASS; FLUTTER_G6_CLIENT_PARITY, PHYSICAL_ANDROID_INSTALL, PUBLIC_CA_TLS, TENANT_PRODUCTION_OIDC, ADMIN-INDEPENDENT_EXTERNAL_WITNESS, REAL_DATA_LICENSE, RELEASE_SIGNING_NOT_VERIFIED",
   "verified_milestones": {
     "ANDROID_M0_NATIVE_VERTICAL_SLICE": {
       "status": "PASS_ENGINEERING_TEST_ONLY",
@@ -150,6 +150,23 @@
       "economic_tests": 0,
       "holdout_open": false,
       "ga2_open": false,
+      "scientific_gate_pass": false
+    },
+    "G5_TENANT_SCOPED_LOOPBACK_HTTPS": {
+      "status": "PASS_ENGINEERING_TEST_ONLY",
+      "tested_commit": "a6871fea1ae70b46b7c798b34423c1a9f448d0cc",
+      "github_actions_run_id": 36177672251,
+      "new_tests": "27_OF_27_PASS",
+      "tenant_snapshots": 2,
+      "receipt_path": "product/mobile/receipts/QROS_MOBILE_G5_VERIFIED_ENGINEERING_PASS_20260925.json",
+      "receipt_git_blob_sha1": "28cc55db632ac03c2a58c6412decd664769e3895",
+      "verified_head_path": "product/mobile/g5_verified/G5_CURRENT_HEAD.json",
+      "verified_head_blob_sha1": "5f95b28caa79a15126d50b91097681d41e202b29",
+      "public_https": "NOT_DEPLOYED",
+      "external_independent_witness": "NOT_DEPLOYED",
+      "physical_android_install": "NOT_RUN",
+      "real_data": "NONE",
+      "economic_tests": 0,
       "scientific_gate_pass": false
     }
   },

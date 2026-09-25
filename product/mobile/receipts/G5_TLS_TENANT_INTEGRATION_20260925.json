@@ -1,0 +1,21 @@
+{
+  "broker_data": "NONE",
+  "cross_project_403": true,
+  "economic_backtests": 0,
+  "ga2_open": false,
+  "holdout_open": false,
+  "independently_administered_external_witness": "NOT_DEPLOYED",
+  "missing_bearer_401": true,
+  "physical_android_install": "NOT_RUN",
+  "production_tenant_auth": "NOT_DEPLOYED",
+  "public_https": "NOT_DEPLOYED",
+  "read_only": true,
+  "real_tls_hostname_and_ca_verification": true,
+  "schema": "QROS_MOBILE_G5_TLS_TENANT_DEMO_INTEGRATION_V1",
+  "signed_witness_sequence_per_tenant": 1,
+  "status": "PASS_LOCAL_TLS_SCOPED_SYNTHETIC_ONLY",
+  "tenant_A_audit_sha256": "821a91fe753a240e3e741f819c084b9432792f4d15637cf29e311f1ef5deda68",
+  "tenant_B_audit_sha256": "fd528d928de2fc5582c4cfd3388859a4c1966657999938f306d452724d748c17",
+  "tenant_isolated_snapshots": 2,
+  "writes_405": true
+}

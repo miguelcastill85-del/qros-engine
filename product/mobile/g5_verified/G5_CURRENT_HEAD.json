@@ -1,0 +1,25 @@
+{
+  "schema": "QROS_MOBILE_G5_CURRENT_VERIFIED_HEAD_V1",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "tested_source_commit": "a6871fea1ae70b46b7c798b34423c1a9f448d0cc",
+  "receipt_path": "product/mobile/receipts/QROS_MOBILE_G5_VERIFIED_ENGINEERING_PASS_20260925.json",
+  "receipt_git_blob_sha1": "28cc55db632ac03c2a58c6412decd664769e3895",
+  "ci_run_id": 36177672251,
+  "g5_source_manifest_blob_sha1": "6b6aec40d655ff15de247656fefe60d238597a50",
+  "historical_g5_progress_pointer": "product/mobile/g5/G5_PROGRESS_HEAD.json",
+  "historical_pending_status_superseded": true,
+  "scope": "TEST_ONLY_TLS_LOOPBACK_SCOPED_TENANT_AND_PINNED_SYNTHETIC_PROOF",
+  "tests": 27,
+  "tenant_snapshots": 2,
+  "main_scientific_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "safeguards": {
+    "broker_data": "NONE",
+    "economic_tests": 0,
+    "holdout_open": false,
+    "ga2_open": false,
+    "scientific_authority": false,
+    "external_witness_deployed": false,
+    "real_android_device_tested": false
+  },
+  "next_automatic_action": "G6: implement Flutter Android opt-in synthetic G5 snapshot transport and independent Python/Dart verified receipt/parsing parity without replacing frozen M1 cryptography or falsely claiming external witness or public HTTPS; run Android CI full M1/G1 regression. Separately gate real Android physical installation/pairing, provider-entitlement custody, independently administered monotonic witness, release signing and tenant production OIDC. No real market PnL, holdout, GA2, MT5 or live orders."
+}
