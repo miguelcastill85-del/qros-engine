@@ -6,6 +6,14 @@
       "resolution": "Braces added to five single-line ifs, interpolate UTC timestamp, remove redundant cast. Preserve failed Actions run and retry unchanged test gates.",
       "run_id": 36195070781,
       "tested_commit": "3e6d59ce4feb81e6d0e55b6a3a8ec39532fd2b14"
+    },
+    {
+      "correction": "Move result/error/progress immediately after offline button, retain all optional connection fields and signed proof checks, strengthen widget error assertion. Rerun all Android tests and build gate.",
+      "phase": "FLUTTER_WIDGET_TEST",
+      "reason": "Flutter analyze ZERO issues; 31 Dart widget/unit tests passed and one new G6 widget assertion did not find offscreen lazily built result Card; 37+27+19 Python tests PASS. APK intentionally not built after required test failed.",
+      "root_cause": "The synthetic proof result was placed after eight optional TLS input fields, so the ListView did not construct it in the 800x600 test viewport. UX also failed to expose immediate feedback after offline verification.",
+      "run_id": 36195415152,
+      "tested_commit": "03f1593b6c45a1879b2aff325d6b4de2a8038c78"
     }
   ],
   "economic_tests": 0,

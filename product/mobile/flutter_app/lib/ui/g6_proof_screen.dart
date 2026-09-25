@@ -68,6 +68,18 @@ class _G6ProofScreenState extends State<G6ProofScreen> {
       FilledButton.icon(key:const Key('g6-offline'),onPressed:_busy?null:_offline,
         icon:const Icon(Icons.verified_user_outlined),
         label:const Text('Verificar ejemplo firmado sin red')),
+      if(_busy)const LinearProgressIndicator(),
+      if(_error!=null)Padding(padding:const EdgeInsets.only(top:12),
+        child:Text(_error!,key:const Key('g6-denied'),style:const TextStyle(color:Color(0xFFF28F94)))),
+      if(_result!=null)Card(key:const Key('g6-verified'),child:Padding(
+        padding:const EdgeInsets.all(16),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
+          const Text('RECIBO SINTÉTICO VALIDADO',style:TextStyle(color:Color(0xFF36D7B7),fontWeight:FontWeight.bold)),
+          Text('Cliente: ${_result!.tenant} · proyecto: ${_result!.project}'),
+          Text('Secuencia: ${_result!.head.sequence}'),
+          SelectableText('SHA-256: ${_result!.head.sha256}',style:const TextStyle(fontSize:11)),
+          const Text('CUSTODIA EXTERNA: NO DESPLEGADA. 0 backtests económicos. No operar.',
+            style:TextStyle(color:Color(0xFFFBD67A))),
+        ]))),
       const Divider(height:34),
       const Text('Conexión local voluntaria G5',style:TextStyle(fontSize:17,fontWeight:FontWeight.w700)),
       const SizedBox(height:8),
@@ -83,18 +95,6 @@ class _G6ProofScreenState extends State<G6ProofScreen> {
       _field('g6-ca','Certificado CA PEM de pruebas (opcional)',_testCa,lines:3),
       OutlinedButton.icon(key:const Key('g6-connect'),onPressed:_busy?null:_fetch,
          icon:const Icon(Icons.lock_outline),label:const Text('Consultar muestra local firmada')),
-      if(_busy)const LinearProgressIndicator(),
-      if(_error!=null)Padding(padding:const EdgeInsets.only(top:12),
-        child:Text(_error!,key:const Key('g6-denied'),style:const TextStyle(color:Color(0xFFF28F94)))),
-      if(_result!=null)Card(key:const Key('g6-verified'),child:Padding(
-        padding:const EdgeInsets.all(16),child:Column(crossAxisAlignment:CrossAxisAlignment.start,children:[
-          const Text('RECIBO SINTÉTICO VALIDADO',style:TextStyle(color:Color(0xFF36D7B7),fontWeight:FontWeight.bold)),
-          Text('Cliente: ${_result!.tenant} · proyecto: ${_result!.project}'),
-          Text('Secuencia: ${_result!.head.sequence}'),
-          SelectableText('SHA-256: ${_result!.head.sha256}',style:const TextStyle(fontSize:11)),
-          const Text('CUSTODIA EXTERNA: NO DESPLEGADA. 0 backtests económicos. No operar.',
-            style:TextStyle(color:Color(0xFFFBD67A))),
-        ]))),
       const SizedBox(height:20),
       const Text('Sin datos de broker, órdenes ni aprobación científica.',style:TextStyle(fontSize:12)),
     ]));
