@@ -1,0 +1,65 @@
+{
+  "schema": "QROS_MOBILE_G5_VERIFIED_ENGINEERING_RECEIPT_V1",
+  "date_utc": "2026-09-25",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "classification": "LOCAL_SYNTHETIC_TLS_TENANT_PROOF_ONLY",
+  "evidence_class": "VERIFIED_GITHUB_ACTIONS_AND_INDEPENDENT_REHASHED_CI_ARTIFACT",
+  "source": {
+    "branch": "product/mobile-g5-tenant-https-readonly-20260925",
+    "tested_commit": "a6871fea1ae70b46b7c798b34423c1a9f448d0cc",
+    "parent_g4_verified_commit": "58b00efa53ff58b36216764c2c813f4a022a09a4",
+    "g4_verified_head_blob_sha1": "bea1c0366bcde2b43f99188f52c2390351f7557d",
+    "g5_source_manifest_path": "product/mobile/g5/G5_SOURCE_MANIFEST.json",
+    "g5_source_manifest_blob_sha1": "6b6aec40d655ff15de247656fefe60d238597a50",
+    "exact_new_source_paths": 9
+  },
+  "github_actions": {
+    "run_id": 36177672251,
+    "job_id": 108212127931,
+    "conclusion": "success",
+    "url": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36177672251",
+    "new_tests": 27,
+    "tests_passed": 27,
+    "source_anti_stall_gate": "PASS_EXACT_9_NEW_FILES_7_HASHED",
+    "artifact_id": 10882478859,
+    "artifact_name": "qros-mobile-g5-test-only-https-evidence",
+    "artifact_bytes": 1546,
+    "artifact_sha256": "ba61e09ebe6fdc1abc5c33555c121bef978e279c0341acba926169eb76459ba4",
+    "artifact_expires_at_utc": "2026-09-28T19:07:07Z"
+  },
+  "raw_artifacts": {
+    "ci_receipt_path": "product/mobile/receipts/G5_CI_RAW_BUILD_RECEIPT_20260925.json",
+    "ci_receipt_git_blob_sha1": "a75b08f8cad8781bf15772b7fee3d0b508f1f5cb",
+    "ci_receipt_sha256": "b733f9839f7248292f27d0410202b06a0e9cb0cc3d190857805cd77bbcfb65da",
+    "integration_path": "product/mobile/receipts/G5_TLS_TENANT_INTEGRATION_20260925.json",
+    "integration_git_blob_sha1": "60ff5761d118d8cf9988688c1e9961ab48eb75a8",
+    "integration_sha256": "1180f4a3c8c0a93bc8727615d9d2ceabaedc39fe4a5b9815bd9c7d50d39ea9be"
+  },
+  "checks": {
+    "actual_loopback_https_tls_ca_and_hostname_verification": "PASS",
+    "ephemeral_scoped_bearer_tokens": "PASS",
+    "separate_synthetic_tenant_proofs": 2,
+    "cross_project_http_403": true,
+    "write_http_405": true,
+    "missing_bearer_http_401": true,
+    "out_of_band_ed25519_witness_key_pin": "PASS_LOCAL_TEST",
+    "replay_fork_tamper_cert_and_downgrade": "PASS_TEST",
+    "no_cors_no_redirect_no_token_in_url": "PASS_TEST"
+  },
+  "strict_limitations": {
+    "public_https": "NOT_DEPLOYED",
+    "production_oidc_and_customer_authz": "NOT_DEPLOYED",
+    "external_independently_administered_witness": "NOT_DEPLOYED",
+    "actual_physical_android_install": "NOT_RUN",
+    "new_android_apk": "NOT_BUILT_G1_RETAINED",
+    "commercial_release_approved": false,
+    "market_data": "NONE",
+    "economic_backtests": 0,
+    "mt5": "NOT_RUN",
+    "holdout_open": false,
+    "ga2_open": false,
+    "scientific_gate_pass": false
+  },
+  "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "next_automatic_action": "G6: implement Flutter Android opt-in synthetic G5 snapshot transport and independent Python/Dart verified receipt/parsing parity without replacing frozen M1 cryptography or falsely claiming external witness or public HTTPS; run Android CI full M1/G1 regression. Separately gate real Android physical installation/pairing, provider-entitlement custody, independently administered monotonic witness, release signing and tenant production OIDC. No real market PnL, holdout, GA2, MT5 or live orders."
+}

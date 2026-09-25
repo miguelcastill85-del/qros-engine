@@ -1,0 +1,70 @@
+name: qros-mobile-g5-scoped-https-test-only
+on:
+  push:
+    branches:
+      - product/mobile-g5-tenant-https-readonly-20260925
+    paths:
+      - 'product/mobile/g5/**'
+      - '.github/workflows/qros-mobile-g5-tenant-https-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: mobile-g5-read-only-https
+  cancel-in-progress: true
+jobs:
+  g5-trust-gate:
+    name: g5-tls-tenant-scoped-signed-proof-test-only
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject no-op changes and any frozen G4 authority mutation
+        run: python product/mobile/g5/anti_stall_gate.py --remote-git
+      - name: Reuse exact previously proven G4 cryptographic dependency
+        run: python -m pip install --disable-pip-version-check -r product/mobile/backend/requirements.txt
+      - name: Independent real loopback TLS, scoped tenant proof and no-write adversarial tests
+        working-directory: product/mobile/g5
+        run: python -m unittest discover -s tests -v
+      - name: Authenticated synthetic real TLS integration and no broker evidence
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/qros-g5-evidence
+          python product/mobile/g5/integration.py | tee /tmp/qros-g5-evidence/G5_TLS_TENANT_INTEGRATION.json
+      - name: Pin actual passed source in test-only CI receipt
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json,subprocess,hashlib,ssl
+          base=Path('/tmp/qros-g5-evidence')
+          proof=json.loads((base/'G5_TLS_TENANT_INTEGRATION.json').read_text())
+          assert proof['status']=='PASS_LOCAL_TLS_SCOPED_SYNTHETIC_ONLY'
+          assert proof['tenant_isolated_snapshots']==2 and proof['writes_405'] is True
+          assert proof['economic_backtests']==0 and proof['ga2_open'] is False
+          assert proof['holdout_open'] is False and proof['public_https']=='NOT_DEPLOYED'
+          j={'schema':'QROS_G5_CI_RECEIPT_TEST_V1',
+             'status':'PASS_ENGINEERING_LOCAL_TLS_ONLY',
+             'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+             'source_and_anti_stall_gate':'PASS_REQUIRED_STEP',
+             'tls_tenant_crypto_and_rollback_tests':'PASS_REQUIRED_STEP',
+             'integration':proof,'python_version':subprocess.check_output(['python','--version'],text=True).strip(),
+             'ssl_version':ssl.OPENSSL_VERSION,'economic_backtests':0,
+             'scientific_gate_pass':False,'holdout_open':False,'ga2_open':False,
+             'public_https':'NOT_DEPLOYED',
+             'independently_administered_witness':'NOT_DEPLOYED',
+             'physical_android_install':'NOT_RUN','new_apk':'NOT_BUILT'}
+          (base/'G5_CI_BUILD_RECEIPT.json').write_text(json.dumps(j,indent=2,sort_keys=True)+'\n')
+          print('G5_CI_TEST_ONLY_RECEIPT',j['source_commit'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qros-mobile-g5-test-only-https-evidence
+          retention-days: 3
+          if-no-files-found: error
+          path: /tmp/qros-g5-evidence/
