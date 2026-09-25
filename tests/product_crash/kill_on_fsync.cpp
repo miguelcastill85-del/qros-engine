@@ -14,7 +14,8 @@ extern "C" int fsync(int fd){
  const auto raw=std::getenv("QROS_M2_KILL_AFTER_FSYNC");
  if(raw && result==0 && ordinal==std::atoi(raw)){
   const char marker[]="TEST_ONLY_FSYNC_CRASH_INJECTED\n";
-  (void)::write(STDERR_FILENO,marker,sizeof(marker)-1);
+  const auto written = ::write(STDERR_FILENO, marker, sizeof(marker)-1);
+  if (written != static_cast<ssize_t>(sizeof(marker)-1)) ::_exit(98);
   ::kill(::getpid(),SIGKILL);
  }
  return result;
