@@ -1,0 +1,32 @@
+{
+  "schema": "QROS_MOBILE_G3_CURRENT_VERIFIED_HEAD_V1",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "scientific_status": "PREREGISTERED_NO_RESULTS_UNCHANGED_IN_MAIN",
+  "authority_source": {
+    "branch": "product/mobile-g3-synthetic-execution-20260925",
+    "tested_commit": "98837a31613b18c57e5a55fb386482d857b24c68",
+    "verified_receipt_path": "product/mobile/receipts/QROS_MOBILE_G3_VERIFIED_ENGINEERING_PASS_20260925.json",
+    "verified_receipt_git_blob_sha1": "7060e6bc51a833fee581c280e4b0b3d0c327cf5d",
+    "raw_ci_receipt_git_blob_sha1": "5e083a7488fb42f1b7d7a8b4c762cdb6832ece01",
+    "g2_parent_exact": "ac5bc7536ae4a977c71f443a39882efebcfd4604",
+    "g3_historical_progress_pointer": "product/mobile/g3/G3_PROGRESS_HEAD.json",
+    "historical_progress_pointer_status": "FROZEN_PRE_CI_EVIDENCE_DO_NOT_RESUME_FROM_THIS_PENDING_FIELD",
+    "science_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d"
+  },
+  "verified_counts": {
+    "g1": 37,
+    "g2": 31,
+    "g3": 22,
+    "randomized_synthetic_scenarios": 160,
+    "synthetic_trade_records": 3
+  },
+  "safeguards": {
+    "market_data": "NONE",
+    "economic_tests": 0,
+    "holdout_open": false,
+    "ga2_open": false,
+    "scientific_transition_authority": false,
+    "production_approved": false
+  },
+  "next_automatic_action": "G4: implement separately governed licensed-data audit and independent evidence trust boundary; begin with synthetic security canaries, strict timezone/DST and Bid/Ask audit, tenant/source license policy and fail-closed dynamic witness design. Do not open holdout, GA2, real PnL, MT5 or production API without independent gates. Keep verified G1/G2/G3 immutable."
+}

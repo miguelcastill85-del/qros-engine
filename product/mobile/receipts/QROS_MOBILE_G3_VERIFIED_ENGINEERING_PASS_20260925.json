@@ -1,0 +1,68 @@
+{
+  "schema": "QROS_MOBILE_G3_VERIFIED_ENGINEERING_RECEIPT_V1",
+  "date_utc": "2026-09-25",
+  "evidence_class": "VERIFIED_GITHUB_ACTIONS_PLUS_INDEPENDENT_DOWNLOADED_ARTIFACT_BYTES",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "source": {
+    "branch": "product/mobile-g3-synthetic-execution-20260925",
+    "exact_tested_commit": "98837a31613b18c57e5a55fb386482d857b24c68",
+    "g2_verified_parent_commit": "ac5bc7536ae4a977c71f443a39882efebcfd4604",
+    "source_manifest_path": "product/mobile/g3/G3_SOURCE_MANIFEST.json",
+    "source_manifest_git_blob_sha1": "e2caddc8b82260e10a20fc08062ad9c27d653294",
+    "source_delta": "EXACT_12_OF_12_FROM_VERIFIED_G2_PARENT"
+  },
+  "github_actions": {
+    "run_id": 36163668377,
+    "job_id": 108166086852,
+    "conclusion": "success",
+    "url": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36163668377",
+    "artifact_id": 10876880248,
+    "artifact_name": "qros-mobile-g3-test-only-execution-evidence",
+    "artifact_expires_at_utc": "2026-09-28T16:54:03Z",
+    "independently_downloaded_artifact_zip_bytes": 944,
+    "independently_downloaded_zip_sha256": "c1aafca0fc46e91a374b8e5905877bd1c2a92ff8d847769ddd0e9c4df753ff66"
+  },
+  "checks": {
+    "g1_m1_backend_regression": "37_OF_37_PASS",
+    "g2_independent_enumerator_regression": "31_OF_31_PASS",
+    "g3_new_execution_and_adversarial_tests": "22_OF_22_PASS",
+    "randomized_independent_python_cpp20_scenarios": 160,
+    "frozen_trade_records": 3,
+    "frozen_fixture_ledger_sha256": "d8ce45cfa9ab8b928b714c7f7fbe7b68030372b95c2d19591f9fbfa87c369253",
+    "frozen_ledger_exact_native_python_byte_parity": "PASS",
+    "positive_spread_synthetic_data_validation": "PASS_FOR_THIS_FIXTURE",
+    "buy_entry": "ASK",
+    "buy_exit": "BID",
+    "sell_entry": "BID",
+    "sell_exit": "ASK",
+    "ambiguous_touch": "SL_FIRST",
+    "gap_policy": "FIRST_EXECUTABLE",
+    "session_end": "NO_OVERNIGHT",
+    "max_new_entries_per_session": 3,
+    "anti_stall_gate": "PASS_G3_SOURCE_DELTA_GATE_ONLY"
+  },
+  "artifact": {
+    "raw_ci_receipt_path": "product/mobile/receipts/G3_CI_RAW_BUILD_RECEIPT_20260925.json",
+    "raw_ci_receipt_git_blob_sha1": "5e083a7488fb42f1b7d7a8b4c762cdb6832ece01",
+    "raw_ci_receipt_sha256": "258e3fa3c9c752c3be1c25d96d10cbbf3b61ceab340dedd42d80e511bf8b987b",
+    "raw_native_result_sha256": "d8ce45cfa9ab8b928b714c7f7fbe7b68030372b95c2d19591f9fbfa87c369253"
+  },
+  "limitations": {
+    "scientific_main_pointer_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "market_data": "NONE",
+    "economic_backtests": 0,
+    "holdout_open": false,
+    "ga2_open": false,
+    "mt5_parity": "NOT_RUN",
+    "real_broker_timezone_dst": "NOT_AUDITED",
+    "latency_partial_fills": "NOT_IMPLEMENTED",
+    "independent_dynamic_external_witness": "NOT_DEPLOYED",
+    "physical_android_device": "NOT_TESTED",
+    "new_android_apk": "NOT_BUILT_G1_APK_RETAINED",
+    "scientific_gate_pass": false,
+    "commercial_release_approved": false,
+    "production_backtester": "NOT_QUALIFIED"
+  },
+  "failures_retained": "NO_NEW_FAILED_G3_CI_RUNS; PREVIOUS_G1_FAILURE_RECEIPTS_UNMODIFIED",
+  "next_automatic_action": "G4: implement separately governed licensed-data audit and independent evidence trust boundary; begin with synthetic security canaries, strict timezone/DST and Bid/Ask audit, tenant/source license policy and fail-closed dynamic witness design. Do not open holdout, GA2, real PnL, MT5 or production API without independent gates. Keep verified G1/G2/G3 immutable."
+}
