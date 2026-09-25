@@ -1,0 +1,67 @@
+{
+  "schema": "QROS_GA1_V223_FROZEN_LINUX_SECCOMP_WORKER_IMPORT_RECEIPT_V1",
+  "date": "2026-09-24",
+  "objective": "Test exact frozen GA1 V223 original worker source/import closure under opt-in Linux-only no-fork seccomp without executing any scientific shard or reading ticks/economic outcomes",
+  "authority": {
+    "main_commit": "ee921dc21ea8e5b9d631b47b68053453aa201e23",
+    "public1000_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "scientific_frontier": "V259",
+    "corrected_ir_branch": "research/ga1-v259-real-carrier-reconcile-20260924",
+    "corrected_ir_pointer_git_blob": "7f0a4d9c47e685055bb4cca99631d199698aee01",
+    "original_recovery_root_v9": "e0de9b178d2acd486cb7a5ad0c8e3200fb5f0fac",
+    "technical_real_data_canary_git_blob": "d3350d8bc37142466e7e048076631f5abf9b0010",
+    "frozen_worker_source_branch": "research/seed0076-first-gate10-20260922",
+    "frozen_worker_source_commit": "b89bd286aafaebc101f02338a79908db8389cd9b",
+    "linux_seccomp_helper_main_pin": "ee921dc21ea8e5b9d631b47b68053453aa201e23"
+  },
+  "frozen_source_git_blobs": {
+    "scripts/qros_seed0076_carrier_masks_v221.py": "0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25",
+    "scripts/qros_seed0076_config_stream.py": "a01268bd8bab639977b22c419926d94306754bba",
+    "scripts/qros_seed0076_ga1_shard_worker_v223.py": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+    "scripts/qros_seed0076_gate_engine_v221.py": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+    "scripts/qros_seed0076_structural_v220.py": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "anti_stall/scripts/qros_linux_seccomp_single_owner_v1.py": "83319390b7e2fe90da4c4873dae5155010d4c074",
+    "anti_stall/scripts/qros_linux_seccomp_single_process_launcher_v1.py": "e0d37267516125cb8de9354560158ad1c80faa48"
+  },
+  "executed": {
+    "git_workflow_commit": "48c313b202ebe646326616be8513c6d63557b6d2",
+    "workflow_path": ".github/workflows/qros-ga1-v259-frozen-worker-linux-seccomp-import.yml",
+    "github_actions_run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36076869464",
+    "github_actions_job_id": 107889924916,
+    "github_actions_conclusion": "success",
+    "platform": "GITHUB_UBUNTU_LATEST_X86_64_PYTHON_3_12",
+    "libraries": {
+      "numpy": "2.0.2",
+      "numba": "0.60.0",
+      "llvmlite": "0.43.0"
+    },
+    "pinned_sources_exact_git_blob": "PASS_7_OF_7",
+    "kernel_status_attested_before_worker_exec": {
+      "Seccomp": 2,
+      "NoNewPrivs": 1,
+      "owns_process_group": true
+    },
+    "worker_argv": "python qros_seed0076_ga1_shard_worker_v223.py --help",
+    "worker_exit_zero": true,
+    "worker_help_sha256": "2ee6ad1fc9b6de5a21aeff0833ffec97953e2ac9c93dac46d4d0ce684f18d6c2"
+  },
+  "scope_limits": [
+    "FROZEN_WORKER_IMPORT_ONLY_NOT_REAL_SHARD_EXECUTION",
+    "DOES_NOT_EXECUTE_RETEST_REARM",
+    "NO_AUTHENTIC_DATA_OR_MASKPACK_USED_IN_THIS_LINUX_IMPORT_JOB",
+    "LINUX_ONLY_WINDOWS_UNTESTED_AT_USER_REQUEST",
+    "NO_INFERENCE_THAT_SECCOMP_SUPPORTS_EVERY_REAL_WORKER_STAGE_OR_ORCHESTRATOR"
+  ],
+  "gates": {
+    "technical_frozen_v223_import": "PASS",
+    "full_frozen_ga1_runtime": "NOT_EXECUTED",
+    "historical_exact_maskpack_parity": "NOT_EXECUTED_CERTIFIED_HEAVY_BYTES_MISSING",
+    "retest_rearm": "QUARANTINED_OPERATOR_EXCLUDED",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "shard11_open": false,
+    "production_adoption": false
+  },
+  "next_automatic_action": "Preserve closed shards and research V9 evidence; seek authentic original maskpack/index/mapping only when new exact-byte source appears; after that compare original GA1 mask roots with independently generated Factor IR without RETEST/rearm, and require full Linux capsule compatibility before adoption."
+}
