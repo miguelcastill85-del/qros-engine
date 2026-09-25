@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_W5_V33_PRE_EXEC_INDEPENDENT_TICK_MASK_RUNNER_SOURCE_FREEZE_V1",
+  "parent_v33_ex_ante_plan_git_blob_sha1": "3f88c26db37daa71d5234bfb61a7e9ba0763c91f",
+  "ex_ante_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+  "frozen_source_name": "v33_run_frozen_remaining_large_mask_parity.py",
+  "frozen_source_SHA256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+  "preexisting_v32_prior_runner_sha256": "69dd15ebe855ff5b4b8ddfe44f5e44dd9555785b2ab3ff4de4c825c8097ca358",
+  "original_V28_simulator_source_sha256": "49011cdc993fa1bfeb42bbf14e18b1c4e17c93e295aadffcc81d282240d5a59e",
+  "original_V28_cached_kernel_sha256": "d20eb16c169e54500683e2fcdf3c7e3e6a41a587cea7e26db432840915eccd26",
+  "max_new_shards_per_bounded_invocation": 6,
+  "default_route_wall_seconds": 100,
+  "work": "PnL blind independent 128 evenly spaced accepted raw source events per original untouched original physical mask; compare raw-tick v2 and V28 schedule field-by-field; immutable receipts",
+  "original_raw_SHA256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "gates": {
+    "no_new_PnL": true,
+    "holdout_open": false,
+    "GA2_open": false,
+    "Gate_A_approved": false,
+    "W3_execution": false
+  }
+}
