@@ -1,0 +1,75 @@
+{
+  "schema": "QROS_W5_V31_ALL_56_FULL_REAL_TAPE_RAW_BID_ASK_QUOTE_INVARIANT_SHA_ANCHOR_V1",
+  "authority": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "parent_pointer_git_blob_sha1": "bcbdecd5fe52341db82a0f5c70617a595bad857e",
+    "parent_v30_handoff_git_blob_sha1": "4baa705b5786ebc4ef20f620613f19b4544de6c1",
+    "parent_v30_anchor_git_blob_sha1": "6a3b02c6cad6fc6386a76f7572ab642e6a779713",
+    "original_w5_full_v209_prereg_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+    "original_v28_economic_sha_anchor": "287b38c34b8c6a549a54420bd57ff0fc94cd9c4f"
+  },
+  "original_source_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "original_8_channel_archive_SHA256": {
+    "0": "196de55420e5c29f3ef776d32179842309826585e2fd7d6580fe73f95561ffa2",
+    "1": "e9dbaf55d02d196bfa122dd23cd78e6050957d028929f0c75c0bcb367ef3c16e",
+    "2": "0a409c8ae4cb6d70fed00d6d250aecf2e71fc1971ae8657f1c52d01f327401e6",
+    "3": "98273ee8c58160de831d71e8667c329b6df35441919ca2ef37fc47d889626dae",
+    "4": "79d30dd8c734c845025583261fd50bd88392c0ce03d21764f8d82eb4d351ea76",
+    "5": "583b967c4a5f560e27cf415e350d34567d07b5b29df72bb0ffb201658c444923",
+    "6": "a12a9c61166a7999f33bf0c38746f70a45a3ce9d3448af565c88f66d3734ef02",
+    "7": "c1065ab90c72ab9d7ffe7f8509a7eeb0fb115a2d8787985681a74e6d9d423e95"
+  },
+  "v31_new_verified": {
+    "six_previously_unverified_channels": [
+      0,
+      2,
+      3,
+      4,
+      6,
+      7
+    ],
+    "new_independently_quote_checked_candidate_tape_routes": 42,
+    "new_original_candidate_occurrences_checked": 3492476,
+    "new_successful_original_candidate_quote_entry_exit_checked": 2811514,
+    "new_6_zip_full_sha256_and_crc": "PASS_6_OF_6",
+    "v31_full_quote_raw_reproducer_SHA256": "0451fa46cc34b1fa7912dbc3deaed0eae6580dffb1c32aa2cdbf7b5c6535707b"
+  },
+  "cumulative_verified": {
+    "all_original_channels": 8,
+    "all_unique_frozen_candidate_tape_routes": 56,
+    "all_source_candidate_occurrences_checked": 4893665,
+    "all_successful_bid_ask_executable_entry_exit_events_checked": 3933457,
+    "prior_v30_exhaustive_two_channel_mask_ordinal_stratified_independent_trade_parity": {
+      "mask_occurrences": 293,
+      "source_event_samples": 37504,
+      "exact_trades": 26754,
+      "exact_fields": 294294
+    },
+    "full_22352_mask_independent_trade_execution_parity": "NOT_COMPLETE"
+  },
+  "new_archive": {
+    "provider": "ChatGPT Library",
+    "library_folder": "/QROS_SEED0076_W5_V31_EVIDENCE_20260925",
+    "library_file_id": "libfile_1a3201e0dc20819181f081fb2a340143",
+    "name": "QROS_W5_V31_ALL_56_ROUTE_FULL_QUOTE_INVARIANT_20260925.zip",
+    "bytes": 11684,
+    "sha256": "6bb22f7701f41db71264224a9b1549416857d7aef92bec93e8543eaa2a6a026c",
+    "raw_bytes_exact_readback": true,
+    "crc": "PASS",
+    "zip_members": 11,
+    "internal_manifest_sha256": "9afe42485ee5f7283e698eef9067d8ce14264f6937c581f5196a58c2aa908d24",
+    "master_receipt_sha256": "2b8578cff4b7734f96e8cb3525b06e2a22f9d2a4f8861c5a65faafe733f15304"
+  },
+  "scientific_firewalls": {
+    "V28_original_full10_22352_economic_exploratory_shards_complete_untouched": true,
+    "this_stage_new_PnL": false,
+    "historical_exact_2018_2019_broker_commission_certified": false,
+    "historical_complete_symbol_exception_calendar_certified": false,
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "W3_unstarted_deferred": true
+  },
+  "next_action": "Run masked frozen original V28 tape independent real tick parity on CH2,CH3,CH6,CH7 all physical masks in bounded fragments, plus PnL-blind predeclared representative masks across CH0 andCH4 batch routes. Broker historical account-commission and exact 2018-2019 XAU special hours must be independently certified before Gate A."
+}
