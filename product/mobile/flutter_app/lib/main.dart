@@ -3,6 +3,7 @@ import 'core/research_store.dart';
 import 'core/verified_demo.dart';
 import 'core/universe_store.dart';
 import 'ui/app_shell.dart';
+import 'ui/g6_proof_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -81,7 +82,17 @@ class _QrosAppState extends State<QrosApp> {
           labelTextStyle: WidgetStatePropertyAll(TextStyle(fontSize: 11)),
         ),
       ),
-      home: QrosShell(store: _store, universeStore: _universeStore, demoGateway: widget.demoGateway ?? const HttpsDemoGateway()),
+      home: Builder(builder: (context) => Stack(children: [
+        QrosShell(store: _store, universeStore: _universeStore,
+          demoGateway: widget.demoGateway ?? const HttpsDemoGateway()),
+        Positioned(bottom: 96, right: 12, child: FloatingActionButton.small(
+          key: const Key('open-g6-proof'),
+          tooltip: 'Verificador G6 TEST_ONLY',
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(
+            builder: (_) => const G6ProofScreen())),
+          child: const Icon(Icons.shield_outlined),
+        )),
+      ])),
     );
   }
 }

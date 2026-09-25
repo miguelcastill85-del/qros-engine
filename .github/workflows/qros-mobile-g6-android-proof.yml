@@ -1,0 +1,132 @@
+name: qros-mobile-g6-android-signed-g5-test-only
+on:
+  push:
+    branches:
+      - product/mobile-g6-android-g5-proof-20260925
+    paths:
+      - 'product/mobile/g6/**'
+      - 'product/mobile/flutter_app/**'
+      - '.github/workflows/qros-mobile-g6-android-proof.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qros-mobile-g6-engineering
+  cancel-in-progress: true
+jobs:
+  independent-python-g5-g6:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject no-op, detect frozen G5 drift and pin original scientific HEAD
+        run: python product/mobile/g6/anti_stall_gate.py --remote-git
+      - name: Use frozen M1/G5 crypto dependencies only
+        run: python -m pip install --disable-pip-version-check -r product/mobile/backend/requirements.txt
+      - name: Independently regenerate signed G6 wire fixture from real G4 auditor and G5 constructor
+        run: |
+          set -euo pipefail
+          python product/mobile/g6/generate_signed_fixture.py
+          git diff --exit-code -- product/mobile/flutter_app/assets/g6_signed_snapshot.json product/mobile/flutter_app/assets/g6_offline_trust.json
+      - name: Existing G1/M1 cryptographic backend and G5 synthetic HTTPS regression tests
+        run: |
+          set -euo pipefail
+          (cd product/mobile/backend && python -m unittest discover -s tests -v)
+          python -m unittest discover -s product/mobile/g5/tests -v
+      - name: Independent G6 Python oracle plus original G5 direct verifier and tamper suite
+        run: python -m unittest discover -s product/mobile/g6/tests -v
+      - name: Bind verified G6 fixture bytes to exact current source commit
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/qros-g6-ci
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          root=Path('product/mobile/flutter_app/assets')
+          receipt={'schema':'QROS_G6_INDEPENDENT_PYTHON_CI_RECEIPT_V1',
+            'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+            'source_gate':'PASS_REQUIRED_STEP', 'g1_g5_regressions':'PASS_REQUIRED_STEP',
+            'g6_python_original_g5_oracle':'PASS_REQUIRED_STEP',
+            'fixture_sha256':hashlib.sha256((root/'g6_signed_snapshot.json').read_bytes()).hexdigest(),
+            'trust_pin_sha256':hashlib.sha256((root/'g6_offline_trust.json').read_bytes()).hexdigest(),
+            'broker_data':'NONE','economic_tests':0,'holdout_open':False,'ga2_open':False,
+            'production_external_witness':False,'physical_android_test':False}
+          Path('/tmp/qros-g6-ci/G6_PYTHON_RECEIPT.json').write_text(json.dumps(receipt,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(receipt,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qros-mobile-g6-python-evidence
+          retention-days: 3
+          if-no-files-found: error
+          path: /tmp/qros-g6-ci/
+  android-g6:
+    needs: independent-python-g5-g6
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.35.4'
+      - name: Rehydrate Android-only platform wrapper; no Windows/macOS UI
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          test ! -d windows && test ! -d macos
+          flutter create --platforms=android --project-name=qros_mobile_studio --org=app.qros --no-pub .
+          flutter pub get
+      - name: Strict Flutter analyze and ALL M1/G1/G6 Dart and widget tests
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          flutter analyze --no-pub
+          flutter test --no-pub --reporter expanded
+      - name: Compile new G6 Android TEST_ONLY debug APK
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          flutter build apk --debug --no-pub
+          test -s build/app/outputs/flutter-apk/app-debug.apk
+          sha256sum build/app/outputs/flutter-apk/app-debug.apk
+      - name: Capture exact-source Android G6 reproducibility receipt
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          p=Path('build/app/outputs/flutter-apk/app-debug.apk')
+          flutter=json.loads(subprocess.check_output(['flutter','--version','--machine'],text=True))
+          receipt={'schema':'QROS_MOBILE_G6_ANDROID_CI_RECEIPT_V1',
+            'status':'PASS_ENGINEERING_TEST_ONLY',
+            'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+            'apk_bytes':p.stat().st_size,'apk_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),
+            'flutter_version':flutter['frameworkVersion'],'dart_version':flutter['dartSdkVersion'],
+            'analyze':'PASS_REQUIRED_STEP','full_m1_g1_g6_flutter_test':'PASS_REQUIRED_STEP',
+            'independent_python':'PASS_REQUIRED_DEPENDENCY_JOB',
+            'source_class':'SYNTHETIC_ONLY','economic_tests':0,
+            'holdout_open':False,'ga2_open':False,'mt5_run':False,
+            'real_android_device':'NOT_RUN','external_independent_witness':'NOT_DEPLOYED',
+            'production_https':'NOT_DEPLOYED','commercial_release_approved':False}
+          Path('G6_ANDROID_BUILD_RECEIPT.json').write_text(json.dumps(receipt,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(receipt,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qros-mobile-g6-test-only-apk
+          retention-days: 3
+          if-no-files-found: error
+          path: |
+            product/mobile/flutter_app/build/app/outputs/flutter-apk/app-debug.apk
+            product/mobile/flutter_app/G6_ANDROID_BUILD_RECEIPT.json

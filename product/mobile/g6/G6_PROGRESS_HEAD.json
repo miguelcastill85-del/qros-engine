@@ -1,0 +1,37 @@
+{
+  "ci_incidents": [
+    {
+      "phase": "FLUTTER_ANALYZE",
+      "reason": "Five curly_braces_in_flow_control_structures, one prefer_interpolation_to_compose_strings and one unnecessary_cast; 37+27+19 Python tests PASS; Android APK not built",
+      "resolution": "Braces added to five single-line ifs, interpolate UTC timestamp, remove redundant cast. Preserve failed Actions run and retry unchanged test gates.",
+      "run_id": 36195070781,
+      "tested_commit": "3e6d59ce4feb81e6d0e55b6a3a8ec39532fd2b14"
+    },
+    {
+      "correction": "Move result/error/progress immediately after offline button, retain all optional connection fields and signed proof checks, strengthen widget error assertion. Rerun all Android tests and build gate.",
+      "phase": "FLUTTER_WIDGET_TEST",
+      "reason": "Flutter analyze ZERO issues; 31 Dart widget/unit tests passed and one new G6 widget assertion did not find offscreen lazily built result Card; 37+27+19 Python tests PASS. APK intentionally not built after required test failed.",
+      "root_cause": "The synthetic proof result was placed after eight optional TLS input fields, so the ListView did not construct it in the 800x600 test viewport. UX also failed to expose immediate feedback after offline verification.",
+      "run_id": 36195415152,
+      "tested_commit": "03f1593b6c45a1879b2aff325d6b4de2a8038c78"
+    }
+  ],
+  "economic_tests": 0,
+  "expected_fixture_count": 1,
+  "expected_required_delta_files": 18,
+  "externally_administered_dynamic_witness": "NOT_DEPLOYED",
+  "g5_mobile_product_head_blob": "2b1c876a7c033e6cc5309b8ad2e77c3a27600839",
+  "g5_verified_head_blob": "5f95b28caa79a15126d50b91097681d41e202b29",
+  "ga2_open": false,
+  "holdout_open": false,
+  "main_scientific_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "next_automatic_action": "Rerun exact G6 source/CI from corrected analyzer source; then Flutter full regression and independent APK bytes before promoting G6 v9. Preserve failed run 36195070781.",
+  "parent_exact": "69109c6570c6cbb48f807b1b417dbdfa0b53fa54",
+  "phase": "G6_ANDROID_SIGNED_G5_SYNTHETIC_PROOF_CI_PENDING",
+  "physical_android_install": "NOT_TESTED",
+  "public_https": "NOT_DEPLOYED",
+  "schema": "QROS_MOBILE_G6_PROGRESS_HEAD_V1",
+  "scientific_authority": false,
+  "status": "DEVELOPMENT_RUNNING",
+  "target_android_version": "0.6.0+6"
+}
