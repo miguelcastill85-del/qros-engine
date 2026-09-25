@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'core/research_store.dart';
+import 'core/verified_demo.dart';
 import 'ui/app_shell.dart';
 
 void main() {
@@ -8,9 +9,10 @@ void main() {
 }
 
 class QrosApp extends StatefulWidget {
-  const QrosApp({super.key, this.store});
+  const QrosApp({super.key, this.store, this.demoGateway});
 
   final ResearchStore? store;
+  final DemoGateway? demoGateway;
 
   @override
   State<QrosApp> createState() => _QrosAppState();
@@ -75,7 +77,7 @@ class _QrosAppState extends State<QrosApp> {
           labelTextStyle: WidgetStatePropertyAll(TextStyle(fontSize: 11)),
         ),
       ),
-      home: QrosShell(store: _store),
+      home: QrosShell(store: _store, demoGateway: widget.demoGateway ?? const HttpsDemoGateway()),
     );
   }
 }

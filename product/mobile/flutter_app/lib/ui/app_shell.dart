@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../core/research_store.dart';
+import '../core/verified_demo.dart';
+import 'verified_demo_screen.dart';
 import 'new_project_screen.dart';
 
 const qrosBackground = Color(0xFF09111F);
@@ -13,8 +15,9 @@ const qrosMuted = Color(0xFFA7B9CF);
 const qrosAmber = Color(0xFFFBD67A);
 
 class QrosShell extends StatefulWidget {
-  const QrosShell({super.key, required this.store});
+  const QrosShell({super.key, required this.store, required this.demoGateway});
   final ResearchStore store;
+  final DemoGateway demoGateway;
 
   @override
   State<QrosShell> createState() => _QrosShellState();
@@ -68,7 +71,9 @@ class _QrosShellState extends State<QrosShell> {
             0 => _HomePage(store: widget.store, onNewProject: _newProject, onOpenProjects: () => setState(() => _page = 1)),
             1 => _ProjectsPage(store: widget.store, onNewProject: _newProject),
             2 => _HistoryPage(store: widget.store),
-            _ => _EvidencePage(store: widget.store),
+            _ => _EvidencePage(store: widget.store, onOpenDemo: () =>
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway)))),
           };
         },
       ),
@@ -378,8 +383,9 @@ class _HistoryPage extends StatelessWidget {
 }
 
 class _EvidencePage extends StatelessWidget {
-  const _EvidencePage({required this.store});
+  const _EvidencePage({required this.store, required this.onOpenDemo});
   final ResearchStore store;
+  final VoidCallback onOpenDemo;
 
   Future<void> _copyEvidence(BuildContext context) async {
     final contents = const JsonEncoder.withIndent('  ').convert(store.exportSyntheticEvidence());
@@ -408,6 +414,17 @@ class _EvidencePage extends StatelessWidget {
         _EvidenceLine(label: 'Recibos autenticados', value: 'PENDIENTE'),
         _EvidenceLine(label: 'Holdout', value: 'CERRADO'),
         _EvidenceLine(label: 'Trading automático', value: 'DESACTIVADO'),
+      ])),
+      const SizedBox(height: 20),
+      const SectionHeading('Consulta remota DEMO'),
+      QrosPanel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const Text('Conectar solo lectura', style: TextStyle(fontWeight: FontWeight.w700)),
+        const SizedBox(height: 8),
+        const Text('Requiere HTTPS, un token temporal y dos firmas criptográficas válidas. No abre permisos científicos.',
+          style: TextStyle(fontSize: 12, color: qrosMuted)),
+        const SizedBox(height: 14),
+        OutlinedButton.icon(key: const Key('open-remote-demo'), onPressed: onOpenDemo,
+          icon: const Icon(Icons.security_outlined), label: const Text('Consultar demo firmada')),
       ])),
       const SizedBox(height: 20),
       const SectionHeading('Exportación demostrativa'),

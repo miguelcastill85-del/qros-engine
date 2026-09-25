@@ -1,0 +1,62 @@
+{
+  "date_utc": "2026-09-25",
+  "deployment": {
+    "https_ingress": "NOT_CONFIGURED",
+    "independent_live_witness": "NOT_CONFIGURED",
+    "paid_services_enabled": false,
+    "physical_android_device": "NOT_TESTED",
+    "public_api_enabled": false,
+    "server_bind": "127.0.0.1_only"
+  },
+  "firewalls": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "mt5_executed": false,
+    "scientific_main_mutated": false
+  },
+  "frozen_source_manifest": "product/mobile/M1_LOCAL_SOURCE_MANIFEST.json",
+  "frozen_source_manifest_sha256": "6eb5407bdbbdad544d6dbb22a7ce077634ccf2fa36ed4c152910a092daff003a",
+  "isolated_branch": "product/mobile-m1-signed-readonly-20260925",
+  "local_backend_unittest": {
+    "count": 23,
+    "crypto_version": "46.0.4",
+    "python_runtime": "CPython 3.13",
+    "status": "PASS_LOCAL_TEST_ONLY"
+  },
+  "mobile_test": "PENDING_REAL_FLUTTER_RUN",
+  "next_automatic_action": "Design separately governed monotonic immutable external witness and opt-in authenticated HTTPS read-only demo ingress, test real Android installation and pairing, and only then bind actual canonical M2 research receipts. Maintain zero client scientific mutation; never resume Windows UI.",
+  "phase": "SIGNED_SYNTHETIC_READONLY_ANDROID_M1_ENGINEERING_PASS",
+  "schema": "QROS_MOBILE_M1_ISOLATED_EXPERIMENT_POINTER_V2",
+  "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "signed_fixture": {
+    "anchor_body_sha256": "13232d1cfef35495692db5447bd1deb825fa5650b9459e3e9694a907f44048ac",
+    "source_class": "TEST_ONLY_SYNTHETIC",
+    "trust_root_sha256": "45a444b3545de8400df5c36442011324b253eb91f2bb7c35bde26e0424032216",
+    "witness_and_receipt_private_keys_present": false
+  },
+  "source_branch": "product/mobile-m2-ledger-prototype-20260925",
+  "source_commit_exact": "eb49837221e8df7e1cc054d03c8a921e497b20e6",
+  "source_m2_experiment_pointer_blob_sha1": "8a0d531db36e4a4555e43a1f2ad84bb8ac130d63",
+  "source_mobile_head_blob_sha1": "15921b43aedb8263ed168c61c8a00a584b35bd80",
+  "status": "DEVELOPMENT_RUNNING",
+  "tested_source_commit": "4d8d70e5ebb8bfdefaddd2be188b75659ad4c824",
+  "github_actions_run_id": 36095871557,
+  "engineering_receipt_path": "product/mobile/receipts/QROS_MOBILE_M1_VERIFIED_ENGINEERING_PASS_20260925.json",
+  "engineering_receipt_git_blob_sha1": "d5224a2e915c0008134de0574d26339542e7ff2b",
+  "raw_ci_receipt_path": "product/mobile/receipts/M1_CI_RAW_BUILD_RECEIPT.json",
+  "raw_ci_receipt_git_blob_sha1": "489e8032ec9718b623b9f6642a3f4fbb9f00e77f",
+  "verification": {
+    "backend_tests": "23_OF_23_PASS",
+    "flutter_tests": "13_OF_13_PASS",
+    "analyze": "ZERO_ISSUES",
+    "apk_rehashed_against_ci": "PASS",
+    "apk_bytes": 141575502,
+    "apk_sha256": "106dfeceb971d26655e93d2d3d87361a96ca321af9233df66593006b4fa74f2d",
+    "physical_android_device": "NOT_RUN",
+    "public_https_demo": "NOT_DEPLOYED",
+    "independent_live_witness": "NOT_DEPLOYED",
+    "paid_services": "NONE_ACTIVATED_BUT_PRIVATE_GITHUB_ACTIONS_MINUTES_CONSUMED_QUOTA_UNKNOWN"
+  },
+  "original_pointer_sha1": "b36772eeeb462e23e4016c7221fe817d0df4d75e"
+}

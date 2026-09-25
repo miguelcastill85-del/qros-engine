@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:qros_mobile_studio/main.dart';
 import 'package:qros_mobile_studio/core/research_store.dart';
+import 'package:qros_mobile_studio/core/verified_demo.dart';
+
+class DemoGatewayStub implements DemoGateway {
+  @override
+  Future<VerifiedDemo> fetch(String origin, String token) async => const VerifiedDemo(
+    projectTitle: 'Ruptura y recuperacion DEMO',
+    anchorHash: DemoTrust.anchorSha256, anchorSequence: 1,
+    symbol: 'XAUUSD', side: 'BUY', timeframe: 'M15');
+}
 
 void main() {
   testWidgets('home and all four mobile destinations render honest offline states', (tester) async {
@@ -36,6 +45,27 @@ void main() {
     expect(store.localDraftCount, 1);
     expect(store.projects.first.state, 'LOCAL_DRAFT_NOT_FROZEN');
     expect(find.text('LOCAL-0001'), findsOneWidget);
+    store.dispose();
+  });
+
+  testWidgets('mobile remote DEMO is read-only and never marks approval', (tester) async {
+    final store = ResearchStore();
+    await tester.pumpWidget(QrosApp(store: store, demoGateway: DemoGatewayStub()));
+    await tester.tap(find.text('Seguridad').last);
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(find.byKey(const Key('open-remote-demo')), 220.0,
+      scrollable: find.byType(Scrollable).last);
+    await tester.tap(find.byKey(const Key('open-remote-demo')));
+    await tester.pumpAndSettle();
+    expect(find.textContaining('SOLO LECTURA'), findsOneWidget);
+    await tester.enterText(find.byKey(const Key('remote-demo-url')), 'https://valid.example.com');
+    await tester.enterText(find.byKey(const Key('remote-demo-token')), 'test_example_0123456789_0123456789');
+    await tester.tap(find.byKey(const Key('remote-demo-fetch')));
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('remote-demo-verified')), findsOneWidget);
+    expect(find.textContaining('SIMULATED_SAMPLE'), findsOneWidget);
+    expect(store.engineConnected, false);
+    expect(store.actualBacktests, 0);
     store.dispose();
   });
 

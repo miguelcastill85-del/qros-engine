@@ -1,0 +1,154 @@
+{
+  "date_utc": "2026-09-25",
+  "schema": "QROS_MOBILE_M1_FROZEN_SOURCE_MANIFEST_V1",
+  "scientific_main_modified": false,
+  "source_commit_before_work": "eb49837221e8df7e1cc054d03c8a921e497b20e6",
+  "source_files": [
+    {
+      "git_blob_sha1": "1206977a19e3105c2b6afd5e62132eb600e75b45",
+      "path": ".github/workflows/qros-mobile-m1-signed-readonly.yml",
+      "sha256": "c1bc341053c262e04ce79120c9c06767fd5b9a92fc5dc86405151cca5ab409e2",
+      "size_bytes": 5535
+    },
+    {
+      "git_blob_sha1": "3f135f70d52f90dcb567a74581ac26bf9dd82814",
+      "path": "product/mobile/MOBILE_M1_META_AUDIT.md",
+      "sha256": "cd299f2d3f61a867f0436e30857d160dac64584c53818eae825321f682be5208",
+      "size_bytes": 2645
+    },
+    {
+      "git_blob_sha1": "7f3c00774d56b23b80af091c7a3da9b4205aa110",
+      "path": "product/mobile/backend/README.md",
+      "sha256": "ace35c4ed4ee0a3bba6c8bdd4fc487f6829dc5b842f815ec4dd4255adfe17d13",
+      "size_bytes": 3198
+    },
+    {
+      "git_blob_sha1": "38c502128e37fa78cdc24c7b79c247d535dddf3c",
+      "path": "product/mobile/backend/demo/PUBLIC_PIN.txt",
+      "sha256": "5c32082ad002afd2bbbb3b6ab8bda007c43274f1b086a4b3179e2628d4c0ccb8",
+      "size_bytes": 65
+    },
+    {
+      "git_blob_sha1": "aae839a4c1b71a4ff44fcbf13a636a093289b199",
+      "path": "product/mobile/backend/demo/generate_signed_fixture.py",
+      "sha256": "d75b68798e874db51c72f3aadb1aedcb6ecdc793531f5c6d9f87096b4ee6e42a",
+      "size_bytes": 3558
+    },
+    {
+      "git_blob_sha1": "55ac438949b9464c68f8bead5b325c528c127c04",
+      "path": "product/mobile/backend/demo/signed_snapshot.json",
+      "sha256": "c52c3f5462d68f5d2c4246eea4cacd7f22fd29e591fe0916badd0f5f06b51140",
+      "size_bytes": 1572
+    },
+    {
+      "git_blob_sha1": "7225ef5899f4c57bbc57d6f115d71bb70275d674",
+      "path": "product/mobile/backend/demo/trust_root.json",
+      "sha256": "45a444b3545de8400df5c36442011324b253eb91f2bb7c35bde26e0424032216",
+      "size_bytes": 407
+    },
+    {
+      "git_blob_sha1": "68a1d93c9ac7fcde879c7ccefc3608870527e307",
+      "path": "product/mobile/backend/protocol.py",
+      "sha256": "5d3e98cdd055f6eb0ded5442024827e10226c8219c72f6bad21ad210265fa966",
+      "size_bytes": 7954
+    },
+    {
+      "git_blob_sha1": "c011dd5d074245a5d49692b0d7044fd80d8a855f",
+      "path": "product/mobile/backend/requirements.txt",
+      "sha256": "ba5dd4592ae2d0d83245ce3e3ef8be50cd4bf93fc2fb9577caf7219d2ac3800d",
+      "size_bytes": 21
+    },
+    {
+      "git_blob_sha1": "afa5aae7dfe393e1261e26a1fda0ae7a47a8d2f3",
+      "path": "product/mobile/backend/server.py",
+      "sha256": "0cbb4c9d1340df36bcd5ae734ba72633bf6218a59246b22fdae969abbcc20bac",
+      "size_bytes": 4992
+    },
+    {
+      "git_blob_sha1": "ab48bf9fc40c22476a0c244338dee43a03217f49",
+      "path": "product/mobile/backend/tests/test_protocol.py",
+      "sha256": "7ba863ea7a0c89df161717d72bf06ad499055bca3aa06ded8dddf6eabc9119f3",
+      "size_bytes": 4963
+    },
+    {
+      "git_blob_sha1": "3064fa202d46a9468bf9ef1d00b631d286437dd8",
+      "path": "product/mobile/backend/tests/test_server.py",
+      "sha256": "91dcd8151f005a3c1b063875912e5c733135d2f0ce90d7f502e4fc8c32c261cb",
+      "size_bytes": 4030
+    },
+    {
+      "git_blob_sha1": "eec05cec434815c0164deeb3c6aca5b0e324b2a9",
+      "path": "product/mobile/flutter_app/README_M1.md",
+      "sha256": "85f7733de66d4619ef4a0ca8c5b49c1fade9f885267121eff86e59ac1f6642e0",
+      "size_bytes": 1147
+    },
+    {
+      "git_blob_sha1": "b4047f9b628abd60b183a83198b85a5ce23c8686",
+      "path": "product/mobile/flutter_app/lib/core/research_store.dart",
+      "sha256": "ebedc932353577d91815dfb25559ccb14eb76d9e448f5d40b30bb69bf8c6235a",
+      "size_bytes": 4343
+    },
+    {
+      "git_blob_sha1": "1e9f2c7e0cacf20ea912db0ce3e345fa04b921d0",
+      "path": "product/mobile/flutter_app/lib/core/verified_demo.dart",
+      "sha256": "8932dee1a9ee20dd437e431727a9cb224ec142f95577790ea3f30f63627406b7",
+      "size_bytes": 7833
+    },
+    {
+      "git_blob_sha1": "aa79fc3b62801e41d2266bac37c2d9d163f1de92",
+      "path": "product/mobile/flutter_app/lib/main.dart",
+      "sha256": "1ee7ceea20b87c67bca29d6fd3f78f62adfa41a4f54e7594f3835cfcf64da0e4",
+      "size_bytes": 2756
+    },
+    {
+      "git_blob_sha1": "d88994289e24b8dac697183852f354501b5d648e",
+      "path": "product/mobile/flutter_app/lib/ui/app_shell.dart",
+      "sha256": "85ada7d516e51b976ac864680c127a71a4bcf01dcc6e86198d3ae5510c175e1b",
+      "size_bytes": 20221
+    },
+    {
+      "git_blob_sha1": "379b3545e2510049bcd3d353a9b76f673fb119b9",
+      "path": "product/mobile/flutter_app/lib/ui/new_project_screen.dart",
+      "sha256": "d987fb59e66797604380b8d82eac97e083fb7fff3efe7328dc476b44f547756f",
+      "size_bytes": 5014
+    },
+    {
+      "git_blob_sha1": "14d38cd2a23cbe25abc3d4b19708179e0f3e3752",
+      "path": "product/mobile/flutter_app/lib/ui/verified_demo_screen.dart",
+      "sha256": "55738fa708f79c40aaac9de9149f268f002e854793313227654d0377dfbaffe6",
+      "size_bytes": 4293
+    },
+    {
+      "git_blob_sha1": "0e4afb359ded957f8da8a4e1b9795ab689c503bd",
+      "path": "product/mobile/flutter_app/pubspec.yaml",
+      "sha256": "3a58fd568a1c72f175e9f3b1c7a439de65ab818573102b6768282f4fea4f2212",
+      "size_bytes": 366
+    },
+    {
+      "git_blob_sha1": "8c022c5c298e8d840401b77473a84e0c257f4bf6",
+      "path": "product/mobile/flutter_app/test/research_store_test.dart",
+      "sha256": "52286fecfccc0ecb5ab0d313090fb41eb474a91da71a5b5a33f048304490ddba",
+      "size_bytes": 1968
+    },
+    {
+      "git_blob_sha1": "55ac438949b9464c68f8bead5b325c528c127c04",
+      "path": "product/mobile/flutter_app/test/signed_snapshot.json",
+      "sha256": "c52c3f5462d68f5d2c4246eea4cacd7f22fd29e591fe0916badd0f5f06b51140",
+      "size_bytes": 1572
+    },
+    {
+      "git_blob_sha1": "b35648b2015bb964246b76bdadb437b6d36dce2e",
+      "path": "product/mobile/flutter_app/test/verified_demo_test.dart",
+      "sha256": "79adccf0f30261a69d74ebd639c94ffc025f7b5be36e684cee7025f287e2aed2",
+      "size_bytes": 2513
+    },
+    {
+      "git_blob_sha1": "d4e7fb3a906b2732e7c9e62fe3137dcda69e1242",
+      "path": "product/mobile/flutter_app/test/widget_test.dart",
+      "sha256": "5e515cbf365a5aa4e16ecc7690d0ba3f625af42ae6d6e2aa38f0e7b7937fefac",
+      "size_bytes": 4187
+    }
+  ],
+  "test_only": true,
+  "working_branch": "product/mobile-m1-signed-readonly-20260925"
+}
