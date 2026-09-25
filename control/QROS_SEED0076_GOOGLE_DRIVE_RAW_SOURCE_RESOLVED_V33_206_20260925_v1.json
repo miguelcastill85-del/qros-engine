@@ -1,0 +1,65 @@
+{
+  "schema": "QROS_XAU_GOOGLE_DRIVE_SOURCE_RECOVERY_CORRECTION_V1",
+  "date": "2026-09-25",
+  "objective": "Correct prior main checkpoint's now-obsolete original XAU 2018–2019 source transfer blocker using exact original Google Drive file bytes and resume direct V33 PnL-blind parity.",
+  "superseded_checkpoint": {
+    "path": "control/QROS_SEED0076_V28_SOURCE_LINUX_V33_RECOVERY_CHECKPOINT_20260925_v1.json",
+    "creation_commit": "24e0f8c8d7ae86070228c9d12ac74e68282d7a4b",
+    "specific_superseded_claim": "current sandbox lacks original 2018–2019 raw stream and original ZIP source must be downloaded from Dropbox temporary URLs",
+    "correction": "Complete exact original ZIP parts 001–008 were found and downloaded from another existing Google Drive folder, not re-created or substituted. All eight actual raw ZIP SHA256 checks, full ZIP member CRC and complete frozen DEV stream SHA256 are verified."
+  },
+  "authority": {
+    "main_base": "24e0f8c8d7ae86070228c9d12ac74e68282d7a4b",
+    "main_science_frontier": "V259",
+    "main_science_pointer_git_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "direct_branch": "research/seed0076-direct-dev-backtest-20260922",
+    "direct_active_checkpoint_commit": "27cc650940761567ab59be6cca4ccac169b7c766",
+    "direct_active_pointer_git_blob": "10d8a9fbefcfdaa6a9ed7ba7194afe6023fc4d80",
+    "direct_v33_206_sha_anchor_git_blob": "414f282c55114a2db8283b09faca8942bb1faff1",
+    "direct_v33_206_handoff_git_blob": "cf26631427cf17cc393792f4678db62afaa68755"
+  },
+  "verified_source": {
+    "origin": "CONNECTED_GOOGLE_DRIVE",
+    "root_folder": "QROS_CARRIER_STORE_2018_2026/XAUUSD/FULL_2018_2026",
+    "folder_id": "15lar_swBxKjjt0dkhrp0YRf7MrRjqLZZ",
+    "source_manifest": "QROS_DRIVE_CARRIER_LAYOUT_MANIFEST_20260920_v1.json",
+    "source_manifest_sha256": "ed228163aa41658f4308b0498e0ad0955d70f7c2c8cb057c4aedf77d5f49bf9c",
+    "exact_canonical_zip_parts": "PASS_8_OF_8",
+    "full_member_crc": "PASS_8_OF_8",
+    "raw_original_dev_ticks": 151382388,
+    "raw_dev_bytes": 2573500596,
+    "raw_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "quotes_modified": false
+  },
+  "V33_durable_delta": {
+    "prior_immutable_192_shards": "PASS_SHA_VERIFIED_NO_RERUN",
+    "new_shards": 14,
+    "completed_shards": 206,
+    "planned_shards": 710,
+    "remaining_shards": 504,
+    "original_frozen_queue_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "new_independent_trades": 25969,
+    "new_matching_trade_fields": 285659,
+    "full_V33_exact_trades": 304670,
+    "full_V33_matching_fields": 3351370,
+    "library_readback_zip_sha256": "325ae8819194afc6aa578653c25245b10b0973d77ca4073a0591523403c1e3af",
+    "library_zip_id": "libfile_338faeaebcdc81919f52c825b781e1fe"
+  },
+  "scientific_firewalls": {
+    "main_scientific_state": "PREREGISTERED_NO_RESULTS",
+    "direct_state": "DEVELOPMENT_RUNNING",
+    "old_60_10_shards_used": false,
+    "Gate_A": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "new_economic_PnL_read": false
+  },
+  "remaining_issues": [
+    "504 exact frozen V33 independent CH0/CH4 parity shards remain; prior 206 are immutable and authenticated.",
+    "Primary historical Darwinex 2018–2019 XAUUSD account-specific commission still not authenticated.",
+    "Full historical symbol special-session/holiday calendar is not authenticated; source tick availability alone does not certify it.",
+    "Scientific Gate A / holdout / MT5 remain closed."
+  ],
+  "next_automatic_action": "Use actual frozen direct branch current pointer and Library 206-shard SHA-matched archive to resume ONLY CH0 r0_w1_batch005 I163–182 and CH4 r0_w1_batch009 I122–127,I129–142, with bounded atomic SHA-receipted shards, periodic Library+Git CAS; do not reconstruct old 60/10 shards, retest V28 economics or promote Gate A."
+}
