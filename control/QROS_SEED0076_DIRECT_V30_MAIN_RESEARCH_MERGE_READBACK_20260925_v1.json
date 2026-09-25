@@ -1,0 +1,98 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_V30_MAIN_RESEARCH_MERGE_READBACK_V1",
+  "date_utc": "2026-09-25",
+  "OBJETIVO": "Validate and merge scoped direct-from-scratch Seed0076 V30 research into main without using or rerunning historical 60/10 GA1 shards and without promoting economic science.",
+  "AUTORIDAD": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "premerge_main": "ee921dc21ea8e5b9d631b47b68053453aa201e23",
+    "pr": 59,
+    "pr_url": "https://github.com/miguelcastill85-del/qros-engine/pull/59",
+    "merge_commit": "a2122e53ab472be798bcdc3e1bf7ed81d650f9dd",
+    "source_direct_snapshot": "12b0c3583e43df75fce4c3e92a36129de4255fb9",
+    "frozen_main_import_manifest": "control/QROS_DIRECT_W5_V30_SCOPED_MERGE_SNAPSHOT_20260925_v1.json",
+    "frozen_main_import_manifest_git_blob": "e0fcb9235fc1da65e39c4555ab146e4addec8bfd",
+    "frozen_v30_handoff_git_blob": "4baa705b5786ebc4ef20f620613f19b4544de6c1",
+    "frozen_v30_anchor_git_blob": "6a3b02c6cad6fc6386a76f7572ab642e6a779713",
+    "main_science_pointer_git_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "main_scientific_frontier": "V259",
+    "main_scientific_state": "PREREGISTERED_NO_RESULTS"
+  },
+  "DATOS": {
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "scope": "FROM_SCRATCH_SEED0076_W5_ASYM_REARM0_TICK_BREAK_BUY_SELL_FULL10_ONLY",
+    "period": "DEV_2018_2019_ECONOMICALLY_EXPOSED",
+    "semantic_configs": 22352,
+    "physical_masks": 14459,
+    "V28_exploratory_shards": 104,
+    "raw_dev_ticks": 151382388,
+    "raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "V28_master_library_id": "libfile_ec62d620c5a8819188f5b83ebef2d2a0",
+    "V28_master_sha256": "b2943f96a8b0eb946a9899b52e63a354d33971c88baa0b29dfd58f8e116a3e62",
+    "V29_zip_sha256": "68a863602a6a01c585d83d989a4fd710312c74bf0de161e17bd8d87d5c49dfdb",
+    "V30_zip_sha256": "245c951937d8a1b5e71232bda6dcaba0a532aa84accdf5277e1f75f541d430a7"
+  },
+  "TRABAJO_EJECUTADO": [
+    "Recovered exact live research branch pointer and latest V30 before snapshot; pinned exact fixed source commit to avoid ongoing concurrent branch advancement.",
+    "Read V28 and V29 archived master bytes from Library into isolated runtime, independently checked ZIP SHA and all 146/5 manifest members and CRC.",
+    "Independently verified the 22352 V28 semantic IDs across both sides and frozen SHA roots, deduplicated 14459 physical masks, confirmed economic-field equality for all 7893 aliases and uncertified/exposed flags for all CSV rows.",
+    "Ran original archived V28 economic kernel versus its independent implementation on synthetic quotes; 24 trades and 264 exact field comparisons PASS.",
+    "Created from exact main an additive 79-file research import by immutable Git blob, deliberately omitted AGENTS.md conflict and mutable direct-branch current pointer.",
+    "Executed GitHub Actions source+scientific firewall and dual V209 factor enumerators, exact 22352 W5 config IDs, 22 declarative preflight tests and 15 direct Python syntax gates.",
+    "Opened PR59 after CI PASS, obtained remote clean-mergeable status with freeze-source and validate SUCCESS, squash-merged and independently read back main/PR/source immutable identities."
+  ],
+  "RESULTADOS_VERIFICADOS": {
+    "github_workflow": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36088859639",
+    "ci_result": "SUCCESS",
+    "imported_exact_git_blobs": "PASS_79_OF_79",
+    "V209_independent_enumerator_factor_counts": "PASS_4320_BASE_11176_FILTERS_48280320_LOGICAL_CONFIGS_NO_FULL_ECONOMIC_TEST",
+    "one_W5_pair_config_id_stream": "PASS_22352_11176_PER_SIDE",
+    "prospective_preflight_unit_tests": "PASS_22_OF_22",
+    "direct_source_AST": "PASS_15_OF_15",
+    "V28_archive_rehash": "PASS_ZIP_SHA_CRC_AND_146_OF_146_MEMBERS",
+    "V29_archive_rehash": "PASS_ZIP_SHA_CRC_AND_5_OF_5_MEMBERS",
+    "V28_semantic_IDs": "PASS_22352_OF_22352",
+    "V28_alias_economic_equalities": "PASS_7893_OF_7893",
+    "V28_synthetic_trade_parity": "PASS_24_TRADES_264_FIELDS",
+    "V30_independent_quote_parity": "REPORTED_IN_IMMUTABLE_RECOVERABLE_GITHUB_RECEIPT_26754_TRADES_294294_FIELDS_293_MASKS_CH1_CH5_NOT_REDOWNLOADED_IN_THIS_MERGE",
+    "main_scientific_pointer_identity": "PASS_UNCHANGED",
+    "main_shard11_status": false,
+    "pr_merge": "VERIFIED_MERGED"
+  },
+  "GATES": {
+    "scoped_research_code_documentary_merge": "PASS",
+    "main_scientific_promotion": false,
+    "full_original_V28_executable_source_in_git": "PENDING_32_EXECUTED_SOURCES_REMAIN_EXACT_SHA_PINNED_IN_LIBRARY",
+    "full_all_48m_universe_economic_execution": false,
+    "V30_six_remaining_channels_independent_exhaustive_trades": "PENDING",
+    "historical_Darwinex_XAU_2018_2019_source_acquisition_binding": "PENDING",
+    "historical_account_specific_commission": "PENDING",
+    "historical_XAU_special_sessions_calendar": "PENDING",
+    "Gate_A": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "MT5_parity": false,
+    "shard11_open": false,
+    "production_adoption": false,
+    "Windows_testing": "EXCLUDED_BY_OPERATOR"
+  },
+  "PROBLEMAS": [
+    "Original executed V28 32 scripts and raw external tape are durably hash-bound in personal Library, not imported as runnable production sources into GitHub main.",
+    "2018-2019 broker source/acquisition hash binding, account-specific paid commission, symbol holiday and early-close primary contracts missing; conditional NY-close clock already established but not substitute.",
+    "V30 validates two of eight channels comprehensively at the completed V30 snapshot; pending independent execution parity for remaining six and full all-mask exhaustive gates.",
+    "Main still maintains historical V259 science by design and the entire 48.28M V209 seed is factorized, not fully rerun economically under direct-from-scratch implementation."
+  ],
+  "CAUSA_RAIZ": "Prior attempted promotion incorrectly treated missing historical 10/60 GA1 shard maskpacks as a prerequisite for the independent direct-from-scratch lineage. The new direct W5 V30 lineage has its own frozen V209 grammar, exact 22352-ID root, independent V28 and V29 archives and immutable V30 result anchor. Scoped git archive import must remain distinct from scientific promotion and the continuing mutable research branch.",
+  "CORRECCIONES": [
+    "Completely excluded old historical 60/10 shards from merge blockers and CI.",
+    "Built integration branch from exact live main and only added source-identical new direct research blobs; preserved orthogonal AGENTS.md and mutable active direct handoff out of main.",
+    "Maintained V259 stable scientific pointer exactly unchanged and all economic gates closed."
+  ],
+  "ESTADO_CIENTIFICO": {
+    "main": "PREREGISTERED_NO_RESULTS",
+    "direct_research": "DEVELOPMENT_RUNNING_NEW_W5_EXPOSED_DEV_EXPLORATORY",
+    "individual_W5_Gate_A": "NOT_APPROVED"
+  },
+  "IMPACTO_PORTAFOLIO": "NONE_NO_NEW_APPROVED_ALPHA_NO_TRADE_DEPLOYMENT_OR_PORTFOLIO_RISK",
+  "SIGUIENTE_ACCION_AUTOMATICA": "In continuing direct research branch authenticate CURRENT_CHAT_HANDOFF (may have advanced beyond V30); resume only next pending six-channel trade parity and independently recover primary historical Darwinex XAUUSD 2018-19 special hours/account commission/acquisition proof when material evidence exists. Separately add 32 SHA-verified archived V28 executed sources as opt-in Git files plus their exact restore/compile tests before calling V28 runnable from main. Do not rerun V28 economics, W3, older GA1 10/60 shards or open holdout/GA2/MT5."
+}
