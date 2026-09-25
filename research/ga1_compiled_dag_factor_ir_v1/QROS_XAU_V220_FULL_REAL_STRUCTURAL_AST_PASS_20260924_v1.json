@@ -1,0 +1,112 @@
+{
+  "schema": "QROS_XAU_REAL_DEV_FULL_V220_STRUCTURAL_INDEPENDENT_AST_PASS_V1",
+  "date_local": "2026-09-24",
+  "objective": "Certify exact frozen V220 structural_states and box_history4 function syntax against independent vectorized center-first evaluation on ALL authentic frozen XAUUSD 2018–2019 DEV M2/M12/M15 bars, no economic or original maskpack access.",
+  "authority": {
+    "scientific_main": "ee921dc21ea8e5b9d631b47b68053453aa201e23",
+    "scientific_frontier": "V259",
+    "stable_frontier_pointer_git_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "isolated_research_branch": "research/ga1-v259-real-carrier-reconcile-20260924",
+    "original_frozen_source_branch": "research/seed0076-first-gate10-20260922",
+    "original_frozen_source_commit": "b89bd286aafaebc101f02338a79908db8389cd9b",
+    "original_v220_structural_git_blob": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "frozen_v209_machine_spec_git_blob": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "corrected_v9_verification_receipt_git_blob": "d6044ffc9a9afc77e7e7309a06a02484435e2c9d",
+    "previous_recovery_pointer_git_blob": "8e7a892ca256e085e37d904807c790d8b8c08045",
+    "previous_real_factor_ir_technical_receipt_git_blob": "d3350d8bc37142466e7e048076631f5abf9b0010",
+    "previous_original_v223_synthetic_runtime_receipt_git_blob": "ebd3a50cfe2eb397815719ffcb6c3a96e734bf79"
+  },
+  "data": {
+    "asset": "XAUUSD",
+    "scope": "2018–2019 DEV FROZEN BID BAR CARRIERS ONLY",
+    "point": 0.01,
+    "group_B_archive_sha256": "53cb17e0aa38a009d00fd17588cf054dbe1985bb0dd5958a906220f77fc2b67b",
+    "group_D_archive_sha256": "29c5ec20e89da05e0c0921c409fde4a56ffe1dc95fbd0f4a613ecf8242617dfe",
+    "full_bars": {
+      "M2": {
+        "rows": 341392,
+        "file_sha256": "5d444225020c887f3b81f11b664306b976eaa14ddc945c2c45593e1c35522aa5"
+      },
+      "M12": {
+        "rows": 56939,
+        "file_sha256": "9a14155e472e51d9ab8e8d007620884558c3df34d09b66217b866077a8bf6148"
+      },
+      "M15": {
+        "rows": 45551,
+        "file_sha256": "95bb639f8983dc1cf46b837859c015997f9f4c39244efaeda022af305a70ab6c"
+      }
+    },
+    "bars_total": 443882,
+    "timestamp_monotonicity": "PASS_3_OF_3",
+    "source_index_continuity": "PASS_3_OF_3",
+    "raw_tick_rereads": "ZERO",
+    "raw_quotes_modified": false,
+    "broker_raw_acquisition_hash_bound": "STILL_UNVERIFIED"
+  },
+  "methods": {
+    "original_structural_function_execution": "LOCALLY_EXECUTED_VERBATIM_FUNCTION_AST_ATTESTED_REMOTELY_AGAINST_ORIGINAL_PINNED_V220",
+    "independent_oracle": "VECTORIZED_CAUSAL_CENTER_FIRST_DIFFERENT_CONTROL_FLOW",
+    "fractal_windows": [
+      3,
+      5,
+      7,
+      9,
+      11,
+      13
+    ],
+    "tie_policies": [
+      "SOURCE_ASYMMETRIC",
+      "STRICT_ALL_NEIGHBORS"
+    ],
+    "variant_domains": 36,
+    "full_array_sets": 144,
+    "independent_scalar_positions": 21306336,
+    "full_box_history_array_comparisons": 3,
+    "future_only_mutation_prefix_controls": 36,
+    "local_source_script_sha256": "97c8224ee7b2abf76f033d3128bddf5eb1488b652448030ef1d85d976f7c4a0a",
+    "local_detailed_receipt_sha256": "48f2d9cccfe7c8b8a1559e76e2dad828a38290ce504566e4f2bdeeb56eee9985"
+  },
+  "remote_source_attestation": {
+    "original_git_blob": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "structural_states_ast_sha256": "622ac24b68fbe3c9a1a7c1460808b0f4d02a09da32bd9510cd61c614ea4b8a13",
+    "box_history4_ast_sha256": "fa071b91be99803d4a15051204de429fcd8a5f59899bf665f7cde8d054e37645",
+    "ast_equalities": 2,
+    "CI_commit": "88f9f5e95d17d13f48631c0fe15c2064860f3bf8",
+    "workflow": ".github/workflows/qros-v220-real-structural-function-ast-verify.yml",
+    "CI_run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36080231831",
+    "job_id": 107900360906,
+    "conclusion": "SUCCESS",
+    "prior_failure_run": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36080182427",
+    "prior_failure_root_cause": "INCORRECT_ESCAPED_NUL_LITERAL_IN_TEST_HARNESS_GIT_BLOB_HASH_ONLY",
+    "correction": "ONE_LINE_HASH_ENCODING_FIX_WITH_ORIGINAL_SCIENTIFIC_CODE_UNCHANGED"
+  },
+  "durability": {
+    "library_file_id": "libfile_9396dd6370b081918f5b6c0a960e4513",
+    "library_path": "/QROS/RISE_AUDIT_MAX_V2/XAU_FULL_V220_STRUCTURAL_AST_VERIFIED_20260924/QROS_XAU_REAL_V220_ESTRUCTURA_M2_M12_M15_AST_PASS_20260924.zip",
+    "zip_sha256": "7207ec17c55fcc57a8ad23d80a672e945bf51c1bc50156a7ef55f7d4905c486a",
+    "zip_bytes": 6725,
+    "zip_members": 4,
+    "library_download_sha256_equal": true,
+    "raw_broker_data_redistributed": false
+  },
+  "verified_outcome": "PASS_FULL_REAL_V220_FRACTAL_STRUCTURAL_ONLY",
+  "limitations": [
+    "Not original 804672 configurations event maskpack/index/mapping parity",
+    "No archived heavy GA1 mask bytes recovered in the attached technical Factor IR bundle (5 members, 10379 bytes) or NQX validation bundle (14 members, 25500 bytes)",
+    "Does not certify actual Darwinex raw acquisition hash binding or full symbol holiday/early-close calendar",
+    "Windows excluded, no MT5 parity, no PnL or portfolio conclusions"
+  ],
+  "gates": {
+    "full_original_historical_event_mask_parity": "PENDING_CERTIFIED_HEAVY_BYTES",
+    "retest_rearm": "QUARANTINED_EXCLUDED",
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "shard11_open": false,
+    "old_shards_recomputed": false,
+    "production_adoption": false
+  },
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "portfolio_marginal_impact": "NONE_NO_TRADES_OR_PNL",
+  "next_automatic_action": "Recover certified ORIGINAL heavy maskpack,index,mapping bytes by frozen SHA first; then read-only historical Factor IR event mask parity. Preserve all completed structural evidence and V259 closed shards. If heavy pack remains unavailable, stop duplicate searches/recomputation, continue only an independent authorized gate-changing route."
+}
