@@ -1,0 +1,112 @@
+{
+  "schema": "QROS_SEED0076_V28_SOURCE_LINUX_AND_V33_RECOVERY_CHECKPOINT_20260925_v1",
+  "date": "2026-09-25",
+  "OBJETIVO": "Complete reproducible exact-source V28 engineering integration on current main, verify Linux-only guarded synthetic worker and recover the precise direct-V33 independent-parity continuation without using original 60/10 shards.",
+  "AUTORIDAD": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "main_before_checkpoint": "a31640d840a7592c059935f542ea9b3bdcd7d5f8",
+    "main_v259_pointer_git_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "main_scientific_frontier": "V259",
+    "main_scientific_state": "PREREGISTERED_NO_RESULTS",
+    "PR59_main_research_import": "a2122e53ab472be798bcdc3e1bf7ed81d650f9dd",
+    "PR61_exact_original_V28_source_merge": "07247a103574af32a4e7193711805cad6e72e4fb",
+    "PR62_original_V28_seccomp_smoke_merge": "a31640d840a7592c059935f542ea9b3bdcd7d5f8",
+    "original_v28_source_manifest_path": "research/public1000/seed0076/direct_dev/v28_exact_archive/QROS_V28_36_SOURCE_RELEASE_MANIFEST.json",
+    "original_v28_source_manifest_git_blob": "727a757bcd8a8cf39ba57ffb0ba42bc27b99fd00",
+    "original_v28_source_archive_SHA256": "b2943f96a8b0eb946a9899b52e63a354d33971c88baa0b29dfd58f8e116a3e62",
+    "direct_live_pointer_git_blob": "79d6f9eb7361204bf73be326572702eb172d4cfb",
+    "direct_v33_anchor_path": "control/QROS_SEED0076_W5_V33_PARTIAL_192_OF_710_INDEPENDENT_PARITY_BYTE_ANCHOR_20260925_v1.json",
+    "direct_v33_anchor_git_blob": "3f35387e8f541913051858dafeda788ce3df4d80",
+    "direct_current_handoff": "control/QROS_SEED0076_DIRECT_CHAT_MIGRATION_HANDOFF_20260925_POST_W5_V33_192_OF_710_PARTIAL_v1.json",
+    "direct_target_git_blob": "e529cd1a06544fb304960be672284a2dc25d1275"
+  },
+  "DATOS": {
+    "asset": "XAUUSD",
+    "dev_period": "2018–2019_EXPOSED",
+    "exact_raw_dev_ticks": 151382388,
+    "exact_raw_dev_sha256_reported_and_pinned": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_zip_members": 147,
+    "original_python_sources": 36,
+    "original_source_bytes": 254096,
+    "original_source_zip_library_id": "libfile_ec62d620c5a8819188f5b83ebef2d2a0",
+    "new_direct_W5_semantic_configurations": 22352,
+    "new_direct_W5_unique_physical_masks": 14459,
+    "V28_completed_economic_shards_exposed_dev": 104,
+    "V33_independent_frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "V33_partial_192_of_710_library_id": "libfile_829934b715a481919357f24002d32c14",
+    "V33_partial_zip_SHA256": "ad8b3a35edd24193d9da21d8ab705b79a8e2b6602c6d11cbd9a020ad46fc8354",
+    "V28_CH0_original_zip_SHA256": "196de55420e5c29f3ef776d32179842309826585e2fd7d6580fe73f95561ffa2",
+    "V28_CH4_original_zip_SHA256": "79d30dd8c734c845025583261fd50bd88392c0ce03d21764f8d82eb4d351ea76"
+  },
+  "TRABAJO_EJECUTADO": [
+    "Recovered original 7.99MB V28 complete ZIP from personal Library, verified archive SHA, validated all 36 selected exact original source sizes+SHA256 against original internal manifest and restored them as 36 Library files.",
+    "Bridged the 36 exact original Python source files into a separate GitHub integration branch; compared 36/36 original Git blob SHA1 and sizes against independently computed archive manifest; merged PR61 into main only as archive, not executable default.",
+    "Ran remote Ubuntu Python 3.12 full-source CI 36/36 SHA256+SHA1+bytes+AST, original V28 independent synthetic oracle 24/24 trades 264/264 fields with unchanged receipt SHA.",
+    "Ran secondary remote Linux x86_64 seccomp pre-exec /proc attestation and original V28 synthetic worker under pinned Linux helper/launcher; 24/24 trades 264/264 fields; merged as optional CI in PR62.",
+    "Re-read current direct branch V33 pointer and immutable Git anchor and recovered exact V33 192-shard ZIP plus exact original V28 CH0/CH4 ZIPs locally without re-executing earlier receipts or PnL.",
+    "Searched exact original XAU ZIP parts001–008 in Library and Drive; located all 8 actual original multipart ZIPs in connected Dropbox and independently matched 8/8 metadata lengths to original 35-part carrier manifest.",
+    "Tried the available Dropbox single-use download-link bridge; current container download rejected an unviewed temporary URL, while viewing it first would consume the documented one-use token. Kept originals safe in Dropbox rather than guessing or substituting bytes.",
+    "Searched connected Gmail for Darwinex dated 2018–2019, Drive and Dropbox for broker documents, and official publicly indexed 2018–2019 schedules/fees. No contemporaneous account-specific contract or complete historical XAU holiday schedule authenticated."
+  ],
+  "RESULTADOS_VERIFICADOS": {
+    "PR61_exact_sources": "PASS_36_OF_36",
+    "PR61_source_sha256_and_Git_blob": "PASS",
+    "PR61_source_AST": "PASS_36_OF_36",
+    "PR61_original_20260925_CI": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36090741351",
+    "PR61_original_synthetic_trade_by_trade": "PASS_24_TRADES_264_FIELDS",
+    "PR62_linux_seccomp_CI": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36091098059",
+    "PR62_kernel_attestation": {
+      "Seccomp": 2,
+      "NoNewPrivs": 1,
+      "owns_process_group": true
+    },
+    "PR62_original_synthetic": "PASS_24_TRADES_264_FIELDS",
+    "main_science_pointer": "PASS_IDENTICAL_V259",
+    "V33_immutable_anchor_readback": "PASS",
+    "V33_archive_SHA256": "PASS_LOCAL_READBACK",
+    "V33_previous_192_receipts": "REPORTADO_AND_IMMUTABLY_FROZEN_NOT_RERUN_HERE",
+    "V33_predeclared_plan_shards": 710,
+    "V33_shards_completed_previous": 192,
+    "V33_pending_shards": 518,
+    "XAU_raw_zip_original_parts001_008_in_Dropbox": "VERIFIED_METADATA_SIZES_8_OF_8_NOT_DOWNLOADED_IN_THIS_RUNTIME",
+    "all_old_60_10_shards_used": false
+  },
+  "GATES": {
+    "archived_original_code_in_main": "PASS",
+    "original_synthetic_execution_Linux_seccomp": "PASS",
+    "all_original_full_real_V28_production_capsule": "NOT_VALIDATED",
+    "full_V33_original_CH0_CH4_ex_ante_mask_parity": "INCOMPLETE_192_OF_710_AT_LAST_CHECKPOINT",
+    "source_Dropbox_current_container_download": "BLOCKED_BY_CURRENT_TRANSFER_BRIDGE_ONLY",
+    "original_2018_2019_broker_acquisition_hash_chain": "NOT_CERTIFIED",
+    "original_2018_2019_account_commission": "NOT_RECOVERED",
+    "original_2018_2019_XAU_complete_special_hours": "NOT_RECOVERED",
+    "Gate_A": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "shard11_open": false,
+    "MT5_parity": false,
+    "production": false,
+    "windows_testing": "EXCLUDED_BY_USER_REQUEST"
+  },
+  "PROBLEMAS": [
+    "The current sandbox lacks raw 2018–2019 2.57GB tick stream. Original source files are recoverable from 8 Dropbox parts and match expected lengths, but Dropbox grants single-use links and the container downloader rejected a link that was not separately visited. No original raw bytes were rehashed in this container.",
+    "The latest V33 frozen scientific plan has 518 exact CH0/CH4 independent-parity shards not yet completed; next tasks are predeclared from the immutable plan and MUST NOT duplicate its first 192 signed receipts.",
+    "Historical Darwinex XAUUSD 2018–2019 primary account/entity-specific actual commission and complete special-session/holiday schedule remain unavailable after broker public, Gmail 2018–2019, Drive and Dropbox targeted search. Published 2023/2026 general rate cannot certify them.",
+    "The original 48,280,320 logical full V209 universe is factorized; new direct economic exploration completed only the one selected preregistered W5 pair and previous 13 partial-scope paired cells. Do not misstate complete universal economic validation."
+  ],
+  "CAUSA_RAIZ": "Current raw historical carrier ZIPs reside in connected Dropbox (not absent), but the chat's isolated container and Dropbox's single-use temporary-link policy do not provide a verified byte-stream bridge. Broker historical documentation is a separate primary-source gap. The old GA1 60/10 shard maskpack remains irrelevant to this direct-from-scratch campaign.",
+  "CORRECCIONES": [
+    "Merged exact V28 original research code plus SHA-byte authoritative manifest; kept previously missing original code from being treated as a permanent blocker.",
+    "Added fully attested Linux-only synthetic test for real original code with all scientific/economic gates closed.",
+    "Recovered exact current V33 next task and Dropbox raw-data locations without redownloading, changing or recomputing the previous 192 shards.",
+    "Keep research branch live pointer independent from main V259; no scientific merging or Alpha selection."
+  ],
+  "ESTADO_CIENTIFICO": {
+    "main": "PREREGISTERED_NO_RESULTS",
+    "direct": "DEVELOPMENT_RUNNING",
+    "direct_W5": "EXPOSED_DEV_EXPLORATORY_ONLY",
+    "research_code_release": "APPROVED_RESEARCH_ENGINEERING_ONLY"
+  },
+  "IMPACTO_PORTAFOLIO": "NONE_NO_NEW_TRADES_NO_CERTIFIED_RESULTS_NO_DEPLOYMENT",
+  "SIGUIENTE_ACCION_AUTOMATICA": "On the first execution environment with authenticated Dropbox byte-download ability, fetch original parts001–008 from the already-located user-connected Dropbox, verify against the original v2 manifest 8/8 SHA256, rebuild ONLY the original 151382388-tick 2018–2019 DEV prefix with SHA 3ddb..., restore exact V33 frozen 710-task plan and existing 192 receipt ZIP + V28 CH0 and CH4 original archives, run the next fixed CH0 r0_w1_batch005 ordinals21–40 and CH4 r0_w1_batch008 ordinals264–269 in at-most-40-second shards under a single owner and persist incremental SHA/CAS; do not repeat earlier 192. Independently seek contemporaneous Darwinex 2018–2019 account cost and XAU special hours; do not open Gate A, holdout, GA2, MT5 or reuse old 60/10 shards."
+}
