@@ -1,0 +1,17 @@
+{
+  "active_receipt_git_blob_sha1": "18612dad9d4670274840fc1f744d744c080212a6",
+  "active_receipt_path": "product/receipts/QROS_PRODUCT_M2_LINUX_INTEGRATION_AND_CRASH_TEST_PASS_20260925.json",
+  "authority_scope": "ISOLATED_TEST_ONLY_PRODUCT_EXPERIMENT",
+  "current_stage": "LINUX_NATIVE_INTEGRATION_AND_PROCESS_CRASH_TEST_PASS_WINDOWS_AND_TRUST_ANCHOR_PENDING",
+  "failed_ci_incident_path": "product/experiments/M2_CI_FAILURE_AND_CORRECTION_20260925.json",
+  "ga2_open": false,
+  "historical_v1_experiment_head": "product/experiments/M2_CURRENT_EXPERIMENT_HEAD_20260925.json",
+  "holdout_open": false,
+  "next_automatic_action": "Implement and adversarially validate authenticated evidence receipt binding and independent immutable external HEAD anchoring on isolated branch; do not promote M2 or expose mutation APIs until complete.",
+  "original_product_HEAD_remains": "product/PRODUCT_HEAD.json",
+  "original_scientific_main_remains": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+  "production_research_ready": false,
+  "schema": "QROS_PRODUCT_M2_EXPERIMENT_POINTER_V2",
+  "source_tested_commit": "6fe40836ee41d04bbbf5fe2e57611a046493a0f6",
+  "status": "DEVELOPMENT_RUNNING"
+}

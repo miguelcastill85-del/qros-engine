@@ -1,0 +1,77 @@
+{
+  "schema": "QROS_PRODUCT_M2_ISOLATED_EXPERIMENT_HEAD_V1",
+  "timestamp_utc_date": "2026-09-25",
+  "status": "DEVELOPMENT_RUNNING",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "decision": "M2_LOCAL_PROTOTYPE_ONLY_NOT_PRODUCTION_RELEASE",
+  "authority": {
+    "source_product_branch": "product/qros-research-studio-mvp-v1",
+    "exact_source_commit": "e8fcc1ef626a5cc4f6382a10e1189d5bdf7f85dd",
+    "source_product_head_blob_sha1": "1b439c5f1a5b9d8903629a1d82e10c37ef90dcca",
+    "isolated_branch": "product/mobile-m2-ledger-prototype-20260925",
+    "branch_commit_before_checkpoint": "29bdc1d7fb12030e999bf145935e289cefd5fe06",
+    "scientific_main_commit_observed": "c7cb62f886574fe7ddcbc9c4767b35257711f89c",
+    "scientific_main_mutated": false,
+    "source_product_head_mutated": false
+  },
+  "implemented": {
+    "header": {
+      "path": "include/qros/research_ledger.hpp",
+      "git_blob_sha1": "fe22314e0c32b73d7145693f96631b8014fcae4f",
+      "sha256": "56c93175ca8321b5ff0775fa34888082150e3294ba37e3f83e01677bee7d3eae"
+    },
+    "source": {
+      "path": "src/research_ledger.cpp",
+      "git_blob_sha1": "24ef1cd417db05067ce02e96d52ffcc6c1fa4b4d",
+      "sha256": "fa3893967ac7ba77692de0e5f1a2386e83a80975b71c299ecc5cb8cddf73b841"
+    },
+    "test": {
+      "path": "tests/test_research_ledger.cpp",
+      "git_blob_sha1": "0ede863feb3b47bca6efe340ce7c2ea56c288668",
+      "sha256": "49e75127301066a7f0740e88687b47c93e175fb2c4bd2a7ca3f7370beee4a34a"
+    },
+    "cmake_blob_sha1": "a36f573c03e3028f84e0ed427345f94d67ec6ceb",
+    "meta_audit": "product/experiments/QROS_M2_META_AUDIT_20260925.md",
+    "mobile_scope": "product/experiments/QROS_MOBILE_COMPANION_SCOPE_20260925.md"
+  },
+  "local_test": {
+    "status": "PASS_LOCAL_TEST_ONLY",
+    "checks_passed": 20,
+    "compiler": "g++ 14.2.0 Debian",
+    "std": "C++20",
+    "flags": "-O2 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror",
+    "sha256_test_provider": "OpenSSL adapter, NOT actual QROS original source",
+    "state_test_provider": "reconstructed M1 test adapter, NOT original linked binary",
+    "github_source_git_blob_exact_readback": true,
+    "synthetic_only": true,
+    "full_repo_ctest": "NOT_RUN",
+    "native_windows": "NOT_RUN",
+    "power_loss_fsync": "NOT_RUN",
+    "ci": "NOT_RUN_NO_ADDITIONAL_COST"
+  },
+  "local_package": {
+    "filename": "QROS_MOBILE_M2_PROTOTYPE_20260925.zip",
+    "sha256": "6d5a7cbf484f0f8cce3746bfb44e6bbc00f18350fe11d13cd9ecc2668a00b57f",
+    "bytes": 16248,
+    "availability": "CURRENT_CONVERSATION_ATTACHMENT_ONLY"
+  },
+  "firewalls": {
+    "broker_carriers_accessed": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "real_pnl_read": false,
+    "mt5_executed": false,
+    "paid_services_activated": false,
+    "production_research_ready": false,
+    "customer_data_access": false
+  },
+  "known_blockers": [
+    "Test-only context flags are not independently authenticated evidence receipts",
+    "Mobile clients could spoof QROS_CORE actor unless API enforces server-side authority; do not expose current C++ request as user API",
+    "No fsync or Windows crash durability proof",
+    "Local cooperative lock not cross-host CAS",
+    "Immutable external head anchor not yet implemented",
+    "Full native repository CTest and platform-specific adversarial validation missing"
+  ],
+  "next_automatic_action": "Run full native C++20 build and existing+new CTest against this isolated branch using original QROS SHA256/M1, then harden file and directory fsync, external anchor, and crash/restart and authority-origin gates. Only after verified receipts, propose promotion to original PRODUCT_HEAD; keep mobile a TEST_ONLY companion descendant."
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_M2_CI_INCIDENT_V1",
+  "observed_on": "2026-09-25",
+  "scope": "PRODUCT_M2_TEST_ONLY_NEW_CRASH_SHIM_NOT_SCIENTIFIC_ENGINE",
+  "failure": {
+    "run_id": 36091673481,
+    "head_sha": "3af3b7e86b799a3e61edb2d1d5ced5725d567139",
+    "result": "FAIL",
+    "failed_step": "Compile actual QROS SHA256 M1 and M2 objects",
+    "root_cause": "GNU 13.3 Ubuntu Release flags treat ignored return of write(STDERR_FILENO,...) in new synthetic crash shim as -Werror=unused-result; the scientific runtime source was not implicated by this build failure",
+    "failing_file": "tests/product_crash/kill_on_fsync.cpp",
+    "other_steps": "Full CTest and original-linked SIGKILL tests SKIPPED in that run"
+  },
+  "correction": {
+    "commit": "6fe40836ee41d04bbbf5fe2e57611a046493a0f6",
+    "blob": "0dfc296b3d79055561a34a8ba036a45f987b8341",
+    "delta": "Read write() return, require complete marker or _exit(98)",
+    "local_retest": {
+      "compiler": "g++ 14.2.0 Debian",
+      "cases": 4,
+      "status": "PASS_LOCAL_TEST_ONLY"
+    },
+    "remote_rerun_id": 36091765954,
+    "remote_status": "RUNNING_AT_RECEIPT_CREATION"
+  },
+  "firewalls": {
+    "main_modified": false,
+    "holdout_accessed": false,
+    "real_pnl_executed": false,
+    "product_promotion": false
+  },
+  "decision": "PRESERVE_FAILED_RUN_DO_NOT_CLAIM_CI_PASS_UNTIL_RERUN_VERIFIED"
+}

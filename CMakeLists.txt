@@ -14,6 +14,7 @@ set(QROS_IDENTITY_FILES
     include/qros/qdata.hpp
     include/qros/research_contract.hpp
     include/qros/research_state.hpp
+    include/qros/research_ledger.hpp
     include/qros/sha256.hpp
     include/qros/time_authority.hpp
     include/qros/text_snapshot.hpp
@@ -22,6 +23,7 @@ set(QROS_IDENTITY_FILES
     src/qdata.cpp
     src/research_contract.cpp
     src/research_state.cpp
+    src/research_ledger.cpp
     src/sha256.cpp
     src/time_authority.cpp
     src/text_snapshot.cpp
@@ -71,7 +73,7 @@ string(SHA256 QROS_BUILD_CONTRACT_SHA256 "${QROS_BUILD_CONTRACT_INPUT}")
 file(MAKE_DIRECTORY "${CMAKE_BINARY_DIR}/generated/qros")
 configure_file(cmake/build_identity.hpp.in "${CMAKE_BINARY_DIR}/generated/qros/build_identity.hpp" @ONLY)
 
-add_library(qros_core src/core.cpp src/custody.cpp src/qdata.cpp src/research_contract.cpp src/research_state.cpp src/sha256.cpp src/time_authority.cpp src/text_snapshot.cpp src/pipeline_common.cpp src/pipeline_data.cpp src/feature_graph.cpp src/universe.cpp src/backtest.cpp src/result_store.cpp src/gates.cpp src/vault.cpp src/portfolio.cpp src/pipeline_cli.cpp src/mt5_bridge.cpp)
+add_library(qros_core src/core.cpp src/custody.cpp src/qdata.cpp src/research_contract.cpp src/research_state.cpp src/research_ledger.cpp src/sha256.cpp src/time_authority.cpp src/text_snapshot.cpp src/pipeline_common.cpp src/pipeline_data.cpp src/feature_graph.cpp src/universe.cpp src/backtest.cpp src/result_store.cpp src/gates.cpp src/vault.cpp src/portfolio.cpp src/pipeline_cli.cpp src/mt5_bridge.cpp)
 target_include_directories(qros_core PUBLIC include "${CMAKE_BINARY_DIR}/generated")
 target_compile_options(qros_core PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
 target_compile_definitions(qros_core PRIVATE _GLIBCXX_ASSERTIONS)
@@ -108,6 +110,12 @@ target_compile_options(qros_research_state_tests PRIVATE -Wall -Wextra -Wpedanti
 target_compile_definitions(qros_research_state_tests PRIVATE _GLIBCXX_ASSERTIONS)
 add_test(NAME qros_research_state_tests COMMAND qros_research_state_tests)
 
+add_executable(qros_research_ledger_tests tests/test_research_ledger.cpp)
+target_link_libraries(qros_research_ledger_tests PRIVATE qros_core)
+target_compile_options(qros_research_ledger_tests PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
+target_compile_definitions(qros_research_ledger_tests PRIVATE _GLIBCXX_ASSERTIONS)
+add_test(NAME qros_research_ledger_tests COMMAND qros_research_ledger_tests)
+
 add_test(NAME qros_product_capabilities COMMAND qros_product capabilities)
 
 # Metadata-governance test only; the runtime itself has no Python dependency.
@@ -118,6 +126,26 @@ if(Python3_Interpreter_FOUND)
         COMMAND "${Python3_EXECUTABLE}" "${CMAKE_SOURCE_DIR}/tests/check_active_authorities.py")
 else()
     message(FATAL_ERROR "Python3 interpreter required to execute authority-regression tests")
+endif()
+
+# Synthetic-only Linux crash injection: SIGKILL immediately after each of
+# the four durability boundaries. Uses actual qros_core, never local adapters.
+if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
+    add_executable(qros_m2_crash_driver tests/product_crash/m2_crash_driver.cpp)
+    target_link_libraries(qros_m2_crash_driver PRIVATE qros_core)
+    target_compile_options(qros_m2_crash_driver PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
+    target_compile_definitions(qros_m2_crash_driver PRIVATE _GLIBCXX_ASSERTIONS)
+
+    add_library(qros_m2_crash_shim SHARED tests/product_crash/kill_on_fsync.cpp)
+    target_link_libraries(qros_m2_crash_shim PRIVATE ${CMAKE_DL_LIBS})
+    target_compile_options(qros_m2_crash_shim PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror)
+
+    add_test(NAME qros_m2_process_crash_injection
+        COMMAND "${Python3_EXECUTABLE}"
+                "${CMAKE_SOURCE_DIR}/tests/product_crash/test_crash_injection.py"
+                "$<TARGET_FILE:qros_m2_crash_driver>"
+                "$<TARGET_FILE:qros_m2_crash_shim>")
+    set_tests_properties(qros_m2_process_crash_injection PROPERTIES TIMEOUT 45)
 endif()
 
 add_executable(qros_pipeline_tests tests/test_pipeline.cpp)
