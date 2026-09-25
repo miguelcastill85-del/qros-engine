@@ -1,0 +1,148 @@
+{
+  "schema": "QROS_SUPERVISOR_ENGINEERING_CHECKPOINT_1.0",
+  "objective": "Corregir congelamientos, relanzamientos inseguros y reutilizacion de salidas sin identidad; preservar semantica cientifica.",
+  "authority": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "engineering_base_commit": "ede867afa821bd7b7ee86e259b87c42ae782f4a3",
+    "scientific_target": "V255",
+    "scientific_target_blob_verified": "4b19ee8c84e47332cc2b2117010deb0d0edbde12",
+    "scientific_authority_status": "PARTIALLY_VERIFIED_NO_SCIENTIFIC_EXECUTION",
+    "cognitive_reference_blob_verified": "abd9c388439414b31ebd16c689283891b3a76221",
+    "cognitive_execution": "CONTEXT_ONLY_NO_BOOTSTRAP"
+  },
+  "source_scope": {
+    "github": "Exact commit tree and 22 materialized files verified by Git blob hash",
+    "library": "QROS_PR51_REVISION_20260919.md read as reported context only",
+    "local_runtime": "New scoped materialization; no live campaign paths adopted",
+    "dropbox": "Not needed: exact engineering sources available via GitHub"
+  },
+  "data": "TEST_ONLY synthetic workers and temporary files; no broker data",
+  "work_executed": [
+    "Exact connector-to-filesystem materialization, without manually rewriting fetched source",
+    "Seven baseline regressions reproduced",
+    "Versioned v3 supervisor and bounded fenced v2 adapter implemented",
+    "Adversarial and lifecycle suites executed"
+  ],
+  "verified_results": {
+    "baseline_regressions_failed_as_expected": 7,
+    "v3_regression_tests_passed": 20,
+    "lifecycle_corpus_cases_passed": 11,
+    "bounded_adapter_tests_passed": 6,
+    "total_passed": 37,
+    "output_parity": "identical artifact and worker receipt SHA256 on identical synthetic workload under v1/v3",
+    "launch_reuse": "existing valid completion reused without starting another worker"
+  },
+  "gates": {
+    "engineering_tests": "PASS_SYNTHETIC_SCOPED",
+    "real_backtest_benchmark": "NOT_EXECUTED",
+    "mt5_parity": "NOT_EXECUTED",
+    "production_activation": "NOT_EXECUTED",
+    "merge": "NOT_EXECUTED"
+  },
+  "problems": [
+    {
+      "id": "OPERATIONAL_POINTER_HASH_DRIFT",
+      "expected": "22f1c8fed5dd8bf63f17f72754edf180a734f95e",
+      "observed": "bc4064d698d67e48c2a699c3236da88bca528d6c",
+      "path": "control/QROS_PUBLIC_1000_CURRENT_W09C_EXECUTION_CHECKPOINT.json",
+      "action": "Preserve scientific controls; reconcile operational reference before campaign activation"
+    },
+    {
+      "id": "HISTORICAL_IMPORT_NOT_CERTIFIED",
+      "detail": "handoff/verify_import.py executed and rejected scoped checkout missing historical payload files (.gitattributes initially, then .gitignore). Current source identity verified against immutable Git tree instead; original 270-file import and native runtime not certified."
+    }
+  ],
+  "root_causes": [
+    "Unbounded p.wait and wrapper subprocess.run",
+    "Completed output reuse ignored spec/provenance digest",
+    "Missing/foreign process identity treated as death",
+    "Age/directory lock takeover race",
+    "Unbounded logs and inherited pipes",
+    "Artifact symlink accepted outside attempt directory"
+  ],
+  "corrections": [
+    "Explicit finite runtime and combined-log budgets",
+    "Nonblocking flock on stable local inode and per-attempt bootstrap exclusion",
+    "UNKNOWN/FOREIGN distinct from proven DEAD; no automatic retry for ambiguous launch",
+    "Completed output binds exact job/spec/worker-receipt and artifact hashes",
+    "Symlink and malformed artifact rejection",
+    "Bounded control adapter preserves unknown outcome and rechecks local lease"
+  ],
+  "scientific_state": "UNCHANGED_BY_ENGINEERING",
+  "economic_pnl_read": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "portfolio_impact": "NONE",
+  "execution_state": "ENGINEERING_CANDIDATE_VALIDATED",
+  "background_running": false,
+  "limitations": [
+    "Linux local filesystem only; new v3 work root required; do not mix v1/v2/v3 controllers on one job",
+    "No distributed atomic lease CAS or cross-host death proof",
+    "No OS sandbox, RSS cap or network isolation certification; stripped environment is not isolation",
+    "Worker deadline requires surviving bootstrap; orphan adoption does not recreate watchdog",
+    "Control deadline is 3 seconds plus bounded cleanup; blocked kernel I/O is not covered",
+    "Frozen scientific runner, data bindings and group11 not migrated",
+    "No full trading-engine/MT5 parity or throughput improvement claimed"
+  ],
+  "next_automatic_action": "Review the engineering candidate; reconcile operational pointer exact hash; bind an authorized capsule to the new supervisor/spec and validate integration before any campaign activation. Keep frozen sources and P09/P12 outcomes unchanged.",
+  "environment": {
+    "platform": "Linux",
+    "machine": "x86_64",
+    "python": "3.12.14"
+  },
+  "source_files": [
+    {
+      "path": "scripts/qros_heavy_job_supervisor_v3.py",
+      "bytes": 24303,
+      "sha256": "03c368ab046cafc887cf397170af18a301c9f2702afede7434c786ab47ac9ab8",
+      "git_blob_sha1": "9cf746742fa62e7f8dc68861417a43fa14696073"
+    },
+    {
+      "path": "scripts/qros_heavy_job_supervisor_tests_v3.py",
+      "bytes": 12923,
+      "sha256": "d1ed05b7f5f40d217d55a5501601110ddc81c733daf59e8940ee69d14e5008a6",
+      "git_blob_sha1": "c019a97e4321fb55251523d9a39b8386b47ba690"
+    },
+    {
+      "path": "scripts/qros_heavy_job_supervisor_lifecycle_tests_v3.py",
+      "bytes": 1347,
+      "sha256": "24a977634781366c1a889ceef5292459e73c5bb357be0f5bed61cbee38c959a2",
+      "git_blob_sha1": "0018734d86f25595be5e7ea4b542b9b78f688d29"
+    },
+    {
+      "path": "scripts/qros_fenced_heavy_job_supervisor_v2.py",
+      "bytes": 3595,
+      "sha256": "c8dc9fbcaffe7e3ab76958c1904ff2fa6cd683d0c5181168b3eaa4fce498dbf7",
+      "git_blob_sha1": "eb18893369efe4a7f107177b10669354eb73fa05"
+    },
+    {
+      "path": "scripts/qros_fenced_heavy_job_supervisor_tests_v2.py",
+      "bytes": 3466,
+      "sha256": "04cd4628621c8e66e2b78901072af417fb6cc95d546fbefc5c45295742dd64dd",
+      "git_blob_sha1": "8350620254afa5a379069d068a2cf321cacb8d3c"
+    }
+  ],
+  "test_runs": [
+    {
+      "script": "scripts/qros_heavy_job_supervisor_tests_v3.py",
+      "returncode": 0,
+      "elapsed_seconds": 1.5152,
+      "log": "reports/supervisor_v3_20260919/qros_heavy_job_supervisor_tests_v3.py.log",
+      "log_sha256": "c31167c7d4a045a5252f0e2af4f45b695cfd7d356d4b0ed536bf7d929ff72822"
+    },
+    {
+      "script": "scripts/qros_heavy_job_supervisor_lifecycle_tests_v3.py",
+      "returncode": 0,
+      "elapsed_seconds": 8.0678,
+      "log": "reports/supervisor_v3_20260919/qros_heavy_job_supervisor_lifecycle_tests_v3.py.log",
+      "log_sha256": "1fe5eae028b575905620242f936346beeebda6e09be287ac3490db5bf49a3656"
+    },
+    {
+      "script": "scripts/qros_fenced_heavy_job_supervisor_tests_v2.py",
+      "returncode": 0,
+      "elapsed_seconds": 0.5673,
+      "log": "reports/supervisor_v3_20260919/qros_fenced_heavy_job_supervisor_tests_v2.py.log",
+      "log_sha256": "b8e523dfd55e9cfd52fdd8f489225d8b46010c90f9b6bf0833990ab5d8489923"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+test_artifact_symlink_is_rejected (__main__.SupervisorRegressions.test_artifact_symlink_is_rejected) ... ok
+test_descendant_holding_pipes_cannot_freeze_bootstrap (__main__.SupervisorRegressions.test_descendant_holding_pipes_cannot_freeze_bootstrap) ... ok
+test_done_rejects_changed_spec (__main__.SupervisorRegressions.test_done_rejects_changed_spec) ... ok
+test_done_rejects_rewritten_receipt (__main__.SupervisorRegressions.test_done_rejects_rewritten_receipt) ... ok
+test_done_requires_supervisor_provenance (__main__.SupervisorRegressions.test_done_requires_supervisor_provenance) ... ok
+test_duplicate_bootstrap_launches_one_worker (__main__.SupervisorRegressions.test_duplicate_bootstrap_launches_one_worker) ... ok
+test_foreign_runtime_cannot_trigger_retry (__main__.SupervisorRegressions.test_foreign_runtime_cannot_trigger_retry) ... ok
+test_full_lifecycle_output_matches_baseline (__main__.SupervisorRegressions.test_full_lifecycle_output_matches_baseline) ... /opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py:1127: ResourceWarning: subprocess 14 is still running
+  _warn("subprocess %s is still running" % self.pid,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py:1127: ResourceWarning: subprocess 16 is still running
+  _warn("subprocess %s is still running" % self.pid,
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_hung_worker_has_deadline (__main__.SupervisorRegressions.test_hung_worker_has_deadline) ... ok
+test_lock_contention_and_release (__main__.SupervisorRegressions.test_lock_contention_and_release) ... ok
+test_lock_released_by_kernel_after_owner_death (__main__.SupervisorRegressions.test_lock_released_by_kernel_after_owner_death) ... ok
+test_log_flood_is_bounded_and_fails (__main__.SupervisorRegressions.test_log_flood_is_bounded_and_fails) ... ok
+test_malformed_artifact_fails_closed (__main__.SupervisorRegressions.test_malformed_artifact_fails_closed) ... ok
+test_matching_done_reuses_without_launch (__main__.SupervisorRegressions.test_matching_done_reuses_without_launch) ... ok
+test_nonfinite_budgets_are_rejected (__main__.SupervisorRegressions.test_nonfinite_budgets_are_rejected) ... ok
+test_symlink_in_parent_of_artifact_is_rejected (__main__.SupervisorRegressions.test_symlink_in_parent_of_artifact_is_rejected) ... ok
+test_timeout_cannot_promote_valid_early_output (__main__.SupervisorRegressions.test_timeout_cannot_promote_valid_early_output) ... ok
+test_unknown_birth_is_not_dead (__main__.SupervisorRegressions.test_unknown_birth_is_not_dead) ... ok
+test_unknown_launch_is_not_death_proof (__main__.SupervisorRegressions.test_unknown_launch_is_not_death_proof) ... ok
+test_worker_secrets_not_inherited (__main__.SupervisorRegressions.test_worker_secrets_not_inherited) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 1.435s
+
+OK

@@ -1,0 +1,19 @@
+{
+  "count": 11,
+  "schema": "QROS_HEAVY_JOB_SUPERVISOR_TESTS_1.0",
+  "status": "PASS",
+  "supervisor_sha256": "03c368ab046cafc887cf397170af18a301c9f2702afede7434c786ab47ac9ab8",
+  "tests": [
+    "PASS_transport_retry_exactly_once",
+    "PASS_concurrent_controller_exactly_once",
+    "PASS_orphan_worker_adopted_no_relaunch",
+    "PASS_proven_death_one_retry_only",
+    "PASS_tampered_artifact_fail_closed",
+    "PASS_capsule_drift_fail_closed",
+    "PASS_no_early_promotion_while_live",
+    "PASS_pid_birth_identity_required",
+    "PASS_active_attempt_never_deleted",
+    "PASS_job_id_traversal_fail_closed",
+    "PASS_live_controller_lock_not_time_stolen"
+  ]
+}

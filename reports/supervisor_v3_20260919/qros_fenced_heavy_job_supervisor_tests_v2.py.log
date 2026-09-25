@@ -1,0 +1,11 @@
+test_cli_launch_and_reuse_with_bound_lease (__main__.BoundedControlTests.test_cli_launch_and_reuse_with_bound_lease) ... ok
+test_control_output_flood_is_bounded (__main__.BoundedControlTests.test_control_output_flood_is_bounded) ... ok
+test_failed_exit_cannot_claim_pass (__main__.BoundedControlTests.test_failed_exit_cannot_claim_pass) ... ok
+test_hung_control_preserves_unknown_outcome (__main__.BoundedControlTests.test_hung_control_preserves_unknown_outcome) ... ok
+test_invalid_response_cannot_trigger_retry (__main__.BoundedControlTests.test_invalid_response_cannot_trigger_retry) ... ok
+test_valid_running_response (__main__.BoundedControlTests.test_valid_running_response) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.516s
+
+OK

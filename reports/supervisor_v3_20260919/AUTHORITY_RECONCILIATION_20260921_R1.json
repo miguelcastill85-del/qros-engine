@@ -1,0 +1,95 @@
+{
+  "schema": "QROS_SUPERVISOR_V3_AUTHORITY_RECONCILIATION_RECEIPT_1.0",
+  "date": "2026-09-21",
+  "status": "PASS_LINEAGE_RECONCILED_NO_ACTIVATION",
+  "incident": {
+    "id": "SUPERVISOR_V3_STALE_OPERATIONAL_CHECKPOINT_PIN_20260921",
+    "severity": "P2",
+    "classification": "STALE_OPERATIONAL_POINTER",
+    "last_known_good": {
+      "commit": "cbae1f3004c3604f27f9d6a940c284fc4f1d5f22",
+      "checkpoint_schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.15",
+      "checkpoint_git_blob_sha1": "22f1c8fed5dd8bf63f17f72754edf180a734f95e"
+    },
+    "first_bad_event": {
+      "commit": "ede867afa821bd7b7ee86e259b87c42ae782f4a3",
+      "event": "CURRENT_W09C_EXECUTION_CHECKPOINT advanced from 4.15 to 4.16 without a matching update of operational_overlay.checkpoint in the V255 stable pointer.",
+      "checkpoint_git_blob_sha1": "bc4064d698d67e48c2a699c3236da88bca528d6c"
+    },
+    "primary_cause": "NON_ATOMIC_OPERATIONAL_CHECKPOINT_AND_POINTER_PUBLICATION",
+    "contributing_factor": "The stable scientific pointer contains a mutable non-economic operational overlay, so a later checkpoint-only commit can make its embedded content hash stale.",
+    "detection_failure": "No post-commit invariant checked operational_overlay.checkpoint.git_blob_sha1 against the actual checkpoint blob.",
+    "scientific_blast_radius": "NONE_VERIFIED",
+    "decision_blast_radius": "NONE_VERIFIED",
+    "technical_blast_radius": "Supervisor/capsule consumers that trusted the stale embedded operational checkpoint hash."
+  },
+  "authority_vector": {
+    "engineering_branch": "engineering/supervisor-v3-bounded-recovery-20260919",
+    "engineering_head_before_receipt": "7be9e1432386634a42802c4b1f7da92476950266",
+    "engineering_base": "ede867afa821bd7b7ee86e259b87c42ae782f4a3",
+    "branch_scientific_snapshot": "V255",
+    "current_main": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "current_main_scientific_frontier": "V259",
+    "current_scientific_state": "PREREGISTERED_NO_RESULTS"
+  },
+  "evidence": {
+    "v255_pointer_on_engineering_branch": {
+      "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+      "git_blob_sha1": "23a8efb70eb30d7dccd908779ec9b0c2dc9c4681",
+      "embedded_checkpoint_git_blob_sha1": "22f1c8fed5dd8bf63f17f72754edf180a734f95e",
+      "embedded_checkpoint_schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.15"
+    },
+    "checkpoint_at_cbae1f3": {
+      "git_blob_sha1": "22f1c8fed5dd8bf63f17f72754edf180a734f95e",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.15"
+    },
+    "checkpoint_at_ede867a": {
+      "git_blob_sha1": "bc4064d698d67e48c2a699c3236da88bca528d6c",
+      "schema": "QROS_PUBLIC1000_CURRENT_W09C_EXECUTION_CHECKPOINT_4.16"
+    },
+    "checkpoint_4_16_change": "AFEL group11 artifact-first route switch; control-plane only; economic_pnl_read=false, holdout_open=false, ga2_open=false, new_ga1_authorized=false."
+  },
+  "competing_hypotheses": {
+    "H1_checkpoint_corruption": "FALSIFIED: 4.15 and 4.16 are both recoverable exact Git blobs with coherent sequential lineage.",
+    "H2_scientific_pointer_conflict": "FALSIFIED_WITHIN_BRANCH_SNAPSHOT: V255 target itself was unchanged; discrepancy is inside operational_overlay only.",
+    "H3_intentional_unpinned_mutability": "REJECTED_AS_SUFFICIENT_EXPLANATION: overlay may advance, but the pointer explicitly stores a checkpoint Git blob SHA, so stale hash is still an authority-integrity defect.",
+    "H4_global_science_contamination": "FALSIFIED: no economic/holdout/GA2/new-GA1 gate was opened by checkpoint 4.16."
+  },
+  "selected_recovery_route": "VERIFY_LINEAGE_AND_FREEZE_ENGINEERING_BINDING; DO_NOT_REWRITE_OLD_V255_POINTER_NOW",
+  "minimum_safe_fix": {
+    "applied": "This receipt binds supervisor-v3 engineering review to exact checkpoint 4.16 blob bc4064d6... while preserving the historical V255 pointer unchanged.",
+    "reason_not_to_rewrite_pointer": "Current main scientific authority has advanced to V259. Rewriting the old V255 pointer on an engineering branch would create avoidable merge/authority risk and would not authorize scientific activation."
+  },
+  "supervisor_v3_state": {
+    "engineering_tests": "PASS_SYNTHETIC_SCOPED_37",
+    "candidate_status": "ENGINEERING_CANDIDATE_VALIDATED_NOT_ACTIVATED",
+    "scientific_activation": false,
+    "production_activation": false,
+    "real_backtest_benchmark": false,
+    "mt5_parity": false
+  },
+  "gates_preserved": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_ga1_authorized": false,
+    "shard11_current_v259": false,
+    "production_adoption": false
+  },
+  "prevention": [
+    "Any future supervisor/capsule binding must verify the operational checkpoint path and Git blob at the same repository snapshot before launch.",
+    "Checkpoint publication and pointer publication should be atomic/CAS or followed by a mandatory readback invariant.",
+    "A stale operational hash is fail-closed for launch but must not invalidate independent scientific state."
+  ],
+  "resume_contract": {
+    "status": "SAFE_FOR_ENGINEERING_REVIEW_ONLY",
+    "required_before_activation": [
+      "reconcile supervisor-v3 branch against current main V259 or successor",
+      "bind an explicitly authorized execution capsule to exact supervisor/spec/budget hashes",
+      "use a new exclusive v3 work root",
+      "re-run integration/regression after reconciliation",
+      "do not reuse V255 operational overlay as current scientific authority"
+    ]
+  },
+  "next_automatic_action": "Perform terminal read-only reconciliation of supervisor-v3 code delta against current main V259. If code is orthogonal and no current-main conflict changes semantics, persist a merge-readiness assessment; do not activate or merge automatically."
+}
