@@ -1,0 +1,80 @@
+{
+  "schema": "QROS_W5_V30_REAL_TICK_EXPANDED_PARITY_REMOTE_SHA_ANCHOR_V1",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "prior_live_v29_pointer_sha1": "8f8a73431a62f9e1469df097a4ef712da4301daf",
+    "prior_v29_handoff_sha1": "4460dc151d3431d7676c39370ab2fba24d6c457c",
+    "prior_v29_anchor_sha1": "7c84f381ed76686f74cae258c7b4d62c22909a65",
+    "original_v28_anchor_sha1": "287b38c34b8c6a549a54420bd57ff0fc94cd9c4",
+    "original_prereg_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da"
+  },
+  "data": {
+    "raw_xau_ticks_2018_2019": 151382388,
+    "packed17_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "parts": 8,
+    "original_v28_semantic_configs_completed": 22352,
+    "original_v28_unique_physical_masks": 14459,
+    "original_v28_economic_shards_completed": 104,
+    "original_v28_archives_untouched": true
+  },
+  "new_v30_independent_validation": {
+    "channels": [
+      1,
+      5
+    ],
+    "sides": [
+      "BUY",
+      "SELL"
+    ],
+    "original_candidate_routes_covered": 14,
+    "original_full_tape_source_candidate_events_quote_invariant_checked": 1401189,
+    "successful_candidate_literal_bid_ask_entry_exit_checked": 1121943,
+    "original_physical_mask_occurrences_sampled_all_in_these_channels": 293,
+    "deterministic_signal_samples_per_mask_max": 128,
+    "raw_tick_signal_samples_replayed": 37504,
+    "independent_trade_by_trade_exact_trades": 26754,
+    "exact_fields": 294294,
+    "new_immutable_verified_shard_receipts": 27,
+    "proves_exhaustive_22352_trade_parity": false,
+    "original_v28_economic_results_recomputed": false
+  },
+  "archive": {
+    "provider": "ChatGPT personal Library",
+    "folder": "/QROS_SEED0076_W5_V30_EVIDENCE_20260925",
+    "name": "QROS_W5_V30_EXPANDED_INDEPENDENT_REAL_TICK_PARITY_20260925.zip",
+    "library_file_id": "libfile_3e0dfab5cb9481918a2f9a40bd7e7cb4",
+    "bytes": 60641,
+    "sha256": "245c951937d8a1b5e71232bda6dcaba0a532aa84accdf5277e1f75f541d430a7",
+    "member_count": 34,
+    "remote_raw_readback_byte_identical": true,
+    "zip_crc": "PASS",
+    "manifest_member_sha256": "PASS",
+    "receipt_sha256": "28735cbfac48c3ed1eeebf0d6d04ce1f35ec2c048a1e638d0248d0646f46172d",
+    "manifest_sha256": "660e395854d13d27bbc2f59f36be6bf513a904cac49f6d08ca0fee466b5179af",
+    "independent_runner_sha256": "deac21f0160cff053cab1525f8a7a151f41c5cd89ea47ae64011b027ecb5cfaa",
+    "independent_quote_invariant_sha256": "81c37d1a42eaf50cf4b7bc62fab5e7ad0fede08c6a29d0f99c3c86e1f96273f5"
+  },
+  "broker_primary_historical_evidence": {
+    "standard_server_DST": "PASS_PREEXISTING_V219",
+    "authenticated_full_2018_19_symbol_special_hours": "NOT_RECOVERED",
+    "actual_2018_19_account_XAU_commission": "NOT_RECOVERED",
+    "source_searches": [
+      "existing GitHub and Library",
+      "historical 2018-19 user Gmail search",
+      "Dropbox search",
+      "public Darwinex sources"
+    ],
+    "current_2026_public_broker_rate_is_not_historical_proof": true
+  },
+  "gates": {
+    "original_full10_exposed_DEV_backtest_complete": true,
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity_complete": false,
+    "portfolio_integration": false,
+    "W3_new_execution": false
+  },
+  "next_automatic_action": "Preserve immutable V30 verified 27 shards. Expand independently to remaining six V28 source channels via original byte-pinned archives and bounded shard replays; independently acquire original 2018-19 XAU account-specific commission and complete holiday/special-hours primary evidence. No V28 rerun; Gate A/holdout/GA2 closed."
+}

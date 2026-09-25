@@ -1,0 +1,64 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_CHAT_HANDOFF_POST_V25_REAL_SAMPLED_RETEST_V1",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "last_closed": "W5_V25_INDEPENDENT_ISOLATED_REAL_TICK_RETEST_1920_CHECKS_WITH_19_EXPLICIT_ADVERSARIAL",
+  "source_authority": {
+    "previous_scientific_pointer_blob_sha1": "1823165995a8133251c4b441014d328c74bc288c",
+    "original_V209_source_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "original_V220_source_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "original_V221_gate_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+    "W5_frozen_v209_prereg_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+    "v24_fullreal_anchor_sha1": "d612a30cc465d7cc72d77f43e93fb5455ca28acd",
+    "v25_real_retest_anchor_path": "control/QROS_SEED0076_W5_V25_RETEST_REALDATA_REMOTE_SHA_ANCHOR_20260924_v1.json",
+    "v25_real_retest_anchor_sha1": "febe1ff540dd65d87bd4d4d1b9bbebd750bf3882",
+    "v25_anchor_creation_commit": "7e9217b9be4cdc8e1a7f7f84d737ba925ed37b06"
+  },
+  "data": {
+    "DEV_raw_records": 151382388,
+    "raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "clean_valid_M1_bars_sha256": "8fed642eb3f948a9e0612d7b9b0ece453a71b32e41609a8fcc84ee41bd713b13",
+    "clean_valid_M1_indicators_sha256": "8a522e381d86684523a3707ec618f6825af25c103059fc368014291de742bdf6",
+    "full_8channel_raw_and_rearm_tape_sha256": "8e4cb5b630c44ae3a526bee81fde2493f7385619ba096c804275a9b79004bdd0"
+  },
+  "work_executed": {
+    "V24_real_data_and_raw_rearm_8channel_independent_full_tape": "PASS_PRIOR_SIGNED_V24",
+    "V24_real_M5_M15_MTF_context_checks": 185092,
+    "V25_real_retest_8channels_6variants_sampled_candidate_level_independent": 1920,
+    "V25_valid_quote_only_frozen_V220_isolated_reference_parity": 910,
+    "V25_invalid_quote_real_candidate_window_independent_checks": 1010,
+    "V25_explicit_result_adversarial_cases": 19,
+    "V25_synthetic_agreement_cases": 384,
+    "V25_immutable_release_SHA_verified_remote": true,
+    "V25_source_archive_google_drive_id": "1G-73ekL5gMvDNfRf5Yrg9QXJZmsYlp2_",
+    "V25_source_archive_SHA256": "a6d73d155f56804416b8b909826d51fa0560743cf1fe0bd70fada625b14af83d",
+    "V25_file_manifest_SHA256": "f8f52d2c31e6298bc13e991193f8996fe01db3cf20a85ca0025daf623ec48b9a",
+    "V25_member_SHA_PASS": 5
+  },
+  "gates": {
+    "full_original_V220_stateful_RETEST_ENTRY_rearm_and_pending_block_REAL_full_tape": "PENDING",
+    "full_V209_tenfamily_11176_per_side_REAL_masks": "PENDING",
+    "W5_22352_preregistered_real_economic_configs": "NOT_RUN",
+    "historical_broker_clock_DST": "UNCERTIFIED",
+    "broker_commission": "UNCERTIFIED",
+    "Gate_A": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false
+  },
+  "problems": [
+    "Sampled isolated retest proof does not prove complete original V220 candidate-state rearm/pending-block semantics across all raw ticks.",
+    "Full V209 ten-family real masks must be computed for causal original family interactions and RETEST_ENTRY buffers; no retrospective pruning.",
+    "Broker historical server clock DST and commission remain uncertified."
+  ],
+  "root_causes": [
+    "Stagewise scientific dependencies require incremental proof; do not mislabel partial preeconomic sample parity as complete backtest."
+  ],
+  "corrections": [
+    "Two independently implemented retest candidate scanners over exact V24 source; 19 explicit deterministic adversarial expected outcomes; original frozen V220 read-only parity only on fully valid quote windows.",
+    "Proof archived to Google Drive ZIP, SHA verified after independent raw redownload, immutable GitHub v25 anchor linked to v24."
+  ],
+  "scientific_state_interpretation": "DEVELOPMENT_RUNNING_GENEALOGY_WITH_ONE_W5_CELL_PREREGISTERED_NO_RESULTS",
+  "portfolio_impact": "NONE_NEW_APPROVED; 13 prior 7-family closed cells unchanged",
+  "next_action": "Read live direct pointer then verify exact V25 Git anchor and Drive ZIP hash. Freeze and test full integrated original V220 stateful RETEST_ENTRY (rearm_code0, pending_block_until, raw source and opposite cancels) for 8 channels × 6 original retest variants over full 2018–2019 DEV with independent matching candidate events. Freeze real all-10-family 11176 packages/side masks, 22352 IDs then broker clock/cost certification. Only then launch W5 economic DEV; no W3/holdout/GA2."
+}

@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_M1_W9_STRICT_PREREG_V1",
+  "seed": "WEB_SEED_0076",
+  "frozen_original_V209_spec_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "parent_w7_strict_remote_anchor_blob_sha1": "c092b2a585709171405df9db035861a8ed1b0755",
+  "parent_w7_archive_sha256": "e97747b22fcee0d00479d144cfb498ce8beb7eba43c743c39c60bb934c2e5531",
+  "unit_id": "XAUUSD_M1_W9_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL",
+  "asset": "XAUUSD",
+  "timeframe": "M1",
+  "fractal_window": 9,
+  "tie_policy": "STRICT_ALL_NEIGHBORS",
+  "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+  "trigger": "CLOSE_BREAK",
+  "sides": [
+    "BUY",
+    "SELL"
+  ],
+  "original_V209_filter_families": [
+    "EMA_CROSS_RECENCY",
+    "GEOMETRY",
+    "MOMENTUM",
+    "SESSION",
+    "TREND",
+    "TREND_STRENGTH",
+    "VOLATILITY"
+  ],
+  "filter_packages_per_side": 8629,
+  "expected_semantic_configurations": 17258,
+  "source_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "development_period": "2018_2019_EXPOSED",
+  "scientific_state": "PREREGISTERED_NO_RESULTS_FOR_W9_STRICT",
+  "execution_contract": "At signal bar i=p+5 strict fractal center >/< all eight neighboring closed bars. Consume raw crossing before filters; original Bid/Ask stop-first first executable gap; existing 19:30 exploratory overlay.",
+  "gates": [
+    "EXACT_SOURCE_HASH",
+    "INDEPENDENT_NUMPY_ORIGINAL_V220_AND_V2_STRICT9_PARITY",
+    "8629_ORIGINAL_FILTER_PACKAGES_PER_SIDE",
+    "ORIGINAL_V221_GATE_CANARIES",
+    "INDEPENDENT_SAMPLED_FULL_TICK_TRADE_PARITY",
+    "REMOTE_DRIVE_ARCHIVE_REHASH",
+    "EXTERNAL_GITHUB_BLOB_ANCHOR"
+  ],
+  "risk_firewalls": {
+    "no_overnight": true,
+    "max_standalone_new_entries_per_day": 3,
+    "combined_portfolio_not_evaluated": true,
+    "holdout_open": false,
+    "broker_commission_certified": false,
+    "old_60_shards_out_of_scope": true,
+    "ga2_open": false
+  },
+  "parent_cumulative_semantic_configurations": 155322,
+  "parent_cumulative_physical_masks_by_cell": 68829,
+  "next_automatic_action": "EXECUTE_ONLY_PREREGISTERED_XAUUSD_M1_W9_STRICT_ALL_NEIGHBORS_BUY_SELL"
+}

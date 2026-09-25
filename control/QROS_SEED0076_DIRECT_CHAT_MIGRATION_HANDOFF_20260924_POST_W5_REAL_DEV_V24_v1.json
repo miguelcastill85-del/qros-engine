@@ -1,0 +1,74 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_CHAT_HANDOFF_POST_W5_V24_REAL_DEV_PRE_ECON_V1",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "new_W5_economic_state": "PREREGISTERED_NO_RESULTS",
+  "last_closed": "W5_V24_EXACT_REAL_DEV_RESTORATION_SANITIZED_RAW_REARM0_AND_MTF_INDEPENDENT_PARITY",
+  "authority": {
+    "parent_scientific_pointer_blob_sha1": "fa0e9260eb7cba7cfb6d1afd09acffe3bba230ce",
+    "parent_V23_release_anchor_sha1": "71f15f43cc55761784d48a609bbb3b12f6daa1f2",
+    "original_V209_spec_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "original_V220_source_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "original_V221_source_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+    "original_W5_prereg_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+    "new_v24_erratum_path": "control/QROS_SEED0076_W5_V24_PRE_ECON_REALQUOTE_SANITIZED_SOURCE_ADDENDUM_20260924_v1.json",
+    "new_v24_erratum_blob_sha1": "b75f9edd7262f0d83d3f0e917930ae0cb38eff1e",
+    "new_v24_remote_anchor_path": "control/QROS_SEED0076_W5_V24_REAL_TICK_PRE_ECON_REMOTE_SHA_ANCHOR_20260924_v1.json",
+    "new_v24_remote_anchor_blob_sha1": "d612a30cc465d7cc72d77f43e93fb5455ca28acd"
+  },
+  "data": {
+    "raw_records": 151382388,
+    "raw_bytes": 2573500596,
+    "raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "full_original_eight_ZIP_sources_drive_pinned": true,
+    "original_M1_bars_corrected_SHA256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59",
+    "original_M1_indicators_SHA256": "f30da86f6c11b5a6573b3571ffd3c3621bbe4d51134258c89d956d6f9ab115b5",
+    "clean_M1_bars_SHA256": "8fed642eb3f948a9e0612d7b9b0ece453a71b32e41609a8fcc84ee41bd713b13",
+    "clean_M1_indicators_SHA256": "8a522e381d86684523a3707ec618f6825af25c103059fc368014291de742bdf6",
+    "clean_M1_bar_rows": 681745,
+    "invalid_quote_rows": 942258,
+    "untradable_M1_bars_dropped": 27
+  },
+  "executed": {
+    "original_8_ZIP_payload_SHA_verified": true,
+    "original_raw_bar_indicator_exact_SHA_verified": true,
+    "clean_M1_1051_independent_OHLC_tests": "PASS",
+    "full_real_guarded_tick_raw_and_rearm_eight_buffers_and_two_sides": "PASS",
+    "independent_full_raw_tape_offline_rearm_test": "8_OF_8_PASS",
+    "independent_python_real_tick_window_tests": 240,
+    "python_checked_real_raw_events": 1260,
+    "real_M5_M15_independent_MTF_completion_tests": 185092,
+    "real_RAW_REARM_tape_SHA256": "8e4cb5b630c44ae3a526bee81fde2493f7385619ba096c804275a9b79004bdd0"
+  },
+  "gate_status": {
+    "exact_raw": "PASS",
+    "valid_quote_data_audit": "PASS",
+    "real_raw_rearm0": "PASS",
+    "real_M5_M15_nonlookahead": "PASS",
+    "original_V220_RETEST_ENTRY_real_touch_close": "PENDING",
+    "full_10_family_11176_masks_each_side": "PENDING",
+    "real_22352_config_economic": "NOT_RUN",
+    "Gate_A": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "broker_clock_DST_certified": false,
+    "broker_commission_certified": false,
+    "MT5_parity": false
+  },
+  "test_evidence": {
+    "current_replayed_PASS": 71,
+    "v23_12_pipeline_current_replay": "TIMEOUT_NOT_PASS",
+    "prior_archived_v23_83_local_PASS": "REPORTED_PRIOR_REMOTE_ARTIFACT"
+  },
+  "correction": "Preserved original W5 prereg and 13 parent economic archives; signed v24 one-character original bar SHA erratum and separate valid-quote derived cache before observing new W5 economics.",
+  "release": {
+    "drive_id": "1nzeRX25otpHZUFwSA6mZkkEEvFj0AZl0",
+    "file": "QROS_W5_V24_REAL_DEV_SOURCE_AND_TICK_PARITY_20260924.zip",
+    "bytes": 26452731,
+    "sha256": "3fca8cf5b3103a583a9ed124ea18802fee7fe720d8128a9449525fa29c69ddbb",
+    "archive_remote_re_download_SHA_and_31_internal_member_hashes": "PASS"
+  },
+  "impact_portfolio": "NONE_VERIFIED",
+  "next_pending": "W5_V24_RETEST_ENTRY_ORIGINAL_V220_VALIDQUOTE_REAL_SOURCE_AND_ALL_10_FAMILY_MASK_PARITY",
+  "next_automatic_action": "Read live direct pointer and exact new v24 anchor; reuse v24 raw tape, sanitized caches and 22352 frozen ID corpus; independently implement/test V220 retest touch and close, original full 10-family real candidate masks, session clock/DST and cost profile. ONLY THEN one W5 DEV economic backtest, W3 no rerun, holdout and GA2 closed."
+}

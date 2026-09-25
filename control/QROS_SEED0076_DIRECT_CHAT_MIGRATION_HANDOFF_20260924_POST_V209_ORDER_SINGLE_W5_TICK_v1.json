@@ -1,0 +1,90 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_CHAT_MIGRATION_HANDOFF_POST_V209_ORDER_SINGLE_W5_FULL_TICK_PREREG_V1",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "governance": {
+    "main_pointer": "control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
+    "main_pointer_blob_sha1": "3996a65e3377da6976a5457177d6a169cee93ff3",
+    "version": "2.2",
+    "max_ordinary_route_seconds": 120,
+    "max_idle_no_new_SHA_verified_bytes_seconds": 45,
+    "max_two_pre_frozen_equivalent_routes": 2,
+    "no_repeating_closed_work": true
+  },
+  "source_truth": {
+    "root_seed": "WEB_SEED_0076",
+    "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "frozen_V209_spec_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "frozen_config_stream_blob_sha1": "a01268bd8bab639977b22c419926d94306754bba",
+    "frozen_V220_structural_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "main_scientific_pointer_separate": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json"
+  },
+  "parent_last_closed": {
+    "stage": "XAUUSD_M1_W3_SOURCE_ASYMMETRIC_RETURN_INSIDE_OR_LEVEL_REPLACED_CLOSE_BREAK_BUY_SELL",
+    "anchor_blob_sha1": "334c43046ce5c0b0dc8bc2f01ff1c909b3527394",
+    "drive_id": "1qk_ApfW2Nt-MTzx6vdMDCN3ScikBHMG0",
+    "ZIP_sha256": "53d170432304efed7c9b4db96be1042f7eddea6c062944a25bda0b08407f0b65",
+    "completed_seven_family_semantic_configs": 224354,
+    "completed_physical_masks_by_cell": 97451,
+    "global_13cell_semantic_id_root_sha256": "0df63dbbfafeec20a46391c10b063cda7c6c6107363c0e3953a22c3b5762f5a6"
+  },
+  "last_closed": {
+    "stage": "AUDIT_FROZEN_V209_REMAINING_BASE_AXIS_ORDER_AND_PREREGISTER_EXACTLY_ONE_NEXT_FULL_CELL_NO_PNL",
+    "remote_sha_anchor_path": "control/QROS_SEED0076_DIRECT_V209_ORDER_W5_FULL_TICK_PREREG_REMOTE_SHA_ANCHOR_20260924_v1.json",
+    "remote_sha_anchor_blob_sha1": "4d582962ea40759d4245cb89aa0482b20467f6b4",
+    "remote_sha_anchor_creation_commit": "79118ec8879a2297c2eb1cb75de20347a2520d93",
+    "independent_full_filter_enumerator_parity": "PASS_11176_EXACT",
+    "independent_22352_config_ID_parity": "PASS",
+    "signed_archive": {
+      "drive_id": "1TUXhmVS9QYwCU9xnmA7EvUIPaxfakwYm",
+      "bytes": 749363,
+      "sha256": "a50def21191fe6f59ac5c52a0ceda92dd4aeba7ac36a24eb4addb92377509e39",
+      "members": 13,
+      "independent_remote_byte_redownload_verified": true
+    }
+  },
+  "axis_coverage": {
+    "XAU_M1_paired_base_cells": 72,
+    "already_closed_seven_family_subcells": 13,
+    "W3_unstarted_explicitly_deferred_await_user_scope_change": 9,
+    "nonW3_unstarted_before_prereg": 50,
+    "newly_preregistered_nonW3": 1,
+    "remaining_nonW3_not_started": 49,
+    "full_V209_filter_packages_per_side": 11176,
+    "previous_scope_packages_per_side": 8629,
+    "previous_uncovered_filter_packages_per_side": 2547,
+    "theoretical_untested_full_spec_configs_inside_previous_13_partial_cells": 66222,
+    "previously_closed_economic_archives_preserved": true,
+    "not_universe_exhausted": true
+  },
+  "next_exact_cell": {
+    "name": "XAUUSD_M1_W5_SOURCE_ASYMMETRIC_RETURN_INSIDE_OR_LEVEL_REPLACED_TICK_BREAK_BUY_SELL_FULL_V209",
+    "prereg_path": "control/QROS_SEED0076_DIRECT_M1_W5_ASYM_REARM0_TICK_FULL_V209_PREREG_20260924_v1.json",
+    "prereg_blob_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+    "independent_oracle_blob_sha1": "b6c07d140071e6d821b97d9dfa1e233cd8fc1c55",
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "expected_semantic_configurations": 22352,
+    "original_full_filter_packages_per_side": 11176,
+    "configuration_id_STREAM_SHA256": "bb1e97c99fc1eb3c1acab53f77232c00fae61feafb5b8b63941c1e68e0e53b75",
+    "economic_DEV_not_executed": true,
+    "source_freeze_pending": true
+  },
+  "scientific": {
+    "campaign_status": "DEVELOPMENT_RUNNING",
+    "DEV_2018_2019_irrevocably_exposed_for_genealogy": true,
+    "holdout_open": false,
+    "GA2_open": false,
+    "Gate_A_approved": false,
+    "MT5_trade_by_trade_parity_completed": false,
+    "broker_commission_certified": false,
+    "broker_historical_calendar_certified": false,
+    "portfolio_joint_BUY_SELL_not_evaluated": true,
+    "N_TESTS_prior_executed_sevenfamily_minimum": 224354,
+    "N_TESTS_next_full_configurations_preregistered_not_executed": 22352,
+    "no_new_alpha_selected": true,
+    "old_60_shards_out_of_scope": true
+  },
+  "next_only": "PRE_ECONOMIC_SOURCE_FREEZE_AND_INDEPENDENT_W5_ASYM_TICK_BREAK_REARM0_FSM_QUOTE_MTF_FILTERS_ORACLE",
+  "next_automatic_action": "Read live current direct pointer; verify V209 audit+prereg anchor Git blob 4d582962ea40759d4245cb89aa0482b20467f6b4 and SHA-verified Drive ZIP a50def21191fe6f59ac5c52a0ceda92dd4aeba7ac36a24eb4addb92377509e39. Freeze exactly one selected W5 ASYM RETURN_INSIDE TICK_BREAK full-10-family implementation including strict quote guard, original V220/V221 semantics, independent fixtures and all 22352 IDs. Do not run economic DEV until preeconomic parity PASS. Do not run or repreregister W3. No holdout or GA2."
+}

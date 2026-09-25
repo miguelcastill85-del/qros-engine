@@ -1,0 +1,56 @@
+{
+  "schema": "QROS_SEED0076_M1_SIX_WINDOW_AUDIT_NEXT_CELL_EXTERNAL_ANCHOR_V1",
+  "seed": "WEB_SEED_0076",
+  "asset": "XAUUSD",
+  "timeframe": "M1",
+  "frozen_original_spec_git_blob": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "audited_windows": [
+    3,
+    5,
+    7,
+    9,
+    11,
+    13
+  ],
+  "fixed_tie_policy": "SOURCE_ASYMMETRIC",
+  "fixed_rearm": "ONE_SIGNAL_PER_LEVEL",
+  "fixed_trigger": "CLOSE_BREAK",
+  "seven_original_M1_compatible_families": true,
+  "semantic_config_ids_cross_window_unique": 103548,
+  "physical_masks_aggregated_across_windows": 42894,
+  "receipt_sha256": "c52571c76632edad36c2f795a13f33761c26452721e8ce5915b5d4faf104101e",
+  "zip_sha256": "ff00e2a5503a9b6d0814bc6d3d023996f001148882a56547286d11cd99007c79",
+  "zip_bytes": 5326,
+  "drive_file_id": "1SC3PXzrHymSsiO-QWLoJYhD6L1YQoOyl",
+  "drive_folder_id": "1lfMh7r2SJiu2pIm6kSCAHmvKqLBFHNOG",
+  "w13_external_lock_sha256": "a191ee07706e8f953471fde7c4ad05dab4d358e748f1adb9b34b8785374ffc14",
+  "next_cell_preregistered": {
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "fractal_window": 3,
+    "sides": [
+      "BUY",
+      "SELL"
+    ],
+    "tie_policy": "STRICT_ALL_NEIGHBORS",
+    "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+    "trigger": "CLOSE_BREAK",
+    "seven_filter_families": [
+      "EMA_CROSS_RECENCY",
+      "GEOMETRY",
+      "MOMENTUM",
+      "SESSION",
+      "TREND",
+      "TREND_STRENGTH",
+      "VOLATILITY"
+    ],
+    "filter_packages_per_side": 8629,
+    "expected_semantic_configurations": 17258
+  },
+  "dev_2018_2019_exposed": true,
+  "commission_certified": false,
+  "holdout_open": false,
+  "gate_A_approved": false,
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "next_automatic_action": "Execute exactly the preregistered W3 STRICT_ALL_NEIGHBORS cell, leave other axes untouched"
+}

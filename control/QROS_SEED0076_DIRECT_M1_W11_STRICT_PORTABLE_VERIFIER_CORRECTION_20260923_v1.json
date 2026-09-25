@@ -1,0 +1,41 @@
+{
+  "schema": "QROS_SEED0076_W11_STRICT_POSTHOC_VERIFIER_ONLY_CORRECTION_V1",
+  "cause": "W9-to-W11 cloned auditor/portable-verifier retained old W9 numeric axis and expected sample counts; discovered by independent checks",
+  "economic_runner_sha256_unchanged": "bd9742888af380666451883c0b5e07940743924fe4167d4c3ded614529c555ed",
+  "frozen_original_V209_spec_git_blob": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "gate_audit_original_sha256": "947b6c6d502e8c61e1b9084ef2f4622f423544c37d410eae30af648ec0bdc5ac",
+  "gate_audit_corrected_sha256": "c81187356186fd130ca02278721bcc9174f30cb7ac56a668f899c1dadadd0439",
+  "portable_verifier_v1_sha256": "6e24be25ef174fbf154c1851534e0546877003adb4ae253b24a1ff5a30805749",
+  "portable_verifier_v2_sha256": "0651881664bc3df29ade7ab69af5a10edb72abda44ce3a47423aaadb780ba8ca",
+  "portable_verifier_v3_sha256": "70e11479c61bfcd2773cf21c82defa6f340b14e3d04c4f7015ac4e06157858cf",
+  "v3_derivation_from_v1": [
+    {
+      "old": "'window':9",
+      "new": "'fractal_window':11"
+    },
+    {
+      "old": "r['physical_masks_new']!=6851",
+      "new": "r['physical_masks_new']!=5936"
+    },
+    {
+      "old": "x['base']['fractal_window']!=9",
+      "new": "x['base']['fractal_window']!=11"
+    },
+    {
+      "old": "!=6581",
+      "new": "!=5876"
+    },
+    {
+      "old": "'independent_trade_rows':6581",
+      "new": "'independent_trade_rows':5876"
+    }
+  ],
+  "remote_drive_zip_sha256": "92d6e93e3b56cf992ff3aaa08a6386abb1f9aae2b9aa7b34cf47123993b88813",
+  "remote_drive_id": "11Nm2WogqaKcXthPhvfXvE_uVZ4k9q78U",
+  "remote_verifier_status": "PASS_OFFLINE_STRUCTURE",
+  "independent_trade_rows": 5876,
+  "frozen_V221_gate_canaries": 218,
+  "tamper_detection": "PASS_README_CORRUPTION_REJECTED",
+  "changed_economic_results": false,
+  "holdout_open": false
+}

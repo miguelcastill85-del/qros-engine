@@ -1,0 +1,109 @@
+{
+  "BUY_config_id_stream_sha256": "0dbaf56a5a8f0b1fce3b4c92fc44f0fc6146a237e9f23eaf6da75e4be82eecb5",
+  "DEV_period": "2018_2019_ECONOMICALLY_EXPOSED_FOR_ENTIRE_ROOT_GENEALOGY",
+  "SELL_config_id_stream_sha256": "d2a130f42f4ab077437fe237363b863bf49c3631c2b9e482aa2121d93c9cc47b",
+  "asset": "XAUUSD",
+  "campaign_id": "QROS_WEB_SEED0076_XAUUSD_M1_W5_ASYM_REARM0_TICK_FULL_V209_20260924",
+  "causal_contract": {
+    "BREAKOUT_BUFFER": "Include original 0.05 0.10 0.25 ATR variants as frozen; avoid duplicate implicit zero-buffer single rules",
+    "MTF": "Derive higher timeframes only from bars actually closed at the signal tick; timestamp alignment independent oracle",
+    "V220_structure": "5 bars; source-asymmetric ties; 2 right bars confirmed; level available only once last confirmation bar is closed",
+    "clock": "Darwinex source server time must be linked to bytes and validated for session/DST; do not assume UTC",
+    "entry_exit": "BUY entry Ask exit Bid; SELL entry Bid exit Ask; if both SL and TP ambiguous SL first; gaps at first executable quote",
+    "no_overnight": true,
+    "portfolio_combined_daily_interference": "NOT_EVALUATED",
+    "raw_trigger": "Use ALL causal zero ATR buffer per-tick Bid level crosses from original V220 raw_tick_crosses_four; do not reuse already consumed ONE_SIGNAL tape",
+    "rearm": "Original V220 rearm_code=0; consume raw signal before all filters; rearm after first strictly future valid tick return inside or causal level replacement",
+    "retest": "If original RETEST_ENTRY variants included, apply exactly original V220 touch/close reclaim and cancellation without future peeking",
+    "standalone_daily_entries_max": 3,
+    "tick_quote_safety": "Exclude invalid, zero spread, crossed Bid/Ask ticks from both raw-cross and return state; verify guard on actual source and adversarial synthetic fixtures"
+  },
+  "combined_BUY_SELL_config_id_stream_sha256": "bb1e97c99fc1eb3c1acab53f77232c00fae61feafb5b8b63941c1e68e0e53b75",
+  "combined_two_side_sorted_ID_root_sha256": "13b6cd42925b1dd2fd86f85eda021920f4b9e55d05021ce6b5eaad3b74fc0f6a",
+  "config_id_definition": "SHA256(UTF8_JSON_SORTED_KEYS_COMPACT_ENSURE_ASCII_FALSE(base + {filters: original_V209_filter_package}))",
+  "costs": {
+    "19_30_exploratory_flat": "NOT_BROKER_CERTIFIED",
+    "broker_commission_certified": false,
+    "central_conservative_severe": "REQUIRED_AFTER_EXECUTION_MODEL_FREEZE",
+    "historical_calendar_certified": false,
+    "no_USD_conversion_before_risk_freeze": true
+  },
+  "expected_exact_semantic_configurations": 22352,
+  "expected_original_V209_filter_families": [
+    "BREAKOUT_BUFFER",
+    "EMA_CROSS_RECENCY",
+    "GEOMETRY",
+    "MOMENTUM",
+    "MULTI_TF",
+    "RETEST_ENTRY",
+    "SESSION",
+    "TREND",
+    "TREND_STRENGTH",
+    "VOLATILITY"
+  ],
+  "full_original_filter_packages_per_side": 11176,
+  "genealogy": "PUBLIC1000_WEB_SEED_0076_FRACTALBOX_3EMA",
+  "multiplicity": {
+    "all_axes_deferred_including_W3_remain_in_scope": true,
+    "minimum_previous_tested_7family": 224354,
+    "never_select_best_from_exposed_DEV_as_new_holdout": true,
+    "new_pre_registered": 22352,
+    "untested_parent_full_V209_filter_gap": 66222
+  },
+  "next_automatic_action": "Source freeze and independent preeconomic tick-rearm full-10-family parity; only then execute this single preregistered cell BUY/SELL. No additional cell prereg until decision/checkpoint.",
+  "not_a_new_genealogy": true,
+  "original_filter_package_order_sha256": "3c0dfe0adf69c2fd0e82f36df15fc3a0537cb0a90646008b2f7a95408394e5e9",
+  "preregistered_gate_order": [
+    "VERIFY_EXACT_REMOTE_V209_V220_V221_CONFIG_SOURCE_AND_RAW_BARS_SHA",
+    "PRE_ECON_SOURCE_FREEZE_WITH_NO_PNL_AND_TWO_FROZEN_EQUIVALENT_RUNNERS",
+    "INDEPENDENT_W5_ASYM_STRICT_CAUSALITY_AND_EQUAL_EXTREMA_TESTS",
+    "ORIGINAL_V220_FULL_RAW_TICK_CROSS_0BUFFER_AND_BUFFER_FOUR_ORACLE",
+    "INDEPENDENT_VALID_QUOTE_BID_ASK_REARM0_FSM_FIXTURES_AND_CAUSAL_REPLACEMENT",
+    "INDEPENDENT_SOURCE_BAR_COMPLETION_AND_MTF_ROLLUP_PARITY",
+    "ORIGINAL_ALL_10_FAMILY_11176_FILTER_PACKAGE_ORDER_AND_V221_CANARIES",
+    "EXACT_SEMANTIC_IDS_22352_AND_FULL_CAUSAL_MASK_DEDUPE_NO_PNL",
+    "DEV_TICK_BY_TICK_EXECUTE_CHUNKED_AND_CHECKPOINT_PER_SIDE",
+    "INDEPENDENT_FULL_TICK_EXECUTION_TRADE_BY_TRADE_STRATIFIED",
+    "ZIP_MEMBER_MANIFEST_READBACK_DRIVE_SHA256_GITHUB_IMMUTABLE_ANCHOR",
+    "GATE_A_ONLY_IF_INDEPENDENT_EXECUTION_AND_COST_CERTIFICATION_PASS"
+  ],
+  "raw_tick_source": {
+    "M1_bid_bars_sha256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56bbb8a71a7457f59",
+    "M1_indicators_sha256": "f30da86f6c11b5a6573b3571ffd3c3621bbe4d51134258c89d956d6f9ab115b5",
+    "packed17_bytes": 2573500596,
+    "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "ticks": 151382388
+  },
+  "rearm_mode": "RETURN_INSIDE_OR_LEVEL_REPLACED",
+  "schema": "QROS_SEED0076_DIRECT_M1_W5_ASYM_RETURN_INSIDE_TICK_BREAK_FULL_V209_PREREG_V1",
+  "scientific_firewalls": {
+    "GA2_open": false,
+    "PNL_READ_FOR_SELECTION": false,
+    "gate_A_approved": false,
+    "holdout_open": false,
+    "new_old_shard_GA1": false,
+    "no_new_alpha_selected": true,
+    "original_60_shards_out_of_scope": true
+  },
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "selection_rule": "First unclosed paired-side XAUUSD M1 base tuple in original V209 axis-value order after explicitly excluding any W3 execution in this turn. No economic scores used. Each pair is BUY then SELL and maps to two original side-specific bases. All W3 leftover axes remain PENDING, not exhausted or rejected.",
+  "sides": [
+    "BUY",
+    "SELL"
+  ],
+  "source_pins": {
+    "V209_spec_git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "V220_structural_git_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+    "direct_branch_tip_before_audit": "9c15c39253242125ba547200667adf8ab92c2151",
+    "direct_live_pointer_gitblob_sha1": "ae3863b21f041d43768b667a8e4da5755ecf8160",
+    "governance_main_v22_pointer_gitblob_sha1": "3996a65e3377da6976a5457177d6a169cee93ff3",
+    "original_enumerator_git_blob_sha1": "a01268bd8bab639977b22c419926d94306754bba",
+    "parent_13cell_global_canonical_id_root_sha256": "0df63dbbfafeec20a46391c10b063cda7c6c6107363c0e3953a22c3b5762f5a6",
+    "parent_W3_rearm0_archive_sha256": "53d170432304efed7c9b4db96be1042f7eddea6c062944a25bda0b08407f0b65",
+    "parent_W3_rearm0_remote_anchor_git_blob_sha1": "334c43046ce5c0b0dc8bc2f01ff1c909b3527394"
+  },
+  "tie_policy": "SOURCE_ASYMMETRIC",
+  "timeframe": "M1",
+  "trigger": "TICK_BREAK",
+  "window": 5
+}

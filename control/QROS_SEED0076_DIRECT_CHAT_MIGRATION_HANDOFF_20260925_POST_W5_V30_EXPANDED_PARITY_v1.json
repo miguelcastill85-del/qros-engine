@@ -1,0 +1,73 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_POST_V30_EXPANDED_TRADE_PARITY_CHECKPOINT_V1",
+  "objective": "Extend independently already closed V28 W5 original 22352 FULL10 2018-19 exposed-DEV backtest without reexecuting closed signal or economic shards",
+  "authority": {
+    "repository": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "parent_pointer_git_blob_sha1": "8f8a73431a62f9e1469df097a4ef712da4301daf",
+    "parent_v29_handoff_sha1": "4460dc151d3431d7676c39370ab2fba24d6c457c",
+    "parent_v29_anchor_sha1": "7c84f381ed76686f74cae258c7b4d62c22909a65",
+    "v30_anchor_path": "control/QROS_SEED0076_W5_V30_REAL_TICK_EXPANDED_PARITY_REMOTE_SHA_ANCHOR_20260925_v1.json",
+    "v30_anchor_git_blob_sha1": "6a3b02c6cad6fc6386a76f7572ab642e6a779713",
+    "original_V209_prereg_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da"
+  },
+  "data": {
+    "exact_original_raw_ticks": 151382388,
+    "raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "recovered_parts": 8,
+    "all_original_v28_semantic_configs_unchanged": 22352,
+    "original_v28_economic_shards_unchanged": 104
+  },
+  "work_executed": "Rebuilt original exact 8-part raw carrier with serial per-part SHA checkpoint and full byte SHA. Recovered two exact original V28 independently frozen channel archives CH1 BUY and CH5 SELL. 27 bounded replay checkpoints sample all 293 corresponding physical-mask occurrences with <=128 deterministic accepted signal indices per mask using independent pre-existing tick-by-tick simulator. All 14 full original tapes independently cross-checked against source quote entry/exit, stop, same-day and timestamp causality for all 1,401,189 candidates. No new PnL.",
+  "verified_results": {
+    "independent_mask_occurrences": 293,
+    "channels": [
+      1,
+      5
+    ],
+    "routes": 14,
+    "shards": 27,
+    "raw_tick_sampled_signals": 37504,
+    "exact_trades": 26754,
+    "exact_fields": 294294,
+    "full_tape_source_candidates": 1401189,
+    "full_tape_successful_executable_quote_events": 1121943,
+    "v30_library_sha256": "245c951937d8a1b5e71232bda6dcaba0a532aa84accdf5277e1f75f541d430a7",
+    "library_raw_byte_readback": "PASS",
+    "zip_crc": "PASS",
+    "manifest_members": "PASS",
+    "v30_archive_members": 34
+  },
+  "problems": {
+    "primary_2018_19_Darwinex_account_specific_commission": "NOT_RECOVERED",
+    "primary_2018_19_complete_XAU_symbol_special_hours": "NOT_RECOVERED",
+    "six_V28_channels_full_mask_parity": "NOT_EXECUTED_THIS_STAGE",
+    "full_22352_exhaustive_independent_trades": "NOT_COMPLETED",
+    "remote_unattended_executor": "NOT_CONFIGURED"
+  },
+  "root_cause": "Original V28 was an intentionally exploratory spread-only+hypothetical-cost development execution; 56-route sample was nonexhaustive; contemporaneous broker cost/calendar not available from recovered primary records.",
+  "corrections": "Fixed restore script scope of eighth ZIP: original pinned payload SHA applies to entire 20M-row part, not the truncated 2018-19 prefix; rolled back only uncheckpointed failed last-part bytes and completed 8/8 exact original carrier SHA.",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "gates": {
+    "V28_original_exposed_DEV_economic_execution": "COMPLETE",
+    "V29_independent_audit": "PASS",
+    "V30_independent_CH1_CH5_parity": "PASS",
+    "broker_historical_cost": "NOT_CERTIFIED",
+    "broker_historical_all_special_hours": "NOT_CERTIFIED",
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "new_alpha_approved": false,
+    "W3_deferred": true,
+    "old_60_shards_untouched": true
+  },
+  "portfolio": "NOT_EVALUATED_OR_APPROVED",
+  "persisted": {
+    "v30_anchor_git_blob_sha1": "6a3b02c6cad6fc6386a76f7572ab642e6a779713",
+    "library_path": "/QROS_SEED0076_W5_V30_EVIDENCE_20260925/QROS_W5_V30_EXPANDED_INDEPENDENT_REAL_TICK_PARITY_20260925.zip",
+    "library_file_id": "libfile_3e0dfab5cb9481918a2f9a40bd7e7cb4",
+    "library_sha256": "245c951937d8a1b5e71232bda6dcaba0a532aa84accdf5277e1f75f541d430a7"
+  },
+  "next_automatic_action": "Do not repeat 2018-19 raw restore or V28 economic scoring. Independently recover remaining six exact original V28 channel archives (CH0/2/3/4/6/7), then bounded PnL-blind all-mask stratified direct real-tick parity and full frozen tape raw-quote invariants; retain V30 CH1/5 27 receipt hashes. Independently recover contemporaneous account-specific 2018-19 commission and exact Darwinex XAU symbol holiday/special-hours original source. Until verified, do not open Gate A, holdout, GA2 or MT5."
+}

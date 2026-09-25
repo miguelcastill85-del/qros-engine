@@ -1,0 +1,65 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_M1_W3_W5_W7_STRICT_RUNTIME_BASELINE_V1",
+  "date_local": "2026-09-23",
+  "scope": {
+    "seed": "WEB_SEED_0076",
+    "asset": "XAUUSD",
+    "timeframe": "M1",
+    "period": "2018_2019_DEV_EXPOSED",
+    "tie_policy": "STRICT_ALL_NEIGHBORS",
+    "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+    "trigger": "CLOSE_BREAK",
+    "compatible_filter_families": 7,
+    "packages_per_side": 8629
+  },
+  "samples": [
+    {
+      "window": 3,
+      "configurations": 17258,
+      "physical_masks": 10019,
+      "buy_core_seconds": 5.4474,
+      "sell_core_seconds": 8.0032,
+      "total_core_seconds": 13.4506,
+      "zip_sha256": "48ad3d7f52a512b1f7ee1af7f6247abebe59d312cf2f963365702237cbd4946b"
+    },
+    {
+      "window": 5,
+      "configurations": 17258,
+      "physical_masks": 8468,
+      "buy_core_seconds": 12.5508,
+      "sell_core_seconds": 8.2988,
+      "total_core_seconds": 20.8496,
+      "zip_sha256": "452c53b831258a33cefd51c1e75c92b5fa0c06a1e520aab49e8c454b6c31764b"
+    },
+    {
+      "window": 7,
+      "configurations": 17258,
+      "physical_masks": 7448,
+      "buy_core_seconds": 7.2925,
+      "sell_core_seconds": 7.1029,
+      "total_core_seconds": 14.3954,
+      "zip_sha256": "e97747b22fcee0d00479d144cfb498ce8beb7eba43c743c39c60bb934c2e5531"
+    }
+  ],
+  "sample_total": {
+    "configurations": 51774,
+    "recorded_core_seconds": 48.6956,
+    "median_core_seconds_per_two_side_batch": 14.3954
+  },
+  "universe": {
+    "frozen_original_v209_raw_signal_configurations": 48280320,
+    "finished_direct_semantic_configurations": 155322,
+    "raw_remaining": 48124998,
+    "seven_family_fixed_XAU_M1_twotie_target": 207096,
+    "seven_family_fixed_XAU_M1_remaining": 51774,
+    "unique_physical_masks_by_cell_to_date": 68829
+  },
+  "limitations": [
+    "Reported instrumented batch core durations only; no complete end-to-end wall clock including I/O, verification, packaging, CI, Drive/GitHub.",
+    "Only XAUUSD M1 seven original family subset; cannot extrapolate to NQX, other timeframes, TICK_BREAK, alternative rearm modes, missing filters or management overlays.",
+    "No validated calendar ETA for original full universe, RISE fixed point, Gate A or clean holdout."
+  ],
+  "holdout_open": false,
+  "broker_commission_certified": false,
+  "next_only_preregistered": "XAUUSD_M1_W9_STRICT_ALL_NEIGHBORS"
+}

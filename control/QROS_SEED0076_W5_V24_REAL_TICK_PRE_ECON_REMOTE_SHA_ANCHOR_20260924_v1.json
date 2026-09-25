@@ -1,0 +1,72 @@
+{
+  "schema": "QROS_SEED0076_W5_V24_REAL_TICK_PRE_ECON_REMOTE_SHA_ANCHOR_V1",
+  "status": "DURABLE_REALDATA_PRE_ECON_PARTIAL_PASS_NO_PNL",
+  "parent_scientific_pointer_blob_sha1": "fa0e9260eb7cba7cfb6d1afd09acffe3bba230ce",
+  "parent_v23_release_anchor_sha1": "71f15f43cc55761784d48a609bbb3b12f6daa1f2",
+  "scientific_branch": "research/seed0076-direct-dev-backtest-20260922",
+  "original_v209_git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "original_v220_git_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+  "original_v221_git_blob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+  "original_w5_prereg_git_blob_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+  "pre_econ_quote_source_addendum_path": "control/QROS_SEED0076_W5_V24_PRE_ECON_REALQUOTE_SANITIZED_SOURCE_ADDENDUM_20260924_v1.json",
+  "pre_econ_quote_source_addendum_blob_sha1": "b75f9edd7262f0d83d3f0e917930ae0cb38eff1e",
+  "pre_econ_quote_source_addendum_commit": "51ddaad8166187b92d4430a60e30430340dbeb44",
+  "remote_package": {
+    "name": "QROS_W5_V24_REAL_DEV_SOURCE_AND_TICK_PARITY_20260924.zip",
+    "drive_id": "1nzeRX25otpHZUFwSA6mZkkEEvFj0AZl0",
+    "drive_folder_id": "1lfMh7r2SJiu2pIm6kSCAHmvKqLBFHNOG",
+    "bytes": 26452731,
+    "sha256": "3fca8cf5b3103a583a9ed124ea18802fee7fe720d8128a9449525fa29c69ddbb",
+    "members_total": 32,
+    "member_manifest_entries_verified": 31,
+    "manifest_sha256": "108fc11f75af079b71d088e4acdde464bd1f94dfec917c989d694d98918e449c",
+    "remote_drive_redownload_full_byte_sha_verified": true,
+    "original_local_file_renamed_prior_to_remote_redownload": true,
+    "zip_crc_and_every_manifest_member_sha_verified": true
+  },
+  "source_data": {
+    "raw_ticks": 151382388,
+    "raw_bytes": 2573500596,
+    "raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_8_ZIP_parts_fully_SHA_verified": true,
+    "old_M1_bars_SHA_corrected": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59",
+    "old_M1_indicators_sha256": "f30da86f6c11b5a6573b3571ffd3c3621bbe4d51134258c89d956d6f9ab115b5",
+    "new_valid_quote_M1_bars_sha256": "8fed642eb3f948a9e0612d7b9b0ece453a71b32e41609a8fcc84ee41bd713b13",
+    "new_valid_quote_M1_indicators_sha256": "8a522e381d86684523a3707ec618f6825af25c103059fc368014291de742bdf6",
+    "new_valid_quote_M5_bars_sha256": "e8e61dd194b622af5810bec9a3dfb07dd5812c6bfc9126a949945af2ec997bd1",
+    "new_valid_quote_M15_bars_sha256": "35aa0c4cf573a4af84e6b859ff9f6339f25d60e5176197eda05991e7971140ab"
+  },
+  "pre_econ_real_ticks": {
+    "zero_spread_rejected": 942184,
+    "crossed_spread_rejected": 74,
+    "invalid_only_M1_bars_removed_without_imputation": 27,
+    "new_sanitized_M1_bars": 681745,
+    "independent_sanitized_bar_oracle_checks": 1051,
+    "raw_tick_guard_and_rearm0_independent_full_tape_8_channels": "PASS",
+    "independent_python_real_tick_window_checks": 240,
+    "real_tick_raw_and_rearm_tape_sha256": "8e4cb5b630c44ae3a526bee81fde2493f7385619ba096c804275a9b79004bdd0",
+    "M5_M15_independent_no_lookahead_boundary_checks": 185092,
+    "all_10_family_masks_real": "PENDING",
+    "RETEST_ENTRY_touch_close_real": "PENDING"
+  },
+  "tests_current_turn": {
+    "v21_regression": 37,
+    "v22_regression": 8,
+    "w5_original_source": 21,
+    "realdata_negative": 5,
+    "total_pass_now": 71,
+    "v23_pipeline_12": "TIMED_OUT; historic signed package reports earlier 12 PASS, do not count as rerun PASS"
+  },
+  "scientific_firewalls": {
+    "new_W5_economic_PnL": "NOT_RUN",
+    "holdout_open": false,
+    "GA2_open": false,
+    "Gate_A_approved": false,
+    "original_13_seven_family_economic_archives_modified": false,
+    "W3_unstarted_axes_reopened": false,
+    "original_60_shards_accessed": false,
+    "broker_clock_certified": false,
+    "broker_commission_certified": false
+  },
+  "next_automatic_action": "READ CURRENT SCIENTIFIC POINTER; VERIFY THIS ANCHOR BLOB AND REMOTE PACKAGE EXACT SHA; REUSE VERIFIED REAL TICK W5 V24 CACHES/TAPES; COMPLETE ORIGINAL V220 RETEST_ENTRY VALID_QUOTE TOUCH/CLOSE AND ALL 10 FAMILY CAUSAL MASKS WITH INDEPENDENT PARITY; RESOLVE BROKER SERVER CLOCK/COST CERTIFICATION; ONLY THEN SINGLE W5 22352 CONFIG CHUNKED ECONOMIC DEV; NEVER REPEAT W3 OR OPEN HOLDOUT/GA2."
+}

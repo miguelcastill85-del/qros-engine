@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_M1_W9_STRICT_REMOTE_IMMUTABLE_ANCHOR_V1",
+  "seed": "WEB_SEED_0076",
+  "asset": "XAUUSD",
+  "timeframe": "M1",
+  "fractal_window": 9,
+  "tie_policy": "STRICT_ALL_NEIGHBORS",
+  "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+  "trigger": "CLOSE_BREAK",
+  "sides": [
+    "BUY",
+    "SELL"
+  ],
+  "source": "FROZEN_ORIGINAL_V209",
+  "parent_w7_strict_remote_anchor_blob_sha1": "c092b2a585709171405df9db035861a8ed1b0755",
+  "parent_w7_strict_zip_sha256": "e97747b22fcee0d00479d144cfb498ce8beb7eba43c743c39c60bb934c2e5531",
+  "prereg_w9_strict_blob_sha1": "1bca2f5739bc440848001d566a65335a8b31856f",
+  "original_V209_spec_git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "raw_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "raw_dev_bytes": 2573500596,
+  "raw_dev_ticks": 151382388,
+  "m1_bid_bars_sha256": "35a8644644daab5fc04a218d5527c3839b5248471801f8a56ebb8a71a7457f59",
+  "m1_indicators_sha256": "f30da86f6c11b5a6573b3571ffd3c3621bbe4d51134258c89d956d6f9ab115b5",
+  "archive": {
+    "name": "QROS_SEED0076_DIRECT_M1_W9_STRICT_17258_EVIDENCE_20260923.zip",
+    "bytes": 6087205,
+    "sha256": "4f6b723289c996da4c6c4f465275aae1796437a85202a76e6614a5ec989ca498",
+    "members": 48,
+    "drive_file_id": "1vBbynp63K8ylCkc8wvwZsoEndNoN_p30",
+    "drive_folder_id": "1lfMh7r2SJiu2pIm6kSCAHmvKqLBFHNOG",
+    "independent_remote_redownload_sha256_check": "PASS",
+    "portable_meta_audit": "PASS",
+    "adversarial_tamper_rejection": "PASS"
+  },
+  "execution": {
+    "new_semantic_configurations": 17258,
+    "buy_physical_masks": 3395,
+    "sell_physical_masks": 3456,
+    "new_physical_masks": 6851,
+    "buy_raw_candidates": 17749,
+    "sell_raw_candidates": 17462,
+    "original_V221_full_gate_canaries_pass": 218,
+    "independent_stratified_physical_masks": 16,
+    "independent_exact_full_tick_trade_rows": 6581,
+    "unresolved_masks": 0,
+    "cumulative_semantic_configurations": 172580,
+    "cumulative_physical_masks_by_cell": 75680
+  },
+  "scientific": {
+    "state": "DEVELOPMENT_RUNNING",
+    "dev_2018_2019_economically_exposed": true,
+    "holdout_open": false,
+    "broker_commission_certified": false,
+    "historical_symbol_calendar_certified": false,
+    "gate_A_approved": false,
+    "ga2_open": false,
+    "old_60_shards_out_of_scope": true,
+    "standalone_not_joint_buy_sell": true,
+    "no_alphas_selected": true
+  },
+  "next_serial_action": "PREREGISTER_ONLY_XAUUSD_M1_W11_STRICT_ALL_NEIGHBORS_ORIGINAL_V209"
+}

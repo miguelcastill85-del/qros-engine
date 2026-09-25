@@ -1,0 +1,46 @@
+{
+  "combined_ID_stream_sha256": "bb1e97c99fc1eb3c1acab53f77232c00fae61feafb5b8b63941c1e68e0e53b75",
+  "full_semantic_configurations": 22352,
+  "new_cell": [
+    "XAUUSD",
+    "M1",
+    5,
+    "SOURCE_ASYMMETRIC",
+    "RETURN_INSIDE_OR_LEVEL_REPLACED",
+    "TICK_BREAK",
+    [
+      "BUY",
+      "SELL"
+    ]
+  ],
+  "reference_canonical_spec_git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "schema": "QROS_SEED0076_INDEPENDENT_V209_FULL_FILTER_W5_PREREG_ORACLE_V1",
+  "validated": {
+    "BUY_SELL_nonoverlap": "PASS",
+    "BUY_full_config_bytes_exact": "PASS",
+    "GA2_open": false,
+    "NO_PNL": true,
+    "SELL_full_config_bytes_exact": "PASS",
+    "W3_nine_unclosed_explicitly_deferred": "PASS",
+    "all_72_pair_axis_statuses": "PASS",
+    "all_ZIP_manifest_member_sha256": "PASS",
+    "filter_package_stream_sha256": "3c0dfe0adf69c2fd0e82f36df15fc3a0537cb0a90646008b2f7a95408394e5e9",
+    "filter_packages": 11176,
+    "holdout_open": false,
+    "independent_10family_filter_variants": {
+      "BREAKOUT_BUFFER": 3,
+      "EMA_CROSS_RECENCY": 4,
+      "GEOMETRY": 79,
+      "MOMENTUM": 5,
+      "MULTI_TF": 6,
+      "RETEST_ENTRY": 6,
+      "SESSION": 6,
+      "TREND": 60,
+      "TREND_STRENGTH": 5,
+      "VOLATILITY": 5
+    },
+    "one_and_only_one_new_cell": "PASS",
+    "prior_13_closed_preserved": "PASS",
+    "zip_crc": "PASS"
+  }
+}

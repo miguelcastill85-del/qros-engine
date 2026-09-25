@@ -1,0 +1,151 @@
+{
+  "counts_by_last_minute": {
+    "61": 1,
+    "1198": 6,
+    "1199": 3,
+    "1200": 2,
+    "1209": 1,
+    "1228": 1,
+    "1239": 1,
+    "1243": 4
+  },
+  "days_with_last_valid_quote_before_predeclared_2350": [
+    {
+      "first_tick_time_ms": 1519002000185,
+      "last_tick_time_ms": 1519070400797,
+      "last_valid_hhmm": "20:00",
+      "server_date": "2018-02-19",
+      "valid_ticks": 55899
+    },
+    {
+      "first_tick_time_ms": 1522371663755,
+      "last_tick_time_ms": 1522371663755,
+      "last_valid_hhmm": "01:01",
+      "server_date": "2018-03-30",
+      "valid_ticks": 1
+    },
+    {
+      "first_tick_time_ms": 1527469260065,
+      "last_tick_time_ms": 1527537599339,
+      "last_valid_hhmm": "19:59",
+      "server_date": "2018-05-28",
+      "valid_ticks": 195626
+    },
+    {
+      "first_tick_time_ms": 1530666060036,
+      "last_tick_time_ms": 1530734397346,
+      "last_valid_hhmm": "19:59",
+      "server_date": "2018-07-04",
+      "valid_ticks": 194030
+    },
+    {
+      "first_tick_time_ms": 1535936460390,
+      "last_tick_time_ms": 1536004737114,
+      "last_valid_hhmm": "19:58",
+      "server_date": "2018-09-03",
+      "valid_ticks": 185190
+    },
+    {
+      "first_tick_time_ms": 1542848460432,
+      "last_tick_time_ms": 1542916738232,
+      "last_valid_hhmm": "19:58",
+      "server_date": "2018-11-22",
+      "valid_ticks": 132160
+    },
+    {
+      "first_tick_time_ms": 1542934860043,
+      "last_tick_time_ms": 1543005596635,
+      "last_valid_hhmm": "20:39",
+      "server_date": "2018-11-23",
+      "valid_ticks": 188071
+    },
+    {
+      "first_tick_time_ms": 1545613260161,
+      "last_tick_time_ms": 1545684235819,
+      "last_valid_hhmm": "20:43",
+      "server_date": "2018-12-24",
+      "valid_ticks": 219281
+    },
+    {
+      "first_tick_time_ms": 1546218060034,
+      "last_tick_time_ms": 1546289039968,
+      "last_valid_hhmm": "20:43",
+      "server_date": "2018-12-31",
+      "valid_ticks": 170388
+    },
+    {
+      "first_tick_time_ms": 1546822860037,
+      "last_tick_time_ms": 1546893838915,
+      "last_valid_hhmm": "20:43",
+      "server_date": "2019-01-07",
+      "valid_ticks": 211651
+    },
+    {
+      "first_tick_time_ms": 1547427660042,
+      "last_tick_time_ms": 1547498639953,
+      "last_valid_hhmm": "20:43",
+      "server_date": "2019-01-14",
+      "valid_ticks": 195968
+    },
+    {
+      "first_tick_time_ms": 1548032460281,
+      "last_tick_time_ms": 1548100730952,
+      "last_valid_hhmm": "19:58",
+      "server_date": "2019-01-21",
+      "valid_ticks": 106371
+    },
+    {
+      "first_tick_time_ms": 1550484388226,
+      "last_tick_time_ms": 1550519935126,
+      "last_valid_hhmm": "19:58",
+      "server_date": "2019-02-18",
+      "valid_ticks": 69536
+    },
+    {
+      "first_tick_time_ms": 1558918860177,
+      "last_tick_time_ms": 1558987200149,
+      "last_valid_hhmm": "20:00",
+      "server_date": "2019-05-27",
+      "valid_ticks": 90776
+    },
+    {
+      "first_tick_time_ms": 1562202060050,
+      "last_tick_time_ms": 1562270339447,
+      "last_valid_hhmm": "19:58",
+      "server_date": "2019-07-04",
+      "valid_ticks": 209779
+    },
+    {
+      "first_tick_time_ms": 1567386060019,
+      "last_tick_time_ms": 1567454337869,
+      "last_valid_hhmm": "19:58",
+      "server_date": "2019-09-02",
+      "valid_ticks": 227495
+    },
+    {
+      "first_tick_time_ms": 1574902860069,
+      "last_tick_time_ms": 1574971196521,
+      "last_valid_hhmm": "19:59",
+      "server_date": "2019-11-28",
+      "valid_ticks": 112613
+    },
+    {
+      "first_tick_time_ms": 1574989260044,
+      "last_tick_time_ms": 1575058197619,
+      "last_valid_hhmm": "20:09",
+      "server_date": "2019-11-29",
+      "valid_ticks": 215564
+    },
+    {
+      "first_tick_time_ms": 1577149291040,
+      "last_tick_time_ms": 1577219337812,
+      "last_valid_hhmm": "20:28",
+      "server_date": "2019-12-24",
+      "valid_ticks": 142509
+    }
+  ],
+  "not_an_economic_filter": true,
+  "schema": "QROS_SEED0076_XAU_DEV_DAILY_QUOTE_COVERAGE_1.0",
+  "source_data_audit_only": true,
+  "source_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
+}

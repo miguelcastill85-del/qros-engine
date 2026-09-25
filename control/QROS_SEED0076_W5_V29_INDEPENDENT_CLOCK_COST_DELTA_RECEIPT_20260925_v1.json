@@ -1,0 +1,92 @@
+{
+  "schema": "QROS_SEED0076_W5_V29_INDEPENDENT_READONLY_DELTA_AND_BROKER_EVIDENCE_RECEIPT_V1",
+  "authority": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "prior_live_pointer_sha1": "ae3931a8c1e13f50a45b9dc86360854f4d27282a",
+    "prior_handoff_sha1": "50ee5acdc9f591fe40fdeb31c198a2fccae63b14",
+    "prior_v28_git_audit_anchor_sha1": "287b38c34b8c6a549a54420bd57ff0fc94cd9c4f",
+    "prereg_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+    "corroborating_existing_main_clock_V219_git_blob_sha1": "c16d561b66a51d3735960470ba893e53e6913d40"
+  },
+  "scope": "EXISTING_W5_V28_EXPOSED_DEV_FULL10_EXECUTION_COMPLETE_READ_ONLY_VERIFICATION_ONLY",
+  "source_sha256": {
+    "v28_master": "b2943f96a8b0eb946a9899b52e63a354d33971c88baa0b29dfd58f8e116a3e62",
+    "v28_csv": "30e65116e28f48e7939cab031ca0470b4be52d03225c2194daf106571cee66e2",
+    "v29_json": "2c784e56e4f9d8cee9cc9bbc0ba8cd439eb7823e74a001477f0bfc42974c8019",
+    "v29_reproducer": "73ad4c1603ff7854ecb0f88b7f90c9cf356faa61f8d89860c57a641700a42086",
+    "v29_zip": "68a863602a6a01c585d83d989a4fd710312c74bf0de161e17bd8d87d5c49dfdb"
+  },
+  "verification": {
+    "original_v28_semantic_rows": 22352,
+    "per_side": 11176,
+    "physical_unique": 14459,
+    "prior_executed_verified_economic_shards": 104,
+    "v28_eight_channel_library_raw_sha_reverified": "PASS_8_OF_8",
+    "v28_master_zip_crc": "PASS",
+    "v28_master_146_member_SHA256": "PASS",
+    "v28_csv_bytes_equal_internal": "PASS",
+    "aliases_7893_all_economic_fields_equal_excluding_batch_provenance_route": "PASS",
+    "v29_report_and_source_and_zip_Library_raw_byte_readback": "PASS_3_OF_3",
+    "raw_timestamps_scanned": 151382388,
+    "raw_nonmonotonic": 0,
+    "gaps_35hrs": 101,
+    "standard_monday_01xx_opens": 100,
+    "nonstandard_late_reopen": "2019-02-18T10:06:28.226_SOURCE_SERVER_CIVIL",
+    "original_v219_frozen_standard_server_DST_mapping": "PASS_ALREADY_CLOSED",
+    "strict_historical_symbol_exception_calendar": "NOT_CERTIFIED",
+    "historical_account_specific_commission": "NOT_CERTIFIED"
+  },
+  "descriptive_unduplicated_mask_counts": {
+    "BUY": {
+      "masks": 7275,
+      "trading_masks": 7131,
+      "positive_spread_only": 701,
+      "positive_extra_2_source_points": 501,
+      "positive_extra_5_source_points": 337,
+      "positive_extra_10_source_points_linear_only": 204,
+      "positive_both_2018_2019_spread_only": 181
+    },
+    "SELL": {
+      "masks": 7184,
+      "trading_masks": 7037,
+      "positive_spread_only": 780,
+      "positive_extra_2_source_points": 502,
+      "positive_extra_5_source_points": 307,
+      "positive_extra_10_source_points_linear_only": 180,
+      "positive_both_2018_2019_spread_only": 103
+    }
+  },
+  "cost_qualification": "Extra 2/5/10 source integer XAU points = 0.02/0.05/0.10 USD per ounce, hypothetical roundtrip *additional* to observed spread; 10 is linear diagnostic from prereg existing 2/5, NOT broker-certified 2018-19 commission or independent economic execution; all variants dependent.",
+  "external_broker_docs": [
+    {
+      "url": "https://help.darwinex.com/metatrader-time",
+      "supports": "NY_CLOSE_GMT+2_WINTER_GMT+3_US_SUMMER",
+      "historical_symbol_holiday_or_account_specific_commission_proof": false
+    },
+    {
+      "url": "https://help.darwinex.com/execution-costs",
+      "supports": "CURRENT_GENERAL_COMMODITY_APPROX_0.005_PERCENT",
+      "certifies_2018_2019": false
+    }
+  ],
+  "library": {
+    "folder": "/QROS_SEED0076_W5_V29_EVIDENCE_20260925",
+    "zip": "libfile_c35c8bf7a9548191b386a0e13d8fd035",
+    "json": "libfile_16eae285b2c08191ba2dd31fe88dff17",
+    "reproducer": "libfile_a229e5f680e8819185ed09162d03cc0f",
+    "original_v28_master": "libfile_ec62d620c5a8819188f5b83ebef2d2a0"
+  },
+  "scientific": {
+    "state": "DEVELOPMENT_RUNNING",
+    "W5": "EXPOSED_DEV_EXPLORATORY_COMPLETE",
+    "new_economic_PnL_this_stage": false,
+    "gate_A": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "W3_not_executed": true,
+    "prior_13_cells_untouched": true,
+    "new_alpha_selected": false
+  },
+  "next_action": "Use existing verified V219 standard DST mapping. Recover primary 2018-19 Darwinex XAUUSD actual symbol holiday/special-hours and account-specific historical commission evidence. If unavailable, retain exploratory-only and freeze exact blocker; proceed independent 56-route expanded execution parity only as an independent valid route; no economic rerun, no new W3, no holdout or GA2."
+}

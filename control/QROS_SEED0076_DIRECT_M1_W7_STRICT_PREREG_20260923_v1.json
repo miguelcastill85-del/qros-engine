@@ -1,0 +1,53 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_M1_W7_STRICT_PREREG_V1",
+  "scientific_seed": "WEB_SEED_0076",
+  "source": "FROZEN_V209",
+  "frozen_spec_git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "parent_w5_strict_remote_anchor_blob_sha1": "56488b9d6fa0f930e04e165f36ce02215094933b",
+  "parent_w5_strict_zip_sha256": "452c53b831258a33cefd51c1e75c92b5fa0c06a1e520aab49e8c454b6c31764b",
+  "unit_id": "XAUUSD_M1_W7_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL",
+  "asset": "XAUUSD",
+  "timeframe": "M1",
+  "fractal_window": 7,
+  "tie_policy": "STRICT_ALL_NEIGHBORS",
+  "rearm_mode": "ONE_SIGNAL_PER_LEVEL",
+  "trigger": "CLOSE_BREAK",
+  "sides": [
+    "BUY",
+    "SELL"
+  ],
+  "original_V209_compatible_filter_families": [
+    "EMA_CROSS_RECENCY",
+    "GEOMETRY",
+    "MOMENTUM",
+    "SESSION",
+    "TREND",
+    "TREND_STRENGTH",
+    "VOLATILITY"
+  ],
+  "filter_packages_per_side": 8629,
+  "expected_semantic_configurations": 17258,
+  "development_period": "2018_2019_ECONOMICALLY_EXPOSED",
+  "raw_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "execution_contract": "At i=p+4 after three right completed M1 bars, strict center >/< all six neighbors. Consume first raw close break before filters. Original Bid/Ask stop-first gap-first quote 19:30 exploratory overlay; no commission certification.",
+  "gates": [
+    "EXACT_V209_AND_INPUT_HASHES",
+    "INDEPENDENT_NUMPY_V220_V2_FRACTAL_PARITY",
+    "FULL_17258_CONFIG_ID_COVERAGE",
+    "218_ORIGINAL_V221_GATE_CANARIES",
+    "16_EX_ANTE_STRATIFIED_INDEPENDENT_FULL_TICK_MASK_PARITY",
+    "REMOTE_DRIVE_REDOWNLOAD_SHA256_AND_ADVERSARIAL_TAMPER",
+    "GITHUB_IMMUTABLE_SHA_ANCHOR"
+  ],
+  "constraints": {
+    "max_standalone_entries_daily": 3,
+    "portfolio_combined_daily_limit_not_evaluated": true,
+    "holdout_open": false,
+    "ga2_open": false,
+    "legacy_60_shards": "FROZEN_OUT_OF_SCOPE"
+  },
+  "parent_semantic_cumulative": 138064,
+  "parent_physical_masks_by_cell": 61381,
+  "scientific_state": "PREREGISTERED_NO_RESULTS_FOR_W7_STRICT",
+  "next_automatic_action": "EXECUTE_ONLY_FROZEN_W7_STRICT_XAU_M1_BUY_SELL"
+}

@@ -1,0 +1,57 @@
+{
+  "campaign": "QROS_WEB_SEED0076_XAUUSD_M1_W5_ASYM_REARM0_TICK_FULL_V209_20260924",
+  "proof": {
+    "W5_economic_results": "NOT_RUN",
+    "canonical": {
+      "combined_root": "bb1e97c99fc1eb3c1acab53f77232c00fae61feafb5b8b63941c1e68e0e53b75",
+      "ids_each_side": {
+        "BUY": 11176,
+        "SELL": 11176
+      },
+      "packages_each_side": 11176
+    },
+    "fractal_tick_rearm": {
+      "raw_buffers_per_side": 4,
+      "rearm_buy_sell": "PASS",
+      "structural_prefixes": 4,
+      "synthetic_bars": 90,
+      "synthetic_ticks": 450,
+      "zero_and_crossed_spread_exclusions": "PASS"
+    },
+    "full_10_family_live_filter_trade_parity": "PENDING_REAL_DATA",
+    "ga2_open": false,
+    "holdout_open": false,
+    "mtf_boundary": {
+      "corrected_closed_bar_boundary": "PASS",
+      "needs_corrected_adapter_before_economic_run": true,
+      "no_lookahead": "PASS",
+      "original_v221_mtf_at_exact_completion": "ONE_COMPLETED_BAR_LATE"
+    },
+    "source_pins": {
+      "QROS_SEED0076_MACHINE_UNIVERSE_SPEC_V209_v1.json": {
+        "bytes": 5291,
+        "git_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+        "sha256": "8edd65844e7b65376baffe0615d2671e9bae18804f713c53f3fa3357ba38c233"
+      },
+      "qros_seed0076_config_stream.py": {
+        "bytes": 3935,
+        "git_blob_sha1": "a01268bd8bab639977b22c419926d94306754bba",
+        "sha256": "ca7d30880a9fa808d6e62e9828f158dc7bfae693cf72267162c260f1dae05ad7"
+      },
+      "qros_seed0076_gate_engine_v221.py": {
+        "bytes": 8890,
+        "git_blob_sha1": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+        "sha256": "5007116f4bab1ff17b4c871165359978ffe7e2f191f82a25494b305cf0af3184"
+      },
+      "qros_seed0076_structural_v220.py": {
+        "bytes": 13242,
+        "git_blob_sha1": "805044c9918a87456a95e150a1c9a1292112cf4c",
+        "sha256": "bc488a967dc79de705a137c26e2a7ae86d35f55838a7cf18b0d3385590df7334"
+      }
+    },
+    "synthetic_not_historical": true,
+    "unverified_real_data": true
+  },
+  "schema": "QROS_W5_PRE_ECON_SYNTHETIC_SOURCE_AND_CAUSAL_FIXTURE_V1",
+  "status": "PASS_SYNTHETIC_ONLY"
+}

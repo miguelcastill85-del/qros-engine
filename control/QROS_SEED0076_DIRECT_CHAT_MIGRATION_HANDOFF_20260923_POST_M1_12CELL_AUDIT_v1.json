@@ -1,0 +1,96 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_CHAT_MIGRATION_HANDOFF_POST_M1_12CELL_AUDIT_V1",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "governance_main_pointer": {
+    "path": "control/QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER.json",
+    "blob_sha1": "cafaaa347c72308a97e2064258f3ddc185747bf8",
+    "one_stage_per_invocation": true
+  },
+  "scientific_lane": "WEB_SEED_0076_XAUUSD_M1_ORIGINAL_V209_DIRECT_DEV_ONLY",
+  "original_frozen_V209_spec_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+  "prior_closed": "XAUUSD_M1_W13_STRICT_ALL_NEIGHBORS_ONE_SIGNAL_PER_LEVEL_CLOSE_BREAK_BUY_SELL",
+  "prior_closed_remote_anchor_blob_sha1": "f63da3e0f2cff0a5b499ad109d404652b9ed2ed2",
+  "last_closed": "XAUUSD_M1_SIX_WINDOWS_TWO_TIE_POLICIES_12_CELL_INDEPENDENT_COMPLETENESS_AUDIT_AND_REPLAY_GUARD",
+  "last_closed_audit_anchor_path": "control/QROS_SEED0076_DIRECT_M1_12CELL_COMPLETENESS_REMOTE_SHA_ANCHOR_20260923_v1.json",
+  "last_closed_audit_anchor_blob_sha1": "9405bb2d8fcc262bfa4092d504b91628171e7bc9",
+  "last_closed_audit_anchor_commit": "8f229cca466fa774b93c365c823347dafb68ed5c",
+  "complete_audit_blob_sha1": "74ebfb67cd6974c90a5cab11634dfd05f3151589",
+  "complete_audit_receipt_sha256": "82fd6f601b296b321eff96bdf116e2258bc426c8650dc5f9129f8e08a93ffa6e",
+  "audit_archive": {
+    "drive_id": "12JhGHqNUsAacCAHHEMKCwnrQ_H9SzUFw",
+    "name": "QROS_SEED0076_M1_12CELL_COMPLETE_AUDIT_AND_NEXT_PREREG_20260923.zip",
+    "size_bytes": 21662,
+    "sha256": "8dc0b4212d9bf81004ffc541abd7f1e9f8ea7d4c068923d1dab0b9ae2eb28a5f",
+    "verified_remote_sha": true
+  },
+  "exhaustive_coverage": {
+    "cells": 12,
+    "windows": [
+      3,
+      5,
+      7,
+      9,
+      11,
+      13
+    ],
+    "tie_policies": [
+      "SOURCE_ASYMMETRIC",
+      "STRICT_ALL_NEIGHBORS"
+    ],
+    "sides": [
+      "BUY",
+      "SELL"
+    ],
+    "packages_per_side": 8629,
+    "semantic_ids_total": 207096,
+    "semantic_id_collision_count": 0,
+    "semantic_ids_global_sorted_root_sha256": "f3a10d49e24b59139751b0595d114fda2031dec220e63873ba065a80fd8aca2f",
+    "physical_masks_by_cell": 87293,
+    "unique_namespaced_physical_ids_across_cells": 87293,
+    "upstream_archives_verified_sha_crc": 13,
+    "strict_internal_manifest_full_shas_verified": 6
+  },
+  "bug_correction": {
+    "affected_strict_helpers": [
+      5,
+      7,
+      9,
+      11,
+      13
+    ],
+    "executed_runner_base_and_result_maps_verified": true,
+    "frozen_archives_untouched": true,
+    "source_correction_receipt_path": "control/QROS_SEED0076_DIRECT_M1_STRICT_HELPER_REPLAY_CORRECTION_20260923_v1.json",
+    "source_correction_blob_sha1": "931152f9752920e94e35cf64f592d15e926538ee",
+    "replay_guard_supplemental_in_audit_zip": true,
+    "guard_runner_checks": 6,
+    "guard_unsafe_helper_rejections": 6,
+    "guard_tamper_rejections": 1
+  },
+  "next_exact_preregistered_cell": {
+    "name": "XAUUSD_M1_W3_SOURCE_ASYMMETRIC_RETURN_INSIDE_OR_LEVEL_REPLACED_CLOSE_BREAK_BUY_SELL",
+    "prereg_path": "control/QROS_SEED0076_DIRECT_M1_W3_RETURN_INSIDE_REARM_PREREG_20260923_v1.json",
+    "prereg_blob_sha1": "c02d6b23d3fa0bfea0f1b05a31b12b678fef00b8",
+    "prereg_sha256": "a583301e8fabb58c7ee556e95925db956d199073fb23d55538ec6e93b7bd01ca",
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "expected_semantic_configs": 17258,
+    "expected_family_packages_each_side": 8629,
+    "original_V220_rearm_code": 0,
+    "untested_future_result": false
+  },
+  "scientific_firewalls": {
+    "dev_2018_2019_irrevocably_exposed": true,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_gate_a_open": false,
+    "broker_commission_certified": false,
+    "original_60_shards_out_of_scope": true,
+    "economic_pnl_accessed_during_12cell_audit": false,
+    "mt5_parity_pending": true,
+    "combined_portfolio_not_evaluated": true,
+    "no_new_alpha_selected": true,
+    "main_scientific_pointer_unchanged": true
+  },
+  "current_campaign_state": "DEVELOPMENT_RUNNING",
+  "next_automatic_action": "Read live direct lane pointer, verify current audit anchor Git blob and 21662-byte Drive ZIP SHA, freeze exact V220 rearm_code0 W3 SOURCE_ASYMMETRIC causal source and pre-economic finite-state fixtures; execute ONLY this preregistered new cell after independent pre-economic oracle PASS. No holdout, no GA2, no W13 repeats."
+}
