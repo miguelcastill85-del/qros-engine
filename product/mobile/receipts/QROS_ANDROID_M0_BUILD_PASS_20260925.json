@@ -1,0 +1,22 @@
+{
+  "schema": "QROS_ANDROID_M0_BUILD_RECEIPT_V1",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "source_commit": "1a4fbff7117ad151a30a4c6e0ee4ad5c5de795bb",
+  "flutter_framework_version": "3.35.4",
+  "flutter_framework_revision": "d693b4b9dbac2acd4477aea4555ca6dcbea44ba2",
+  "dart_sdk_version": "3.9.2",
+  "runner": "ubuntu-latest",
+  "java": "17",
+  "apk_filename": "app-debug.apk",
+  "apk_bytes": 141116006,
+  "apk_sha256": "4443afc92dcd84f2a98930d2f33d1d6cc91371b4b5984ebf6550639c84d621f9",
+  "flutter_analyze": "PASS_PREVIOUS_REQUIRED_STEP",
+  "flutter_test": "PASS_PREVIOUS_REQUIRED_STEP",
+  "mobile_os_target": "ANDROID_DEBUG",
+  "device_installation_test": "NOT_RUN",
+  "user_data": "SYNTHETIC_AND_VOLATILE_LOCAL_DRAFTS_ONLY",
+  "scientific_gate_pass": false,
+  "real_broker_data_accessed": false,
+  "mt5_executed": false,
+  "product_release_approved": false
+}
