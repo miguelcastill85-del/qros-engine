@@ -1,0 +1,78 @@
+name: qros-ga1-v259-frozen-worker-linux-seccomp-import
+on:
+  push:
+    branches: [research/ga1-v259-real-carrier-reconcile-20260924]
+    paths:
+      - '.github/workflows/qros-ga1-v259-frozen-worker-linux-seccomp-import.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  frozen-source-import-only-linux:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: research
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ee921dc21ea8e5b9d631b47b68053453aa201e23
+          path: pinned-main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install only frozen worker import dependencies
+        run: python -m pip install --disable-pip-version-check "numpy==2.0.2" "numba==0.60.0"
+      - name: Authenticate frozen source closure and Linux-only kernel helper
+        run: |
+          python - <<'PY'
+          import hashlib, pathlib, sys, platform
+          assert sys.platform=="linux" and platform.machine().lower() in ("x86_64","amd64")
+          p=pathlib.Path('research/scripts')
+          main=pathlib.Path('pinned-main/anti_stall/scripts')
+          pins={
+            p/'qros_seed0076_carrier_masks_v221.py':'0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25',
+            p/'qros_seed0076_config_stream.py':'a01268bd8bab639977b22c419926d94306754bba',
+            p/'qros_seed0076_ga1_shard_worker_v223.py':'c77e0a5156c5bb1a874d3c33fde49f162a2a3041',
+            p/'qros_seed0076_gate_engine_v221.py':'74290f11e7a95a25f54c5c9989af110de7dde4e2',
+            p/'qros_seed0076_structural_v220.py':'805044c9918a87456a95e150a1c9a1292112cf4c',
+            main/'qros_linux_seccomp_single_owner_v1.py':'83319390b7e2fe90da4c4873dae5155010d4c074',
+            main/'qros_linux_seccomp_single_process_launcher_v1.py':'e0d37267516125cb8de9354560158ad1c80faa48',
+          }
+          for path,pin in pins.items():
+            raw=path.read_bytes()
+            got=hashlib.sha1(b'blob '+str(len(raw)).encode()+b'\0'+raw).hexdigest()
+            assert got==pin, f'FROZEN_GIT_BLOB_DRIFT:{path}:{got}'
+          print('PASS exact frozen v223 worker+4 dependencies and Linux-only seccomp helper+launcher 7/7')
+          PY
+      - name: Import exact frozen worker CLI inside attested Linux no-fork seccomp
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,pathlib,shutil,signal,sys
+          sys.path.insert(0,str(pathlib.Path('pinned-main/anti_stall/scripts').resolve()))
+          from qros_linux_seccomp_single_owner_v1 import launch,sha256_file
+          work=pathlib.Path('research/scripts').resolve()
+          source=pathlib.Path('pinned-main/anti_stall/scripts/qros_linux_seccomp_single_process_launcher_v1.py')
+          target=work/'qros_linux_seccomp_single_process_launcher_v1.py'
+          shutil.copyfile(source,target)
+          pin=sha256_file(target)
+          p,proof=launch([sys.executable,'qros_seed0076_ga1_shard_worker_v223.py','--help'],
+              work,'qros_linux_seccomp_single_process_launcher_v1.py',pin,ready_budget=2)
+          try:
+            stdout,stderr=p.communicate(timeout=30)
+            assert p.returncode==0, 'FROZEN_WORKER_IMPORT_OR_ARGPARSE_FAILED:'+str((stdout+stderr)[-4000:])
+            assert b'usage:' in stdout.lower(), 'WORKER_HELP_NOT_PRESENT'
+            assert proof['kernel_seccomp_verified'] is True
+            assert proof['proc_seccomp']==2 and proof['proc_no_new_privs']==1 and proof['owns_process_group']
+            print('PASS_PINNED_V223_WORKER_LINUX_SECCOMP_IMPORT_ONLY',json.dumps(proof,sort_keys=True))
+            print('FROZEN_WORKER_HELP_SHA256',hashlib.sha256(stdout).hexdigest())
+            print('ECONOMIC_DATA_READ',False,'FROZEN_SHARDS_RECOMPUTED',False,'WINDOWS_TESTED',False)
+          finally:
+            try:os.killpg(p.pid,signal.SIGKILL)
+            except ProcessLookupError:pass
+            try:p.wait(timeout=2)
+            except Exception:p.kill();p.wait()
+          PY
