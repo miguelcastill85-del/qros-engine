@@ -1,0 +1,18 @@
+{
+  "classification": "IMPLEMENTED_LOCAL_SOURCE_ANDROID_CI_PENDING",
+  "economic_tests": 0,
+  "parent_exact": "69109c6570c6cbb48f807b1b417dbdfa0b53fa54",
+  "schema": "QROS_MOBILE_G6_SOURCE_MANIFEST_V1",
+  "source_sha256": {
+    ".github/workflows/qros-mobile-g6-android-gate.yml": "c8282ab9e37b8723cfd8a78278ee909cd4e18f6bf0e155c0e34866be68e4cdb4",
+    "product/mobile/flutter_app/lib/core/g5_snapshot.dart": "bed5932cd2de30a290c303454c307c94f25fb70f96e06d4f632f90ac5028f85a",
+    "product/mobile/flutter_app/lib/ui/g5_snapshot_screen.dart": "2842654138237cc152eb24c10e16dec67172a4f13cacdac5f57146fe8a57127b",
+    "product/mobile/flutter_app/test/g5_snapshot_test.dart": "7afd2478a8b0ba5d1f13cba65317cf6c00e6916ccdb590e4b94f72a4ab92f3b2",
+    "product/mobile/flutter_app/test/g5_snapshot_widget_test.dart": "d100a34ca89dc8a4429075b2e1969e25104815939837e7611d6df22becea6618",
+    "product/mobile/g6/G6_SECURITY_CONTRACT.md": "5b1864eceb644446932a830277eee60273efd7846b369989ebd0dedf9c873ded",
+    "product/mobile/g6/anti_stall_gate.py": "1b99f854e7d7e838237ae477fe589e52c2eba992922aafcb8f8bfcf9e8491acb",
+    "product/mobile/g6/generate_fixture.py": "b7cc05903931a2d201076a3f1ccd54f8162e2538701e3db3fa82f4da729389d2",
+    "product/mobile/g6/tests/fixtures/g5_signed_snapshot_fixture.json": "113306105531d2d46ceda1203ec6077d742a88489b7eaa64bc7caeb427b34e78",
+    "product/mobile/g6/tests/test_fixture.py": "93bf2e6074316f2a28da51d1101935ee1dbbcb94b3d11bd836a3b16e27fc9101"
+  }
+}

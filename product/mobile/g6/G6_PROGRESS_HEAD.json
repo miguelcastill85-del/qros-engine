@@ -1,0 +1,13 @@
+{
+  "schema": "QROS_MOBILE_G6_PROGRESS_HEAD_V1",
+  "status": "DEVELOPMENT_RUNNING",
+  "parent_exact": "69109c6570c6cbb48f807b1b417dbdfa0b53fa54",
+  "parent_mobile_head_blob": "2b1c876a7c033e6cc5309b8ad2e77c3a27600839",
+  "parent_g5_verified_head_blob": "5f95b28caa79a15126d50b91097681d41e202b29",
+  "phase": "G6_FLUTTER_SIGNED_SNAPSHOT_PARITY_AND_ANDROID_CI_PENDING",
+  "economic_tests": 0,
+  "holdout_open": false,
+  "ga2_open": false,
+  "scientific_authority": false,
+  "next_automatic_action": "Run pinned Python/Dart parity, all existing Flutter and backend regressions, Android debug APK build and independent artifact hash. Promote only after exact CI success."
+}

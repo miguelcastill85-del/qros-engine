@@ -1,0 +1,20 @@
+{
+  "apk_bytes": 141623410,
+  "apk_sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+  "backend_regressions": "PASS_REQUIRED_STEP",
+  "economic_backtests": 0,
+  "external_independent_witness": "NOT_DEPLOYED",
+  "fixture_payload_sha256": "e355e676080331593dc1bb0a50becfddf95a0de3508bb330bc3895f06ce83cb6",
+  "flutter_all_tests": "PASS_REQUIRED_STEP",
+  "ga2_open": false,
+  "holdout_open": false,
+  "market_data": "NONE",
+  "physical_android_install": "NOT_RUN",
+  "public_https": "NOT_DEPLOYED",
+  "python_dart_signed_snapshot_parity": "PASS_REQUIRED_STEP",
+  "release_signed": false,
+  "schema": "QROS_G6_ANDROID_CI_RECEIPT_V1",
+  "scientific_gate_pass": false,
+  "source_commit": "c1f85224487fe161beba2fddcbce9d3e68b53392",
+  "status": "PASS_ENGINEERING_TEST_ONLY"
+}

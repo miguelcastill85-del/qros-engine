@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'core/research_store.dart';
+import 'core/g5_snapshot.dart';
 import 'core/verified_demo.dart';
 import 'core/universe_store.dart';
 import 'ui/app_shell.dart';
@@ -10,11 +11,12 @@ void main() {
 }
 
 class QrosApp extends StatefulWidget {
-  const QrosApp({super.key, this.store, this.demoGateway, this.universeStore});
+  const QrosApp({super.key, this.store, this.demoGateway, this.universeStore, this.g5Gateway});
 
   final ResearchStore? store;
   final DemoGateway? demoGateway;
   final UniverseSessionStore? universeStore;
+  final G5SnapshotGateway? g5Gateway;
 
   @override
   State<QrosApp> createState() => _QrosAppState();
@@ -81,7 +83,12 @@ class _QrosAppState extends State<QrosApp> {
           labelTextStyle: WidgetStatePropertyAll(TextStyle(fontSize: 11)),
         ),
       ),
-      home: QrosShell(store: _store, universeStore: _universeStore, demoGateway: widget.demoGateway ?? const HttpsDemoGateway()),
+      home: QrosShell(
+        store: _store,
+        universeStore: _universeStore,
+        demoGateway: widget.demoGateway ?? const HttpsDemoGateway(),
+        g5Gateway: widget.g5Gateway ?? const HttpsG5SnapshotGateway(G5SnapshotVerifier(G6SyntheticTrust.profile)),
+      ),
     );
   }
 }
