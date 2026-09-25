@@ -1,0 +1,67 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_POST_V33_192_OF_710_RESUMABLE_MASK_PARITY_CHECKPOINT_V1",
+  "authority": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "parent_V32_pointer_blob_sha": "aa9ea12ffef8fa1d4e30322d75aeaf0b7640ac06",
+    "parent_V32_target_sha": "28f39ebdf4e8704fa2010523db2fccad7de9dac9",
+    "parent_V32_anchor_sha": "a181fcf792a64b75034186c409e08f1bfce0fd59",
+    "V33_partial_anchor_path": "control/QROS_SEED0076_W5_V33_PARTIAL_192_OF_710_INDEPENDENT_PARITY_BYTE_ANCHOR_20260925_v1.json",
+    "V33_partial_anchor_blob_sha": "3f35387e8f541913051858dafeda788ce3df4d80",
+    "V33_original_frozen_queue_git_sha": "3f88c26db37daa71d5234bfb61a7e9ba0763c91f",
+    "V33_runner_pre_exec_git_sha": "afbd552496e580e47594ad5b059127b2ae0f12d2"
+  },
+  "objective": "Execute original preregistered full10 W5 22352 exposed DEV already completed V28, finish only remaining independent all-mask trade parity CH0 CH4 and historical primary broker evidence without repeating science.",
+  "data": {
+    "original_raw_tick_SHA256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_economic_complete_V28_semantic_configs": 22352,
+    "original_economic_V28_104_shards_reused_not_rerun": true
+  },
+  "executed": {
+    "V30_27_shard_trade_parity": "PASS",
+    "V31_all_56_candidate_tape_quote_full_checks": "PASS",
+    "V32_116_of_116_pnl_blind_parity_shards": "PASS",
+    "V33_predeclared_total_tasks": 710,
+    "V33_partially_completed_verified_shards": 192,
+    "V33_SHARDS_remaining": 518,
+    "V33_by_channel_completed": {
+      "CH0": 71,
+      "CH4": 121
+    },
+    "V33_new_mask_occurrences": 3696,
+    "V33_new_sampled_events": 457510,
+    "V33_identical_independent_trades": 278701,
+    "V33_matching_fields": 3065711,
+    "V33_zero_signal_original_masks": 3
+  },
+  "validated": {
+    "V33_frozen_queue_original_SHA256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "V33_pre_exec_runner_SHA256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+    "all_192_receipts_sha": "PASS",
+    "all_192_receipts_exact_first_prefix_of_710_queue": "PASS",
+    "full_ZIP_199_member_crc_and_internal_sha": "PASS",
+    "library_raw_download_bytes_equal_exact": "PASS",
+    "partial_zip_sha256": "ad8b3a35edd24193d9da21d8ab705b79a8e2b6602c6d11cbd9a020ad46fc8354",
+    "V33_Library_zip_id": "libfile_829934b715a481919357f24002d32c14"
+  },
+  "issues": "Exact contemporaneous Darwinex XAU 2018-2019 account-specific commission and full holiday/special-hours primary records unrecovered after Dropbox/Gmail/Drive/Library/public-source search. Full independent mask replay for CH0 and CH4 remains 518 frozen shards; no claim all 22352 independently validated.",
+  "root_cause": "Historically uncertified broker contract and special hours prevent Gate A; large original physical-mask set cannot be covered in a single bounded route; partial hash-verified checkpoint prevents lost progress after tool timeout.",
+  "corrections": "Continued from verified V32 without repeating any prior V28-V32 result. Used external absolute watchdog 55s and retained atomic SHA per V33 shard; 3 legitimate zero-signal masks tested as zero trades.",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "gates": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "broker_commission_certified": false,
+    "broker_special_hours_certified": false,
+    "old_W3_not_executed": true,
+    "original_60_old_shards_untouched": true
+  },
+  "portfolio_impact": "NONE_APPROVED",
+  "persistent": {
+    "library_V33_plan_id": "libfile_14af9a8feaa88191ad315f093049c2e3",
+    "library_V33_first_192_receipts_id": "libfile_829934b715a481919357f24002d32c14",
+    "V33_Git_anchor_blob_sha": "3f35387e8f541913051858dafeda788ce3df4d80"
+  },
+  "next_automatic_action": "Verify live pointer and exact V33 plan SHA 2be3... then resume first nonclosed V33 shards: CH0 r0_w1_batch005 ordinal21, CH4 r0_w1_batch008 ordinal264. Do not recalculate previous 192; run bounded <=40s stages, SHA receipts, Library+Git incremental readback anchors. In separate independent lane recover authentic 2018-19 XAU broker account commission and full holiday special-hours primary data; keep economic original V28 and all scientific gates locked."
+}
