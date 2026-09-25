@@ -1,0 +1,93 @@
+{
+  "schema": "QROS_EXECUTABLE_NONSTALL_V23_VERIFIED_REMOTE_RELEASE_V1",
+  "date": "2026-09-25",
+  "scope": "GOVERNANCE_ENGINEERING_ONLY_NON_ECONOMIC",
+  "parent_main_commit": "28a5171638d9778fed04cc406c870b2ba2a20e51",
+  "parent_governance_pointer_git_blob_sha1": "3996a65e3377da6976a5457177d6a169cee93ff3",
+  "merged_pr": 70,
+  "merged_main_commit": "5f5ce84f8078bf21cf45dc87f7d54e0b4a0b4403",
+  "installed_verified_main_git_blobs": {
+    "anti_stall/scripts/qros_continuation_engine_v2_3.py": "afdc7aba4199a6311b854acac986408faebb77ef",
+    "anti_stall/tests/test_v2_3_execution_engine.py": "1f91955d0f27a582e69a559789d2f5ef3f06399a",
+    "anti_stall/tests/test_v2_3_watchdog_stable.py": "d68068bc5a52b2b60206f2a99f78266be89cd677",
+    "anti_stall/examples/qros_v23_actual_execution_canary.py": "cb731482d076298061cdec2e40244851d14ed6e5",
+    "anti_stall/RELEASE_MANIFEST_V23.json": "cd1cd38b0640a7bc75513c85f8ae4700b3ecb444",
+    ".github/workflows/qros-executable-nonstall-v23.yml": "bcad544c54f0cc5c9dbab059c58090e7c394a68f"
+  },
+  "frozen_dependencies_unchanged": {
+    "anti_stall/scripts/qros_anti_stall_v2_1.py": "59a5dc7d661e3983552f34b0d911a928df78d4b3",
+    "anti_stall/scripts/qros_continuation_dispatch_v2_2.py": "c8cdbc8d57e0370a657ce56989e206ad5e3c5eb5",
+    "anti_stall/scripts/qros_progress_watchdog_v2_2.py": "97971470f41b4552ba737b07b808235ca40a1273"
+  },
+  "source_zip": {
+    "filename": "QROS_LITERAL_NONSTALL_EXECUTABLE_V23_20260925.zip",
+    "library_file_id": "libfile_d6aa4d794bb48191b80053ac5c28fd23",
+    "bytes": 45571,
+    "sha256": "f2d1eddd378fc2dc32d1e89d49a3177ceabdcb212dcbf09ed2880d9502a862a7",
+    "independent_Library_raw_sha256_rehash": "PASS_EXACT",
+    "zip_crc": "PASS",
+    "internal_manifest_entries_verified": 17,
+    "zip_members": 19
+  },
+  "manifest_sha256": "b89277c27da0877b14580e65dde2209f1c979cb5ffffc163201136fde2c5664c",
+  "local_execution": {
+    "v23_new_integration_and_stable_watchdog": "PASS_13_OF_13",
+    "actual_synthetic_subprocess_stages": "PASS_3_DEPENDENT_STAGES",
+    "primary_failure_then_frozen_equivalent": "PASS",
+    "second_run_duplicate_workers": 0,
+    "smoke_receipt_sha256": "90af584ec59fb0d999aaaf970ff12c2f78a9ac36804151e21c474e2cca1f3311",
+    "smoke_local_engine_checkpoint_sha256": "821125c347bef04c51d9409b035c5f291d999fa81b9a063024b60e94269bedc0"
+  },
+  "remote_ci": {
+    "trigger": "PR_70",
+    "runs": {
+      "qros-executable-nonstall-v23": {
+        "id": 36198009094,
+        "conclusion": "success",
+        "verified_steps": [
+          "v2.1 regression",
+          "v2.3 engine tests",
+          "actual three subprocess steps",
+          "verified second invocation zero repeated",
+          "artifact uploaded"
+        ]
+      },
+      "qros-anti-stall-v2-1": {
+        "id": 36198009044,
+        "conclusion": "success"
+      },
+      "qros-nonstall-authority-lease-v1": {
+        "id": 36198009007,
+        "conclusion": "success"
+      },
+      "public0184-source-freeze": {
+        "id": 36198009041,
+        "conclusion": "success"
+      }
+    }
+  },
+  "known_environment_limitations": [
+    "Original archived v2.2 microsecond-adversarial fixture fails 4/8 in local CPython3.13 due host Python child startup around 1.46s exceeding frozen 1s/0.24s fixture budget; original v2.2 source and scientifically frozen benchmarks preserved; v2.3 stable watchdog tests PASS local; CI v2.3 and v2.1 PASS.",
+    "Native Windows Task Scheduler and process-group kill not tested",
+    "No permanently running self-hosted runner currently installed or provided",
+    "ChatGPT host and connected remote API calls cannot be killed or autonomously restarted by this repository process",
+    "No authentication or private market-data mounts available to GitHub hosted synthetic-only workflow"
+  ],
+  "activation_contract": {
+    "repository_code": "MERGED_MAIN_READBACK_PASS",
+    "local_engine": "RUNS_SUBPROCESSES_AND_PERSISTS_VERIFIED_CHECKPOINT",
+    "hosted_ci": "QUALIFICATION_ONLY_NON_ECONOMIC",
+    "background_scheduler": "NOT_CONFIGURED_REQUIRES_AUTHORIZED_EXTERNAL_HOST_AND_PRIVATE_DATA",
+    "live_W5_V33_job_binding": "NOT_CONFIGURED_EXACT_AUTHORITY_AND_449_PENDING_SHARDS_AT_LATEST_OBSERVED_CHECKPOINT_REQUIRED"
+  },
+  "scientific_firewalls": {
+    "holdout_open": false,
+    "ga2_open": false,
+    "old_ga1_reopened": false,
+    "new_W5_PnL_calculated": false,
+    "Gate_A_approved": false,
+    "MT5_deployed": false,
+    "production_deployment_authorized": false
+  },
+  "next_automatic_action": "Attach executable v2.3 runner to a specific real preregistered local W5 V33 pending-shard queue only after exact live pointer, original 710 plan SHA and source-tape byte/readback pins plus authenticated host data path. Run once bounded, independently rehash output, then CAS promote only verified shards. Do not interpret CI fixture as W5 execution; no background without scheduler."
+}
