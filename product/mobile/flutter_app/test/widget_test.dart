@@ -30,7 +30,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.enterText(find.byKey(const Key('draft-title')), 'Hipótesis causal M15');
     await tester.enterText(find.byKey(const Key('draft-thesis')), 'Se observa una ruptura y recuperación antes de la entrada hipotética.');
-    await tester.ensureVisible(find.byKey(const Key('new-project-submit')));
+    await tester.scrollUntilVisible(find.byKey(const Key('new-project-submit')), 260.0, scrollable: find.byType(Scrollable).last);
     await tester.tap(find.byKey(const Key('new-project-submit')));
     await tester.pumpAndSettle();
     expect(store.localDraftCount, 1);
@@ -44,7 +44,7 @@ void main() {
     await tester.pumpWidget(QrosApp(store: store));
     await tester.tap(find.text('Seguridad').last);
     await tester.pumpAndSettle();
-    await tester.ensureVisible(find.byKey(const Key('copy-evidence-action')));
+    await tester.scrollUntilVisible(find.byKey(const Key('copy-evidence-action')), 260.0, scrollable: find.byType(Scrollable).last);
     expect(find.textContaining('Copiar JSON TEST_ONLY'), findsOneWidget);
     expect(find.text('APPROVED_FINAL'), findsNothing);
     expect(store.engineConnected, false);
