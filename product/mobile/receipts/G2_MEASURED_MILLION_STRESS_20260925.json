@@ -1,0 +1,21 @@
+{
+  "classification": "MEASURED_LOCAL_RUNTIME_ONLY_NOT_PNL",
+  "cpu_architecture": "x86_64",
+  "declared_raw_structural_births": 1000000,
+  "g1_economic_tests": 0,
+  "ga2_open": false,
+  "holdout_open": false,
+  "native_compiler_command": "g++ -std=c++20 -O2 -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Werror",
+  "native_compiler_version": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "os_name": "Linux",
+  "output_sha256": "4aa3fffd7b8a266809de56e5c5cc56abece456aca570b2feefe7a13ef82e0b0e",
+  "peak_self_rss_kib": 17128,
+  "public_throughput_guarantee": false,
+  "python_version": "3.12.14",
+  "rows_per_wall_second_round": 589234.0,
+  "schema": "QROS_G2_MEASURED_SYNTHETIC_STRUCTURAL_BENCH_V1",
+  "scientific_state_modified": false,
+  "seconds_wall_round": 1.69712,
+  "simulated_market_data": "NONE",
+  "verified_row_parity": 1000000
+}

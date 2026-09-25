@@ -1,0 +1,73 @@
+{
+  "schema": "QROS_MOBILE_G2_VERIFIED_ENGINEERING_RECEIPT_V1",
+  "date_utc": "2026-09-25",
+  "evidence_class": "VERIFIED_GITHUB_CI_PLUS_DOWNLOADED_ARTIFACT_BYTES",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "source": {
+    "branch": "product/mobile-g2-independent-enumerators-20260925",
+    "exact_tested_commit": "5a0b9634625755cceff0f320beb2f9ba5b2f995a",
+    "parent_g1_verification_commit": "6a878ed10e26c616d6f326563ff3fa24bfdc7f3b",
+    "source_manifest_path": "product/mobile/g2/G2_SOURCE_MANIFEST.json",
+    "source_manifest_blob_sha1": "0963159d7e9094fd319a8c3228408209674099b8"
+  },
+  "github_actions": {
+    "run_id": 36161729928,
+    "job_id": 108159662403,
+    "conclusion": "success",
+    "url": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36161729928",
+    "artifact_id": 10876286022,
+    "artifact_name": "qros-mobile-g2-test-only-evidence",
+    "artifact_expiry_utc": "2026-09-28T16:35:45Z",
+    "local_downloaded_zip_sha256": "a48d96092e230e7b1da3e0e3d51f97d9acdf3f4d8ebd93f1c574c3415f2f5d8e"
+  },
+  "checks": {
+    "g1_m1_backend_regressions": 37,
+    "g2_independent_enumeration_and_adversarial_tests": 31,
+    "all_pass": true,
+    "cpp_python_frozen_g1_census": 144,
+    "cpp_python_synthetic_structural_stress_rows": 1000000,
+    "three_process_crash_recovery_points": [
+      "AFTER_SHARD",
+      "AFTER_RECEIPT",
+      "AFTER_CHECKPOINT"
+    ],
+    "missing_and_tampered_shards_rejected": true,
+    "anti_stall_gate": "PASS_SOURCE_INTEGRITY_AND_DELTA_ONLY"
+  },
+  "measured_ci_stress": {
+    "wall_seconds": 1.69712,
+    "throughput_rows_per_second_rounded": 589234,
+    "cpu": "x86_64 Linux Github runner",
+    "compiler": "g++ 13.3.0 C++20 -O2 warnings-as-errors",
+    "peak_self_rss_kib": 17128,
+    "ordered_output_sha256": "4aa3fffd7b8a266809de56e5c5cc56abece456aca570b2feefe7a13ef82e0b0e",
+    "scope": "SYNTHETIC_STRINGS_ONLY_NO_BACKTEST_PERFORMANCE_CLAIM"
+  },
+  "preserved_artifacts": {
+    "ci_receipt": {
+      "path": "product/mobile/receipts/G2_CI_RAW_BUILD_RECEIPT_20260925.json",
+      "git_blob_sha1": "67b9a81c456835a7968bbfa29de7b6fe50d5c90b",
+      "sha256": "9062fc97f00f36217eb1a127c157b36e18d7eb80807b34c34aa1c5627a498c09"
+    },
+    "benchmark": {
+      "path": "product/mobile/receipts/G2_MEASURED_MILLION_STRESS_20260925.json",
+      "git_blob_sha1": "7f1bbb5b4bb9a78da5b7821c429c86b864e6a7fd",
+      "sha256": "5123ea87e4070d53367dca0c231fb4e5fcdbe8558c255028a9c6baa4791e9b33"
+    }
+  },
+  "safeguards": {
+    "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "scientific_main_version": "V259",
+    "economic_tests": 0,
+    "market_data": "NONE",
+    "holdout_open": false,
+    "ga2_open": false,
+    "mt5_test": "NOT_RUN",
+    "live_trading": false,
+    "physical_android_install": "NOT_RUN",
+    "dynamic_independent_witness": "NOT_DEPLOYED",
+    "branch_protection": "NOT_VERIFIED",
+    "production_approved": false
+  },
+  "next_automatic_action": "G3 implement independent C++20/Python chronological synthetic Bid/Ask simulator with exact trade-by-trade parity, SL-first ambiguity, executable gap fills, session end flattening, no overnight and max 3 entries/day. PR-gated exact tests and durable checkpoint. Never rerun G1/G2 verified source unless hashes drift."
+}

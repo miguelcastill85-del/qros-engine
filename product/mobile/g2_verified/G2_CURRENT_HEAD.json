@@ -1,0 +1,17 @@
+{
+  "schema": "QROS_MOBILE_G2_VERIFIED_HEAD_V1",
+  "status": "DEVELOPMENT_RUNNING",
+  "last_completed_gate": "G2_ENGINEERING_PASS_TEST_ONLY",
+  "authority_parent_commit": "5a0b9634625755cceff0f320beb2f9ba5b2f995a",
+  "source_tested_commit": "5a0b9634625755cceff0f320beb2f9ba5b2f995a",
+  "ci_source_manifest_git_blob_sha1": "0963159d7e9094fd319a8c3228408209674099b8",
+  "receipt_path": "product/mobile/receipts/QROS_MOBILE_G2_VERIFIED_ENGINEERING_PASS_20260925.json",
+  "receipt_git_blob_sha1": "e3e4b6ff59472870022c134b225c28475635bfdd",
+  "product_head_schema_next": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v5",
+  "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "scientific_state_mutated": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "economic_tests": 0,
+  "next_automatic_action": "G3 implement independent C++20/Python chronological synthetic Bid/Ask simulator with exact trade-by-trade parity, SL-first ambiguity, executable gap fills, session end flattening, no overnight and max 3 entries/day. PR-gated exact tests and durable checkpoint. Never rerun G1/G2 verified source unless hashes drift."
+}

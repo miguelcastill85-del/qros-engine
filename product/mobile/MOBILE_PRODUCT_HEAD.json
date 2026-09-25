@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v4",
+  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v5",
   "status": "DEVELOPMENT_RUNNING",
   "product": "QROS Mobile Research Studio",
   "scope": "MOBILE_APP_ONLY_ANDROID_FIRST_IOS_LATER",
@@ -15,11 +15,11 @@
     "code_branch": "product/mobile-m2-ledger-prototype-20260925",
     "scientific_main": "DO_NOT_MODIFY"
   },
-  "active_delivery": "ANDROID_G1_HYPOTHESIS_STUDIO_AND_FINITE_UNIVERSE_TEST_ONLY",
+  "active_delivery": "ANDROID_G1_VERIFIED_AND_G2_INDEPENDENT_ENUMERATOR_VERIFIED_TEST_ONLY",
   "mobile_frontend_status": "ANDROID_G1_DEBUG_APK_VERIFIED",
   "existing_mobile_html": "product/mobile-demo/index.html",
   "existing_mobile_html_status": "TEST_ONLY_WEB_MOCK_NOT_INSTALLABLE_MOBILE_APP",
-  "backend": "LINUX_CXX20_M2_INFRASTRUCTURE_PLUS_LOCAL_PYTHON_SIGNED_SYNTHETIC_READONLY_TEST_GATEWAY",
+  "backend": "LINUX_CXX20_G2_INDEPENDENT_SYNTHETIC_ENUMERATOR_SHARDED_PLUS_M1_READONLY_DEMO",
   "m2_status": "LINUX_INTEGRATION_PASS_REAL_M2_AUTHENTICATED_EVIDENCE_AND_DYNAMIC_EXTERNAL_HEAD_PENDING",
   "hard_exclusions": [
     "WINDOWS_UI",
@@ -38,8 +38,8 @@
     "use_only_synthetic_data_until_authorized": true,
     "paid_services_activation": false
   },
-  "next_automatic_action": "G2 independent deterministic mixed-radix enumerator, shard integrity and interrupted-process resume on explicit finite synthetic grammar; then fixed measured million-birth structural stress with no PnL. Preserve G1 app APK and immutable failures.",
-  "release_gate": "G1_ENGINEERING_PASS_ONLY; G2_PARITY, REAL_DEVICE, EXTERNAL_WITNESS, HTTPS_TENANT_AUTH, RELEASE_SIGNING_AND_LICENSE_NOT_PASSED",
+  "next_automatic_action": "G3 implement independent C++20/Python chronological synthetic Bid/Ask simulator with exact trade-by-trade parity, SL-first ambiguity, executable gap fills, session end flattening, no overnight and max 3 entries/day. PR-gated exact tests and durable checkpoint. Never rerun G1/G2 verified source unless hashes drift.",
+  "release_gate": "G2_ENGINEERING_PASS_ONLY; G3 EXACT_SYNTHETIC_EXECUTION_PARITY, REAL_DEVICE, EXTERNAL_WITNESS, HTTPS_TENANT_AUTH, RELEASE_SIGNING_AND_DATA_LICENSE_NOT_PASSED",
   "verified_milestones": {
     "ANDROID_M0_NATIVE_VERTICAL_SLICE": {
       "status": "PASS_ENGINEERING_TEST_ONLY",
@@ -100,11 +100,26 @@
       "receipt_git_blob_sha1": "20cd4314974bbde2252b82dccba9cf962d3985ab",
       "holdout_open": false,
       "economic_tests": 0
+    },
+    "G2_INDEPENDENT_ENUMERATOR_SHARDED": {
+      "status": "PASS_ENGINEERING_TEST_ONLY",
+      "tested_source_commit": "5a0b9634625755cceff0f320beb2f9ba5b2f995a",
+      "github_actions_run_id": 36161729928,
+      "backend_regressions": "37_OF_37_PASS",
+      "g2_tests": "31_OF_31_PASS",
+      "independent_synthetic_row_parity": 1000000,
+      "receipt_path": "product/mobile/receipts/QROS_MOBILE_G2_VERIFIED_ENGINEERING_PASS_20260925.json",
+      "receipt_git_blob_sha1": "e3e4b6ff59472870022c134b225c28475635bfdd",
+      "synthetic_only": true,
+      "economic_tests": 0,
+      "scientific_gate_pass": false
     }
   },
   "security_design_doc": "product/mobile/MOBILE_ANDROID_M0_META_AUDIT_THREAT_MODEL_v1.md",
   "android_build_incident_doc": "product/mobile/MOBILE_ANDROID_M0_BUILD_INCIDENT_20260925.json",
   "active_m1_experiment_pointer": "product/mobile/MOBILE_M1_EXPERIMENT_POINTER.json",
   "security_review_path": "product/mobile/MOBILE_M1_META_AUDIT.md",
-  "device_installation_guide": "product/mobile/docs/QROS_M1_ANDROID_INSTALLATION_TEST_ONLY.md"
+  "device_installation_guide": "product/mobile/docs/QROS_M1_ANDROID_INSTALLATION_TEST_ONLY.md",
+  "g2_verified_head": "product/mobile/g2_verified/G2_CURRENT_HEAD.json",
+  "g2_verified_head_git_blob_sha1": "1e2c9c96709cd58fa4813839e9dc1e5c01654b67"
 }
