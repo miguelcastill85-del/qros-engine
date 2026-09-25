@@ -58,7 +58,7 @@ Never _fail(String code) => throw G6Reject(code);
 
 Map<String,dynamic> _exact(Object? value, Set<String> keys, String label) {
   if (value is! Map<String,dynamic> || value.keys.toSet().difference(keys).isNotEmpty ||
-      keys.difference(value.keys.toSet()).isNotEmpty) _fail(label);
+      keys.difference(value.keys.toSet()).isNotEmpty) { _fail(label); }
   return value;
 }
 bool _hex(Object? x) => x is String && RegExp(r'^[0-9a-f]{64}$').hasMatch(x);

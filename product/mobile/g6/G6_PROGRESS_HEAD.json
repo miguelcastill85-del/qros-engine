@@ -1,4 +1,13 @@
 {
+  "ci_incidents": [
+    {
+      "phase": "FLUTTER_ANALYZE",
+      "reason": "Five curly_braces_in_flow_control_structures, one prefer_interpolation_to_compose_strings and one unnecessary_cast; 37+27+19 Python tests PASS; Android APK not built",
+      "resolution": "Braces added to five single-line ifs, interpolate UTC timestamp, remove redundant cast. Preserve failed Actions run and retry unchanged test gates.",
+      "run_id": 36195070781,
+      "tested_commit": "3e6d59ce4feb81e6d0e55b6a3a8ec39532fd2b14"
+    }
+  ],
   "economic_tests": 0,
   "expected_fixture_count": 1,
   "expected_required_delta_files": 18,
@@ -8,7 +17,7 @@
   "ga2_open": false,
   "holdout_open": false,
   "main_scientific_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
-  "next_automatic_action": "Verify exact G6 source delta and G5 immutable pins, run independent original G5 verifier plus G6 Python/Dart tests on deterministic signed fixture, Flutter analyze, full M1/G1/G6 tests, build Android debug APK, independently download/rehash, then promote G6 engineering receipt and mobile product HEAD v9 on PASS only. Do not claim physical installation, production external custody or real trading.",
+  "next_automatic_action": "Rerun exact G6 source/CI from corrected analyzer source; then Flutter full regression and independent APK bytes before promoting G6 v9. Preserve failed run 36195070781.",
   "parent_exact": "69109c6570c6cbb48f807b1b417dbdfa0b53fa54",
   "phase": "G6_ANDROID_SIGNED_G5_SYNTHETIC_PROOF_CI_PENDING",
   "physical_android_install": "NOT_TESTED",
