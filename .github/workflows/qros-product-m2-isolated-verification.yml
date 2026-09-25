@@ -1,0 +1,57 @@
+name: qros-product-m2-isolated-verification
+on:
+  push:
+    branches:
+      - product/mobile-m2-ledger-prototype-20260925
+    paths:
+      - '.github/workflows/qros-product-m2-isolated-verification.yml'
+      - 'CMakeLists.txt'
+      - 'include/qros/research_ledger.hpp'
+      - 'src/research_ledger.cpp'
+      - 'tests/test_research_ledger.cpp'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+concurrency:
+  group: qros-m2-isolated-verification
+  cancel-in-progress: true
+
+jobs:
+  native-original-core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - name: Checkout exact isolated product branch
+        uses: actions/checkout@v4
+      - name: Verify isolation and toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git branch --show-current)" = "product/mobile-m2-ledger-prototype-20260925"
+          git rev-parse HEAD
+          g++ --version | head -1
+          cmake --version | head -1
+          python3 --version
+          test -f product/experiments/M2_CURRENT_EXPERIMENT_HEAD_20260925.json
+      - name: Configure fresh native C++20 build
+        shell: bash
+        run: |
+          set -euo pipefail
+          cmake -S . -B build-m2-original -DCMAKE_BUILD_TYPE=Release
+      - name: Compile actual QROS SHA256 M1 and M2 objects
+        shell: bash
+        run: |
+          set -euo pipefail
+          cmake --build build-m2-original --parallel 2
+      - name: Run all repository synthetic/contract CTest suites
+        shell: bash
+        run: |
+          set -euo pipefail
+          ctest --test-dir build-m2-original --output-on-failure --timeout 120
+      - name: Run standalone M2 test again with actual original-linked core
+        shell: bash
+        run: |
+          set -euo pipefail
+          ./build-m2-original/qros_research_ledger_tests
+          ./build-m2-original/qros_product capabilities
