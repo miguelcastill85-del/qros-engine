@@ -1,0 +1,114 @@
+{
+  "schema": "QROS_NQX_REAL_M2_M12_M15_NON_ECONOMIC_PARITY_V1",
+  "date": "2026-09-24",
+  "objective": "Recover exact real NQX 2018–2019 DEV data and independently reproduce frozen M2/M12/M15 bars and indicator caches without economic evaluation.",
+  "authority": {
+    "main_at_recovery": "bfe8b35d1b982e463a3ad7fd92652a665eb62712",
+    "frontier": "V259",
+    "frontier_pointer_blob": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "research_source_commit": "b89bd286aafaebc101f02338a79908db8389cd9b",
+    "bar_builder_git_blob": "987ef26aca2507a94247bed7663493e6682aa869",
+    "indicator_formula_git_blob": "b3575c061607aaae9f4062ad623ff7083e2e0ffe",
+    "indicator_cache_git_blob": "21a50b167e791f4474e3c358b81e40065c048280"
+  },
+  "data": {
+    "asset": "NQX",
+    "period": "DEV_2018_2019_ONLY",
+    "source_records": 59940260,
+    "source_bytes": 1018984420,
+    "source_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+    "library_original_zip_parts": [
+      {
+        "name": "QROS_NQX_FULL_HISTORY_v2_part001-of-028.zip",
+        "library_file_id": "libfile_3171831215c48191a3f08b7d13c2514e",
+        "sha256": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b"
+      },
+      {
+        "name": "QROS_NQX_FULL_HISTORY_v2_part002-of-028.zip",
+        "library_file_id": "libfile_2b43a067dae48191b1d7febe26d2a472",
+        "sha256": "53f827fa0b611d9e2b00db78b1da29b1c41f0d2d7d7e912ddcec12de42984a24"
+      },
+      {
+        "name": "QROS_NQX_FULL_HISTORY_v2_part003-of-028.zip",
+        "library_file_id": "libfile_b9a20967fd308191a0e03aa2f4c08153",
+        "sha256": "48463c8dd2b020356fd9b21caea470cec4e9340d8a8fd0e25bea8fcb0c512c8b"
+      }
+    ],
+    "source_server_year_counts": {
+      "2018": 30362780,
+      "2019": 29577480
+    },
+    "decreasing_timestamps": 0,
+    "identical_adjacent_timestamps": 465513,
+    "zero_spread_ticks": 48205,
+    "crossed_spread_ticks": 160,
+    "raw_quotes_modified": false
+  },
+  "verified": {
+    "exact_original_gold_bars_and_indicators_file_sha256": {
+      "M2": {
+        "bars": 337134,
+        "bar_file_sha256": "a4abcd0abcaf50b3db3ec73ddb2dc5da41e9078941775a0fe4d796e4f5b992bf",
+        "indicators_sha256": "9abbaaaa9eded75392b847fcd5b1b1bf9b53525fde5315ffc4e006f3c9d288ad"
+      },
+      "M12": {
+        "bars": 56660,
+        "bar_file_sha256": "490adcd280b837633ead83865d1f1be21704723df0566ac94d79b8f3649c887d",
+        "indicators_sha256": "e5ecdbfb95fd9a4774423b83734047bab0568cfda1ad389a5a16955f8deae6ae"
+      },
+      "M15": {
+        "bars": 45312,
+        "bar_file_sha256": "7004293a015d521fb2178f308a09a4723892a5d96e458b90cf33763155418f20",
+        "indicators_sha256": "decc46b290146443b6c1f6a5267e613400a65402911b910dbb088d96e91f469a"
+      }
+    },
+    "independent_pandas_full_bar_rows": 439106,
+    "independent_direct_raw_tick_m1_bar_checks": 320,
+    "independent_numeric_scipy_full_array_comparisons": 87,
+    "independent_numeric_mismatches": 0,
+    "future_only_ema20_prefix_unchanged": [
+      "M2",
+      "M12",
+      "M15"
+    ],
+    "independent_receipt_sha256": "fe8a94e663a6054f29f57e21c8bf9e78e6af085754fac3233e13e4e84e287084",
+    "original_bar_replay_receipt_sha256": "dea7a46ee6ba34d259c8b17c31f692567e90500f935648892283a999b61d1d5c",
+    "original_indicator_replay_receipt_sha256": "a519fba4114d3e1dbbf3a55a537ea0aef49e7175e7d5b01d63fff69e23d51167",
+    "source_script_sha256": {
+      "bar_replay": "f361299b3954c5d8b76f7bb92be7819cee99367932bba3e20106e6368c17fc39",
+      "indicator_replay": "3b4c9d7360818b0642f77fef8acdb1168682e4fbd25f83e4465346bebef66540",
+      "independent_oracle": "157190a159c668010552a3b8791d7b0f9e65041437621408374c9e56e7f23ef5"
+    }
+  },
+  "durability": {
+    "library_path": "/QROS/RISE_AUDIT_MAX_V2/NQX_REAL_M2_M12_M15_VERIFIED_20260924/QROS_NQX_REAL_M2_M12_M15_VALIDACION_20260924.zip",
+    "library_file_id": "libfile_ae8cc42fbee4819199326533b880b8a9",
+    "library_backing_file_id": "file_00000000feb0820eb6450e1a3c63966a",
+    "zip_size_bytes": 25500,
+    "zip_sha256": "bf7a7729d49e3324df72f645f6bb2b39d472a79b93672cdb92bfecc1c6549bd2",
+    "zip_members": 14,
+    "raw_library_rehydration_sha256_equal": true,
+    "raw_1gb_prefix_not_duplicated": true
+  },
+  "gates": {
+    "raw_nqx_dev_prefix": "PASS_EXACT",
+    "frozen_bar_and_indicator_bytes": "PASS_M2_M12_M15",
+    "independent_full_bar_and_numeric_parity": "PASS",
+    "actual_broker_holiday_calendar": "NOT_CERTIFIED",
+    "anomalous_spread_execution_policy": "NOT_CERTIFIED",
+    "frozen_mask_and_alias_independent_parity": "NOT_EXECUTED",
+    "compiled_dag_factor_ir_real_regression": "NOT_EXECUTED",
+    "linux_seccomp_real_worker_compatibility": "NOT_EXECUTED",
+    "production_adoption": false,
+    "shard11_open": false,
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "mt5_parity": "NOT_EXECUTED"
+  },
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "engineering_state": "REAL_NQX_DEV_CARRIER_M2_M12_M15_NON_ECONOMIC_PARITY_PASS",
+  "portfolio_impact": "NONE_NO_NEW_TRADES_NO_PNL",
+  "next_automatic_action": "Recover exact already-frozen structural event-mask and alias artifacts for NQX M2/M12/M15 and XAU BUY M1 V224 group00, independently verify their original SHA/roots, then test compiled typed DAG factor IR against exact historic masks. Check Linux seccomp compatibility with actual runner; keep economic PnL, shard11, GA2 and holdout closed."
+}
