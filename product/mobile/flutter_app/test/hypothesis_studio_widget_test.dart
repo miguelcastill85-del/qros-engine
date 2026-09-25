@@ -8,7 +8,7 @@ Future<void> _scrollTo(WidgetTester tester, String key) async {
   final scrollable = find.descendant(
     of: find.byKey(const Key('hypothesis-studio-screen')),
     matching: find.byType(Scrollable),
-  );
+  ).first;
   await tester.scrollUntilVisible(target, 320.0, scrollable: scrollable);
   await tester.ensureVisible(target);
   await tester.pumpAndSettle();

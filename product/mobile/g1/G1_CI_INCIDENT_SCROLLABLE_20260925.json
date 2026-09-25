@@ -1,0 +1,20 @@
+{
+  "apk": "NOT_BUILT_FAIL_CLOSED",
+  "backend": "37_OF_37_PASS",
+  "current_source_manifest": "product/mobile/g1/G1_SOURCE_MANIFEST_V4.json",
+  "economic_pnl_tests": 0,
+  "flutter_analyze": "ZERO_ISSUES",
+  "flutter_tests": "19_PASS_2_FAIL",
+  "ga2_open": false,
+  "historical_manifests": [
+    "product/mobile/g1/G1_SOURCE_MANIFEST.json",
+    "product/mobile/g1/G1_SOURCE_MANIFEST_V2.json",
+    "product/mobile/g1/G1_SOURCE_MANIFEST_V3.json"
+  ],
+  "holdout_open": false,
+  "reason": "The hypothesis-scoped descendant finder selected multiple Scrollable widgets (main ListView and nested editable TextField scrollables). scrollUntilVisible requires exactly one scrollable, threw Bad state: Too many elements.",
+  "repair": "Select the first parent Scrollable inside the scoped ListView via .first; preserve checks that target hit coordinates are actually within the visible viewport. No production business logic changed.",
+  "schema": "QROS_MOBILE_G1_CI_INCIDENT_V3",
+  "third_failed_run": 36100910839,
+  "third_source_commit": "73c9784973fdca7c4ff808ff0f1ca456de2ea073"
+}
