@@ -1,0 +1,60 @@
+{
+  "schema": "QROS_MOBILE_STRATEGY_FACTORY_DESIGN_HEAD_v1",
+  "timestamp_utc_date": "2026-09-25",
+  "status": "DEVELOPMENT_RUNNING",
+  "evidence_class": "VERIFIED_SOURCE_READBACK_AND_STATIC_DESIGN_LINT_ONLY",
+  "scope": "MOBILE_ANDROID_FIRST_IOS_LATER_NO_DESKTOP_UI",
+  "branch": "product/mobile-strategy-factory-architecture-20260925",
+  "exact_origin_mobile_commit": "3bb3ebf843e61fd5722664310a9907745f556ae7",
+  "source_mobile_product_head": {
+    "path": "product/mobile/MOBILE_PRODUCT_HEAD.json",
+    "sha1": "e883f7dcc877ebbba5be79513e03893920dfa05a",
+    "status": "ANDROID_M1_DEBUG_APK_BUILT_CRYPTO_TESTS_PASS"
+  },
+  "source_scientific_main_stable_pointer": {
+    "path": "control/QROS_PUBLIC_1000_CURRENT_FRONTIER_POINTER.json",
+    "blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "known_version": "V259"
+  },
+  "resources": [
+    {
+      "path": "product/mobile/architecture/QROS_MOBILE_STRATEGY_FACTORY_RFC_v1.md",
+      "blob": "5c733bbd5cfda6183f9ace45d80aaf7f73546486"
+    },
+    {
+      "path": "product/mobile/architecture/QROS_MOBILE_UX_AND_MODULE_MIGRATION_v1.md",
+      "blob": "374767cb5f7b74aa3ebd0fa57fc8e1efb16eea85"
+    },
+    {
+      "path": "product/mobile/architecture/QROS_UNIVERSE_CONTRACT_DRAFT_v1.json",
+      "blob": "a72301c28756327789d4f3321b7cf8835089054c"
+    },
+    {
+      "path": "product/mobile/architecture/QROS_MOBILE_STRATEGY_FACTORY_DESIGN_RECEIPT_v1.json",
+      "blob": "f49a6f100cd99b1bfdcea30d346c046744461065"
+    }
+  ],
+  "verification": {
+    "doc_blob_readback": 4,
+    "static_lint_checks": 20,
+    "static_lint_failed": 0,
+    "example_cartesian_count": 144,
+    "development_backtests": 0,
+    "million_birth_stress": "NOT_RUN",
+    "real_tick_backtest": "NOT_RUN",
+    "new_app_feature_compiled": "NOT_IMPLEMENTED",
+    "real_pnl": "NOT_ACCESSED",
+    "holdout_open": false,
+    "ga2_open": false,
+    "live_orders": false
+  },
+  "authority_rules": {
+    "dont_mutate_main": true,
+    "dont_mix_with_M2_or_M1_scientific_release": true,
+    "customer_app_is_mobile_only": true,
+    "server_only_scientific_transitions": true,
+    "ai_no_scientific_state_authority": true
+  },
+  "next_automatic_action": "Implement G1 IDEA_TO_TYPED_IR vertical slice on a separate isolated feature branch: mobile synthetic draft -> exact existing StrategyContract fields -> independently parsed canonical versioned IR, static temporal observability and safe bounded domains. Then G2 independent toy enumerator parity before any million birth scale benchmark or economic PnL.",
+  "release_decision": "DESIGN_REVIEW_READY_NO_ENGINEERING_OR_SCIENTIFIC_APPROVAL"
+}
