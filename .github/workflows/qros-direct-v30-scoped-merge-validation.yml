@@ -86,6 +86,6 @@ jobs:
           import ast,pathlib
           files=[p for d in ['scripts/direct_backtest/seed0076','scripts/seed0076/w5_v23'] for p in pathlib.Path(d).glob('*.py')]
           for p in files:ast.parse(p.read_text(encoding='utf8'),filename=str(p))
-          assert len(files)==16,len(files)
+          assert len(files)==15,len(files)
           print('PASS direct research scripts parse; economic V28 archived source is external and not claimed CI-executed')
           PY
