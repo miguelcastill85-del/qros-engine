@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v6",
+  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v7",
   "status": "DEVELOPMENT_RUNNING",
   "product": "QROS Mobile Research Studio",
   "scope": "MOBILE_APP_ONLY_ANDROID_FIRST_IOS_LATER",
@@ -15,11 +15,11 @@
     "code_branch": "product/mobile-m2-ledger-prototype-20260925",
     "scientific_main": "DO_NOT_MODIFY"
   },
-  "active_delivery": "G3_SYNTHETIC_INDEPENDENT_BID_ASK_EXECUTION_PARITY_TEST_ONLY",
-  "mobile_frontend_status": "ANDROID_G1_DEBUG_APK_VERIFIED_UNCHANGED_BY_G2_G3",
+  "active_delivery": "G4_LICENSED_SYNTHETIC_DATA_AUDIT_AND_LOCALLY_SEPARATED_MONOTONIC_WITNESS_TEST_ONLY",
+  "mobile_frontend_status": "ANDROID_G1_DEBUG_APK_VERIFIED_UNCHANGED_G2_G3_G4",
   "existing_mobile_html": "product/mobile-demo/index.html",
   "existing_mobile_html_status": "TEST_ONLY_WEB_MOCK_NOT_INSTALLABLE_MOBILE_APP",
-  "backend": "LINUX_CXX20_G3_PLUS_INDEPENDENT_PYTHON_SYNTHETIC_EXECUTION_ORACLE_WITH_G2_SHARDED_UNIVERSE_AND_M1_SIGNED_DEMO",
+  "backend": "G3_INDEPENDENT_EXECUTION_PLUS_G4_SIGNED_TEST_LICENSE_DST_AUDIT_AND_LOCAL_ED25519_WITNESS_NOT_DEPLOYED",
   "m2_status": "LINUX_INTEGRATION_PASS_REAL_M2_AUTHENTICATED_EVIDENCE_AND_DYNAMIC_EXTERNAL_HEAD_PENDING",
   "hard_exclusions": [
     "WINDOWS_UI",
@@ -38,8 +38,8 @@
     "use_only_synthetic_data_until_authorized": true,
     "paid_services_activation": false
   },
-  "next_automatic_action": "G4: implement separately governed licensed-data audit and independent evidence trust boundary; begin with synthetic security canaries, strict timezone/DST and Bid/Ask audit, tenant/source license policy and fail-closed dynamic witness design. Do not open holdout, GA2, real PnL, MT5 or production API without independent gates. Keep verified G1/G2/G3 immutable.",
-  "release_gate": "G3_SYNTHETIC_ENGINEERING_PASS_ONLY; LICENSED_DATA_AUDIT, AUTHENTICATED_EXTERNAL_WITNESS, TENANT_TLS, PHYSICAL_ANDROID_DEVICE, MT5_PARITY, RELEASE_SIGNING_AND_REAL_MARKET_ECONOMICS_NOT_VERIFIED",
+  "next_automatic_action": "G5 implement tenant-scoped opt-in read-only HTTPS integration against synthetic data only, obtain separately administered external monotonic witness and verify pin/read-only rollback from actual distinct custody; run physical Android install and authenticated pairing. If no trusted external admin/device credentials are available, complete independently valid local TLS/tenant canaries and persist BLOCKED_BY_INFRASTRUCTURE only for production trust gates, without changing G4 PASS or opening research holdout/GA2/real PnL.",
+  "release_gate": "G4_TEST_ONLY_PASS; G5_REAL_EXTERNAL_OPERATOR_IMMUTABILITY, TENANT_HTTPS_AUTHZ, PHYSICAL_ANDROID_INSTALL, RELEASE_SIGNING, REAL_LICENSE_AND_MARKET_DATA_AUDIT_NOT_PASSED",
   "verified_milestones": {
     "ANDROID_M0_NATIVE_VERTICAL_SLICE": {
       "status": "PASS_ENGINEERING_TEST_ONLY",
@@ -130,6 +130,24 @@
       "g3_current_head_git_blob_sha1": "55eac915ee9026ee5e84dfebbd51e9daa8dae86b",
       "market_data": "NONE",
       "economic_backtests": 0,
+      "holdout_open": false,
+      "ga2_open": false,
+      "scientific_gate_pass": false
+    },
+    "G4_SYNTHETIC_DATA_AND_LOCAL_WITNESS": {
+      "status": "PASS_ENGINEERING_TEST_ONLY",
+      "tested_source_commit": "1fc877520fe6ec2fdcdc467e07217feaed152812",
+      "github_actions_run_id": 36176540663,
+      "tests": "45_OF_45_PASS",
+      "artifact_id": 10882108632,
+      "receipt_path": "product/mobile/receipts/QROS_MOBILE_G4_VERIFIED_ENGINEERING_PASS_20260925.json",
+      "receipt_git_blob_sha1": "dae2569d405eefd52fcb6fc941282765add66aa2",
+      "current_verified_head_path": "product/mobile/g4_verified/G4_CURRENT_HEAD.json",
+      "current_verified_head_git_blob_sha1": "bea1c0366bcde2b43f99188f52c2390351f7557d",
+      "source_manifest_sha1": "5e6e2ba5b4a076f8675b8b5917e0eb683451f78e",
+      "operationally_separate_external_witness": "NOT_DEPLOYED",
+      "actual_broker_data": "NONE",
+      "economic_tests": 0,
       "holdout_open": false,
       "ga2_open": false,
       "scientific_gate_pass": false

@@ -1,0 +1,67 @@
+{
+  "schema": "QROS_MOBILE_G4_VERIFIED_ENGINEERING_RECEIPT_V1",
+  "date_utc": "2026-09-25",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "evidence_class": "VERIFIED_LIVE_GITHUB_CI_AND_INDEPENDENT_DOWNLOADED_ARTIFACT_BYTES",
+  "source": {
+    "branch": "product/mobile-g4-data-witness-20260925",
+    "tested_source_commit": "1fc877520fe6ec2fdcdc467e07217feaed152812",
+    "verified_parent_g3_commit": "0b529a2624fd43794cbe2185702f2bac7d3b209e",
+    "source_manifest_path": "product/mobile/g4/G4_SOURCE_MANIFEST_V2.json",
+    "source_manifest_git_blob_sha1": "5e6e2ba5b4a076f8675b8b5917e0eb683451f78e",
+    "historical_v1_manifest_git_blob_sha1": "3e0257ab4218210c84b108a011cb42ffaac4b062",
+    "exact_delta_files": 12
+  },
+  "ci": {
+    "failed_run_id": 36176221779,
+    "failed_run_retained_in": "product/mobile/g4/G4_CI_INCIDENT_MAIN_POINTER_PATH_20260925.json",
+    "passed_run_id": 36176540663,
+    "passed_job_id": 108208406617,
+    "run_url": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36176540663",
+    "conclusion": "success",
+    "tests": "45_OF_45_PASS",
+    "anti_stall_source_gate": "PASS_12_EXACT_FILES_9_HASHED_SOURCE",
+    "remote_science_pointer_from_main": "VERIFIED_EXACT_BLOB",
+    "artifact_id": 10882108632,
+    "artifact_name": "qros-mobile-g4-test-only-security-evidence",
+    "artifact_downloaded_zip_bytes": 1738,
+    "artifact_zip_sha256": "c3c8d9410c7b1cfcaa2b933673d31d6504bb229903d7edeaabf43542531dacfe",
+    "artifact_expiry_utc": "2026-09-28T18:56:12Z"
+  },
+  "raw_artifact": {
+    "ci_receipt_path": "product/mobile/receipts/G4_CI_RAW_BUILD_RECEIPT_20260925.json",
+    "ci_receipt_blob_sha1": "1cc864390903c395c2c0a21942fe767fa90a7c3d",
+    "ci_receipt_sha256": "be2c40b23570a70cc9d97fc718e3aac34c36b6b5d9eff81f4470af4a7dcc9d42",
+    "integration_receipt_path": "product/mobile/receipts/G4_LOCAL_TEST_WITNESS_INTEGRATION_20260925.json",
+    "integration_receipt_blob_sha1": "7fa8dfba4af629fd35a19d57cc2506bab7bb3624",
+    "integration_receipt_sha256": "0fd2e66c023e9ace058be1f07060ae641030c739bfaf9ea041450e41b8a67f91"
+  },
+  "checks": {
+    "signed_synthetic_license": "PASS",
+    "strict_local_broker_timezone_dst_fold": "PASS_ON_TEST_DATA",
+    "raw_source_bytes_sha256": "PASS",
+    "zero_and_crossed_spread_diagnostics_preserved": "PASS",
+    "tenant_source_purpose_expiration_and_redistribution": "PASS_TEST_ONLY",
+    "separate_local_trust_store_signatures": "PASS",
+    "signed_witness_sequence": 1,
+    "signed_witness_body_sha256": "0c2c4b49b832d2946eae3aeea2a526b33356221483947bd40f715c8f777e56e9",
+    "stale_replay_cross_tenant_cas_tamper_and_process_sigkill": "PASS_TEST_ONLY",
+    "anti_stall_rejects_noop_missing_tests_and_faked_approval": "PASS"
+  },
+  "limits": {
+    "market_data": "NONE",
+    "economic_backtests": 0,
+    "holdout_open": false,
+    "ga2_open": false,
+    "mt5": "NOT_RUN",
+    "production_operationally_separate_witness": "NOT_DEPLOYED",
+    "real_provider_license": "NOT_VERIFIED",
+    "physical_android_device": "NOT_TESTED",
+    "public_tls_tenant_ingress": "NOT_DEPLOYED",
+    "new_apk": "NOT_BUILT_G1_RETAINED",
+    "commercial_release_approved": false,
+    "scientific_gate_pass": false
+  },
+  "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "next_automatic_action": "G5 implement tenant-scoped opt-in read-only HTTPS integration against synthetic data only, obtain separately administered external monotonic witness and verify pin/read-only rollback from actual distinct custody; run physical Android install and authenticated pairing. If no trusted external admin/device credentials are available, complete independently valid local TLS/tenant canaries and persist BLOCKED_BY_INFRASTRUCTURE only for production trust gates, without changing G4 PASS or opening research holdout/GA2/real PnL."
+}
