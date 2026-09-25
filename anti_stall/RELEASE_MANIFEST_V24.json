@@ -1,0 +1,70 @@
+{
+  "activation": "PC_USER_MUST_INSTALL_TASK_AND_HAVE_EXACT_FROZEN_QUEUE_AND_AUTHENTICATED_GIT_DATA",
+  "date": "2026-09-25",
+  "files": [
+    {
+      "bytes": 11816,
+      "git_blob_sha1": "1e993b4cb68adf742841bfb32771e0860725f0a0",
+      "path": "anti_stall/scripts/qros_continuation_service_v2_4.py",
+      "sha256": "f446bb05f74c1203fafa144643f4f90d3cc81cacc3f5a8b08f2731052743eac7"
+    },
+    {
+      "bytes": 10315,
+      "git_blob_sha1": "1c53d674f38ca5967c25aa59ac5759036afd5025",
+      "path": "anti_stall/tests/test_v2_4_service.py",
+      "sha256": "1d978acfaac825755b31531629a631ee31f19de6ba9e3ae3c1348c7e54eccce8"
+    },
+    {
+      "bytes": 1442,
+      "git_blob_sha1": "f03a052834ea5ad2d3f69225a992e5ed43365f15",
+      "path": "anti_stall/tests/test_v2_4_host_contract.py",
+      "sha256": "26bd183465bf38db5c88ccbd2052fd1572e98456f395f67de39324fb0088efc8"
+    },
+    {
+      "bytes": 1855,
+      "git_blob_sha1": "e74b44b0be89b06daac4a7079e1c97e2735a4c03",
+      "path": "anti_stall/hosts/run_windows_task_v2_4.ps1",
+      "sha256": "5d0a0b14477161e7144eb127a1bc8288470d573d77c64441e00a99155472db61"
+    },
+    {
+      "bytes": 3297,
+      "git_blob_sha1": "3db8df1d6d11d115268f92aa7dc155424ab9998f",
+      "path": "anti_stall/hosts/install_windows_task_v2_4.ps1",
+      "sha256": "df6ed463a7c60cf0a63235fcdede2c3720519ded726cf845f7acaf78c1e702b7"
+    },
+    {
+      "bytes": 5601,
+      "git_blob_sha1": "3640e78ed61b19c7bd414fb7576e24aee67e2932",
+      "path": "anti_stall/README_EXECUTABLE_NONSTALL_V24.md",
+      "sha256": "9fe9cf4b5483ecba94fa4df5b321e08774159fc140d4a5932147e3ac0af5b034"
+    },
+    {
+      "bytes": 2208,
+      "git_blob_sha1": "5bc9bb3e2b7fb0b59288c45189ab2ce1fb585b1f",
+      "path": ".github/workflows/qros-nonstall-v24-manual-qualification.yml",
+      "sha256": "ed6bc838040e1daf994e5381798022d22dcfc801e4ccfd1bc637ddf0803df200"
+    },
+    {
+      "bytes": 2975,
+      "git_blob_sha1": "4297bc40263b090f7fba971684c72ba08b4766c6",
+      "path": "anti_stall/QROS_V24_LOCAL_VERIFICATION_RECEIPT.json",
+      "sha256": "e5ad6765dd6aebdb4db4d230b02eb32f5f33ddfe8449516692bd73405c37c7e3"
+    }
+  ],
+  "original_v23_manifest_git_blob_sha1": "cd1cd38b0640a7bc75513c85f8ae4700b3ecb444",
+  "previous_v22_governance_git_blob_sha1": "3996a65e3377da6976a5457177d6a169cee93ff3",
+  "qualifications": {
+    "GH_PRIVATE_ACTIONS": "NOT_RUN_TO_AVOID_ADDITIONAL_COSTS",
+    "Windows_native": "NOT_RUN",
+    "current_linux_v24": "18/18 PASS",
+    "original_v23_code": "13/13 PASS"
+  },
+  "schema": "QROS_LITERAL_NONSTALL_EXECUTABLE_V24_RELEASE_MANIFEST",
+  "scientific_firewalls": {
+    "GA2_open": false,
+    "W5_V33_prior_closed_bytes_untouched": true,
+    "holdout_open": false
+  },
+  "status": "LOCAL_LINUX_EXECUTION_VALIDATED_NO_ACTIVE_PC_RUNNER",
+  "version": "2.4"
+}

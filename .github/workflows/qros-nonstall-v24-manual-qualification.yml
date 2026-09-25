@@ -1,0 +1,51 @@
+name: QROS v2.4 executable nonstall (MANUAL, synthetic only)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  synthetic-real-process-qualification:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate immutable original v2.3 dependency SHA manifest
+        run: |
+          python - <<'PY'
+          import pathlib,json,hashlib
+          m=json.load(open('anti_stall/RELEASE_MANIFEST_V23.json'))
+          bad=[]
+          for i in m['files']:
+              p=pathlib.Path(i['path'])
+              if not p.is_file():bad.append(i['path']+':MISSING');continue
+              b=p.read_bytes()
+              if len(b)!=i['bytes'] or hashlib.sha256(b).hexdigest()!=i['sha256']:
+                  bad.append(i['path']+':SHA_DRIFT')
+          assert not bad,bad
+          print('17_OF_17_EXACT_PINNED_SOURCE_BYTES_PASS')
+          PY
+      - name: v2.3 genuine subprocess / durable crash recovery
+        run: python -m unittest discover -s anti_stall/tests -p 'test_v2_3_*.py' -v
+      - name: v2.4 git source identity, fail-closed and multicycle execution
+        run: python -m unittest discover -s anti_stall/tests -p 'test_v2_4_*.py' -v
+      - name: Execute THREE actual frozen synthetic stages
+        run: python anti_stall/examples/qros_v23_actual_execution_canary.py --work /tmp/qros-v24-canary
+      - name: Confirm second call performed ZERO executions
+        run: |
+          python anti_stall/examples/qros_v23_actual_execution_canary.py --work /tmp/qros-v24-canary > /tmp/qros-v24-reentry.json
+          python - <<'PY'
+          import json
+          x=json.load(open('/tmp/qros-v24-reentry.json'))
+          assert x['actually_executed_jobs_this_invocation']==[]
+          assert x['status']=='PASS' and not x['holdout_open'] and not x['ga2_open']
+          print('NO_DUPLICATE_EXECUTION_PASS')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qros-v24-synthetic-only-receipts
+          path: /tmp/qros-v24-canary/QROS_V23_SMOKE_RECEIPT.json
+          if-no-files-found: warn
