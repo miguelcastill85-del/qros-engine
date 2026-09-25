@@ -1,0 +1,135 @@
+name: qros-mobile-g1-idea-universe-test-only
+on:
+  push:
+    branches:
+      - product/mobile-g1-idea-universe-20260925
+    paths:
+      - 'product/mobile/flutter_app/**'
+      - 'product/mobile/backend/universe_contract.py'
+      - 'product/mobile/backend/generate_universe_fixture.py'
+      - 'product/mobile/backend/tests/test_universe_contract.py'
+      - 'product/mobile/g1/**'
+      - '.github/workflows/qros-mobile-g1-idea-universe.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: mobile-g1-idea-universe
+  cancel-in-progress: true
+jobs:
+  backend-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Assert exactly bounded mobile G1 scope and baseline C++ contract
+        run: |
+          set -euo pipefail
+          test ! -d product/mobile/flutter_app/windows
+          test ! -d product/mobile/flutter_app/macos
+          test -f include/qros/research_contract.hpp
+          test -f product/mobile/architecture/STRATEGY_FACTORY_DESIGN_HEAD.json
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('include/qros/research_contract.hpp').read_text()
+          fields=['contract_id','genealogy_root_id','symbol','side_policy','program_sha256',
+                  'data_authority_id','execution_policy_sha256','cost_policy_sha256',
+                  'search_space_sha256','multiplicity_n_tests','holdout_partition_id']
+          assert all(field in s for field in fields), 'CPP_CONTRACT_IDENTITY_DRIFT'
+          print('G1_CPP_CONTRACT_FIELDS_PINNED',len(fields))
+          PY
+      - name: Install exact M1 cryptography dependency (backend regression)
+        run: python -m pip install --disable-pip-version-check -r product/mobile/backend/requirements.txt
+      - name: Independently regenerate canonical universe fixture
+        run: |
+          set -euo pipefail
+          python product/mobile/backend/generate_universe_fixture.py
+          git diff --exit-code -- product/mobile/flutter_app/test/fixtures/universe_oracle.json
+      - name: Backend signed M1 regressions and independent G1 enumerator adversarial tests
+        working-directory: product/mobile/backend
+        run: python -m unittest discover -s tests -v
+      - name: Confirm real C++ StrategyContract linkage, no scientific access
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          j=json.loads(Path('product/mobile/flutter_app/test/fixtures/universe_oracle.json').read_text())
+          assert j['oracle']['raw_births']==144
+          assert j['oracle']['canonical_sha256']=='9ad446079f4906156ed1a498f847bb4fa79e08a44710ecb69edc59941480c1de'
+          assert j['oracle']['toy_enumeration_sha256']=='6b00b7f9350b70d20de0f0cecdc619950440ab757f6f96f2b74845e581a60800'
+          print('PYTHON_FROZEN_TOY_ORACLE_PASS_144_NO_MARKET_DATA')
+          PY
+  android-g1:
+    needs: backend-contract
+    runs-on: ubuntu-latest
+    timeout-minutes: 23
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.35.4'
+      - name: Rehydrate only Android platform wrapper and pin Flutter dependencies
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          flutter create --platforms=android --project-name=qros_mobile_studio --org=app.qros --no-pub .
+          flutter pub get
+      - name: Analyze entire updated G1 app and run old M1 + new G1 parity/widget tests
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          flutter analyze --no-pub
+          flutter test --no-pub --reporter expanded
+      - name: Build TEST_ONLY G1 Android debug APK
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          flutter build apk --debug --no-pub
+          test -s build/app/outputs/flutter-apk/app-debug.apk
+          sha256sum build/app/outputs/flutter-apk/app-debug.apk
+      - name: Capture actual G1 reproducibility evidence and signed M1 baseline reference
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,hashlib,pathlib,subprocess
+          apk=pathlib.Path('build/app/outputs/flutter-apk/app-debug.apk')
+          v=json.loads(subprocess.check_output(['flutter','--version','--machine'],text=True))
+          fixture=json.loads(pathlib.Path('test/fixtures/universe_oracle.json').read_text())
+          receipt={
+            'schema':'QROS_MOBILE_G1_ANDROID_BUILD_RECEIPT_v1',
+            'classification':'PASS_ENGINEERING_TEST_ONLY',
+            'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+            'flutter_version':v['frameworkVersion'],'dart_version':v['dartSdkVersion'],
+            'java_version':'17','apk_bytes':apk.stat().st_size,
+            'apk_sha256':hashlib.sha256(apk.read_bytes()).hexdigest(),
+            'cross_language_toy_raw_births':fixture['oracle']['raw_births'],
+            'cross_language_typed_ir_sha256':fixture['oracle']['canonical_sha256'],
+            'cross_language_toy_enumerator_sha256':fixture['oracle']['toy_enumeration_sha256'],
+            'backend_regression':'PASS_DEPENDENCY_JOB','flutter_analyze':'PASS_REQUIRED_STEP',
+            'flutter_tests':'PASS_REQUIRED_STEP','broker_data':'NONE',
+            'economic_backtests':0,'holdout_open':False,'ga2_open':False,
+            'live_trading':False,'independent_dynamic_external_witness':'NOT_IMPLEMENTED',
+            'physical_device_installation':'NOT_RUN','commercial_release_approved':False
+          }
+          pathlib.Path('QROS_G1_BUILD_RECEIPT.json').write_text(json.dumps(receipt,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(receipt,indent=2))
+          PY
+      - name: Save G1 debug APK and actual build receipt, bounded retention
+        uses: actions/upload-artifact@v4
+        with:
+          name: qros-mobile-g1-test-only-apk
+          retention-days: 3
+          if-no-files-found: error
+          path: |
+            product/mobile/flutter_app/build/app/outputs/flutter-apk/app-debug.apk
+            product/mobile/flutter_app/QROS_G1_BUILD_RECEIPT.json

@@ -1,0 +1,54 @@
+{
+  "schema": "QROS_MOBILE_G1_VERIFIED_ENGINEERING_RECEIPT_v1",
+  "date": "2026-09-25",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "evidence_class": "VERIFIED_REMOTE_ACTIONS_AND_INDEPENDENT_APK_SHA256",
+  "source_commit": "a27771fd09e4aec956243666ad33e91629602821",
+  "workflow_run": 36101182650,
+  "backend_job": 107963805160,
+  "android_job": 107963843812,
+  "backend_unit_tests": 37,
+  "backend_status": "PASS",
+  "flutter_unit_widget_tests": 21,
+  "flutter_status": "PASS",
+  "flutter_analyze": "ZERO_ISSUES",
+  "cross_language_toy_census": {
+    "raw_syntactic_births": 144,
+    "mode": "EXHAUSTIVE_SYNTHETIC_TOY_ONLY",
+    "canonical_ir_sha256": "9ad446079f4906156ed1a498f847bb4fa79e08a44710ecb69edc59941480c1de",
+    "ordered_births_sha256": "6b00b7f9350b70d20de0f0cecdc619950440ab757f6f96f2b74845e581a60800"
+  },
+  "apk": {
+    "bytes": 141607346,
+    "sha256": "639bae45ec0a4969a1f39113658737572d5dbfd32515c76a95b1b309e35537e5",
+    "format": "ANDROID_DEBUG_APK",
+    "artifact_id": 10849576623,
+    "artifact_name": "qros-mobile-g1-test-only-apk",
+    "artifact_expiry_utc": "2026-09-28T06:10:18Z",
+    "independent_rehash": "PASS_DOWNLOADED_ZIP_EXTRACTED_APK"
+  },
+  "frozen_source_manifest_path": "product/mobile/g1/G1_SOURCE_MANIFEST_V4.json",
+  "frozen_source_manifest_git_blob_sha1": "bd98ef326bec05bed638868700a151588e8fa43a",
+  "all_source_blob_readback": "16_OF_16_PASS",
+  "failed_runs_preserved": [
+    36100392429,
+    36100633758,
+    36100910839
+  ],
+  "failure_receipts": [
+    "product/mobile/g1/G1_CI_INCIDENT_ANALYZER_20260925.json",
+    "product/mobile/g1/G1_CI_INCIDENT_WIDGET_20260925.json",
+    "product/mobile/g1/G1_CI_INCIDENT_SCROLLABLE_20260925.json"
+  ],
+  "production_research_ready": false,
+  "physical_device_install": "NOT_RUN",
+  "external_dynamic_witness": "NOT_IMPLEMENTED",
+  "public_https": "NOT_DEPLOYED",
+  "broker_data": "NONE",
+  "economic_tests": 0,
+  "ga2_open": false,
+  "holdout_open": false,
+  "mt5": "NOT_RUN",
+  "main_scientific_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "next_automatic_action": "G2 independent deterministic mixed-radix enumerator, shard integrity and interrupted-process resume on explicit finite synthetic grammar; then fixed measured million-birth structural stress with no PnL. Preserve G1 app APK and immutable failures."
+}

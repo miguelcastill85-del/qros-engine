@@ -13,19 +13,38 @@ class DemoGatewayStub implements DemoGateway {
 }
 
 void main() {
-  testWidgets('home and all four mobile destinations render honest offline states', (tester) async {
+  testWidgets('professional five-tab shell and legacy controls remain accessible', (tester) async {
     final store = ResearchStore();
     await tester.pumpWidget(QrosApp(store: store));
     expect(find.text('QROS'), findsOneWidget);
     expect(find.text('TEST_ONLY'), findsOneWidget);
-    expect(find.textContaining('Motor desconectado'), findsOneWidget);
+    await tester.tap(find.text('Hipótesis').last);
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('hypothesis-studio-screen')), findsOneWidget);
+    await tester.tap(find.text('Fábrica').last);
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('factory-screen')), findsOneWidget);
+    await tester.tap(find.text('Portafolio').last);
+    await tester.pumpAndSettle();
+    expect(find.byKey(const Key('portfolio-screen')), findsOneWidget);
+    expect(find.textContaining('NINGÚN CANDIDATO APROBADO'), findsOneWidget);
+    await tester.tap(find.byKey(const Key('more-actions')));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Proyectos').last);
     await tester.pumpAndSettle();
     expect(find.byKey(const Key('projects-screen')), findsOneWidget);
     expect(find.text('DEMO-001'), findsOneWidget);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('more-actions')));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Historial').last);
     await tester.pumpAndSettle();
     expect(find.textContaining('Evento visual simulado'), findsOneWidget);
+    await tester.pageBack();
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('more-actions')));
+    await tester.pumpAndSettle();
     await tester.tap(find.text('Seguridad').last);
     await tester.pumpAndSettle();
     expect(find.text('Permisos científicos'), findsOneWidget);
@@ -35,6 +54,7 @@ void main() {
   testWidgets('a hypothesis is a local draft, not an approved research contract', (tester) async {
     final store = ResearchStore();
     await tester.pumpWidget(QrosApp(store: store));
+    await tester.scrollUntilVisible(find.byKey(const Key('new-project-action')), 180.0, scrollable: find.byType(Scrollable).last);
     await tester.tap(find.byKey(const Key('new-project-action')));
     await tester.pumpAndSettle();
     await tester.enterText(find.byKey(const Key('draft-title')), 'Hipótesis causal M15');
@@ -51,7 +71,7 @@ void main() {
   testWidgets('mobile remote DEMO is read-only and never marks approval', (tester) async {
     final store = ResearchStore();
     await tester.pumpWidget(QrosApp(store: store, demoGateway: DemoGatewayStub()));
-    await tester.tap(find.text('Seguridad').last);
+    await tester.tap(find.text('Evidencias').last);
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(find.byKey(const Key('open-remote-demo')), 220.0,
       scrollable: find.byType(Scrollable).last);
@@ -72,7 +92,7 @@ void main() {
   testWidgets('security screen copies only synthetic evidence and has no PASS action', (tester) async {
     final store = ResearchStore();
     await tester.pumpWidget(QrosApp(store: store));
-    await tester.tap(find.text('Seguridad').last);
+    await tester.tap(find.text('Evidencias').last);
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(find.byKey(const Key('copy-evidence-action')), 260.0, scrollable: find.byType(Scrollable).last);
     expect(find.textContaining('Copiar JSON TEST_ONLY'), findsOneWidget);

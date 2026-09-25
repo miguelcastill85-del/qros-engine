@@ -1,0 +1,19 @@
+{
+  "apk": "SKIPPED_REQUIRED_TEST_GATE",
+  "backend": "37_OF_37_PASS",
+  "correction": "Explicit scrolling to each requested control; ensureVisible and independently assert hit-testable viewport before every critical tap. No change to production UI/IR semantics.",
+  "first_failed_run": 36100392429,
+  "flutter_analyze": "ZERO_ISSUES",
+  "flutter_tests": "19_PASS_2_FAILED",
+  "ga2_open": false,
+  "historical_manifest_v2": "product/mobile/g1/G1_SOURCE_MANIFEST_V2.json",
+  "holdout_open": false,
+  "new_manifest_v3": "product/mobile/g1/G1_SOURCE_MANIFEST_V3.json",
+  "next": "Rerun CI test and APK build, never mark two failed widget tests PASS.",
+  "root_cause": "Two new widget tests treated lazily constructed offscreen widgets as mounted/hit-testable in default 800x600 test viewport. A tap at y~654 was outside root and was not delivered.",
+  "schema": "QROS_MOBILE_G1_CI_INCIDENT_V2",
+  "scientific_authority_granted": false,
+  "second_failed_run": 36100633758,
+  "second_source_commit": "42b5e311c8cf0ce85650b6feee60d8e6bf9ef4e1",
+  "source_file": "product/mobile/flutter_app/test/hypothesis_studio_widget_test.dart"
+}

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'core/research_store.dart';
 import 'core/verified_demo.dart';
+import 'core/universe_store.dart';
 import 'ui/app_shell.dart';
 
 void main() {
@@ -9,10 +10,11 @@ void main() {
 }
 
 class QrosApp extends StatefulWidget {
-  const QrosApp({super.key, this.store, this.demoGateway});
+  const QrosApp({super.key, this.store, this.demoGateway, this.universeStore});
 
   final ResearchStore? store;
   final DemoGateway? demoGateway;
+  final UniverseSessionStore? universeStore;
 
   @override
   State<QrosApp> createState() => _QrosAppState();
@@ -20,10 +22,12 @@ class QrosApp extends StatefulWidget {
 
 class _QrosAppState extends State<QrosApp> {
   late final ResearchStore _store = widget.store ?? ResearchStore();
+  late final UniverseSessionStore _universeStore = widget.universeStore ?? UniverseSessionStore();
 
   @override
   void dispose() {
     if (widget.store == null) _store.dispose();
+    if (widget.universeStore == null) _universeStore.dispose();
     super.dispose();
   }
 
@@ -77,7 +81,7 @@ class _QrosAppState extends State<QrosApp> {
           labelTextStyle: WidgetStatePropertyAll(TextStyle(fontSize: 11)),
         ),
       ),
-      home: QrosShell(store: _store, demoGateway: widget.demoGateway ?? const HttpsDemoGateway()),
+      home: QrosShell(store: _store, universeStore: _universeStore, demoGateway: widget.demoGateway ?? const HttpsDemoGateway()),
     );
   }
 }
