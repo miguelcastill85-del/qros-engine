@@ -1,0 +1,133 @@
+name: qros-mobile-m1-signed-readonly-test-only
+on:
+  push:
+    branches:
+      - product/mobile-m1-signed-readonly-20260925
+    paths:
+      - 'product/mobile/backend/**'
+      - 'product/mobile/flutter_app/**'
+      - 'product/mobile/MOBILE_M1_META_AUDIT.md'
+      - '.github/workflows/qros-mobile-m1-signed-readonly.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qros-mobile-m1-signed-readonly
+  cancel-in-progress: true
+jobs:
+  backend-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate mobile-only source and unchanged scientific fences
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f product/mobile/MOBILE_PRODUCT_HEAD.json
+          test -f product/mobile/backend/demo/PUBLIC_PIN.txt
+          test ! -d product/mobile/flutter_app/windows
+          test ! -d product/mobile/flutter_app/macos
+          git rev-parse HEAD
+      - name: Install pinned cryptography only
+        shell: bash
+        run: python -m pip install --disable-pip-version-check -r product/mobile/backend/requirements.txt
+      - name: Run independent server/witness adversarial tests
+        shell: bash
+        working-directory: product/mobile/backend
+        run: python -m unittest discover -s tests -v
+      - name: Verify witness pins and no bundled private signing keys
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, hashlib, pathlib
+          d=pathlib.Path('product/mobile/backend/demo')
+          trust=(d/'trust_root.json').read_bytes()
+          pin=(d/'PUBLIC_PIN.txt').read_text().strip()
+          assert hashlib.sha256(trust).hexdigest()==pin, 'TRUST_ROOT_SHA_DRIFT'
+          obj=json.loads(trust)
+          dart=pathlib.Path('product/mobile/flutter_app/lib/core/verified_demo.dart').read_text()
+          for key in ('anchor_sha256','receipt_public_key_b64','witness_public_key_b64','source_pin_sha256'):
+              assert obj[key] in dart, 'MOBILE_PUBLIC_PIN_DRIFT:'+key
+          assert not list(d.rglob('*.pem')) and not list(d.rglob('*.key')), 'PRIVATE_KEY_LEAK'
+          print('STATIC_WITNESS_AND_MOBILE_PIN_PARITY_PASS trust_root_sha256='+pin)
+          PY
+  android-test:
+    needs: backend-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          flutter-version: '3.35.4'
+      - name: Create only Android platform wrapper
+        shell: bash
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          flutter create --platforms=android --project-name=qros_mobile_studio --org=app.qros --no-pub .
+          flutter pub get
+      - name: Analyze and validate all Android client tests and independent Ed25519 signatures
+        shell: bash
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          flutter analyze --no-pub
+          flutter test --no-pub --reporter expanded
+      - name: Build M1 Android debug TEST_ONLY APK
+        shell: bash
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          flutter build apk --debug --no-pub
+          test -s build/app/outputs/flutter-apk/app-debug.apk
+          sha256sum build/app/outputs/flutter-apk/app-debug.apk
+      - name: Write reproducibility receipt with actual bytes
+        shell: bash
+        working-directory: product/mobile/flutter_app
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json,hashlib,pathlib,subprocess
+          apk=pathlib.Path('build/app/outputs/flutter-apk/app-debug.apk')
+          v=json.loads(subprocess.check_output(['flutter','--version','--machine'],text=True))
+          evidence={
+             'schema':'QROS_MOBILE_M1_ANDROID_BUILD_RECEIPT_V1',
+             'status':'PASS_ENGINEERING_TEST_ONLY',
+             'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+             'flutter_version':v['frameworkVersion'],
+             'dart_sdk_version':v['dartSdkVersion'],
+             'apk_bytes':apk.stat().st_size,
+             'apk_sha256':hashlib.sha256(apk.read_bytes()).hexdigest(),
+             'backend_auth_tests':'PASS_PREVIOUS_REQUIRED_JOB',
+             'flutter_tests':'PASS_PREVIOUS_REQUIRED_STEP',
+             'device_install_test':'NOT_RUN',
+             'external_dynamic_witness':'NOT_DEPLOYED',
+             'scientific_gate_pass':False,
+             'live_trading_enabled':False,
+             'data_source':'SYNTHETIC_ONLY',
+             'production_release_approved':False
+          }
+          p=pathlib.Path('QROS_M1_BUILD_RECEIPT.json')
+          p.write_text(json.dumps(evidence,sort_keys=True,indent=2)+'\n')
+          print(p.read_text())
+          PY
+      - name: Upload only bounded TEST_ONLY Android APK and receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: qros-android-m1-signed-demo-test-only
+          retention-days: 5
+          path: |
+            product/mobile/flutter_app/build/app/outputs/flutter-apk/app-debug.apk
+            product/mobile/flutter_app/QROS_M1_BUILD_RECEIPT.json
+          if-no-files-found: error

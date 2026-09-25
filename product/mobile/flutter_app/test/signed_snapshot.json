@@ -1,0 +1,41 @@
+{
+  "anchor": {
+    "body": {
+      "digest": "d1c62d2bddcbdd2f2832aab65eab6351001c3370cea0bb17f2475cbe5420e1b2",
+      "previous_digest": "0000000000000000000000000000000000000000000000000000000000000000",
+      "project_id": "DEMO-001",
+      "schema": "QROS_M2_WITNESS_ANCHOR_TEST_V1",
+      "sequence": 1,
+      "source_class": "TEST_ONLY_SYNTHETIC",
+      "source_pin_sha256": "2401952fedf4d1e68e265fe6cbf896f29afaaf223571f9a6a37a05b0f952fa88"
+    },
+    "signature_b64": "MP8hQL0w+lhMiqJJwTLKNTYEZiBShBT5Lu2F2e38bcCUqnwSTfg5iGIl2vSnbIdgICj5K9wkmIECR4fXyDQhDg=="
+  },
+  "mode": "TEST_ONLY_SYNTHETIC",
+  "receipt": {
+    "body": {
+      "anchor_sequence": 1,
+      "anchor_sha256": "13232d1cfef35495692db5447bd1deb825fa5650b9459e3e9694a907f44048ac",
+      "ga2_open": false,
+      "holdout_open": false,
+      "mt5_executed": false,
+      "project": {
+        "classification": "TEST_ONLY_SYNTHETIC",
+        "id": "DEMO-001",
+        "side": "BUY",
+        "symbol": "XAUUSD",
+        "timeframe": "M15",
+        "title": "Ruptura y recuperacion DEMO"
+      },
+      "project_id": "DEMO-001",
+      "schema": "QROS_MOBILE_RECEIPT_TEST_V1",
+      "scientific_approval": false,
+      "scientific_state": "SIMULATED_SAMPLE",
+      "source_class": "TEST_ONLY_SYNTHETIC",
+      "source_pin_sha256": "2401952fedf4d1e68e265fe6cbf896f29afaaf223571f9a6a37a05b0f952fa88"
+    },
+    "signature_b64": "j8Vro9emTXbHja2JGUCXzQbmN/E3g0FDk8m4KQjN6eItDCYyaSZhHGGkQ85AKPGPisGlS700wVnrRgj+fa5vCw=="
+  },
+  "schema": "QROS_MOBILE_SIGNED_TEST_ONLY_V1",
+  "scientific_authority": "NONE"
+}

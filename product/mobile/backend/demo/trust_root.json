@@ -1,0 +1,8 @@
+{
+  "anchor_sha256": "13232d1cfef35495692db5447bd1deb825fa5650b9459e3e9694a907f44048ac",
+  "project_id": "DEMO-001",
+  "receipt_public_key_b64": "emJQHs4C0RL/Xvg8NzwXHlwInp6ppE3G31hiUaBXQBE=",
+  "schema": "QROS_MOBILE_TRUST_ROOT_TEST_V1",
+  "source_pin_sha256": "2401952fedf4d1e68e265fe6cbf896f29afaaf223571f9a6a37a05b0f952fa88",
+  "witness_public_key_b64": "Z4s0XQ5mCA+JbfvM3/q+9XVvckv3W8NuJLL5OFsCAZ0="
+}

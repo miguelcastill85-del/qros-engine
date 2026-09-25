@@ -1,0 +1,43 @@
+{
+  "date_utc": "2026-09-25",
+  "deployment": {
+    "https_ingress": "NOT_CONFIGURED",
+    "independent_live_witness": "NOT_CONFIGURED",
+    "paid_services_enabled": false,
+    "physical_android_device": "NOT_TESTED",
+    "public_api_enabled": false,
+    "server_bind": "127.0.0.1_only"
+  },
+  "firewalls": {
+    "economic_pnl_read": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "mt5_executed": false,
+    "scientific_main_mutated": false
+  },
+  "frozen_source_manifest": "product/mobile/M1_LOCAL_SOURCE_MANIFEST.json",
+  "frozen_source_manifest_sha256": "6eb5407bdbbdad544d6dbb22a7ce077634ccf2fa36ed4c152910a092daff003a",
+  "isolated_branch": "product/mobile-m1-signed-readonly-20260925",
+  "local_backend_unittest": {
+    "count": 23,
+    "crypto_version": "46.0.4",
+    "python_runtime": "CPython 3.13",
+    "status": "PASS_LOCAL_TEST_ONLY"
+  },
+  "mobile_test": "PENDING_REAL_FLUTTER_RUN",
+  "next_automatic_action": "Pin exact source blobs in isolated GitHub branch; run backend unittest and Android Flutter CI, correct defects and publish only after machine-verifiable test receipts; no public gateway, real data or scientific transitions.",
+  "phase": "SIGNED_SYNTHETIC_READONLY_BACKEND_AND_FLUTTER_CLIENT",
+  "schema": "QROS_MOBILE_M1_ISOLATED_EXPERIMENT_POINTER_V1",
+  "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "signed_fixture": {
+    "anchor_body_sha256": "13232d1cfef35495692db5447bd1deb825fa5650b9459e3e9694a907f44048ac",
+    "source_class": "TEST_ONLY_SYNTHETIC",
+    "trust_root_sha256": "45a444b3545de8400df5c36442011324b253eb91f2bb7c35bde26e0424032216",
+    "witness_and_receipt_private_keys_present": false
+  },
+  "source_branch": "product/mobile-m2-ledger-prototype-20260925",
+  "source_commit_exact": "eb49837221e8df7e1cc054d03c8a921e497b20e6",
+  "source_m2_experiment_pointer_blob_sha1": "8a0d531db36e4a4555e43a1f2ad84bb8ac130d63",
+  "source_mobile_head_blob_sha1": "15921b43aedb8263ed168c61c8a00a584b35bd80",
+  "status": "DEVELOPMENT_RUNNING"
+}
