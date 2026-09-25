@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_MOBILE_G4_CURRENT_VERIFIED_HEAD_V1",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "source_commit": "1fc877520fe6ec2fdcdc467e07217feaed152812",
+  "verified_receipt_path": "product/mobile/receipts/QROS_MOBILE_G4_VERIFIED_ENGINEERING_PASS_20260925.json",
+  "verified_receipt_git_blob_sha1": "dae2569d405eefd52fcb6fc941282765add66aa2",
+  "raw_ci_git_blob_sha1": "1cc864390903c395c2c0a21942fe767fa90a7c3d",
+  "source_manifest_git_blob_sha1": "5e6e2ba5b4a076f8675b8b5917e0eb683451f78e",
+  "historical_g4_progress_path": "product/mobile/g4/G4_PROGRESS_HEAD.json",
+  "historical_pending_overridden": true,
+  "scope": "SYNTHETIC_SECURITY_AND_SEPARATE_LOCAL_WITNESS_TEST_ONLY",
+  "tests_passed": 45,
+  "science_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "economic_backtests": 0,
+  "ga2_open": false,
+  "holdout_open": false,
+  "production_independent_witness_deployed": false,
+  "physical_android_test": "NOT_RUN",
+  "next_automatic_action": "G5 implement tenant-scoped opt-in read-only HTTPS integration against synthetic data only, obtain separately administered external monotonic witness and verify pin/read-only rollback from actual distinct custody; run physical Android install and authenticated pairing. If no trusted external admin/device credentials are available, complete independently valid local TLS/tenant canaries and persist BLOCKED_BY_INFRASTRUCTURE only for production trust gates, without changing G4 PASS or opening research holdout/GA2/real PnL."
+}

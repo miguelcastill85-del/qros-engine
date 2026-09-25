@@ -1,0 +1,17 @@
+{
+  "classification": "LOCAL_IMPLEMENTED_REMOTE_CI_PENDING",
+  "economic_backtests": 0,
+  "exact_parent_commit": "0b529a2624fd43794cbe2185702f2bac7d3b209e",
+  "raw_broker_data": false,
+  "schema": "QROS_MOBILE_G4_SOURCE_MANIFEST_V1",
+  "source_sha256": {
+    ".github/workflows/qros-mobile-g4-trust-gate.yml": "e4a4935ba600687507abadf0c2734dc93a258d51f30a71a512cf8eecf7af6643",
+    "product/mobile/g4/G4_SECURITY_CONTRACT.md": "e423f1afed5ca5832c3fe58cbbf16bfb9c236083cdd78fd0736e8855580e134b",
+    "product/mobile/g4/anti_stall_gate.py": "1811b21a13827812663aeec9a129ccd6c8f1b474dad182aee7419810fe46963e",
+    "product/mobile/g4/data_audit.py": "4fa4722ff7eae4bd83e8ae870c273a17ee404e5cd9e5c218fe670eceb1ef42a7",
+    "product/mobile/g4/integration.py": "5204f10d73448abb8db6443033bf46e0054e2dfd747ad6e653dc45e91d09fbf0",
+    "product/mobile/g4/tests/test_g4.py": "6665cdb72917318c13c47bdfe220886bb00caa12d7ccb3b3a087704c94d04164",
+    "product/mobile/g4/tests/test_gate.py": "5f48ea959b05f4ecbff4854b7122ab4ed31b254d53670c8cf058c6a58159e98b",
+    "product/mobile/g4/witness.py": "b1713e9ba183e9bbbdb7f32df36fba9cf80a7748114f1c718d004c3a881949a3"
+  }
+}
