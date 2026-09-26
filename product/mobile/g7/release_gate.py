@@ -34,10 +34,14 @@ def inspect(apk: Path, *, apksigner: str='apksigner',
     except (FileNotFoundError,subprocess.TimeoutExpired):
         deny('APK_SIGNER_INFRASTRUCTURE_MISSING')
     if result.returncode!=0: deny('ANDROID_PACKAGE_SIGNATURE_INVALID')
-    output=result.stdout
+    output=result.stdout+'\n'+result.stderr
     found=SHA_RE.search(output)
-    if found is None: deny('APK_SIGNER_CERTIFICATE_MISSING')
-    if re.search('Signer #1 certificate DN:.*Android Debug',output,re.IGNORECASE):
+    if found is None:
+        # Different build-tools versions may label the cert digest differently.
+        # Require an actual explicit certificate digest, never use APK digest as fallback.
+        found=re.search(r'(?im)^(?=[^\n]*cert(?:ificate)?)(?=[^\n]*sha[- ]?256)[^\n]*?([0-9a-f]{64})(?:\s|$)',output)
+    if found is None: deny('APK_SIGNER_CERTIFICATE_MISSING_RETAIN_RAW_DIAGNOSTIC')
+    if re.search(r'(?im)^.*(?:Signer #1 certificate DN|Signer #1 certificate DN:|Signer #1 certificate Subject).*Android Debug',output):
         kind='ANDROID_DEBUG_CERTIFICATE_REJECTED_FOR_RELEASE'
     else:
         kind='UNVERIFIED_NONDEBUG_CERTIFICATE_REJECTED_FOR_RELEASE'

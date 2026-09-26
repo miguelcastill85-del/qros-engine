@@ -54,6 +54,7 @@ jobs:
           APKSIGNER="$(find "$ANDROID_HOME/build-tools" -maxdepth 2 -type f -name apksigner | sort -V | tail -1)"
           test -n "$APKSIGNER" && test -x "$APKSIGNER"
           mkdir -p /tmp/qros-g7-evidence
+          "$APKSIGNER" verify --verbose --print-certs "$APK" | tee /tmp/qros-g7-evidence/G7_RAW_APKSIGNER_OUTPUT.txt
           python product/mobile/g7/release_gate.py --apk "$APK" --apksigner "$APKSIGNER" | tee /tmp/qros-g7-evidence/G7_G6_APK_SIGNATURE_TEST_ONLY.json
           python - <<'PY'
           import json

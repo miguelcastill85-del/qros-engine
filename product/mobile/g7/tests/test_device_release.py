@@ -85,6 +85,18 @@ class ReleaseCanaries(unittest.TestCase):
     def test_non_debug_cert_not_auto_release(self):
         r=release.inspect(self.apk,run=self.run_signer(debug=False))
         self.assertFalse(r['release_eligible'])
+    def test_stderr_certificate_digest_accepted_without_relaxing_release_gate(self):
+        def signer(*args,**kwargs):
+            response=MockCompleted('Verifies\nSigner #1 certificate DN: CN=Android Debug')
+            response.stderr='Signer #1 certificate SHA-256 digest: '+'a'*64
+            return response
+        item=release.inspect(self.apk,run=signer)
+        self.assertFalse(item['release_eligible'])
+    def test_alternative_certificate_digest_label(self):
+        def signer(*args,**kwargs):
+            return MockCompleted('Signer #1 cert SHA-256: '+'a'*64+'\nSigner #1 certificate DN: CN=Android Debug')
+        item=release.inspect(self.apk,run=signer)
+        self.assertFalse(item['release_eligible'])
     def test_bad_sha_blocks_before_external_signer(self):
         with patch.object(release,'EXPECTED_SHA','0'*64):
             with self.assertRaisesRegex(release.ReleaseDeny,'SHA'):release.inspect(self.apk,run=self.run_signer())
