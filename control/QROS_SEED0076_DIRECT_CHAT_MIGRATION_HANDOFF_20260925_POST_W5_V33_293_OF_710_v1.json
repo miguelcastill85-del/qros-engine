@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_V33_POST_293_OF_710_FROZEN_PARITY_HANDOFF_V1",
+  "date": "2026-09-25",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "previous_live_pointer_blob_sha1": "31a4c737c603d2abce329467ecb67cd95529cc22",
+    "previous_handoff_blob_sha1": "0f4967bcd4a9089a5f03b9e822cd92a8bebc2f2d",
+    "current_immutable_anchor_path": "control/QROS_SEED0076_W5_V33_293_OF_710_ORIGINAL_REAL_TICK_PARITY_ANCHOR_20260925_v1.json",
+    "current_immutable_anchor_blob_sha1": "a8c4553ab9d5091e7f34fd21850438d4937c8bc6",
+    "original_prereg_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+    "frozen_v33_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "frozen_v33_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+    "active_anti_stall_main_pointer_git_blob_sha1_at_execution": "b60f2105491fa7cddfa3fa7d03eccb8cc28dec83"
+  },
+  "last_closed": "V33_293_OF_710_EXACT_ORIGINAL_8_DRIVE_ZIP_REAL_TICK_INDEPENDENT_PARITY_32_NEW_SHARDS",
+  "progress": {
+    "completed": 293,
+    "total": 710,
+    "pending": 417,
+    "new_shards": 32,
+    "new_ch0": 16,
+    "new_ch4": 16,
+    "by_channel": {
+      "CH0": 117,
+      "CH4": 176
+    },
+    "mask_occurrences": 5621,
+    "PNL_blind_samples": 693996,
+    "exact_independent_trades": 422791,
+    "exact_execution_fields": 4650701
+  },
+  "source": {
+    "original_raw_ticks": 151382388,
+    "original_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "eight_original_ZIP_SHA256": "PASS_8_OF_8",
+    "CH0_original_SHA256": "196de55420e5c29f3ef776d32179842309826585e2fd7d6580fe73f95561ffa2",
+    "CH4_original_SHA256": "79d30dd8c734c845025583261fd50bd88392c0ce03d21764f8d82eb4d351ea76"
+  },
+  "library": {
+    "folder": "/QROS_SEED0076_W5_V33_293_OF_710_20260925",
+    "zip_id": "libfile_6b97ea85e2e88191a86d15321e298387",
+    "zip_sha256": "73818c3cf9b11adf1048b29b9bf8bd6336933f971052c57746f72e1c15b172c2",
+    "zip_bytes": 697709,
+    "master_sha256": "09e8cdd7e26058e05698bea63346091752281f426565028f637c3f059bda4ef5",
+    "manifest_sha256": "3aeb797a5bea79dd0c666a6660b71bedc80dbd556879c4065ad737b30c934393",
+    "readback": "PASS_BYTE_EXACT_3_OF_3"
+  },
+  "gates": {
+    "scientific_state": "DEVELOPMENT_RUNNING",
+    "full_V33_original_physical_mask_sampling": "PENDING_417",
+    "broker_primary_2018_19_commission": "NOT_CERTIFIED",
+    "broker_primary_2018_19_special_hours": "NOT_CERTIFIED",
+    "Gate_A": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5": false,
+    "new_economic_PnL": false,
+    "portfolio_activation": false
+  },
+  "next_automatic_action": "Read exact live branch pointer, this handoff and immutable v33_293 anchor. Restore original verified 293 ZIP and only original eight source ZIPs, CH0/CH4 V28 tapes. Independently check all existing 293 receipt SHA bytes and frozen V33 plan; then execute next previously frozen CH0 r0_w1_batch008 ordinals 163-182 and CH4 r0_w1_batch013 ordinals 21-40 in bounded chunks. No V28 economic reruns, old 60/10 shards, W3, holdout or GA2."
+}
