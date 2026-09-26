@@ -1,7 +1,7 @@
 {
   "schema": "QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER_V1",
   "version": "2.4",
-  "status": "EXECUTABLE_V24_WITH_CHAT_ANDROID_PER_TURN_PROTOCOL_ACTIVE_WINDOWS_HOST_OPTIONAL",
+  "status": "EXECUTABLE_V24_ANDROID_CHAT_GITHUB_NATIVE_ONLY_SCIENTIFIC_EVIDENCE_ACTIVE",
   "repository": "miguelcastill85-del/qros-engine",
   "branch": "main",
   "legacy_v21_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
@@ -23,7 +23,10 @@
     "v23_v24_current_linux_total_pass": 31,
     "legacy_v21_current_linux": "36_PASS_1_1SECOND_FIXTURE_HOST_STARTUP_FAILURE",
     "android_chat_preflight_fixture_local": 15,
-    "android_app_native_automation": "NOT_AVAILABLE_VIA_REPOSITORY"
+    "android_app_native_automation": "NOT_AVAILABLE_VIA_REPOSITORY",
+    "github_native_store_synthetic_adversarial_local": 14,
+    "github_real_446_full_zip_sha_manifest_receipt": "PASS",
+    "github_ascii_full_source_16_git_remote_readbacks": "PASS_16_OF_16"
   },
   "watchdog": {
     "ordinary_route_hard_seconds": 120,
@@ -50,7 +53,11 @@
     "governance/QROS_ANDROID_CHAT_TURN_ANTISTALL_V1.json",
     "anti_stall/chat/qros_android_turn_preflight_v1.py",
     "anti_stall/chat/README_ANDROID_CHAT_V1.md",
-    "anti_stall/tests/test_android_chat_preflight_v1.py"
+    "anti_stall/tests/test_android_chat_preflight_v1.py",
+    "anti_stall/chat/qros_github_shard_store_v1.py",
+    "anti_stall/chat/README_GITHUB_NATIVE_SHARD_STORE_V1.md",
+    "anti_stall/tests/test_qros_github_shard_store_v1.py",
+    "governance/QROS_GITHUB_NATIVE_SHARD_STORAGE_V1.json"
   ],
   "provenance": {
     "archive_sha256_rehash_after_connected_drive_download": "PASS",
@@ -100,10 +107,15 @@
     "in_turn_authorized_execution_only": true,
     "after_each_stage_receipt_plus_git_cas_readback_required": true,
     "project_instruction_entrypoint_required": true,
-    "no_pc_for_android_mode": true
+    "no_pc_for_android_mode": true,
+    "git_only_full_receipt_deltas": true,
+    "git_only_original_446_snapshot": true,
+    "library_required_for_git_published_checkpoint": false,
+    "git_upload_readback_and_cas_before_next_compute": true,
+    "max_uncommitted_six": true
   },
-  "activation_scope": "ChatGPT Android or other client inside Trading algoritmico Project, during each active user turn when the project instructions invoke live GitHub pointers and available tools; Windows Task Scheduler optional, not required for chat mode. No app hook or unattended chat worker.",
-  "background_executor": "CHAT_PER_TURN_ONLY_AFTER_USER_MESSAGE; OPTIONAL_WINDOWS_HOST_NOT_INSTALLED",
+  "activation_scope": "Trading algoritmico ChatGPT Android chats actively processing user prompts with authenticated GitHub connector; Git native blob+text fallback as full checkpoint, append-only <=6 receipt deltas. Optional Windows v2.4 host unchanged; no daemon while chat closed.",
+  "background_executor": "CHAT_PER_TURN_ONLY_NO_UNATTENDED_AFTER_REPLY;GITHUB_NATIVE_CHECKPOINTS_DURABLE",
   "main_scientific_pointer_unchanged": true,
   "limitations": [
     "Native Windows process group termination remains unverified",
@@ -115,7 +127,8 @@
     "Hosted ChatGPT connector calls cannot be killed by local watchdog",
     "Private GitHub workflow v2.4 is MANUAL ONLY, not executed to avoid extra CI minutes",
     "GitHub policy cannot silently install an Android app hook or edit ChatGPT Project instructions; each responding chat must retrieve the pointer as instructed.",
-    "No work continues after response completion without separately authorized scheduling; Android chat mode resumes on the next user turn."
+    "No work continues after response completion without separately authorized scheduling; Android chat mode resumes on the next user turn.",
+    "GitHub source repository cannot host multi-GB raw tick files as ordinary Git objects within standard limits: raw broker carriers remain independent pinned source evidence."
   ],
   "previous_governance_pointer_git_blob_sha1": "3996a65e3377da6976a5457177d6a169cee93ff3",
   "previous_v22_release_anchor_git_blob_sha1": "68761e86a1d1b01d0190387c3f8fa83ff72f4453",
@@ -134,6 +147,32 @@
     "immutable_receipt_path": "control/QROS_ANTI_STALL_ANDROID_CHAT_TURN_V1_RELEASE_RECEIPT_20260925.json",
     "immutable_receipt_blob_sha1": "b0132796f8f5f498aa00cd2b00b4408f38412d1b",
     "trigger": "NEXT_USER_MESSAGE_IN_PROJECT",
-    "background_execution": false
+    "background_execution": false,
+    "git_only_policy_path": "governance/QROS_GITHUB_NATIVE_SHARD_STORAGE_V1.json",
+    "git_only_policy_blob_sha1": "f0341cf0fe70eaeba16105ed0ba5ffcb42d06879",
+    "git_only_validation_script": "anti_stall/chat/qros_github_shard_store_v1.py",
+    "git_only_max_new_shards": 6
+  },
+  "github_native_evidence": {
+    "version": "1.0",
+    "status": "BASELINE_446_GITHUB_FULL_BYTES_READBACK_VERIFIED",
+    "scientific_branch": "research/seed0076-direct-dev-backtest-20260922",
+    "scientific_snapshot_commit": "d3922908448102c71482783b8f0becffd77444a9",
+    "snapshot_root": "research/public1000/seed0076/direct_dev/v33_git_native_evidence",
+    "snapshot_archive_blob_sha1": "688ec3fa2123ec9df900c41487e4f6298b4ceea5",
+    "snapshot_archive_sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05",
+    "snapshot_index_blob_sha1": "af1dcfdc6dd01c198bb91ec3ad300f2697317335",
+    "verified_ascii_parts": 16,
+    "completed": 446,
+    "storage_policy": "governance/QROS_GITHUB_NATIVE_SHARD_STORAGE_V1.json",
+    "storage_policy_blob_sha1": "f0341cf0fe70eaeba16105ed0ba5ffcb42d06879",
+    "executable_path": "anti_stall/chat/qros_github_shard_store_v1.py",
+    "executable_blob_sha1": "d94ea2e591d1a9d999ded2d1e574c9b8b3cc5eb6",
+    "readme_path": "anti_stall/chat/README_GITHUB_NATIVE_SHARD_STORE_V1.md",
+    "tests_14_local": "PASS",
+    "max_uncommitted_new_shards": 6,
+    "library_durable_future": "FORBIDDEN_FOR_W5_RESULTS",
+    "raw_market_source_carriers_in_git": false,
+    "chat_background": false
   }
 }

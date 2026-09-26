@@ -1,0 +1,39 @@
+{
+  "schema": "QROS_GITHUB_NATIVE_SHARD_STORAGE_V1",
+  "version": "1.0",
+  "scope": "W5 V33 original frozen 710-shard non-economic parity and subsequent valid per-seed evidence",
+  "repository": "miguelcastill85-del/qros-engine",
+  "scientific_branch": "research/seed0076-direct-dev-backtest-20260922",
+  "baseline": {
+    "completed": 446,
+    "original_plan_total": 710,
+    "raw_zip_sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05",
+    "raw_zip_git_blob_sha1": "688ec3fa2123ec9df900c41487e4f6298b4ceea5",
+    "original_frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "original_frozen_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+    "original_raw_tick_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "branch_root": "research/public1000/seed0076/direct_dev/v33_git_native_evidence"
+  },
+  "work_loop": [
+    "READ exact current live scientific pointer and current Git evidence index on branch; independently verify referenced immutable blob SHA1 and manifest SHA256",
+    "RECONSTRUCT Git snapshot bytes from native ZIP Git object or 16 separately hashed ASCII transport parts; do not consult ChatGPT Library to recover a published checkpoint",
+    "VERIFY old 446 frozen receipts and every existing Git delta (Merkle-like SHA256 parent chain), original plan/runner/root and closed gates",
+    "RUN one existing frozen task group only; at most six new original independent parity shards per publication. Do not repeat any task whose receipt SHA is already in Git",
+    "INDEPENDENTLY VALIDATE six actual new parity receipts against real original V28 tapes, then use the pure-Python github-shard-store validator to build an immutable SHA-pinned delta containing the complete JSON bytes of these receipts",
+    "UPLOAD delta text as Git blob; read back byte-identical content, compare Git blob SHA1 and SHA256; immutably commit Git blob path plus new Git-only index with parent hash and next cursor",
+    "COMPARE-AND-SWAP live scientific pointer with exact previous blob SHA; verify new pointer, target/anchor and Git delta readback before treating the six shards as closed",
+    "CONTINUE only after durable Git commit and pointer readback. On any error, preserve unpromoted local data and freeze without duplicating closed scientific work"
+  ],
+  "storage": {
+    "authoritative_new_shard_receipts": "GIT_NATIVE_APPEND_ONLY_TEXT_DELTAS_WITH_COMPLETE_RECEIPT_BYTES",
+    "baseline_446": "IMMUTABLE_BINARY_GIT_BLOB_PLUS_16_AUTHENTICATED_ASCII_FETCH_FALLBACK_PARTS",
+    "source_archive_exception": "Original 2018-2019 broker tick carriers are too large for ordinary Git objects; keep original external archive bytes with exact SHA pins, never claim raw tick bytes were moved to Git",
+    "chat_library": "NOT_A_DURABLE_CHECKPOINT_STORE_FROM_THIS_RELEASE; only an ephemeral transfer bridge if native container-to-GitHub connector byte transfer is unavailable, delete bridge after Git byte readback",
+    "avoid_repeated_full_zip": true,
+    "max_unpublished_new_shards": 6,
+    "on_drift": "FAIL_CLOSED_NO_POINTER_PROMOTION",
+    "on_repeated_resume": "ZERO_RECOMPUTATION_OF_GIT_CLOSED_TASKS"
+  },
+  "science": {"Gate_A_approved": false, "holdout_open": false, "ga2_open": false, "new_PNL_allowed": false, "W3_deferred": true},
+  "execution_limit": "This policy is executed during active ChatGPT messages with GitHub connector access. Neither GitHub commits nor chat policies can run a process after the response ends."
+}

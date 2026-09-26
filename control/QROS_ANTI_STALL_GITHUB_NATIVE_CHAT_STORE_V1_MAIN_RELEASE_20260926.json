@@ -1,0 +1,25 @@
+{
+  "schema": "QROS_ANTI_STALL_GITHUB_NATIVE_CHAT_STORE_V1_MAIN_RELEASE",
+  "date_utc": "2026-09-26",
+  "repo": "miguelcastill85-del/qros-engine",
+  "main_parent": "af336e99380c9f55b612c76026e1c9974402781c",
+  "prior_governance_sha1": "b60f2105491fa7cddfa3fa7d03eccb8cc28dec83",
+  "prior_chat_policy_sha1": "38050cc3862f1dbda4d1950dcf5566da68aa29ed",
+  "prior_agents_sha1": "699486e9b11f995dc9f3810690ffe2615aa94455",
+  "scientific_frozen_baseline_commit": "d3922908448102c71482783b8f0becffd77444a9",
+  "baseline_source_zip_sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05",
+  "baseline_git_blob_sha1": "688ec3fa2123ec9df900c41487e4f6298b4ceea5",
+  "frozen_scientific_446_receipts": true,
+  "full_manifest_sha256": "1e0ef3369c4d7e19846c52367784b9d0b67bd8fc71edc7940823d442a00a5f4b",
+  "ascii_16_exact_remote_git_readback": "PASS_16_OF_16",
+  "real_446_baseline_reproducer": "PASS_ALL_452_MEMBERS_ALL_446_RECEIPTS",
+  "software_adversarial_tests": "PASS_14_OF_14_LOCAL_SYNTHETIC",
+  "github_remote_ci": "NOT_RUN_TO_AVOID_UNAUTHORIZED_PRIVATE_REPO_COST",
+  "windows": "OPTIONAL_NOT_REQUIRED",
+  "scientific_gates": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "ga2_open": false
+  },
+  "next": "Cas-promote scientific pointer with Git-native storage commit+index and purge only this session's ephemeral transfer bridge after Git readback. Persist all subsequent <=6-shard full receipt deltas Git only."
+}

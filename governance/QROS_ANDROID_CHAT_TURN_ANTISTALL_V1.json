@@ -9,10 +9,10 @@
   "turn_protocol": [
     "FETCH latest main governance pointer and live science branch pointer using authenticated GitHub connector; independently record exact blob SHA1 and branch tip",
     "FETCH exact pointer-referenced handoff and anchor and independently check Git blob SHA1; fail closed on path or SHA drift",
-    "RECONCILE historical checkpoints and Library/Drive byte SHA256 to identify first unclosed shard; never replay closed shards without demonstrated corruption",
+    "RECONCILE the original full 446 frozen evidence bytes from native GitHub snapshot and checked Git ASCII transport, then SHA-chain append-only <=6-shard Git deltas; Library and Dropbox are not durable authority for Git-published checkpoints; original multi-GB raw broker tick carriers remain externally SHA-pinned",
     "CHOOSE one frozen original scientific stage and execute bounded chunk(s) with existing tool access during this response; switch only to frozen causally equivalent route if real progress ceases",
     "VALIDATE independent route/candidate/execution parity and exact input/output byte identities before promoting any stage; lack of evidence is PENDING rather than PASS",
-    "PERSIST immutable receipt plus frozen handoff in GitHub/Library and CAS-update the live science pointer; verify readback before reporting durable PASS",
+    "PERSIST complete six-shard receipt bytes as an immutable Git native delta, independently read back its Git blob SHA1 and raw SHA256, commit an index and immutable anchor, CAS-update the live scientific pointer, and re-fetch the Git pointer/anchor. Never move forward after merely uploading to Library",
     "CONTINUE with other legitimate dependent or independent work while this user turn has tools and budget; otherwise finish with a verifiable checkpoint and next automatic action for the next user turn"
   ],
   "never": [
@@ -22,7 +22,10 @@
     "Open Gate A, holdout, GA2 or MT5 without the separate scientific receipt",
     "Substitute remembered checkpoint or older branch for a newer live authority",
     "Rerun old W3, the original 60 shards, or completed W5 V28 economic execution just to demonstrate liveness",
-    "Invent missing tick bytes, market fills or broker account-specific commissions"
+    "Invent missing tick bytes, market fills or broker account-specific commissions",
+    "Treat Git blob creation alone, a README or a local file as a published and independently recoverable checkpoint",
+    "Upload a new full 446+ ZIP to ChatGPT Library each chat iteration or mark any transient transfer bridge as durable science evidence",
+    "Open the next six-shard block before confirmed exact Git delta bytes, index, immutable receipt and CAS pointer readback"
   ],
   "platform_boundary": {
     "android_chat": "Client and conversation entry point; only operates on tools available during each actively processed message",
@@ -30,5 +33,21 @@
     "work": "Optional user-selected longer interactive handoff in supported ChatGPT products, not implied by this repo policy",
     "unattended_after_reply": "NOT_AVAILABLE_WITHOUT_SEPARATELY_AUTHORIZED_SCHEDULER"
   },
-  "scientific_firewalls": {"holdout_open": false, "ga2_open": false, "Gate_A_approved": false}
+  "scientific_firewalls": {
+    "holdout_open": false,
+    "ga2_open": false,
+    "Gate_A_approved": false
+  },
+  "github_native_evidence_store": {
+    "version": "1.0",
+    "mode": "GITHUB_NATIVE_ONLY_FOR_COMPLETED_SCIENTIFIC_EVIDENCE",
+    "policy": "governance/QROS_GITHUB_NATIVE_SHARD_STORAGE_V1.json",
+    "policy_sha1": "f0341cf0fe70eaeba16105ed0ba5ffcb42d06879",
+    "code": "anti_stall/chat/qros_github_shard_store_v1.py",
+    "code_sha1": "d94ea2e591d1a9d999ded2d1e574c9b8b3cc5eb6",
+    "baseline_ref": "d3922908448102c71482783b8f0becffd77444a9",
+    "baseline_count": 446,
+    "no_pc_required": true,
+    "raw_broker_carrier_externally_SHA_pinned": true
+  }
 }
