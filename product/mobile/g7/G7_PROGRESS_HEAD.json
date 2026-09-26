@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_MOBILE_G7_PROGRESS_HEAD_V1",
+  "status": "DEVELOPMENT_RUNNING",
+  "parent_verified_commit": "cf3eb9f095bd82ecab58b2b2684da5e25827c8f1",
+  "g6_mobile_product_head_blob": "37349209f57a51f4760c831868e89ea10497e854",
+  "g6_verified_head_blob": "cefbe41887d4ff686557ac11036267ef2bbef0e3",
+  "baseline_android_apk_sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+  "scope": "G7_SYNTHETIC_OIDC_EXTERNAL_WITNESS_INTERFACE_PHYSICAL_DEVICE_AND_RELEASE_CANARIES",
+  "scientific_main_mutation_allowed": false,
+  "market_data": "NONE",
+  "economic_backtests": 0,
+  "holdout_open": false,
+  "ga2_open": false,
+  "public_https": "NOT_DEPLOYED",
+  "independent_external_witness": "NOT_DEPLOYED",
+  "physical_android_install": "NOT_RUN",
+  "release_signed": false,
+  "test_only_source_gate": "CI_PENDING",
+  "next_automatic_action": "Execute G7 exact-source CI on G6 verified parent; test synthetic tenant OIDC, admin-pinned witness, source-bound physical-device refusal, and independently inspect original G6 APK signature. If all pass freeze G7 engineering receipt and v10 mobile HEAD. Never claim actual external custody, phone install, pairing, or release signing without original operator/hardware evidence."
+}

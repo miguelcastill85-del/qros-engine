@@ -1,0 +1,23 @@
+{
+  "classification": "LOCAL_54_TESTS_PENDING_REMOTE_CI",
+  "economic_tests": 0,
+  "exact_new_file_count": 12,
+  "g6_product_head_blob": "37349209f57a51f4760c831868e89ea10497e854",
+  "g6_verified_parent_commit": "cf3eb9f095bd82ecab58b2b2684da5e25827c8f1",
+  "ga2_open": false,
+  "holdout_open": false,
+  "schema": "QROS_MOBILE_G7_SOURCE_MANIFEST_V1",
+  "source_sha256": {
+    ".github/workflows/qros-mobile-g7-security-gate.yml": "0b8f356f2961ff1d02c27058bec679dd7d20a7f0a5423f62a959845891dded8d",
+    "product/mobile/g7/G7_SECURITY_AND_DEVICE_RUNBOOK.md": "8fab354f4e0655ce1188a6b91ba0ec42f7732d4cb19a579b99600ec9f58e87f2",
+    "product/mobile/g7/android_device_gate.py": "c3fc4f513726a7ae4b1343485177a7e45004f6ac42983cc8312594eb0e83558a",
+    "product/mobile/g7/oidc_canary.py": "df3b7a4d07736d94872226a9fd0cf151515f04f18d0e25d875ee3844c56eec7a",
+    "product/mobile/g7/progress_gate.py": "e52cb0250a00989890008f17576d7b318efa4861e70d08d3058c78dc001d1b8d",
+    "product/mobile/g7/release_gate.py": "6a0560097c9f3bfe3e71758cbc309be8ac96c0458089886c47783a8eb0478c0d",
+    "product/mobile/g7/tests/test_device_release.py": "5cefbf255a824195a5411b236b5bb47aed0c6da81c300c113380b42f1d6535cc",
+    "product/mobile/g7/tests/test_gate.py": "07066f2fb7607915d703d8e7bec74e449cd79a556b3df3d467c569d8a693eb93",
+    "product/mobile/g7/tests/test_security.py": "20625b4a8c9abd97e686b39ab2c13c598e8c954e88f40dcfd731fbdf7bd6304f",
+    "product/mobile/g7/witness_custody.py": "f4321b2ddad8db797b5c6a3f9dcd2f56d4c5a6ec58a6b6a682ca88a619fe0b50"
+  },
+  "synthetic_only": true
+}

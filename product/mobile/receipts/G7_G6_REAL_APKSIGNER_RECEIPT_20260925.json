@@ -1,0 +1,11 @@
+{
+  "apk_bytes": 141623410,
+  "apk_sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+  "certificate_sha256": "7c96eba38408ff188f7608318631124c24db854b82bf867660f18e5bff4559c3",
+  "physical_install": "NOT_RUN",
+  "release_eligible": false,
+  "schema": "QROS_G7_G6_APK_AUTHENTICITY_CANARY_V1",
+  "signer_class": "ANDROID_DEBUG_CERTIFICATE_REJECTED_FOR_RELEASE",
+  "status": "PASS_G6_APK_SIGNATURE_VERIFIED_TEST_ONLY",
+  "test_only": true
+}

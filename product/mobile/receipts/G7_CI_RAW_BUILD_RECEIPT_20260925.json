@@ -1,0 +1,29 @@
+{
+  "economic_tests": 0,
+  "external_admin_witness": "NOT_DEPLOYED",
+  "g6_fixture_regression": "PASS_REQUIRED_STEP",
+  "ga2_open": false,
+  "holdout_open": false,
+  "manual_pairing": "NOT_RUN",
+  "market_data": "NONE",
+  "mt5": "NOT_RUN",
+  "physical_android_install": "NOT_RUN",
+  "production_oidc": "NOT_DEPLOYED",
+  "real_g6_apk_signature": {
+    "apk_bytes": 141623410,
+    "apk_sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+    "certificate_sha256": "7c96eba38408ff188f7608318631124c24db854b82bf867660f18e5bff4559c3",
+    "physical_install": "NOT_RUN",
+    "release_eligible": false,
+    "schema": "QROS_G7_G6_APK_AUTHENTICITY_CANARY_V1",
+    "signer_class": "ANDROID_DEBUG_CERTIFICATE_REJECTED_FOR_RELEASE",
+    "status": "PASS_G6_APK_SIGNATURE_VERIFIED_TEST_ONLY",
+    "test_only": true
+  },
+  "release_signed": false,
+  "schema": "QROS_MOBILE_G7_CI_RECEIPT_V1",
+  "source_commit": "1dbdf7dc3ce781c2b8b23f74fa6b8a566e358b49",
+  "source_integrity": "PASS_REQUIRED_STEP",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "synthetic_g7_tests": "PASS_REQUIRED_STEP"
+}

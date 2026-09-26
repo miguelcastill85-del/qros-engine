@@ -1,0 +1,18 @@
+{
+  "schema": "QROS_G7_CI_INCIDENT_SIGNER_DIGEST_V1",
+  "initial_failed_ci_run": 36203995278,
+  "initial_failed_job": 108296477666,
+  "source_commit": "e48c845b040cc6651b86ef43b170d0e5409c657a",
+  "status": "CORRECTED_RETEST_PENDING",
+  "all_54_original_g7_tests": "PASS",
+  "unchanged_g6_fixture_regression": "PASS",
+  "downloaded_g6_apk_exact_sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+  "apk_signer_process_exit": 0,
+  "failed_step": "APK_SIGNER_CERTIFICATE_MISSING",
+  "root_cause": "UNDETERMINED_CERT_DIGEST_STDOUT_OR_FORMAT_UNTIL_RAW_SIGNER_OUTPUT_CAPTURED",
+  "correction": "Preserve fail-closed signer requirement; capture real apksigner verbose output, allow only explicitly labeled certificate SHA256 in stdout or stderr, add two negative/alternate-format tests, keep debug release=false.",
+  "not_a_real_release": true,
+  "physical_android_install": "NOT_RUN",
+  "external_admin_witness": "NOT_DEPLOYED",
+  "next_action": "Rerun exact pinned-source tests and inspect raw signer output; never bypass Android signature verification."
+}
