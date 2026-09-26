@@ -1,0 +1,84 @@
+{
+  "schema": "QROS_W5_V33_440_OF_710_CHAT_ATOMIC_SIX_SHARD_DURABLE_RELEASE_V1",
+  "date_utc": "2026-09-26",
+  "repo": "miguelcastill85-del/qros-engine",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "previous_pointer_blob_sha1": "953157cc7f82657be84fe24205e270c7f5d72875",
+  "previous_handoff_blob_sha1": "a8d9f97e88b1a8bacbd04f1cdd136832f67ac3e6",
+  "previous_anchor_blob_sha1": "7f6702682e0eadd4420ac660048deb982b1fdd13",
+  "source": {
+    "original_raw_ticks": 151382388,
+    "original_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "frozen_original_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "frozen_original_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf"
+  },
+  "execution": {
+    "prior_closed": 434,
+    "new_original_CH0_shards": 6,
+    "total_closed": 440,
+    "remaining": 270,
+    "channel_CH0_closed": 209,
+    "channel_CH4_closed": 231,
+    "original_434_receipts_byte_identical": true,
+    "added_shards": [
+      "CH0_r0_w1_batch015_I021_040.json",
+      "CH0_r0_w1_batch015_I041_060.json",
+      "CH0_r0_w1_batch015_I061_081.json",
+      "CH0_r0_w1_batch015_I082_101.json",
+      "CH0_r0_w1_batch015_I102_121.json",
+      "CH0_r0_w1_batch015_I122_142.json"
+    ],
+    "total_mask_occurrences": 8477,
+    "total_sampled_signals": 1049876,
+    "total_independent_exact_trades": 646782,
+    "total_matching_fields": 7114602,
+    "new_independent_exact_trades": 7757,
+    "new_matching_fields": 85327,
+    "no_new_PnL": true,
+    "worker_exit": 75,
+    "worker_exit_semantics": "EXPECTED_BOUNDARY_PAUSE_AFTER_SIX_PASS",
+    "auditor": "PASS_440_OF_440_FROZEN_TASKS"
+  },
+  "archive": {
+    "folder": "/QROS_SEED0076_W5_V33_440_OF_710_20260925",
+    "zip_name": "QROS_W5_V33_VERIFIED_440_OF_710_MASK_PARITY_SHARDS_20260925.zip",
+    "zip_library_id": "libfile_02c5eb3ca338819196ed207cc5057f77",
+    "zip_bytes": 1038223,
+    "zip_sha256": "3ed32b7d06161140154cc91b4ffec9126d41fe341d3ab92a681b515ab80d2fe2",
+    "master_library_id": "libfile_e417b4aede08819181d350262bb1c88b",
+    "master_bytes": 257359,
+    "master_sha256": "ddfff8d1e4cc491a75dc1c87eba5261ac2592d04678afc2f2b7b1d7014837a07",
+    "manifest_library_id": "libfile_a5bc5362902881919231f4d5eeaa48d6",
+    "manifest_bytes": 78623,
+    "manifest_sha256": "94fcd26e8ac2a9e56ada30db06b5df7447ab7c700aea547d6c19cdb48b3510bd",
+    "library_raw_byte_readback": "PASS_3_OF_3",
+    "zip_crc": "PASS",
+    "zip_members": 447,
+    "sha256_hashed_internal_members": 446
+  },
+  "next_original": {
+    "CH0": {
+      "route": "r0_w1_batch015",
+      "ordinals_start": 143,
+      "ordinals_end": 162
+    },
+    "CH4": {
+      "route": "r0_w1_batch017",
+      "ordinals_start": 82,
+      "ordinals_end": 101
+    },
+    "max_uncommitted_shards": 6
+  },
+  "scientific_firewalls": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "MT5_parity": false,
+    "historical_broker_commission_certified": false,
+    "historical_full_gold_special_hours_certified": false,
+    "prior_V28_104_economic_shards_untouched": true,
+    "W3_deferred": true,
+    "original_old_60_shards_untouched": true
+  },
+  "continuity_fix": "One frozen six-shard batch only; immediately rehash prior 434, independent full receipt audit, durable Library three-item upload and raw SHA re-download, then immutable Git anchor+handoff and pointer CAS before any subsequent worker batch."
+}
