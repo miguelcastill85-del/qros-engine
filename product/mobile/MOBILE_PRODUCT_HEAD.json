@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v10",
+  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v11",
   "status": "DEVELOPMENT_RUNNING",
   "product": "QROS Mobile Research Studio",
   "scope": "MOBILE_APP_ONLY_ANDROID_FIRST_IOS_LATER",
@@ -15,8 +15,8 @@
     "code_branch": "product/mobile-m2-ledger-prototype-20260925",
     "scientific_main": "DO_NOT_MODIFY"
   },
-  "active_delivery": "G7_SYNTHETIC_OIDC_AND_CUSTODY_CANARIES_REAL_G6_APK_DEBUG_SIGNATURE_VERIFIED_TEST_ONLY",
-  "mobile_frontend_status": "ANDROID_G6_DEBUG_APK_VERIFIED_UNCHANGED_G7_PHYSICAL_INSTALL_PENDING",
+  "active_delivery": "G8_REAL_ANDROID_35_EMULATOR_RUNTIME_TEST_ONLY_PASS",
+  "mobile_frontend_status": "ANDROID_G6_DEBUG_APK_REAL_EMULATOR_RUNTIME_VERIFIED_PHYSICAL_DEVICE_NOT_RUN",
   "existing_mobile_html": "product/mobile-demo/index.html",
   "existing_mobile_html_status": "TEST_ONLY_WEB_MOCK_NOT_INSTALLABLE_MOBILE_APP",
   "backend": "G3_CXX_PY_PARITY_G4_LOCAL_WITNESS_G5_LOOPBACK_TLS_G6_FLUTTER_VERIFIER_G7_SYNTHETIC_AUTH_EXTERNAL_CUSTODY_DEVICE_AND_SIGNING_GATES",
@@ -38,8 +38,8 @@
     "use_only_synthetic_data_until_authorized": true,
     "paid_services_activation": false
   },
-  "next_automatic_action": "G7 production gates: on physically connected Android run exact-source adb device canary and verify independent authenticated pairing only against an externally trusted HTTPS endpoint; obtain a separately administered external monotonic witness, source/license entitlement and actual OIDC issuer keys. Until then remain TEST_ONLY. Independent G8 zero-cost release-signing/tenant enrollment design tests may advance on a new isolated product branch without opening holdout, GA2, MT5, PnL or live trading.",
-  "release_gate": "G7_TEST_ONLY_ENGINEERING_PASS; PHYSICAL_ANDROID_INSTALL_AND_PAIRING, REAL_EXTERNAL_WITNESS, PUBLIC_TRUSTED_TLS_AND_PRODUCTION_OIDC, RELEASE_SIGNING, REAL_DATA_LICENSE_AND_MT5_NOT_VERIFIED",
+  "next_automatic_action": "G9 independently execute non-economic emulator navigation and G5 signed snapshot UI regression on exact G6 debug APK, preserving existing G8 screenshot, APK SHA, and test receipts. Real physical Android installation/pairing requires user-authorized device and independent public HTTPS/production OIDC/external witness authority. Until such evidence exists these remain unverified. Never open scientific holdout, GA2, economic PnL, MT5 or live trading.",
+  "release_gate": "G8_ANDROID_EMULATOR_ENGINEERING_PASS; PHYSICAL_PHONE_INSTALL, AUTHENTICATED_PAIRING, PUBLIC_TLS, PRODUCTION_OIDC, EXTERNAL_WITNESS, REAL_DATA_LICENSE, RELEASE_SIGNATURE, MT5 AND ECONOMIC_VALIDATION_PENDING",
   "verified_milestones": {
     "ANDROID_M0_NATIVE_VERTICAL_SLICE": {
       "status": "PASS_ENGINEERING_TEST_ONLY",
@@ -208,6 +208,31 @@
       "production_oidc": "NOT_DEPLOYED",
       "new_android_apk": "NOT_BUILT_G6_RETAINED",
       "economic_tests": 0,
+      "scientific_gate_pass": false
+    },
+    "G8_REAL_ANDROID_EMULATOR_RUNTIME": {
+      "status": "PASS_ENGINEERING_TEST_ONLY",
+      "source_commit": "1ccd53fa914ea53bc88ee3bb4901b46f960278fc",
+      "actions_run_id": 36207688625,
+      "g8_tests": "19_OF_19_PASS",
+      "apk_sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+      "apk_bytes": 141623410,
+      "screen_sha256": "96076fa4c18567b357a586b797e191a352afb1c522df81b2c4b8c1e13a5342f7",
+      "ui_xml_sha256": "b6a00ded273bda8db810e3bb576160c17e870afcfc209fdbfb773c7a71f63b09",
+      "ui_nodes": 30,
+      "dark_screen_fraction": 0.9196,
+      "evidence_archive_sha256": "faafa06875c92c74a055432229969cd781e3b1d1253b87fbce82270ee2cbc7ae",
+      "evidence_library_path": "/QROS Mobile G8 2026-09-25/QROS_G8_VERIFIED_EMULATOR_EVIDENCE.zip",
+      "verified_receipt_path": "product/mobile/receipts/QROS_MOBILE_G8_VERIFIED_ENGINEERING_PASS_20260926.json",
+      "verified_receipt_git_blob_sha1": "9eadf00c148d4b5d062bbe0dcaea06998e424d2a",
+      "current_head_path": "product/mobile/g8_verified/G8_CURRENT_HEAD.json",
+      "current_head_git_blob_sha1": "ef7ce60bcf922f32152ebb8a2965f5feec0f7ed0",
+      "physical_install": "NOT_RUN",
+      "production_external_witness": "NOT_DEPLOYED",
+      "broker_data": "NONE",
+      "economic_backtests": 0,
+      "holdout_open": false,
+      "ga2_open": false,
       "scientific_gate_pass": false
     }
   },
