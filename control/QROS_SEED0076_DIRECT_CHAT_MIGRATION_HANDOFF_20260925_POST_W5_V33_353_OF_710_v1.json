@@ -1,0 +1,50 @@
+{
+  "schema": "QROS_SEED0076_DIRECT_W5_V33_353_OF_710_HANDOFF",
+  "date": "2026-09-25",
+  "repo": "miguelcastill85-del/qros-engine",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "parent_pointer_sha1": "5399a5bf174858dfbf007db6480769b3ae5ab50e",
+  "parent_handoff_sha1": "2990f7585cbf3d4a6c4f05e9ca1a8d01258d3b7c",
+  "immutable_353_anchor_path": "control/QROS_SEED0076_W5_V33_353_OF_710_REAL_TICK_PARITY_ANCHOR_20260925_v1.json",
+  "immutable_353_anchor_sha1": "44e0f879640ff9fcf04d6e13ea2fa52c6d58118c",
+  "last_closed": "W5_V33_353_OF_710_60_NEW_PNL_BLIND_MASK_PARITY_SHARDS_VERIFIED",
+  "source_raw_tick_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+  "frozen_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+  "progress": {
+    "total_shards": 710,
+    "completed": 353,
+    "pending": 357,
+    "previous_293_closed": 293,
+    "new_shards": 60,
+    "channel_CH0": 147,
+    "channel_CH4": 206,
+    "original_masks_sampled": 6795,
+    "original_accepted_signals_sampled_PNL_blind": 839362,
+    "trade_by_trade_sampled_matches": 518131,
+    "matching_fields": 5699441,
+    "zero_signal_masks": 9
+  },
+  "storage": {
+    "folder": "/QROS_SEED0076_W5_V33_353_OF_710_20260925",
+    "zip_library_id": "libfile_df44a8519b848191913324bfdbd3679e",
+    "zip_bytes": 837071,
+    "zip_sha256": "b715e234fdacba2cabca1bd6c026556e219d721432edd2021a1bdeccd5ed6c85",
+    "master_library_id": "libfile_dfc14f7655e88191996f48eaefbc2e54",
+    "master_sha256": "d3dfa9aead4b28f0d3280bbc85a8ba3d76c5f564d59c57addb04f21b375aae1b",
+    "manifest_SHA256": "67067d57858b8bcd3493c61404ba77b7e77ecd88e1409c58e680bb5bc67964f3"
+  },
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "gates": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "historical_2018_19_broker_commission_certified": false,
+    "historical_special_hours_certified": false,
+    "previous_V28_104_economic_shards_untouched": true,
+    "W3_deferred": true,
+    "original_old_60_10_shards_untouched": true
+  },
+  "next_automatic_action": "Restore exact 353 Library ZIP SHA b715e234fdacba2cabca1bd6c026556e219d721432edd2021a1bdeccd5ed6c85; verify SHA of 353 frozen receipts and V33 original plan+runner; continue only original CH0 r0_w1_batch010 ordinals 224-243, CH4 r0_w1_batch015 ordinals 102-121 in bounded chunks; no PnL scoring, W3, old 60/10, holdout or GA2; separately recover historical 2018/19 Darwinex account-specific commissions and gold special hours."
+}
