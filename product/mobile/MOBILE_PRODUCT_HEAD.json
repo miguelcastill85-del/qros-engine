@@ -1,5 +1,5 @@
 {
-  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v9",
+  "schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v10",
   "status": "DEVELOPMENT_RUNNING",
   "product": "QROS Mobile Research Studio",
   "scope": "MOBILE_APP_ONLY_ANDROID_FIRST_IOS_LATER",
@@ -15,11 +15,11 @@
     "code_branch": "product/mobile-m2-ledger-prototype-20260925",
     "scientific_main": "DO_NOT_MODIFY"
   },
-  "active_delivery": "ANDROID_G6_SIGNED_G5_SNAPSHOT_VERIFIER_TEST_ONLY",
-  "mobile_frontend_status": "ANDROID_G6_DEBUG_APK_VERIFIED_IN_CI_PHYSICAL_DEVICE_PENDING",
+  "active_delivery": "G7_SYNTHETIC_OIDC_AND_CUSTODY_CANARIES_REAL_G6_APK_DEBUG_SIGNATURE_VERIFIED_TEST_ONLY",
+  "mobile_frontend_status": "ANDROID_G6_DEBUG_APK_VERIFIED_UNCHANGED_G7_PHYSICAL_INSTALL_PENDING",
   "existing_mobile_html": "product/mobile-demo/index.html",
   "existing_mobile_html_status": "TEST_ONLY_WEB_MOCK_NOT_INSTALLABLE_MOBILE_APP",
-  "backend": "G3_CXX_PY_EXECUTION_PARITY_PLUS_G4_AUDIT_WITNESS_PLUS_G5_TLS_GATEWAY_PLUS_G6_FLUTTER_VERIFIER",
+  "backend": "G3_CXX_PY_PARITY_G4_LOCAL_WITNESS_G5_LOOPBACK_TLS_G6_FLUTTER_VERIFIER_G7_SYNTHETIC_AUTH_EXTERNAL_CUSTODY_DEVICE_AND_SIGNING_GATES",
   "m2_status": "LINUX_INTEGRATION_PASS_REAL_M2_AUTHENTICATED_EVIDENCE_AND_DYNAMIC_EXTERNAL_HEAD_PENDING",
   "hard_exclusions": [
     "WINDOWS_UI",
@@ -38,8 +38,8 @@
     "use_only_synthetic_data_until_authorized": true,
     "paid_services_activation": false
   },
-  "next_automatic_action": "G7: independently validate physical Android G6 install and authenticated pairing when a device is available; implement/test independent external monotonic witness and tenant production OIDC only with real external custody credentials. Complete local Android release-signing and production OIDC fail-closed canaries without paid activation where possible. No holdout, GA2, real market PnL, MT5 or live trading.",
-  "release_gate": "G6_ANDROID_CI_PASS; PHYSICAL_ANDROID_INSTALL, PUBLIC_CA_TLS, PRODUCTION_OIDC, INDEPENDENT_EXTERNAL_WITNESS, REAL_DATA_LICENSE, RELEASE_SIGNING, MT5 AND REAL ECONOMICS NOT VERIFIED",
+  "next_automatic_action": "G7 production gates: on physically connected Android run exact-source adb device canary and verify independent authenticated pairing only against an externally trusted HTTPS endpoint; obtain a separately administered external monotonic witness, source/license entitlement and actual OIDC issuer keys. Until then remain TEST_ONLY. Independent G8 zero-cost release-signing/tenant enrollment design tests may advance on a new isolated product branch without opening holdout, GA2, MT5, PnL or live trading.",
+  "release_gate": "G7_TEST_ONLY_ENGINEERING_PASS; PHYSICAL_ANDROID_INSTALL_AND_PAIRING, REAL_EXTERNAL_WITNESS, PUBLIC_TRUSTED_TLS_AND_PRODUCTION_OIDC, RELEASE_SIGNING, REAL_DATA_LICENSE_AND_MT5_NOT_VERIFIED",
   "verified_milestones": {
     "ANDROID_M0_NATIVE_VERTICAL_SLICE": {
       "status": "PASS_ENGINEERING_TEST_ONLY",
@@ -187,6 +187,26 @@
       "public_https": "NOT_DEPLOYED",
       "external_independent_witness": "NOT_DEPLOYED",
       "market_data": "NONE",
+      "economic_tests": 0,
+      "scientific_gate_pass": false
+    },
+    "G7_SYNTHETIC_IDENTITY_CUSTODY_DEVICE_RELEASE_GATES": {
+      "status": "PASS_ENGINEERING_TEST_ONLY",
+      "tested_source_commit": "1dbdf7dc3ce781c2b8b23f74fa6b8a566e358b49",
+      "github_actions_run_id": 36204420626,
+      "tests": "57_OF_57_PASS",
+      "g6_fixture_regressions": "3_OF_3_PASS",
+      "source_manifest_git_blob_sha1": "9b615fffa9f0d560b672579e66ab0ef459f52fb6",
+      "verified_receipt_path": "product/mobile/receipts/QROS_MOBILE_G7_VERIFIED_ENGINEERING_PASS_20260925.json",
+      "verified_receipt_git_blob_sha1": "5ae4cace64c669bb4343954af03440ad432d6f8f",
+      "current_verified_head_path": "product/mobile/g7_verified/G7_CURRENT_HEAD.json",
+      "current_verified_head_git_blob_sha1": "e19aab21c3e8fcd9f011b42a316d89342b81eaad",
+      "apk_sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+      "android_signer_certificate_sha256": "7c96eba38408ff188f7608318631124c24db854b82bf867660f18e5bff4559c3",
+      "real_device": "NOT_RUN",
+      "external_admin_custody": "NOT_DEPLOYED",
+      "production_oidc": "NOT_DEPLOYED",
+      "new_android_apk": "NOT_BUILT_G6_RETAINED",
       "economic_tests": 0,
       "scientific_gate_pass": false
     }

@@ -1,0 +1,93 @@
+{
+  "schema": "QROS_MOBILE_G7_VERIFIED_ENGINEERING_RECEIPT_V1",
+  "date_utc": "2026-09-26",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "scope": "SYNTHETIC_OIDC_SEPARATELY_PINNED_SIMULATED_WITNESS_DEVICE_INSPECTION_CANARY_REAL_APK_SIGNATURE_CHECK",
+  "evidence_class": "VERIFIED_LIVE_GITHUB_ACTIONS_PLUS_INDEPENDENT_DOWNLOADED_CI_ARTIFACT_SHA256",
+  "source": {
+    "branch": "product/mobile-g7-trust-device-20260925",
+    "exact_tested_commit": "1dbdf7dc3ce781c2b8b23f74fa6b8a566e358b49",
+    "immutable_g6_parent": "cf3eb9f095bd82ecab58b2b2684da5e25827c8f1",
+    "source_manifest_path": "product/mobile/g7/G7_SOURCE_MANIFEST_V3.json",
+    "source_manifest_git_blob_sha1": "9b615fffa9f0d560b672579e66ab0ef459f52fb6",
+    "new_source_path_count": 16,
+    "source_sha_pinned": 12
+  },
+  "ci": {
+    "passed_run_id": 36204420626,
+    "passed_job_id": 108297777506,
+    "run_url": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36204420626",
+    "conclusion": "success",
+    "g7_tests": "57_OF_57_PASS",
+    "g6_independent_fixture_regression": "3_OF_3_PASS",
+    "source_anti_stall_gate": "PASS_EXACT_16_NEW_FILES_12_PINNED_SHA256",
+    "artifact_id": 10893366845,
+    "artifact_name": "qros-mobile-g7-test-only-security-evidence",
+    "artifact_expiry_utc": "2026-09-29T00:19:53Z",
+    "downloaded_artifact_zip_sha256": "541b4c16e0721c12cb92af305803f57925fbf2ab3aa57e438e3477c7141bb72a",
+    "artifact_size_bytes": 1863
+  },
+  "apk": {
+    "source": "EXACT_VERIFIED_G6_APK_UNMODIFIED",
+    "bytes": 141623410,
+    "sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+    "real_android_apksigner": "PASS_V2_SIGNATURE",
+    "certificate_dn": "C=US, O=Android, CN=Android Debug",
+    "certificate_sha256": "7c96eba38408ff188f7608318631124c24db854b82bf867660f18e5bff4559c3",
+    "release_eligible": false,
+    "new_apk": "NOT_BUILT_G6_DEBUG_APK_RETAINED",
+    "physical_device_install": "NOT_RUN",
+    "authenticated_phone_pairing": "NOT_RUN"
+  },
+  "raw_artifacts": {
+    "ci_receipt": {
+      "path": "product/mobile/receipts/G7_CI_RAW_BUILD_RECEIPT_20260925.json",
+      "git_blob_sha1": "b9fbf590334000754884bd2685f9889517f8beba",
+      "sha256": "50f9d9c8393e8370ac3ba0994268ce603a5a92a53cf2f2d5d48202050a49b24b"
+    },
+    "signer_receipt": {
+      "path": "product/mobile/receipts/G7_G6_REAL_APKSIGNER_RECEIPT_20260925.json",
+      "git_blob_sha1": "2b3a20dd6ba5860322cab5c75fa73ac1057d75c0",
+      "sha256": "487edd946e1b083eb08957eb9ee49a17decaf4bd544be93a804450a71e38bf82"
+    },
+    "raw_signer_output": {
+      "path": "product/mobile/receipts/G7_G6_RAW_APKSIGNER_OUTPUT_20260925.txt",
+      "git_blob_sha1": "778b0ef96b30dcf461dc4755d89716e737bd9485",
+      "sha256": "14c94d695eec4a254075dd16779003610489b517cc2e8e33fbc3996fabce5fe3"
+    }
+  },
+  "failure_history": {
+    "original_failed_run": 36203995278,
+    "corrected_mechanical_pass_run": 36204214264,
+    "final_debug_cert_corrected_run": 36204420626,
+    "first_incident": "product/mobile/g7/G7_CI_INCIDENT_APKSIGNER_CERT_20260925.json",
+    "second_incident": "product/mobile/g7/G7_CI_INCIDENT_DEBUG_SIGNER_CLASSIFIER_20260925.json",
+    "all_historical_manifests_retained": true
+  },
+  "blockers": {
+    "device": {
+      "status": "BLOCKED_BY_INFRASTRUCTURE_DEVICE_NOT_ATTACHED",
+      "local_adb": "NOT_AVAILABLE",
+      "device_gate_source": "product/mobile/g7/android_device_gate.py"
+    },
+    "external_witness": {
+      "status": "BLOCKED_BY_INFRASTRUCTURE_EXTERNAL_CUSTODY",
+      "real_external_operator": "NOT_DEPLOYED"
+    },
+    "production_oidc": "NOT_DEPLOYED",
+    "public_https": "NOT_DEPLOYED",
+    "release_signing": "NOT_PRESENT"
+  },
+  "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "safeguards": {
+    "economic_backtests": 0,
+    "broker_data": "NONE",
+    "holdout_open": false,
+    "ga2_open": false,
+    "mt5": "NOT_RUN",
+    "live_trading": false,
+    "scientific_gate_pass": false,
+    "commercial_release_approved": false
+  },
+  "next_automatic_action": "G7 production gates: on physically connected Android run exact-source adb device canary and verify independent authenticated pairing only against an externally trusted HTTPS endpoint; obtain a separately administered external monotonic witness, source/license entitlement and actual OIDC issuer keys. Until then remain TEST_ONLY. Independent G8 zero-cost release-signing/tenant enrollment design tests may advance on a new isolated product branch without opening holdout, GA2, MT5, PnL or live trading."
+}
