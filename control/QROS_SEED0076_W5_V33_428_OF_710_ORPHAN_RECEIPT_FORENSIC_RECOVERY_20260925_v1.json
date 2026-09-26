@@ -1,0 +1,75 @@
+{
+  "schema": "QROS_W5_V33_428_OF_710_ORPHANED_LOCAL_RECEIPTS_RECOVERY_ANCHOR_V1",
+  "utc_date": "2026-09-25",
+  "repo": "miguelcastill85-del/qros-engine",
+  "scientific_branch": "research/seed0076-direct-dev-backtest-20260922",
+  "previous_authority": {
+    "scientific_pointer_git_blob_sha1": "039ca1d4c417deb3d0f9ad8c909eb75fcf5adf39",
+    "scientific_branch_tip": "91854ed8f56a448ba34fa21d60ae7a6b6148a1ce",
+    "immutable_353_anchor_sha1": "44e0f879640ff9fcf04d6e13ea2fa52c6d58118c",
+    "previous_353_zip_sha256": "b715e234fdacba2cabca1bd6c026556e219d721432edd2021a1bdeccd5ed6c85"
+  },
+  "source_contract": {
+    "frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "original_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+    "original_xau_2018_19_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_raw_sha_revalidated_this_turn": false,
+    "original_economic_V28_unchanged": true
+  },
+  "recoverable_unpromoted_receipts": {
+    "found_local": 428,
+    "prior_GitHub_closed": 353,
+    "new_orphaned_validated": 75,
+    "previous_missing": 0,
+    "previous_byte_drift": 0,
+    "original_builder_full_428_shard_audit": "PASS_FROZEN_PLAN_AND_PREFIX_AND_ORIGINAL_EXECUTION_11_FIELDS",
+    "by_channel": {
+      "CH0": 197,
+      "CH4": 231
+    },
+    "sampled_physical_mask_occurrences": 8240,
+    "sampled_source_signals": 1020977,
+    "identical_independent_trades": 630505,
+    "identical_matching_fields": 6935555,
+    "zero_signal_original_masks": 10,
+    "total_planned": 710,
+    "remaining": 282,
+    "next_original_task_CH0": {
+      "route": "r0_w1_batch014",
+      "ordinal_start": 163,
+      "ordinal_end": 182
+    },
+    "next_original_task_CH4": {
+      "route": "r0_w1_batch017",
+      "ordinal_start": 82,
+      "ordinal_end": 101
+    }
+  },
+  "durable_storage": {
+    "library_folder": "/QROS_SEED0076_W5_V33_428_OF_710_RECOVERED_20260925",
+    "zip_library_id": "libfile_209eeea70a7081919995ad899c70a038",
+    "zip_bytes": 1010097,
+    "zip_sha256": "c4ac9f7f3496495d83f39d1be595e3e070d7940fab57b598275b4572815bc126",
+    "master_receipt_library_id": "libfile_b4d8473d1f6c8191b5b252fff09b7b5f",
+    "master_receipt_sha256": "43938fd44a67e4b13eea491d4660e4e1c78f52bf0c8ac0b63ec442cb56d33a7a",
+    "manifest_library_id": "libfile_9a6433f80ba88191bbf38e85caa8707a",
+    "manifest_sha256": "596a8dbcd734a303ca3093a523b5a6264c25eaf752efad852a7847955bf0de08",
+    "library_exact_raw_byte_readback": "PASS_3_OF_3",
+    "archive_internal_sha_manifest": "PASS_434_OF_434",
+    "archive_crc": "PASS"
+  },
+  "root_cause": "Original V33 local worker emitted 75 further valid immutable receipts after 353 remote promotion, but chat did not complete a matching Library+Git CAS transaction before its response ended; v2.4 Android per-turn policy described persistence but did not enforce a hard no-new-computation-until-promotion guard.",
+  "correction": "Rescue original unmodified local bytes and audit against original frozen V33 plan; reassemble exact 428 archive; Library byte-rehash; promote immutable receipt, handoff and scientific pointer atomically. Future chat turns must run pre-compute unpromoted-receipt detection and bound uncommitted window to maximum 6 shards.",
+  "firewalls": {
+    "Gate_A": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "new_economic_PnL": false,
+    "old_W3_deferred": true,
+    "old_60_10_shards_not_rerun": true,
+    "broker_2018_19_original_commission_certified": false,
+    "broker_historical_special_hours_certified": false
+  },
+  "next_action": "Recover exact 428 Library ZIP and scientific SHA chain. Do not rerun 428 closed shards. Resume only frozen CH0 r0_w1_batch014 I163_182 and CH4 r0_w1_batch017 I082_101; cap uncommitted work at 6 per chat batch, immediately Library SHA readback plus immutable Git handoff and CAS pointer before any further compute. Independently recover broker historical primary proof when available."
+}
