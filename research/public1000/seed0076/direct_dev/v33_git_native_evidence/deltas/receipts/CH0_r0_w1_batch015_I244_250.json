@@ -1,0 +1,107 @@
+{
+  "Gate_A_approved": false,
+  "channel": 0,
+  "exact_fields": 7370,
+  "full_original_physical_rows": 252,
+  "ga2_open": false,
+  "historical_broker_account_commission_certified": false,
+  "holdout_open": false,
+  "independent_exact_trades": 670,
+  "independent_simulator_sha256": "49011cdc993fa1bfeb42bbf14e18b1c4e17c93e295aadffcc81d282240d5a59e",
+  "new_economic_PNL": false,
+  "ordinals": [
+    244,
+    245,
+    246,
+    247,
+    248,
+    249,
+    250
+  ],
+  "original_channel_archive_sha256": "196de55420e5c29f3ef776d32179842309826585e2fd7d6580fe73f95561ffa2",
+  "original_mask_SHA256": "182ed119214a0488a9bf047d6f238dca947efa1a20f33a644fd81b0d168f7519",
+  "original_physical_map_SHA256": "6a171c7465588af20e6ec75ab35e86fe6b00b664ce07d1969f4d525f509decb1",
+  "original_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "original_tape_manifest_SHA256": "ed25700282487114a4dfa499d7b7bf54f0b5f3e30bf9c67468425b91ab56799d",
+  "plan_SHA256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+  "preexisting_V28_cached_kernel_sha256": "d20eb16c169e54500683e2fcdf3c7e3e6a41a587cea7e26db432840915eccd26",
+  "raw_route": "r0_w1",
+  "route": "r0_w1_batch015",
+  "sampled_signals": 896,
+  "schema": "QROS_W5_V33_INDEPENDENT_FROZEN_REMAINING_LARGE_CHANNEL_MASK_PARITY_SHARD_V1",
+  "side": "BUY",
+  "status": "PASS",
+  "tested_mask_occurrences": 7,
+  "tests": [
+    {
+      "11_fields_compared": 1155,
+      "PNL_blind_sampled_source_signals": 128,
+      "all_rejections_equal": true,
+      "independent_exact_trades": 105,
+      "ordinal": 244,
+      "original_accepted_source_signals": 4906,
+      "physical_mask_id": "14d39501f50c7be3b9997df82bf4b1c789aaf5da657d9bf94a8080e7134515a3",
+      "zero_signal_mask": false
+    },
+    {
+      "11_fields_compared": 1045,
+      "PNL_blind_sampled_source_signals": 128,
+      "all_rejections_equal": true,
+      "independent_exact_trades": 95,
+      "ordinal": 245,
+      "original_accepted_source_signals": 3775,
+      "physical_mask_id": "dbb6ef4ee1745a58666f1c11bfa6c528e9c24fdb4cc1735bd32c75f4c02cda2a",
+      "zero_signal_mask": false
+    },
+    {
+      "11_fields_compared": 1001,
+      "PNL_blind_sampled_source_signals": 128,
+      "all_rejections_equal": true,
+      "independent_exact_trades": 91,
+      "ordinal": 246,
+      "original_accepted_source_signals": 3889,
+      "physical_mask_id": "3e192c71d1eb021a7f0803954b4f735bd99bf9d867af78cde861d8b05c40822d",
+      "zero_signal_mask": false
+    },
+    {
+      "11_fields_compared": 1056,
+      "PNL_blind_sampled_source_signals": 128,
+      "all_rejections_equal": true,
+      "independent_exact_trades": 96,
+      "ordinal": 247,
+      "original_accepted_source_signals": 2403,
+      "physical_mask_id": "7dfe80dd15038b13c8efde49526ba2916c2afcb4791d03f64bc4741fa0ce3240",
+      "zero_signal_mask": false
+    },
+    {
+      "11_fields_compared": 1012,
+      "PNL_blind_sampled_source_signals": 128,
+      "all_rejections_equal": true,
+      "independent_exact_trades": 92,
+      "ordinal": 248,
+      "original_accepted_source_signals": 3628,
+      "physical_mask_id": "6440cac6e078b25e36475271f179201028e38e9d76c2368ddf7b98cc98fe2163",
+      "zero_signal_mask": false
+    },
+    {
+      "11_fields_compared": 1067,
+      "PNL_blind_sampled_source_signals": 128,
+      "all_rejections_equal": true,
+      "independent_exact_trades": 97,
+      "ordinal": 249,
+      "original_accepted_source_signals": 3595,
+      "physical_mask_id": "b9abc1e586a3c0c544f2569319a3e252cc0cec6047a4dfd94fdb87818837bb4c",
+      "zero_signal_mask": false
+    },
+    {
+      "11_fields_compared": 1034,
+      "PNL_blind_sampled_source_signals": 128,
+      "all_rejections_equal": true,
+      "independent_exact_trades": 94,
+      "ordinal": 250,
+      "original_accepted_source_signals": 2348,
+      "physical_mask_id": "04bb1eef12dc1559125606129c0235612edfeac045333a1ee8ef35911a0c71e0",
+      "zero_signal_mask": false
+    }
+  ]
+}
