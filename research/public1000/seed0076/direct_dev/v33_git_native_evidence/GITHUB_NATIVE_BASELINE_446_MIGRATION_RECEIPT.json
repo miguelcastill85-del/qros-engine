@@ -1,0 +1,60 @@
+{
+  "schema": "QROS_W5_V33_446_GIT_NATIVE_FULL_BASELINE_MIGRATION_RECEIPT_V1",
+  "date_utc": "2026-09-26",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "parent_branch_commit": "649a88bf48274ff71f7a08696a9938a6a9e753c5",
+  "previous_live_pointer_blob_sha1": "a930c114d07a0aad6ec397e7f055e346411c38ee",
+  "scientific_target_preserved": true,
+  "scientific_446_original_shards_preserved": true,
+  "original_market_tick_carrier_not_migrated": true,
+  "source_data_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+  "frozen_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+  "archive": {
+    "path": "research/public1000/seed0076/direct_dev/v33_git_native_evidence/BASELINE_446_FULL_VERIFIED.zip",
+    "bytes": 1052386,
+    "sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05",
+    "git_blob_sha1": "688ec3fa2123ec9df900c41487e4f6298b4ceea5",
+    "original_receipts": 446,
+    "internal_verified_manifest_members": 452,
+    "original_frozen_tasks": 710
+  },
+  "chat_ascii_recovery": {
+    "index_path": "research/public1000/seed0076/direct_dev/v33_git_native_evidence/BASELINE_446_ASCII_INDEX.json",
+    "index_blob_sha1": "af1dcfdc6dd01c198bb91ec3ad300f2697317335",
+    "part_count": 16,
+    "part_git_blob_sha1": [
+      "81881eecfd0531a13ce55c624a1524c4cfd01d65",
+      "a1fb8aff82aa216f80b39ea793d4f0435a13a533",
+      "cd9421f08ad2defbeb1a59627ae03ccf4eaa69fa",
+      "dcfb1689d91bf8bbb5ef42abdd687f084c1ae55c",
+      "dba347b249bf2ee57b802440ac136ac719b0b03b",
+      "66698e4b76251ac51ee533a2cd7ec4959637e931",
+      "c630228589dfdee6853f273c4e1519fa3be2c8e7",
+      "db4f4a078c7b718cb4d0c3bd779b93dc9aa5ee8e",
+      "14ede3e5d380d259de02e2c9b3f43de73d88262b",
+      "4ac7168dae67202a63ebbe78059c30fe8ef27381",
+      "9ca2edee15e51635ac20da211c7b7ddd34c11317",
+      "952e0f29ac4c7242dfda81fb803ece7255fe404c",
+      "954b5e23947e16c6ff8f3152fc62978725edfe95",
+      "beeb9ef239783c7d8439546ad4f4e92b3f99284c",
+      "304cdef1f3118f3ec2515162ea81e9cee8012d6a",
+      "fa9e68cef7c584ffe6350bcf5db4d05d8a0dfefc"
+    ],
+    "restore_method": "Read 16 exact GitHub .b64 files through GitHub connector, compare per-part Git SHA1 and SHA256 against index, concatenate base64, reconstruct original ZIP and verify original raw ZIP SHA256 plus 452 member SHA256"
+  },
+  "software": {
+    "validator_git_blob_sha1": "d94ea2e591d1a9d999ded2d1e574c9b8b3cc5eb6",
+    "adversarial_test_git_blob_sha1": "20c7b5349a3ac6f2db1d679431ac44cf092ef741",
+    "local_tests": "PASS_14_OF_14",
+    "real_baseline_local_audit": "PASS_446_RECEIPTS_452_SHA_MANIFEST_MEMBERS",
+    "github_native_blob_creation": "PASS_17_OF_17_HASH_EXACT"
+  },
+  "next_storage_rule": "Git-only append-only full original receipt bytes in immutable ≤6-shard delta files; verify chain and Git blob readback before CAS scientific pointer; no new Library bundles",
+  "science_gates": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_PnL": false
+  }
+}
