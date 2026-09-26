@@ -1,0 +1,41 @@
+{
+  "schema": "QROS_W5_FAST_FRONTIER_V2_FIRST_GIT_CHECKPOINT_BOOTSTRAP_V1",
+  "date_utc": "2026-09-26",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "parent_tip": "a4a60675ec19171fa2405e3ac7f942af21b216d4",
+  "parent_pointer_blob": "de315e832e0f0526708c741cbe9f0b1f2bda5738",
+  "verified_unchanged_handoff": "868cdd18e61a6ec123a98c905b4b4bec997d5b5b",
+  "verified_unchanged_scientific_anchor": "01c54f04d677cc9d24b47b1524f3a41969a4f022",
+  "original_446_git_archive_blob_sha1": "688ec3fa2123ec9df900c41487e4f6298b4ceea5",
+  "original_446_git_archive_sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05",
+  "real_baseline_independently_audited_members": 452,
+  "real_baseline_independently_audited_receipts": 446,
+  "frozen_tasks": 710,
+  "compact_frontier": {
+    "path": "research/public1000/seed0076/direct_dev/v33_git_native_evidence/fast_frontier/FAST_FRONTIER_0000.json",
+    "sha1": "4717379067d5226bc3d760c7b9877a444affab20",
+    "sha256": "1dac2f48323a0959ada998c11c3d15a76ed44ec0ec2ac44ef97a7311217c28e6",
+    "bytes": 2990,
+    "sequence": 0,
+    "ledger_root_sha256": "6a450e52f6bcb41f89bbbbb649dcdf1bf98ae7b886bdb1c6c0f237a3ddb766f9",
+    "bitmap_bits": 710,
+    "completed": 446,
+    "pending": 264
+  },
+  "executable_source": {
+    "main_path": "anti_stall/chat/qros_fast_resume_v2.py",
+    "main_git_blob_sha1": "e25d32ed25ed0b91543350ac40d0b5a517550f60",
+    "compact_smoke_test": "PASS_446_METADATA_AND_GIT_DRIFT_REJECTED",
+    "advanced_full_writer": "26_LOCAL_TESTS_PASS_NOT_YET_GIT_DEPLOYED"
+  },
+  "source_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+  "frozen_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+  "new_market_backtests": false,
+  "new_parity_receipts": 0,
+  "no_new_PnL": true,
+  "Gate_A_approved": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "next": "On each chat turn verify main governance, live scientific pointer, immutable target and anchor plus this 2990-byte fast frontier; fetch only latest delta if seq>0. For new 6 original frozen V33 tasks recover exact raw broker and V28 tapes, verify, publish single atomic Git commit and readback; original v1 delta writer remains fallback until advanced full writer is Git deployed."
+}
