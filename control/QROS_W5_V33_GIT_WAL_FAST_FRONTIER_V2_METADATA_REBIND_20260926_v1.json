@@ -1,0 +1,28 @@
+{
+  "schema": "QROS_W5_WAL_METADATA_ONLY_FAST_FRONTIER_REBIND_V1",
+  "date_utc": "2026-09-26",
+  "scientific_branch": "research/seed0076-direct-dev-backtest-20260922",
+  "parent_branch_commit": "17313247bf9abe2ad2555763d6c6d2bd69ac8ab7",
+  "wal_index_previous_blob": "78f54732e833c1bcf2e6777592321669259509be",
+  "previous_scientific_pointer_blob": "de315e832e0f0526708c741cbe9f0b1f2bda5738",
+  "new_scientific_pointer_blob": "870df726612618c02378b544413501af73eef865",
+  "verified_semantically_unchanged_except": [
+    "fast_frontier_v2",
+    "anti_stall_recovery"
+  ],
+  "same_scientific_handoff_blob": "868cdd18e61a6ec123a98c905b4b4bec997d5b5b",
+  "same_scientific_anchor_blob": "01c54f04d677cc9d24b47b1524f3a41969a4f022",
+  "same_original_V33_plan_sha": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+  "same_original_446_shards": 446,
+  "same_v33_pending": 264,
+  "existing_baseline_event_sha256": "e4ae55a25aa60a99799521ae614e7204dfe309809afd1afc6735c88374c8565a",
+  "existing_baseline_generation": 0,
+  "no_new_event_because_no_scientific_state_change": true,
+  "active_claim": null,
+  "fast_frontier_blob": "4717379067d5226bc3d760c7b9877a444affab20",
+  "Gate_A_approved": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "new_economic_PNL": false,
+  "next": "Future Git WAL claim now binds to the current scientific pointer containing the immutable compact Fast Frontier. Baseline WAL event remains unchanged historical record; this receipt authorizes metadata-only index pointer rebind."
+}
