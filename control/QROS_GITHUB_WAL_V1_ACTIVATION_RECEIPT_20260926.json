@@ -1,0 +1,31 @@
+{
+  "schema": "QROS_GITHUB_WAL_V1_ACTIVE_CHECKPOINT_RECEIPT",
+  "repo": "miguelcastill85-del/qros-engine",
+  "main_previous_tip": "58f79a63ddc68831fba595b66ec7a6a58ddbf527",
+  "main_previous_governance_git_blob": "0d5b410d724a6fc07c43be28fd9d38a1ed01d8ab",
+  "scientific_branch": "research/seed0076-direct-dev-backtest-20260922",
+  "scientific_baseline_published_commit": "a4a60675ec19171fa2405e3ac7f942af21b216d4",
+  "scientific_pointer_git_blob_sha1": "de315e832e0f0526708c741cbe9f0b1f2bda5738",
+  "wal_index_path": "control/QROS_W5_V33_GIT_WAL_CURRENT.json",
+  "wal_index_git_blob_sha1": "78f54732e833c1bcf2e6777592321669259509be",
+  "wal_event_path": "research/public1000/seed0076/direct_dev/v33_git_native_evidence/wal/events/000000_BASELINE.json",
+  "wal_event_git_blob_sha1": "7522c40225b2a413abd784c9c30ed8dca64e1155",
+  "wal_event_sha256": "e4ae55a25aa60a99799521ae614e7204dfe309809afd1afc6735c88374c8565a",
+  "control_plane_engine_git_blob_sha1": "50c5ccb27f2be82d9f85f412ec19154bcd6e6b23",
+  "control_plane_transport_git_blob_sha1": "57687dfcb8b7e9a27cc5d406febf3f5d5a167f05",
+  "local_tests": "28_PASS_REPLAY_AND_ATOMIC_TRANSPORT_FAKE_PLUS_REAL_446_BASELINE",
+  "scientific_checkpoint": {
+    "verified_shards": 446,
+    "remaining": 264,
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "ga2_open": false
+  },
+  "real_original_inputs": {
+    "raw_tick_bytes_in_current_session": "MISSING",
+    "original_CH0_CH4_tape_ZIPs_in_current_session": "MISSING",
+    "scientific_claim_opened": false,
+    "new_mask_parity_shards": false
+  },
+  "next_automatic_action": "At next authorized chat turn fetch fresh Git main and branch WAL, independently verify both exact blob pins and original market carrier/tape SHA, issue <=6-task CLAIM only when original data are rehydrated; otherwise freeze missing input without fake PASS. Complete real workers and publish full receipts as append-only Git delta+new pointer/index in atomic CAS readback."
+}
