@@ -1,0 +1,99 @@
+name: qros-mobile-g8-independent-real-emulator-test-only
+on:
+  push:
+    branches:
+      - product/mobile-g8-emulator-runtime-20260925
+    paths:
+      - 'product/mobile/g8/**'
+      - '.github/workflows/qros-mobile-g8-emulator.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: qros-mobile-g8-emulator-test-only
+  cancel-in-progress: true
+jobs:
+  g8-independent-android-emulator:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reject no-op, source changes, wrong G7 parent or scientific authority drift
+        run: python product/mobile/g8/progress_gate.py --remote-git
+      - name: Isolated G8 emulator and anti-stall adversarial unit tests
+        run: python -m unittest discover -s product/mobile/g8/tests -v
+      - name: Independently download prior verified exact G6 binary (never rebuild)
+        uses: actions/download-artifact@v4
+        with:
+          name: qros-mobile-g6-test-only-android
+          repository: ${{ github.repository }}
+          run-id: 36197217037
+          github-token: ${{ github.token }}
+          path: /tmp/qros-g8/input
+      - name: Fail closed on APK bytes before Android emulator boots
+        run: |
+          set -euo pipefail
+          APK=/tmp/qros-g8/input/QROS_MOBILE_G6_TEST_ONLY.apk
+          test -f "$APK"
+          test "$(stat -c%s "$APK")" = 141623410
+          echo '2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97  /tmp/qros-g8/input/QROS_MOBILE_G6_TEST_ONLY.apk' | sha256sum -c -
+      - name: Enable KVM device for actual x86_64 Android emulator
+        run: |
+          set -euo pipefail
+          test -c /dev/kvm
+          sudo chmod 666 /dev/kvm
+      - name: Boot Android 35 and actually install/start exact immutable G6 debug APK
+        uses: ReactiveCircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d
+        with:
+          api-level: 35
+          target: google_apis
+          arch: x86_64
+          profile: pixel_6
+          cores: 2
+          ram-size: 3072M
+          emulator-boot-timeout: 540
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          script: python product/mobile/g8/emulator_smoke.py --serial emulator-5554 --apk /tmp/qros-g8/input/QROS_MOBILE_G6_TEST_ONLY.apk --evidence /tmp/qros-g8/evidence
+      - name: Fail closed unless exact real Android emulator runtime receipt exists
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, json, os, subprocess
+          p=Path('/tmp/qros-g8/evidence/G8_ANDROID_EMULATOR_RUNTIME_RECEIPT.json')
+          j=json.loads(p.read_bytes())
+          assert j['status']=='PASS_REAL_EMULATOR_RUNTIME_TEST_ONLY'
+          assert j['source_g6_apk_sha256']=='2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97'
+          assert j['app_process_observed'] is True and j['serial_class']=='EMULATOR'
+          assert j['physical_device_install']=='NOT_RUN'
+          assert j['economic_backtests']==0 and j['holdout_open'] is False and j['ga2_open'] is False
+          for name,field in [('G8_ANDROID_EMULATOR_SCREEN.png','screen_png_sha256'),('G8_ANDROID_UI_HIERARCHY.xml','ui_hierarchy_sha256')]:
+              b=(p.parent/name).read_bytes()
+              assert hashlib.sha256(b).hexdigest()==j[field]
+          b={'schema':'QROS_MOBILE_G8_RAW_CI_RECEIPT_V1',
+             'status':'PASS_ENGINEERING_EMULATOR_TEST_ONLY',
+             'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+             'run_id':os.environ['GITHUB_RUN_ID'],
+             'g8_emulator_receipt':j,
+             'real_physical_phone_install':'NOT_RUN',
+             'external_operator_witness':'NOT_DEPLOYED','production_oidc':'NOT_DEPLOYED',
+             'new_apk':'NOT_BUILT_FROZEN_G6_RETAINED',
+             'economic_backtests':0,'holdout_open':False,'ga2_open':False}
+          (p.parent/'G8_CI_RAW_BUILD_RECEIPT.json').write_text(json.dumps(b,indent=2,sort_keys=True)+'\n')
+          print('G8_REAL_EMULATOR_RUNTIME_AND_SOURCE_BOUND_CI_RECEIPT_PASS',b['source_commit'])
+          PY
+      - name: Archive bounded real-emulator screenshot, raw UI and exact CI receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qros-mobile-g8-test-only-real-emulator-evidence
+          retention-days: 3
+          if-no-files-found: warn
+          path: /tmp/qros-g8/evidence/

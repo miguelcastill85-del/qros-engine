@@ -1,0 +1,15 @@
+{
+  "economic_backtests": 0,
+  "exact_required_paths": 8,
+  "parent_exact": "3210501dba05b9514efde586a4b2aa63378e6a95",
+  "release_eligible": false,
+  "schema": "QROS_MOBILE_G8_SOURCE_MANIFEST_V1",
+  "source_sha256": {
+    ".github/workflows/qros-mobile-g8-emulator.yml": "85d9ef455e3919720f0b6e8ca02a75bd009a5fd80db01ae276a416bdcca04c89",
+    "product/mobile/g8/G8_EMULATOR_CONTRACT.md": "56b15e60bd7383c2a99a6c758552df8c33e52e808aa68055c4f3f1320d24d283",
+    "product/mobile/g8/emulator_smoke.py": "189d6337dbdde6ae5196846a2d099d458ca992bdc973e4b156db36938cf30763",
+    "product/mobile/g8/progress_gate.py": "e02ed775f08f0e1aef587798a41a1fc41e9d8e7259a677a2fbff96fd0de85800",
+    "product/mobile/g8/tests/test_emulator_smoke.py": "5f63f640721ec614c92e5a54c16d3068c84dd0233e8f9148e172bb42397970db",
+    "product/mobile/g8/tests/test_gate.py": "17ae9de6948c05c38561781130caaa5d44ca0ffb2e3403763d4f139e904f30cc"
+  }
+}
