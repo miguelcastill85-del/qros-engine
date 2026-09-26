@@ -1,0 +1,18 @@
+{
+  "schema": "QROS_MAIN_WAL_FAST_FRONTIER_V2_CROSS_BRANCH_METADATA_REBIND_V1",
+  "date_utc": "2026-09-26",
+  "previous_main_tip": "0f5325a42ed49fa5de6a2d74344f500b92ef970c",
+  "previous_main_gov_sha": "54c1727cc2ea749fc705f89bd238757a70783480",
+  "scientific_branch": "research/seed0076-direct-dev-backtest-20260922",
+  "branch_rebind_commit": "198e38f82dedca423af0931fcaadcc486a3de43c",
+  "new_wal_index_sha1": "6fe6468c3a1db9f2eaefa24b3839bf37a7904a5b",
+  "new_scientific_pointer_sha1": "870df726612618c02378b544413501af73eef865",
+  "rebind_immutable_receipt_sha1": "8f09948693e123533e968269e5838a0a3648d3cf",
+  "initial_frontier_sha1": "4717379067d5226bc3d760c7b9877a444affab20",
+  "compact_code_sha1": "e25d32ed25ed0b91543350ac40d0b5a517550f60",
+  "baseline_446_receipts_preserved": true,
+  "new_market_execution": false,
+  "Gate_A_approved": false,
+  "holdout_open": false,
+  "ga2_open": false
+}

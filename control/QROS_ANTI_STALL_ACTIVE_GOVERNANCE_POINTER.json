@@ -1,7 +1,7 @@
 {
   "schema": "QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER_V1",
   "version": "2.4",
-  "status": "ACTIVE_GITHUB_WAL_V1_ANDROID_CHAT_STATE_MACHINE_BASELINE_446_REAL_GIT_CAS_VERIFIED",
+  "status": "ACTIVE_GITHUB_WAL_PLUS_FAST_FRONTIER_V2_METADATA_RECONCILED_MAIN_BRANCH",
   "repository": "miguelcastill85-del/qros-engine",
   "branch": "main",
   "legacy_v21_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
@@ -206,9 +206,9 @@
     "library_future_results_required": false,
     "scientific_branch": "research/seed0076-direct-dev-backtest-20260922",
     "scientific_branch_bootstrap_commit": "a4a60675ec19171fa2405e3ac7f942af21b216d4",
-    "scientific_pointer_blob_sha1": "de315e832e0f0526708c741cbe9f0b1f2bda5738",
+    "scientific_pointer_blob_sha1": "870df726612618c02378b544413501af73eef865",
     "index_path": "control/QROS_W5_V33_GIT_WAL_CURRENT.json",
-    "index_git_blob_sha1": "78f54732e833c1bcf2e6777592321669259509be",
+    "index_git_blob_sha1": "6fe6468c3a1db9f2eaefa24b3839bf37a7904a5b",
     "event_baseline_path": "research/public1000/seed0076/direct_dev/v33_git_native_evidence/wal/events/000000_BASELINE.json",
     "event_baseline_git_blob_sha1": "7522c40225b2a413abd784c9c30ed8dca64e1155",
     "event_sha256": "e4ae55a25aa60a99799521ae614e7204dfe309809afd1afc6735c88374c8565a",
@@ -218,7 +218,11 @@
     "claim_actual_original_data": "NOT_EXECUTED_RAW_SOURCE_AND_TAPE_NOT_MOUNTED_IN_CURRENT_CHAT_RUNTIME",
     "next_CH0": "CH0_r0_w1_batch015_I143_162.json",
     "next_CH4": "CH4_r0_w1_batch017_I204_223.json",
-    "activation_receipt_path": "control/QROS_GITHUB_WAL_V1_ACTIVATION_RECEIPT_20260926.json"
+    "activation_receipt_path": "control/QROS_GITHUB_WAL_V1_ACTIVATION_RECEIPT_20260926.json",
+    "rebind_receipt_path": "control/QROS_W5_V33_GIT_WAL_FAST_FRONTIER_V2_METADATA_REBIND_20260926_v1.json",
+    "rebind_receipt_sha1": "8f09948693e123533e968269e5838a0a3648d3cf",
+    "baseline_original_event_preserved": true,
+    "scientific_branch_rebind_commit": "198e38f82dedca423af0931fcaadcc486a3de43c"
   },
   "chat_fast_frontier_v2": {
     "version": "2.0",
