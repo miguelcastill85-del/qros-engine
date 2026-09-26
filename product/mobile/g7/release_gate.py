@@ -41,7 +41,7 @@ def inspect(apk: Path, *, apksigner: str='apksigner',
         # Require an actual explicit certificate digest, never use APK digest as fallback.
         found=re.search(r'(?im)^(?=[^\n]*cert(?:ificate)?)(?=[^\n]*sha[- ]?256)[^\n]*?([0-9a-f]{64})(?:\s|$)',output)
     if found is None: deny('APK_SIGNER_CERTIFICATE_MISSING_RETAIN_RAW_DIAGNOSTIC')
-    if re.search(r'(?im)^.*(?:Signer #1 certificate DN|Signer #1 certificate DN:|Signer #1 certificate Subject).*Android Debug',output):
+    if re.search(r'(?im)^(?:V[1-4](?:\.\d+)? Signer: certificate DN:|Signer #\d+ certificate DN:).*Android Debug\s*$',output):
         kind='ANDROID_DEBUG_CERTIFICATE_REJECTED_FOR_RELEASE'
     else:
         kind='UNVERIFIED_NONDEBUG_CERTIFICATE_REJECTED_FOR_RELEASE'

@@ -21,6 +21,8 @@ REQUIRED={
     'product/mobile/g7/G7_SECURITY_AND_DEVICE_RUNBOOK.md',
     'product/mobile/g7/G7_SOURCE_MANIFEST.json',
     'product/mobile/g7/G7_SOURCE_MANIFEST_V2.json',
+    'product/mobile/g7/G7_SOURCE_MANIFEST_V3.json',
+    'product/mobile/g7/G7_CI_INCIDENT_DEBUG_SIGNER_CLASSIFIER_20260925.json',
     'product/mobile/g7/G7_CI_INCIDENT_APKSIGNER_CERT_20260925.json',
     'product/mobile/g7/android_device_gate.py',
     'product/mobile/g7/oidc_canary.py',
@@ -42,17 +44,17 @@ def git(*args: str)->str:
 
 def check(*,remote_git: bool=False)->dict:
     try:
-        mf=json.loads((HERE/'G7_SOURCE_MANIFEST_V2.json').read_text())
+        mf=json.loads((HERE/'G7_SOURCE_MANIFEST_V3.json').read_text())
         state=json.loads((HERE/'G7_PROGRESS_HEAD.json').read_text())
     except (OSError,ValueError):deny('MISSING_MANIFEST_OR_CHECKPOINT')
-    if mf.get('schema')!='QROS_MOBILE_G7_SOURCE_MANIFEST_V2' or mf.get('g6_verified_parent_commit')!=G6:
+    if mf.get('schema')!='QROS_MOBILE_G7_SOURCE_MANIFEST_V3' or mf.get('g6_verified_parent_commit')!=G6:
         deny('PARENT_MANIFEST_MISMATCH')
     if state.get('schema')!='QROS_MOBILE_G7_PROGRESS_HEAD_V1' or state.get('parent_verified_commit')!=G6 or state.get('status')!='DEVELOPMENT_RUNNING':
         deny('STATE_OR_PARENT_MISMATCH')
     if state.get('economic_backtests')!=0 or state.get('holdout_open') is not False or state.get('ga2_open') is not False or state.get('release_signed') is not False:
         deny('FAKED_SCIENTIFIC_OR_RELEASE_SUCCESS')
     sha=mf.get('source_sha256')
-    if type(sha) is not dict or set(sha)!=(REQUIRED-{'product/mobile/g7/G7_PROGRESS_HEAD.json','product/mobile/g7/G7_SOURCE_MANIFEST.json','product/mobile/g7/G7_SOURCE_MANIFEST_V2.json'}):
+    if type(sha) is not dict or set(sha)!=(REQUIRED-{'product/mobile/g7/G7_PROGRESS_HEAD.json','product/mobile/g7/G7_SOURCE_MANIFEST.json','product/mobile/g7/G7_SOURCE_MANIFEST_V2.json','product/mobile/g7/G7_SOURCE_MANIFEST_V3.json'}):
         deny('EXACT_SOURCE_LIST_REQUIRED')
     for name,want in sha.items():
         p=ROOT/name

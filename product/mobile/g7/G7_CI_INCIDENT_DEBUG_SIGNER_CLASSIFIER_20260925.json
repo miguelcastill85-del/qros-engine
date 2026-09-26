@@ -1,0 +1,19 @@
+{
+  "schema": "QROS_G7_CI_INCIDENT_DEBUG_SIGNER_CLASSIFIER_V1",
+  "first_failed_ci_run": 36203995278,
+  "second_ci_run_passed_mechanically": 36204214264,
+  "second_source_commit": "617baf76635bbb4e723af4f02be216f65ce3892f",
+  "issue": "The V2 apksigner output was parsed for the certificate digest, but the debug signer classifier only matched legacy 'Signer #1' syntax.",
+  "independently_downloaded_ci_artifact_sha256": "92e12b04e93aacb22536b268c5f545afa66892eb62f0e876c7fefb3f470419ab",
+  "real_v2_certificate_dn": "C=US, O=Android, CN=Android Debug",
+  "real_v2_certificate_sha256": "7c96eba38408ff188f7608318631124c24db854b82bf867660f18e5bff4559c3",
+  "prior_classification": "UNVERIFIED_NONDEBUG_CERTIFICATE_REJECTED_FOR_RELEASE",
+  "correct_classification": "ANDROID_DEBUG_CERTIFICATE_REJECTED_FOR_RELEASE",
+  "release_eligible_before": false,
+  "release_eligible_after": false,
+  "engineering_correction_status": "PENDING_RETEST_PINNED_V3",
+  "correction": "Require exact Android Debug classification from independently verified V2 apksigner output. Preserve old source manifests and CI results; do not weaken the release gate.",
+  "economic_tests": 0,
+  "ga2_open": false,
+  "holdout_open": false
+}

@@ -85,6 +85,14 @@ class ReleaseCanaries(unittest.TestCase):
     def test_non_debug_cert_not_auto_release(self):
         r=release.inspect(self.apk,run=self.run_signer(debug=False))
         self.assertFalse(r['release_eligible'])
+    def test_real_android_v2_signer_format_classifies_debug_correctly(self):
+        def signer(*args,**kwargs):
+            return MockCompleted('Verifies\nVerified using v2 scheme (APK Signature Scheme v2): true\n'
+              'Number of signers: 1\nV2 Signer: certificate DN: C=US, O=Android, CN=Android Debug\n'
+              'V2 Signer: certificate SHA-256 digest: '+'7c96eba38408ff188f7608318631124c24db854b82bf867660f18e5bff4559c3')
+        item=release.inspect(self.apk,run=signer)
+        self.assertEqual(item['signer_class'],'ANDROID_DEBUG_CERTIFICATE_REJECTED_FOR_RELEASE')
+        self.assertFalse(item['release_eligible'])
     def test_stderr_certificate_digest_accepted_without_relaxing_release_gate(self):
         def signer(*args,**kwargs):
             response=MockCompleted('Verifies\nSigner #1 certificate DN: CN=Android Debug')

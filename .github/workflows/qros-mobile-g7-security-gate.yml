@@ -61,6 +61,7 @@ jobs:
           from pathlib import Path
           a=json.loads(Path('/tmp/qros-g7-evidence/G7_G6_APK_SIGNATURE_TEST_ONLY.json').read_text())
           assert a['release_eligible'] is False and a['status']=='PASS_G6_APK_SIGNATURE_VERIFIED_TEST_ONLY'
+          assert a['signer_class']=='ANDROID_DEBUG_CERTIFICATE_REJECTED_FOR_RELEASE'
           assert a['apk_sha256']=='2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97'
           print('G7_REAL_ANDROID_APKSIGNER_VERIFICATION_PASS_TEST_ONLY')
           PY
