@@ -1,0 +1,12 @@
+{
+  "schema":"QROS_GITHUB_WAL_V1_RELEASE",
+  "version":"1.0",
+  "purpose":"GitHub-native executable WAL with idempotent exact frozen task IDs, append-only events, mandatory atomic branch CAS and independent remote readback",
+  "scope":{"repository":"miguelcastill85-del/qros-engine","scientific_branch":"research/seed0076-direct-dev-backtest-20260922","universe":"XAUUSD W5 V33 CH0/CH4 original parity only","baseline_completed":446,"total_frozen":710,"new_economic_PNL":false},
+  "code_paths":["anti_stall/chat/qros_git_wal_v1.py","anti_stall/chat/qros_github_atomic_transport_v1.py","anti_stall/tests/test_qros_git_wal_v1.py","anti_stall/chat/README_QROS_GITHUB_WAL_V1.md"],
+  "implementation":{"git_commit_claim_before_execution":true,"work_id_deterministic":true,"max_unpublished_receipts":6,"source_shas_verified_before_claim":true,"accept_orphan_only_if_full_receipts_match":true,"immutable_sha256_event_chain":true,"atomic_git_commit_and_nonforced_ref":true,"independent_each_blob_readback":true,"library_required_for_new_checkpoints":false,"unchanged_scientific_pointer_until_atomic_promotion":true,"rerun_verified_closed_task":false,"market_data_in_git":false},
+  "scientific_firewalls":{"Gate_A_approved":false,"holdout_open":false,"ga2_open":false,"W3_deferred":true,"original_60_shards_out_of_scope":true},
+  "limitations":["Requires live GitHub connector or authenticated GITHUB_TOKEN, does not install hooks into ChatGPT Android app","No process continues after user turn without separately authorized scheduler","Claim cannot run W5 parity without original 2018-19 raw tick carrier and V28 channel tape bytes plus existing original runner dependencies","Fixtures for post-446 transitions are synthetic tests, not fresh real-tick parity proof","No actual new scientific shard computed as part of this control-plane release"],
+  "new_shard_storage":"Git append-only full receipt JSON bytes; never full Library ZIP per quantum",
+  "next":"Read live Git WAL and exact frozen inputs; issue claim only if all original source prerequisites are verifiable, then bounded original worker; delta Git+anchor+handoff+pointer+ledger in atomic final CAS and remote readback"
+}

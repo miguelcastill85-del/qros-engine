@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_GITHUB_WAL_V1_MAIN_CODE_RELEASE_RECEIPT",
+  "repo": "miguelcastill85-del/qros-engine",
+  "main_parent_commit": "30c552c166e9cebdd7c6b254e9ed20ef9c6f1b64",
+  "main_parent_governance_blob": "1c3eef055baf83ed561f7c4aaa4a4aba7f411acd",
+  "main_parent_agents_blob": "f7184aa20e57597cece8b79a1fec285b7ad68bf8",
+  "source_git_blob_sha1": {
+    "anti_stall/chat/qros_git_wal_v1.py": "50c5ccb27f2be82d9f85f412ec19154bcd6e6b23",
+    "anti_stall/chat/qros_github_atomic_transport_v1.py": "57687dfcb8b7e9a27cc5d406febf3f5d5a167f05",
+    "anti_stall/tests/test_qros_git_wal_v1.py": "4aca4c6792b0ff5941299fc060fad953a82a2be8",
+    "anti_stall/chat/README_QROS_GITHUB_WAL_V1.md": "6ef9b2669eee05c409f04dd5a5de7ea74a8011b2",
+    "control/QROS_GITHUB_WAL_V1_GOVERNANCE_RELEASE.json": "ca9e447af7e66dd1dceb6ea235f05408b34c7fd1"
+  },
+  "local_test_evidence": {
+    "tests_pass": 28,
+    "real_W5_baseline_original_receipts_checked": 446,
+    "real_W5_manifest_members_hash_checked": 452,
+    "original_frozen_tasks": 710,
+    "nonconsecutive_ordinal_tasks_preserved": 169,
+    "source_baseline_zip_sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05"
+  },
+  "scope": "CONTROL_PLANE_NO_NEW_MARKET_PNL_NO_GATE_CHANGE",
+  "next_action": "Bootstrap immutable 446 scientific Git WAL event/index via authenticated scientific pointer exact Git blob; publish in one Git non-force CAS and read back.",
+  "limits": [
+    "Python engine cannot operate after chat ends on Android",
+    "No original raw market tick execution in this code release",
+    "Source tick carriers outside standard Git objects"
+  ]
+}

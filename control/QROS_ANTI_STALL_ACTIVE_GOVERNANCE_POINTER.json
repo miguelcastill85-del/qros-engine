@@ -1,7 +1,7 @@
 {
   "schema": "QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER_V1",
   "version": "2.4",
-  "status": "EXECUTABLE_V24_ANDROID_CHAT_GITHUB_NATIVE_ONLY_SCIENTIFIC_EVIDENCE_ACTIVE",
+  "status": "GIT_WAL_V1_CODE_READY_SCIENTIFIC_BASELINE_BOOTSTRAP_PENDING",
   "repository": "miguelcastill85-del/qros-engine",
   "branch": "main",
   "legacy_v21_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
@@ -57,7 +57,12 @@
     "anti_stall/chat/qros_github_shard_store_v1.py",
     "anti_stall/chat/README_GITHUB_NATIVE_SHARD_STORE_V1.md",
     "anti_stall/tests/test_qros_github_shard_store_v1.py",
-    "governance/QROS_GITHUB_NATIVE_SHARD_STORAGE_V1.json"
+    "governance/QROS_GITHUB_NATIVE_SHARD_STORAGE_V1.json",
+    "anti_stall/chat/qros_git_wal_v1.py",
+    "anti_stall/chat/qros_github_atomic_transport_v1.py",
+    "anti_stall/tests/test_qros_git_wal_v1.py",
+    "anti_stall/chat/README_QROS_GITHUB_WAL_V1.md",
+    "control/QROS_GITHUB_WAL_V1_GOVERNANCE_RELEASE.json"
   ],
   "provenance": {
     "archive_sha256_rehash_after_connected_drive_download": "PASS",
@@ -174,5 +179,23 @@
     "library_durable_future": "FORBIDDEN_FOR_W5_RESULTS",
     "raw_market_source_carriers_in_git": false,
     "chat_background": false
+  },
+  "github_wal_v1": {
+    "status": "CODE_COMMITTED_LOCAL_VALIDATION_PASS_SCIENTIFIC_LEDGER_BOOTSTRAP_PENDING",
+    "engine_path": "anti_stall/chat/qros_git_wal_v1.py",
+    "engine_blob_sha1": "50c5ccb27f2be82d9f85f412ec19154bcd6e6b23",
+    "transport_path": "anti_stall/chat/qros_github_atomic_transport_v1.py",
+    "transport_blob_sha1": "57687dfcb8b7e9a27cc5d406febf3f5d5a167f05",
+    "tests_path": "anti_stall/tests/test_qros_git_wal_v1.py",
+    "tests_blob_sha1": "4aca4c6792b0ff5941299fc060fad953a82a2be8",
+    "policy_path": "control/QROS_GITHUB_WAL_V1_GOVERNANCE_RELEASE.json",
+    "policy_blob_sha1": "ca9e447af7e66dd1dceb6ea235f05408b34c7fd1",
+    "release_receipt_path": "control/QROS_GITHUB_WAL_V1_CODE_RELEASE_RECEIPT_20260926.json",
+    "baseline_completed": 446,
+    "planned": 710,
+    "local_tests": "28_OF_28_PASS_WITH_REAL_446_BASELINE_SHA_AND_SYNTHETIC_STATE_MACHINE_FIXTURES",
+    "github_private_remote_CI": "NOT_RUN_COST_AVOIDANCE",
+    "unattended_android_after_turn": false,
+    "library_future_results_required": false
   }
 }
