@@ -35,7 +35,7 @@ jobs:
         working-directory: product/mobile/flutter_app
         run: |
           flutter pub get
-          flutter test --reporter expanded test/g5_snapshot_test.dart test/g5_snapshot_widget_test.dart test/g9_worker_parity_test.dart
+          flutter test --reporter expanded test/g5_snapshot_test.dart test/g5_snapshot_widget_test.dart test/g9_worker_parity_test.dart test/g9_transport_negative_test.dart
       - name: Wrangler bundle only, no deploy
         working-directory: product/mobile/g9
         env: {WRANGLER_SEND_METRICS: 'false'}
