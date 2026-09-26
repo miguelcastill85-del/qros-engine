@@ -6,10 +6,10 @@
   "closed_delta_ids": [],
   "completed": 446,
   "delta_tip_sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05",
-  "engine_main_release_commit": "82170448ae4da95ffbedde3478017a23fef04704",
-  "engine_main_source_git_blob_sha1": "50c5ccb27f2be82d9f85f412ec19154bcd6e6b23",
-  "event_sha256": "e4ae55a25aa60a99799521ae614e7204dfe309809afd1afc6735c88374c8565a",
-  "generation": 0,
+  "engine_main_release_commit": "53cfa7622c7f15562775bb7b5bccbb005afd3afa",
+  "engine_main_source_git_blob_sha1": "710b82b9a6585723ba982fb0ffc71a288073c2a7",
+  "event_sha256": "a25d1185908480349f574e31e205a5def3060e0610984c6da15bb3ebe993a08c",
+  "generation": 1,
   "git_cas": "NON_FORCE_FF_ONLY_AND_REMOTE_BLOB_READBACK",
   "next_CH0": [
     "CH0_r0_w1_batch015_I143_162.json",
@@ -53,5 +53,16 @@
     "sequence": 0,
     "completed": 446,
     "remaining": 264
-  }
+  },
+  "equivalent_pointer_reconciliations": [
+    {
+      "old": "de315e832e0f0526708c741cbe9f0b1f2bda5738",
+      "new": "870df726612618c02378b544413501af73eef865",
+      "source_commit": "17313247bf9abe2ad2555763d6c6d2bd69ac8ab7",
+      "fields": [
+        "anti_stall_recovery",
+        "fast_frontier_v2"
+      ]
+    }
+  ]
 }

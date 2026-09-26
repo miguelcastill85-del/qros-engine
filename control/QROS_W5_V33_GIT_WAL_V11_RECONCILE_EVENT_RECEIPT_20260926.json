@@ -1,0 +1,28 @@
+{
+  "schema": "QROS_GIT_WAL_V11_IMMUTABLE_METADATA_RECONCILIATION_RECEIPT",
+  "repo": "miguelcastill85-del/qros-engine",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "previous_branch_tip": "198e38f82dedca423af0931fcaadcc486a3de43c",
+  "previous_index_git_blob_sha1": "6fe6468c3a1db9f2eaefa24b3839bf37a7904a5b",
+  "previous_event_sha256": "e4ae55a25aa60a99799521ae614e7204dfe309809afd1afc6735c88374c8565a",
+  "new_event_sha256": "a25d1185908480349f574e31e205a5def3060e0610984c6da15bb3ebe993a08c",
+  "previous_pointer_sha1": "de315e832e0f0526708c741cbe9f0b1f2bda5738",
+  "new_pointer_sha1": "870df726612618c02378b544413501af73eef865",
+  "changed_fields": [
+    "anti_stall_recovery",
+    "fast_frontier_v2"
+  ],
+  "unchanged_science_target_sha1": "868cdd18e61a6ec123a98c905b4b4bec997d5b5b",
+  "unchanged_science_anchor_sha1": "01c54f04d677cc9d24b47b1524f3a41969a4f022",
+  "fast_frontier_blob_sha1": "4717379067d5226bc3d760c7b9877a444affab20",
+  "fast_frontier_bootstrap_receipt_sha1": "3a5d2e5e372629ca8c9cd95c477382a324c643d3",
+  "fast_frontier_completed": 446,
+  "ledger_completed": 446,
+  "ledger_remaining": 264,
+  "Gate_A_approved": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "new_economic_PNL": false,
+  "engine_main_git_sha1": "710b82b9a6585723ba982fb0ffc71a288073c2a7",
+  "status": "RECONCILED_METADATA_ONLY_NO_SHARD_REPLAY"
+}
