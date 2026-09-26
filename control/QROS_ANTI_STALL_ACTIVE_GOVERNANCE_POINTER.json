@@ -30,7 +30,8 @@
     "fast_frontier_v2_local_adversarial_pass": 26,
     "fast_frontier_v2_real_baseline_receipts_rehashed": 446,
     "fast_frontier_v2_real_zip_members_rehashed": 452,
-    "fast_frontier_v2_original_frozen_tasks": 710
+    "fast_frontier_v2_original_frozen_tasks": 710,
+    "fast_frontier_v2_portable_repolike_unittest_pass": 26
   },
   "watchdog": {
     "ordinary_route_hard_seconds": 120,
@@ -183,7 +184,7 @@
       "writer_path": "anti_stall/chat/qros_fast_frontier_v2.py",
       "writer_git_blob_sha1": "e7a10126012486e0b9e535986bd86f737fc13da2",
       "validator_tests_path": "anti_stall/tests/test_fast_frontier_v2.py",
-      "validator_tests_git_blob_sha1": "e89ee74136f59fffa581cf3f8b6cb6122d080148",
+      "validator_tests_git_blob_sha1": "27762f1e2c3f1e8a01caf831543d03f171a82d21",
       "original_710_task_index_path": "research/public1000/seed0076/direct_dev/v33_git_native_evidence/fast_frontier/FROZEN_TASK_INDEX.json",
       "original_710_task_index_git_blob_sha1": "68e9069d815ea4d1f86670d4e88852a045a34aa6",
       "original_446_frontier_git_blob_sha1": "4717379067d5226bc3d760c7b9877a444affab20",
@@ -193,7 +194,9 @@
       "one_atomic_git_commit_for_final_promotion": true,
       "no_full_baseline_replay_per_chat": true,
       "execution_mode": "ACTIVE_CHAT_TURN_ONLY",
-      "background_execution": false
+      "background_execution": false,
+      "portable_test_environment": "QROS_W5_V33_BASELINE_ZIP",
+      "readme_git_blob_sha1": "e23eea546b712de31ce551054e6110018c543fbf"
     }
   },
   "github_native_evidence": {
@@ -288,5 +291,6 @@
     "no_background": true
   },
   "last_live_scientific_pointer_at_main_release": "870df726612618c02378b544413501af73eef865",
-  "scientific_branch_do_not_override_from_governance": true
+  "scientific_branch_do_not_override_from_governance": true,
+  "portability_erratum_path": "control/QROS_FAST_FRONTIER_V2_PORTABLE_TEST_FIX_20260926_v1.json"
 }

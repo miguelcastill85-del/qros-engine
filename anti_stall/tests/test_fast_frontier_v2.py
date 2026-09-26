@@ -1,9 +1,10 @@
 """Adversarial fixtures never use historical PnL or simulate real parity evidence."""
-import base64, copy, hashlib, json, pathlib, sys, tempfile, time, unittest
-HERE=pathlib.Path(__file__).parent
-sys.path.insert(0,str(HERE))
+import base64, copy, hashlib, json, os, pathlib, sys, tempfile, time, unittest
+HERE=pathlib.Path(__file__).resolve().parent
+SOURCE=HERE.parent/'chat'
+sys.path.insert(0,str(SOURCE if (SOURCE/'qros_fast_frontier_v2.py').is_file() else HERE))
 import qros_fast_frontier_v2 as f
-BASE=pathlib.Path('/mnt/data/w5_v33_446_library_readback/QROS_W5_V33_VERIFIED_446_OF_710_MASK_PARITY_SHARDS_20260925.zip')
+BASE=pathlib.Path(os.environ.get('QROS_W5_V33_BASELINE_ZIP',str(pathlib.Path('research/public1000/seed0076/direct_dev/v33_git_native_evidence/BASELINE_446_FULL_VERIFIED.zip'))))
 
 class FastFrontierTests(unittest.TestCase):
  @classmethod

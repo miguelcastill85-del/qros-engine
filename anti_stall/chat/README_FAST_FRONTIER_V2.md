@@ -22,6 +22,8 @@ El mecanismo Git-native v1 ya preservó el ZIP completo de los 446 recibos en Gi
 
 `python anti_stall/chat/qros_fast_frontier_v2.py bootstrap --baseline /ruta/ZIP --out-frontier FAST_FRONTIER_0000.json --out-index FROZEN_TASK_INDEX.json`
 
-`python -m unittest anti_stall/tests/test_fast_frontier_v2.py -v`
+`QROS_W5_V33_BASELINE_ZIP=/ruta/BASELINE_446_FULL_VERIFIED.zip python -m unittest discover -s anti_stall/tests -p test_fast_frontier_v2.py -v`
+
+La suite de auditoría profunda **requiere el ZIP científico original de GitHub** en la ruta `QROS_W5_V33_BASELINE_ZIP`. No obtiene datos de Biblioteca ni emplea un archivo local fijo del entorno de desarrollo. Su ausencia constituye una falla explícita de preparación, no un PASS automático.
 
 No usar los recibos sintéticos de las pruebas en la rama científica: sólo el bootstrap contra los 446 recibos originales ha sido publicado en Git.

@@ -1,0 +1,29 @@
+{
+  "schema": "QROS_FAST_FRONTIER_V2_TEST_PORTABILITY_CORRECTION_RECEIPT_V1",
+  "date_utc": "2026-09-26",
+  "previous_main_commit": "37d2a2193337b84decf24444cebcf506203f9269",
+  "previous_governance_blob_sha1": "1cc923a49cd5a516f1e513a6ee9aa2be1dacb3f0",
+  "previous_test_blob_sha1": "e89ee74136f59fffa581cf3f8b6cb6122d080148",
+  "previous_readme_blob_sha1": "4efac59a9471abdd16ac40361652458d46f5ae9f",
+  "correction": "Full 26-test suite had a developer-only absolute /mnt/data baseline ZIP path and imported the module from a co-located test directory; in the actual repo source and tests are siblings. Changed test to find sibling ../chat writer and require exact original baseline path via QROS_W5_V33_BASELINE_ZIP or Git-native scientific branch relative path; updated README with explicit command.",
+  "corrected_test_blob_sha1": "27762f1e2c3f1e8a01caf831543d03f171a82d21",
+  "corrected_test_sha256": "985d25badfdb7ed0a6582453952f0e63d5e45cfe76fbe59047c57e7dfa6f885b",
+  "corrected_readme_blob_sha1": "e23eea546b712de31ce551054e6110018c543fbf",
+  "corrected_readme_sha256": "dd0a13b0baf6577f96c79b46cdd379604dea329f97c5e43ce46615fb034b8ec8",
+  "verification": {
+    "full_26_local_unittest_in_actual_repolike_sibling_directories": "PASS_26_OF_26",
+    "used_GITHUB_446_baseline_exact_sha": true,
+    "deep_rehash_baseline": 446,
+    "deep_rehash_internal_files": 452,
+    "environment_value": "QROS_W5_V33_BASELINE_ZIP",
+    "no_baseline": "TEST_SETUP_FAIL_NOT_SILENT_PASS",
+    "github_remote_ci": "NOT_RUN_PRIVATE_REPO_COST_POLICY"
+  },
+  "scientific_branch_not_modified": true,
+  "gates": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "ga2_open": false
+  },
+  "storage": "GITHUB_ONLY_NO_DURABLE_LIBRARY_CHECKPOINTS"
+}
