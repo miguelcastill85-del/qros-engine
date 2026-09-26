@@ -1,7 +1,7 @@
 {
   "schema": "QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER_V1",
   "version": "2.4",
-  "status": "GIT_WAL_V11_ORTHOGONAL_RECONCILE_CODE_READY_SCIENTIFIC_EVENT_PENDING",
+  "status": "ACTIVE_GITHUB_WAL_V11_FAST_FRONTIER_METADATA_RECONCILED_SCIENCE_446_UNCHANGED",
   "repository": "miguelcastill85-del/qros-engine",
   "branch": "main",
   "legacy_v21_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
@@ -192,7 +192,7 @@
     "chat_background": false
   },
   "github_wal_v1": {
-    "status": "ACTIVE_REAL_446_BASELINE_GIT_ATOMIC_CAS_WITH_REMOTE_READBACK",
+    "status": "ACTIVE_V11_REAL_EQUIVALENT_POINTER_RECONCILIATION_GIT_CAS_READBACK_PASS",
     "engine_path": "anti_stall/chat/qros_git_wal_v1.py",
     "engine_blob_sha1": "710b82b9a6585723ba982fb0ffc71a288073c2a7",
     "transport_path": "anti_stall/chat/qros_github_atomic_transport_v1.py",
@@ -212,7 +212,7 @@
     "scientific_branch_bootstrap_commit": "a4a60675ec19171fa2405e3ac7f942af21b216d4",
     "scientific_pointer_blob_sha1": "870df726612618c02378b544413501af73eef865",
     "index_path": "control/QROS_W5_V33_GIT_WAL_CURRENT.json",
-    "index_git_blob_sha1": "6fe6468c3a1db9f2eaefa24b3839bf37a7904a5b",
+    "index_git_blob_sha1": "63052bdb693fb5f5b92a6ee49f8708d11558b9bd",
     "event_baseline_path": "research/public1000/seed0076/direct_dev/v33_git_native_evidence/wal/events/000000_BASELINE.json",
     "event_baseline_git_blob_sha1": "7522c40225b2a413abd784c9c30ed8dca64e1155",
     "event_sha256": "e4ae55a25aa60a99799521ae614e7204dfe309809afd1afc6735c88374c8565a",
@@ -230,7 +230,20 @@
     "version": "1.1",
     "readme_git_blob_sha1": "2c4a3bfe143fe13e6faef41c424dd9581e8bda1e",
     "reconcile_mode": "STRICT_METADATA_ONLY_FAST_FRONTIER_V2_APPEND_NEW_EVENT",
-    "next": "Persist genuine RECONCILE event and update WAL index in atomic scientific-branch CAS before CLAIM"
+    "next": "Persist genuine RECONCILE event and update WAL index in atomic scientific-branch CAS before CLAIM",
+    "scientific_branch_reconcile_commit": "59ee451c1f75b95c370f5cab82e94037b1b715fe",
+    "event_latest_path": "research/public1000/seed0076/direct_dev/v33_git_native_evidence/wal/events/000001_RECONCILE.json",
+    "event_latest_blob_sha1": "f577406a1f28ceddad3c6bcebd8ee34965acc0ce",
+    "event_latest_sha256": "a25d1185908480349f574e31e205a5def3060e0610984c6da15bb3ebe993a08c",
+    "event_generation": 1,
+    "strict_orthogonal_changes": [
+      "anti_stall_recovery",
+      "fast_frontier_v2"
+    ],
+    "original_market_inputs_present_in_chat": false,
+    "scientific_claim_open": false,
+    "release_anchor_path": "control/QROS_GITHUB_WAL_V11_RECONCILED_ACTIVE_RELEASE_20260926.json",
+    "next_automatic_action": "On next active chat turn preflight only Git source: main governor, science pointer, WAL event chain 000000+000001, Fast Frontier v2 exact Git blob; restore exact pinned original market source/tape bytes; only then create immutable <=6-task CLAIM. Never reopen 446 closed or use Library as normal checkpoint."
   },
   "chat_fast_frontier_v2": {
     "version": "2.0",
