@@ -1,0 +1,89 @@
+name: qros-mobile-g7-test-only-security-and-device-gates
+on:
+  push:
+    branches:
+      - product/mobile-g7-trust-device-20260925
+    paths:
+      - 'product/mobile/g7/**'
+      - '.github/workflows/qros-mobile-g7-security-gate.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: qros-mobile-g7-test-only
+  cancel-in-progress: true
+jobs:
+  g7-test-only-identity-device-release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce G6 exact parent, 12-file delta and hash manifest (no no-op reports)
+        run: python product/mobile/g7/progress_gate.py --remote-git
+      - name: Install unchanged G6 cryptography dependency
+        run: python -m pip install --disable-pip-version-check -r product/mobile/backend/requirements.txt
+      - name: G7 isolated tenant OIDC, separate simulated witness, Android USB and release adversarial tests
+        run: python -m unittest discover -s product/mobile/g7/tests -v
+      - name: Preserve signed G6 synthetic fixture contract (no economic backtests)
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s product/mobile/g6/tests -v
+          python product/mobile/g6/generate_fixture.py
+          git diff --exit-code -- product/mobile/g6/tests/fixtures/g5_signed_snapshot_fixture.json
+      - name: Download exact previously verified G6 Android debug artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: qros-mobile-g6-test-only-android
+          repository: ${{ github.repository }}
+          run-id: 36197217037
+          github-token: ${{ github.token }}
+          path: /tmp/qros-g7-g6-apk
+      - name: Byte audit previous G6 APK and independent real Android signer verification
+        run: |
+          set -euo pipefail
+          APK=/tmp/qros-g7-g6-apk/QROS_MOBILE_G6_TEST_ONLY.apk
+          test -f "$APK"
+          test "$(stat -c%s "$APK")" = 141623410
+          echo '2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97  /tmp/qros-g7-g6-apk/QROS_MOBILE_G6_TEST_ONLY.apk' | sha256sum -c -
+          APKSIGNER="$(find "$ANDROID_HOME/build-tools" -maxdepth 2 -type f -name apksigner | sort -V | tail -1)"
+          test -n "$APKSIGNER" && test -x "$APKSIGNER"
+          mkdir -p /tmp/qros-g7-evidence
+          python product/mobile/g7/release_gate.py --apk "$APK" --apksigner "$APKSIGNER" | tee /tmp/qros-g7-evidence/G7_G6_APK_SIGNATURE_TEST_ONLY.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('/tmp/qros-g7-evidence/G7_G6_APK_SIGNATURE_TEST_ONLY.json').read_text())
+          assert a['release_eligible'] is False and a['status']=='PASS_G6_APK_SIGNATURE_VERIFIED_TEST_ONLY'
+          assert a['apk_sha256']=='2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97'
+          print('G7_REAL_ANDROID_APKSIGNER_VERIFICATION_PASS_TEST_ONLY')
+          PY
+      - name: Capture a commit-bound CI receipt with unresolved hardware/external-custody gates explicitly open
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib, subprocess
+          d=pathlib.Path('/tmp/qros-g7-evidence')
+          sig=json.loads((d/'G7_G6_APK_SIGNATURE_TEST_ONLY.json').read_text())
+          receipt={'schema':'QROS_MOBILE_G7_CI_RECEIPT_V1','status':'PASS_ENGINEERING_TEST_ONLY',
+              'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+              'source_integrity':'PASS_REQUIRED_STEP','synthetic_g7_tests':'PASS_REQUIRED_STEP',
+              'g6_fixture_regression':'PASS_REQUIRED_STEP','real_g6_apk_signature':sig,
+              'physical_android_install':'NOT_RUN','manual_pairing':'NOT_RUN',
+              'production_oidc':'NOT_DEPLOYED','external_admin_witness':'NOT_DEPLOYED',
+              'release_signed':False,'market_data':'NONE','economic_tests':0,
+              'holdout_open':False,'ga2_open':False,'mt5':'NOT_RUN'}
+          (d/'G7_CI_BUILD_RECEIPT.json').write_text(json.dumps(receipt,indent=2,sort_keys=True)+'\n')
+          print('G7_SOURCE_COMMIT_BOUND_CI_RECEIPT_CREATED',receipt['source_commit'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qros-mobile-g7-test-only-security-evidence
+          retention-days: 3
+          if-no-files-found: error
+          path: /tmp/qros-g7-evidence/
