@@ -1,0 +1,102 @@
+{
+  "schema": "QROS_SEED0076_W5_V33_293_OF_710_ORIGINAL_REAL_TICK_INDEPENDENT_PARITY_ANCHOR_V1",
+  "date_utc": "2026-09-25",
+  "authority": {
+    "repo": "miguelcastill85-del/qros-engine",
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "previous_scientific_pointer_git_blob_sha1": "31a4c737c603d2abce329467ecb67cd95529cc22",
+    "previous_handoff_git_blob_sha1": "0f4967bcd4a9089a5f03b9e822cd92a8bebc2f2d",
+    "previous_261_anchor_git_blob_sha1": "9989756e7275a082fe391dba3a34fa12ce80f97f",
+    "prereg_git_blob_sha1": "40275ce4fc0454759a181d9e3d7e8757630134da",
+    "original_exante_frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "exante_plan_git_blob_sha1": "3f88c26db37daa71d5234bfb61a7e9ba0763c91f",
+    "frozen_runner_source_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+    "frozen_runner_source_freeze_git_blob_sha1": "afbd552496e580e47594ad5b059127b2ae0f12d2"
+  },
+  "data": {
+    "asset": "XAUUSD",
+    "period": "2018_2019_EXPOSED_DEVELOPMENT",
+    "raw_ticks": 151382388,
+    "raw_bytes": 2573500596,
+    "raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_eight_Drive_parts_byte_and_payload_SHA256": "PASS_8_OF_8",
+    "original_V28_CH0_archive_sha256": "196de55420e5c29f3ef776d32179842309826585e2fd7d6580fe73f95561ffa2",
+    "original_V28_CH4_archive_sha256": "79d30dd8c734c845025583261fd50bd88392c0ce03d21764f8d82eb4d351ea76",
+    "original_CH0_CH4_score_tapes": "FROZEN_UNCHANGED"
+  },
+  "results": {
+    "completed_shards": 293,
+    "planned_shards": 710,
+    "pending_shards": 417,
+    "previous_closed_shards": 261,
+    "new_independent_shards": 32,
+    "new_by_channel": {
+      "CH0": 16,
+      "CH4": 16
+    },
+    "cumulative_by_channel": {
+      "CH0": 117,
+      "CH4": 176
+    },
+    "total_mask_occurrences_tested": 5621,
+    "new_mask_occurrences": 592,
+    "full_tape_sampled_source_signals": 693996,
+    "new_sampled_signals": 75073,
+    "independent_trade_by_trade_sampled_trades": 422791,
+    "new_independent_trades": 52117,
+    "matching_execution_fields": 4650701,
+    "new_matching_fields": 573287,
+    "zero_original_masks": 7
+  },
+  "verification": {
+    "all_existing_261_receipt_SHA256": "PASS_UNCHANGED",
+    "all_293_frozen_shard_receipts": "PASS_ORIGINAL_BUILDER_FROZEN_PLAN",
+    "original_FROZEN_runner_source_sha256": "PASS",
+    "rebuilt_raw_full_sha256": "PASS",
+    "archived_master_member_SHA256": "PASS_299_OF_299",
+    "ZIP_CRC": "PASS",
+    "Library_raw_bytes_SHA256_rehash": "PASS_3_OF_3",
+    "economic_PnL_reread": false,
+    "sampling_contract": "UP_TO_128_PNL_BLIND_EVENLY_SPACED_ORIGINAL_ACCEPTED_SIGNALS_PER_ORIGINAL_MASK_NOT_EXHAUSTIVE_EVERY_TRADE"
+  },
+  "storage": {
+    "provider": "ChatGPT Project Library",
+    "folder": "/QROS_SEED0076_W5_V33_293_OF_710_20260925",
+    "zip_filename": "QROS_W5_V33_VERIFIED_293_OF_710_MASK_PARITY_SHARDS_20260925.zip",
+    "zip_library_id": "libfile_6b97ea85e2e88191a86d15321e298387",
+    "zip_bytes": 697709,
+    "zip_sha256": "73818c3cf9b11adf1048b29b9bf8bd6336933f971052c57746f72e1c15b172c2",
+    "master_library_id": "libfile_ba26443ede508191b86feb491ace30d3",
+    "master_sha256": "09e8cdd7e26058e05698bea63346091752281f426565028f637c3f059bda4ef5",
+    "manifest_library_id": "libfile_1c3840466dec81919bdebe7fda164fa4",
+    "manifest_sha256": "3aeb797a5bea79dd0c666a6660b71bedc80dbd556879c4065ad737b30c934393"
+  },
+  "next_automatic_action": {
+    "CH0": {
+      "route": "r0_w1_batch008",
+      "ordinals_first": 163,
+      "ordinals_last": 182
+    },
+    "CH4": {
+      "route": "r0_w1_batch013",
+      "ordinals_first": 21,
+      "ordinals_last": 40
+    },
+    "other": "Continue only original frozen unverified V33 shard order, bounded and SHA-audited; separately recover authenticated 2018-19 historical XAU broker account commissions and symbol special hours."
+  },
+  "gates": {
+    "scientific_state": "DEVELOPMENT_RUNNING",
+    "new_economic_PnL": false,
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity_complete": false,
+    "portfolio_risk_approved": false,
+    "historical_account_commission_certified": false,
+    "historical_special_session_calendar_certified": false,
+    "original_V28_economic_104_shards_untouched": true,
+    "prior_closed_V33_261_receipts_untouched": true,
+    "original_60_and_10_shards_not_touched": true,
+    "W3_deferred": true
+  }
+}
