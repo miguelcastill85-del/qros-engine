@@ -1,7 +1,7 @@
 {
   "schema": "QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER_V1",
   "version": "2.4",
-  "status": "GIT_WAL_V1_CODE_READY_SCIENTIFIC_BASELINE_BOOTSTRAP_PENDING",
+  "status": "EXECUTABLE_V24_ANDROID_GITHUB_NATIVE_FAST_FRONTIER_V2_PREFLIGHT_ACTIVE",
   "repository": "miguelcastill85-del/qros-engine",
   "branch": "main",
   "legacy_v21_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
@@ -197,5 +197,20 @@
     "github_private_remote_CI": "NOT_RUN_COST_AVOIDANCE",
     "unattended_android_after_turn": false,
     "library_future_results_required": false
+  },
+  "chat_fast_frontier_v2": {
+    "version": "2.0",
+    "mode": "FAST_GITHUB_NATIVE_CHAT_PER_TURN",
+    "policy_path": "governance/QROS_FAST_FRONTIER_V2_ANDROID_POLICY.json",
+    "policy_blob": "17067822cabbd0466f06a83e4cf7e7748782fec4",
+    "source_path": "anti_stall/chat/qros_fast_resume_v2.py",
+    "source_blob": "e25d32ed25ed0b91543350ac40d0b5a517550f60",
+    "scientific_branch": "research/seed0076-direct-dev-backtest-20260922",
+    "initial_frontier_name": "FAST_FRONTIER_0000.json",
+    "initial_baseline_receipts_full_audited": 446,
+    "baseline_zip_per_turn_required": false,
+    "additional_delta_bytes_only_on_subsequent_turns": true,
+    "full_advanced_writer_26kb": "LOCAL_TESTED_UNDEPLOYED",
+    "no_background": true
   }
 }

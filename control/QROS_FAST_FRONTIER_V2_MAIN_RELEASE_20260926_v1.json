@@ -1,0 +1,16 @@
+{
+  "schema": "QROS_FAST_FRONTIER_V2_MAIN_RELEASE_V1",
+  "date_utc": "2026-09-26",
+  "parent_main_commit": "82170448ae4da95ffbedde3478017a23fef04704",
+  "previous_governance_blob": "8315d5b4c18949c8ca1a6efbc0c100b1c23d0872",
+  "local_full_candidate_tests": "26_OF_26_PASS",
+  "compact_smoke": "PASS_446_BASELINE_METADATA_AND_TAMPERED_POINTER_REJECTED",
+  "baseline_exact": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05",
+  "deployed_fast_code_git_blob": "e25d32ed25ed0b91543350ac40d0b5a517550f60",
+  "deployed_policy_git_blob": "17067822cabbd0466f06a83e4cf7e7748782fec4",
+  "full_incremental_writer": "NOT_YET_GIT_DEPLOYED",
+  "scientific_state_unchanged": true,
+  "Gate_A_approved": false,
+  "holdout_open": false,
+  "ga2_open": false
+}

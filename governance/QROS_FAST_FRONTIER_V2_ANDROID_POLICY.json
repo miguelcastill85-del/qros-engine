@@ -1,0 +1,30 @@
+{
+  "schema": "QROS_FAST_FRONTIER_V2_ANDROID_POLICY",
+  "date": "2026-09-26",
+  "scope": "ACTIVE_CHAT_ONLY",
+  "fast_resume_code_sha1": "e25d32ed25ed0b91543350ac40d0b5a517550f60",
+  "original_git_baseline_446_sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05",
+  "frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+  "original_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+  "startup": [
+    "FETCH_CURRENT_MAIN_GOVERNANCE_AND_SCIENTIFIC_POINTER",
+    "VERIFY_POINTER_TARGET_ANCHOR_EXACT_GIT_SHA1",
+    "VERIFY_IMMUTABLE_SMALL_FRONTIER_AND_ONLY_LATEST_DELTA_IF_ANY",
+    "NO_FULL_446_REPLAY_ON_EVERY_CHAT_TURN"
+  ],
+  "execution": [
+    "ONLY_ORIGINAL_NEXT_FROZEN_TASKS_WHEN_SOURCE_BYTES_SHA_VERIFIED",
+    "MAX_SIX_NEW_RECEIPTS",
+    "INDEPENDENT_PARITY_BEFORE_PROMOTION",
+    "SINGLE_ATOMIC_GIT_COMMIT_AND_NONFORCED_REF_MOVE",
+    "VERIFY_READBACK_BEFORE_NEXT_COMPUTE"
+  ],
+  "full_independent_reaudit_every_delta_batches": 20,
+  "local_tested_advanced_writer": "26_LOCAL_TESTS_PASS_BUT_26KB_SCRIPT_NOT_YET_GIT_DEPLOYED",
+  "git_deployed_code": "FAST_STARTUP_CHECKER_ONLY; ORIGINAL_V1_DELTA_BUILDER_REMAINS_FALLBACK",
+  "original_market_data": "EXTERNAL_SHA_PINNED_NOT_COPIED_TO_GIT",
+  "Gate_A_approved": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "unattended_execution": false
+}
