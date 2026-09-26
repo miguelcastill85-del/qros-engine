@@ -1,7 +1,7 @@
 {
   "schema": "QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER_V1",
   "version": "2.4",
-  "status": "ACTIVE_GITHUB_WAL_PLUS_FAST_FRONTIER_V2_METADATA_RECONCILED_MAIN_BRANCH",
+  "status": "GIT_WAL_V11_ORTHOGONAL_RECONCILE_CODE_READY_SCIENTIFIC_EVENT_PENDING",
   "repository": "miguelcastill85-del/qros-engine",
   "branch": "main",
   "legacy_v21_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
@@ -124,7 +124,11 @@
     "only_commit_science_on_full_original_receipt_delta": true,
     "zero_new_library_zip_per_quantum": true,
     "atomic_data_delta_index_science_pointer_git_CAS": true,
-    "preflight_original_raw_carrier_SHA256_before_claim": true
+    "preflight_original_raw_carrier_SHA256_before_claim": true,
+    "fast_frontier_is_read_projection_not_second_scientific_writer": true,
+    "strict_metadata_only_reconciliation": true,
+    "append_reconcile_sha256_event": true,
+    "forbid_stale_fast_frontier_projection_at_commit": true
   },
   "activation_scope": "Trading algoritmico ChatGPT Android chats actively processing user prompts with authenticated GitHub connector; Git native blob+text fallback as full checkpoint, append-only <=6 receipt deltas. Optional Windows v2.4 host unchanged; no daemon while chat closed.",
   "background_executor": "ACTIVE_PER_USER_CHAT_TURN_ONLY_NO_UNATTENDED_AFTER_REPLY",
@@ -190,17 +194,17 @@
   "github_wal_v1": {
     "status": "ACTIVE_REAL_446_BASELINE_GIT_ATOMIC_CAS_WITH_REMOTE_READBACK",
     "engine_path": "anti_stall/chat/qros_git_wal_v1.py",
-    "engine_blob_sha1": "50c5ccb27f2be82d9f85f412ec19154bcd6e6b23",
+    "engine_blob_sha1": "710b82b9a6585723ba982fb0ffc71a288073c2a7",
     "transport_path": "anti_stall/chat/qros_github_atomic_transport_v1.py",
     "transport_blob_sha1": "57687dfcb8b7e9a27cc5d406febf3f5d5a167f05",
     "tests_path": "anti_stall/tests/test_qros_git_wal_v1.py",
-    "tests_blob_sha1": "4aca4c6792b0ff5941299fc060fad953a82a2be8",
+    "tests_blob_sha1": "c22de6a212cb1e7488ad96515d298970297c7700",
     "policy_path": "control/QROS_GITHUB_WAL_V1_GOVERNANCE_RELEASE.json",
     "policy_blob_sha1": "ca9e447af7e66dd1dceb6ea235f05408b34c7fd1",
     "release_receipt_path": "control/QROS_GITHUB_WAL_V1_CODE_RELEASE_RECEIPT_20260926.json",
     "baseline_completed": 446,
     "planned": 710,
-    "local_tests": "28_OF_28_PASS_WITH_REAL_446_BASELINE_SHA_AND_SYNTHETIC_STATE_MACHINE_FIXTURES",
+    "local_tests": "35_OF_35_PASS",
     "github_private_remote_CI": "NOT_RUN_COST_AVOIDANCE",
     "unattended_android_after_turn": false,
     "library_future_results_required": false,
@@ -222,7 +226,11 @@
     "rebind_receipt_path": "control/QROS_W5_V33_GIT_WAL_FAST_FRONTIER_V2_METADATA_REBIND_20260926_v1.json",
     "rebind_receipt_sha1": "8f09948693e123533e968269e5838a0a3648d3cf",
     "baseline_original_event_preserved": true,
-    "scientific_branch_rebind_commit": "198e38f82dedca423af0931fcaadcc486a3de43c"
+    "scientific_branch_rebind_commit": "198e38f82dedca423af0931fcaadcc486a3de43c",
+    "version": "1.1",
+    "readme_git_blob_sha1": "2c4a3bfe143fe13e6faef41c424dd9581e8bda1e",
+    "reconcile_mode": "STRICT_METADATA_ONLY_FAST_FRONTIER_V2_APPEND_NEW_EVENT",
+    "next": "Persist genuine RECONCILE event and update WAL index in atomic scientific-branch CAS before CLAIM"
   },
   "chat_fast_frontier_v2": {
     "version": "2.0",

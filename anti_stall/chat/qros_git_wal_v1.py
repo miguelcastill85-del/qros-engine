@@ -128,12 +128,42 @@ def validate_ledger(ledger:dict,event:dict,audit:dict):
     require(isinstance(deltas,list) and len(deltas)==ledger['completed']-446 and len(set(deltas))==len(deltas) and set(deltas)<=all_frozen-audit['closed'],'WAL_DELTA_SET_INCONSISTENT')
     closed=audit['closed']|set(deltas)
     require(ledger['next_CH0']==next_tasks(audit,closed,6,0) and ledger['next_CH4']==next_tasks(audit,closed,6,4),'WAL_CURSOR_DRIFT')
-    require(event.get('phase') in ('BASELINE','CLAIM','COMMIT','BLOCKED'),'WAL_EVENT_PHASE_UNRECOGNIZED')
+    require(event.get('phase') in ('BASELINE','CLAIM','COMMIT','BLOCKED','RECONCILE'),'WAL_EVENT_PHASE_UNRECOGNIZED')
     require((ledger['phase']=='READY') == (ledger['active_claim'] is None),'WAL_ACTIVE_CLAIM_INCONSISTENT')
-    if ledger['phase']=='READY':require(event['phase'] in ('BASELINE','COMMIT'),'WAL_READY_ILLEGAL_PREDECESSOR')
+    if ledger['phase']=='READY':require(event['phase'] in ('BASELINE','COMMIT','RECONCILE'),'WAL_READY_ILLEGAL_PREDECESSOR')
+    if ledger['phase']=='READY' and event['phase']=='RECONCILE':require(event['pointer_after_sha1']==ledger['scientific_pointer_blob_sha1'],'RECONCILE_POINTER_INDEX_DRIFT')
     if ledger['phase']=='CLAIMED':require(event['phase']=='CLAIM' and ledger['active_claim']['task_ids']==event['task_ids'],'WAL_CLAIM_INCONSISTENT')
     if ledger['phase']=='BLOCKED':require(event['phase']=='BLOCKED','WAL_BLOCKED_INCONSISTENT')
     for flag in ledger['scientific_firewalls']:require(ledger['scientific_firewalls'][flag] is False,'WAL_FIREWALL_CHANGED')
+
+def reconcile_orthogonal(ledger:dict,event:dict,audit:dict,old_pointer_bytes:bytes,old_pointer_sha1:str,
+                         new_pointer_bytes:bytes,new_pointer_sha1:str,source_branch_tip:str)->tuple[dict,dict]:
+    """Adopt a live metadata-only pointer update. This NEVER adopts economic changes."""
+    validate_ledger(ledger,event,audit)
+    require(ledger['phase']=='READY' and ledger['scientific_pointer_blob_sha1']==old_pointer_sha1,'RECONCILE_REQUIRES_READY_AND_EXACT_OLD_POINTER')
+    old=check_live(old_pointer_bytes,old_pointer_sha1,audit,ledger['completed'])
+    new=check_live(new_pointer_bytes,new_pointer_sha1,audit,ledger['completed'])
+    require(H40.fullmatch(source_branch_tip) is not None,'RECONCILE_REQUIRES_SOURCE_COMMIT')
+    require(new_pointer_sha1!=old_pointer_sha1,'NO_ACTUAL_POINTER_CHANGE')
+    permitted={'fast_frontier_v2','anti_stall_recovery'}
+    changed={k for k in set(old)|set(new) if old.get(k)!=new.get(k)}
+    require(changed and changed<=permitted,'RECONCILE_SCIENTIFIC_OR_UNKNOWN_FIELD_DRIFT:'+','.join(sorted(changed-permitted)))
+    if 'fast_frontier_v2' in changed:
+        ff=new.get('fast_frontier_v2')
+        require(isinstance(ff,dict) and ff.get('completed')==ledger['completed'] and ff.get('remaining')==ledger['remaining'] and
+                isinstance(ff.get('git_blob_sha1'),str) and H40.fullmatch(ff['git_blob_sha1']) is not None and
+                isinstance(ff.get('ledger_root_sha256'),str) and H64.fullmatch(ff['ledger_root_sha256']) is not None,
+                'RECONCILE_FAST_FRONTIER_UNPINNED_OR_COUNT_DRIFT')
+    e={'schema':EV_SCHEMA,'seq':ledger['generation']+1,'phase':'RECONCILE','parent_event_sha256':ledger['event_sha256'],
+       'pointer_before_sha1':old_pointer_sha1,'pointer_after_sha1':new_pointer_sha1,
+       'exact_equal_scientific_fields':True,'allowed_orthogonal_fields':sorted(changed),
+       'source_scientific_branch_commit':source_branch_tip,'completed_unchanged':ledger['completed'],
+       'economics_changed':False}
+    l={**ledger,'generation':e['seq'],'event_sha256':sha(jsonbytes(e)),
+       'scientific_pointer_blob_sha1':new_pointer_sha1,
+       'equivalent_pointer_reconciliations':ledger.get('equivalent_pointer_reconciliations',[])+[
+         {'old':old_pointer_sha1,'new':new_pointer_sha1,'source_commit':source_branch_tip,'fields':sorted(changed)}]}
+    return l,e
 
 def verified_input_manifest(audit:dict,channel:int,paths:dict)->dict:
     require(channel in (0,4),'BAD_CHANNEL')
@@ -209,6 +239,9 @@ def commit_proposal(ledger:dict,event:dict,audit:dict,pointer_bytes:bytes,pointe
     oldp=json.loads(pointer_bytes);newp=check_live(new_pointer_bytes,new_pointer_sha,audit,d['new_count'])
     require(new_pointer_sha!=pointer_sha and newp['target']!=oldp['target'] and newp['last_closed_remote_anchor_path']!=oldp['last_closed_remote_anchor_path'],'NEW_POINTER_REUSES_STALE_HANDOFF_OR_ANCHOR')
     require(H40.fullmatch(newp['target_git_blob_sha1']) is not None and H40.fullmatch(newp['last_closed_remote_anchor_blob_sha1']) is not None,'NEW_POINTER_UNPINNED_EVIDENCE')
+    if 'fast_frontier_v2' in newp:
+        ff=newp['fast_frontier_v2']
+        require(isinstance(ff,dict) and ff.get('completed')==d['new_count'] and ff.get('remaining')==710-d['new_count'] and isinstance(ff.get('git_blob_sha1'),str) and H40.fullmatch(ff['git_blob_sha1']) is not None,'FAST_FRONTIER_PROJECTION_STALE_AT_SCIENTIFIC_PROMOTION')
     require({row['name'] for row in d['receipts']}==set(c['task_ids']),'DELTA_TASKS_DIFFER_FROM_CLAIM')
     import base64
     for row in d['receipts']:
@@ -230,21 +263,29 @@ def commit_proposal(ledger:dict,event:dict,audit:dict,pointer_bytes:bytes,pointe
 
 def audit_events(events:list[dict],index:dict,audit:dict):
     require(events and events[0]['phase']=='BASELINE' and events[0]['seq']==0,'FIRST_EVENT_NOT_BASELINE')
-    prev='0'*64;last_phase=None;last_claim=None;seen=set();count=446
+    prev='0'*64;last_phase=None;last_claim=None;seen=set();count=446;current_pointer=None
     for i,e in enumerate(events):
         require(e['seq']==i and e['parent_event_sha256']==prev,'EVENT_CHAIN_BROKEN')
-        require(e['schema']==EV_SCHEMA and e['phase'] in ('BASELINE','CLAIM','COMMIT','BLOCKED'),'EVENT_SCHEMA_DRIFT')
-        if i==0:require(e['checkpoint']==446 and e['baseline_zip_sha256']==BASELINE_SHA,'BASELINE_EVENT_DRIFT')
+        require(e['schema']==EV_SCHEMA and e['phase'] in ('BASELINE','CLAIM','COMMIT','BLOCKED','RECONCILE'),'EVENT_SCHEMA_DRIFT')
+        if i==0:
+            require(e['checkpoint']==446 and e['baseline_zip_sha256']==BASELINE_SHA,'BASELINE_EVENT_DRIFT')
+            current_pointer=e['scientific_pointer_blob_sha1']
+        elif e['phase']=='RECONCILE':
+            require(last_phase in ('BASELINE','COMMIT','RECONCILE') and e['completed_unchanged']==count and e['pointer_before_sha1']!=e['pointer_after_sha1'] and e['exact_equal_scientific_fields'] is True and e['economics_changed'] is False and e['pointer_before_sha1']==current_pointer,'UNSAFE_RECONCILIATION_EVENT')
+            current_pointer=e['pointer_after_sha1']
         elif e['phase']=='CLAIM':
-            require(last_phase in ('BASELINE','COMMIT') and 1<=len(e['task_ids'])<=6 and not(set(e['task_ids'])&seen),'EVENT_CLAIM_NOT_FRESH')
+            require(last_phase in ('BASELINE','COMMIT','RECONCILE') and 1<=len(e['task_ids'])<=6 and not(set(e['task_ids'])&seen),'EVENT_CLAIM_NOT_FRESH')
+            require(e['science_pointer_sha1']==current_pointer,'CLAIM_SCIENTIFIC_POINTER_EVENT_DRIFT')
             last_claim=e
         elif e['phase']=='COMMIT':
             require(last_phase in ('CLAIM','BLOCKED') and last_claim is not None and e['work_id']==last_claim['work_id'] and e['task_ids']==last_claim['task_ids'],'EVENT_COMMIT_WITHOUT_CLAIM')
             require(e['from']==count and e['to']==count+len(e['task_ids']) and e['prior_delta_sha256']!=e['new_delta_sha256'],'EVENT_COMMIT_COUNT_OR_CHAIN_DRIFT')
+            require(e['scientific_pointer_before_sha1']==current_pointer and e['scientific_pointer_after_sha1']!=current_pointer,'COMMIT_POINTER_TRANSITION_DRIFT')
+            current_pointer=e['scientific_pointer_after_sha1']
             count=e['to'];seen.update(e['task_ids'])
         else:require(last_phase=='CLAIM' and e['work_id']==last_claim['work_id'],'BLOCKED_WITHOUT_CLAIM')
         prev=sha(jsonbytes(e));last_phase=e['phase']
-    require(count==index['completed'] and set(index['closed_delta_ids'])==seen,'EVENTS_DO_NOT_RECONCILE_LEDGER')
+    require(count==index['completed'] and set(index['closed_delta_ids'])==seen and current_pointer==index['scientific_pointer_blob_sha1'],'EVENTS_DO_NOT_RECONCILE_LEDGER')
     require(prev==index['event_sha256'] and index['generation']==len(events)-1,'LEDGER_HEAD_OR_SEQUENCE_MISMATCH')
     validate_ledger(index,events[-1],audit)
     return {'status':'WAL_EVENT_CHAIN_PASS','event_count':len(events),'tip_sha256':prev,'phase':index['phase'],'completed':index['completed']}
@@ -288,6 +329,7 @@ def main(argv=None):
     def current_options(parser):
         pointer_options(parser);parser.add_argument('--ledger',required=True);parser.add_argument('--last-event',required=True)
     init=sp.add_parser('bootstrap');pointer_options(init);init.add_argument('--out',required=True);init.add_argument('--expected-branch-tip',required=True)
+    reconc=sp.add_parser('reconcile');current_options(reconc);reconc.add_argument('--new-pointer',required=True);reconc.add_argument('--new-pointer-blob-sha1',required=True);reconc.add_argument('--source-branch-tip',required=True);reconc.add_argument('--out',required=True);reconc.add_argument('--expected-branch-tip',required=True)
     peek=sp.add_parser('next');current_options(peek)
     cl=sp.add_parser('claim');current_options(cl);cl.add_argument('--channel',type=int,choices=[0,4],required=True)
     cl.add_argument('--raw-ticks',required=True);cl.add_argument('--channel-zip',required=True);cl.add_argument('--owner',default='CHAT_TURN')
@@ -311,7 +353,10 @@ def main(argv=None):
         else:
             ledger=json.loads(pathlib.Path(a.ledger).read_bytes());event=json.loads(pathlib.Path(a.last_event).read_bytes())
             p=pathlib.Path(a.pointer).read_bytes();ps=a.pointer_blob_sha1
-            if a.command=='next':
+            if a.command=='reconcile':
+                l,e=reconcile_orthogonal(ledger,event,baseline,p,ps,pathlib.Path(a.new_pointer).read_bytes(),a.new_pointer_blob_sha1,a.source_branch_tip)
+                o=write_stage(a.out,l,e,'RECONCILE',a.expected_branch_tip)
+            elif a.command=='next':
                 validate_ledger(ledger,event,baseline);check_live(p,ps,baseline,ledger['completed'])
                 require(ledger['scientific_pointer_blob_sha1']==ps,'STALE_SCIENTIFIC_POINTER')
                 o=recover(ledger,event,baseline,p,ps)

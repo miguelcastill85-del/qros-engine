@@ -1,0 +1,24 @@
+{
+  "schema": "QROS_GITHUB_WAL_V11_CODE_RELEASE",
+  "parent_main": "870ef544902d1af52ee5226bc0f3095daaa683f4",
+  "previous_governance_sha1": "4065d2b7c3e373eab729c77e52fa1731a0e2ad02",
+  "source_git_blobs": {
+    "anti_stall/chat/qros_git_wal_v1.py": "710b82b9a6585723ba982fb0ffc71a288073c2a7",
+    "anti_stall/tests/test_qros_git_wal_v1.py": "c22de6a212cb1e7488ad96515d298970297c7700",
+    "anti_stall/chat/README_QROS_GITHUB_WAL_V1.md": "2c4a3bfe143fe13e6faef41c424dd9581e8bda1e"
+  },
+  "original_transport_unchanged_sha1": "57687dfcb8b7e9a27cc5d406febf3f5d5a167f05",
+  "local_tests": {
+    "pass": 35,
+    "real_original_W5_receipts": 446,
+    "real_manifest_members": 452,
+    "real_frozen_tasks": 710
+  },
+  "remote_private_ci": "NOT_RUN_AVOID_COST",
+  "gates": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "ga2_open": false
+  },
+  "next": "Atomic scientific RECONCILE event and readback; no scientific shard recomputed."
+}

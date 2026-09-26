@@ -49,3 +49,11 @@ Una vez que los seis recibos reales estén completos y que el validador original
 - `Gate_A_approved=false`, `holdout_open=false`, `ga2_open=false`; sin nuevos resultados de PnL y sin certificación histórica de comisiones ni horarios especiales.
 
 **Regla de no-estancamiento:** si una tarea reclama el turno sin poder completar el delta antes de terminar la respuesta, registrar la situación real y detener el worker. Recuperar en el siguiente turno desde el evento Git; jamás atribuir PASS o abrir holdout con trabajo local no persistido.
+
+## Recuperación de drift **ortogonal** — v1.1
+
+Se detectó una actualización legítima de Fast Frontier v2 mientras el WAL tenía el puntero anterior fijado: ambos coinciden en 446/710, recibos, target, anchor, plan y gates; Fast Frontier añade únicamente los campos `fast_frontier_v2` y `anti_stall_recovery`. La transición ejecutable `RECONCILE` permite adoptar **solo estos dos campos exactos**, y únicamente si Fast Frontier declara `completed`/`remaining` idénticos, `git_blob_sha1` y `ledger_root_sha256` bien formados y si el agente relee el archivo y commit origen directamente de GitHub.
+
+`reconcile_orthogonal()` genera un evento Git `000001_RECONCILE.json` SHA-256 encadenado con el evento anterior, repinea el SHA-1 del puntero científico sin tocar `completed`, `remaining`, recibos ni delta, y mantiene READY. Se publica junto con el índice mediante Git CAS de múltiples archivos y readback. Cualquier campo no incluido en esa lista, cambio económico, gate abierto, cursor diferente, SHA de target o de ancla diferente ⇒ FAIL_CLOSED. Un segundo intento con el mismo puntero ⇒ NO_ACTUAL_POINTER_CHANGE.
+
+Antes de un COMMIT que avance W5, si existe Fast Frontier en el puntero nuevo, su proyección debe avanzar al mismo cursor; no se permite conservar Fast Frontier en 446 mientras el WAL promueve 452. Fast Frontier es una **proyección de lectura** y no un segundo árbitro de promoción científica: el commit final de WAL debe actualizar ambos campos de manera atómica.

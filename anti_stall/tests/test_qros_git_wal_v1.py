@@ -102,6 +102,14 @@ class WALTests(unittest.TestCase):
         self.assertEqual((nl['completed'],nl['remaining'],nl['phase']),(452,258,'READY'))
         self.assertEqual(w.audit_events([self.ev,e,ne],nl,self.audit)['status'],'WAL_EVENT_CHAIN_PASS')
         self.assertEqual(nl['next_CH0'][0],w.next_tasks(self.audit,self.audit['closed']|set(e['task_ids']),6,0)[0])
+    def test_35_fast_frontier_stale_projection_fails_on_commit(self):
+        l,e=self.claim();recs=fake_receipts(self.audit,e['task_ids']);nb,ns=ptr(452)
+        new=json.loads(nb);new['fast_frontier_v2']={'completed':446,'remaining':264,'git_blob_sha1':'f'*40};nb=w.jsonbytes(new);ns=w.gb(nb)
+        d={'schema':'QROS_W5_GITHUB_APPEND_ONLY_DELTA_V1','parent_sha256':w.BASELINE_SHA,'previous_count':446,'new_count':452,
+           'frozen_plan_sha256':w.PLAN_SHA,'no_new_PnL':True,'Gate_A_approved':False,'holdout_open':False,'ga2_open':False,
+           'receipts':[{'name':k,'bytes':len(v),'sha256':w.sha(v),'b64':base64.b64encode(v).decode()} for k,v in recs.items()]}
+        with self.assertRaisesRegex(w.Stop,'FAST_FRONTIER_PROJECTION_STALE'):
+            w.commit_proposal(l,e,self.audit,self.pb,self.ps,recs,w.jsonbytes(d),w.BASELINE_SHA,nb,ns)
     def test_20_delta_stale_parent_fails(self):
         l,e=self.claim();recs=fake_receipts(self.audit,e['task_ids']);nb,ns=ptr(452)
         d={'schema':'QROS_W5_GITHUB_APPEND_ONLY_DELTA_V1','parent_sha256':'0'*64,'previous_count':446,'new_count':452,'frozen_plan_sha256':w.PLAN_SHA,'receipts':[]}
@@ -112,6 +120,37 @@ class WALTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             f=pathlib.Path(d)/'fake.zip';f.write_bytes(pathlib.Path(BASE).read_bytes()+b'x')
             with self.assertRaisesRegex(w.Stop,'INPUT_BYTES_SHA256_DRIFT'):w.audit_baseline(str(f))
+
+class ReconcileTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.audit=w.audit_baseline(BASE)
+        cls.old,cls.oldsha=ptr()
+        cls.ledger,cls.event=w.bootstrap(cls.audit,cls.old,cls.oldsha)
+        new=json.loads(cls.old)
+        new['fast_frontier_v2']={'completed':446,'remaining':264,'git_blob_sha1':'f'*40,'ledger_root_sha256':'a'*64}
+        new['anti_stall_recovery']='FAST_FRONTIER_EQUIVALENT_METADATA_ONLY'
+        cls.new=w.jsonbytes(new);cls.newsha=w.gb(cls.new)
+    def test_29_equivalent_fast_frontier_reconciles_without_new_science(self):
+        l,e=w.reconcile_orthogonal(self.ledger,self.event,self.audit,self.old,self.oldsha,self.new,self.newsha,'9'*40)
+        self.assertEqual((l['completed'],l['remaining'],l['phase']),(446,264,'READY'))
+        self.assertEqual(l['scientific_pointer_blob_sha1'],self.newsha)
+        self.assertEqual(w.audit_events([self.event,e],l,self.audit)['status'],'WAL_EVENT_CHAIN_PASS')
+    def test_30_economic_field_drift_rejected(self):
+        x=json.loads(self.new);x['Gate_A_approved']=True;b=w.jsonbytes(x)
+        with self.assertRaisesRegex(w.Stop,'LIVE_FIREWALL_DRIFT'):w.reconcile_orthogonal(self.ledger,self.event,self.audit,self.old,self.oldsha,b,w.gb(b),'9'*40)
+    def test_31_unknown_field_drift_rejected(self):
+        x=json.loads(self.new);x['unapproved_extra']='write';b=w.jsonbytes(x)
+        with self.assertRaisesRegex(w.Stop,'UNKNOWN_FIELD_DRIFT'):w.reconcile_orthogonal(self.ledger,self.event,self.audit,self.old,self.oldsha,b,w.gb(b),'9'*40)
+    def test_32_frontier_count_drift_rejected(self):
+        x=json.loads(self.new);x['fast_frontier_v2']['completed']=445;b=w.jsonbytes(x)
+        with self.assertRaisesRegex(w.Stop,'FAST_FRONTIER_UNPINNED_OR_COUNT_DRIFT'):w.reconcile_orthogonal(self.ledger,self.event,self.audit,self.old,self.oldsha,b,w.gb(b),'9'*40)
+    def test_33_reconcile_does_not_repeat_when_pointer_unchanged(self):
+        with self.assertRaisesRegex(w.Stop,'NO_ACTUAL_POINTER_CHANGE'):w.reconcile_orthogonal(self.ledger,self.event,self.audit,self.old,self.oldsha,self.old,self.oldsha,'9'*40)
+    def test_34_reconciliation_event_old_pointer_tamper(self):
+        l,e=w.reconcile_orthogonal(self.ledger,self.event,self.audit,self.old,self.oldsha,self.new,self.newsha,'9'*40)
+        e['pointer_before_sha1']='1'*40;l['event_sha256']=w.sha(w.jsonbytes(e))
+        with self.assertRaisesRegex(w.Stop,'UNSAFE_RECONCILIATION_EVENT'):w.audit_events([self.event,e],l,self.audit)
 
 class FakeAPI:
     def __init__(self):
