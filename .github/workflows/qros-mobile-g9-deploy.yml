@@ -1,0 +1,32 @@
+name: QROS G9 manually gated Free Worker deployment
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/product/mobile-g9-cloudflare-android-20260926' && vars.QROS_G9_FREE_PLAN_VERIFIED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: qros-g9-test-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - run: npm ci --ignore-scripts
+        working-directory: product/mobile/g9
+      - name: Run backend gates before disabled bootstrap deploy
+        run: |
+          node --test product/mobile/g9/tests/core.test.mjs
+          node --test product/mobile/g9/tests/workerd.test.mjs
+      - name: Deploy disabled canary only; no key or token in build
+        working-directory: product/mobile/g9
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: |
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+          test -n "$CLOUDFLARE_API_TOKEN"
+          ./node_modules/.bin/wrangler deploy

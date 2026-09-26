@@ -1,0 +1,81 @@
+{
+  "authority": {
+    "branch": "product/mobile-g9-cloudflare-android-20260926",
+    "g8_head_git_blob": "ef7ce60bcf922f32152ebb8a2965f5feec0f7ed0",
+    "mobile_head_git_blob": "815e99530583691e48087835908bb1fd0055c0a3",
+    "mobile_head_schema": "QROS_MOBILE_ONLY_PRODUCT_HEAD_v11",
+    "parent_commit": "a8bcb889fb2a30d65cfd5ab3903c50ee8358d4fa",
+    "scientific_pointer_blob_unchanged": "5a88937d571e4bcc938c9ce71570092e0abfae6d"
+  },
+  "classification": "TEST_ONLY_NO_SCIENTIFIC_AUTHORITY",
+  "data": "synthetic only",
+  "economic_pnl_open": false,
+  "ga2_open": false,
+  "gates": {
+    "CLOUDFLARE_PUBLIC_TLS": "NOT_DEPLOYED",
+    "DART_CI": "PENDING",
+    "INDEPENDENT_CUSTODY": "NOT_DEPLOYED",
+    "NEW_APK": "NOT_BUILT",
+    "PHYSICAL_ANDROID": "NOT_RUN",
+    "PRODUCTION_OIDC": "NOT_DEPLOYED",
+    "SIGSTORE_PUBLIC_RECORD": "NOT_PUBLISHED",
+    "TLS_CERT_SUBSTITUTION": "NOT_RUN_G9"
+  },
+  "holdout_open": false,
+  "incidents": [
+    {
+      "attempts": "initial navigation + one reload",
+      "cause": "Cloudflare browser challenge loop",
+      "effect": "account/secrets/deploy unavailable"
+    },
+    {
+      "cause": "miniflare 5 API changed; guessed 4.20260925.0 absent",
+      "correction": "pin observed stable miniflare 4.20260730.0"
+    },
+    {
+      "cause": "runtime newest compatibility date 2026-08-06",
+      "correction": "pin both test and deployment date to 2026-07-30; rerun passed"
+    },
+    {
+      "cause": "historical verify_import manifest not materialized in scoped checkout",
+      "effect": "not claimed PASS; 103 current relevant Git blobs independently verified instead"
+    }
+  ],
+  "mt5_run": false,
+  "next_action": "Run CI on exact product commit; verify Dart parity and artifacts. Resolve Cloudflare browser access before credential provisioning and deployment. Decide minimal Sigstore workflow identity disclosure. Keep Mobile HEAD v11 until promotion evidence suffices.",
+  "objective": "Cloudflare HTTPS + Android + external evidence",
+  "portfolio_impact": "NONE",
+  "schema": "QROS_G9_LOCAL_CHECKPOINT_V1",
+  "scientific_state": "UNCHANGED_MAIN_V259_REFERENCE_ONLY",
+  "source_sha256": {
+    ".github/workflows/qros-mobile-g9-deploy.yml": "e9c455614960beaf28cc64b28daf79c20ba84ac23ea8e8db22ab9721f703804d",
+    ".github/workflows/qros-mobile-g9-sigstore.yml": "20800a9837b4ed5146cdfb8d682b1da7f15d7244bb01452bfd6bb9d85f6252d0",
+    ".github/workflows/qros-mobile-g9.yml": "b08ae00929a8f417f2c04f1e792d79bef3b7cca3de826a7756c3d7596fa88b50",
+    "product/mobile/flutter_app/test/g9_worker_parity_test.dart": "5a68ec971517d91d88a4c0e7504e1c06e6afb52f12675fef410c3dc48a4c419b",
+    "product/mobile/g9/.gitignore": "e7ad4acaffe3c50ebabd9e43c67f4a22678b48636ae102a61e5aa7f503e51eda",
+    "product/mobile/g9/ANDROID_PHYSICAL_TEST.md": "b530097a0f440b7ffac6c27dd732141aea5b6b72938670cc9f3d789cd407384a",
+    "product/mobile/g9/SIGSTORE_AND_DEPLOYMENT.md": "2045e2a43d6379e1d9feb9594ca9c9d4262de33e38307e7bf5e8faf9755b36be",
+    "product/mobile/g9/package-lock.json": "dd620a2c81f83dff7895e4ea1513f56561f7a51b28cddff4de28e4cde05fe74b",
+    "product/mobile/g9/package.json": "ffc317f150e18663f006e495e9b5c9793ec411875ec4b512c09fbef34e1d7be1",
+    "product/mobile/g9/tests/core.test.mjs": "932a44483cf4a71574c18ca948d737f2f2e3e8845ca412c58ec564ebc5970e83",
+    "product/mobile/g9/tests/oracle.py": "4187f286f1c3395c3d28ea1d7504901d693218b6183ffd8e2583205fa2431039",
+    "product/mobile/g9/tests/workerd.test.mjs": "34b22e47640ed5378cdaa35ddaa3bfddc5b1981603d7cbe4fb6ea9c5114f159b",
+    "product/mobile/g9/worker/core.mjs": "50d721f3d1dfcd38c7159b4c66245fec11b3cf76ef008979503941c905868057",
+    "product/mobile/g9/worker/index.mjs": "6a25c0837c42b291b7fa7e9dce9e6f626ed87535be2bb486580ff6a2fb85a4da",
+    "product/mobile/g9/wrangler.jsonc": "8b6c93e62da2413bb746c04629a2b5b3146882fe9b08ee1e704aa7b2d38e9f55"
+  },
+  "verified": {
+    "concurrent_attempts": 8,
+    "concurrent_replay_rejections": 7,
+    "concurrent_successes": 1,
+    "g6_regressions": 3,
+    "node_tests": 25,
+    "python_oracle_negative": 3,
+    "python_oracle_positive": 1,
+    "quota_rejected": true,
+    "recovered_git_blobs": 103,
+    "restart_replay_rejected": true,
+    "workerd_integration_tests": 1,
+    "wrangler_dry_run": true
+  }
+}

@@ -1,0 +1,58 @@
+name: QROS Mobile G9 Worker parity TEST_ONLY
+on:
+  push:
+    branches: [product/mobile-g9-cloudflare-android-20260926]
+    paths: ['product/mobile/g9/**', 'product/mobile/flutter_app/test/g9_worker_parity_test.dart', '.github/workflows/qros-mobile-g9.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qros-g9-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - name: Resolve locked tooling
+        run: npm ci --ignore-scripts
+        working-directory: product/mobile/g9
+      - name: Independent crypto and real workerd tests
+        run: |
+          set -euo pipefail
+          node --test product/mobile/g9/tests/core.test.mjs
+          node --test product/mobile/g9/tests/workerd.test.mjs
+          python3 -m pip install cryptography==46.0.5
+          python3 product/mobile/g9/tests/oracle.py
+          python3 -m unittest discover -s product/mobile/g6/tests -v
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+        with: {channel: stable, flutter-version: '3.35.4'}
+      - name: Dart verifies real Worker output and G6 regressions
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter pub get
+          flutter test --reporter expanded test/g5_snapshot_test.dart test/g5_snapshot_widget_test.dart test/g9_worker_parity_test.dart
+      - name: Wrangler bundle only, no deploy
+        working-directory: product/mobile/g9
+        env: {WRANGLER_SEND_METRICS: 'false'}
+        run: ./node_modules/.bin/wrangler deploy --dry-run --outdir evidence/bundle
+      - name: Freeze evidence after all required gates
+        run: |
+          python3 - <<'PY'
+          import pathlib,hashlib,json,os
+          p=pathlib.Path('product/mobile/g9/evidence')
+          files={str(f.relative_to(p)):hashlib.sha256(f.read_bytes()).hexdigest() for f in sorted(p.rglob('*')) if f.is_file()}
+          receipt={'schema':'QROS_G9_CI_RECEIPT_V1','source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'status':'PASS_ENGINEERING_TEST_ONLY','files_sha256':files,'public_https':'NOT_DEPLOYED','physical_android':'NOT_RUN','external_custody':'NOT_DEPLOYED','scientific_gate_pass':False}
+          (p/'CI_RECEIPT.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print(json.dumps(receipt,sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g9-worker-parity
+          path: product/mobile/g9/evidence/
+          retention-days: 3
+          if-no-files-found: error
