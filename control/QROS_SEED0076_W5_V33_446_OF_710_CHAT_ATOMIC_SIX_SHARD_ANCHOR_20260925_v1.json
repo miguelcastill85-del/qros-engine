@@ -1,0 +1,83 @@
+{
+  "schema": "QROS_W5_V33_446_OF_710_CHAT_ATOMIC_SIX_SHARD_DURABLE_RELEASE_V1",
+  "date_utc": "2026-09-26",
+  "repo": "miguelcastill85-del/qros-engine",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "previous_pointer_sha1": "7b9cd425b87eb88c499e825900f04a46085be1ed",
+  "previous_target_sha1": "7ad937ba7a9922723e6327813b4dc75f7b90dc60",
+  "previous_anchor_sha1": "4647d2779083c597396c9617548d9b1099636e3a",
+  "source": {
+    "original_raw_ticks": 151382388,
+    "original_raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "original_frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "original_frozen_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf"
+  },
+  "execution": {
+    "previous_440_receipts_unchanged": true,
+    "previous_complete": 440,
+    "new_original_CH4_shards": 6,
+    "complete": 446,
+    "pending": 264,
+    "CH0_completed": 209,
+    "CH4_completed": 237,
+    "added_shards": [
+      "CH4_r0_w1_batch017_I082_101.json",
+      "CH4_r0_w1_batch017_I102_121.json",
+      "CH4_r0_w1_batch017_I122_142.json",
+      "CH4_r0_w1_batch017_I143_162.json",
+      "CH4_r0_w1_batch017_I163_182.json",
+      "CH4_r0_w1_batch017_I183_202.json"
+    ],
+    "mask_occurrences": 8597,
+    "sampled_events": 1065132,
+    "independent_identical_trades": 657950,
+    "independent_identical_fields": 7237450,
+    "added_independent_identical_trades": 11168,
+    "added_identical_fields": 122848,
+    "no_new_PnL": true,
+    "worker_exit": 75,
+    "worker_exit_reason": "EXPECTED_BOUNDED_PAUSE_AFTER_SIX",
+    "auditor": "PASS_446_OF_446_FROZEN_TASKS"
+  },
+  "storage": {
+    "folder": "/QROS_SEED0076_W5_V33_446_OF_710_20260925",
+    "zip_name": "QROS_W5_V33_VERIFIED_446_OF_710_MASK_PARITY_SHARDS_20260925.zip",
+    "zip_library_id": "libfile_06b66fd345188191a28c4a7ffbf942fb",
+    "zip_bytes": 1052386,
+    "zip_sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05",
+    "master_library_id": "libfile_5ca6d7d3d1d88191b6886dc2ad4e756d",
+    "master_bytes": 260936,
+    "master_sha256": "f0917ceb6f4d0e043205ae5b737a593baacf9b0017c272ea6656e2f48b933317",
+    "manifest_library_id": "libfile_1decbe9e94b48191b636f9c43598cef1",
+    "manifest_bytes": 79679,
+    "manifest_sha256": "1e0ef3369c4d7e19846c52367784b9d0b67bd8fc71edc7940823d442a00a5f4b",
+    "readback_sha256": "PASS_3_OF_3",
+    "zip_crc": "PASS",
+    "zip_internal_members": 453,
+    "individual_members_rehashed": 452
+  },
+  "next_original": {
+    "CH0": {
+      "route": "r0_w1_batch015",
+      "ordinals_start": 143,
+      "ordinals_end": 162
+    },
+    "CH4": {
+      "route": "r0_w1_batch017",
+      "ordinals_start": 204,
+      "ordinals_end": 223
+    },
+    "max_uncommitted_shards": 6
+  },
+  "scientific_gates": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "MT5_parity": false,
+    "historical_account_commission_certified": false,
+    "historical_gold_special_hours_certified": false,
+    "old_V28_104_economic_shards_untouched": true,
+    "W3_deferred": true,
+    "original_old_60_shards_untouched": true
+  }
+}
