@@ -7,6 +7,7 @@ scientific fitness. No credentials, telemetry services or paid resources.
 from __future__ import annotations
 import argparse
 import hashlib
+from io import BytesIO
 import json
 import os
 from pathlib import Path
@@ -15,6 +16,7 @@ import struct
 import subprocess
 import time
 import xml.etree.ElementTree as ET
+from PIL import Image, UnidentifiedImageError
 from typing import Callable
 
 APK_SHA256 = '2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97'
@@ -60,6 +62,32 @@ def inspect_png(data: bytes) -> tuple[int, int]:
     if not 320 <= width <= 4320 or not 480 <= height <= 4320:
         deny('SCREENSHOT_DIMENSIONS_OUT_OF_RANGE')
     return width, height
+
+
+
+def dark_content_fraction(data: bytes) -> float:
+    """Conservatively reject Flutter's observed WHITE startup splash.
+
+    The frozen QROS G6 Flutter ThemeData scaffold is dark (#09111F). This
+    color check confirms the actual rendered screen, not just Android PID.
+    It does NOT prove navigation, network pairing or physical hardware.
+    """
+    try:
+        with Image.open(BytesIO(data)) as im:
+            im.verify()
+        with Image.open(BytesIO(data)) as im:
+            img = im.convert('RGB')
+            img.thumbnail((72, 144), Image.Resampling.NEAREST)
+            pixels = list(img.getdata())
+    except (OSError, ValueError, UnidentifiedImageError):
+        deny('SCREENSHOT_PNG_DECODE_FAILED')
+    if not pixels:
+        deny('SCREENSHOT_NO_PIXELS')
+    dark = sum(1 for r, g, b in pixels if r < 100 and g < 110 and b < 125)
+    fraction = dark / len(pixels)
+    if fraction < 0.30:
+        deny('QROS_DARK_FLUTTER_UI_NOT_RENDERED_SPLASH_ONLY')
+    return round(fraction, 4)
 
 
 def inspect_hierarchy(data: bytes) -> dict:
@@ -142,19 +170,54 @@ class EmulatorProbe:
         if not pid.isdecimal():
             deny('ANDROID_APPLICATION_PID_NOT_OBSERVED')
         self.pause(2)
-        activity = self.cmd(serial, 'shell', 'dumpsys', 'activity', 'activities', timeout=45)
-        if not any(PACKAGE.encode() in line and (b'topResumedActivity' in line or b'mResumedActivity' in line or b'ResumedActivity' in line) for line in activity.splitlines()):
-            deny('ANDROID_ACTIVITY_NOT_OBSERVED_AS_RESUMED')
-        png = self.cmd(serial, 'exec-out', 'screencap', '-p', timeout=45)
-        width, height = inspect_png(png)
+        # First CI run demonstrated that a valid PID can coexist with a WHITE
+        # Flutter splash screen. Require actual dark-themed G6 UI pixels.
+        png = b''
+        width = height = 0
+        dark_fraction = 0.0
+        for _ in range(24):
+            activity = self.cmd(serial, 'shell', 'dumpsys', 'activity', 'activities', timeout=45)
+            resumed = any(PACKAGE.encode() in line and (b'topResumedActivity' in line or b'mResumedActivity' in line or b'ResumedActivity' in line) for line in activity.splitlines())
+            if not resumed:
+                self.pause(2)
+                continue
+            png = self.cmd(serial, 'exec-out', 'screencap', '-p', timeout=45)
+            width, height = inspect_png(png)
+            # Keep a raw screen on failures so the cause can be diagnosed.
+            (evidence / 'G8_ANDROID_EMULATOR_SCREEN.png').write_bytes(png)
+            try:
+                dark_fraction = dark_content_fraction(png)
+                break
+            except SmokeDeny as exc:
+                if 'SPLASH_ONLY' not in str(exc):
+                    raise
+                self.pause(2)
+        if dark_fraction < 0.30:
+            deny('DARK_G6_UI_NOT_RENDERED_WITHIN_BOUND')
         shot = evidence / 'G8_ANDROID_EMULATOR_SCREEN.png'
-        shot.write_bytes(png)
-        # Separate UIAutomator collection. Require structural evidence, but do NOT
-        # falsely claim QROS semantic accessibility if Flutter exposes no text.
-        self.cmd(serial, 'shell', 'uiautomator', 'dump', '/sdcard/qros_g8_hierarchy.xml', timeout=65)
+        # UIAutomator can report an error while exiting 0. Do not infer a
+        # successful dump from the process code or silently skip this gate.
         xml_file = evidence / 'G8_ANDROID_UI_HIERARCHY.xml'
-        self.cmd(serial, 'pull', '/sdcard/qros_g8_hierarchy.xml', str(xml_file), timeout=40)
-        hierarchy = inspect_hierarchy(xml_file.read_bytes())
+        hierarchy = None
+        diagnostics = []
+        for _ in range(4):
+            raw = self.cmd(serial, 'shell', 'uiautomator', 'dump', '/sdcard/qros_g8_hierarchy.xml', timeout=65)
+            message = raw.decode(errors='replace')[:1000]
+            if 'UI hierchary dumped to:' not in message and 'UI hierarchy dumped to:' not in message:
+                diagnostics.append('DUMP_DID_NOT_REPORT_SUCCESS:' + message[:120])
+                self.pause(2)
+                continue
+            try:
+                candidate = self.cmd(serial, 'exec-out', 'cat', '/sdcard/qros_g8_hierarchy.xml', timeout=40)
+                hierarchy = inspect_hierarchy(candidate)
+                xml_file.write_bytes(candidate)
+                break
+            except SmokeDeny as exc:
+                diagnostics.append(str(exc)[:160])
+                self.pause(2)
+        if hierarchy is None:
+            (evidence / 'G8_UI_DUMP_DIAGNOSTIC.json').write_text(json.dumps({'errors': diagnostics}, sort_keys=True)+'\n')
+            deny('ANDROID_UI_HIERARCHY_UNAVAILABLE_AFTER_REAL_RENDER')
         logs = self.cmd(serial, 'logcat', '-d', '-t', '1800', '-v', 'brief', timeout=45).decode(errors='replace')
         # Only a crash attributed to the app fails the gate. Other emulator/SDK
         # errors are unrelated and not evidence of an app crash.
@@ -170,6 +233,7 @@ class EmulatorProbe:
                    'activity_resumed_evidence': 'ACTIVITY_DUMPSYS_PACKAGE_PRESENT',
                    'screen_png_sha256': sha256(png), 'screen_png_bytes': len(png),
                    'screen_width': width, 'screen_height': height,
+                   'dark_g6_ui_fraction': dark_fraction,
                    'ui_hierarchy_sha256': sha256(xml_file.read_bytes()),
                    **hierarchy, **info,
                    'physical_device_install': 'NOT_RUN',

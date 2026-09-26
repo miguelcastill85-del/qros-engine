@@ -1,0 +1,31 @@
+{
+  "causal_diagnosis": "The earlier G8 canary sampled the splash before Flutter dark UI rendered, then assumed a zero-exit UIAutomator command created a pullable XML file. The unverified pull failed.",
+  "classification": "VERIFIED_GITHUB_ACTIONS_FAIL_AND_DOWNLOADED_SCREENSHOT_BYTES",
+  "corrective_delta": "Wait until the actual dark Flutter-themed framebuffer occupies at least 30% of sampled pixels, then require positive UIAutomator dump success text and retrieve raw XML through adb exec-out cat; retry failures with bounded error diagnostics and no weakening of PID/resumed or SHA gates.",
+  "downloaded_fail_artifact_id": 10894616201,
+  "downloaded_fail_zip_sha256": "4c06a111a39c2e9f83e0ffd98f331740b9743af24dfe88392910a38a48d4d367",
+  "exact_failure": "QROS_G8_FAIL_CLOSED:ADB_COMMAND_FAILED:pull",
+  "failed_job": 108305417865,
+  "failed_run": 36206966041,
+  "failure_stage": "REAL_ANDROID_EMULATOR_RUNTIME",
+  "ga2_open": false,
+  "holdout_open": false,
+  "no_fabricated_ci_pass": true,
+  "observed_substeps": [
+    "ANDROID_35_EMULATOR_BOOTED",
+    "EXACT_G6_APK_SHA256_VERIFIED",
+    "REAL_ADB_INSTALL_AND_PROCESS_OBSERVED",
+    "PNG_SCREENSHOT_ARCHIVED_BEFORE_UI_DUMP"
+  ],
+  "physical_device_install": "NOT_RUN",
+  "raw_splash_png_bytes": 37876,
+  "raw_splash_png_dimensions": [
+    1080,
+    2400
+  ],
+  "raw_splash_png_sha256": "66e5253196490a2850ab89feedea451de671d0fcd419d1048b71668cc92f1b44",
+  "schema": "QROS_MOBILE_G8_CI_INCIDENT_EARLY_SPLASH_UI_PULL_V1",
+  "scientific_state_modified": false,
+  "screenshot_observation": "WHITE_FLUTTER_STARTUP_SPLASH; NOT_RENDERED_QROS_APP",
+  "source_commit": "9347a93c99dcbc06e67c6709ab5f49ab66fbee9a"
+}

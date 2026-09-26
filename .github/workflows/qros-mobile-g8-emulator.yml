@@ -26,6 +26,8 @@ jobs:
           python-version: '3.12'
       - name: Reject no-op, source changes, wrong G7 parent or scientific authority drift
         run: python product/mobile/g8/progress_gate.py --remote-git
+      - name: Install pinned PNG decoder for actual dark Flutter render evidence
+        run: python -m pip install --disable-pip-version-check Pillow==11.3.0
       - name: Isolated G8 emulator and anti-stall adversarial unit tests
         run: python -m unittest discover -s product/mobile/g8/tests -v
       - name: Independently download prior verified exact G6 binary (never rebuild)
