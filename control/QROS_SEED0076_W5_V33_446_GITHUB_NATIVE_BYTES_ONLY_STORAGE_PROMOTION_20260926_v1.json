@@ -1,0 +1,49 @@
+{
+  "schema": "QROS_W5_V33_446_GITHUB_NATIVE_FULL_BYTES_STORAGE_PROMOTION_V1",
+  "date_utc": "2026-09-26",
+  "repo": "miguelcastill85-del/qros-engine",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "scientific_previous_pointer_sha1": "a930c114d07a0aad6ec397e7f055e346411c38ee",
+  "scientific_previous_target_blob_sha1": "868cdd18e61a6ec123a98c905b4b4bec997d5b5b",
+  "scientific_previous_anchor_blob_sha1": "01c54f04d677cc9d24b47b1524f3a41969a4f022",
+  "storage_commit": "d3922908448102c71482783b8f0becffd77444a9",
+  "main_code_policy_commit": "30c552c166e9cebdd7c6b254e9ed20ef9c6f1b64",
+  "main_governance_sha1": "1c3eef055baf83ed561f7c4aaa4a4aba7f411acd",
+  "storage_root": "research/public1000/seed0076/direct_dev/v33_git_native_evidence",
+  "baseline_archive": {
+    "path": "research/public1000/seed0076/direct_dev/v33_git_native_evidence/BASELINE_446_FULL_VERIFIED.zip",
+    "bytes": 1052386,
+    "sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05",
+    "git_blob_sha1": "688ec3fa2123ec9df900c41487e4f6298b4ceea5",
+    "internal_manifest_member_hashes_verified": 452,
+    "original_receipts_verified": 446,
+    "frozen_original_tasks": 710
+  },
+  "ascii_recovery": {
+    "index_path": "research/public1000/seed0076/direct_dev/v33_git_native_evidence/BASELINE_446_ASCII_INDEX.json",
+    "index_sha1": "af1dcfdc6dd01c198bb91ec3ad300f2697317335",
+    "git_parts_readback_pass": 16,
+    "git_parts_total": 16,
+    "full_zip_reconstruction_sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05"
+  },
+  "software": {
+    "path_main": "anti_stall/chat/qros_github_shard_store_v1.py",
+    "sha1": "d94ea2e591d1a9d999ded2d1e574c9b8b3cc5eb6",
+    "adversarial_tests_pass": 14,
+    "tests_failed_after_fix": 0,
+    "synthetic_fixtures_not_economic_proof": true
+  },
+  "storage_policy": "GITHUB_NATIVE_BASELINE_AND_APPEND_ONLY_MAX_SIX_RECEIPT_DELTAS_NO_NEW_LIBRARY_BUNDLES",
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "unchanged_original_446": 446,
+  "remaining_original_shards": 264,
+  "source_raw_ticks_in_git": false,
+  "raw_source_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "Gate_A_approved": false,
+  "holdout_open": false,
+  "GA2_open": false,
+  "new_PnL": false,
+  "broker_commission_2018_19_certified": false,
+  "historical_special_hours_certified": false,
+  "next_action": "Recover GH-native 446 baseline via authenticated GitHub only; verify plan and receipts with Git-only script; obtain SHA-pinned original raw ticks and V28 CH0/CH4 tapes from independent pinned source; run max six original V33 tasks; publish complete six receipt bytes as Git immutable delta with Git SHA1 + SHA256 readback; CAS live pointer before another group. Do not upload a full ZIP to Library."
+}
