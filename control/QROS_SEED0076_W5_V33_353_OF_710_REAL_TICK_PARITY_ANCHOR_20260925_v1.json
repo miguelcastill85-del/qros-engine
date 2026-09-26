@@ -1,0 +1,74 @@
+{
+  "schema": "QROS_W5_V33_353_OF_710_REAL_TICK_FROZEN_PARITY_DURABLE_RECEIPT_V1",
+  "date_utc": "2026-09-25",
+  "repo": "miguelcastill85-del/qros-engine",
+  "branch": "research/seed0076-direct-dev-backtest-20260922",
+  "previous_pointer_sha1": "5399a5bf174858dfbf007db6480769b3ae5ab50e",
+  "previous_handoff_sha1": "2990f7585cbf3d4a6c4f05e9ca1a8d01258d3b7c",
+  "previous_293_anchor_sha1": "a8c4553ab9d5091e7f34fd21850438d4937c8bc6",
+  "source": {
+    "raw_ticks": 151382388,
+    "raw_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "eight_original_source_zip_sha256": "PASS_EXACT",
+    "original_V28_CH0_zip_sha256": "196de55420e5c29f3ef776d32179842309826585e2fd7d6580fe73f95561ffa2",
+    "original_V28_CH4_zip_sha256": "79d30dd8c734c845025583261fd50bd88392c0ce03d21764f8d82eb4d351ea76",
+    "frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "original_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf"
+  },
+  "execution": {
+    "total_shards": 710,
+    "completed": 353,
+    "pending": 357,
+    "previous_293_closed": 293,
+    "new_shards": 60,
+    "channel_CH0": 147,
+    "channel_CH4": 206,
+    "original_masks_sampled": 6795,
+    "original_accepted_signals_sampled_PNL_blind": 839362,
+    "trade_by_trade_sampled_matches": 518131,
+    "matching_fields": 5699441,
+    "zero_signal_masks": 9
+  },
+  "reconciliation": {
+    "previous_293_receipts_unchanged_byte_for_byte": "PASS_293_OF_293",
+    "new_receipts": 60,
+    "frozen_plan_and_runner_byte_same": true,
+    "original_builder_exact_receipt_audit": "PASS_353_OF_353",
+    "library_archive_CRC": "PASS",
+    "library_archive_member_SHA256": "PASS_359_OF_359",
+    "library_readback_byte_equal": "PASS",
+    "new_economic_PNL": false
+  },
+  "durability": {
+    "folder": "/QROS_SEED0076_W5_V33_353_OF_710_20260925",
+    "zip_library_id": "libfile_df44a8519b848191913324bfdbd3679e",
+    "zip_bytes": 837071,
+    "zip_sha256": "b715e234fdacba2cabca1bd6c026556e219d721432edd2021a1bdeccd5ed6c85",
+    "master_library_id": "libfile_dfc14f7655e88191996f48eaefbc2e54",
+    "master_sha256": "d3dfa9aead4b28f0d3280bbc85a8ba3d76c5f564d59c57addb04f21b375aae1b",
+    "manifest_SHA256": "67067d57858b8bcd3493c61404ba77b7e77ecd88e1409c58e680bb5bc67964f3"
+  },
+  "next": {
+    "CH0": {
+      "route": "r0_w1_batch010",
+      "ordinals_first": 224,
+      "ordinals_last": 243
+    },
+    "CH4": {
+      "route": "r0_w1_batch015",
+      "ordinals_first": 102,
+      "ordinals_last": 121
+    }
+  },
+  "firewalls": {
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "MT5_parity": false,
+    "historical_2018_19_broker_commission_certified": false,
+    "historical_special_hours_certified": false,
+    "previous_V28_104_economic_shards_untouched": true,
+    "W3_deferred": true,
+    "original_old_60_10_shards_untouched": true
+  }
+}
