@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_ANDROID_CHAT_FAST_FRONTIER_V2_POLICY",
+  "version": "2.0",
+  "mode": "FAST_GITHUB_NATIVE_CHAT_TURN",
+  "repo": "miguelcastill85-del/qros-engine",
+  "scope": "XAUUSD W5 frozen V33 710-shard PnL-blind original parity; later lineages only after their own independent bootstrap",
+  "supersedes_resumption_only": ["Full 446+ baseline ZIP download on every chat turn", "Unconditional replay of all prior completed parity receipt SHA checks", "Three sequential independent Git commits per six-shard publication", "Re-upload full checkpoint ZIPs into the ChatGPT personal Library"],
+  "recovery_fast_path": [
+    "Read exact current main governance and direct scientific branch pointer, target and immutable anchor; check original Git SHA-1 pins and branch commit tip",
+    "Read pointer-pinned immutable FAST_FRONTIER_V2 plus only the latest delta (if any), check SHA-1 and SHA-256 independently and check exact 710-bit completion bitmap, counts, science firewalls, prior ledger root and next task indices",
+    "Read frozen 710-task index only if executing or independently auditing new receipts; it is immutably pinned by SHA256 plus Git blob SHA1. Do not retrieve the 1.05MB ZIP nor its 16 ASCII transport parts for ordinary restart",
+    "Check that no other chat advanced the branch since the authority read; if advanced, discard proposed write and start only from newer exact pointer, preserving partial local bytes",
+    "If market data or original V28 tapes are not mountable, freeze execution as genuinely SOURCE_PENDING; do not repeat full-data rediscovery and proceed on another independently ready science action"
+  ],
+  "bootstrap": {
+    "original_frozen_plan_sha256": "2be3c09dbcf80576125187f45ae9e7c8ce265a67bab6170a3809adb6a464dc0c",
+    "original_runner_sha256": "d545f846a09dc2059193c5a9a6703235bf9f27554ac802eafdf4c032b5a501bf",
+    "original_raw_tick_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "full_Github_baseline_zip_sha256": "d424206c8001422f4d9930b23d8eced5e7115009e40d5fe5b2f0e57ee259ec05",
+    "full_Github_baseline_git_blob_sha1": "688ec3fa2123ec9df900c41487e4f6298b4ceea5",
+    "initial_baseline_receipts": 446,
+    "initial_full_sha256_manifest_members": 452,
+    "original_frozen_total": 710
+  },
+  "one_atomic_publication": "Git create blobs for up to six ORIGINAL independent non-economic parity receipts plus compact append-only delta, new materialized frontier, immutable release receipt/handoff, and pointer; assemble ONE Git tree and ONE commit on the exact prior branch tip; update_ref(force=false); independently read back pointer, frontier and delta by exact path and Git blob SHA. No next batch before readback.",
+  "max_unpublished_shards": 6,
+  "idempotency_key": "frozen_plan_sha256 + frozen_task_index + original_source_root_sha256 + independent_receipt_sha256",
+  "progress_recovery": "A worker cannot claim PASS from heartbeat or completed count. A task is closed only when its actual original independent receipt bytes are in a Git commit reachable from the live scientific branch and identified by the pinned frontier bitset plus root chain. On interrupted or stale commit, preserve pending exact raw receipts and CAS retry only after reconciliation.",
+  "periodic_full_independent_reaudit": "After every 20 new delta publishes, re-fetch pinned Git baseline and all new Git deltas and replay every receipt plus bitmap/ledger root before increasing the audit watermark. This is NOT necessary at ordinary chat resume and never recomputes PnL or touches holdout.",
+  "storage_limits": "Use original multi-GB raw broker carriers outside ordinary Git with exact SHA-256; GitHub documents a recommended 1MB per Git object and an enforced 100MB cap. This frontier and each six-shard delta remain small; no Git LFS or paid GitHub services are activated.",
+  "no_background_claim": "Every ChatGPT Android turn must actively retrieve authenticated live GitHub source. GitHub policies do not auto-install an Android runtime, and no process continues after a completed response without separately requested scheduling.",
+  "gates": {"Gate_A_approved": false,"holdout_open": false,"ga2_open": false,"historical_broker_commission_certified": false,"historical_special_hours_certified": false}
+}

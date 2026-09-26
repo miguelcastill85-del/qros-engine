@@ -1,0 +1,53 @@
+{
+  "schema": "QROS_ANTI_STALL_FAST_FRONTIER_V2_ADVANCED_WRITER_RELEASE_V1",
+  "date_utc": "2026-09-26",
+  "repo": "miguelcastill85-del/qros-engine",
+  "branch": "main",
+  "parent_main_commit": "50bca26598053f66d1adff445f317ec85ff12cea",
+  "previous_active_governance_blob_sha1": "a206fb37566e70854db7e7324cc29f274d1bab5a",
+  "previous_agents_blob_sha1": "a3a0ce788ce7512645a2c19987ca9b2a40c76f82",
+  "correction": "Legacy chat policy Git SHA pin was stale after Git-only policy extension. Rebound active pin to exact current live Git blob, and deployed independently tested fast frontier writer and frozen 710-task index.",
+  "files": {
+    "anti_stall/chat/qros_fast_frontier_v2.py": {
+      "sha1": "e7a10126012486e0b9e535986bd86f737fc13da2",
+      "sha256": "934a5d33fc6360daa70dedcea865496119e4b2ea3889427a6f205cca33761650",
+      "bytes": 26627
+    },
+    "anti_stall/tests/test_fast_frontier_v2.py": {
+      "sha1": "e89ee74136f59fffa581cf3f8b6cb6122d080148",
+      "sha256": "490440576880e960eef8e9e2e980a035714aab477de68391b6d27d126678de40",
+      "bytes": 11004
+    },
+    "governance/QROS_ANDROID_CHAT_FAST_FRONTIER_V2_POLICY.json": {
+      "sha1": "e3d88aa85afe7e3d22588a3b93339a62ca9de83b",
+      "sha256": "d260c17a9d08a29b28ea4d1a87b532693f4258fe52df7dd4fe4bbce2e7417729",
+      "bytes": 4282
+    },
+    "anti_stall/chat/README_FAST_FRONTIER_V2.md": {
+      "sha1": "4efac59a9471abdd16ac40361652458d46f5ae9f",
+      "sha256": "95e78faa2425acbeefd9402786f23f76fbb71ec4152a3256ced91601d2f956fe",
+      "bytes": 3600
+    }
+  },
+  "original_scientific_branch": "research/seed0076-direct-dev-backtest-20260922",
+  "scientific_index_release_commit": "a870a1d2addef5b7134547d6aa69e7cb50363d0d",
+  "scientific_index_git_blob_sha1": "68e9069d815ea4d1f86670d4e88852a045a34aa6",
+  "baseline_446_frontier_git_blob_sha1": "4717379067d5226bc3d760c7b9877a444affab20",
+  "testing": {
+    "independent_full_real_baseline": "PASS_446_RECEIPTS_452_SHA_MANIFEST_MEMBERS_710_FROZEN_TASKS",
+    "v2_adversarial_local": "PASS_26_OF_26",
+    "fast_50_iterations_local_seconds": 0.00485,
+    "remote_ci": "NOT_RUN_TO_AVOID_UNAPPROVED_COST",
+    "real_2026_09_26_new_backtest_shards": 0
+  },
+  "science_unchanged": {
+    "completed": 446,
+    "pending": 264,
+    "Gate_A_approved": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "new_PnL": false
+  },
+  "execution_scope": "USER_ACTIVE_CHAT_TURNS_ONLY_WITH_AUTHENTICATED_GITHUB_CONNECTOR",
+  "next": "Read live Git pointers and fast frontier only; never reconvert original 1MB baseline ZIP for ordinary chat startup; claim exact next six tasks via Git WAL before physical execution with original SHA-pinned raw ticks and V28 tapes."
+}

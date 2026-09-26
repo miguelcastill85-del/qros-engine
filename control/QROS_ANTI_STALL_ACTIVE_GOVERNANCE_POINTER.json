@@ -1,7 +1,7 @@
 {
   "schema": "QROS_ANTI_STALL_ACTIVE_GOVERNANCE_POINTER_V1",
   "version": "2.4",
-  "status": "ACTIVE_GITHUB_WAL_V11_FAST_FRONTIER_METADATA_RECONCILED_SCIENCE_446_UNCHANGED",
+  "status": "ACTIVE_FAST_FRONTIER_V2_VERIFIED_GITHUB_INCREMENTAL_WRITER_WITH_WAL_V11_446_ORIGINAL_CLOSED",
   "repository": "miguelcastill85-del/qros-engine",
   "branch": "main",
   "legacy_v21_package_sha256": "1c60482e73bc4a589e3a04b27bc8465552ec7cef6c3066f91ad95c485f30068d",
@@ -26,7 +26,11 @@
     "android_app_native_automation": "NOT_AVAILABLE_VIA_REPOSITORY",
     "github_native_store_synthetic_adversarial_local": 14,
     "github_real_446_full_zip_sha_manifest_receipt": "PASS",
-    "github_ascii_full_source_16_git_remote_readbacks": "PASS_16_OF_16"
+    "github_ascii_full_source_16_git_remote_readbacks": "PASS_16_OF_16",
+    "fast_frontier_v2_local_adversarial_pass": 26,
+    "fast_frontier_v2_real_baseline_receipts_rehashed": 446,
+    "fast_frontier_v2_real_zip_members_rehashed": 452,
+    "fast_frontier_v2_original_frozen_tasks": 710
   },
   "watchdog": {
     "ordinary_route_hard_seconds": 120,
@@ -62,7 +66,11 @@
     "anti_stall/chat/qros_github_atomic_transport_v1.py",
     "anti_stall/tests/test_qros_git_wal_v1.py",
     "anti_stall/chat/README_QROS_GITHUB_WAL_V1.md",
-    "control/QROS_GITHUB_WAL_V1_GOVERNANCE_RELEASE.json"
+    "control/QROS_GITHUB_WAL_V1_GOVERNANCE_RELEASE.json",
+    "anti_stall/chat/qros_fast_frontier_v2.py",
+    "anti_stall/tests/test_fast_frontier_v2.py",
+    "governance/QROS_ANDROID_CHAT_FAST_FRONTIER_V2_POLICY.json",
+    "anti_stall/chat/README_FAST_FRONTIER_V2.md"
   ],
   "provenance": {
     "archive_sha256_rehash_after_connected_drive_download": "PASS",
@@ -155,7 +163,7 @@
     "version": "1.0",
     "mode": "CHAT_TURN_ONLY",
     "path": "governance/QROS_ANDROID_CHAT_TURN_ANTISTALL_V1.json",
-    "git_blob_sha1": "38050cc3862f1dbda4d1950dcf5566da68aa29ed",
+    "git_blob_sha1": "e672287184cee536d3f49f580aa7d2e6bba2e19c",
     "preflight_path": "anti_stall/chat/qros_android_turn_preflight_v1.py",
     "preflight_blob_sha1": "ac86250bca91258bc69334b539b19dcaf094f09e",
     "readme_path": "anti_stall/chat/README_ANDROID_CHAT_V1.md",
@@ -167,7 +175,26 @@
     "git_only_policy_path": "governance/QROS_GITHUB_NATIVE_SHARD_STORAGE_V1.json",
     "git_only_policy_blob_sha1": "f0341cf0fe70eaeba16105ed0ba5ffcb42d06879",
     "git_only_validation_script": "anti_stall/chat/qros_github_shard_store_v1.py",
-    "git_only_max_new_shards": 6
+    "git_only_max_new_shards": 6,
+    "fast_frontier_v2": {
+      "mode": "GITHUB_NATIVE_MATERIALIZED_LEDGER_PLUS_DELTA",
+      "policy_path": "governance/QROS_ANDROID_CHAT_FAST_FRONTIER_V2_POLICY.json",
+      "policy_git_blob_sha1": "e3d88aa85afe7e3d22588a3b93339a62ca9de83b",
+      "writer_path": "anti_stall/chat/qros_fast_frontier_v2.py",
+      "writer_git_blob_sha1": "e7a10126012486e0b9e535986bd86f737fc13da2",
+      "validator_tests_path": "anti_stall/tests/test_fast_frontier_v2.py",
+      "validator_tests_git_blob_sha1": "e89ee74136f59fffa581cf3f8b6cb6122d080148",
+      "original_710_task_index_path": "research/public1000/seed0076/direct_dev/v33_git_native_evidence/fast_frontier/FROZEN_TASK_INDEX.json",
+      "original_710_task_index_git_blob_sha1": "68e9069d815ea4d1f86670d4e88852a045a34aa6",
+      "original_446_frontier_git_blob_sha1": "4717379067d5226bc3d760c7b9877a444affab20",
+      "max_uncommitted_tasks": 6,
+      "full_independent_reaudit_every_deltas": 20,
+      "wal_claim_before_real_work": true,
+      "one_atomic_git_commit_for_final_promotion": true,
+      "no_full_baseline_replay_per_chat": true,
+      "execution_mode": "ACTIVE_CHAT_TURN_ONLY",
+      "background_execution": false
+    }
   },
   "github_native_evidence": {
     "version": "1.0",
@@ -259,5 +286,7 @@
     "additional_delta_bytes_only_on_subsequent_turns": true,
     "full_advanced_writer_26kb": "LOCAL_TESTED_UNDEPLOYED",
     "no_background": true
-  }
+  },
+  "last_live_scientific_pointer_at_main_release": "870df726612618c02378b544413501af73eef865",
+  "scientific_branch_do_not_override_from_governance": true
 }
