@@ -1,0 +1,28 @@
+{
+  "economic_tests": 0,
+  "exact_required_paths": 12,
+  "external_witness_production": false,
+  "failed_runs_retained": [
+    36206966041,
+    36207450369
+  ],
+  "first_g8_source_commit": "9347a93c99dcbc06e67c6709ab5f49ab66fbee9a",
+  "historical_manifest_git_blobs": {
+    "v1": "81ff512a0b0239acce93c8c307c7af3ea34c19bf",
+    "v2": "ba7616a0bd5c7cc4c208518b207242f4177ae2dc"
+  },
+  "parent_exact": "3210501dba05b9514efde586a4b2aa63378e6a95",
+  "physical_install": false,
+  "schema": "QROS_MOBILE_G8_SOURCE_MANIFEST_V3",
+  "second_failed_source_commit": "41f628b5aac4961a61808aefb213eb50705ff91c",
+  "source_sha256": {
+    ".github/workflows/qros-mobile-g8-emulator.yml": "a2d7b8cb047b0fe7ba42fdbe810e166edbc5a990ece3875d122d33cb545dba42",
+    "product/mobile/g8/G8_CI_INCIDENT_EARLY_SPLASH_UI_PULL_20260925.json": "1635c2de01440ccb5e2cc432f21d52e74b4f5565bc1e82334af531e382a1f457",
+    "product/mobile/g8/G8_CI_INCIDENT_V2_MISSING_TEST_BLOB_20260925.json": "239819373b9e6728e96e661acab36001fa83ca35fcb771929cb51e64b3cfb34e",
+    "product/mobile/g8/G8_EMULATOR_CONTRACT.md": "56b15e60bd7383c2a99a6c758552df8c33e52e808aa68055c4f3f1320d24d283",
+    "product/mobile/g8/emulator_smoke.py": "90b39263c01ffd1a740c25bc65dacdfa383c8e4093d917c4cf03ee1d92d4904b",
+    "product/mobile/g8/progress_gate.py": "dc666e84f490651f1172e3d8b9f7dfa562ee9a929912ae0096c42607f9fc9ace",
+    "product/mobile/g8/tests/test_emulator_smoke.py": "5a5217f9dac987fa80bacdaebe27a1b6c31f04853d3983674265f3c25575d45d",
+    "product/mobile/g8/tests/test_gate.py": "8f93fc3d6b4d46c9d75245be8091988618c0707868647557f8731543cb590ad9"
+  }
+}

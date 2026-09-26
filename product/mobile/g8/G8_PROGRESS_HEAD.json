@@ -1,0 +1,18 @@
+{
+  "branch": "product/mobile-g8-emulator-runtime-20260925",
+  "economic_backtests": 0,
+  "external_operator_custody": "NOT_DEPLOYED",
+  "g7_product_head_blob": "eb7ff78d7861c2813dbea085e017211ce9cdb534",
+  "g7_verified_head_blob": "e19aab21c3e8fcd9f011b42a316d89342b81eaad",
+  "ga2_open": false,
+  "holdout_open": false,
+  "market_data": "NONE",
+  "next_automatic_action": "Execute pinned real Android 35 emulator via GitHub Actions using exact verified G6 APK; independently hash screenshot, UI XML, process and CI evidence. Only after CI PASS promote G8 verified HEAD and product HEAD v11; physical device and external witness remain separate pending production gates.",
+  "parent_exact": "3210501dba05b9514efde586a4b2aa63378e6a95",
+  "phase": "EMULATOR_RUNTIME_TEST_PENDING",
+  "physical_device_install": "NOT_RUN",
+  "schema": "QROS_MOBILE_G8_PROGRESS_HEAD_V1",
+  "scientific_gate_pass": false,
+  "scientific_main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+  "status": "DEVELOPMENT_RUNNING"
+}

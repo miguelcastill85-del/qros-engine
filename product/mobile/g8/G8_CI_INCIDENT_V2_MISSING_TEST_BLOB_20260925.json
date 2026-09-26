@@ -1,0 +1,16 @@
+{
+  "classification": "VERIFIED_GITHUB_ACTIONS_FAIL_CLOSED",
+  "correction": "Commit exact local test_gate.py bytes, preserve V1 and V2 manifests and both CI failures, issue V3 manifest and enforce precise three-commit ancestry plus complete source-tree byte identity.",
+  "economic_tests": 0,
+  "emulator_executed_this_failed_run": false,
+  "exact_error": "QROS_G8_GATE_FAIL_CLOSED:SOURCE_SHA256_DRIFT:product/mobile/g8/tests/test_gate.py",
+  "failure_step": "Reject no-op, source changes, wrong G7 parent or scientific authority drift",
+  "ga2_open": false,
+  "holdout_open": false,
+  "no_fabricated_g8_pass": true,
+  "retained_first_failure": 36206966041,
+  "root_cause": "The independently updated local anti-stall regression test was included in manifest V2 SHA256 but the corresponding Git blob from V1 was accidentally reused in V2 tree. The fail-closed source gate caught the drift before any emulator started.",
+  "run_id": 36207450369,
+  "schema": "QROS_MOBILE_G8_CI_INCIDENT_V2_MISSING_UPDATED_TEST_SOURCE_V1",
+  "source_commit": "41f628b5aac4961a61808aefb213eb50705ff91c"
+}

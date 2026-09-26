@@ -1,0 +1,90 @@
+{
+  "schema": "QROS_MOBILE_G8_VERIFIED_ENGINEERING_RECEIPT_V1",
+  "date_utc": "2026-09-26",
+  "objective": "Verify exact immutable G6 Android test APK running and rendering in real Android 35 emulator, preserve proof independently and make G8 checkpoint resumable.",
+  "authority": {
+    "branch": "product/mobile-g8-emulator-runtime-20260925",
+    "source_commit": "1ccd53fa914ea53bc88ee3bb4901b46f960278fc",
+    "g7_parent_commit": "3210501dba05b9514efde586a4b2aa63378e6a95",
+    "g7_product_head_git_blob_sha1": "eb7ff78d7861c2813dbea085e017211ce9cdb534",
+    "g8_manifest_path": "product/mobile/g8/G8_SOURCE_MANIFEST_V3.json",
+    "g8_manifest_git_blob_sha1": "4ba05b9477388a70936b7aeccbfca3bc4e99a145",
+    "scientific_main_stable_pointer_git_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d"
+  },
+  "data": {
+    "synthetic_only": true,
+    "broker_data": "NONE",
+    "economic_backtests": 0,
+    "holdout_open": false,
+    "ga2_open": false
+  },
+  "work_executed": "Exact 12-path descendant of G7; independently downloaded and rehashed success CI artifact and inner screenshot/XML/raw receipt; compared verified original G6 APK hash; retained historical G8 failures.",
+  "ci": {
+    "run_id": 36207688625,
+    "job_id": 108307570797,
+    "run_url": "https://github.com/miguelcastill85-del/qros-engine/actions/runs/36207688625",
+    "conclusion": "success",
+    "g8_tests": "19_OF_19_PASS",
+    "artifact_id": 10894501634,
+    "artifact_name": "qros-mobile-g8-test-only-real-emulator-evidence",
+    "artifact_expiry_utc": "2026-09-29T01:16:47Z",
+    "source_commit": "1ccd53fa914ea53bc88ee3bb4901b46f960278fc"
+  },
+  "results_verified": {
+    "status": "PASS_ENGINEERING_TEST_ONLY",
+    "real_android_emulator_api": 35,
+    "real_device": false,
+    "adb_install": "SUCCESS",
+    "pid_and_resumed_activity": "OBSERVED",
+    "rendered_dark_ui_fraction": 0.9196,
+    "screenshot_resolution": "1080x2400",
+    "qros_accessibility_text_observed": true,
+    "ui_xml_nodes": 30,
+    "source_g6_apk_bytes": 141623410,
+    "source_g6_apk_sha256": "2c4053a27fa5692871db717c4c5bb42e1284673b49f13fa41db6a7e2b0b52c97",
+    "new_apk": "NOT_BUILT_EXISTING_G6_RETAINED"
+  },
+  "proof": {
+    "archive_library_path": "/QROS Mobile G8 2026-09-25/QROS_G8_VERIFIED_EMULATOR_EVIDENCE.zip",
+    "archive_library_file_id": "file_00000000f654820e9b41a7c1c6ad812f",
+    "archive_bytes": 190240,
+    "archive_sha256": "faafa06875c92c74a055432229969cd781e3b1d1253b87fbce82270ee2cbc7ae",
+    "screen_library_path": "/QROS Mobile G8 2026-09-25/G8_ANDROID_EMULATOR_SCREEN.png",
+    "screen_library_file_id": "file_00000000cf24820e8bdab5cc961dc0cd",
+    "screen_png_sha256": "96076fa4c18567b357a586b797e191a352afb1c522df81b2c4b8c1e13a5342f7",
+    "ui_xml_sha256": "b6a00ded273bda8db810e3bb576160c17e870afcfc209fdbfb773c7a71f63b09",
+    "runtime_receipt_sha256": "03076316ebeadfd67c9d0647b0b9819dc09a6566f1a396e1a8175ac7b607cca2",
+    "raw_ci_receipt_sha256": "9058d04a312be0bb883ad919c17dde0961ebc0ba7b4080141e82fc70ae1c63e7"
+  },
+  "raw_receipts": {
+    "runtime_path": "product/mobile/receipts/G8_ANDROID_EMULATOR_RUNTIME_RECEIPT_20260926.json",
+    "runtime_git_blob_sha1": "4b8094a6fe64de3f9d3c934c8ac61c102fe037f2",
+    "ci_path": "product/mobile/receipts/G8_CI_RAW_BUILD_RECEIPT_20260926.json",
+    "ci_git_blob_sha1": "5f9411ad12a5dc1991a887482d0e8025565235c5"
+  },
+  "gates": {
+    "android_emulator_runtime": "PASS_ENGINEERING_TEST_ONLY",
+    "physical_phone_install": "NOT_RUN",
+    "real_authenticated_pairing": "NOT_RUN",
+    "production_oidc": "NOT_DEPLOYED",
+    "real_external_witness": "NOT_DEPLOYED",
+    "release_signed": false,
+    "scientific_gate_pass": false
+  },
+  "problems": {
+    "failed_runs": [
+      36206966041,
+      36207450369
+    ],
+    "first": "White Flutter splash captured too early, then UIAutomator XML pull failed.",
+    "second": "V2 source manifest pinned updated test bytes but reused old Git blob; fail-closed source gate rejected before emulator launch."
+  },
+  "cause_root": "Temporal screenshot/dump race in V1 and accidentally stale test blob in V2; fixed in V3 without relaxing gates.",
+  "corrections": [
+    "Bounded wait for dark G6 rendered UI, require affirmative UI dump and read XML via adb exec-out cat, save failure diagnostics.",
+    "Exact V3 test Git blob, source manifest and 3-commit ancestry; preserve both failure receipts."
+  ],
+  "scientific_state": "PREREGISTERED_NO_RESULTS_UNCHANGED_MAIN_V259",
+  "portfolio_impact": "NONE_NO_ECONOMIC_TESTS",
+  "next_automatic_action": "G9 independently execute non-economic emulator navigation and G5 signed snapshot UI regression on exact G6 debug APK, preserving existing G8 screenshot, APK SHA, and test receipts. Real physical Android installation/pairing requires user-authorized device and independent public HTTPS/production OIDC/external witness authority. Until such evidence exists these remain unverified. Never open scientific holdout, GA2, economic PnL, MT5 or live trading."
+}
