@@ -45,6 +45,9 @@ jobs:
           assert p['scientific_authority']['Gate_A_approved'] is False
           assert p['scientific_authority']['holdout_open'] is False
           assert p['scientific_authority']['ga2_open'] is False
+          y=pathlib.Path('.github/workflows/qros-w5-cloud-hosted-v2.yml').read_text()
+          assert 'last=calendar.monthrange(today.year,today.month)[1]' in y
+          assert '            "$RUNNER_TEMP/qros-w5-cloud"' in y
           print('CLOUD_PINNED_BOOTSTRAP_AND_SCIENCE_FIREWALL=PASS')
           PY
   run:
@@ -60,10 +63,11 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PY'
-          import datetime,json,os,subprocess
+          import calendar,datetime,json,os,subprocess
           today=datetime.datetime.now(datetime.timezone.utc).date()
           month=today.strftime('%Y-%m')
-          q=f'repos/{os.environ["GITHUB_REPOSITORY"]}/actions/workflows/qros-w5-cloud-hosted-v2.yml/runs?created={month}-01..{month}-31&per_page=1'
+          last=calendar.monthrange(today.year,today.month)[1]
+          q=f'repos/{os.environ["GITHUB_REPOSITORY"]}/actions/workflows/qros-w5-cloud-hosted-v2.yml/runs?created={month}-01..{month}-{last:02d}&per_page=1'
           result=json.loads(subprocess.check_output(['gh','api',q],text=True))
           count=result['total_count']
           if count>16:
@@ -99,7 +103,7 @@ jobs:
         run: |
           set -euo pipefail
           python cloud-control/scripts/qros_w5_cloud_package_loader_v2.py \
-            --data-root "$RUNNER_TEMP/qros-w5-cloud"
+            "$RUNNER_TEMP/qros-w5-cloud"
       - name: Read-only doctor before all scheduled or manual computations
         env:
           QROS_W5_DURABLE_STAGING: '1'
