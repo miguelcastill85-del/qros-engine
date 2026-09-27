@@ -1,0 +1,48 @@
+{
+  "activation_guard": "NO_AUTOMATED_BACKTEST_UNTIL_USER_UPLOADS_EXACT_10_R2_OBJECTS_SETS_RESTRICTED_R2_SECRETS_RUNS_READ_ONLY_DOCTOR_AND_APPROVES_BILLING_BUDGET",
+  "bootstrap_sha256": "b27d6f945b59483c7398e0c944a22dfb4b409682548c35bf6275394155314428",
+  "cloud_storage": {
+    "access_credentials_present": "UNVERIFIED",
+    "bucket_variable": "QROS_W5_R2_BUCKET",
+    "expected_initial_objects": 10,
+    "prefix": "qros-w5/",
+    "provider": "Cloudflare R2 private Standard",
+    "upload_verified": false
+  },
+  "github_actions": {
+    "enabled_current": "NOT_VERIFIED_KEEP_FALSE",
+    "enabled_variable": "QROS_W5_CLOUD_ENABLED",
+    "github_r2_integration": "NOT_RUN",
+    "local_offline_exact_raw_restore": "PASS",
+    "max_minutes_each_job": 30,
+    "max_monthly_dispatches_this_workflow": 16,
+    "original_scientific_runner_unchanged": true,
+    "runner": "ubuntu-24.04",
+    "schedule_utc": "27 4 * * *",
+    "synthetic_staging_resume_tests": "PASS_7_OF_7"
+  },
+  "next_action": "Android: create private Cloudflare R2 Standard bucket, upload 8 Dropbox source ZIPs plus exact CH0 and pinned release ZIP, create bucket-scoped read-only R2 token, set GitHub Actions secrets/variables without sharing secrets in chat; test doctor_only=true before setting QROS_W5_CLOUD_ENABLED=true.",
+  "original_ch0_archive_sha256": "196de55420e5c29f3ef776d32179842309826585e2fd7d6580fe73f95561ffa2",
+  "original_ch4_archive_sha256": "79d30dd8c734c845025583261fd50bd88392c0ce03d21764f8d82eb4d351ea76",
+  "original_xau_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "release_inner_bootstrap_sha256": "1055459de141e7729841bd4074a4e59b7dbf58c2bcd2424af8277efce41fba17",
+  "release_zip_filename": "QROS_W5_CLOUD_GITHUB_HOSTED_CANDIDATE_v2_20260927.zip",
+  "release_zip_sha256": "565a8fcd826f1c33d0f5de83b338608301407732c2cdb2f3bf8ac02d2311b831",
+  "research_branch": "research/seed0076-direct-dev-backtest-20260922",
+  "schema": "QROS_W5_CLOUD_MOBILE_MIGRATION_V2",
+  "scientific_authority": {
+    "Gate_A_approved": false,
+    "fast_frontier_git_blob_sha1": "574aeccaa119c92be5d4a0f91d6d30484fb741d9",
+    "fast_frontier_seq": 6,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_economic_PNL": false,
+    "remaining_count": 228,
+    "scientific_pointer_git_blob_sha1": "747592f42367cf52bb8458fa6754d75efd2cfa55",
+    "verified_count": 482,
+    "wal_generation": 13,
+    "wal_git_blob_sha1": "9b07a34472567a324d4affa5c85eae2f9b99672c",
+    "wal_phase": "READY"
+  },
+  "status": "CANDIDATE_NOT_ACTIVATED"
+}

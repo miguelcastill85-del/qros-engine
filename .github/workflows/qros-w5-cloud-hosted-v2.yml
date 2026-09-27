@@ -1,0 +1,127 @@
+name: QROS W5 Cloud Mobile Anti-stall v2
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/qros_w5_cloud_package_loader_v2.py'
+      - '.github/workflows/qros-w5-cloud-hosted-v2.yml'
+      - 'control/QROS_W5_CLOUD_MOBILE_MIGRATION_v2.json'
+  workflow_dispatch:
+    inputs:
+      doctor_only:
+        type: boolean
+        description: 'Verificar fuentes originales y Git, sin operaciones ni escritura científica'
+        required: true
+        default: true
+  schedule:
+    - cron: '27 4 * * *'
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: qros-w5-cloud-v33-single-writer
+  cancel-in-progress: false
+jobs:
+  static:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 4
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - name: Verify cloud-control source and disabled default
+        run: |
+          set -euo pipefail
+          python3 -m py_compile scripts/qros_w5_cloud_package_loader_v2.py
+          python3 - <<'PY'
+          import json,pathlib,hashlib
+          p=json.loads(pathlib.Path('control/QROS_W5_CLOUD_MOBILE_MIGRATION_v2.json').read_text())
+          b=pathlib.Path('scripts/qros_w5_cloud_package_loader_v2.py').read_bytes()
+          assert hashlib.sha256(b).hexdigest()==p['bootstrap_sha256']
+          assert p['status']=='CANDIDATE_NOT_ACTIVATED'
+          assert p['scientific_authority']['verified_count']==482
+          assert p['scientific_authority']['Gate_A_approved'] is False
+          assert p['scientific_authority']['holdout_open'] is False
+          assert p['scientific_authority']['ga2_open'] is False
+          print('CLOUD_PINNED_BOOTSTRAP_AND_SCIENCE_FIREWALL=PASS')
+          PY
+  run:
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'workflow_dispatch' || vars.QROS_W5_CLOUD_ENABLED == 'true')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Protect private repository free-minute budget
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import datetime,json,os,subprocess
+          today=datetime.datetime.now(datetime.timezone.utc).date()
+          month=today.strftime('%Y-%m')
+          q=f'repos/{os.environ["GITHUB_REPOSITORY"]}/actions/workflows/qros-w5-cloud-hosted-v2.yml/runs?created={month}-01..{month}-31&per_page=1'
+          result=json.loads(subprocess.check_output(['gh','api',q],text=True))
+          count=result['total_count']
+          if count>16:
+              raise SystemExit(f'QROS_CLOUD_MONTHLY_RUN_CAP_REACHED:{count}:FAIL_CLOSED')
+          print('W5_PRIVATE_ACTIONS_RUNS_THIS_MONTH',count,'MAX',16)
+          PY
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+          path: cloud-control
+          persist-credentials: false
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: research/seed0076-direct-dev-backtest-20260922
+          path: science
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Pin environment, no untrusted build hooks
+        run: |
+          python -m pip install --disable-pip-version-check --no-input \
+            boto3==1.40.0 numpy==2.2.6 numba==0.61.2
+          python -c 'import boto3,numpy,numba;print("PINNED_PYTHON_IMPORTS_PASS")'
+      - name: Restore exact 8 original Dropbox-backed ZIP parts from private R2
+        env:
+          R2_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.QROS_W5_R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.QROS_W5_R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ vars.QROS_W5_R2_BUCKET }}
+          QROS_W5_PINNED_RELEASE_SHA256: 565a8fcd826f1c33d0f5de83b338608301407732c2cdb2f3bf8ac02d2311b831
+        run: |
+          set -euo pipefail
+          python cloud-control/scripts/qros_w5_cloud_package_loader_v2.py \
+            --data-root "$RUNNER_TEMP/qros-w5-cloud"
+      - name: Read-only doctor before all scheduled or manual computations
+        env:
+          QROS_W5_DURABLE_STAGING: '1'
+        run: |
+          set -euo pipefail
+          python "$RUNNER_TEMP/qros-w5-cloud/code/qros_w5_autonomous_supervisor_v1.py" \
+            --repo "$GITHUB_WORKSPACE/science" --data-root "$RUNNER_TEMP/qros-w5-cloud" --doctor
+      - name: Six-shard transaction with per-shard remote staging and true crash recovery
+        if: vars.QROS_W5_CLOUD_ENABLED == 'true' && (github.event_name == 'schedule' || inputs.doctor_only == false)
+        env:
+          QROS_UNATTENDED_EXPLICIT_ENABLE: '1'
+          QROS_W5_DURABLE_STAGING: '1'
+        run: |
+          set -euo pipefail
+          python "$RUNNER_TEMP/qros-w5-cloud/code/qros_w5_autonomous_supervisor_v1.py" \
+            --repo "$GITHUB_WORKSPACE/science" --data-root "$RUNNER_TEMP/qros-w5-cloud" \
+            --max-batches 1 --max-hours 0.30
+      - name: Preserve bounded diagnostic logs (never data or credentials)
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-w5-cloud-diagnostics-${{ github.run_id }}
+          path: ${{ runner.temp }}/qros-w5-cloud/unattended_logs/*.json
+          retention-days: 2
+          if-no-files-found: ignore
