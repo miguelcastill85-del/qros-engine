@@ -1,0 +1,19 @@
+{
+  "external_custody": "NOT_DEPLOYED",
+  "files_sha256": {
+    "bundle/README.md": "6710705fa3cbf6972fc2c4eb35e5af244a6a0227c98d51b4e1643c113914fc57",
+    "bundle/index.js": "1d19bed662a40d45e2a7ce0c75ff4eea13c7aaa3af63314415b64d47aa729856",
+    "bundle/index.js.map": "72566353299b07d2e113bff613565a20551fb60d4f2178308dbe2dd3ce5eb768",
+    "parity_fixture.json": "202e686b44e1bec2a1e6be87afd08d9c36fdb81913f012babad84e2737a459f5",
+    "python_oracle.json": "db605cd2a43f1e790a27bd579e971aa9e7fba577edb178dc5b3af3411caf1cd7",
+    "worker_snapshot.json": "b0684579368a41b7789a4202c87202e14a95ff5fdff20afdd6191309b8058c24",
+    "workerd_receipt.json": "7165e100acfefa248d6692a80d0c2b943cce7d886761c876d9b691ed729763e7"
+  },
+  "physical_android": "NOT_RUN",
+  "public_https": "NOT_DEPLOYED",
+  "run_id": "36271176230",
+  "schema": "QROS_G9_CI_RECEIPT_V1",
+  "scientific_gate_pass": false,
+  "source_commit": "2365c3b8f205a9bc47fac506751f6f2ba10fbff8",
+  "status": "PASS_ENGINEERING_TEST_ONLY"
+}

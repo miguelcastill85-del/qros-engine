@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: qros-g9-${{ github.ref }}
   cancel-in-progress: false
@@ -50,9 +51,28 @@ jobs:
           (p/'CI_RECEIPT.json').write_text(json.dumps(receipt,indent=2)+'\n')
           print(json.dumps(receipt,sort_keys=True))
           PY
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+      - id: evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: qros-g9-worker-parity
           path: product/mobile/g9/evidence/
           retention-days: 3
           if-no-files-found: error
+      - name: Export bounded synthetic artifact bytes for independent recovery
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ steps.evidence.outputs.artifact-id }}
+        run: |
+          set -euo pipefail
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$ARTIFACT_ID/zip" > "$RUNNER_TEMP/qros-g9-artifact.zip"
+          python3 - <<'PYCODE'
+          import os,pathlib,hashlib,base64,zipfile,io,json
+          b=(pathlib.Path(os.environ['RUNNER_TEMP'])/'qros-g9-artifact.zip').read_bytes()
+          assert 0<len(b)<=65536
+          allowed={'CI_RECEIPT.json','parity_fixture.json','python_oracle.json','worker_snapshot.json','workerd_receipt.json','bundle/README.md','bundle/index.js','bundle/index.js.map'}
+          with zipfile.ZipFile(io.BytesIO(b)) as z:
+              assert set(z.namelist())==allowed
+              assert sum(i.file_size for i in z.infolist())<200000
+          print('QROS_G9_ARTIFACT_SHA256='+hashlib.sha256(b).hexdigest())
+          print('QROS_G9_ARTIFACT_BASE64='+base64.b64encode(b).decode())
+          PYCODE
