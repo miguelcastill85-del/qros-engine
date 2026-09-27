@@ -16,5 +16,7 @@ Después de recuperar Cloudflare y fijar la raíz pública G9 fuera del servidor
 
 No existe herramienta de control/emparejamiento Android físico expuesta en esta sesión.
 La prueba requiere la intervención física del usuario. No se declara instalación real.
-Faltan pruebas TLS adversariales del cliente con certificado sustituido y servidor falso
-usando la futura raíz/origen G9. Las pruebas de URL del Worker NO cubren esos ataques.
+CI 36298699641 verifica rechazo Dart de certificado autofirmado sustituido antes de
+enviar una petición autenticada y rechazo por desconexión. Sigue pendiente la prueba
+de servidor falso contra el origen real y la futura raíz G9 fijada en la APK.
+Las pruebas locales no acreditan un despliegue HTTPS ni una instalación física.
