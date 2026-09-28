@@ -1,0 +1,32 @@
+{
+  "schema": "QROS_G9_DEPLOYMENT_RESUME_V1",
+  "date_utc": "2026-09-28",
+  "parent_checkpoint": "RECOVERY_20260927_V3.json",
+  "parent_commit": "0c5f745a4273c17c137efd2689e65f19ea25db26",
+  "scope": "TEST_ONLY_DISABLED_BOOTSTRAP",
+  "user_reports": {
+    "classification": "REPORTADO",
+    "workers_plan": "FREE",
+    "github_secrets_saved": [
+      "CLOUDFLARE_API_TOKEN",
+      "CLOUDFLARE_ACCOUNT_ID"
+    ],
+    "github_variable": "QROS_G9_FREE_PLAN_VERIFIED=true"
+  },
+  "verified": {
+    "branch_head": "0c5f745a4273c17c137efd2689e65f19ea25db26",
+    "last_ci_run": 36298699641,
+    "last_ci_conclusion": "success",
+    "inflight_runs": 0,
+    "wrangler_ENABLED": "false"
+  },
+  "change": "Add branch-and-path-scoped push trigger; retain free-plan variable, environment protections, tests, secret references and disabled canary configuration.",
+  "limitations": [
+    "No secret values inspected.",
+    "Free plan reported by user, not independently queried.",
+    "Legacy handoff verify_import attempted: missing HANDOFF_MANIFEST.sha256 in scoped local materialization; unrelated native baseline not certified."
+  ],
+  "next_action": "Observe deployment run for this commit; inspect result before retrying; obtain real workers.dev URL and test external HTTPS. Do not enable receipt service until backend key custody and independent public pin are implemented.",
+  "scientific_main_modified": false,
+  "mobile_head_promoted": false
+}

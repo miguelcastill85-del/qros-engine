@@ -1,6 +1,12 @@
 name: QROS G9 manually gated Free Worker deployment
 on:
+  push:
+    branches: ['product/mobile-g9-cloudflare-android-20260926']
+    paths: ['.github/workflows/qros-mobile-g9-deploy.yml']
   workflow_dispatch:
+concurrency:
+  group: qros-g9-disabled-bootstrap
+  cancel-in-progress: false
 permissions:
   contents: read
 jobs:
