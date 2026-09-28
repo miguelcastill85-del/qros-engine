@@ -1,0 +1,74 @@
+{
+  "schema": "QROS_G9_LIVE_CANARY_CHECKPOINT_V1",
+  "date_utc": "2026-09-28",
+  "classification": "VERIFICADO",
+  "branch": "product/mobile-g9-cloudflare-android-20260926",
+  "source_commit": "a14b91d17b127109249529b91bd4d69d6224710f",
+  "parent_checkpoint": "BOOTSTRAP_VERIFIED_20260928.json",
+  "deployment": {
+    "url": "https://qros-mobile-g9-test-only.miguelcastill85.workers.dev",
+    "worker": "qros-mobile-g9-test-only",
+    "enabled_in_deployed_version": true,
+    "post_canary_grants": "[]",
+    "cleanup_log": "QROS_G9_GRANTS_CLEARED=true"
+  },
+  "root": {
+    "path": "product/mobile/g9/receipts/PUBLIC_ROOT_20260928.json",
+    "sha256": "2a10d5ec10f7f889eee38a4b442b53045c5dd3bbb6c5dd21f224b7051dd9d346",
+    "algorithm": "Ed25519",
+    "custody": "CLOUDFLARE_SECRET_SAME_OPERATOR_NOT_INDEPENDENT"
+  },
+  "ci": {
+    "run_id": 36486469141,
+    "job_id": 109144475105,
+    "conclusion": "success",
+    "artifact_id": 10998658305,
+    "artifact_bytes": 4037,
+    "artifact_sha256": "4c4b5d632aa70d3e8553bf49af43d6c3b29c9dd141c4f78a6286a64dedac4d1d",
+    "live_receipt": "QROS_G9_LIVE_CANARY_V1",
+    "checks": {
+      "valid_signed_receipt": 200,
+      "missing_auth": 401,
+      "expired": 401,
+      "cross_tenant_grant": 403,
+      "cross_project_grant": 403,
+      "cross_campaign_grant": 403,
+      "cross_tenant_header": 403,
+      "cross_project_header": 403,
+      "cross_campaign_header": 403,
+      "cors_origin": 403,
+      "readonly_method": 405,
+      "replay": 409,
+      "concurrent_replay": "200+409",
+      "quota": 429,
+      "signature": "PASS_PINNED_ROOT_FROM_GITHUB_PROVISIONING",
+      "invalid_signature": "REJECTED_LOCALLY",
+      "python_oracle": "PASS",
+      "dart_g6_verifier": "PASS"
+    }
+  },
+  "gates": {
+    "public_https": "VERIFICADO",
+    "provider_secrets": "VERIFICADO_NO_VALUES_EXPOSED",
+    "authentication": "VERIFICADO_TEST_ONLY",
+    "replay": "VERIFICADO",
+    "tenant_project_campaign_isolation": "VERIFICADO_TEST_ONLY",
+    "rate_limit": "VERIFICADO_TEST_ONLY",
+    "cors_fail_closed": "VERIFICADO_TEST_ONLY",
+    "physical_android": "NOT_RUN",
+    "new_apk": "NOT_BUILT",
+    "external_independent_custody": "NOT_DEPLOYED",
+    "rekor": "NOT_PUBLISHED",
+    "production_oidc": "NOT_DEPLOYED"
+  },
+  "scientific_state": {
+    "main_modified": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "pnl_open": false,
+    "mt5_open": false,
+    "live_trading_open": false,
+    "portfolio_impact": "NONE"
+  },
+  "next_action": "Preserve live canary artifact and integrate URL plus independently pinned public root into a new Android test build; then run emulator regression and request physical phone installation. Keep synthetic-only and do not claim external custody."
+}
