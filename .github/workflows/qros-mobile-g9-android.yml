@@ -25,10 +25,9 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with: {node-version: '24.19.0'}
       - name: Regenerate exact synthetic Worker bytes before Dart verification
-        working-directory: product/mobile/g9
         run: |
-          npm ci --ignore-scripts
-          node --test tests/workerd.test.mjs
+          npm ci --ignore-scripts --prefix product/mobile/g9
+          node --test product/mobile/g9/tests/workerd.test.mjs
       - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
         with: {channel: stable, flutter-version: '3.35.4'}
       - name: Rehydrate Android wrapper and resolve dependencies
