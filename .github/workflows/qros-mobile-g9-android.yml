@@ -1,0 +1,60 @@
+name: QROS Mobile G9 Android TEST_ONLY build
+on:
+  push:
+    branches: [product/mobile-g9-cloudflare-android-20260926]
+    paths:
+      - 'product/mobile/flutter_app/**'
+      - 'product/mobile/g9/receipts/PUBLIC_ROOT_20260928.json'
+      - '.github/workflows/qros-mobile-g9-android.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qros-mobile-g9-android
+  cancel-in-progress: false
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-java@v4
+        with: {distribution: temurin, java-version: '17'}
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+        with: {channel: stable, flutter-version: '3.35.4'}
+      - name: Rehydrate Android wrapper and resolve dependencies
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter create --platforms=android --project-name=qros_mobile_studio --org=app.qros --no-pub .
+          flutter pub get
+      - name: Analyze and run G6/G9 regressions
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter analyze --no-pub
+          flutter test --no-pub --reporter expanded
+      - name: Build G9 Android TEST_ONLY debug APK
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter build apk --debug --no-pub
+          test -s build/app/outputs/flutter-apk/app-debug.apk
+      - name: Freeze APK bytes and public-root binding
+        run: |
+          mkdir -p /tmp/qros-g9-android
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          apk=pathlib.Path('product/mobile/flutter_app/build/app/outputs/flutter-apk/app-debug.apk')
+          root=json.loads(pathlib.Path('product/mobile/g9/receipts/PUBLIC_ROOT_20260928.json').read_text())
+          r={'schema':'QROS_G9_ANDROID_CI_RECEIPT_V1','status':'PASS_ENGINEERING_TEST_ONLY','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'apk_bytes':apk.stat().st_size,'apk_sha256':hashlib.sha256(apk.read_bytes()).hexdigest(),'worker_origin':root['origin'],'public_key_sha256':root['public_key_sha256'],'public_https':'VERIFIED_LIVE_CANARY','external_independent_witness':'NOT_DEPLOYED','physical_android_install':'NOT_RUN','release_signed':False,'scientific_gate_pass':False}
+          pathlib.Path('/tmp/qros-g9-android/QROS_G9_ANDROID_CI_RECEIPT.json').write_text(json.dumps(r,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(r,indent=2))
+          PY
+          cp product/mobile/flutter_app/build/app/outputs/flutter-apk/app-debug.apk /tmp/qros-g9-android/QROS_MOBILE_G9_TEST_ONLY.apk
+          cp product/mobile/g9/receipts/PUBLIC_ROOT_20260928.json /tmp/qros-g9-android/
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-mobile-g9-test-only-android
+          retention-days: 7
+          if-no-files-found: error
+          path: /tmp/qros-g9-android/
+

@@ -87,8 +87,9 @@ class _QrosAppState extends State<QrosApp> {
         store: _store,
         universeStore: _universeStore,
         demoGateway: widget.demoGateway ?? const HttpsDemoGateway(),
-        g5Gateway: widget.g5Gateway ?? const HttpsG5SnapshotGateway(G5SnapshotVerifier(G6SyntheticTrust.profile)),
+        g5Gateway: widget.g5Gateway ?? const HttpsG5SnapshotGateway(G5SnapshotVerifier(G9LiveTrust.profile)),
       ),
     );
   }
 }
+

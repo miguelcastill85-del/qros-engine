@@ -9,7 +9,7 @@ class G5SnapshotScreen extends StatefulWidget {
 }
 
 class _G5SnapshotScreenState extends State<G5SnapshotScreen> {
-  final _origin = TextEditingController();
+  final _origin = TextEditingController(text: G9LiveTrust.origin);
   final _token = TextEditingController();
   VerifiedG5Snapshot? _snapshot;
   String? _error;
@@ -74,3 +74,4 @@ class _G5SnapshotScreenState extends State<G5SnapshotScreen> {
     ]),
   );
 }
+

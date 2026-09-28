@@ -29,6 +29,15 @@ class G5SnapshotTrust {
   final String knownHeadSha256;
 }
 
+class G9LiveTrust {
+  static const origin = 'https://qros-mobile-g9-test-only.miguelcastill85.workers.dev';
+  static const profile = G5SnapshotTrust(
+    witnessPublicKeyB64: 'NMKrBtWIcaMe1blwTUUS0CvZbxXCM0Z3yTOMBnYA+58=',
+    witnessId: 'g9_backend_test_only', tenant: 'tenant_A', project: 'project_A', campaign: 'campaign_A',
+    knownSequence: 0, knownHeadSha256: '0000000000000000000000000000000000000000000000000000000000000000',
+  );
+}
+
 class G6SyntheticTrust {
   static const profile = G5SnapshotTrust(
     witnessPublicKeyB64: 'QwRr/kCSs+lJlOraFdzCDYqqB7ZY/TlU644O+4vcpd4=',
@@ -246,3 +255,4 @@ class ListEqualityInt {
     return true;
   }
 }
+
