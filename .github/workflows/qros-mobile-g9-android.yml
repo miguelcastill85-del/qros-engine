@@ -1,4 +1,5 @@
 name: QROS Mobile G9 Android TEST_ONLY build
+# G9 Android build is intentionally TEST_ONLY and uses the independently pinned live root.
 on:
   push:
     branches: [product/mobile-g9-cloudflare-android-20260926]
