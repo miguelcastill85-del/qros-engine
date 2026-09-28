@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_SRL_TERMINAL_STATE_ENFORCEMENT_POLICY_1.0",
+  "status": "CANDIDATE_FOR_ACTIVE_GOVERNANCE",
+  "objective": "Make reconstructability a mandatory invariant for every newly created or modified scientific terminal/frozen state document.",
+  "terminal_states": ["FROZEN_CANDIDATE","REJECTED","OBSERVATIONAL_RESERVE","BRANCH_EXHAUSTED","APPROVED_RESEARCH","APPROVED_FINAL"],
+  "required_binding": {
+    "certificate_status": "PASS",
+    "capsule_root_sha256": "64 lowercase hex",
+    "registry_root_sha256": "64 lowercase hex",
+    "r00_r19_all_pass": true
+  },
+  "legacy_policy": "Existing untouched historical files are grandfathered as evidence only. Any future modification to a JSON document that writes a terminal scientific_state must satisfy this policy.",
+  "enforcement": {
+    "validator": "scripts/qros_srl_terminal_document_guard_v1.py",
+    "workflow": ".github/workflows/qros-srl-terminal-state-enforcement.yml",
+    "failure_behavior": "FAIL_CLOSED_DURABILITY_NONCOMPLIANT",
+    "scientific_state_on_storage_failure": "UNCHANGED"
+  },
+  "main_protection_note": "Repository branch protection is currently not enforced by this policy. A direct noncompliant push may physically land but is scientifically invalid and the workflow must flag it; durable authority pointers must not promote it."
+}

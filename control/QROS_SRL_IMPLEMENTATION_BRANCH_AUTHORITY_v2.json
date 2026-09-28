@@ -1,0 +1,23 @@
+{
+  "schema": "QROS_SRL_IMPLEMENTATION_BRANCH_AUTHORITY_2.0",
+  "layer": "QROS_STRATEGY_RECONSTRUCTION_LAYER_v1.3",
+  "state": "DEVELOPMENT_RUNNING",
+  "repository": "miguelcastill85-del/qros-engine",
+  "branch": "srl-v1.3-nonstall-e075f421-20260915",
+  "base_head_sha": "e075f421a7977a3ad5950f5483efa0f2d20072ce",
+  "authority_lease": {
+    "policy": "control/QROS_AUTHORITY_BRANCH_LEASE_POLICY_v1.json",
+    "lane_id": "SRL_V1_3_NONSTALL",
+    "main_drift_behavior": "continue on orthogonal drift; reconcile on overlapping drift or terminal premerge",
+    "neutral_blob_reuse": "content SHA only"
+  },
+  "scientific_guards": {
+    "economic_pnl_open": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "alpha_modified": false
+  },
+  "merge_allowed": false,
+  "supersedes": ["srl-v1.3-hardening-20260914-final", "srl-v1.3-hardening-v255-20260915"],
+  "next_automatic_action": "run branch CI; then advance P09/P12/P14/P15 independently without restarting for orthogonal main drift"
+}

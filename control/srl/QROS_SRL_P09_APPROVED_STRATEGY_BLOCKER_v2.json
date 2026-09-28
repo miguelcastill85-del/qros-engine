@@ -1,0 +1,126 @@
+{
+  "schema": "QROS_SRL_P09_APPROVED_STRATEGY_BLOCKER_2.0",
+  "gate": "P09_REAL_APPROVED_STRATEGY",
+  "state": "BLOCKED_BY_INFRASTRUCTURE",
+  "date": "2026-09-21",
+  "candidate": "XAU_M1_BUY_PDH_ACCEPTED_RETEST_200S_v101",
+  "authority": {
+    "branch": "srl-v1.3-nonstall-e075f421-20260915",
+    "observed_head_before_receipt": "f9392cdabb3817f214884b1708ef80c828ea0d1e",
+    "lease_base": "e075f421a7977a3ad5950f5483efa0f2d20072ce",
+    "prior_blocker_path": "control/srl/QROS_SRL_P09_APPROVED_STRATEGY_BLOCKER_v1.json",
+    "prior_blocker_blob_sha1": "b5c889afe1595239d5bac6a06b59d6bbd9ea079e"
+  },
+  "last_verified_progress": {
+    "frozen_identity_manifest": {
+      "name": "XAU_M1_v101_SHA256-2.txt",
+      "status": "VERIFIED_READABLE",
+      "bindings": {
+        "trade_ledger_sha256": "ee0170069fc6cf564539742f256fa12db1b5d57b4b2f0f9d6cfd281ab645ffff",
+        "frozen_spec_sha256": "c393d988a093f80f16099c84de95d0118c7800d1969ee05a54371593c29525d3",
+        "replay_sha256": "77ce506b61a7117c0eb80ef5f811ab3e715b68648f2a234147c975910ac27334"
+      }
+    },
+    "prior_recovery_review": {
+      "path": "QROS_PR51_REVISION_20260919.md",
+      "classification": "REPORTADO_DURABLE_NOT_REVERIFIED_AS_BYTES_THIS_RUNTIME",
+      "reported_exact_recovery": {
+        "XAU_M1_v101_TRADES_FULL.csv": {"bytes":31684,"sha256":"ee0170069fc6cf564539742f256fa12db1b5d57b4b2f0f9d6cfd281ab645ffff","rows":79},
+        "XAU_M1_v101_FROZEN_SPEC_AND_DECISION.json": {"bytes":5557,"sha256":"c393d988a093f80f16099c84de95d0118c7800d1969ee05a54371593c29525d3"},
+        "xau_m1_v101_replay.py": {"bytes":6462,"sha256":"77ce506b61a7117c0eb80ef5f811ab3e715b68648f2a234147c975910ac27334"}
+      },
+      "reported_package": {
+        "name":"XAU_M1_v101_SUPERGATE_PACKAGE.zip",
+        "library_file_id":"file_0000000081a4820ea42af62cb3697ecd",
+        "library_record_id":"libfile_85988e0780948191a279bce051051c11",
+        "sha256":"e75c652aa94703615a71362310f6f19c79bce400a3a43e781c5257ef40e2e727"
+      }
+    }
+  },
+  "first_bad_or_missing_event": "The frozen v101 replay requires XAUUSD_200S_BIDASK_v500.bin / XAUBAR200V500, but neither executable bytes nor an exact serializer/generator contract for that representation is recoverable in the current environment.",
+  "root_cause_set": {
+    "primary_cause": "MISSING_EXECUTABLE_BAR200_INPUT_REPRESENTATION_OR_EXACT_SERIALIZER",
+    "contributing_factors": [
+      "Project/File Library exposes identities and indexed evidence but denies raw-byte materialization for the relevant project-backed files in this runtime.",
+      "The later canonical BAR_200S_RESEARCH contract freezes CSV/gzip representations, not the legacy XAUBAR200V500 binary serialization.",
+      "No exact XAUBAR200V500 layout/generator was found in repository, Project source, File Library search, Google Drive, or Dropbox."
+    ],
+    "detection_failure": "The original P09 blocker grouped strategy artifacts and data input bytes under one broad 'full M1 bytes not materialized' label.",
+    "propagation": "NONE: P09 remained fail-closed and no approximate reconstruction was promoted."
+  },
+  "data_identity_evidence": {
+    "bar_contract": "QROS_XAU_CANONICAL_DATA_CONTRACT_v16580.json",
+    "canonical_csv": {
+      "dataset_id":"XAUUSD_200S_BIDASK_v500_CANONICAL_CSV",
+      "name":"XAUUSD_200S_BIDASK_v500_CANONICAL.csv",
+      "bytes":113432407,
+      "rows":902123,
+      "sha256":"138e46fa5eaba19f24996469cdd15b49eb7408f9465c8ba4dba42b93f3c33004",
+      "coverage_start":"2018-01-25 13:03:20",
+      "coverage_end":"2026-07-24 23:53:20",
+      "current_executable_bytes":"NOT_RECOVERED"
+    },
+    "verified_gzip_derivative": {
+      "name":"XAUUSD_200S_BIDASK_v500_RECONSTRUCTED_v13631.csv.gz",
+      "compressed_bytes":30796630,
+      "compressed_sha256":"5bad70aec921cc8b93f115090d69fabfbd2921a9640af34b62fb1c52c8228393",
+      "decompressed_bytes":113432407,
+      "decompressed_sha256":"a3d41c3acb3a19b826634330d1824f7ac9821b8201c8f51305170c5cf9e377c3",
+      "rows":902123,
+      "current_executable_bytes":"NOT_RECOVERED",
+      "warning":"Historical CSV byte hash differs; eligibility is BAR_200S_RESEARCH_ONLY. It cannot be silently substituted for the v101 binary input."
+    },
+    "legacy_v101_input": {
+      "name":"XAUUSD_200S_BIDASK_v500.bin",
+      "format":"XAUBAR200V500",
+      "rows":902123,
+      "identity_sha256":"NO_DISPONIBLE",
+      "layout_or_generator":"NO_DISPONIBLE",
+      "status":"FAIL_CLOSED"
+    }
+  },
+  "searches_and_escape_routes": [
+    {"route":"direct File Library materialization of exact trade-ledger file ID","result":"BLOCKED_RAW_BYTE_MATERIALIZATION_PATH"},
+    {"route":"direct File Library materialization of v101 supergate ZIP","result":"BLOCKED_RAW_BYTE_MATERIALIZATION_PATH"},
+    {"route":"File Library exact title/hash search for canonical CSV/gzip and XAUBAR200V500","result":"NO_EXECUTABLE_BYTES_FOUND"},
+    {"route":"Google Drive search for canonical CSV/gzip, XAUUSD_200S, XAUBAR200V500 and package","result":"NO_MATCH"},
+    {"route":"Dropbox search for canonical CSV/gzip, XAUUSD_200S, XAUBAR200V500 and package","result":"NO_MATCH"},
+    {"route":"GitHub repository search for XAUBAR200V500, legacy BIN, canonical CSV hash/name","result":"NO_MATCH"},
+    {"route":"Project Investigación XAUUSD exact find for legacy format/generator","result":"NO_MATCH"},
+    {"route":"rebuild from full ticks now","result":"NOT_SELECTED; high cost and semantic equivalence to legacy binary is not yet proven, so recomputation cannot by itself close P09"}
+  ],
+  "three_blast_radii": {
+    "technical": "P09 approved-strategy clean reconstruction lane only.",
+    "scientific": "NONE_VERIFIED; frozen XAU M1 evidence is preserved and no new economic result was read.",
+    "decision": "NONE_VERIFIED; P09 remains blocked, P12 remains external pending, merge remains disallowed."
+  },
+  "valid_work_preserved": [
+    "P01-P08B PASS evidence",
+    "P14 PASS",
+    "P15 PASS",
+    "frozen v101 hashes and prior recovery evidence",
+    "authority lease and anti-stall governor"
+  ],
+  "quarantined_or_forbidden": [
+    "61-trade subset as substitute for 79-trade ledger",
+    "canonical CSV/gzip as silent substitute for XAUBAR200V500",
+    "rebuilding strategy from parameter names",
+    "economic metric inspection for debugging",
+    "holdout-based parameter selection",
+    "fabricated P09 PASS"
+  ],
+  "minimum_safe_fix": "Recover either (A) exact XAUUSD_200S_BIDASK_v500.bin bytes with an authenticated identity, or (B) the exact legacy XAUBAR200V500 serializer/layout plus hash-verified canonical 902123-bar input, then prove deterministic semantic parity before any clean reconstruction.",
+  "resume_contract": {
+    "required": [
+      "exact executable BAR200 input identity",
+      "exact serializer/layout if regenerating legacy binary",
+      "hash verification",
+      "902123-row and coverage parity",
+      "no parameter selection or economic debugging",
+      "frozen spec/replay/ledger identities unchanged"
+    ],
+    "status":"NOT_READY"
+  },
+  "lane_action": "FREEZE_P09_AT_REPRESENTATION_RECOVERY_BLOCKER_AND_CONTINUE_ORTHOGONAL_WORK",
+  "next_automatic_action": "Do not repeat P09 storage searches unless new storage evidence appears. Continue another independent authorized project frontier; return to P09 only when exact bar bytes or an exact XAUBAR200V500 serializer/generator becomes recoverable."
+}

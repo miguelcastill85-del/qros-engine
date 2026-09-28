@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_SRL_P15_INDEPENDENT_CLEANROOM_RECEIPT_1.0",
+  "gate": "P15_INDEPENDENT_FINAL_CLEAN_ROOM",
+  "state": "PASS",
+  "strategy_id": "QROS_STRATEGY_001_XAU_IPS65_IMPULSE_EXTREME_BREAKOUT_v1",
+  "scientific_state_preserved": "REJECTED",
+  "workspace": "fresh temporary directory created from portable strategy package",
+  "carrier": {
+    "source_parts": "QROS_XAU_FULL_HISTORY_v2_part014-of-035.zip through part026-of-035.zip",
+    "global_record_range": [260000000, 519057574],
+    "records": 259057574,
+    "bytes": 4403978758,
+    "sha256": "a3068e4bb6714c253d5b4714e97be59cff56c3070631fc68efbf64716ab2f296",
+    "rematerialized_from_canonical_parts": true
+  },
+  "primary": {
+    "implementation": "strategy_main_v1.py",
+    "trades": 2549,
+    "ledger_sha256": "05921d58102e9a53ec4e506248ac6374980c175cec118c393b9d4cf40ab381f3",
+    "expected_byte_identical": true
+  },
+  "oracle": {
+    "source": "strategy_oracle_v1.cpp",
+    "compiled_fresh": true,
+    "trades": 2549,
+    "ledger_sha256": "05921d58102e9a53ec4e506248ac6374980c175cec118c393b9d4cf40ab381f3",
+    "expected_byte_identical": true
+  },
+  "primary_oracle_byte_identical": true,
+  "economic_reselection": false,
+  "holdout_opened": false,
+  "decision": "PASS_INDEPENDENT_REAL_CLEANROOM"
+}

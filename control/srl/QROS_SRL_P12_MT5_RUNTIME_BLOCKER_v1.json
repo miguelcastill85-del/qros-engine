@@ -1,0 +1,19 @@
+{
+  "schema": "QROS_SRL_P12_MT5_RUNTIME_BLOCKER_1.0",
+  "gate": "P12_REAL_MT5_PATH",
+  "state": "MT5_EXTERNAL_PENDING",
+  "verified_recoverable_evidence": [
+    "XAU_M1_REFERENCE_TESTER_v15720.ini exists in File Library",
+    "QROS_PORTFOLIO_BASELINE_RECOVERY_MANIFEST.json preserves XAU M1 shadow events/trades/environment artifacts with SHA-256 identities",
+    "historical MT5/MetaEditor evidence exists for XAU M1 and retained parity workflow"
+  ],
+  "current_runtime": {
+    "Terminal64": "NO_DISPONIBLE",
+    "MetaEditor": "NO_DISPONIBLE",
+    "Wine": "NO_DISPONIBLE",
+    "MT5_bridge_executable": "NO_DISPONIBLE"
+  },
+  "decision": "Do not fabricate a fresh MT5 reconstruction PASS from historical receipts alone.",
+  "lane_action": "FREEZE_P12_AS_MT5_EXTERNAL_PENDING_AND_CONTINUE_P14_P15",
+  "resume_condition": "An executable MT5/MetaEditor environment plus the exact frozen strategy package is available for a new clean reconstruction/parity run."
+}

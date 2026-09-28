@@ -1,0 +1,35 @@
+{
+  "schema": "QROS_SRL_IMPLEMENTATION_CHECKPOINT_2.0",
+  "objective": "Implement Strategy Reconstruction Layer v1.3 with durable anti-stall execution and fail-closed terminal reconstruction certification.",
+  "authority": {
+    "base_head_sha": "e075f421a7977a3ad5950f5483efa0f2d20072ce",
+    "branch": "srl-v1.3-nonstall-e075f421-20260915",
+    "authority_lease_policy": "QROS_AUTHORITY_BRANCH_LEASE_POLICY_v1"
+  },
+  "work_executed": [
+    "Reused previously validated SRL core/adversarial code only by immutable Git blob SHA.",
+    "Added authority branch lease to prevent starvation from unrelated main drift.",
+    "Added non-stall execution governor and 16 deterministic tests.",
+    "Added terminal scientific-state reconstruction guard and 7 deterministic tests.",
+    "Preserved Strategy001 real rejected-strategy and carrier rematerialization receipts."
+  ],
+  "verified_before_commit": {
+    "nonstall_local_tests": "16/16 PASS",
+    "terminal_guard_local_tests": "7/7 PASS",
+    "strategy001_real_pilot_prior_evidence": "2549/2549 exact",
+    "strategy001_carrier_rematerialization_prior_evidence": "exact SHA match"
+  },
+  "gates": {
+    "branch_ci": "PENDING",
+    "approved_strategy_pilot": "PENDING",
+    "mt5_real_path": "PENDING_OR_EXTERNAL",
+    "generic_controller_wiring": "PARTIAL_GUARD_IMPLEMENTED",
+    "independent_final_cleanroom": "PENDING"
+  },
+  "problems": ["Previous implementation repeatedly restarted because unrelated main updates were treated as mandatory immediate rebase events."],
+  "root_cause": "No authority lease distinguished isolated-lane authority from terminal premerge reconciliation.",
+  "corrections": ["Freeze verified branch base during active lane; reconcile only on dependency overlap or terminal premerge; blocked lanes cannot block orthogonal work."],
+  "scientific_state": "DEVELOPMENT_RUNNING",
+  "portfolio_impact": "NONE; no alpha, economic PnL, holdout, GA2 or risk logic changed.",
+  "next_automatic_action": "commit branch tree, run CI, then execute P09/P12/P14/P15 independently under the lease"
+}
