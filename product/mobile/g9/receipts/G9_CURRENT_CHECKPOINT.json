@@ -49,7 +49,7 @@
   "free_plan": "REPORTADO_BY_USER; no paid services authorized or activated by this work",
   "scientific_gate_pass": false,
   "portfolio_impact": "NONE",
-  "next_exact_action": "One replay attempt using same token before expiry; retain screenshot. After test delete QROS_G9_PHONE_TOKEN GitHub secret.",
+  "next_exact_action": "Delete GitHub repository secret QROS_G9_PHONE_TOKEN; close generator. Preserve CF deployment secrets. No new activation requested. Independent device/APK provenance remains a separate open gate; no scientific or product authority promotion.",
   "live_canary_independent_python_reverification": "PASS_FIXED_PUBLIC_ROOT_AND_CANONICAL_BYTES_OUTSIDE_CI",
   "scientific_state": {
     "current_version": "V259",
@@ -79,9 +79,10 @@
     "rekor": "VERIFICADO_COSIGN_SIGSTORE_PYTHON_AND_EXTERNAL_PUBLIC_READBACK",
     "independent_custody": "NO_DISPONIBLE_NOT_DEPLOYED",
     "release_signature": "NO_DEBUG_TEST_ONLY",
-    "production_oidc": "NOT_DEPLOYED"
+    "production_oidc": "NOT_DEPLOYED",
+    "physical_replay": "VERIFICADO_REJECTION_UI_BEFORE_EXPIRY; REPLAY_CAUSE_INFERIDO"
   },
-  "first_pending_operation": "One replay attempt using same token before expiry; retain screenshot. After test delete QROS_G9_PHONE_TOKEN GitHub secret.",
+  "first_pending_operation": "Delete GitHub repository secret QROS_G9_PHONE_TOKEN; close generator. Preserve CF deployment secrets. No new activation requested. Independent device/APK provenance remains a separate open gate; no scientific or product authority promotion.",
   "persistence_scope": "Evidence/documentation-only descendant of tested source; CI results bind to source_commit, not to unexecuted runtime changes.",
   "limitations": [
     "APK uses debug signing; Android signer fingerprint not extracted locally (no v1 certificate entry or standalone apksigner).",
@@ -111,6 +112,21 @@
     "commit": "2a8212bfbbebc034ee5644e294696c293fb957bb",
     "provider_write": "VERIFICADO_CI_SUCCESS",
     "valid_from_utc": "2026-09-29T20:43:53.000Z",
-    "expires_at_utc": "2026-09-29T20:48:52.000Z"
+    "expires_at_utc": "2026-09-29T20:48:52.000Z",
+    "artifact_id": 11060919756,
+    "archive_sha256": "4048a648aeb74cbc7be832937e1942cb7246c3fd939824cba75bc3811f45865c",
+    "archive_bytes": 608,
+    "downloaded_and_hash_verified": true,
+    "durable_receipt": "PHONE_WINDOW_36628359102.json"
+  },
+  "physical_reuse_observation": {
+    "receipt": "PHYSICAL_REUSE_SCREEN_20260929.json",
+    "classification": "VERIFICADO_VISIBLE_REJECTION; REPLAY_CAUSE_INFERIDO_NOT_INDEPENDENTLY_OBSERVED",
+    "before_expiry": true
+  },
+  "latest_automatic_parity_run": {
+    "run": 36628359094,
+    "status": "SUCCESS",
+    "note": "Triggered by activation request path; no APK rebuild."
   }
 }
