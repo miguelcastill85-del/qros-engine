@@ -49,7 +49,7 @@
   "free_plan": "REPORTADO_BY_USER; no paid services authorized or activated by this work",
   "scientific_gate_pass": false,
   "portfolio_impact": "NONE",
-  "next_exact_action": "Independent physical device/installed APK provenance: obtain authorized device access and compare installed APK bytes to frozen SHA256. Do not repeat completed positive phone UI test or live canary.",
+  "next_exact_action": "Review consolidated TEST_ONLY evidence in PR #74 against G8 product branch. Physical installed-APK hash measurement remains documented as unavailable, not a demand to repeat functional tests. No new activation, build, signature publication or scientific work.",
   "live_canary_independent_python_reverification": "PASS_FIXED_PUBLIC_ROOT_AND_CANONICAL_BYTES_OUTSIDE_CI",
   "scientific_state": {
     "current_version": "V259",
@@ -82,7 +82,7 @@
     "production_oidc": "NOT_DEPLOYED",
     "physical_replay": "VERIFICADO_REJECTION_UI_BEFORE_EXPIRY; REPLAY_CAUSE_INFERIDO"
   },
-  "first_pending_operation": "Independent physical device/installed APK provenance: obtain authorized device access and compare installed APK bytes to frozen SHA256. Do not repeat completed positive phone UI test or live canary.",
+  "first_pending_operation": "Review consolidated TEST_ONLY evidence in PR #74 against G8 product branch. Physical installed-APK hash measurement remains documented as unavailable, not a demand to repeat functional tests. No new activation, build, signature publication or scientific work.",
   "persistence_scope": "Evidence/documentation-only descendant of tested source; CI results bind to source_commit, not to unexecuted runtime changes.",
   "limitations": [
     "APK uses debug signing; Android signer fingerprint not extracted locally (no v1 certificate entry or standalone apksigner).",
@@ -100,7 +100,13 @@
     "app_opens": true,
     "independent_device_evidence": false,
     "installed_apk_hash_verified": false,
-    "authenticated_pairing": "SUCCESS_UI_CAPTURE; LIVE_PAIRING_INFERIDO"
+    "authenticated_pairing": "SUCCESS_UI_CAPTURE; LIVE_PAIRING_INFERIDO",
+    "same_delivered_apk_confirmed": {
+      "classification": "REPORTADO",
+      "reported_at_local": "2026-09-29T20:06:46-03:00",
+      "statement": "Si es la misma",
+      "independent_hash_measurement": false
+    }
   },
   "physical_screen_observation": {
     "receipt": "PHYSICAL_AUTHENTICATED_SCREEN_20260929.json",
@@ -135,5 +141,11 @@
     "secret_deleted": "REPORTADO",
     "window_elapsed": true
   },
-  "physical_test_checkpoint": "CLOSED_WITH_VISIBLE_SUCCESS_AND_NEGATIVE_UI_EVIDENCE; exact replay cause inferred; independent device provenance open"
+  "physical_test_checkpoint": "CLOSED_WITH_VISIBLE_SUCCESS_AND_NEGATIVE_UI_EVIDENCE; exact replay cause inferred; independent device provenance open",
+  "closure": {
+    "status": "TEST_ONLY_EVIDENCE_CONSOLIDATED_FOR_PR_REVIEW",
+    "document": "product/mobile/g9/G9_CIERRE_TEST_ONLY_20260929.md",
+    "scientific_promotion": false,
+    "production_ready": false
+  }
 }
