@@ -1,0 +1,19 @@
+{
+  "schema": "QROS_G9_PHONE_COPY_FIX_V2",
+  "parent": "3e2aeb7fe81355cfb785ee98daebc3ab7a6f65c4",
+  "status": "IMPLEMENTED_ANDROID_COPY_PENDING",
+  "operator_report": "Automatic clipboard and long-press copy unavailable across attempted viewers.",
+  "root_cause": "NOT_CONFIRMED: prior password/read-only field and clipboard/viewer restrictions are candidate causes.",
+  "changes": [
+    "Editable selectable textarea with accidental-edit restoration",
+    "Synchronous copy fallback followed by Clipboard API",
+    "Explicit select-text button and JavaScript-disabled instructions"
+  ],
+  "validation": [
+    "JavaScript syntax PASS",
+    "No-network CSP preserved",
+    "Android clipboard NOT VERIFIED"
+  ],
+  "activation": "NOT_REQUESTED_NOT_ACTIVATED",
+  "next_action": "User downloads v2, generates locally, copies into QROS_G9_PHONE_TOKEN GitHub Actions secret and confirms phone ready. Only then activate bounded phone window."
+}
