@@ -199,11 +199,16 @@ abstract class G5SnapshotGateway {
 }
 
 class HttpsG5SnapshotGateway implements G5SnapshotGateway {
-  const HttpsG5SnapshotGateway(this.verifier);
+  const HttpsG5SnapshotGateway(this.verifier, {this.allowedOrigin});
+  final String? allowedOrigin;
   final G5SnapshotVerifier verifier;
 
   @override
   Future<VerifiedG5Snapshot> fetch(String origin, String token) async {
+    // Reject destination substitution before allocating a client or sending credentials.
+    if (allowedOrigin != null && origin != allowedOrigin) {
+      throw const G5SnapshotReject('ORIGIN_PIN_MISMATCH');
+    }
     if (token.length < 32 || token.length > 128 || !RegExp(r'^[A-Za-z0-9_-]+$').hasMatch(token)) {
       throw const G5SnapshotReject('TOKEN_FORMAT');
     }
@@ -255,4 +260,3 @@ class ListEqualityInt {
     return true;
   }
 }
-
