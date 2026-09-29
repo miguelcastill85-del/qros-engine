@@ -1,6 +1,6 @@
 {
   "schema": "QROS_G9_CURRENT_CHECKPOINT_V1",
-  "classification": "VERIFICADO_ENGINEERING_CHECKPOINT_WITH_OPEN_PHYSICAL_AND_WITNESS_GATES",
+  "classification": "VERIFICADO_ENGINEERING_AND_PUBLIC_TRANSPARENCY_WITH_OPEN_PHYSICAL_GATES",
   "source_commit": "fe0a850719fe54b283b2152a56d95e749a863e02",
   "authority": "MOBILE_PRODUCT_HEAD v11 preserved; scientific main untouched",
   "worker_origin": "https://qros-mobile-g9-test-only.miguelcastill85.workers.dev",
@@ -45,11 +45,11 @@
     "flutter_tests": 30,
     "flutter_analyze": "NO_ISSUES"
   },
-  "external_witness": "NOT_PUBLISHED: public GitHub identity disclosure decision unresolved",
+  "external_witness": "VERIFICADO_REKOR_PUBLIC_TRANSPARENCY_NOT_INDEPENDENT_BACKEND_CUSTODY",
   "free_plan": "REPORTADO_BY_USER; no paid services authorized or activated by this work",
   "scientific_gate_pass": false,
   "portfolio_impact": "NONE",
-  "next_exact_action": "Read this checkpoint and current branch HEAD. Do not rebuild or rerun valid tests. If user supplies physical installation evidence, validate exact APK/device evidence and prepare bounded authenticated phone test with secure token delivery. In parallel, only after explicit permission to publish GitHub account/repository/workflow identity, publish synthetic hash using gated Sigstore workflow and independently verify bundle/transparency with Cosign and sigstore-python. Otherwise preserve NOT_RUN/NOT_PUBLISHED.",
+  "next_exact_action": "Do not sign again or rebuild the validated APK. Verify physical Android installation of APK SHA 60107772a5b60f63a2b7e5d5ec24452ca9a52b05c886fcf15c8e859135074b01; establish secure short-lived QROS token delivery before authenticated phone pairing.",
   "live_canary_independent_python_reverification": "PASS_FIXED_PUBLIC_ROOT_AND_CANONICAL_BYTES_OUTSIDE_CI",
   "scientific_state": {
     "current_version": "V259",
@@ -63,7 +63,7 @@
   },
   "running_jobs": [],
   "product_promotion": false,
-  "product_promotion_reason": "Preserve G8 v11 authority; G9 engineering checkpoint does not close physical pairing or independent witness gates.",
+  "product_promotion_reason": "Physical installation/pairing remains unverified; public transparency does not establish independent backend custody.",
   "gates": {
     "worker_https": "VERIFICADO_LIVE_CANARY_AND_EXTERNAL_401_PROBE",
     "worker_python_dart_parity": "VERIFICADO",
@@ -76,7 +76,7 @@
     "android_build": "VERIFICADO",
     "android_emulator_install_start_render": "VERIFICADO",
     "physical_android_install_and_pairing": "NO_DISPONIBLE_NOT_RUN",
-    "rekor": "NO_DISPONIBLE_NOT_PUBLISHED_PRIVACY_DECISION",
+    "rekor": "VERIFICADO_COSIGN_SIGSTORE_PYTHON_AND_EXTERNAL_PUBLIC_READBACK",
     "independent_custody": "NO_DISPONIBLE_NOT_DEPLOYED",
     "release_signature": "NO_DEBUG_TEST_ONLY",
     "production_oidc": "NOT_DEPLOYED"
@@ -88,5 +88,9 @@
     "Synthetic fixed sequence 1 is not a dynamic external latest-head service.",
     "Root is pinned through a separate channel but signing custody remains with the same operator.",
     "Local checkout is a scoped file recovery without .git or complete historical HANDOFF_MANIFEST.sha256; previous import preflight limitation is preserved. GitHub and CI are the durable source authority."
-  ]
+  ],
+  "repository_visibility": "PUBLIC_VERIFIED_20260929",
+  "sigstore_checkpoint": "SIGSTORE_VERIFIED_20260929.json",
+  "sigstore_run": 36564211889,
+  "sigstore_signing_source_commit": "1944d46b817494bd9810b35f817fc2377ba185e8"
 }
