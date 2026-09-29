@@ -49,7 +49,7 @@
   "free_plan": "REPORTADO_BY_USER; no paid services authorized or activated by this work",
   "scientific_gate_pass": false,
   "portfolio_impact": "NONE",
-  "next_exact_action": "Do not sign again or rebuild the validated APK. Verify physical Android installation of APK SHA 60107772a5b60f63a2b7e5d5ec24452ca9a52b05c886fcf15c8e859135074b01; establish secure short-lived QROS token delivery before authenticated phone pairing.",
+  "next_exact_action": "User locally generates QROS bearer using phone/QROS_G9_GENERAR_TOKEN.html and saves it as GitHub repository secret QROS_G9_PHONE_TOKEN. Do not disclose in chat. Keep local generator tab open. Activate one 299-second scoped window only after user confirms secret saved and phone ready.",
   "live_canary_independent_python_reverification": "PASS_FIXED_PUBLIC_ROOT_AND_CANONICAL_BYTES_OUTSIDE_CI",
   "scientific_state": {
     "current_version": "V259",
@@ -81,7 +81,7 @@
     "release_signature": "NO_DEBUG_TEST_ONLY",
     "production_oidc": "NOT_DEPLOYED"
   },
-  "first_pending_operation": "Operator opens Evidencias > Verificar snapshot G5 · G9 on physical Android, confirms pinned origin and G9 label, then checks empty-token rejection. Screenshot must not contain credentials. Secure ephemeral QROS token delivery remains pending.",
+  "first_pending_operation": "User locally generates QROS bearer using phone/QROS_G9_GENERAR_TOKEN.html and saves it as GitHub repository secret QROS_G9_PHONE_TOKEN. Do not disclose in chat. Keep local generator tab open. Activate one 299-second scoped window only after user confirms secret saved and phone ready.",
   "persistence_scope": "Evidence/documentation-only descendant of tested source; CI results bind to source_commit, not to unexecuted runtime changes.",
   "limitations": [
     "APK uses debug signing; Android signer fingerprint not extracted locally (no v1 certificate entry or standalone apksigner).",
@@ -99,6 +99,13 @@
     "app_opens": true,
     "independent_device_evidence": false,
     "installed_apk_hash_verified": false,
+    "authenticated_pairing": "NOT_RUN"
+  },
+  "physical_screen_observation": {
+    "receipt": "PHYSICAL_EMPTY_TOKEN_SCREEN_20260929.json",
+    "classification": "VERIFICADO_VISIBLE_CAPTURE_ONLY",
+    "token_field_appears_empty": true,
+    "rejection_visible": true,
     "authenticated_pairing": "NOT_RUN"
   }
 }

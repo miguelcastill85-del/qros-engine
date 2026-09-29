@@ -1,0 +1,44 @@
+name: QROS G9 bounded physical phone test window
+on:
+  push:
+    branches: [product/mobile-g9-cloudflare-android-20260926]
+    paths:
+      - 'product/mobile/g9/phone/**'
+      - '.github/workflows/qros-mobile-g9-phone.yml'
+permissions:
+  contents: read
+concurrency:
+  group: qros-g9-phone-window
+  cancel-in-progress: false
+jobs:
+  checks:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - run: node --test product/mobile/g9/phone/phone-grant.test.mjs
+  activate:
+    needs: checks
+    if: contains(github.event.head_commit.message, '[qros-g9-phone-window]') && vars.QROS_G9_FREE_PLAN_VERIFIED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - name: Provision one scoped bearer hash for at most 299 seconds
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          QROS_G9_PHONE_TOKEN: ${{ secrets.QROS_G9_PHONE_TOKEN }}
+        run: node product/mobile/g9/phone/phone-grant.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g9-phone-window-receipt
+          path: /tmp/qros-g9-phone/PHONE_WINDOW.json
+          retention-days: 7
+          if-no-files-found: error
