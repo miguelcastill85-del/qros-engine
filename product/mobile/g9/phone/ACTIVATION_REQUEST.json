@@ -1,0 +1,10 @@
+{
+  "schema": "QROS_G9_PHONE_ACTIVATION_REQUEST_V1",
+  "operator_ready_reported_at": "2026-09-29T20:42:54Z",
+  "secret_saved": "OPERATOR_REPORTED",
+  "parent": "8e8977032e99a366faf4fa9d67ca6b9c67b46904",
+  "scope": "tenant_A/project_A/campaign_A demo:read",
+  "ttl_seconds": 299,
+  "expected_apk_sha256": "60107772a5b60f63a2b7e5d5ec24452ca9a52b05c886fcf15c8e859135074b01",
+  "next_action": "Wait for provider receipt then operator performs one authenticated phone request. No automatic retry on uncertain write."
+}
