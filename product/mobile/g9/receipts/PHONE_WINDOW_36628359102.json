@@ -1,0 +1,15 @@
+{
+  "schema": "QROS_G9_PHONE_WINDOW_V1",
+  "status": "PROVIDER_WRITE_CONFIRMED_PHONE_RESULT_PENDING",
+  "source_commit": "2a8212bfbbebc034ee5644e294696c293fb957bb",
+  "run_id": "36628359102",
+  "origin": "https://qros-mobile-g9-test-only.miguelcastill85.workers.dev",
+  "valid_from_utc": "2026-09-29T20:43:53.000Z",
+  "expires_at_utc": "2026-09-29T20:48:52.000Z",
+  "max_lifetime_seconds": 299,
+  "scope": "tenant_A/project_A/campaign_A demo:read",
+  "bearer_disclosed": false,
+  "phone_authenticated_request": "NOT_OBSERVED",
+  "cleanup": "FAIL_CLOSED_EXPIRY; backend stores hash only; remove user-held GitHub secret after the test",
+  "scientific_gate_pass": false
+}

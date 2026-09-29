@@ -1,0 +1,37 @@
+name: QROS G9 one-time backend root provisioning
+on:
+  push:
+    branches: ['product/mobile-g9-cloudflare-android-20260926']
+    paths: ['.github/workflows/qros-mobile-g9-provision.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qros-g9-disabled-bootstrap
+  cancel-in-progress: false
+jobs:
+  provision:
+    if: github.ref == 'refs/heads/product/mobile-g9-cloudflare-android-20260926' && vars.QROS_G9_FREE_PLAN_VERIFIED == 'true'
+    environment: qros-g9-test-only
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - name: Test provisioning failure boundaries without credentials
+        run: node --test product/mobile/g9/tests/provision-root.test.mjs
+      - name: Provision backend-only root; no rotation or retry
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: node product/mobile/g9/scripts/provision-root.mjs
+      - name: Preserve public root only, including uncertain outcomes
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g9-public-root
+          path: public-root-evidence/public-root.json
+          retention-days: 7
+          if-no-files-found: warn

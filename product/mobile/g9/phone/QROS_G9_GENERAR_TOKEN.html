@@ -1,0 +1,31 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; form-action 'none'; base-uri 'none'"><title>QROS G9 — token local v2</title>
+<style>body{font:18px system-ui;background:#09111f;color:#eef3ff;max-width:650px;margin:32px auto;padding:20px;line-height:1.5}button,textarea{font:inherit;padding:14px;border-radius:12px;margin:8px 0;width:100%;box-sizing:border-box}button{background:#31d2b1;border:0;font-weight:bold}textarea{overflow-wrap:anywhere;-webkit-user-select:text;user-select:text;background:#142238;color:white;border:1px solid #617184}small{color:#b7c5d9}#status{color:#fbd67a}</style>
+<h1>Token QROS G9 · v2</h1><noscript>JavaScript está desactivado en esta vista. Descarga el archivo y ábrelo en Chrome.</noscript><p>Esta página genera un token aleatorio en tu teléfono. No lo envía por Internet ni lo guarda.</p>
+<button id="generate" type="button">1. Generar token</button><textarea id="token" rows="3" hidden autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Token temporal generado"></textarea><button id="copy" type="button" disabled>2. Copiar token</button><button id="reveal" type="button" disabled>Mostrar / ocultar</button><button id="select" type="button" disabled>3. Seleccionar texto</button><p id="status" role="status">Pulsa Generar token. Si este mensaje no cambia, esta vista no ejecuta el generador.</p>
+<p>Guárdalo en GitHub, en <strong>Settings → Secrets and variables → Actions → New repository secret</strong>.</p><p>Nombre exacto: <strong>QROS_G9_PHONE_TOKEN</strong>. Pega el token en el campo Secret. Nunca lo pegues en el chat.</p>
+<p>Mantén esta pestaña abierta para volver a copiarlo a la app cuando se active la prueba. Si cierras o recargas, tendrás que generar otro y actualizar el secreto.</p><p>Generarlo no activa la ventana ni contacta con Cloudflare. La activación se hará después. No uses el token de Cloudflare en QROS.</p><small>TEST_ONLY · 36 bytes aleatorios · Sin almacenamiento local · Sin servicios externos. No hagas capturas cuando el token esté visible.</small>
+<script>
+'use strict';
+const token=document.getElementById('token'),status=document.getElementById('status'),copy=document.getElementById('copy'),reveal=document.getElementById('reveal'),select=document.getElementById('select');
+let generated='';
+function selectToken(){token.hidden=false;token.value=generated;token.focus();token.select();token.setSelectionRange(0,token.value.length);}
+document.getElementById('generate').addEventListener('click',()=>{
+ if(!globalThis.crypto?.getRandomValues){status.textContent='Este navegador no ofrece generación segura. Abre el archivo en Chrome. No se ha creado un token.';return;}
+ const bytes=crypto.getRandomValues(new Uint8Array(36));
+ generated=btoa(String.fromCharCode(...bytes)).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+ bytes.fill(0);token.value=generated;token.hidden=true;copy.disabled=false;reveal.disabled=false;select.disabled=false;
+ status.textContent='Token de 48 caracteres creado. Pulsa Copiar token. No vuelvas a generarlo después de guardarlo en GitHub.';
+});
+token.addEventListener('input',()=>{token.value=generated;status.textContent='Se restauró el token original para evitar cambios accidentales.';});
+copy.addEventListener('click',async()=>{
+ if(!generated)return;
+ selectToken();
+ let copied=false;
+ try{copied=document.execCommand('copy');}catch{}
+ if(!copied){try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(generated);copied=true;}}catch{}}
+ if(copied){token.hidden=true;status.textContent='Copiado. Pégalo en GitHub Secrets. No lo envíes por chat.';}
+ else{selectToken();status.textContent='La copia automática está bloqueada. El texto está seleccionado: busca Copiar en el menú de edición del teléfono. Si no aparece, indica que falló la versión v2; no envíes el token.';}
+});
+select.addEventListener('click',()=>{selectToken();status.textContent='Texto seleccionado. Usa Copiar en el menú de edición del teléfono. No escribas ni cambies el token.';});
+reveal.addEventListener('click',()=>{token.hidden=!token.hidden;});
+</script></html>

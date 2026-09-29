@@ -1,0 +1,14 @@
+{
+  "schema": "QROS_G9_PHONE_CLEANUP_V1",
+  "reported_at": "2026-09-29T17:49:58-03:00",
+  "classification": "REPORTADO",
+  "operator_message": "Listo",
+  "context": "Confirmation following instruction to delete only QROS_G9_PHONE_TOKEN and close local generator.",
+  "github_phone_secret_deleted": "REPORTADO_NOT_API_VERIFIED",
+  "generator_closed": "REPORTADO",
+  "grant_expiration_utc": "2026-09-29T20:48:52Z",
+  "expiry_elapsed": "VERIFICADO_BY_RECEIPT_AND_MESSAGE_TIMESTAMP",
+  "post_expiry_authenticated_probe": "NOT_RUN",
+  "no_new_activation": true,
+  "scientific_gate_pass": false
+}

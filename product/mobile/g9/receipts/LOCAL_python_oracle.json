@@ -1,0 +1,9 @@
+{
+  "schema": "QROS_G9_PYTHON_ORACLE_V1",
+  "classification": "TEST_ONLY",
+  "canonical_payload_sha256": "fc7b350c0751ce0946bded18ec839d00ab10d62f23829a3289a281f70b16ebce",
+  "positive": 1,
+  "negative": 3,
+  "status": "PASS",
+  "external_custody": "NOT_DEPLOYED"
+}

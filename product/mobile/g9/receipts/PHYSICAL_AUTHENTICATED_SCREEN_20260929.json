@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_G9_PHYSICAL_AUTHENTICATED_SCREEN_V1",
+  "received_at": "2026-09-29T17:45:47-03:00",
+  "classification": "VERIFICADO_VISIBLE_CAPTURE; PHYSICAL_EXECUTION_REPORTADO; LIVE_PAIRING_INFERIDO_FROM_CORRELATED_EVIDENCE",
+  "image_sha256": "d44b8236747a1f46ee4ae7143384888383afc0b207900b874e4df4f3f0516b8e",
+  "image_bytes": 123717,
+  "image_published": false,
+  "visible": {
+    "result": "CADENA SINTÉTICA VERIFICADA",
+    "tenant": "tenant_A",
+    "project": "project_A",
+    "campaign": "campaign_A",
+    "rows": 2,
+    "sequence": 1,
+    "timezone": "TEST_ONLY_NO_BROKER_CLOCK",
+    "head": "090b2631d39db4fbc04c0dc18f99766c3bb9385e5fed71ceb1677f158b6b969d",
+    "token_field_empty": true,
+    "origin_truncated": true
+  },
+  "activation": {
+    "run": 36628359102,
+    "commit": "2a8212bfbbebc034ee5644e294696c293fb957bb",
+    "provider_write": "VERIFICADO_CI_SUCCESS",
+    "valid_from_utc": "2026-09-29T20:43:53.000Z",
+    "expires_at_utc": "2026-09-29T20:48:52.000Z"
+  },
+  "limits": [
+    "Device identity and installed APK hash not independently measured.",
+    "Screenshot does not independently establish network provenance or cryptographic verification.",
+    "No independent backend key custody, production or scientific approval."
+  ],
+  "next": "One replay attempt using same token before expiry; retain screenshot. After test delete QROS_G9_PHONE_TOKEN GitHub secret."
+}

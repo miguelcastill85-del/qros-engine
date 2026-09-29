@@ -1,0 +1,17 @@
+{
+  "name": "qros-mobile-g9-test-only",
+  "main": "worker/index.mjs",
+  "compatibility_date": "2026-07-30",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": {"enabled": false},
+  "durable_objects": {"bindings": [{"name": "REPLAY_GATE", "class_name": "ReplayGate"}]},
+  "migrations": [{"tag": "g9-v1", "new_sqlite_classes": ["ReplayGate"]}],
+  "vars": {
+    "ENABLED": "false",
+    "PUBLIC_ORIGIN": "https://unconfigured.invalid",
+    "TENANT": "tenant_A", "PROJECT": "project_A", "CAMPAIGN": "campaign_A",
+    "WITNESS_ID": "g9_backend_test_only",
+    "SNAPSHOT_CREATED_UTC": "2026-09-26T00:00:00Z"
+  }
+}

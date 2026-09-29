@@ -1,0 +1,1 @@
+{"status":"PASS_TEST_ONLY","runtime":"workerd_miniflare","concurrent_requests":8,"accepted":1,"replays_denied":7,"restart_replay_denied":true,"quota_denied":true,"public_https":false,"physical_android":false}

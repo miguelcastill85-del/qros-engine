@@ -1,0 +1,17 @@
+{
+  "schema": "QROS_G9_PHYSICAL_REUSE_SCREEN_V1",
+  "received_at": "2026-09-29T17:46:53-03:00",
+  "classification": "VERIFICADO_VISIBLE_REJECTION; REPLAY_CAUSE_INFERIDO_NOT_INDEPENDENTLY_OBSERVED",
+  "image_sha256": "51b93e908740f4a5e1e319bd71a5837d3ecb5c217a74fb75590fd02f626fac25",
+  "image_bytes": 88057,
+  "image_published": false,
+  "visible_result": "Prueba rechazada. No se aceptó el servidor, token o cadena firmada.",
+  "previous_success": "PHYSICAL_AUTHENTICATED_SCREEN_20260929.json",
+  "received_before_grant_expiry": true,
+  "requested_action": "Reuse identical bearer once before expiration",
+  "same_bearer_entry": "NOT_INDEPENDENTLY_OBSERVED",
+  "http_status": "NO_DISPONIBLE_IN_SCREENSHOT",
+  "cause": "INFERIDO: consistent with replay rejection; generic UI can also reflect missing/wrong token, network or other validation failure.",
+  "gate": "Physical negative UI evidence captured; exact HTTP409 replay independently verified in prior live canary, not this phone screenshot.",
+  "next": "Delete GitHub repository secret QROS_G9_PHONE_TOKEN; close generator. Preserve CF deployment secrets. No new activation requested."
+}

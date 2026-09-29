@@ -1,0 +1,102 @@
+{
+  "artifact": {
+    "bytes": 11942,
+    "ci_artifact_expires_at": "2026-09-30T05:59:36Z",
+    "durable_copy": "CI_36298699641.zip.base64",
+    "id": 10925131748,
+    "local_reverification": "tests/verify_recovered_ci.py PASS: 1 positive, 3 negative",
+    "member_hashes_verified": 7,
+    "recovered_via": "bounded exact ZIP base64 from authenticated GitHub job log",
+    "sha256": "bb2f50aaf53df31962b366fc816dc827744c25f0ae7bc9da468c49155b4c9a92"
+  },
+  "authority": {
+    "MOBILE_PRODUCT_HEAD": "v11 preserved",
+    "branch": "product/mobile-g9-cloudflare-android-20260926",
+    "g8_reference": "a8bcb889fb2a30d65cfd5ab3903c50ee8358d4fa",
+    "parent_product_branch": "product/mobile-g8-emulator-runtime-20260925",
+    "promotion": false,
+    "repository": "miguelcastill85-del/qros-engine"
+  },
+  "classification": "VERIFICADO",
+  "cloudflare": {
+    "classification": "VERIFICADO",
+    "credentials_obtained": false,
+    "observation": "dash.cloudflare.com shows security verification, authenticated account not reached",
+    "paid_resources_created": false,
+    "ray_id": "a4184a8c6c6320bf",
+    "real_workers_dev_url": null
+  },
+  "date_utc": "2026-09-27",
+  "dependency_correction": {
+    "as_of": "2026-09-27",
+    "npm_audit_vulnerabilities": 0,
+    "sharp": "0.35.4",
+    "undici": "7.29.0"
+  },
+  "evidence_only_commit": "This receipt/archive and recovery verifier do not change runtime code. CI evidence applies to source_commit, recovery verifier executed locally; no new CI required for evidence-only persistence.",
+  "first_pending_operation": "User resolves Cloudflare security verification in this conversation cloud browser, then confirm authenticated account and free Workers eligibility.",
+  "gates": {
+    "auth_scope_expiry_replay_quota": "PASS_TEST_ONLY",
+    "connectivity_loss": "PASS_DART_LOCAL",
+    "independent_custody": "NOT_DEPLOYED",
+    "live_origin_fake_server": "NOT_RUN",
+    "new_apk": "NOT_BUILT",
+    "new_independent_root_in_apk": "NOT_DONE",
+    "physical_android": "NOT_RUN",
+    "provider_secret_provisioning": "NOT_DONE",
+    "public_https": "NOT_DEPLOYED",
+    "rekor": "NOT_PUBLISHED",
+    "secret_exposure": "PASS_SCOPED_SYNTHETIC_TESTS_NOT_PROVIDER_AUDIT",
+    "tls_selfsigned_substitution": "PASS_DART_LOCAL",
+    "worker_python_dart_parity": "PASS_TEST_ONLY"
+  },
+  "next_automatic_action": "After browser access is restored: read this checkpoint and branch HEAD; inspect free plan and account; securely provision least-privilege deployment credentials and backend-only new signing key without chat/log exposure; deploy disabled bootstrap, verify genuine external HTTPS workers.dev URL, then configure fail-closed auth and independently pinned app root. If secure credential transfer is unavailable, preserve blocker and do not reveal secrets.",
+  "portfolio_impact": "NONE_FROM_THIS_ENGINEERING_WORK",
+  "recovery": {
+    "first_pending_at_start": "interrupted dependency remediation",
+    "operation_completed": true,
+    "previous_checkpoint": "RECOVERY_20260927_V2.json",
+    "recovered_head": "2365c3b8f205a9bc47fac506751f6f2ba10fbff8",
+    "running_jobs_at_checkpoint": [],
+    "running_jobs_at_start": []
+  },
+  "schema": "QROS_G9_RECOVERY_CHECKPOINT_V3",
+  "scientific_state": {
+    "ga2_open": false,
+    "holdout_open": false,
+    "live_trading_open": false,
+    "main_modified": false,
+    "mt5_open": false,
+    "pnl_open": false,
+    "scientific_gate_pass": false
+  },
+  "scope": "TEST_ONLY_ENGINEERING",
+  "separate_pending_decision": "Before public Sigstore publication, reconcile public GitHub workflow identity disclosure with prohibition on private/personal information; no publication until reconciled.",
+  "source_sha256": {
+    ".github/workflows/qros-mobile-g9-deploy.yml": "e9c455614960beaf28cc64b28daf79c20ba84ac23ea8e8db22ab9721f703804d",
+    ".github/workflows/qros-mobile-g9-sigstore.yml": "20800a9837b4ed5146cdfb8d682b1da7f15d7244bb01452bfd6bb9d85f6252d0",
+    ".github/workflows/qros-mobile-g9.yml": "cd572f406fdd2dbb30376bb7bc7c97b694946a616ec0dd77f11883072f7d316a",
+    "product/mobile/g9/package-lock.json": "1e2632f0a9290b4675fd2bf3f413350186faa365a5b64fa1cfc8711d4d7dd431",
+    "product/mobile/g9/package.json": "baad5bafbb4386463dc65dec0dedad481e8424c942287077365140de449ae9d6",
+    "product/mobile/g9/tests/core.test.mjs": "932a44483cf4a71574c18ca948d737f2f2e3e8845ca412c58ec564ebc5970e83",
+    "product/mobile/g9/tests/oracle.py": "4187f286f1c3395c3d28ea1d7504901d693218b6183ffd8e2583205fa2431039",
+    "product/mobile/g9/tests/verify_recovered_ci.py": "52c7bab35392d043d94304675d7758f453d89a2884deb05c74697ae1a83532ce",
+    "product/mobile/g9/tests/workerd.test.mjs": "34b22e47640ed5378cdaa35ddaa3bfddc5b1981603d7cbe4fb6ea9c5114f159b",
+    "product/mobile/g9/worker/core.mjs": "50d721f3d1dfcd38c7159b4c66245fec11b3cf76ef008979503941c905868057",
+    "product/mobile/g9/worker/index.mjs": "6a25c0837c42b291b7fa7e9dce9e6f626ed87535be2bb486580ff6a2fb85a4da",
+    "product/mobile/g9/wrangler.jsonc": "8b6c93e62da2413bb746c04629a2b5b3146882fe9b08ee1e704aa7b2d38e9f55"
+  },
+  "verified_ci": {
+    "conclusion": "success",
+    "dart_tests": 8,
+    "g6_python_tests": 3,
+    "job_id": 108562209997,
+    "node_tests": 25,
+    "python_oracle_negative": 3,
+    "python_oracle_positive": 1,
+    "run_id": 36298699641,
+    "source_commit": "f1187a66035698ee9b2eda6e2d0a1aa3828735c2",
+    "status": "completed",
+    "workerd_test": 1
+  }
+}

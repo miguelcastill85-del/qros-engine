@@ -9,7 +9,7 @@ class G5SnapshotScreen extends StatefulWidget {
 }
 
 class _G5SnapshotScreenState extends State<G5SnapshotScreen> {
-  final _origin = TextEditingController();
+  final _origin = TextEditingController(text: G9LiveTrust.origin);
   final _token = TextEditingController();
   VerifiedG5Snapshot? _snapshot;
   String? _error;
@@ -32,7 +32,10 @@ class _G5SnapshotScreenState extends State<G5SnapshotScreen> {
     } catch (_) {
       if (mounted) setState(() => _error = 'Prueba rechazada. No se aceptó el servidor, token o cadena firmada.');
     } finally {
-      if (mounted) setState(() => _busy = false);
+      if (mounted) {
+        _token.clear();
+        setState(() => _busy = false);
+      }
     }
   }
 
@@ -40,11 +43,11 @@ class _G5SnapshotScreenState extends State<G5SnapshotScreen> {
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(title: const Text('Recibo G5 verificado')),
     body: ListView(padding: const EdgeInsets.all(18), children: [
-      const Text('G6 · TEST_ONLY · SOLO LECTURA', style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFFFBD67A))),
+      const Text('G9 · TEST_ONLY · SOLO LECTURA', style: TextStyle(fontWeight: FontWeight.bold, color: Color(0xFFFBD67A))),
       const SizedBox(height: 10),
       const Text('El APK verifica una raíz pública sintética fijada fuera de la respuesta. No concede autoridad científica ni conecta trading.'),
       const SizedBox(height: 18),
-      TextField(key: const Key('g6-origin'), controller: _origin, autocorrect: false,
+      TextField(key: const Key('g6-origin'), controller: _origin, readOnly: true, autocorrect: false,
         decoration: const InputDecoration(labelText: 'Origen HTTPS', hintText: 'https://...')),
       const SizedBox(height: 12),
       TextField(key: const Key('g6-token'), controller: _token, obscureText: true, autocorrect: false, enableSuggestions: false,

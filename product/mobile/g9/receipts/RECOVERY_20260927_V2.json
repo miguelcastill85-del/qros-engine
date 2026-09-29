@@ -1,0 +1,49 @@
+{
+  "MOBILE_PRODUCT_HEAD": "v11 preserved",
+  "blocked_external_actions": {
+    "Cloudflare": "browser challenge loop previously observed; no account credentials provisioned",
+    "Sigstore": "public workflow/repository identity disclosure must be reconciled with user privacy restriction",
+    "physical_phone": "no authorized remote phone tooling exposed"
+  },
+  "ci_completed": [
+    36271075540,
+    36271176230
+  ],
+  "ci_running_at_recovery": [],
+  "classification": "VERIFICADO",
+  "dart_tests_verified": 8,
+  "disconnected_endpoint_denied": true,
+  "economic_pnl_open": false,
+  "executed_delta": {
+    "npm_audit_vulnerabilities": 0,
+    "python_oracle": "PASS",
+    "sharp": "0.35.4",
+    "undici": "7.29.0",
+    "workerd_concurrency_restart_rate_regression": "PASS",
+    "wrangler_dry_run": "PASS"
+  },
+  "first_pending_operation_at_recovery": "complete interrupted npm dependency remediation",
+  "ga2_open": false,
+  "gates": {
+    "independent_custody": "NOT_DEPLOYED",
+    "new_apk": "NOT_BUILT",
+    "new_dependency_CI": "PENDING_ON_THIS_COMMIT",
+    "physical_android": "NOT_RUN",
+    "public_https": "NOT_DEPLOYED",
+    "rekor": "NOT_PUBLISHED"
+  },
+  "holdout_open": false,
+  "main_modified": false,
+  "next_automatic_action": "Verify new CI for this dependency delta; recover exact bounded artifact ZIP from authenticated CI logs, verify archive SHA against GitHub artifact digest and member hashes; persist recovery receipt. Then resolve Cloudflare browser challenge/user authentication before any deployment.",
+  "portfolio_impact": "NONE",
+  "previous_checkpoint_blob": "c071c23d099f263dadf09208ae85131180409ad4",
+  "recovered_head": "2365c3b8f205a9bc47fac506751f6f2ba10fbff8",
+  "schema": "QROS_G9_RECOVERY_CHECKPOINT_V2",
+  "scientific_state": "UNCHANGED",
+  "scope": "TEST_ONLY_ENGINEERING",
+  "source_sha256": {
+    "package-lock.json": "1e2632f0a9290b4675fd2bf3f413350186faa365a5b64fa1cfc8711d4d7dd431",
+    "package.json": "baad5bafbb4386463dc65dec0dedad481e8424c942287077365140de449ae9d6"
+  },
+  "tls_substitution_self_signed_denied": true
+}

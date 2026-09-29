@@ -1,0 +1,26 @@
+{
+  "name": "qros-mobile-g9-test-only",
+  "version": "1.0.0",
+  "description": "Synthetic readonly Worker canary",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node --test tests/core.test.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "devDependencies": {
+    "miniflare": "4.20260730.0",
+    "wrangler": "4.141.0"
+  },
+  "private": true,
+  "overrides": {
+    "miniflare@4.20260730.0": {
+      "undici": "7.29.0",
+      "sharp": "0.35.4"
+    }
+  }
+}

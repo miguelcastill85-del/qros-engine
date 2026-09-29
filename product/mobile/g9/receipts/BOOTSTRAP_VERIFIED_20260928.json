@@ -1,0 +1,74 @@
+{
+  "schema": "QROS_G9_BOOTSTRAP_VERIFIED_CHECKPOINT_V1",
+  "date_utc": "2026-09-28",
+  "parent_checkpoint": "DEPLOYMENT_RESUME_20260928.json",
+  "source_commit": "a24a1695255208defec67dfedd2eee65ee82ad25",
+  "branch": "product/mobile-g9-cloudflare-android-20260926",
+  "classification": "VERIFICADO",
+  "scope": "DISABLED_TEST_ONLY_BOOTSTRAP_NOT_SIGNED_SERVICE",
+  "deployment": {
+    "run_id": 36485414201,
+    "job_id": 109141019202,
+    "conclusion": "success",
+    "worker": "qros-mobile-g9-test-only",
+    "version_id": "3343770b-4def-4d9e-8a16-6305f854ca1c",
+    "url": "https://qros-mobile-g9-test-only.miguelcastill85.workers.dev",
+    "enabled": false,
+    "secrets_usable": true,
+    "secret_values_inspected": false
+  },
+  "external_https": {
+    "source": "curl in Work runtime outside GitHub build runner",
+    "observed_utc": "2026-09-28T21:21:27Z",
+    "path": "/v1/demo-snapshot",
+    "status": 503,
+    "ssl_verify_result": 0,
+    "body": "{\"error\":\"unavailable\"}",
+    "body_sha256": "a1a6c296f5ac79c18cb90eb6125de374e4238319ca1e1d295fec10d6c9794f54",
+    "cf_ray": "a425cc431f4e163e-ORD",
+    "cors_allow_origin": false,
+    "cache_control": "no-store, max-age=0",
+    "limitation": "TLS validated by runtime trust store; certificate chain pinning not independently attested. Search fetch tool could not access endpoint; curl succeeded."
+  },
+  "ci": {
+    "run_id": 36485414134,
+    "job_id": 109141018586,
+    "conclusion": "success",
+    "artifact_id": 10999800526,
+    "archive_bytes": 11943,
+    "archive_sha256": "e91c4082031143b7a7a6a8d03863942787280445aec2a874aa9636bef2d864fc",
+    "archive_durable_copy": "CI_36485414134.zip.base64",
+    "independent_local_verification": {
+      "member_hashes": 7,
+      "positive_crypto": 1,
+      "negative_crypto": 3,
+      "status": "PASS"
+    },
+    "note": "CI_RECEIPT public_https NOT_DEPLOYED describes parity job scope; this separate receipt documents actual disabled bootstrap deployment."
+  },
+  "cost": {
+    "classification": "REPORTADO",
+    "workers_free": "User confirmed active",
+    "variable_gate": "VERIFICADO: deployment job ran with required variable true",
+    "paid_plans_activated": false
+  },
+  "gates": {
+    "signed_public_receipts": "NOT_ENABLED",
+    "backend_private_key_provisioning": "PENDING",
+    "independently_pinned_android_root": "PENDING",
+    "physical_android": "NOT_RUN",
+    "rekor": "NOT_PUBLISHED",
+    "independent_custody": "NOT_DEPLOYED"
+  },
+  "scientific_state": {
+    "main_modified": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "pnl_open": false,
+    "mt5_open": false,
+    "live_trading_open": false,
+    "portfolio_impact": "NONE"
+  },
+  "mobile_product_head": "v11 preserved, no promotion",
+  "next_action": "Implement and validate one-time backend-only Ed25519 provisioning through provider secret storage without exporting private key to chat, git, APK or logs; persist independently retrieved public root; then add scoped expiring canary grants and configured origin, verify live negative gates and Python/Dart signature parity before app build. Do not redeploy the completed disabled bootstrap merely to recover."
+}

@@ -29,6 +29,15 @@ class G5SnapshotTrust {
   final String knownHeadSha256;
 }
 
+class G9LiveTrust {
+  static const origin = 'https://qros-mobile-g9-test-only.miguelcastill85.workers.dev';
+  static const profile = G5SnapshotTrust(
+    witnessPublicKeyB64: 'NMKrBtWIcaMe1blwTUUS0CvZbxXCM0Z3yTOMBnYA+58=',
+    witnessId: 'g9_backend_test_only', tenant: 'tenant_A', project: 'project_A', campaign: 'campaign_A',
+    knownSequence: 0, knownHeadSha256: '0000000000000000000000000000000000000000000000000000000000000000',
+  );
+}
+
 class G6SyntheticTrust {
   static const profile = G5SnapshotTrust(
     witnessPublicKeyB64: 'QwRr/kCSs+lJlOraFdzCDYqqB7ZY/TlU644O+4vcpd4=',
@@ -190,11 +199,16 @@ abstract class G5SnapshotGateway {
 }
 
 class HttpsG5SnapshotGateway implements G5SnapshotGateway {
-  const HttpsG5SnapshotGateway(this.verifier);
+  const HttpsG5SnapshotGateway(this.verifier, {this.allowedOrigin});
+  final String? allowedOrigin;
   final G5SnapshotVerifier verifier;
 
   @override
   Future<VerifiedG5Snapshot> fetch(String origin, String token) async {
+    // Reject destination substitution before allocating a client or sending credentials.
+    if (allowedOrigin != null && origin != allowedOrigin) {
+      throw const G5SnapshotReject('ORIGIN_PIN_MISMATCH');
+    }
     if (token.length < 32 || token.length > 128 || !RegExp(r'^[A-Za-z0-9_-]+$').hasMatch(token)) {
       throw const G5SnapshotReject('TOKEN_FORMAT');
     }

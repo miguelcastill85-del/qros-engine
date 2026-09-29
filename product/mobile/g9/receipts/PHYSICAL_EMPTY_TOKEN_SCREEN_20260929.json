@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_G9_PHYSICAL_SCREEN_OBSERVATION_V1",
+  "classification": "VERIFICADO_VISIBLE_CAPTURE_ONLY; PHYSICAL_EXECUTION_REPORTED_BY_OPERATOR",
+  "source_image_sha256": "e7ff89b3311b91b48c753ef3490a5f4abe517a490fec56a5071cb674406496dc",
+  "source_image_bytes": 92140,
+  "image_published_to_repository": false,
+  "observed": [
+    "G9 TEST_ONLY SOLO LECTURA label",
+    "QROS Worker origin prefix visible; full URL truncated on screen",
+    "Token field appears empty",
+    "Prueba rechazada error visible",
+    "No verified-chain result visible"
+  ],
+  "limits": [
+    "Screenshot cannot prove installed APK hash or physical-device provenance independently",
+    "Generic error alone does not establish which check failed",
+    "In the verified source, empty token is rejected before HTTP client creation; screenshot does not prove server connectivity"
+  ],
+  "authenticated_pairing": "NOT_RUN",
+  "next_action": "Generate bearer locally on phone, save as QROS_G9_PHONE_TOKEN GitHub Actions secret, then request bounded activation only when operator is ready."
+}

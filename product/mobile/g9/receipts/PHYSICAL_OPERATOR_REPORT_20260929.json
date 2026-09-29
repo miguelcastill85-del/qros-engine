@@ -1,0 +1,11 @@
+{
+  "schema": "QROS_G9_PHYSICAL_OPERATOR_REPORT_V1",
+  "classification": "REPORTADO",
+  "reported_at_local": "2026-09-29T09:08:20-03:00",
+  "app_opens": true,
+  "independent_device_evidence": false,
+  "installed_apk_hash_verified": false,
+  "authenticated_pairing": "NOT_RUN",
+  "scope": "App launch reported by operator; not independently verified physical installation, installed bytes or live authenticated pairing",
+  "next_action": "Operator opens Evidencias > Verificar snapshot G5 · G9 on physical Android, confirms pinned origin and G9 label, then checks empty-token rejection. Screenshot must not contain credentials. Secure ephemeral QROS token delivery remains pending."
+}

@@ -1,0 +1,33 @@
+{
+  "apk_bytes": 141623866,
+  "apk_sha256": "ed742dc287f12fba23607988d54eac6f2a5b4b399b377466c7a0a1a1de0d6e96",
+  "external_independent_witness": "NOT_DEPLOYED",
+  "physical_android_install": "NOT_RUN",
+  "public_https": "VERIFIED_LIVE_CANARY",
+  "public_key_sha256": "2a10d5ec10f7f889eee38a4b442b53045c5dd3bbb6c5dd21f224b7051dd9d346",
+  "release_signed": false,
+  "schema": "QROS_G9_ANDROID_RECOVERY_V1",
+  "scientific_gate_pass": false,
+  "source_commit": "b24ae447b49ca7a5baa419b00f2966951ad1fa3d",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "worker_origin": "https://qros-mobile-g9-test-only.miguelcastill85.workers.dev",
+  "local_zip_sha256": "0d18b41da7f2810336a6e20db08df4e6c8e8e3ff38b9b96c79d74e20c55ec1f4",
+  "local_apk_bytes_verified": true,
+  "run_id": 36489482359,
+  "delivery_gate": "SUPERSEDED_PENDING_ORIGIN_PIN_BUILD",
+  "incidents": [
+    {
+      "run": 36488339126,
+      "cause": "missing Workerd parity fixture"
+    },
+    {
+      "run": 36488795426,
+      "cause": "fixture transfer appended newline, violating canonical-byte contract"
+    },
+    {
+      "run": 36489212421,
+      "cause": "Workerd fixture generator executed from wrong working directory"
+    }
+  ],
+  "next_action": "Build secured G9 0.9.0+9, verify artifact, run G9 emulator smoke; physical Android and external witness remain unverified."
+}

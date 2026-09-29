@@ -1,0 +1,12 @@
+{
+  "schema": "QROS_G9_PUBLIC_ROOT_V1",
+  "worker": "qros-mobile-g9-test-only",
+  "algorithm": "Ed25519",
+  "public_key_b64": "NMKrBtWIcaMe1blwTUUS0CvZbxXCM0Z3yTOMBnYA+58=",
+  "public_key_sha256": "2a10d5ec10f7f889eee38a4b442b53045c5dd3bbb6c5dd21f224b7051dd9d346",
+  "source_commit": "ee39bdfdba9ca568a63db12de9def88aa4b66133",
+  "run_id": "36486190975",
+  "origin": "https://qros-mobile-g9-test-only.miguelcastill85.workers.dev",
+  "custody": "CLOUDFLARE_SECRET_SAME_OPERATOR_NOT_INDEPENDENT",
+  "status": "PROVIDER_BINDINGS_CONFIRMED_SIGNING_NOT_YET_TESTED"
+}
