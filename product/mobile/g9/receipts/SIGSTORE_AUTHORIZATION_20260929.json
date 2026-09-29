@@ -1,0 +1,13 @@
+{
+  "schema": "QROS_G9_PUBLIC_TRANSPARENCY_AUTHORIZATION_V1",
+  "authorized": true,
+  "authority": "USER_CURRENT_CONVERSATION_2026-09-29_UTC",
+  "user_instruction": "Continua , ya es p\u00fablico mi repositorio",
+  "repository_visibility_verified": "public",
+  "scope": "Publish only SHA-256 of the frozen synthetic Android engineering receipt with GitHub workflow identity using public Sigstore; no code, payload, credentials or private keys in transparency entry",
+  "subject_path": "product/mobile/g9/receipts/ANDROID_VERIFIED_20260929.json",
+  "subject_sha256": "282ef82d1935afc4e9d07082f2c669d6e587025c1fd4afc71e7c33fa4c66df9f",
+  "subject_source_commit": "e95a973a191027ddf39b1103c7254d822ce3a62a",
+  "independent_backend_custody": false,
+  "paid_services_authorized": false
+}
