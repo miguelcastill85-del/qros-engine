@@ -41,7 +41,7 @@ jobs:
           pathlib.Path('/tmp/g9-witness/synthetic-receipt.sha256').write_text(h+'\n')
           pathlib.Path('/tmp/g9-witness/SUBJECT.json').write_text(json.dumps({'schema':'QROS_G9_SIGSTORE_SUBJECT_V1','subject_path':a['subject_path'],'subject_sha256':h,'subject_source_commit':a['subject_source_commit'],'signing_source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'scope':'SYNTHETIC_ENGINEERING_ONLY','independent_backend_custody':False},indent=2)+'\n')
           PY
-      - uses: sigstore/cosign-installer@398d4b0eeef1380460a10c8013a76f728fb906ac
+      - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6
         with: {cosign-release: 'v3.1.3'}
       - name: Sign only the hash using public GitHub OIDC and Rekor
         run: cosign sign-blob --yes --bundle /tmp/g9-witness/bundle.sigstore.json /tmp/g9-witness/synthetic-receipt.sha256
