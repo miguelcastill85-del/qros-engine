@@ -81,7 +81,7 @@
     "release_signature": "NO_DEBUG_TEST_ONLY",
     "production_oidc": "NOT_DEPLOYED"
   },
-  "first_pending_operation": "User installs the exact verified G9 APK on the authorized Android and records installation/start. No remote physical-device tool is available. Before authenticated pairing, establish secure one-time QROS token delivery; never use Cloudflare token in app.",
+  "first_pending_operation": "Operator opens Evidencias > Verificar snapshot G5 · G9 on physical Android, confirms pinned origin and G9 label, then checks empty-token rejection. Screenshot must not contain credentials. Secure ephemeral QROS token delivery remains pending.",
   "persistence_scope": "Evidence/documentation-only descendant of tested source; CI results bind to source_commit, not to unexecuted runtime changes.",
   "limitations": [
     "APK uses debug signing; Android signer fingerprint not extracted locally (no v1 certificate entry or standalone apksigner).",
@@ -92,5 +92,13 @@
   "repository_visibility": "PUBLIC_VERIFIED_20260929",
   "sigstore_checkpoint": "SIGSTORE_VERIFIED_20260929.json",
   "sigstore_run": 36564211889,
-  "sigstore_signing_source_commit": "1944d46b817494bd9810b35f817fc2377ba185e8"
+  "sigstore_signing_source_commit": "1944d46b817494bd9810b35f817fc2377ba185e8",
+  "physical_android_operator_report": {
+    "classification": "REPORTADO",
+    "reported_at_local": "2026-09-29T09:08:20-03:00",
+    "app_opens": true,
+    "independent_device_evidence": false,
+    "installed_apk_hash_verified": false,
+    "authenticated_pairing": "NOT_RUN"
+  }
 }
