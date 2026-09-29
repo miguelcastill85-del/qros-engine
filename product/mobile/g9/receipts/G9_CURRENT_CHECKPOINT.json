@@ -1,6 +1,6 @@
 {
   "schema": "QROS_G9_CURRENT_CHECKPOINT_V1",
-  "classification": "VERIFICADO_ENGINEERING_AND_PUBLIC_TRANSPARENCY_WITH_OPEN_PHYSICAL_GATES",
+  "classification": "VERIFICADO_ENGINEERING_AND_TRANSPARENCY; PHYSICAL_SUCCESS_VISIBLE_OPERATOR_EVIDENCE",
   "source_commit": "fe0a850719fe54b283b2152a56d95e749a863e02",
   "authority": "MOBILE_PRODUCT_HEAD v11 preserved; scientific main untouched",
   "worker_origin": "https://qros-mobile-g9-test-only.miguelcastill85.workers.dev",
@@ -37,7 +37,7 @@
       "receipt": "G9_ANDROID_EMULATOR_RUNTIME_RECEIPT.json",
       "authenticated_android_tls_pairing": "NOT_RUN"
     },
-    "physical_phone": "NOT_RUN",
+    "physical_phone": "SUCCESS_UI_CAPTURE; PHYSICAL_EXECUTION_REPORTADO; APK_HASH_ON_DEVICE_NOT_VERIFIED",
     "artifact_id": 11009517002,
     "apk_sha256": "60107772a5b60f63a2b7e5d5ec24452ca9a52b05c886fcf15c8e859135074b01",
     "apk_bytes": 141624110,
@@ -49,7 +49,7 @@
   "free_plan": "REPORTADO_BY_USER; no paid services authorized or activated by this work",
   "scientific_gate_pass": false,
   "portfolio_impact": "NONE",
-  "next_exact_action": "User locally generates QROS bearer using phone/QROS_G9_GENERAR_TOKEN.html and saves it as GitHub repository secret QROS_G9_PHONE_TOKEN. Do not disclose in chat. Keep local generator tab open. Activate one 299-second scoped window only after user confirms secret saved and phone ready.",
+  "next_exact_action": "One replay attempt using same token before expiry; retain screenshot. After test delete QROS_G9_PHONE_TOKEN GitHub secret.",
   "live_canary_independent_python_reverification": "PASS_FIXED_PUBLIC_ROOT_AND_CANONICAL_BYTES_OUTSIDE_CI",
   "scientific_state": {
     "current_version": "V259",
@@ -63,7 +63,7 @@
   },
   "running_jobs": [],
   "product_promotion": false,
-  "product_promotion_reason": "Physical installation/pairing remains unverified; public transparency does not establish independent backend custody.",
+  "product_promotion_reason": "Independent device/APK provenance, independent backend custody and release signing remain incomplete.",
   "gates": {
     "worker_https": "VERIFICADO_LIVE_CANARY_AND_EXTERNAL_401_PROBE",
     "worker_python_dart_parity": "VERIFICADO",
@@ -75,13 +75,13 @@
     "secret_exposure": "SCOPED_SOURCE_AND_APK_MARKER_CHECKS_PASS; NOT_UNIVERSAL_PROVIDER_AUDIT",
     "android_build": "VERIFICADO",
     "android_emulator_install_start_render": "VERIFICADO",
-    "physical_android_install_and_pairing": "NO_DISPONIBLE_NOT_RUN",
+    "physical_android_install_and_pairing": "VERIFICADO_SUCCESS_SCREEN; REPORTADO_PHYSICAL_DEVICE; INFERIDO_LIVE_PAIRING; INDEPENDENT_DEVICE_HASH_PENDING",
     "rekor": "VERIFICADO_COSIGN_SIGSTORE_PYTHON_AND_EXTERNAL_PUBLIC_READBACK",
     "independent_custody": "NO_DISPONIBLE_NOT_DEPLOYED",
     "release_signature": "NO_DEBUG_TEST_ONLY",
     "production_oidc": "NOT_DEPLOYED"
   },
-  "first_pending_operation": "User locally generates QROS bearer using phone/QROS_G9_GENERAR_TOKEN.html and saves it as GitHub repository secret QROS_G9_PHONE_TOKEN. Do not disclose in chat. Keep local generator tab open. Activate one 299-second scoped window only after user confirms secret saved and phone ready.",
+  "first_pending_operation": "One replay attempt using same token before expiry; retain screenshot. After test delete QROS_G9_PHONE_TOKEN GitHub secret.",
   "persistence_scope": "Evidence/documentation-only descendant of tested source; CI results bind to source_commit, not to unexecuted runtime changes.",
   "limitations": [
     "APK uses debug signing; Android signer fingerprint not extracted locally (no v1 certificate entry or standalone apksigner).",
@@ -99,13 +99,18 @@
     "app_opens": true,
     "independent_device_evidence": false,
     "installed_apk_hash_verified": false,
-    "authenticated_pairing": "NOT_RUN"
+    "authenticated_pairing": "SUCCESS_UI_CAPTURE; LIVE_PAIRING_INFERIDO"
   },
   "physical_screen_observation": {
-    "receipt": "PHYSICAL_EMPTY_TOKEN_SCREEN_20260929.json",
-    "classification": "VERIFICADO_VISIBLE_CAPTURE_ONLY",
-    "token_field_appears_empty": true,
-    "rejection_visible": true,
-    "authenticated_pairing": "NOT_RUN"
+    "receipt": "PHYSICAL_AUTHENTICATED_SCREEN_20260929.json",
+    "classification": "VERIFICADO_VISIBLE_CAPTURE; PHYSICAL_EXECUTION_REPORTADO; LIVE_PAIRING_INFERIDO_FROM_CORRELATED_EVIDENCE",
+    "result": "CADENA SINTÉTICA VERIFICADA"
+  },
+  "phone_activation": {
+    "run": 36628359102,
+    "commit": "2a8212bfbbebc034ee5644e294696c293fb957bb",
+    "provider_write": "VERIFICADO_CI_SUCCESS",
+    "valid_from_utc": "2026-09-29T20:43:53.000Z",
+    "expires_at_utc": "2026-09-29T20:48:52.000Z"
   }
 }
