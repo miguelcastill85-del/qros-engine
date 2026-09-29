@@ -1,0 +1,14 @@
+{
+  "schema": "QROS_G9_EXTERNAL_HTTPS_PROBE_V1",
+  "checked_at_utc": "2026-09-29T02:28:12.071179+00:00",
+  "origin": "https://qros-mobile-g9-test-only.miguelcastill85.workers.dev",
+  "path": "/v1/demo-snapshot",
+  "observer": "Work execution environment, outside GitHub build runner",
+  "http_status": 401,
+  "curl_ssl_verify_result": 0,
+  "body_sha256": "e6f0267f6fd7df543a2b6f5d872ea2d7b25e60c119e7bc28db74976ff8850821",
+  "body": "{\"error\":\"request_denied\"}",
+  "authorization_sent": false,
+  "authenticated_signature_verification": "NOT_ATTEMPTED_IN_THIS_PROBE",
+  "classification": "VERIFICADO"
+}
