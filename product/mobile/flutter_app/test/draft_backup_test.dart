@@ -71,6 +71,18 @@ void main() {
     a.dispose(); b.dispose();
   });
 
+  test('draft limit uses the recoverable validation error handled by the form', () {
+    final s = ResearchStore();
+    for (var i = 0; i < ResearchStore.maxDrafts; i++) {
+      s.createLocalDraft(title: 'Idea $i', thesis: 'Hipótesis local para comprobar capacidad.',
+        symbol: 'NQX', side: 'BUY', timeframe: 'M15');
+    }
+    expect(() => s.createLocalDraft(title: 'Idea extra', thesis: 'Hipótesis fuera de capacidad.',
+      symbol: 'NQX', side: 'BUY', timeframe: 'M15'), throwsArgumentError);
+    expect(s.localDraftCount, ResearchStore.maxDrafts);
+    s.dispose();
+  });
+
   testWidgets('restore UI rejects malformed input then imports and clears text', (tester) async {
     final a = seeded(), b = ResearchStore();
     await tester.pumpWidget(MaterialApp(home: DraftBackupScreen(store: b)));

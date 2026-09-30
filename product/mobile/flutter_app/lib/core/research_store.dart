@@ -105,7 +105,7 @@ class ResearchStore extends ChangeNotifier {
       throw ArgumentError('Activo, dirección o timeframe no permitido.');
     }
     if (localDraftCount >= maxDrafts) {
-      throw StateError('Límite de 1000 borradores alcanzado.');
+      throw ArgumentError('Límite de 1000 borradores alcanzado.');
     }
     _draftSequence++;
     final project = ResearchProject(
