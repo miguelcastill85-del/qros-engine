@@ -1,7 +1,7 @@
 name: qros_mobile_studio
-description: "QROS Mobile Research Studio - Android TEST_ONLY G9 signed snapshot verifier"
+description: "QROS Mobile Research Studio - Android TEST_ONLY G10 portable drafts"
 publish_to: none
-version: 0.9.0+9
+version: 0.10.0+10
 
 environment:
   sdk: '>=3.5.0 <4.0.0'

@@ -1,3 +1,4 @@
+import 'draft_backup_screen.dart';
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -475,6 +476,13 @@ class _EvidencePage extends StatelessWidget {
         FilledButton.icon(key: const Key('open-g6-snapshot'), onPressed: onOpenG5,
           icon: const Icon(Icons.verified_user_outlined), label: const Text('Verificar snapshot G5 · G9')),
       ])), 
+      const SizedBox(height: 20),
+      FilledButton.icon(
+        key: const Key('open-draft-backup'),
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute<void>(
+          builder: (_) => DraftBackupScreen(store: store))),
+        icon: const Icon(Icons.backup_outlined),
+        label: const Text('Respaldar y recuperar borradores')),
       const SizedBox(height: 20),
       const SectionHeading('Exportación demostrativa'),
       QrosPanel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

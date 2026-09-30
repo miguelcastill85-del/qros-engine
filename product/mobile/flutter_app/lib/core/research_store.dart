@@ -1,4 +1,5 @@
 import 'dart:collection';
+import 'dart:convert';
 import 'package:flutter/foundation.dart';
 
 /// In-memory fixture store. No networking, broker connection or research authority.
@@ -103,6 +104,9 @@ class ResearchStore extends ChangeNotifier {
         !timeframes.contains(timeframe)) {
       throw ArgumentError('Activo, dirección o timeframe no permitido.');
     }
+    if (localDraftCount >= maxDrafts) {
+      throw StateError('Límite de 1000 borradores alcanzado.');
+    }
     _draftSequence++;
     final project = ResearchProject(
       id: 'LOCAL-${_draftSequence.toString().padLeft(4, '0')}',
@@ -118,6 +122,78 @@ class ResearchStore extends ChangeNotifier {
     _projects.insert(0, project);
     notifyListeners();
     return project;
+  }
+
+
+  static const backupSchema = 'QROS_LOCAL_DRAFT_BACKUP_V1';
+  static const maxDrafts = 1000;
+  static const maxBackupCharacters = 2000000;
+
+  Map<String, Object?> _draftRecord(ResearchProject p) => {
+    'title': p.title, 'thesis': p.thesis, 'symbol': p.symbol,
+    'side': p.side, 'timeframe': p.timeframe,
+    'created_at': p.createdAt.toUtc().toIso8601String(),
+  };
+
+  /// Portable user drafts only: never signed evidence, credentials or authority.
+  String exportDraftBackup() => const JsonEncoder.withIndent('  ').convert({
+    'schema': backupSchema,
+    'drafts': [for (final p in _projects) if (!p.isSample) _draftRecord(p)],
+  });
+
+  /// Validate the entire document before mutating. Duplicate imports are no-ops.
+  int restoreDraftBackup(String source) {
+    if (source.length > maxBackupCharacters) {
+      throw const FormatException('El respaldo supera el tamaño permitido.');
+    }
+    final Object? decoded;
+    try { decoded = jsonDecode(source); }
+    on FormatException { throw const FormatException('El respaldo no es JSON válido.'); }
+    if (decoded is! Map<String, dynamic> ||
+        decoded.length != 2 || decoded['schema'] != backupSchema ||
+        decoded['drafts'] is! List) {
+      throw const FormatException('Formato de respaldo no compatible.');
+    }
+    final rows = decoded['drafts'] as List;
+    if (rows.length > maxDrafts) {
+      throw const FormatException('El respaldo supera los 1000 borradores.');
+    }
+    const keys = {'title', 'thesis', 'symbol', 'side', 'timeframe', 'created_at'};
+    final pending = <ResearchProject>[];
+    final known = {for (final p in _projects) if (!p.isSample) jsonEncode(_draftRecord(p))};
+    for (final row in rows) {
+      if (row is! Map<String, dynamic> || row.length != keys.length ||
+          !row.keys.every(keys.contains) || !row.values.every((v) => v is String)) {
+        throw const FormatException('Registro no compatible; no se admite autoridad científica.');
+      }
+      final title = row['title'] as String;
+      final thesis = row['thesis'] as String;
+      final dateText = row['created_at'] as String;
+      final date = DateTime.tryParse(dateText);
+      if (title.trim() != title || title.length < 3 || title.length > 72 ||
+          thesis.trim() != thesis || thesis.length < 10 || thesis.length > 500 ||
+          !symbols.contains(row['symbol']) || !sides.contains(row['side']) ||
+          !timeframes.contains(row['timeframe']) || date == null ||
+          !dateText.endsWith('Z') || date.toUtc().toIso8601String() != dateText) {
+        throw const FormatException('El respaldo contiene un borrador inválido.');
+      }
+      final candidate = ResearchProject(
+        id: 'LOCAL-${(_draftSequence + pending.length + 1).toString().padLeft(4, '0')}',
+        title: title, thesis: thesis, symbol: row['symbol'] as String,
+        side: row['side'] as String, timeframe: row['timeframe'] as String,
+        state: 'LOCAL_DRAFT_NOT_FROZEN', isSample: false, createdAt: date,
+      );
+      if (known.add(jsonEncode(_draftRecord(candidate)))) pending.add(candidate);
+    }
+    if (localDraftCount + pending.length > maxDrafts) {
+      throw const FormatException('No hay espacio para más de 1000 borradores.');
+    }
+    if (pending.isNotEmpty) {
+      _projects.insertAll(0, pending);
+      _draftSequence += pending.length;
+      notifyListeners();
+    }
+    return pending.length;
   }
 
   Map<String, Object?> exportSyntheticEvidence() => {
