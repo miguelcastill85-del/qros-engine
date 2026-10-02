@@ -618,6 +618,7 @@ class _EvidencePage extends StatelessWidget {
         _EvidenceLine(label: 'Permisos científicos', value: 'NINGUNO'),
         _EvidenceLine(label: 'HEAD externo confiable', value: 'PENDIENTE'),
         _EvidenceLine(label: 'Persistencia local', value: 'ALMACÉN SEGURO · G11'),
+        _EvidenceLine(label: 'Sesión cliente', value: 'G12 · ROTATORIA TEST_ONLY'),
         _EvidenceLine(label: 'Recibos autenticados', value: 'PENDIENTE'),
         _EvidenceLine(label: 'Holdout', value: 'CERRADO'),
         _EvidenceLine(label: 'Trading automático', value: 'DESACTIVADO'),
