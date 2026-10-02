@@ -4,6 +4,8 @@ import 'core/g5_snapshot.dart';
 import 'core/verified_demo.dart';
 import 'core/universe_store.dart';
 import 'core/local_vault.dart';
+import 'core/remote_session.dart';
+import 'core/synthetic_jobs.dart';
 import 'ui/app_shell.dart';
 
 Future<void> main() async {
@@ -11,9 +13,11 @@ Future<void> main() async {
   final vault = SecureLocalVault();
   final researchStore = ResearchStore(vault: vault);
   final universeStore = UniverseSessionStore(vault: vault);
+  final remoteSessionStore = RemoteSessionStore(vault: vault);
   await researchStore.initialize();
   await universeStore.initialize();
-  runApp(QrosApp(store: researchStore, universeStore: universeStore));
+  await remoteSessionStore.initialize();
+  runApp(QrosApp(store: researchStore, universeStore: universeStore, remoteSessionStore: remoteSessionStore));
 }
 
 class QrosApp extends StatefulWidget {
@@ -23,12 +27,16 @@ class QrosApp extends StatefulWidget {
     this.demoGateway,
     this.universeStore,
     this.g5Gateway,
+    this.remoteSessionStore,
+    this.syntheticJobGateway,
   });
 
   final ResearchStore? store;
   final DemoGateway? demoGateway;
   final UniverseSessionStore? universeStore;
   final G5SnapshotGateway? g5Gateway;
+  final RemoteSessionStore? remoteSessionStore;
+  final SyntheticJobGateway? syntheticJobGateway;
 
   @override
   State<QrosApp> createState() => _QrosAppState();
@@ -38,6 +46,8 @@ class _QrosAppState extends State<QrosApp> {
   late final ResearchStore _store = widget.store ?? ResearchStore();
   late final UniverseSessionStore _universeStore =
       widget.universeStore ?? UniverseSessionStore();
+  late final RemoteSessionStore _remoteSessionStore =
+      widget.remoteSessionStore ?? RemoteSessionStore(vault: MemoryLocalVault());
 
   @override
   void dispose() {
@@ -101,6 +111,8 @@ class _QrosAppState extends State<QrosApp> {
         store: _store,
         universeStore: _universeStore,
         demoGateway: widget.demoGateway ?? const HttpsDemoGateway(),
+        remoteSessionStore: _remoteSessionStore,
+        syntheticJobGateway: widget.syntheticJobGateway ?? const HttpsSyntheticJobGateway(),
         g5Gateway: widget.g5Gateway ??
             const HttpsG5SnapshotGateway(
               G5SnapshotVerifier(G9LiveTrust.profile),

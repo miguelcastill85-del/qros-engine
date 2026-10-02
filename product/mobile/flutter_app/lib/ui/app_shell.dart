@@ -8,11 +8,14 @@ import '../core/local_vault.dart';
 import '../core/verified_demo.dart';
 import '../core/g5_snapshot.dart';
 import '../core/universe_store.dart';
+import '../core/remote_session.dart';
+import '../core/synthetic_jobs.dart';
 import 'factory_portfolio_screens.dart';
 import 'hypothesis_studio_screen.dart';
 import 'verified_demo_screen.dart';
 import 'g5_snapshot_screen.dart';
 import 'new_project_screen.dart';
+import 'remote_research_screen.dart';
 
 const qrosBackground = Color(0xFF09111F);
 const qrosPanel = Color(0xFF142339);
@@ -25,11 +28,14 @@ enum _LegacyDestination { projects, history, security }
 
 class QrosShell extends StatefulWidget {
   const QrosShell({super.key, required this.store,
-    required this.universeStore, required this.demoGateway, required this.g5Gateway});
+    required this.universeStore, required this.demoGateway, required this.g5Gateway,
+    required this.remoteSessionStore, required this.syntheticJobGateway});
   final ResearchStore store;
   final UniverseSessionStore universeStore;
   final DemoGateway demoGateway;
   final G5SnapshotGateway g5Gateway;
+  final RemoteSessionStore remoteSessionStore;
+  final SyntheticJobGateway syntheticJobGateway;
 
   @override
   State<QrosShell> createState() => _QrosShellState();
@@ -60,7 +66,8 @@ class _QrosShellState extends State<QrosShell> {
       body: AnimatedBuilder(animation: widget.store, builder: (_, __) => switch (destination) {
         _LegacyDestination.projects => _ProjectsPage(store: widget.store, onNewProject: _newProject),
         _LegacyDestination.history => _HistoryPage(store: widget.store),
-        _LegacyDestination.security => _EvidencePage(store: widget.store, onOpenDemo: () =>
+        _LegacyDestination.security => _EvidencePage(store: widget.store, onOpenRemoteLab: () =>
+          Navigator.of(context).push(MaterialPageRoute(builder: (_) => RemoteResearchScreen(session: widget.remoteSessionStore, universeStore: widget.universeStore, jobs: widget.syntheticJobGateway))), onOpenDemo: () =>
           Navigator.of(context).push(MaterialPageRoute(
             builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway))), onOpenG5: () =>
           Navigator.of(context).push(MaterialPageRoute(
@@ -106,7 +113,8 @@ class _QrosShellState extends State<QrosShell> {
              onOpenFactory: () => setState(() => _page = 2)),
           2 => UniverseFactoryScreen(store: widget.universeStore,
              onOpenIdea: () => setState(() => _page = 1)),
-          3 => _EvidencePage(store: widget.store, onOpenDemo: () =>
+          3 => _EvidencePage(store: widget.store, onOpenRemoteLab: () =>
+          Navigator.of(context).push(MaterialPageRoute(builder: (_) => RemoteResearchScreen(session: widget.remoteSessionStore, universeStore: widget.universeStore, jobs: widget.syntheticJobGateway))), onOpenDemo: () =>
              Navigator.of(context).push(MaterialPageRoute(
                builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway))), onOpenG5: () =>
              Navigator.of(context).push(MaterialPageRoute(
@@ -531,10 +539,11 @@ class _HistoryPage extends StatelessWidget {
 }
 
 class _EvidencePage extends StatelessWidget {
-  const _EvidencePage({required this.store, required this.onOpenDemo, required this.onOpenG5});
+  const _EvidencePage({required this.store, required this.onOpenDemo, required this.onOpenG5, required this.onOpenRemoteLab});
   final ResearchStore store;
   final VoidCallback onOpenDemo;
   final VoidCallback onOpenG5;
+  final VoidCallback onOpenRemoteLab;
 
   Future<void> _copyEvidence(BuildContext context) async {
     final contents = const JsonEncoder.withIndent('  ').convert(store.exportSyntheticEvidence());
@@ -569,6 +578,15 @@ class _EvidencePage extends StatelessWidget {
         _EvidenceLine(label: 'Recibos autenticados', value: 'PENDIENTE'),
         _EvidenceLine(label: 'Holdout', value: 'CERRADO'),
         _EvidenceLine(label: 'Trading automático', value: 'DESACTIVADO'),
+      ])),
+      const SizedBox(height: 20),
+      const SectionHeading('Laboratorio remoto G12'),
+      QrosPanel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const Text('Sesión renovable + trabajo sintético reanudable', style: TextStyle(fontWeight: FontWeight.w700)),
+        const SizedBox(height: 8),
+        const Text('Pairing de un uso, refresh rotatorio y progreso durable. Sin PnL ni autoridad científica.', style: TextStyle(fontSize: 12, color: qrosMuted)),
+        const SizedBox(height: 14),
+        FilledButton.icon(key: const Key('open-g12-remote-lab'), onPressed: onOpenRemoteLab, icon: const Icon(Icons.cloud_sync_outlined), label: const Text('Abrir laboratorio remoto TEST_ONLY')),
       ])),
       const SizedBox(height: 20),
       const SectionHeading('Consulta remota DEMO'),
@@ -607,7 +625,7 @@ class _EvidencePage extends StatelessWidget {
         ),
       ])),
       const SizedBox(height: 18),
-      const Text('QROS Mobile G11 · TEST_ONLY · No utilizar para operar.',
+      const Text('QROS Mobile G12 · TEST_ONLY · No utilizar para operar.',
         style: TextStyle(color: qrosMuted, fontSize: 11, height: 1.5),
       ),
     ],

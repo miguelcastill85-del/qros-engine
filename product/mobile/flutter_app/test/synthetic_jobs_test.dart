@@ -1,0 +1,1 @@
+import 'package:flutter_test/flutter_test.dart';import 'package:qros_mobile_studio/core/synthetic_jobs.dart';void main(){test('idempotency key is URL safe',(){final a=newIdempotencyKey(),b=newIdempotencyKey();expect(a,isNot(b));expect(RegExp(r'^[A-Za-z0-9_-]+$').hasMatch(a),true);});}

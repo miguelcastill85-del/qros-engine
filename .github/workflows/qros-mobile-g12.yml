@@ -1,0 +1,50 @@
+name: QROS Mobile G12 renewable session jobs TEST_ONLY
+on:
+  push:
+    branches: [product/mobile-g12-renewable-session-jobs-20261002]
+    paths: ['product/mobile/g12/**','product/mobile/flutter_app/**','.github/workflows/qros-mobile-g12.yml']
+  workflow_dispatch:
+permissions: {contents: read}
+concurrency: {group: qros-mobile-g12, cancel-in-progress: true}
+jobs:
+  g12:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - name: Workerd G12 integration
+        run: |
+          npm ci --ignore-scripts --prefix product/mobile/g9
+          ln -s ../g9/node_modules product/mobile/g12/node_modules
+          node --test product/mobile/g12/tests/workerd.test.mjs
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with: {distribution: temurin, java-version: '17'}
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+        with: {channel: stable, flutter-version: '3.35.4'}
+      - name: Flutter analyze test build
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter create --platforms=android --project-name=qros_mobile_studio --org=app.qros --no-pub .
+          sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 24/' android/app/build.gradle.kts
+          flutter pub get
+          flutter analyze --no-pub
+          flutter test --no-pub --reporter expanded
+          flutter build apk --debug --no-pub
+      - name: Freeze receipt
+        run: |
+          APK=product/mobile/flutter_app/build/app/outputs/flutter-apk/app-debug.apk
+          test -s "$APK"
+          mkdir -p /tmp/qros-g12
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          p=pathlib.Path('product/mobile/flutter_app/build/app/outputs/flutter-apk/app-debug.apk')
+          r={'schema':'QROS_G12_CI_RECEIPT_V1','status':'PASS_ENGINEERING_TEST_ONLY','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'workerd_session_rotation':'PASS','workerd_resumable_jobs':'PASS','flutter_analyze':'PASS','flutter_tests':'PASS','apk_bytes':p.stat().st_size,'apk_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'remote_deployment':'NOT_RUN_NO_GITHUB_CREDENTIAL_EVIDENCE','physical_android_install':'NOT_RUN','release_signed':False,'cxx20_remote_engine':'NOT_DEPLOYED','economic_backtests':0,'holdout_open':False,'ga2_open':False,'mt5_executed':False,'scientific_gate_pass':False}
+          pathlib.Path('/tmp/qros-g12/QROS_G12_CI_RECEIPT.json').write_text(json.dumps(r,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(r,indent=2,sort_keys=True))
+          PY
+          cp "$APK" /tmp/qros-g12/QROS_MOBILE_G12_TEST_ONLY.apk
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with: {name: qros-mobile-g12-test-only, retention-days: 7, if-no-files-found: error, path: /tmp/qros-g12/}
