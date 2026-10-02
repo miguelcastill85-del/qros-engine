@@ -110,6 +110,8 @@ class ResearchStore extends ChangeNotifier {
   int _draftSequence = 0;
   String? _storageWarning;
   bool _initialized = false;
+  bool _loadBlocked = true;
+  final _queue = LocalMutationQueue();
 
   UnmodifiableListView<ResearchProject> get projects =>
       UnmodifiableListView(_projects);
@@ -120,22 +122,32 @@ class ResearchStore extends ChangeNotifier {
   bool get initialized => _initialized;
   bool get persistentStorageHealthy => _initialized && _storageWarning == null;
 
-  Future<void> initialize() async {
+  Future<void> initialize() => _queue.run(_load);
+
+  Future<void> _ensureLoaded() async {
+    await _load();
+    if (_loadBlocked) {
+      throw const LocalPersistenceException('LOCAL_STORE_RECOVERY_REQUIRED');
+    }
+  }
+
+  Future<void> _load() async {
     if (_initialized) return;
     try {
       final raw = await _vault.read(storageKey);
       if (raw != null && raw.isNotEmpty) {
         final restored = _decodePersistent(raw);
+        final candidate = <ResearchProject>[...restored.projects, _sample];
+        if (restored.migrated) {
+          await _writeSnapshot(candidate, restored.sequence);
+        }
         _projects
           ..clear()
-          ..addAll(restored.projects)
-          ..add(_sample);
+          ..addAll(candidate);
         _draftSequence = restored.sequence;
-        if (restored.migrated) {
-          await _writeSnapshot(_projects, _draftSequence);
-        }
       }
       _storageWarning = null;
+      _loadBlocked = false;
     } on LocalPersistenceException catch (e) {
       _storageWarning = e.code;
     } catch (_) {
@@ -172,7 +184,8 @@ class ResearchStore extends ChangeNotifier {
     required String symbol,
     required String side,
     required String timeframe,
-  }) async {
+  }) => _queue.run(() async {
+    await _ensureLoaded();
     final cleanedTitle = title.trim();
     final cleanedThesis = thesis.trim();
     _validateFields(
@@ -206,7 +219,7 @@ class ResearchStore extends ChangeNotifier {
     _storageWarning = null;
     notifyListeners();
     return project;
-  }
+  });
 
   Future<ResearchProject> updateLocalDraft({
     required String id,
@@ -215,7 +228,8 @@ class ResearchStore extends ChangeNotifier {
     required String symbol,
     required String side,
     required String timeframe,
-  }) async {
+  }) => _queue.run(() async {
+    await _ensureLoaded();
     final index = _projects.indexWhere((p) => p.id == id && !p.isSample);
     if (index < 0) {
       throw ArgumentError('Borrador local no encontrado.');
@@ -245,9 +259,10 @@ class ResearchStore extends ChangeNotifier {
     _storageWarning = null;
     notifyListeners();
     return updated;
-  }
+  });
 
-  Future<void> deleteLocalDraft(String id) async {
+  Future<void> deleteLocalDraft(String id) => _queue.run(() async {
+    await _ensureLoaded();
     final index = _projects.indexWhere((p) => p.id == id && !p.isSample);
     if (index < 0) {
       throw ArgumentError('Borrador local no encontrado.');
@@ -259,7 +274,7 @@ class ResearchStore extends ChangeNotifier {
       ..addAll(candidate);
     _storageWarning = null;
     notifyListeners();
-  }
+  });
 
   Map<String, Object?> _backupRecord(ResearchProject p) => {
         'title': p.title,
@@ -283,7 +298,8 @@ class ResearchStore extends ChangeNotifier {
         ],
       });
 
-  Future<int> restoreDraftBackup(String source) async {
+  Future<int> restoreDraftBackup(String source) => _queue.run(() async {
+    await _ensureLoaded();
     if (source.length > maxBackupCharacters) {
       throw const FormatException('El respaldo supera el tamaño permitido.');
     }
@@ -340,7 +356,7 @@ class ResearchStore extends ChangeNotifier {
     _storageWarning = null;
     notifyListeners();
     return pending.length;
-  }
+  });
 
   _ParsedDraft _parseBackupRow(Object? row) {
     const keys = {
@@ -468,6 +484,11 @@ class ResearchStore extends ChangeNotifier {
         }
         final id = row['id'] as String;
         if (!RegExp(r'^LOCAL-[0-9]{4,}$').hasMatch(id) || !ids.add(id)) {
+          throw const FormatException();
+        }
+        final number = int.tryParse(id.substring(6));
+        if (number == null || number < 1 || number > sequence ||
+            id != 'LOCAL-${number.toString().padLeft(4, '0')}') {
           throw const FormatException();
         }
         final parsed = _validateParsed(
