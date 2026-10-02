@@ -13,14 +13,14 @@ class FakeGateway implements SessionGateway {
   @override
   Future<ClientSession> bootstrap(
       String origin, String bootstrapToken, String deviceId) async {
-    expect(bootstrapToken, 'B' * 48);
+    expect(bootstrapToken, rep('B', 48));
     return ClientSession(
       origin: origin,
       deviceId: deviceId,
       clientId: 'client-1',
-      accessToken: 'A' * 43,
+      accessToken: rep('A', 43),
       accessExpiresAt: 1000,
-      refreshToken: 'R' * 43,
+      refreshToken: rep('R', 43),
       refreshExpiresAt: 10000,
     );
   }
@@ -32,9 +32,9 @@ class FakeGateway implements SessionGateway {
       origin: current.origin,
       deviceId: current.deviceId,
       clientId: current.clientId,
-      accessToken: 'C' * 43,
+      accessToken: rep('C', 43),
       accessExpiresAt: 2000,
-      refreshToken: 'S' * 43,
+      refreshToken: rep('S', 43),
       refreshExpiresAt: 11000,
     );
   }
@@ -94,12 +94,14 @@ class FakeGateway implements SessionGateway {
       searchSpaceSha256: old.searchSpaceSha256,
       toyEnumerationSha256: old.toyEnumerationSha256,
       rawBirths: old.rawBirths,
-      resultSha256: state == 'COMPLETE' ? 'f' * 64 : null,
+      resultSha256: state == 'COMPLETE' ? rep('f', 64) : null,
     );
     jobs[jobId] = job;
     return job;
   }
 }
+
+String rep(String value, int count) => List.filled(count, value).join();
 
 void main() {
   test('session survives restart, bootstrap is not persisted and refresh rotates',
@@ -115,9 +117,9 @@ void main() {
     );
     await store.initialize();
     expect(store.deviceId, 'device_NaN');
-    await store.enroll('https://g12.example', 'B' * 48);
+    await store.enroll('https://g12.example', rep('B', 48));
     expect(store.enrolled, true);
-    expect(vault.snapshot[SessionStore.sessionKey], isNot(contains('B' * 48)));
+    expect(vault.snapshot[SessionStore.sessionKey], isNot(contains(rep('B', 48))));
 
     final restored = SessionStore(
       vault: vault,
@@ -132,9 +134,9 @@ void main() {
     now = DateTime.fromMillisecondsSinceEpoch(950 * 1000, isUtc: true);
     final renewed = await restored.ensureAccess();
     expect(gateway.refreshCount, 1);
-    expect(renewed.accessToken, 'C' * 43);
-    expect(renewed.refreshToken, 'S' * 43);
-    expect(vault.snapshot[SessionStore.sessionKey], isNot(contains('R' * 43)));
+    expect(renewed.accessToken, rep('C', 43));
+    expect(renewed.refreshToken, rep('S', 43));
+    expect(vault.snapshot[SessionStore.sessionKey], isNot(contains(rep('R', 43))));
 
     await restored.signOut();
     expect(gateway.revokeCount, 1);
@@ -155,7 +157,7 @@ void main() {
       deviceIdFactory: () => 'device_NaN',
     );
     await session.initialize();
-    await session.enroll('https://g12.example', 'B' * 48);
+    await session.enroll('https://g12.example', rep('B', 48));
 
     final universe = UniverseSessionStore(vault: MemoryLocalVault());
     final draft = await universe.save(
@@ -186,7 +188,7 @@ void main() {
     expect((await restored.resume()).state, 'CHECKPOINTED');
     final completed = await restored.resume();
     expect(completed.state, 'COMPLETE');
-    expect(completed.resultSha256, 'f' * 64);
+    expect(completed.resultSha256, rep('f', 64));
     expect(gateway.resumeCount, 3);
     expect(completed.searchSpaceSha256, draft.searchSpaceSha256);
     expect(completed.rawBirths, draft.blueprint.rawBirths);
