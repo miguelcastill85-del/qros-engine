@@ -311,7 +311,7 @@ class _ProjectsPage extends StatelessWidget {
       const _OfflineRibbon(),
       const SizedBox(height: 20),
       SectionHeading('Proyectos', trailing: '${store.projects.length} locales / demo'),
-      const _Notice(text: 'Los borradores no se guardan al cerrar esta versión de prueba. No equivalen a contratos congelados.'),
+      const _Notice(text: 'Los borradores se guardan en el almacén cifrado del dispositivo. Siguen sin equivaler a contratos científicos congelados.'),
       const SizedBox(height: 16),
       FilledButton.icon(
         key: const Key('new-project-action'),
@@ -323,7 +323,7 @@ class _ProjectsPage extends StatelessWidget {
       for (final item in store.projects) ...[
         _ProjectCard(
           project: item,
-          onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => ProjectDetailsScreen(project: item))),
+          onTap: () => Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => ProjectDetailsScreen(store: store, project: item))),
         ),
         const SizedBox(height: 12),
       ],
@@ -361,40 +361,141 @@ class _ProjectCard extends StatelessWidget {
 }
 
 class ProjectDetailsScreen extends StatelessWidget {
-  const ProjectDetailsScreen({super.key, required this.project});
+  const ProjectDetailsScreen({
+    super.key,
+    required this.store,
+    required this.project,
+  });
+
+  final ResearchStore store;
   final ResearchProject project;
+
+  Future<void> _edit(BuildContext context) async {
+    if (project.isSample) return;
+    final changed = await Navigator.of(context).push<bool>(
+      MaterialPageRoute(
+        builder: (_) => NewProjectScreen(store: store, existing: project),
+      ),
+    );
+    if (changed == true && context.mounted) Navigator.of(context).pop();
+  }
+
+  Future<void> _delete(BuildContext context) async {
+    if (project.isSample) return;
+    final confirmed = await showDialog<bool>(
+          context: context,
+          builder: (dialogContext) => AlertDialog(
+            title: const Text('Eliminar borrador'),
+            content: Text(
+              'Se eliminará “\${project.title}” del almacenamiento seguro de este dispositivo. Esta acción no toca ningún registro científico.',
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(dialogContext, false),
+                child: const Text('Cancelar'),
+              ),
+              FilledButton(
+                onPressed: () => Navigator.pop(dialogContext, true),
+                child: const Text('Eliminar'),
+              ),
+            ],
+          ),
+        ) ??
+        false;
+    if (!confirmed) return;
+    try {
+      await store.deleteLocalDraft(project.id);
+      if (context.mounted) Navigator.of(context).pop();
+    } on LocalPersistenceException catch (_) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+            'No se pudo confirmar el borrado en el almacén seguro. No se aplicó ningún cambio.',
+          ),
+        ));
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('Expediente del proyecto')),
-    body: ListView(padding: const EdgeInsets.all(18), children: [
-      const _OfflineRibbon(),
-      const SizedBox(height: 16),
-      QrosPanel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(project.id, style: const TextStyle(color: qrosTeal, letterSpacing: 1.2)),
-        const SizedBox(height: 8),
-        Text(project.title, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w900)),
-        const SizedBox(height: 14),
-        StatusPill(label: project.readableState, color: qrosAmber),
-        const SizedBox(height: 16),
-        _EvidenceLine(label: 'Activo', value: project.symbol),
-        _EvidenceLine(label: 'Dirección', value: project.side),
-        _EvidenceLine(label: 'Timeframe', value: project.timeframe),
-      ])),
-      const SizedBox(height: 20),
-      const SectionHeading('Hipótesis'),
-      QrosPanel(child: Text(project.thesis, style: const TextStyle(height: 1.55))),
-      const SizedBox(height: 20),
-      const SectionHeading('Verificación pendiente'),
-      const QrosPanel(child: Column(children: [
-        _EvidenceLine(label: 'Contrato tipado', value: 'NO CONGELADO'),
-        _EvidenceLine(label: 'Backtest', value: 'NO EJECUTADO'),
-        _EvidenceLine(label: 'Holdout', value: 'CERRADO'),
-        _EvidenceLine(label: 'Aprobación', value: 'NINGUNA'),
-      ])),
-      const SizedBox(height: 20),
-      const _Notice(text: 'Pantalla local TEST_ONLY. No existe SHA-256 verificado, certificado de ganancias ni vínculo con el motor QROS.'),
-    ]),
-  );
+        appBar: AppBar(title: const Text('Expediente del proyecto')),
+        body: ListView(
+          padding: const EdgeInsets.all(18),
+          children: [
+            const _OfflineRibbon(),
+            const SizedBox(height: 16),
+            QrosPanel(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(project.id,
+                      style: const TextStyle(
+                          color: qrosTeal, letterSpacing: 1.2)),
+                  const SizedBox(height: 8),
+                  Text(project.title,
+                      style: const TextStyle(
+                          fontSize: 24, fontWeight: FontWeight.w900)),
+                  const SizedBox(height: 14),
+                  StatusPill(
+                      label: project.readableState, color: qrosAmber),
+                  const SizedBox(height: 16),
+                  _EvidenceLine(label: 'Activo', value: project.symbol),
+                  _EvidenceLine(label: 'Dirección', value: project.side),
+                  _EvidenceLine(label: 'Timeframe', value: project.timeframe),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            const SectionHeading('Hipótesis'),
+            QrosPanel(
+                child: Text(project.thesis,
+                    style: const TextStyle(height: 1.55))),
+            if (!project.isSample) ...[
+              const SizedBox(height: 20),
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      key: const Key('edit-local-draft'),
+                      onPressed: () => _edit(context),
+                      icon: const Icon(Icons.edit_outlined),
+                      label: const Text('Editar'),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      key: const Key('delete-local-draft'),
+                      onPressed: () => _delete(context),
+                      icon: const Icon(Icons.delete_outline),
+                      label: const Text('Eliminar'),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+            const SizedBox(height: 20),
+            const SectionHeading('Verificación pendiente'),
+            const QrosPanel(
+              child: Column(
+                children: [
+                  _EvidenceLine(
+                      label: 'Contrato tipado', value: 'NO CONGELADO'),
+                  _EvidenceLine(label: 'Backtest', value: 'NO EJECUTADO'),
+                  _EvidenceLine(label: 'Holdout', value: 'CERRADO'),
+                  _EvidenceLine(label: 'Aprobación', value: 'NINGUNA'),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
+            const _Notice(
+              text:
+                  'Borrador local cifrado · TEST_ONLY. No existe certificado de ganancias ni permiso para operar.',
+            ),
+          ],
+        ),
+      );
 }
 
 class _HistoryPage extends StatelessWidget {
@@ -405,20 +506,20 @@ class _HistoryPage extends StatelessWidget {
     key: const Key('history-screen'),
     padding: const EdgeInsets.fromLTRB(18, 18, 18, 24),
     children: [
-      const SectionHeading('Historial', trailing: 'Sesión local'),
-      const _Notice(text: 'Eventos de interfaz, no recibos de ejecución. No hay registros reales del motor conectado.'),
+      const SectionHeading('Historial', trailing: 'Estado local persistente'),
+      const _Notice(text: 'Borradores locales persistentes y fixture de interfaz; no son recibos de ejecución ni registros reales del motor.'),
       const SizedBox(height: 20),
       for (final item in store.projects) ...[
         QrosPanel(child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Icon(Icons.radio_button_checked, color: qrosTeal, size: 19),
           const SizedBox(width: 13),
           Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            Text(item.isSample ? 'Fixture demostrativa' : 'Borrador creado en esta sesión',
+            Text(item.isSample ? 'Fixture demostrativa' : 'Borrador local guardado',
               style: const TextStyle(fontWeight: FontWeight.w700)),
             const SizedBox(height: 5),
             Text('${item.id} · ${item.title}', style: const TextStyle(color: qrosMuted, fontSize: 12)),
             const SizedBox(height: 7),
-            Text(item.isSample ? 'Evento visual simulado' : 'Sin persistencia ni transición científica',
+            Text(item.isSample ? 'Evento visual simulado' : 'Persistencia local · sin transición científica',
               style: const TextStyle(color: qrosAmber, fontSize: 11)),
           ])),
         ])),
@@ -450,7 +551,12 @@ class _EvidencePage extends StatelessWidget {
     children: [
       const SectionHeading('Seguridad y evidencia'),
       const _Notice(text: 'El teléfono no tiene autoridad científica. Esta versión no se conecta con MT5 ni con servicios de pago.'),
-      const SizedBox(height: 19),
+      const SizedBox(height: 12),
+      if (store.storageWarning != null) ...[
+        _Notice(text: 'Alerta de almacenamiento local: ${store.storageWarning}. Las mutaciones fallan cerradas hasta recuperar el almacén seguro.'),
+        const SizedBox(height: 12),
+      ],
+      const SizedBox(height: 7),
       const QrosPanel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Text('Contrato de seguridad', style: TextStyle(fontWeight: FontWeight.w800, fontSize: 17)),
         SizedBox(height: 17),
@@ -458,6 +564,7 @@ class _EvidencePage extends StatelessWidget {
         _EvidenceLine(label: 'Datos de broker', value: 'NINGUNO'),
         _EvidenceLine(label: 'Permisos científicos', value: 'NINGUNO'),
         _EvidenceLine(label: 'HEAD externo confiable', value: 'PENDIENTE'),
+        _EvidenceLine(label: 'Persistencia local', value: 'ALMACÉN SEGURO · G11'),
         _EvidenceLine(label: 'Recibos autenticados', value: 'PENDIENTE'),
         _EvidenceLine(label: 'Holdout', value: 'CERRADO'),
         _EvidenceLine(label: 'Trading automático', value: 'DESACTIVADO'),
@@ -499,7 +606,7 @@ class _EvidencePage extends StatelessWidget {
         ),
       ])),
       const SizedBox(height: 18),
-      const Text('QROS Mobile G9 · TEST_ONLY · No utilizar para operar.',
+      const Text('QROS Mobile G11 · TEST_ONLY · No utilizar para operar.',
         style: TextStyle(color: qrosMuted, fontSize: 11, height: 1.5),
       ),
     ],
