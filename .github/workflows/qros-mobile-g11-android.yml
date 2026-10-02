@@ -80,7 +80,7 @@ jobs:
             'apk_bytes':apk.stat().st_size,
             'apk_sha256':hashlib.sha256(apk.read_bytes()).hexdigest(),
             'android_min_sdk':23,
-            'secure_storage_dependency':'flutter_secure_storage@11.2.0',
+            'secure_storage_dependency':'flutter_secure_storage@10.3.4',
             'secure_persistence_contract_tests':'PASS',
             'universe_rehash_on_restore':'PASS_TEST_FIXTURE',
             'public_https':root.get('origin'),
