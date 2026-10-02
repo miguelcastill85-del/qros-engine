@@ -1,5 +1,5 @@
 name: qros_mobile_studio
-description: "QROS Mobile Research Studio - Android TEST_ONLY G12 renewable session and resumable synthetic jobs"
+description: "QROS Mobile Research Studio - Android TEST_ONLY G12 renewable sessions and resumable jobs"
 publish_to: none
 version: 0.12.0+12
 

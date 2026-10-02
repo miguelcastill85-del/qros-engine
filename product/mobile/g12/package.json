@@ -1,0 +1,21 @@
+{
+  "name": "qros-mobile-g12-test-only",
+  "version": "1.0.0",
+  "description": "Device-bound renewable sessions and resumable synthetic Worker jobs",
+  "scripts": {
+    "test": "node --test tests/core.test.mjs tests/workerd.test.mjs"
+  },
+  "license": "UNLICENSED",
+  "type": "module",
+  "devDependencies": {
+    "miniflare": "4.20260730.0",
+    "wrangler": "4.141.0"
+  },
+  "private": true,
+  "overrides": {
+    "miniflare@4.20260730.0": {
+      "undici": "7.29.0",
+      "sharp": "0.35.4"
+    }
+  }
+}
