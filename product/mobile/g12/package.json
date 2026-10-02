@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Device-bound renewable sessions and resumable synthetic Worker jobs",
   "scripts": {
-    "test": "node --test tests/core.test.mjs tests/workerd.test.mjs"
+    "test": "node --test tests/core.test.mjs tests/workerd.test.mjs tests/security.test.mjs"
   },
   "license": "UNLICENSED",
   "type": "module",

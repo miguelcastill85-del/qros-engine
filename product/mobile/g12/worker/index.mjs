@@ -16,12 +16,28 @@ function jobId() {
 }
 
 export class SessionBroker extends DurableObject {
+  // Fixed pilot budgets. Exhaustion fails closed; no automatic paid upgrade.
+  async admit(now) {
+    return this.ctx.storage.transaction(async tx => {
+      const minute = Math.floor(now / 60);
+      const day = Math.floor(now / 86400);
+      const previous = await tx.get('budget:requests');
+      const m = previous?.minute === minute ? previous.minute_count : 0;
+      const d = previous?.day === day ? previous.day_count : 0;
+      if (m >= 200 || d >= 10000) return false;
+      await tx.put('budget:requests', {minute, day, minute_count: m + 1, day_count: d + 1});
+      return true;
+    });
+  }
+
   async _auth(storage, accessHash, deviceId, now) {
     const cid = await storage.get('access:' + accessHash);
     if (!cid) return null;
     const session = await storage.get('session:' + cid);
     if (!session || session.revoked || session.device_id !== deviceId ||
-        !Number.isSafeInteger(session.access_exp) || now >= session.access_exp) return null;
+        session.access_hash !== accessHash ||
+        session.tenant !== this.env.TENANT || session.project !== this.env.PROJECT ||
+        session.campaign !== this.env.CAMPAIGN || !Number.isSafeInteger(session.access_exp) || now >= session.access_exp) return null;
     return {cid, session};
   }
 
@@ -29,6 +45,8 @@ export class SessionBroker extends DurableObject {
     if (!validDevice(deviceId)) return {status: 400};
     return this.ctx.storage.transaction(async tx => {
       if (await tx.get('used:' + grantHash)) return {status: 409};
+      const count = (await tx.get('budget:sessions')) ?? 0;
+      if (!Number.isSafeInteger(count) || count < 0 || count >= 20) return {status: 429};
       const cid = clientId();
       const access = token();
       const refresh = token();
@@ -39,6 +57,7 @@ export class SessionBroker extends DurableObject {
         device_id: deviceId, access_hash: accessHash, access_exp: now + 900,
         refresh_hash: refreshHash, refresh_exp: now + 2592000, revoked: false,
       };
+      await tx.put('budget:sessions', count + 1);
       await tx.put('used:' + grantHash, grant.exp);
       await tx.put('session:' + cid, session);
       await tx.put('access:' + accessHash, cid);
@@ -58,7 +77,9 @@ export class SessionBroker extends DurableObject {
       if (!cid) return {status: 401};
       const session = await tx.get('session:' + cid);
       if (!session || session.revoked || session.device_id !== deviceId ||
-          session.refresh_hash !== refreshHash || now >= session.refresh_exp) return {status: 401};
+          session.refresh_hash !== refreshHash || now >= session.refresh_exp ||
+          session.tenant !== this.env.TENANT || session.project !== this.env.PROJECT ||
+          session.campaign !== this.env.CAMPAIGN) return {status: 401};
       const access = token();
       const refresh = token();
       const nextAccessHash = await sha(access);
@@ -104,8 +125,16 @@ export class SessionBroker extends DurableObject {
       const existing = await tx.get(requestKey);
       if (existing) {
         const job = await tx.get('job:' + existing);
-        return job ? {status: 200, payload: job} : {status: 503};
+        if (!job) return {status: 503};
+        if (job.input.search_space_sha256 !== body.search_space_sha256 ||
+            job.input.toy_enumeration_sha256 !== body.toy_enumeration_sha256 ||
+            job.input.raw_births !== body.raw_births) return {status: 409};
+        return {status: 200, payload: job};
       }
+      const globalCount = (await tx.get('budget:jobs')) ?? 0;
+      const clientCount = (await tx.get('budget:jobs:' + auth.cid)) ?? 0;
+      if (![globalCount, clientCount].every(n => Number.isSafeInteger(n) && n >= 0) ||
+          globalCount >= 200 || clientCount >= 20) return {status: 429};
       const id = jobId();
       const job = {
         schema: 'QROS_G12_SYNTHETIC_JOB_V1',
@@ -129,6 +158,8 @@ export class SessionBroker extends DurableObject {
         ga2_open: false,
         mt5_executed: false,
       };
+      await tx.put('budget:jobs', globalCount + 1);
+      await tx.put('budget:jobs:' + auth.cid, clientCount + 1);
       await tx.put(requestKey, id);
       await tx.put('job:' + id, job);
       return {status: 201, payload: job};

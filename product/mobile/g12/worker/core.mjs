@@ -43,14 +43,33 @@ export function exact(o, keys) {
     Object.keys(o).sort().join(',') === keys.slice().sort().join(',');
 }
 
-async function readJson(req, max = 16384) {
+export async function readJson(req, max = 16384) {
   const type = (req.headers.get('Content-Type') || '').split(';')[0].trim().toLowerCase();
   if (type !== 'application/json') throw new Error('content_type');
   const length = Number(req.headers.get('Content-Length') || '0');
   if (Number.isFinite(length) && length > max) throw new Error('too_large');
-  const text = await req.text();
-  if (text.length > max) throw new Error('too_large');
-  const parsed = JSON.parse(text);
+  if (!req.body) throw new Error('json_object');
+  const reader = req.body.getReader();
+  const chunks = [];
+  let size = 0;
+  try {
+    while (true) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      size += value.byteLength;
+      if (size > max) {
+        await reader.cancel();
+        throw new Error('too_large');
+      }
+      chunks.push(value);
+    }
+  } finally {
+    reader.releaseLock();
+  }
+  const bytes = new Uint8Array(size);
+  let offset = 0;
+  for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
+  const parsed = JSON.parse(new TextDecoder('utf-8', {fatal: true}).decode(bytes));
   if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) throw new Error('json_object');
   return parsed;
 }
@@ -64,7 +83,7 @@ function bearer(req) {
 function baseRequest(req, env) {
   const url = new URL(req.url);
   if (url.protocol !== 'https:' || url.origin !== env.PUBLIC_ORIGIN) return {status: 403};
-  if (req.headers.has('Origin')) return {status: 403};
+  if (url.search || url.hash || req.headers.has('Origin')) return {status: 403};
   return {status: 200, url};
 }
 
@@ -102,6 +121,7 @@ export async function handle(req, env, now = Math.floor(Date.now() / 1000)) {
     if (base.status !== 200) return response(base.status, {error: 'request_denied'});
     const url = base.url;
     const b = broker(env);
+    if (!await b.admit(now)) return response(429, {error: 'request_limit'});
 
     if (url.pathname === '/v1/session/bootstrap' && req.method === 'POST') {
       const auth = await bootstrapGrant(req, env, now);

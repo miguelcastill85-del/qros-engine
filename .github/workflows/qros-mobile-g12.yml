@@ -30,7 +30,7 @@ jobs:
       - name: Install and test isolated G12 Worker
         run: |
           npm ci --ignore-scripts --prefix product/mobile/g12
-          node --test product/mobile/g12/tests/core.test.mjs product/mobile/g12/tests/workerd.test.mjs
+          node --test product/mobile/g12/tests/core.test.mjs product/mobile/g12/tests/workerd.test.mjs product/mobile/g12/tests/security.test.mjs
           ./product/mobile/g12/node_modules/.bin/wrangler deploy --dry-run --config product/mobile/g12/wrangler.jsonc --outdir /tmp/qros-g12-worker
 
       - name: Rebuild frozen G9 signed parity fixture
