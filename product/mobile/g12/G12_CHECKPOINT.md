@@ -29,3 +29,10 @@ Cerrar los gates 2 y la parte estrictamente TEST_ONLY del gate 3 de G10 sin fing
 - G12-FLUTTER-SESSION: pendiente implementación/CI.
 - G12-FLUTTER-JOB-RESUME: pendiente implementación/CI.
 - G12-DEPLOY-FREE: sólo procede después de CI PASS y verificación de infraestructura/costo.
+
+
+## Evidencia de ejecución intermedia
+
+- Run 37016679021: `Install and test isolated G12 Worker` = PASS, incluyendo restart/resume en workerd y dry-run del Worker; el run completo fue cancelado por concurrencia al llegar un commit posterior.
+- Run 37016718667: cancelado antes de asignar job; GitHub rechazó rerun del run cancelado.
+- Estos runs NO califican el HEAD final. Se requiere CI nuevo sobre el commit posterior a las correcciones Dart.
