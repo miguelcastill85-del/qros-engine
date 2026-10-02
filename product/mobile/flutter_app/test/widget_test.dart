@@ -75,13 +75,14 @@ void main() {
     await tester.pumpAndSettle();
     final remoteDemo = find.byKey(const Key('open-remote-demo'));
     final evidenceScroll = find.byType(Scrollable).last;
-    await tester.scrollUntilVisible(remoteDemo, 260.0, scrollable: evidenceScroll);
-    await tester.drag(evidenceScroll, const Offset(0, -120));
+    await tester.scrollUntilVisible(remoteDemo, 220.0, scrollable: evidenceScroll);
     await tester.pumpAndSettle();
     final viewportHeight =
         tester.view.physicalSize.height / tester.view.devicePixelRatio;
-    expect(tester.getCenter(remoteDemo).dy, lessThan(viewportHeight - 100));
-    await tester.tap(remoteDemo);
+    final remoteDemoCenter = tester.getCenter(remoteDemo);
+    expect(remoteDemoCenter.dy, greaterThan(80));
+    expect(remoteDemoCenter.dy, lessThan(viewportHeight - 80));
+    await tester.tapAt(remoteDemoCenter);
     await tester.pumpAndSettle();
     expect(find.textContaining('SOLO LECTURA'), findsOneWidget);
     await tester.enterText(find.byKey(const Key('remote-demo-url')), 'https://valid.example.com');
