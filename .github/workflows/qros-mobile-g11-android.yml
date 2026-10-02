@@ -16,7 +16,7 @@ permissions:
 
 concurrency:
   group: qros-mobile-g11-android
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   android:
