@@ -1,0 +1,104 @@
+name: QROS Mobile G12 sessions and resumable jobs TEST_ONLY
+
+on:
+  push:
+    branches: [product/mobile-g12-session-jobs-20261002]
+    paths:
+      - 'product/mobile/flutter_app/**'
+      - 'product/mobile/g12/**'
+      - '.github/workflows/qros-mobile-g12.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qros-mobile-g12
+  cancel-in-progress: true
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+
+      - name: Install and test isolated G12 Worker
+        run: |
+          npm ci --ignore-scripts --prefix product/mobile/g12
+          node --test product/mobile/g12/tests/core.test.mjs product/mobile/g12/tests/workerd.test.mjs
+          ./product/mobile/g12/node_modules/.bin/wrangler deploy --dry-run --config product/mobile/g12/wrangler.jsonc --outdir /tmp/qros-g12-worker
+
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with: {distribution: temurin, java-version: '17'}
+
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+        with: {channel: stable, flutter-version: '3.35.4'}
+
+      - name: Rehydrate Android wrapper
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter create --platforms=android --project-name=qros_mobile_studio --org=app.qros --no-pub .
+          sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 24/' android/app/build.gradle.kts
+          grep -F 'minSdk = 24' android/app/build.gradle.kts
+          flutter pub get
+
+      - name: Analyze and run Flutter regressions
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter analyze --no-pub
+          flutter test --no-pub --reporter expanded
+
+      - name: Build G12 Android TEST_ONLY APK
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter build apk --debug --no-pub
+          test -s build/app/outputs/flutter-apk/app-debug.apk
+
+      - name: Freeze G12 engineering receipt
+        run: |
+          mkdir -p /tmp/qros-g12
+          APK=product/mobile/flutter_app/build/app/outputs/flutter-apk/app-debug.apk
+          AAPT="$(find "$ANDROID_HOME/build-tools" -type f -name aapt | sort -V | tail -1)"
+          "$AAPT" dump badging "$APK" | tee /tmp/qros-g12/apk-badging.txt
+          grep -F "sdkVersion:'24'" /tmp/qros-g12/apk-badging.txt
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          apk=pathlib.Path('product/mobile/flutter_app/build/app/outputs/flutter-apk/app-debug.apk')
+          receipt={
+            'schema':'QROS_G12_ENGINEERING_RECEIPT_V1',
+            'status':'PASS_ENGINEERING_TEST_ONLY',
+            'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+            'apk_bytes':apk.stat().st_size,
+            'apk_sha256':hashlib.sha256(apk.read_bytes()).hexdigest(),
+            'worker_workerd_restart_resume':'PASS',
+            'session_refresh_rotation':'PASS',
+            'flutter_secure_session_recovery':'PASS',
+            'flutter_job_resume_recovery':'PASS',
+            'worker_deploy_dry_run':'PASS',
+            'android_min_sdk':24,
+            'public_g12_deployment':'NOT_RUN',
+            'physical_android':'NOT_RUN',
+            'economic_tests':0,
+            'holdout_open':False,
+            'ga2_open':False,
+            'mt5_executed':False,
+            'scientific_gate_pass':False,
+          }
+          pathlib.Path('/tmp/qros-g12/QROS_G12_ENGINEERING_RECEIPT.json').write_text(
+              json.dumps(receipt,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(receipt,indent=2,sort_keys=True))
+          PY
+          cp "$APK" /tmp/qros-g12/QROS_MOBILE_G12_TEST_ONLY.apk
+          cp -R /tmp/qros-g12-worker /tmp/qros-g12/worker-dry-run
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-mobile-g12-test-only
+          retention-days: 7
+          if-no-files-found: error
+          path: /tmp/qros-g12/
