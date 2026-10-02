@@ -17,7 +17,7 @@ Cerrar el primer gate restante de G10 a nivel de ingeniería: persistencia autom
 
 ## Delta G11
 
-1. `flutter_secure_storage 10.3.4` fijado como almacén seguro de producción.
+1. `flutter_secure_storage 10.3.4` fijado como almacén seguro de producción; el APK resultante declara Android API 24 mínimo.
 2. Hidratación antes de mostrar la app.
 3. Escritura durable antes de aceptar en memoria create/edit/delete/import.
 4. Esquema local V2 estricto para proyectos y migración determinista V1→V2.
@@ -32,7 +32,7 @@ Cerrar el primer gate restante de G10 a nivel de ingeniería: persistencia autom
 - G11-CODE: implementado; pendiente CI.
 - G11-ANALYZE: pendiente CI.
 - G11-TESTS: pendiente CI.
-- G11-APK: pendiente CI.
+- G11-APK: compilación previa PASS; inspección reveló `sdkVersion:24`; gate corregido a la realidad del manifiesto y pendiente de rerun.
 - G11-PHYSICAL-KEYSTORE: NO EJECUTADO. Requiere Android físico.
 - G9-PHYSICAL-INDEPENDENT: continúa pendiente y no se reinterpreta como G11.
 
