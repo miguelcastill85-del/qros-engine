@@ -45,8 +45,8 @@ jobs:
         run: |
           flutter create --platforms=android --project-name=qros_mobile_studio --org=app.qros --no-pub .
           test -f android/app/build.gradle.kts
-          sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 23/' android/app/build.gradle.kts
-          grep -F 'minSdk = 23' android/app/build.gradle.kts
+          sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 24/' android/app/build.gradle.kts
+          grep -F 'minSdk = 24' android/app/build.gradle.kts
           flutter pub get
 
       - name: Analyze and run all Flutter regressions
@@ -67,7 +67,7 @@ jobs:
           AAPT="$(find "$ANDROID_HOME/build-tools" -type f -name aapt | sort -V | tail -1)"
           test -x "$AAPT"
           "$AAPT" dump badging "$APK" | tee /tmp/qros-g11-badging.txt
-          grep -F "sdkVersion:'23'" /tmp/qros-g11-badging.txt
+          grep -F "sdkVersion:'24'" /tmp/qros-g11-badging.txt
           mkdir -p /tmp/qros-g11-android
           python3 - <<'PY'
           import hashlib,json,pathlib,subprocess
@@ -79,7 +79,7 @@ jobs:
             'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
             'apk_bytes':apk.stat().st_size,
             'apk_sha256':hashlib.sha256(apk.read_bytes()).hexdigest(),
-            'android_min_sdk':23,
+            'android_min_sdk':24,
             'secure_storage_dependency':'flutter_secure_storage@10.3.4',
             'secure_persistence_contract_tests':'PASS',
             'universe_rehash_on_restore':'PASS_TEST_FIXTURE',
