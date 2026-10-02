@@ -1,0 +1,70 @@
+{
+  "schema": "QROS_SEED0076_XAU_M1_GROUP00_SOURCE_PIN_PREFLIGHT_1.0",
+  "date": "2026-09-22",
+  "status": "PINNED_SOURCE_CLOSURE_PASS_8_OF_8_INPUT_CARRIERS_READY_MASKS_NOT_RECREATED",
+  "authority": {
+    "main_frontier": "V259",
+    "main_pointer_git_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "branch": "research/seed0076-first-gate10-20260922",
+    "existing_XAU_GA1_completion_git_blob_sha1": "19e47f7a25fb88eac1ba871dccfc56f79b9d9647",
+    "existing_mask_compaction_git_blob_sha1": "86bd01b43da0f8d27b52f877a865fc3012478bd0",
+    "complete_17TF_manifest_git_blob_sha1": "d1aff1ea650bb27db3970b0ff76e48a4cfb316f3",
+    "clock_V219_git_blob_sha1": "c16d561b66a51d3735960470ba893e53e6913d40"
+  },
+  "input": {
+    "asset": "XAUUSD",
+    "side": "BUY",
+    "timeframe": "M1",
+    "frozen_dev_records": 151382388,
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "source_input_recovered": true,
+    "all_17TF_bars_and_indicators_byte_verified": true,
+    "complete_archive_library_path": "/QROS/RISE_AUDIT_MAX_V2/XAU_V220_FROZEN_CARRIERS_20260922",
+    "group00_expected_configurations": 33528,
+    "group00_original_local_distinct_classes": 10521,
+    "group00_original_duplicate_configs": 23007,
+    "group00_original_uncompressed_mask_bytes": 96786988,
+    "group00_original_uncompressed_sha256": "ff55eb32bddddff384736644888aff775c760b2e9f79c72d7ce328cf6b9c03cd",
+    "group00_original_compressed_mask_bytes": 33665389,
+    "group00_original_compressed_sha256": "3753e18781e4a62dbeec4cb66d3d098c303731ab81a9fe0ee7960261557c59bd"
+  },
+  "source_pin_preflight": {
+    "expected_and_fetched_git_blobs_identical": true,
+    "checked_files": {
+      "scripts/qros_seed0076_config_stream.py": "a01268bd8bab639977b22c419926d94306754bba",
+      "scripts/qros_seed0076_structural_v220.py": "805044c9918a87456a95e150a1c9a1292112cf4c",
+      "scripts/qros_seed0076_gate_engine_v221.py": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+      "scripts/qros_seed0076_carrier_masks_v221.py": "0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25",
+      "scripts/qros_seed0076_ga1_shard_worker_v223.py": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+      "scripts/qros_seed0076_ga1_cached_wrapper_v236.py": "2ab8e0cd7b2cd576289cd5c555e3a5227e10e78f",
+      "scripts/qros_seed0076_config_stream_oracle.py": "1eba8939f6095571bfb5bf90facacbadc1bd21c9",
+      "scripts/qros_seed0076_ga1_merge_oracle_v223.py": "45889bec090dca3b070e888f382683662f0c6356"
+    },
+    "source_local_materialization": "NOT_DONE_FOR_8_WORKER_FILES",
+    "independent_generator_source": "NOT_VERIFIED_AS_INDEPENDENT; merger oracle alone is insufficient"
+  },
+  "remote_exact_mask_search": {
+    "drive_exact_filename_results": 0,
+    "dropbox_exact_filename_results": 0,
+    "conversation_library_exact_filename_results": 0,
+    "current_local_group00_payload": "NOT_PRESENT",
+    "historical_payload_status": "24_group_receipts_pass; original compressed masks runtime-local only; portable archive not persisted externally"
+  },
+  "frozen_whole_shard_targets": {
+    "configurations": 804672,
+    "distinct_classes": 303572,
+    "semantic_root_sha256": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+    "alias_root_sha256": "4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458"
+  },
+  "safety": {
+    "no_reenumeration_of_completed_historical_shard_for_scientific_selection": true,
+    "rematerialization_of_missing_group_bytes_only": true,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "GA2_open": false,
+    "shard11_open": false,
+    "production_approval": false
+  },
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "next_automatic_action": "Materialize exactly these pinned V223/V236 worker dependencies in isolated runner; prove source-byte closure; rehydrate only missing group00 event masks from verified DEV+17TF caches; compare exact original uncompressed group00 SHA and count 10521/33528 against receipts; independently generate one fixed canary group before proceeding serially to group01. After all 24 groups, require exact global 303572-class semantic+alias roots and cross-implementation parity before economic first gate."
+}

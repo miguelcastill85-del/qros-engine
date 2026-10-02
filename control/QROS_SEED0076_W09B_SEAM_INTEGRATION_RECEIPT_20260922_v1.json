@@ -1,0 +1,120 @@
+{
+  "audit_scope": "W09B primary/oracle actual byte-pinned execution interface -> frozen overlap adapter; synthetic data only",
+  "authority": {
+    "frontier": "V259",
+    "github_main_commit": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "normalizer_contract_blob_sha1": "5d7006c5b54d4647113c7caab5107e8c9229d2bf",
+    "overlap_policy_blob_sha1": "690e0b82233b22fb800693741eede53ce223f5c2",
+    "research_branch": "research/seed0076-first-gate10-20260922",
+    "research_scope_blob_sha1": "ab31ded2702f57b54eebc052f1c8aa2737cf2479"
+  },
+  "date": "2026-09-22",
+  "executed_synthetic": {
+    "actual_output_sha256": "45e0e475692baac2e571de128e040bfdcffd42de9163eb0612fcef38fbde2af6",
+    "adapter_receipt_sha256": "68f53cf85af174e89e47adf017f3351f8fe142ed008a991dc818466ce083d24b",
+    "admitted_scenario_ids": [
+      "B0",
+      "B4",
+      "C0",
+      "E0",
+      "S0",
+      "S2"
+    ],
+    "integration_file_sha256": "8f874fae8b03098dcbaa35f747fc12f278d818e608455559434719a5e5122ca3",
+    "oracle_receipt_sha256": "2352a54868bf105c41f146581fa68f1564aa36aea94827b1c607d537bf245e00",
+    "overlap_policy_admitted_count": 6,
+    "overlap_policy_rejected_count": 7,
+    "primary_oracle_trade_by_trade_exact_14_fields": true,
+    "primary_receipt_sha256": "c7bcc4b3f445c233b7b1dd50d5056dc7c6b21c53c2674f246a3d2ea4ba7dd9ef",
+    "rejected_scenario_ids": [
+      "B1",
+      "B2",
+      "B3",
+      "B5",
+      "E1",
+      "E2",
+      "S1"
+    ],
+    "sidecar_sha256": "ec54c3929c8c17abb48eba5fcb0bad3df3a1678654495b954bc0497adfc591a6",
+    "source_tests_failed": 0,
+    "source_tests_passed": 23,
+    "status": "PASS",
+    "synthetic_fixture_sha256": "0548ed2b80ad3e55e2daef700ecf0afd013d48350ac04df7ae036f95e7516e02",
+    "test_file_sha256": "802ce6c02e93ab7cbcbc5dd42d904a2fe8318b54327975c599bbd40e43676e5e",
+    "test_runner": "CPython unittest standard library",
+    "w09b_scenarios": 13
+  },
+  "minimum_fix": {
+    "implemented": "Isolated sidecar preflight before W09B validates exact source Git blobs, disallows boolean typed time/sequence, replays physical ticks and exit Bid/Ask, binds synthetic session_close/trading_date and requires signal ordering evidence on timestamp ties.",
+    "not_implemented": "Production integration of an independently certified execution envelope bound to actual Darwinex timezone/DST, immutable ticks and source event masks."
+  },
+  "next_automatic_action": "Persist this frozen synthetic seam receipt to research branch and Library. Recover the exact XAUUSD/BUY/M1 DEV data/mask carrier once; bind real broker clock and stop acceptance policy, extend the execution envelope without rewriting frozen 14-field W09B outputs; only then open scoped first gate if separate authority explicitly grants it.",
+  "recovery": {
+    "broker_session_authority": "NOT_RECOVERED_IN_ACTIVE_RUNTIME",
+    "exact_source_git_sha1_verified": {
+      "admission_v1": "da32c686301aa880587582b81d203e53546cc283",
+      "oracle_v1": "347ff69ab1ffd85f99a0905701b47659ea324444",
+      "oracle_v2": "9581a725d4f2c0d590763fe97743dd8c21948b8f",
+      "primary_v1": "7774745805999db2faa59ff5f318c1e3072eeea5",
+      "primary_v2": "323937c4c591c4531d3ebde2d20fa695e48a5067"
+    },
+    "heavy_historical_carriers": "NOT_PRESENT_IN_ACTIVE_RUNTIME",
+    "prior_closed_overlap_tests": 30
+  },
+  "red_team": {
+    "broker_dst_example": "PASS_SYNTHETIC_NOT_DARWINEX_PROVENANCE",
+    "same_timestamp_carrier_sequence": "PASS",
+    "shared_bool_timestamp_failure": "DEMONSTRATED_BOTH_ORIGINALS_ACCEPT; WRAPPER_REJECTS",
+    "signal_available_after_first_tick": "QUARANTINED_BY_SYNTHETIC_SIDECAR",
+    "signal_observed_equal_entry_ts_without_physical_sequence": "QUARANTINED_BY_SYNTHETIC_SIDECAR",
+    "temporal_future_perturbation_after_exit": "PASS",
+    "unexecuted_integration_tests": "NONE_FOR_THIS_SYNTHETIC_SCOPE"
+  },
+  "schema": "QROS_SEED0076_W09B_OVERLAP_SEAM_INTEGRATION_RECEIPT_1.0",
+  "scientific_preservation": {
+    "DEV_economic_PnL_read": false,
+    "GA2_open": false,
+    "MT5_deployed": false,
+    "ga1_complete": 10,
+    "ga1_remaining_untouched": 50,
+    "genealogy_or_config_changes": false,
+    "holdout_open": false,
+    "multiplicity_per_shard": "1/1200 UNCHANGED",
+    "source_broker_verified": false
+  },
+  "status": "RESEARCH_VALIDATED_SYNTHETIC_SEAM; FIRST_GATE_NOT_AUTHORIZED",
+  "unknowns": [
+    "Actual broker DST/session table",
+    "Full exact DEV carrier and 303572 masks for XAU M1",
+    "Executable stop placement/minimum distance and simultaneous entry/close sequence at Darwinex",
+    "Classification of source data with zero spreads",
+    "Independent full GA1 event generator and economic trade-by-trade parity"
+  ],
+  "verified_findings": [
+    {
+      "blast": "W09B source validation on anomalous typed inputs only; no historical economic output has been run under this ticket.",
+      "classification": "VERIFICADO",
+      "evidence": "Direct synthetic reproducer: both byte-pinned normalizers accept Python bool in carrier_sequence and entry_trigger_timestamp because bool is int. Isolated fixture preflight rejects bool with type(x) is int.",
+      "id": "W09B_BOOL_SHARED_001"
+    },
+    {
+      "blast": "Synthetic interface only, not independent GA1 signal generator.",
+      "classification": "VERIFICADO",
+      "evidence": "13 full shared-carrier synthetics identical in all 14 normalized fields; frozen overlap adapter admitted 6 and rejected 7. Primary and oracle use distinct source files but share same test fixture and semantics.",
+      "id": "W09B_OVERLAP_PARITY_002"
+    },
+    {
+      "blast": "Synthetic replay and source-code boundary only.",
+      "classification": "VERIFICADO",
+      "evidence": "Source Git blob tamper, raw-tick tamper, crossed quotes and duplicate sequences rejected by tested preflights or existing normalizer/adapter.",
+      "id": "W09B_SOURCE_TAMPER_003"
+    },
+    {
+      "blast": "Potential first-gate trade validity; independent broker constraints and source spread flags required before economic scoring.",
+      "classification": "VERIFICADO for code acceptance; INFERIDO for incompatibility with particular broker fill rules",
+      "evidence": "Both normalizers allow closing at the same physical tick as entry for session close, allow a stop triggered at entry quote despite stop merely behind Ask, and accept zero-spread ticks.",
+      "id": "W09B_QUOTE_SESSION_GAPS_004"
+    }
+  ]
+}

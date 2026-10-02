@@ -1,0 +1,83 @@
+{
+  "authority": {
+    "V219_clock_authority_blob_sha1": "c16d561b66a51d3735960470ba893e53e6913d40",
+    "current_research_checkpoint_git_blob_sha1": "d1a27e4c4b1d6d96c5df11dbf577cf199f6a0188",
+    "frozen_group_compaction_blob_sha1": "86bd01b43da0f8d27b52f877a865fc3012478bd0",
+    "frozen_group_merge_receipt_blob_sha1": "ba66fdb95092946c537f6e0bd9b002e8791eb57c",
+    "main_frontier": "V259",
+    "research_branch": "research/seed0076-first-gate10-20260922"
+  },
+  "date": "2026-09-22",
+  "frozen_group00_acceptance": {
+    "exact_uncompressed_mask_file": "group00/mask_classes.delta_u32.bin",
+    "expected_group_receipt_sha256": "25ffb7adc55b6dbf1fe75d6488ccb8ea854e4d9d584dae8aa71de00ae978ce6e",
+    "full_shard_alias_mapping_root_sha256": "4151cccd363d4d71b29d123952dc5c4dd355fb2ea27806c09cb16a5cf3c1d458",
+    "full_shard_classes_expected_after_24_groups": 303572,
+    "full_shard_semantic_root_sha256": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+    "group_source_worker": "V223 exact byte-frozen",
+    "local_distinct_mask_classes": 10521,
+    "local_duplicate_config_count": 23007,
+    "relative_cli_args": [
+      "--only-group-index",
+      "0"
+    ],
+    "signal_configs": 33528,
+    "uncompressed_bytes": 96786988,
+    "uncompressed_sha256": "ff55eb32bddddff384736644888aff775c760b2e9f79c72d7ce328cf6b9c03cd",
+    "zstd_compressed_bytes": 33665389,
+    "zstd_compressed_sha256": "3753e18781e4a62dbeec4cb66d3d098c303731ab81a9fe0ee7960261557c59bd"
+  },
+  "inputs": {
+    "V209_machine_spec_blob_sha1": "c6f7ac8b1daea6096f1e36b10bacbc5e6f2a8ebf",
+    "V220_bar_indicator_library_five_groups": {
+      "A_M1": "090800d73cb4258f610747ffbbd3606bfe21cecb787c3dad7bd46254552ef753",
+      "B_M2_M3": "53cb17e0aa38a009d00fd17588cf054dbe1985bb0dd5958a906220f77fc2b67b",
+      "C_M4_M5_M6": "60325bb66a091a390f76f3c94becfe5f49f8388e688cbafac4c06d2241905718",
+      "D_M10_M12_M15_M20_M30": "29c5ec20e89da05e0c0921c409fde4a56ffe1dc95fbd0f4a613ecf8242617dfe",
+      "E_H1_H2_H3_H4_D1_W1": "257132dd92394e1a55b53e05d9cd7d0e422ce8bbe259cc6f84f6c91587cc7d66"
+    },
+    "XAU_DEV": {
+      "bytes": 2573500596,
+      "records": 151382388,
+      "sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53"
+    },
+    "broker_time": "V219 frozen source-server clock, exact NY seven-hour civil relation; actual 4/4 DST byte sample parity and 130962 source-function/IANA window comparisons passed",
+    "frozen_worker_source_closure_git_blob_sha1": {
+      "scripts/qros_seed0076_carrier_masks_v221.py": "0396e5ed2f6e1579d3159b7f4e64d0cc8bf22b25",
+      "scripts/qros_seed0076_config_stream.py": "a01268bd8bab639977b22c419926d94306754bba",
+      "scripts/qros_seed0076_ga1_shard_worker_v223.py": "c77e0a5156c5bb1a874d3c33fde49f162a2a3041",
+      "scripts/qros_seed0076_gate_engine_v221.py": "74290f11e7a95a25f54c5c9989af110de7dde4e2",
+      "scripts/qros_seed0076_structural_v220.py": "805044c9918a87456a95e150a1c9a1292112cf4c"
+    },
+    "group_index": 0,
+    "point": 0.01,
+    "required_independent_control_sources": {
+      "scripts/qros_seed0076_config_stream_oracle.py": "1eba8939f6095571bfb5bf90facacbadc1bd21c9",
+      "scripts/qros_seed0076_ga1_merge_oracle_v223.py": "45889bec090dca3b070e888f382683662f0c6356"
+    },
+    "signal_domain": {
+      "asset": "XAUUSD",
+      "side": "BUY",
+      "timeframe": "M1"
+    }
+  },
+  "next_automatic_action": "Recover exact five worker dependency files from GitHub by Git blob SHA without broad scans; first hash-target search original group00 zstd. If found, verify 33665389 bytes and 3753e... SHA plus decompressed raw SHA, reuse without work. If absent, execute only V223 --only-group-index 0 with frozen XAU DEV and V220 all-TF caches, compare 33528 configs, 10521 local masks, full exact group00 raw SHA and independent source/merge canaries; persist one durable group00 artifact before opening group01. No economic read.",
+  "production_gates": {
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "live_deployment_allowed": false,
+    "no_24_group_recomputation_if_verifiable_payload_found": true,
+    "no_new_alphas": true,
+    "shard11_open": false
+  },
+  "purpose": "Recover or deterministically rematerialize group00 of 24 already structurally completed XAU BUY M1 frozen GA1 mask groups. This is artifact recovery, NOT a new alpha search and not a new GA1 shard.",
+  "recovery_evidence": {
+    "V224_original_receipt_preserved": true,
+    "current_local_worker_code_materialized": false,
+    "exact_group00_blob_found_in_named_Drive_Dropbox_and_current_File_Library": false,
+    "search_scope": "Targeted filename/class-mask searches 2026-09-22 only; absence from these locations does not imply bytes do not exist elsewhere"
+  },
+  "schema": "QROS_SEED0076_XAU_BUY_M1_GROUP00_HASH_TARGETED_REHYDRATION_TICKET_1.0",
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "status": "PREREGISTERED_NO_RESULTS"
+}

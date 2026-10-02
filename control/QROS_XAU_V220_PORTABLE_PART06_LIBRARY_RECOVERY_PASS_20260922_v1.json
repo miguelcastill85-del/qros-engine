@@ -1,0 +1,61 @@
+{
+  "schema": "QROS_XAU_V220_PORTABLE_PART06_LIBRARY_RECOVERY_RECEIPT_1.0",
+  "date": "2026-09-22",
+  "status": "PASS_EXACT_BYTES_RECOVERED_FROM_LIBRARY",
+  "scope": "Recover missing part06 of eight-part 17-timeframe V220 transport archive without rebuilding valid carriers.",
+  "original": {
+    "name": "XAU_V220_ALL17_20260922.part06.part",
+    "bytes": 67108864,
+    "sha256": "f5906bda0433e758ffdc8279d1052a6086332f4e50370dc84d1ed976d3364f82",
+    "all17_archive_sha256": "cd3ac8254f87674ac84a5a2d17bd1edb4518fa8d240cec1a8c13956644f23c75",
+    "part_manifest_library_path": "/QROS/RISE_AUDIT_MAX_V2/XAU_V220_CARRIER_REPLAY_20260922/MANIFEST_XAU_V220_ALL17_PARTS_20260922_v1.json"
+  },
+  "recovery": {
+    "method": "Split only missing 64 MiB part06 into four exact 16 MiB slices, upload each independently to Library, materialize all four back into active runtime, SHA256-check each then concatenate in ordinal order without altering original archived bytes.",
+    "folder": "/QROS/RISE_AUDIT_MAX_V2/XAU_V220_FROZEN_CARRIERS_20260922/MISSING_PART06_4x16MiB",
+    "part_manifest_sha256": "399a50b8b0da5971465cc09a078d01ef1f2e6d769edc997602a38a87728cd7ad",
+    "slices": [
+      {
+        "ordinal": 0,
+        "bytes": 16777216,
+        "sha256": "01ac026f5b2b2d36fc5d18c66177154c635156b503a313d1edf7fb074a6c32ba",
+        "library_file_id": "libfile_0e29a7c912288191890ad09ab9c3660a"
+      },
+      {
+        "ordinal": 1,
+        "bytes": 16777216,
+        "sha256": "6e862c15a5c4627cd11dacfda24ad714bd9882d66f92d2b8b574c25081495aca",
+        "library_file_id": "libfile_82d19c094ea881919cee4820a86c02cb"
+      },
+      {
+        "ordinal": 2,
+        "bytes": 16777216,
+        "sha256": "f6b8b58c1dadd20a099977563d799a1801691c69ea4ab3d86be11ff676e70318",
+        "library_file_id": "libfile_faa2670be3cc819197b9ff5eb154d161"
+      },
+      {
+        "ordinal": 3,
+        "bytes": 16777216,
+        "sha256": "12e0b5fb9bf90b3b2156107bb52ec51f883128b3b9a40a7d435d4d56033e7051",
+        "library_file_id": "libfile_50c0754157948191b3b8c002cab3d017"
+      }
+    ],
+    "readback": "PASS_4_OF_4_EXACT_SHA256",
+    "combined_sha256": "f5906bda0433e758ffdc8279d1052a6086332f4e50370dc84d1ed976d3364f82"
+  },
+  "limits": {
+    "other_seven_part_library_byte_readback": "NOT_IN_THIS_RECEIPT",
+    "separately_portable_5_group_archive_integrity": "RECORDED_PASS_IN_PARENT_V220_CHECKPOINT",
+    "raw_dev_mutated": false,
+    "economic_pnl_read": false,
+    "holdout_open": false,
+    "GA1_reenumeration": false
+  },
+  "authority": {
+    "parent_current_v3_path": "control/QROS_SEED0076_XAU_V220_CURRENT_RESEARCH_CHECKPOINT_20260922_v3.json",
+    "parent_git_blob_sha1": "d1a27e4c4b1d6d96c5df11dbf577cf199f6a0188",
+    "research_branch": "research/seed0076-first-gate10-20260922"
+  },
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "next_automatic_action": "When restoring V220 all17 archive from Library, concatenate the existing parts 00–05, independently verified slices 00–03 of part06, then original part07; validate final 510671078-byte archive SHA256 before extraction. Prefer independently persisted 5 per-timeframe group archives if already available; never rebuild valid bars."
+}

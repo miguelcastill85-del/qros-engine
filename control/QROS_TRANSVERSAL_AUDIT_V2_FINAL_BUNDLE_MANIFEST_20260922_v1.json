@@ -1,0 +1,40 @@
+{
+  "schema": "QROS_TRANSVERSAL_AUDIT_V2_FINAL_BUNDLE_MANIFEST_1.0",
+  "date": "2026-09-22",
+  "authority": {
+    "main_commit_at_audit": "f2a513c56e297b5ec72db07568c71c12d65a638d",
+    "stable_frontier": "V259",
+    "branch": "research/seed0076-first-gate10-20260922",
+    "scope_blob_sha1": "ab31ded2702f57b54eebc052f1c8aa2737cf2479"
+  },
+  "bundle": {
+    "library_path": "/QROS/RISE_AUDIT_MAX_V2/QROS_TRANSVERSAL_AUDIT_MAX_V2_20260922_FINAL.zip",
+    "library_file_id": "libfile_1e11e1f45f1481918491aa3804afd196",
+    "sha256": "82b3f5a6aa84d0351f90f29f90b866b4cd249481ecb39c95b08192de4a6a4ca2",
+    "verified_zip_integrity": "PASS",
+    "contains": [
+      "final_report.json",
+      "production_preflight_guard.py",
+      "authority_regression_tests.py",
+      "two exact test result JSONs"
+    ]
+  },
+  "code_git_blobs": {
+    "guard": "e8f04a1c54f437e22eef1f7c82671686c15cff84",
+    "authority_tests": "c2aa494203d6518104adeb736e9ad823b3c09d7e"
+  },
+  "regression": {
+    "synthetic_test_cases": 16,
+    "passed": 16,
+    "python_compile": "PASS",
+    "historical_backtest": "NOT_RUN",
+    "production_parity": "NOT_RUN"
+  },
+  "limits": {
+    "scientific_state": "PREREGISTERED_NO_RESULTS",
+    "production_grant": false,
+    "holdout_open": false,
+    "shard11_open": false
+  },
+  "next_action": "Do not repeat these synthetic tests. Bind exact original scope/pointer bytes on isolated runner, then isolate XAU BUY M1 missing DEV/mask/helper data and independently validate production-normalizer overlap semantics before any economic scoring."
+}

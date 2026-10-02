@@ -1,0 +1,75 @@
+{
+  "schema": "QROS_SEED0076_DUAL_ASSET_DEV_RECOVERY_CHECKPOINT_1.0",
+  "date": "2026-09-22",
+  "status": "VERIFIED_DUAL_DEV_PREFIX_RECOVERED",
+  "authority": {
+    "main_frontier": "V259",
+    "main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d",
+    "branch": "research/seed0076-first-gate10-20260922",
+    "first10_scope_blob_sha1": "ab31ded2702f57b54eebc052f1c8aa2737cf2479",
+    "frozen_dev_binding_blob_sha1": "d5de576cd4c81f80931418d40f9f7877c114d03d",
+    "remote_carrier_receipt_blob_sha1": "f74afc915f7fc6bdf42ab99b063de307af958476",
+    "prior_reconciliation_blob_sha1": "199cd1e195d7d71a38069b63d78429cfe08f8441"
+  },
+  "data": {
+    "XAUUSD": {
+      "records": 151382388,
+      "bytes": 2573500596,
+      "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+      "zip_parts_verified": 8,
+      "legacy_zip_byte_size_metadata_conflicts": 7
+    },
+    "NQX": {
+      "records": 59940260,
+      "bytes": 1018984420,
+      "dev_sha256": "451843c567d23a53fc7ee5c5cffbcb020112bf91e3b0ee87c5b219b1461aeedf",
+      "reconstructed_zip_parts": [
+        2,
+        3
+      ],
+      "physical_zip_and_full_member_sha256_differ_from_legacy": true,
+      "full_frozen_DEV_prefix_matches": true,
+      "certified_scope": "2018-2019 frozen DEV only; not complete original ZIPs or excluded tail"
+    }
+  },
+  "adversarial_tests": {
+    "bridge_normal": "8/8 PASS",
+    "bridge_python_optimized": "8/8 PASS",
+    "checkpoint_tamper_rejected": true,
+    "corrupted_existing_target_rejected": true,
+    "physical_length_mismatch_rejected": true,
+    "idempotent_existing_target": "PASS",
+    "historical_PnL": "NOT_RUN",
+    "XAU_mask_rematerialization": "NOT_RUN"
+  },
+  "root_cause": "Historical physical ZIP metadata must not substitute for SHA-bound logical scientific DEV identity; conversely, differently hashed reconstructed ZIPs must not be silently deemed identical solely from matching size. Strict original NQX part-2 member-hash admission caused a reproducible false block, resolved by independently hashing the complete reconstructed payloads and then demanding exact frozen concatenated DEV SHA256.",
+  "corrective_action": "Separate physical ZIP SHA/size and member checks from immutable DEV prefix SHA, preserve original manifests, use fail-closed explicit exceptions (including Python -O), and reuse the existing exact part-1 NQX checkpoint rather than restarting.",
+  "portable_code_and_evidence": {
+    "library_file_id": "libfile_f4b0da00a4e4819197049fe0fb28bace",
+    "library_path": "/QROS/RISE_AUDIT_MAX_V2/DUAL_DEV_20260922/QROS_SEED0076_DUAL_DEV_RECONCILIATION_20260922.zip",
+    "zip_bytes": 16061,
+    "zip_sha256": "17b2e9986852b9cfc721471b0282930a8a61a10781962728120da1e0c6716b35",
+    "script_sha256": "78f18f1f321364a14f43947daeee0c4b907edf2a9e7d6a3cd2cd74bfff0d3826",
+    "test_sha256": "ac456eb21b300d9e129cc7f9e4a052700d540137f5dc4385962b2e5d2b881321",
+    "full_report_sha256": "3d3b1b3b880cc4212acb1163a159e3bbf87386cb11d942a556ec4fc70c710141"
+  },
+  "interface_limitation": "Files plugin direct container_path transfers failed with container_session_expired; verified exported ZIP source_file_ref succeeded and is the durable portable source. No further direct-path retries.",
+  "valid_evidence_preserved": {
+    "GA1_structural_shards": 10,
+    "XAU_BUY_M1_distinct_classes": 303572,
+    "XAU_semantic_class_root": "cf28be12f7dd94a9551fe018a4679d129d4373e6e186e17ef628f418d9b91ce4",
+    "frozen_remaining_shards": 50
+  },
+  "unresolved": [
+    "XAU BUY M1 exact event-mask blobs not present in active runtime",
+    "exact broker-source session clock/timezone not yet tied to production execution",
+    "zero/crossed-quote execution treatment and independent generator parity remain open"
+  ],
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "first_gate_execution_authorized": false,
+  "holdout_open": false,
+  "shard11_open": false,
+  "economic_pnl_read": false,
+  "deployment_allowed": false,
+  "next_automatic_action": "Run exact-source-pinned XAU M1/M5/M15 bar+indicator generation on already recovered DEV; prove event mask class and alias roots for deterministic rematerialization before opening DEV PnL. Do not re-enumerate previously closed structural shards."
+}

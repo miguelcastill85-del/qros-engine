@@ -1,0 +1,79 @@
+{
+  "additional_verified_findings": [
+    {
+      "id": "OVERLAP_F01",
+      "observation": "Earlier experimental adapter accepted STOP on BUY with exit above stop and R differing from frozen anchored execution; stronger adapter rejects both; does not establish real-market contamination.",
+      "status": "VERIFIED_LOCAL_COUNTEREXAMPLE"
+    },
+    {
+      "id": "OVERLAP_F02",
+      "observation": "Frozen normalized trade output omits session close, broker trading date, broker timezone and entry/exit carrier sequence; independent downstream same-day/physical tick parity impossible on normalized rows alone.",
+      "status": "VERIFIED_CONTRACT_INTERFACE_GAP"
+    },
+    {
+      "id": "OVERLAP_F03",
+      "observation": "30 unit cases PASS and 240 seeded independent reference policy loops PASS; includes equal-timestamp fail-conservative overlap, data tamper, stale output, duplicate event, independent candidate, BUY/SELL sign, synthetic only, staged restart.",
+      "status": "VERIFIED_LOCAL_TEST"
+    },
+    {
+      "id": "OVERLAP_F04",
+      "observation": "Actual W09B source executables, frozen market carriers and maskpack not present together in this runtime; no real execution integration claimed.",
+      "status": "NO_DISPONIBLE"
+    }
+  ],
+  "authority": {
+    "first10_scope_blob_sha1": "ab31ded2702f57b54eebc052f1c8aa2737cf2479",
+    "frozen_normalizer_contract_blob_sha1": "5d7006c5b54d4647113c7caab5107e8c9229d2bf",
+    "frozen_overlap_policy_blob_sha1": "690e0b82233b22fb800693741eede53ce223f5c2",
+    "main_frontier": "V259",
+    "main_pointer_blob_sha1": "5a88937d571e4bcc938c9ce71570092e0abfae6d"
+  },
+  "blast_radius": {
+    "decision": "Do not promote synthetic overlap PASS to economic gate PASS; no change to frozen 60-shard multiplicity or PR#56 first10 scheduling scope.",
+    "scientific": "No retrospective invalidation of 10 structural GA1 completions; possible hypothetical false first-gate scoring only if an unvalidated future upstream artifact were accepted; no first gate executed.",
+    "technical": "Experimental overlap adapter and synthetic W09B-to-admission seam; production scorer still cannot be admitted without verified external normalizer and original data."
+  },
+  "conclusion": "DELTA SYNTHETIC COMPLETE / PRODUCTION BINDING PENDING",
+  "critical_limits": [
+    "SYNTHETIC_VALIDATION_ONLY",
+    "Cannot verify broker timezone, trading_date, session close nor entry/exit carrier sequences from frozen normalized trade schema",
+    "No proof of full same-carrier source tick parity or independent first-gate event generator parity",
+    "No actual normalized W09B producer+oracle execution in this container",
+    "Source receipt self-consistency cannot substitute for real semantic provenance",
+    "Historical/holdout PnL not read; no gate or MT5 parity",
+    "All first10 economic promotions still forbidden under main V259"
+  ],
+  "date": "2026-09-22",
+  "guarantees": {
+    "R_and_stop_reason_consistency": "TESTED_SYNTHETIC",
+    "atomic_directory_commit_and_idempotent_readback": "TESTED_SYNTHETIC",
+    "deterministic_input_order": "TESTED_SYNTHETIC",
+    "future_event_insertion": "TESTED_SYNTHETIC",
+    "inclusive_exit_no_reentry": "TESTED_SYNTHETIC",
+    "manifest_policy_code_sha_pins": "TESTED_SYNTHETIC",
+    "per_candidate_independent": "TESTED_SYNTHETIC",
+    "read_through_synthetic_normalizer_receipt": "TESTED_SYNTHETIC",
+    "same_candidate_fifo": "TESTED_SYNTHETIC"
+  },
+  "implementation": {
+    "git_blob_sha1": "da32c686301aa880587582b81d203e53546cc283",
+    "previous_local_reference": "qros_first10_overlap_admission_v1.py, 27 regression assertions passed; NOT authoritative until durable code identity readback",
+    "sha256": "64fd26c79abd60fab6cd9275b885a720020f86c347538e91748222d49ac175d9",
+    "source": "qros_seed0076_overlap_admission_v1.py",
+    "tests": "test_qros_seed0076_overlap_admission_v1.py",
+    "tests_git_blob_sha1": "613a8276bf03780a5a906562901ff81c8cdca699",
+    "tests_sha256": "a667f122ea31bc76087f852d9fe1425296660625bd9782a4539f4dbffa9a83d3"
+  },
+  "next_action": "On isolated research branch, run W09B primary+independent oracle on same synthetic tick streams and assert exact normalized-trade byte parity before research adapter; then bind exact carrier sequence/timezone and frozen XAU BUY M1 DEV/mask bytes before real first gate.",
+  "regression": {
+    "no_real_market_data": true,
+    "python_compile": "PASS",
+    "seeded_independent_policy_oracle_trials": 240,
+    "test_stderr_sha256": "15bf9445cc1c322a785221b1fd90706165431988c638f289d9eac0c1b009db9c",
+    "two_old_synthetic_false_pass_reproducers": "CONFIRMED_AND_REJECTED_BY_NEW_CODE",
+    "unit_tests": 30,
+    "unit_tests_pass": 30
+  },
+  "schema": "QROS_SEED0076_OVERLAP_SEAM_RESEARCH_REGRESSION_1.0",
+  "status": "SYNTHETIC_REGRESSION_PASS_NOT_SCIENTIFIC_GATE_PASS"
+}

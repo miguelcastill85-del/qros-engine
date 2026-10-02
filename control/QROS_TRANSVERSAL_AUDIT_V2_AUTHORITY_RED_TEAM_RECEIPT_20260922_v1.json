@@ -1,0 +1,33 @@
+{
+  "schema": "QROS_TRANSVERSAL_AUDIT_V2_AUTHORITY_RED_TEAM_RECEIPT_1.0",
+  "date": "2026-09-22",
+  "parent_receipt_path": "control/QROS_TRANSVERSAL_AUDIT_MAX_V2_NONSTALL_DELTA_20260922_v1.json",
+  "test_code_path": "scripts/qros_first10_receipt_guard_authority_tests_v1.py",
+  "test_code_sha256": "00a441d00e383c607c72e90fc7407bc157cacae154a3eb2249de63a269d21714",
+  "test_code_git_blob_sha1": "c2aa494203d6518104adeb736e9ad823b3c09d7e",
+  "guard_code_sha256": "cb53613da93fe11f76db0e36de4b25e37be21e1330754a058b061cd5660ee2b4",
+  "test_results": {
+    "guard_adversarial": 9,
+    "authority_regressions": 7,
+    "total_synthetic": 16,
+    "all_pass": true,
+    "python_compile": "PASS",
+    "historic_market_data_read": false
+  },
+  "cases": [
+    "valid_fixture",
+    "stale_pointer_bytes",
+    "scope_bytes_tamper",
+    "self_consistent_invalid_counts",
+    "correct_hash_wrong_science",
+    "duplicate_fifo_ordinal",
+    "production_grant_still_null"
+  ],
+  "limitations": [
+    "Isolated synthetic tests, not full historical data or source integration",
+    "Actual pinned scope/pointer JSON byte preflight pending local availability",
+    "No production grant, no economics, no holdout opened"
+  ],
+  "scientific_state": "PREREGISTERED_NO_RESULTS",
+  "next_action": "Independent production-normalizer overlap and future-perturbation canaries with exact frozen sources; no production gate without independent code/execution proof."
+}

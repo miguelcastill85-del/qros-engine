@@ -1,0 +1,89 @@
+{
+  "data_mutated": false,
+  "economic_pnl_read": false,
+  "frozen_convention": "Darwinex source-server civil labels + NY 7-hour relation; GMT+3 during US DST/GMT+2 outside US DST",
+  "frozen_global_session_authority_blob_sha1": "c16d561b66a51d3735960470ba893e53e6913d40",
+  "holdout_open": false,
+  "probe_pairs": [
+    {
+      "actual_source_civil_first": "2018-03-12T01:01:00.044",
+      "actual_source_civil_last": "2018-03-09T23:54:59.340",
+      "first_NY": "2018-03-11T18:01:00.044-04:00",
+      "inferred_broker_UTC_offsets_hours": [
+        2,
+        3
+      ],
+      "last_NY": "2018-03-09T16:54:59.340-05:00",
+      "same_milliseconds_as_v219": true,
+      "source_indices": [
+        6470269,
+        6470270
+      ],
+      "v219_frozen_pair": [
+        "2018-03-09T23:54:59.340",
+        "2018-03-12T01:01:00.044"
+      ]
+    },
+    {
+      "actual_source_civil_first": "2018-11-05T01:01:00.244",
+      "actual_source_civil_last": "2018-11-02T23:54:59.788",
+      "first_NY": "2018-11-04T18:01:00.244-05:00",
+      "inferred_broker_UTC_offsets_hours": [
+        3,
+        2
+      ],
+      "last_NY": "2018-11-02T16:54:59.788-04:00",
+      "same_milliseconds_as_v219": true,
+      "source_indices": [
+        57774320,
+        57774321
+      ],
+      "v219_frozen_pair": [
+        "2018-11-02T23:54:59.788",
+        "2018-11-05T01:01:00.244"
+      ]
+    },
+    {
+      "actual_source_civil_first": "2019-03-11T01:01:00.044",
+      "actual_source_civil_last": "2019-03-08T23:54:59.954",
+      "first_NY": "2019-03-10T18:01:00.044-04:00",
+      "inferred_broker_UTC_offsets_hours": [
+        2,
+        3
+      ],
+      "last_NY": "2019-03-08T16:54:59.954-05:00",
+      "same_milliseconds_as_v219": true,
+      "source_indices": [
+        78617101,
+        78617102
+      ],
+      "v219_frozen_pair": [
+        "2019-03-08T23:54:59.954",
+        "2019-03-11T01:01:00.044"
+      ]
+    },
+    {
+      "actual_source_civil_first": "2019-11-04T01:01:00.099",
+      "actual_source_civil_last": "2019-11-01T23:54:59.493",
+      "first_NY": "2019-11-03T18:01:00.099-05:00",
+      "inferred_broker_UTC_offsets_hours": [
+        3,
+        2
+      ],
+      "last_NY": "2019-11-01T16:54:59.493-04:00",
+      "same_milliseconds_as_v219": true,
+      "source_indices": [
+        140210981,
+        140210982
+      ],
+      "v219_frozen_pair": [
+        "2019-11-01T23:54:59.493",
+        "2019-11-04T01:01:00.099"
+      ]
+    }
+  ],
+  "schema": "QROS_SEED0076_XAU_V219_REAL_DEV_DST_SESSION_BYTE_RECHECK_1.0",
+  "scope_limit": "Only four documented DST-adjacent tick samples in 2018-2019. Per-symbol daily holiday/session break exceptions not certified here.",
+  "source_dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+  "status": "PASS_4_OF_4_EXACT_DST_ADJACENT_BYTE_CROSSCHECK"
+}

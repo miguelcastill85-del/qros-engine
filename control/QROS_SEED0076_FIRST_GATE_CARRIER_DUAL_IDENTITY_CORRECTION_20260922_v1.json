@@ -1,0 +1,191 @@
+{
+  "schema": "QROS_SEED0076_FIRST_GATE_DUAL_PHYSICAL_LOGICAL_CARRIER_CORRECTION_1.0",
+  "date": "2026-09-22",
+  "status": "READ_ONLY_CORRECTION_SIDECAR_NOT_SCIENTIFIC_PROMOTION",
+  "authority": {
+    "main_version_at_read": "V259",
+    "original_binding_path": "control/QROS_PUBLIC_1000_SEED_0076_FIRST_GATE_MINIMAL_DEV_CARRIER_BINDING_20260914_v1.json",
+    "original_binding_blob_sha1": "d5de576cd4c81f80931418d40f9f7877c114d03d",
+    "remote_hash_report_path": "control/QROS_DRIVE_FIRST_GATE_REMOTE_HASH_11OF11_PASS_20260920_v1.json",
+    "remote_hash_report_blob_sha1": "f74afc915f7fc6bdf42ab99b063de307af958476",
+    "branch": "research/seed0076-first-gate10-20260922"
+  },
+  "findings": {
+    "xau": "Seven frozen physical zip byte lengths conflict with later remote verified lengths while all eight matching SHA256 identities agree. SHA256-identical files cannot have different lengths; this is a metadata inconsistency, not evidence that the frozen logical DEV differs.",
+    "nqx": "Parts 2 and 3 have matching sizes but different ZIP SHA256 because the later receipt reports reconstitution from chunks. Container equivalence is not established; compare exact decoded member payload SHA256 before allowing a logical alias."
+  },
+  "asset_zip_evidence": {
+    "XAU": [
+      {
+        "part": 1,
+        "original_manifest_zip_bytes": 102025545,
+        "original_manifest_zip_sha256": "d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70",
+        "remote_reported_zip_bytes": 102025545,
+        "remote_reported_zip_sha256": "d8a9c2138b184db087c087b4b3297ca2f4ba9da4991c49fb3332ebad0016bb70",
+        "bytes_conflict": false,
+        "hash_conflict": false,
+        "payload_sha256": "b302be60a191aa70517f81ac06fbdfb5c53ff900b687c255222478068840267b",
+        "classification": "SAME_HASH_LENGTH_METADATA_INCONSISTENCY",
+        "remote_drive_id": "14wIm9bBPq7eRikgLp03swoVNmztgkfmN",
+        "remote_reconstruction_chunk_drive_ids": null
+      },
+      {
+        "part": 2,
+        "original_manifest_zip_bytes": 100388081,
+        "original_manifest_zip_sha256": "159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a",
+        "remote_reported_zip_bytes": 100422805,
+        "remote_reported_zip_sha256": "159087740e5196849adac1905a0cbea777544833692745c89c331a4238d3be3a",
+        "bytes_conflict": true,
+        "hash_conflict": false,
+        "payload_sha256": "22a55911b5556d62e86f2ae36364fd062d13183daf7796451ec24bb77c5e0a73",
+        "classification": "SAME_HASH_LENGTH_METADATA_INCONSISTENCY",
+        "remote_drive_id": "1w_JxSuVpInp44EcUC9fgxlCILQuAbqY5",
+        "remote_reconstruction_chunk_drive_ids": null
+      },
+      {
+        "part": 3,
+        "original_manifest_zip_bytes": 100191422,
+        "original_manifest_zip_sha256": "ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9",
+        "remote_reported_zip_bytes": 99870071,
+        "remote_reported_zip_sha256": "ada6d3c587e46d2deceb28795d15962aeac9949f8d83d360260c28a7698116a9",
+        "bytes_conflict": true,
+        "hash_conflict": false,
+        "payload_sha256": "4ccd9dc1929e36b911a1a18eef0f05cb0874a73abfc81b269bfd64d53a692ddd",
+        "classification": "SAME_HASH_LENGTH_METADATA_INCONSISTENCY",
+        "remote_drive_id": "1QL-oatGoYum_tSlNmlF3djbVYB6EkKwD",
+        "remote_reconstruction_chunk_drive_ids": null
+      },
+      {
+        "part": 4,
+        "original_manifest_zip_bytes": 101615157,
+        "original_manifest_zip_sha256": "241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241",
+        "remote_reported_zip_bytes": 101825467,
+        "remote_reported_zip_sha256": "241b74428b584819b54c1cfc5e3093e2efdbddfcbf42250cb9111c7d713ae241",
+        "bytes_conflict": true,
+        "hash_conflict": false,
+        "payload_sha256": "47ea938186b4e6c5e799602e3696c1a2871867b270f942f92d96763e5131f13e",
+        "classification": "SAME_HASH_LENGTH_METADATA_INCONSISTENCY",
+        "remote_drive_id": "193S2vMhoS63si1A6ZJnVxQ_9i6rSqa12",
+        "remote_reconstruction_chunk_drive_ids": null
+      },
+      {
+        "part": 5,
+        "original_manifest_zip_bytes": 101074945,
+        "original_manifest_zip_sha256": "3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad",
+        "remote_reported_zip_bytes": 101538275,
+        "remote_reported_zip_sha256": "3328ec3ef844450eaf9757bfe64fe6d23c38970b002ce7d0bac2c244e68f2aad",
+        "bytes_conflict": true,
+        "hash_conflict": false,
+        "payload_sha256": "8bb0376fe33904c80ee3e25337e446797378201eaa22f39041685286b48a1f39",
+        "classification": "SAME_HASH_LENGTH_METADATA_INCONSISTENCY",
+        "remote_drive_id": "15ivpOfYuvtL1buanKyGu9LYBLY4NINgM",
+        "remote_reconstruction_chunk_drive_ids": null
+      },
+      {
+        "part": 6,
+        "original_manifest_zip_bytes": 102955655,
+        "original_manifest_zip_sha256": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8",
+        "remote_reported_zip_bytes": 102849303,
+        "remote_reported_zip_sha256": "9bb324c3d274d718be6a714f22df51f8785a1e4fe0117531a45b860395bf5ab8",
+        "bytes_conflict": true,
+        "hash_conflict": false,
+        "payload_sha256": "3ce26873d8492c8a41837b76459165a239aaa8f2a26e0837b3e52663470cf52e",
+        "classification": "SAME_HASH_LENGTH_METADATA_INCONSISTENCY",
+        "remote_drive_id": "1XHZBUU-YvyeHDWZjxWdDevenG5G3AT3c",
+        "remote_reconstruction_chunk_drive_ids": null
+      },
+      {
+        "part": 7,
+        "original_manifest_zip_bytes": 104531384,
+        "original_manifest_zip_sha256": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185",
+        "remote_reported_zip_bytes": 104515054,
+        "remote_reported_zip_sha256": "ddaff24ab8ccacc59de256c09e24738ad360eaa45efa004089611285c49c0185",
+        "bytes_conflict": true,
+        "hash_conflict": false,
+        "payload_sha256": "4f8f853b9a7ff5cf54c9b59bcacbcca373953e027960154a9f4efc716a8eab36",
+        "classification": "SAME_HASH_LENGTH_METADATA_INCONSISTENCY",
+        "remote_drive_id": "1Ho7uAW5eqoUktE1rVQsU4rYHsrUKpJ1r",
+        "remote_reconstruction_chunk_drive_ids": null
+      },
+      {
+        "part": 8,
+        "original_manifest_zip_bytes": 104463758,
+        "original_manifest_zip_sha256": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b",
+        "remote_reported_zip_bytes": 104291866,
+        "remote_reported_zip_sha256": "362a9b7d04f0dd89ed5348e30c286e9b028d3f38521a18299cfa0b61d611d44b",
+        "bytes_conflict": true,
+        "hash_conflict": false,
+        "payload_sha256": "6992a0f4e9955712a3914f0f3540625525a470b9a76845a7611df5b6cf7623a4",
+        "classification": "SAME_HASH_LENGTH_METADATA_INCONSISTENCY",
+        "remote_drive_id": "1cido_oBhY_TjDWc30lfyFna0Oeo_1C_9",
+        "remote_reconstruction_chunk_drive_ids": null
+      }
+    ],
+    "NQX": [
+      {
+        "part": 1,
+        "original_manifest_zip_bytes": 100816656,
+        "original_manifest_zip_sha256": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b",
+        "remote_reported_zip_bytes": 100816656,
+        "remote_reported_zip_sha256": "8e8fa69c14ed8adbc84ad593f2a3ca31b72d6fbe5d158ae3f1a85742438d6d8b",
+        "bytes_conflict": false,
+        "hash_conflict": false,
+        "payload_sha256": "0a0f1814e51bb649aeeadc05a982b052bfaa3a6ea48c6b81c8ec7e1af096f60d",
+        "classification": "SAME_PHYSICAL_IDENTITY",
+        "remote_drive_id": "15zEJ6HF7IrXhiF_-MNS_nMjg2hik0L9t",
+        "remote_reconstruction_chunk_drive_ids": null
+      },
+      {
+        "part": 2,
+        "original_manifest_zip_bytes": 113466374,
+        "original_manifest_zip_sha256": "0d9f0f3758982607ed3e49d99bf0d2db11b77074a4e569c05931e27f1946cc90",
+        "remote_reported_zip_bytes": 113466374,
+        "remote_reported_zip_sha256": "53f827fa0b611d9e2b00db78b1da29b1c41f0d2d7d7e912ddcec12de42984a24",
+        "bytes_conflict": false,
+        "hash_conflict": true,
+        "payload_sha256": "a86065eda52a99ac41b842a0cb1a92d903b7c241874118932f2d35c7d588353b",
+        "classification": "DIFFERENT_ZIP_BYTES_REQUIRE_PAYLOAD_PROOF",
+        "remote_drive_id": null,
+        "remote_reconstruction_chunk_drive_ids": [
+          "1tIQm2nAQtN7wHI_EJb5Yx6JkwjPt1drH",
+          "1zuBNPQe_Ul7ljgmDMmbULv_fz0eOgsxs"
+        ]
+      },
+      {
+        "part": 3,
+        "original_manifest_zip_bytes": 111669173,
+        "original_manifest_zip_sha256": "7c9e9f8655387eb52fd2fd96a2a23fbda3bc5c48894f28608390204252499887",
+        "remote_reported_zip_bytes": 111669173,
+        "remote_reported_zip_sha256": "48463c8dd2b020356fd9b21caea470cec4e9340d8a8fd0e25bea8fcb0c512c8b",
+        "bytes_conflict": false,
+        "hash_conflict": true,
+        "payload_sha256": "a88cd8ace8c929b15725fb7f650a955de28a7ad06e82b95f01d4455c3cc990c9",
+        "classification": "DIFFERENT_ZIP_BYTES_REQUIRE_PAYLOAD_PROOF",
+        "remote_drive_id": null,
+        "remote_reconstruction_chunk_drive_ids": [
+          "14x8tyduZaBKFnGMKf10EL_ThczPlLjwC",
+          "1quVFAUCynqXgYQXcoizuEEO_PDxsuary"
+        ]
+      }
+    ]
+  },
+  "xau_live_runtime_evidence": {
+    "dev_source": "exact 8 ZIPs loaded in active runtime",
+    "dev_expected_bytes": 2573500596,
+    "dev_expected_records": 151382388,
+    "dev_sha256": "3ddb3c95acb9284196c5b6db84385271702800209ee33b1b1a2e1bd59cc9ff53",
+    "raw_prefix_rehydrate": "PASS_8_OF_8",
+    "frozen_group_masks": "NOT_RECOVERED"
+  },
+  "minimal_fix": "Use separate physical ZIP (observed bytes and matching exact SHA256) and frozen logical DEV/payload identities; never reject verified XAU bytes solely by the stale legacy ZIP byte-size field. Keep original legacy manifest immutable and require full ZIP SHA256 + PAYLOAD SHA256 and exact DEV prefix SHA256.",
+  "nqx_status": "QUARANTINE_PARTS_002_003_UNTIL_INDEPENDENT_MEMBER_HASH_CHECK",
+  "not_authorized": [
+    "rewrite original preregistration",
+    "open economic PnL",
+    "open holdout",
+    "open shard11",
+    "treat different NQX ZIP sha256 as equivalent by size",
+    "change tick order or drop crossed/zero quotes"
+  ],
+  "next_automatic_action": "Implement and run a fail-closed dual-identity carrier verifier on actual XAU ZIPs, pin readback, independently test NQX 002/003 decoded payload aliases if available, and rematerialize only required XAU GA1 mask carriers under exact frozen config and class roots."
+}
