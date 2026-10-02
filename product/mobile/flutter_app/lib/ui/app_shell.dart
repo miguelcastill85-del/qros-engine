@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../core/research_store.dart';
+import '../core/local_vault.dart';
 import '../core/verified_demo.dart';
 import '../core/g5_snapshot.dart';
 import '../core/universe_store.dart';
