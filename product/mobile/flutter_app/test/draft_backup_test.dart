@@ -114,16 +114,28 @@ void main() {
 
   test('draft limit uses the recoverable validation error handled by the form',
       () async {
-    final s = ResearchStore(vault: MemoryLocalVault());
-    for (var i = 0; i < ResearchStore.maxDrafts; i++) {
-      await s.createLocalDraft(
-        title: 'Idea $i',
-        thesis: 'Hipótesis local para comprobar capacidad.',
-        symbol: 'NQX',
-        side: 'BUY',
-        timeframe: 'M15',
-      );
-    }
+    final rows = [
+      for (var i = 1; i <= ResearchStore.maxDrafts; i++)
+        {
+          'id': 'LOCAL-\${i.toString().padLeft(4, '0')}',
+          'title': 'Idea $i',
+          'thesis': 'Hipótesis local para comprobar capacidad.',
+          'symbol': 'NQX',
+          'side': 'BUY',
+          'timeframe': 'M15',
+          'created_at': '2026-09-30T00:00:00.000Z',
+        }
+    ];
+    final vault = MemoryLocalVault({
+      ResearchStore.storageKey: jsonEncode({
+        'schema': ResearchStore.storageSchemaV2,
+        'draft_sequence': ResearchStore.maxDrafts,
+        'drafts': rows,
+      }),
+    });
+    final s = ResearchStore(vault: vault);
+    await s.initialize();
+    expect(s.localDraftCount, ResearchStore.maxDrafts);
     await expectLater(
       s.createLocalDraft(
         title: 'Idea extra',
