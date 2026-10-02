@@ -1,7 +1,7 @@
 name: qros_mobile_studio
 description: "QROS Mobile Research Studio - Android TEST_ONLY G11 secure local persistence"
 publish_to: none
-version: 0.11.0+11
+version: 0.11.1+12
 
 environment:
   sdk: '>=3.8.0 <4.0.0'
