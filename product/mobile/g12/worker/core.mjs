@@ -127,7 +127,7 @@ export async function handle(req, env, now = Math.floor(Date.now() / 1000)) {
       const deviceId = req.headers.get('X-QROS-Device');
       if (!validOpaque(token) || !validDevice(deviceId)) return response(401, {error: 'request_denied'});
       const status = await b.revoke(await sha(token), deviceId, now);
-      return response(status, status === 204 ? {status: 'revoked'} : {error: 'request_denied'});
+      return response(status, status === 200 ? {status: 'revoked'} : {error: 'request_denied'});
     }
 
     if (url.pathname === '/v1/jobs/synthetic' && req.method === 'POST') {
