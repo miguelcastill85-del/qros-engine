@@ -117,7 +117,7 @@ void main() {
     final rows = [
       for (var i = 1; i <= ResearchStore.maxDrafts; i++)
         {
-          'id': 'LOCAL-\${i.toString().padLeft(4, '0')}',
+          'id': 'LOCAL-${i.toString().padLeft(4, '0')}',
           'title': 'Idea $i',
           'thesis': 'Hipótesis local para comprobar capacidad.',
           'symbol': 'NQX',
