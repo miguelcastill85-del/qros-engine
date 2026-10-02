@@ -1,0 +1,103 @@
+{
+  "anti_restart_rule": "A new user 'continua' starts from the last durable progress token. It MUST NOT reopen a route closed for repeated failure unless live authority or prerequisites materially changed.",
+  "authority_rule": "Live scientific pointer and live branch/WAL outrank main-governance cached counts and all memory.",
+  "current_science_pin": {
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "branch_tip": "b7a8134c72056645f8d678855dc4daeecf1512da",
+    "completed": 482,
+    "pointer_blob_sha1": "747592f42367cf52bb8458fa6754d75efd2cfa55",
+    "remaining": 228,
+    "wal_blob_sha1": "9b07a34472567a324d4affa5c85eae2f9b99672c",
+    "wal_generation": 13,
+    "wal_phase": "READY"
+  },
+  "deterministic_decision_table": [
+    {
+      "do": "RESET retry counters and continue from new state",
+      "when": "new durable progress token observed"
+    },
+    {
+      "do": "ONE corrected retry is permitted only if arguments or method materially change",
+      "when": "first failure fingerprint on current route"
+    },
+    {
+      "do": "CLOSE route for this turn; checkpoint evidence; switch to an independent valid route",
+      "when": "same failure fingerprint occurs second time"
+    },
+    {
+      "do": "FORBID call; switch route immediately",
+      "when": "same exact tool call would be attempted a third time without progress"
+    },
+    {
+      "do": "FORCE route change; no further diagnosis on that path",
+      "when": "4 consecutive tool events create no durable or computational progress"
+    },
+    {
+      "do": "STOP exploratory work; persist exact checkpoint and perform only the next independent executable action if available",
+      "when": "8 total no-progress tool events occur in a turn"
+    },
+    {
+      "do": "EXECUTE it; do not ask the user to say continue again",
+      "when": "authorized next action exists and its prerequisites are present"
+    },
+    {
+      "do": "record BLOCKED_BY_INFRASTRUCTURE with searched locations and continue an orthogonal valid lane; never loop recovery",
+      "when": "required prerequisite is genuinely absent after one bounded recovery pass"
+    }
+  ],
+  "failure_fingerprint": "normalized error/status + missing dependency + authoritative path; cosmetic message changes do not reset retry counters.",
+  "forbidden": [
+    "Open a paid service merely to avoid a chat reasoning loop",
+    "Claim unattended/background execution by ChatGPT",
+    "Restart a closed recovery path because the user says continue",
+    "Turn REPORTADO or INFERIDO evidence into VERIFICADO",
+    "Touch scientific results merely to validate this control policy"
+  ],
+  "hard_limits": {
+    "clarify_user_when_authorized_next_action_exists": false,
+    "consecutive_no_progress_tool_events_before_forced_route_change": 4,
+    "full_closed_work_replays_per_turn": 0,
+    "identical_tool_call_without_progress": 2,
+    "recovery_passes_per_user_continue_message": 1,
+    "same_failure_fingerprint_without_progress": 2,
+    "same_operation_same_route_attempts_without_progress": 2,
+    "total_no_progress_tool_events_before_forced_checkpoint": 8
+  },
+  "objective": "Prevent the assistant from consuming a turn by repeating a non-progressing recovery/execution path and then restarting the same path after user interruption.",
+  "progress_definition": {
+    "counts_as_progress": [
+      "Authenticated authority SHA or branch tip changes because a legitimate CAS commit was published",
+      "A frozen task/shard becomes independently verified and its receipt hash is new",
+      "A durable checkpoint/pointer/WAL is advanced and remote readback passes",
+      "A blocker is resolved by new evidence that changes the executable next action"
+    ],
+    "does_not_count": [
+      "Repeating the same fetch/search/open/find with materially identical arguments",
+      "Receiving the same error/failure fingerprint again",
+      "Re-reading unchanged authority without executing the next action",
+      "Creating another plan/helper/README that does not change executable state",
+      "Explaining the blockage without checkpointing or switching route"
+    ]
+  },
+  "route_identity": "objective + live authority SHA + scientific stage + action family; changing wording or helper filenames does not create a new route.",
+  "schema": "QROS_CHAT_ANTISTALL_V2",
+  "science_firewalls": {
+    "Gate_A_approved": false,
+    "ga2_open": false,
+    "holdout_open": false,
+    "new_economic_PNL": false
+  },
+  "scope": "All active ChatGPT turns in Trading algoritmico using QROS/RISE; controls reasoning/tool-loop behavior only.",
+  "self_application": "This policy applies to recovery, GitHub, file retrieval, data materialization, backtests, validation, persistence and anti-stall debugging itself.",
+  "status": "ACTIVE_CONTROL_POLICY_NO_SCIENCE_CHANGE",
+  "turn_checkpoint_contract": [
+    "objective",
+    "authority SHA/branch",
+    "last durable progress token",
+    "closed routes and failure fingerprints",
+    "work completed this turn",
+    "scientific gates unchanged/changed",
+    "exact next automatic action"
+  ],
+  "version": "2.0"
+}

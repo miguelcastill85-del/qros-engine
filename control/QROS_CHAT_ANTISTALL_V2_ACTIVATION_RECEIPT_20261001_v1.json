@@ -1,0 +1,43 @@
+{
+  "background_execution_claimed": false,
+  "correction": {
+    "closed_route_reopens_only_after_material_authority_or_prerequisite_change": true,
+    "closed_work_replays_per_turn": 0,
+    "forced_checkpoint_after_total_no_progress_events": 8,
+    "forced_route_change_after_consecutive_no_progress_events": 4,
+    "max_identical_tool_call_without_progress": 2,
+    "max_same_failure_fingerprint": 2,
+    "max_same_route_attempts_without_progress": 2,
+    "recovery_passes_per_continue": 1,
+    "root_cause": "Previous anti-stall text required route switching but lacked a deterministic no-progress definition, retry ceiling and anti-restart lock."
+  },
+  "current_science_readback": {
+    "Gate_A_approved": false,
+    "branch": "research/seed0076-direct-dev-backtest-20260922",
+    "completed": 482,
+    "ga2_open": false,
+    "holdout_open": false,
+    "pointer_git_blob_sha1": "747592f42367cf52bb8458fa6754d75efd2cfa55",
+    "remaining": 228,
+    "wal_generation": 13,
+    "wal_git_blob_sha1": "9b07a34472567a324d4affa5c85eae2f9b99672c",
+    "wal_phase": "READY"
+  },
+  "date_local": "2026-10-01",
+  "external_paid_service_required": false,
+  "main_parent": "f0fbe9e0b95dc3b227c00bb106324a6a8257c6d9",
+  "policy": {
+    "git_blob_sha1": "ddb847ab3b73f292a00be180f1f8e1777d7f29d6",
+    "path": "governance/QROS_CHAT_ANTISTALL_V2.json",
+    "version": "2.0"
+  },
+  "prior_active_governance_blob_sha1": "c4183a4135ca24acdbf9af9cabcacfef80e827dd",
+  "readme": {
+    "git_blob_sha1": "ace55c99a327a7ae168592d9bdbc7b1f044fa03a",
+    "path": "anti_stall/chat/README_ANTISTALL_V2.md"
+  },
+  "repository": "miguelcastill85-del/qros-engine",
+  "schema": "QROS_CHAT_ANTISTALL_V2_ACTIVATION_RECEIPT_V1",
+  "science_modified": false,
+  "status": "PASS_CONTROL_POLICY_ACTIVATED_NO_SCIENCE_CHANGE"
+}
