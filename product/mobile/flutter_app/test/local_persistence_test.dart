@@ -107,7 +107,7 @@ void main() {
     final tampered =
         jsonDecode(vault.snapshot[UniverseSessionStore.storageKey]!)
             as Map<String, dynamic>;
-    tampered['search_space_sha256'] = '0' * 64;
+    tampered['search_space_sha256'] = List.filled(64, '0').join();
     final badVault = MemoryLocalVault({
       UniverseSessionStore.storageKey: jsonEncode(tampered),
     });
