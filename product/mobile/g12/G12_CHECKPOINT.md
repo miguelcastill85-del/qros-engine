@@ -57,3 +57,11 @@ Cerrar los gates 2 y la parte estrictamente TEST_ONLY del gate 3 de G10 sin fing
 - El merge de reconciliación conserva como padres el HEAD canónico previo y el HEAD estricto de #77.
 - Ningún CI previo califica automáticamente el nuevo HEAD; debe pasar el workflow completo.
 - Sin PnL, holdout, GA2, MT5, trading, carrier Darwinex ni autoridad científica.
+
+
+## Corrección de navegación heredada
+
+- Run 37018306485 demostró que el botón G9 DEMO existía pero el test lo tocaba bajo la barra de navegación tras crecer la pantalla con G12.
+- Se endurece únicamente `widget_test.dart`: scroll adicional, comprobación de posición visible y tap posterior.
+- No se modifica UI productiva, gateway, firmas G9, sesión G12 ni estados científicos.
+- La reconstrucción del fixture G9 ya fue incorporada en el HEAD `dca0a7efe05dfe3e14631561c49a435e6d236ed9`; no se repite.
