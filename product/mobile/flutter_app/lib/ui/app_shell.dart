@@ -388,7 +388,7 @@ class ProjectDetailsScreen extends StatelessWidget {
           builder: (dialogContext) => AlertDialog(
             title: const Text('Eliminar borrador'),
             content: Text(
-              'Se eliminará “\${project.title}” del almacenamiento seguro de este dispositivo. Esta acción no toca ningún registro científico.',
+              'Se eliminará “${project.title}” del almacenamiento seguro de este dispositivo. Esta acción no toca ningún registro científico.',
             ),
             actions: [
               TextButton(
