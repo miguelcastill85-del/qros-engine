@@ -36,3 +36,12 @@ Cerrar los gates 2 y la parte estrictamente TEST_ONLY del gate 3 de G10 sin fing
 - Run 37016679021: `Install and test isolated G12 Worker` = PASS, incluyendo restart/resume en workerd y dry-run del Worker; el run completo fue cancelado por concurrencia al llegar un commit posterior.
 - Run 37016718667: cancelado antes de asignar job; GitHub rechazó rerun del run cancelado.
 - Estos runs NO califican el HEAD final. Se requiere CI nuevo sobre el commit posterior a las correcciones Dart.
+
+
+## Corrección CI 2026-10-02
+
+- Run 37017028245 attempt 2 alcanzó `flutter analyze`.
+- Causa raíz verificada: `Icons.resume_outlined` no existe en Flutter 3.35.4; generó `undefined_getter` y `const_with_non_constant_argument`.
+- Corrección mínima: sustituir exclusivamente por `Icons.play_arrow_rounded`.
+- No cambia contrato, sesión, job, ciencia, datos ni seguridad.
+- Próximo gate: repetir CI completo sobre este commit.

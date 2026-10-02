@@ -188,7 +188,7 @@ class _SyntheticJobScreenState extends State<SyntheticJobScreen> {
                     FilledButton.icon(
                       key: const Key('g12-job-resume'),
                       onPressed: _busy ? null : _resume,
-                      icon: const Icon(Icons.resume_outlined),
+                      icon: const Icon(Icons.play_arrow_rounded),
                       label: const Text('Reanudar siguiente checkpoint'),
                     ),
                   const SizedBox(height: 10),
