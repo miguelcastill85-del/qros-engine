@@ -92,7 +92,7 @@ export class SessionBroker extends DurableObject {
       await tx.delete('access:' + session.access_hash);
       await tx.delete('refresh:' + refreshHash);
       await tx.put('session:' + cid, session);
-      return 204;
+      return 200;
     });
   }
 
