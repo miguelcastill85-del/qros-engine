@@ -187,7 +187,7 @@ class ResearchStore extends ChangeNotifier {
     }
     final next = _draftSequence + 1;
     final project = ResearchProject(
-      id: 'LOCAL-\${next.toString().padLeft(4, '0')}',
+      id: 'LOCAL-${next.toString().padLeft(4, '0')}',
       title: cleanedTitle,
       thesis: cleanedThesis,
       symbol: symbol,
@@ -312,7 +312,7 @@ class ResearchStore extends ChangeNotifier {
       final parsed = _parseBackupRow(row);
       final candidate = ResearchProject(
         id:
-            'LOCAL-\${(_draftSequence + pending.length + 1).toString().padLeft(4, '0')}',
+            'LOCAL-${(_draftSequence + pending.length + 1).toString().padLeft(4, '0')}',
         title: parsed.title,
         thesis: parsed.thesis,
         symbol: parsed.symbol,
@@ -420,7 +420,7 @@ class ResearchStore extends ChangeNotifier {
           final parsed = _parseBackupRow(row);
           sequence++;
           drafts.add(ResearchProject(
-            id: 'LOCAL-\${sequence.toString().padLeft(4, '0')}',
+            id: 'LOCAL-${sequence.toString().padLeft(4, '0')}',
             title: parsed.title,
             thesis: parsed.thesis,
             symbol: parsed.symbol,
