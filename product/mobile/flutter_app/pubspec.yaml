@@ -1,15 +1,16 @@
 name: qros_mobile_studio
-description: "QROS Mobile Research Studio - Android TEST_ONLY G10 portable drafts"
+description: "QROS Mobile Research Studio - Android TEST_ONLY G11 secure local persistence"
 publish_to: none
-version: 0.10.0+10
+version: 0.11.0+11
 
 environment:
-  sdk: '>=3.5.0 <4.0.0'
+  sdk: '>=3.8.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
   cryptography: 2.7.0
+  flutter_secure_storage: 10.3.4
 
 dev_dependencies:
   flutter_lints: 5.0.0

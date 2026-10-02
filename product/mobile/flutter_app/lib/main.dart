@@ -3,15 +3,27 @@ import 'core/research_store.dart';
 import 'core/g5_snapshot.dart';
 import 'core/verified_demo.dart';
 import 'core/universe_store.dart';
+import 'core/local_vault.dart';
 import 'ui/app_shell.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const QrosApp());
+  final vault = SecureLocalVault();
+  final researchStore = ResearchStore(vault: vault);
+  final universeStore = UniverseSessionStore(vault: vault);
+  await researchStore.initialize();
+  await universeStore.initialize();
+  runApp(QrosApp(store: researchStore, universeStore: universeStore));
 }
 
 class QrosApp extends StatefulWidget {
-  const QrosApp({super.key, this.store, this.demoGateway, this.universeStore, this.g5Gateway});
+  const QrosApp({
+    super.key,
+    this.store,
+    this.demoGateway,
+    this.universeStore,
+    this.g5Gateway,
+  });
 
   final ResearchStore? store;
   final DemoGateway? demoGateway;
@@ -24,7 +36,8 @@ class QrosApp extends StatefulWidget {
 
 class _QrosAppState extends State<QrosApp> {
   late final ResearchStore _store = widget.store ?? ResearchStore();
-  late final UniverseSessionStore _universeStore = widget.universeStore ?? UniverseSessionStore();
+  late final UniverseSessionStore _universeStore =
+      widget.universeStore ?? UniverseSessionStore();
 
   @override
   void dispose() {
@@ -75,7 +88,8 @@ class _QrosAppState extends State<QrosApp> {
             borderRadius: BorderRadius.circular(12),
             borderSide: const BorderSide(color: Color(0xFFF28F94), width: 1.5),
           ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          contentPadding:
+              const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         ),
         navigationBarTheme: const NavigationBarThemeData(
           backgroundColor: Color(0xFF101C2E),
@@ -87,7 +101,11 @@ class _QrosAppState extends State<QrosApp> {
         store: _store,
         universeStore: _universeStore,
         demoGateway: widget.demoGateway ?? const HttpsDemoGateway(),
-        g5Gateway: widget.g5Gateway ?? const HttpsG5SnapshotGateway(G5SnapshotVerifier(G9LiveTrust.profile), allowedOrigin: G9LiveTrust.origin),
+        g5Gateway: widget.g5Gateway ??
+            const HttpsG5SnapshotGateway(
+              G5SnapshotVerifier(G9LiveTrust.profile),
+              allowedOrigin: G9LiveTrust.origin,
+            ),
       ),
     );
   }
