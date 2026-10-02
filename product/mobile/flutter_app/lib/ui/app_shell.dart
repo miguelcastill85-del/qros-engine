@@ -85,7 +85,7 @@ class _QrosShellState extends State<QrosShell> {
     };
     Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => Scaffold(
       appBar: AppBar(title: Text(title)),
-      body: AnimatedBuilder(animation: widget.store, builder: (_, __) => switch (destination) {
+      body: AnimatedBuilder(animation: Listenable.merge([widget.store, widget.sessionStore]), builder: (_, __) => switch (destination) {
         _LegacyDestination.projects => _ProjectsPage(store: widget.store, onNewProject: _newProject),
         _LegacyDestination.history => _HistoryPage(store: widget.store),
         _LegacyDestination.security => _EvidencePage(
