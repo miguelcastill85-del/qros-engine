@@ -1,7 +1,7 @@
 # QROS Mobile G11 — Secure Local Persistence
 
 Fecha: 2026-10-02  
-Padre verificado: G10 HEAD \`dd9d340c34d9e6bd95a5d69f34d1141f74a887dd\`  
+Padre verificado: G10 HEAD `dd9d340c34d9e6bd95a5d69f34d1141f74a887dd`  
 Estado: DEVELOPMENT_RUNNING · TEST_ONLY
 
 ## Objetivo
@@ -10,14 +10,14 @@ Cerrar el primer gate restante de G10 a nivel de ingeniería: persistencia autom
 
 ## Autoridad
 
-- Producto: \`product/mobile/QROS_MOBILE_ONLY_PRODUCT_CONTRACT_v1.md\`.
-- Padre: PR #75 / G10, CI \`36791428837\` PASS.
-- Esta rama NO modifica \`main\`, \`control/HEAD.json\`, PnL, holdout, GA2, MT5 ni trading live.
+- Producto: `product/mobile/QROS_MOBILE_ONLY_PRODUCT_CONTRACT_v1.md`.
+- Padre: PR #75 / G10, CI `36791428837` PASS.
+- Esta rama NO modifica `main`, `control/HEAD.json`, PnL, holdout, GA2, MT5 ni trading live.
 - La aplicación continúa sin autoridad para declarar PASS o mutar estados científicos.
 
 ## Delta G11
 
-1. \`flutter_secure_storage 11.2.0\` fijado como almacén seguro de producción.
+1. `flutter_secure_storage 10.3.4` fijado como almacén seguro de producción.
 2. Hidratación antes de mostrar la app.
 3. Escritura durable antes de aceptar en memoria create/edit/delete/import.
 4. Esquema local V2 estricto para proyectos y migración determinista V1→V2.
