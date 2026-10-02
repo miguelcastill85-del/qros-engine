@@ -1,0 +1,67 @@
+name: QROS Mobile G10 Android TEST_ONLY build
+# G9 Android build is intentionally TEST_ONLY and uses the independently pinned live root.
+on:
+  push:
+    branches: [product/mobile-g10-commercial-readiness-20260930]
+    paths:
+      - 'product/mobile/flutter_app/**'
+      - 'product/mobile/g9/emulator_smoke.py'
+      - 'product/mobile/g9/receipts/PUBLIC_ROOT_20260928.json'
+      - '.github/workflows/qros-mobile-g10-android.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qros-mobile-g10-android
+  cancel-in-progress: false
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-java@cf277c60eb25467037889841efdb72551f06f6c3
+        with: {distribution: temurin, java-version: '17'}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - name: Regenerate exact synthetic Worker bytes before Dart verification
+        run: |
+          npm ci --ignore-scripts --prefix product/mobile/g9
+          node --test product/mobile/g9/tests/workerd.test.mjs
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+        with: {channel: stable, flutter-version: '3.35.4'}
+      - name: Rehydrate Android wrapper and resolve dependencies
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter create --platforms=android --project-name=qros_mobile_studio --org=app.qros --no-pub .
+          flutter pub get
+      - name: Analyze and run G6/G9 regressions
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter analyze --no-pub
+          flutter test --no-pub --reporter expanded
+      - name: Build G9 Android TEST_ONLY debug APK
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter build apk --debug --no-pub
+          test -s build/app/outputs/flutter-apk/app-debug.apk
+      - name: Freeze APK bytes and public-root binding
+        run: |
+          mkdir -p /tmp/qros-g10-android
+          python3 - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          apk=pathlib.Path('product/mobile/flutter_app/build/app/outputs/flutter-apk/app-debug.apk')
+          root=json.loads(pathlib.Path('product/mobile/g9/receipts/PUBLIC_ROOT_20260928.json').read_text())
+          r={'schema':'QROS_G10_ANDROID_CI_RECEIPT_V1','status':'PASS_ENGINEERING_TEST_ONLY','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'apk_bytes':apk.stat().st_size,'apk_sha256':hashlib.sha256(apk.read_bytes()).hexdigest(),'worker_origin':root['origin'],'public_key_sha256':root['public_key_sha256'],'public_https':'VERIFIED_LIVE_CANARY','external_independent_witness':'REKOR_TRANSPARENCY_ONLY_NOT_CUSTODY','physical_android_install':'NOT_RUN','release_signed':False,'scientific_gate_pass':False}
+          pathlib.Path('/tmp/qros-g10-android/QROS_G10_ANDROID_CI_RECEIPT.json').write_text(json.dumps(r,indent=2,sort_keys=True)+'\n')
+          print(json.dumps(r,indent=2))
+          PY
+          cp product/mobile/flutter_app/build/app/outputs/flutter-apk/app-debug.apk /tmp/qros-g10-android/QROS_MOBILE_G10_TEST_ONLY.apk
+          cp product/mobile/g9/receipts/PUBLIC_ROOT_20260928.json /tmp/qros-g10-android/
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-mobile-g10-test-only-android
+          retention-days: 7
+          if-no-files-found: error
+          path: /tmp/qros-g10-android/
