@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with: {persist-credentials: false}
+        with: {persist-credentials: false, fetch-depth: 2}
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with: {node-version: '24.19.0'}
@@ -51,6 +51,28 @@ jobs:
           sed -i 's/minSdk = flutter.minSdkVersion/minSdk = 24/' android/app/build.gradle.kts
           grep -F 'minSdk = 24' android/app/build.gradle.kts
           flutter pub get
+
+      - name: Reproduce G12 session and retry defects on parent
+        working-directory: product/mobile/flutter_app
+        run: |
+          cp lib/core/session_client.dart /tmp/qros-g12-session-fixed.dart
+          git show 0055c99aad927d7c847c662240f5db4f044f4825:product/mobile/flutter_app/lib/core/session_client.dart > lib/core/session_client.dart
+          set +e
+          flutter test --no-pub --reporter json test/session_recovery_regression_test.dart > /tmp/qros-g12-session-baseline.jsonl 2>&1
+          BASELINE_EXIT=$?
+          set -e
+          cp /tmp/qros-g12-session-fixed.dart lib/core/session_client.dart
+          test "$BASELINE_EXIT" -ne 0
+          python3 - <<'PY'
+          import json,pathlib
+          rows=[]
+          for line in pathlib.Path('/tmp/qros-g12-session-baseline.jsonl').read_text().splitlines():
+              try: rows.append(json.loads(line))
+              except ValueError: pass
+          failures=[r for r in rows if r.get('type')=='testDone' and r.get('result')=='failure']
+          assert len(failures)==3, len(failures)
+          print('G12_BASELINE_SESSION_AND_RETRY_FAILURES=3')
+          PY
 
       - name: Analyze and run Flutter regressions
         working-directory: product/mobile/flutter_app
@@ -100,6 +122,8 @@ jobs:
           PY
           cp "$APK" /tmp/qros-g12/QROS_MOBILE_G12_TEST_ONLY.apk
           cp -R /tmp/qros-g12-worker /tmp/qros-g12/worker-dry-run
+          cp /tmp/qros-g12-session-baseline.jsonl /tmp/qros-g12/
+          cp product/mobile/flutter_app/test/fixtures/g12_result_python.json /tmp/qros-g12/
 
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:

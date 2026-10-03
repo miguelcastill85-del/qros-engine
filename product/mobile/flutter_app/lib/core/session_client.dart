@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/foundation.dart';
+import 'package:cryptography/cryptography.dart';
 
 import 'local_vault.dart';
 import 'universe_ir.dart';
@@ -165,6 +166,49 @@ class SyntheticJob {
       rawBirths: input['raw_births'] as int,
       resultSha256: resultSha,
     );
+  }
+
+  /// Checks result integrity and job binding, not independent authenticity.
+  static Future<SyntheticJob> verifyServer(Map<String, dynamic> data) async {
+    final job = fromServer(data);
+    const stages = ['PREPARED', 'VALIDATED', 'CHECKPOINTED', 'COMPLETE'];
+    const percentages = [0, 34, 67, 100];
+    if (job.phase < 0 || job.phase > 3 ||
+        stages[job.phase] != job.state || percentages[job.phase] != job.progress ||
+        !RegExp(r'^[0-9a-f]{64}$').hasMatch(job.searchSpaceSha256) ||
+        !RegExp(r'^[0-9a-f]{64}$').hasMatch(job.toyEnumerationSha256) ||
+        job.rawBirths < 1 || job.rawBirths > 10000) {
+      throw const FormatException('JOB_STATE_INVALID');
+    }
+    if (!job.complete) {
+      if (data['result'] != null) {
+        throw const FormatException('PREMATURE_JOB_RESULT');
+      }
+      return job;
+    }
+    final result = Map<String, dynamic>.from(data['result'] as Map);
+    const keys = {
+      'schema', 'classification', 'job_id', 'search_space_sha256',
+      'toy_enumeration_sha256', 'raw_births', 'work_units_completed',
+      'economic_tests', 'scientific_approval', 'holdout_open', 'ga2_open',
+      'mt5_executed', 'result_sha256',
+    };
+    if (result.length != keys.length || !result.keys.every(keys.contains) ||
+        result['job_id'] != job.jobId ||
+        result['search_space_sha256'] != job.searchSpaceSha256 ||
+        result['toy_enumeration_sha256'] != job.toyEnumerationSha256 ||
+        result['raw_births'] != job.rawBirths ||
+        result['work_units_completed'] != 3) {
+      throw const FormatException('JOB_RESULT_BINDING_MISMATCH');
+    }
+    final claimed = result.remove('result_sha256');
+    final ordered = <String, dynamic>{
+      for (final key in result.keys.toList()..sort()) key: result[key],
+    };
+    final digest = await Sha256().hash(utf8.encode(jsonEncode(ordered)));
+    final actual = digest.bytes.map((b) => b.toRadixString(16).padLeft(2, '0')).join();
+    if (claimed != actual) throw const FormatException('JOB_RESULT_HASH_MISMATCH');
+    return job;
   }
 
   static SyntheticJob fromLocalRecord(Map<String, dynamic> data) {
@@ -374,8 +418,9 @@ class HttpsSessionGateway implements SessionGateway {
       },
       accepted: const {200, 201},
     );
-    final job = SyntheticJob.fromServer(data);
+    final job = await SyntheticJob.verifyServer(data);
     if (job.clientId != current.clientId ||
+        job.requestId != requestId ||
         job.searchSpaceSha256 != draft.searchSpaceSha256 ||
         job.toyEnumerationSha256 != draft.toyEnumerationSha256 ||
         job.rawBirths != draft.blueprint.rawBirths) {
@@ -394,7 +439,7 @@ class HttpsSessionGateway implements SessionGateway {
       bearer: current.accessToken,
       deviceId: current.deviceId,
     );
-    final job = SyntheticJob.fromServer(data);
+    final job = await SyntheticJob.verifyServer(data);
     if (job.clientId != current.clientId || job.jobId != jobId) {
       throw const FormatException('JOB_IDENTITY_MISMATCH');
     }
@@ -412,7 +457,7 @@ class HttpsSessionGateway implements SessionGateway {
       deviceId: current.deviceId,
       body: const {},
     );
-    final job = SyntheticJob.fromServer(data);
+    final job = await SyntheticJob.verifyServer(data);
     if (job.clientId != current.clientId || job.jobId != jobId) {
       throw const FormatException('JOB_IDENTITY_MISMATCH');
     }
@@ -439,6 +484,8 @@ class SessionStore extends ChangeNotifier {
   final DateTime Function() _clock;
   final String Function() _deviceIdFactory;
 
+  final LocalMutationQueue _queue = LocalMutationQueue();
+
   String? _deviceId;
   ClientSession? _session;
   String? _warning;
@@ -456,7 +503,7 @@ class SessionStore extends ChangeNotifier {
 
   int get _nowSeconds => _clock().toUtc().millisecondsSinceEpoch ~/ 1000;
 
-  Future<void> initialize() async {
+  Future<void> initialize() => _queue.run(() async {
     try {
       var id = await _vault.read(deviceKey);
       if (id == null || !RegExp(r'^device_[A-Za-z0-9_-]{43}$').hasMatch(id)) {
@@ -483,7 +530,7 @@ class SessionStore extends ChangeNotifier {
       _warning = 'SESSION_LOCAL_RECOVERY_FAILED';
     }
     notifyListeners();
-  }
+    });
 
   Future<void> _persist(ClientSession value) async {
     await _vault.write(sessionKey, jsonEncode(value.toLocalRecord()));
@@ -492,7 +539,7 @@ class SessionStore extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<ClientSession> enroll(String origin, String bootstrapToken) async {
+  Future<ClientSession> enroll(String origin, String bootstrapToken) => _queue.run(() async {
     final id = _deviceId ?? _deviceIdFactory();
     if (_deviceId == null) {
       await _vault.write(deviceKey, id);
@@ -501,9 +548,11 @@ class SessionStore extends ChangeNotifier {
     final next = await _gateway.bootstrap(origin, bootstrapToken, id);
     await _persist(next);
     return next;
-  }
+    });
 
-  Future<ClientSession> renew() async {
+  Future<ClientSession> renew() => _queue.run(_renew);
+
+  Future<ClientSession> _renew() async {
     final current = _session;
     if (current == null || current.refreshExpiresAt <= _nowSeconds) {
       throw const FormatException('SESSION_NOT_RENEWABLE');
@@ -513,7 +562,7 @@ class SessionStore extends ChangeNotifier {
     return next;
   }
 
-  Future<ClientSession> ensureAccess() async {
+  Future<ClientSession> ensureAccess() => _queue.run(() async {
     final current = _session;
     if (current == null) throw const FormatException('SESSION_REQUIRED');
     if (current.refreshExpiresAt <= _nowSeconds) {
@@ -522,11 +571,11 @@ class SessionStore extends ChangeNotifier {
       notifyListeners();
       throw const FormatException('SESSION_EXPIRED');
     }
-    if (current.accessExpiresAt - _nowSeconds <= 60) return renew();
+    if (current.accessExpiresAt - _nowSeconds <= 60) return _renew();
     return current;
-  }
+    });
 
-  Future<void> signOut() async {
+  Future<void> signOut() => _queue.run(() async {
     final current = _session;
     if (current != null && current.refreshExpiresAt > _nowSeconds) {
       try {
@@ -538,7 +587,7 @@ class SessionStore extends ChangeNotifier {
     await _vault.delete(sessionKey);
     _session = null;
     notifyListeners();
-  }
+    });
 }
 
 class SyntheticJobStore extends ChangeNotifier {
@@ -553,11 +602,16 @@ class SyntheticJobStore extends ChangeNotifier {
         _requestIdFactory = requestIdFactory ?? _newRequestId;
 
   static const jobKey = 'qros.g12.job.v1';
+  static const pendingKey = 'qros.g12.pending.v1';
 
   final LocalVault _vault;
   final SessionStore _sessionStore;
   final SessionGateway _gateway;
   final String Function() _requestIdFactory;
+
+  final LocalMutationQueue _queue = LocalMutationQueue();
+  bool _initialized = false;
+  bool _loadBlocked = true;
 
   SyntheticJob? _job;
   String? _warning;
@@ -571,7 +625,11 @@ class SyntheticJobStore extends ChangeNotifier {
     return 'req_${base64Url.encode(bytes).replaceAll('=', '')}';
   }
 
-  Future<void> initialize() async {
+  Future<void> initialize() => _queue.run(_load);
+
+  Future<void> _load() async {
+    if (_initialized) return;
+    _initialized = true;
     try {
       final raw = await _vault.read(jobKey);
       if (raw != null && raw.isNotEmpty) {
@@ -581,12 +639,28 @@ class SyntheticJobStore extends ChangeNotifier {
         }
         _job = SyntheticJob.fromLocalRecord(decoded);
       }
+      _loadBlocked = false;
       _warning = null;
     } catch (_) {
       _job = null;
       _warning = 'JOB_LOCAL_RECOVERY_FAILED';
     }
     notifyListeners();
+  }
+
+  Future<void> _ensureLoaded() async {
+    await _load();
+    if (_loadBlocked) throw const FormatException('JOB_LOCAL_RECOVERY_REQUIRED');
+  }
+
+  void _checkContinuity(SyntheticJob old, SyntheticJob next) {
+    if (old.clientId != next.clientId || old.jobId != next.jobId ||
+        old.requestId != next.requestId ||
+        old.searchSpaceSha256 != next.searchSpaceSha256 ||
+        old.toyEnumerationSha256 != next.toyEnumerationSha256 ||
+        old.rawBirths != next.rawBirths || next.phase < old.phase) {
+      throw const FormatException('JOB_CONTINUITY_MISMATCH');
+    }
   }
 
   Future<void> _persist(SyntheticJob value) async {
@@ -596,7 +670,8 @@ class SyntheticJobStore extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<SyntheticJob> start(UniverseSessionDraft draft) async {
+  Future<SyntheticJob> start(UniverseSessionDraft draft) => _queue.run(() async {
+    await _ensureLoaded();
     final session = await _sessionStore.ensureAccess();
     final current = _job;
     if (current != null &&
@@ -604,37 +679,75 @@ class SyntheticJobStore extends ChangeNotifier {
         current.searchSpaceSha256 == draft.searchSpaceSha256 &&
         current.toyEnumerationSha256 == draft.toyEnumerationSha256 &&
         current.rawBirths == draft.blueprint.rawBirths) {
-      return sync();
+      await _vault.delete(pendingKey);
+      return _sync();
     }
-    final next =
-        await _gateway.createJob(session, draft, _requestIdFactory());
+    final binding = <String, Object?>{
+      'schema': 'QROS_G12_PENDING_REQUEST_V1',
+      'client_id': session.clientId,
+      'origin': session.origin,
+      'search_space_sha256': draft.searchSpaceSha256,
+      'toy_enumeration_sha256': draft.toyEnumerationSha256,
+      'raw_births': draft.blueprint.rawBirths,
+    };
+    final raw = await _vault.read(pendingKey);
+    String requestId;
+    if (raw != null) {
+      final pending = jsonDecode(raw);
+      if (pending is! Map<String, dynamic> ||
+          pending.length != binding.length + 1 ||
+          pending['request_id'] is! String ||
+          binding.entries.any((e) => pending[e.key] != e.value)) {
+        throw const FormatException('PENDING_JOB_REQUIRES_RECOVERY');
+      }
+      requestId = pending['request_id'] as String;
+    } else {
+      requestId = _requestIdFactory();
+      await _vault.write(pendingKey, jsonEncode({...binding, 'request_id': requestId}));
+    }
+    final next = await _gateway.createJob(session, draft, requestId);
+    if (next.clientId != session.clientId || next.requestId != requestId ||
+        next.searchSpaceSha256 != draft.searchSpaceSha256 ||
+        next.toyEnumerationSha256 != draft.toyEnumerationSha256 ||
+        next.rawBirths != draft.blueprint.rawBirths) {
+      throw const FormatException('JOB_BINDING_MISMATCH');
+    }
     await _persist(next);
+    await _vault.delete(pendingKey);
     return next;
-  }
+    });
 
-  Future<SyntheticJob> sync() async {
+  Future<SyntheticJob> sync() => _queue.run(_sync);
+
+  Future<SyntheticJob> _sync() async {
+    await _ensureLoaded();
     final current = _job;
     if (current == null) throw const FormatException('JOB_REQUIRED');
     final session = await _sessionStore.ensureAccess();
     final next = await _gateway.getJob(session, current.jobId);
+    _checkContinuity(current, next);
     await _persist(next);
     return next;
   }
 
-  Future<SyntheticJob> resume() async {
+  Future<SyntheticJob> resume() => _queue.run(() async {
+    await _ensureLoaded();
     final current = _job;
     if (current == null) throw const FormatException('JOB_REQUIRED');
     if (current.complete) return current;
     final session = await _sessionStore.ensureAccess();
     final next = await _gateway.resumeJob(session, current.jobId);
+    _checkContinuity(current, next);
     await _persist(next);
     return next;
-  }
+    });
 
-  Future<void> clear() async {
+  Future<void> clear() => _queue.run(() async {
+    await _ensureLoaded();
+    await _vault.delete(pendingKey);
     await _vault.delete(jobKey);
     _job = null;
     _warning = null;
     notifyListeners();
-  }
+    });
 }

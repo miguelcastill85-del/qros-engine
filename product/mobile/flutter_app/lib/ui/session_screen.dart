@@ -72,23 +72,31 @@ class _SessionScreenState extends State<SessionScreen> {
       _busy = true;
       _message = null;
     });
-    await widget.store.signOut();
-    if (mounted) {
-      setState(() {
-        _busy = false;
-        _message = 'Sesión local eliminada. La revocación remota se intentó una sola vez.';
-      });
+    try {
+      await widget.store.signOut();
+      if (mounted) {
+        setState(() => _message = widget.store.warning == 'REMOTE_REVOKE_UNCONFIRMED'
+            ? 'Sesión local eliminada. No se pudo confirmar la revocación en el servidor.'
+            : 'Sesión cerrada y revocada.');
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() => _message = 'No se pudo eliminar la sesión local. Vuelve a intentar el cierre.');
+      }
+    } finally {
+      if (mounted) setState(() => _busy = false);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final session = widget.store.session;
     return Scaffold(
       appBar: AppBar(title: const Text('Identidad del dispositivo')),
       body: AnimatedBuilder(
         animation: widget.store,
-        builder: (context, _) => ListView(
+        builder: (context, _) {
+          final session = widget.store.session;
+          return ListView(
           padding: const EdgeInsets.all(18),
           children: [
             const Text(
@@ -201,7 +209,8 @@ class _SessionScreenState extends State<SessionScreen> {
               style: TextStyle(fontSize: 12),
             ),
           ],
-        ),
+        );
+        },
       ),
     );
   }

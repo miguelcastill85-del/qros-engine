@@ -1,0 +1,36 @@
+{
+  "schema": "QROS_G12_SYNTHETIC_JOB_V1",
+  "job_id": "12345678-1234-1234-1234-123456789012",
+  "client_id": "client_12345678-1234-1234-1234-123456789012",
+  "request_id": "req_AAAAAAAAAAAAAAAAAAAAAA",
+  "state": "COMPLETE",
+  "phase": 3,
+  "progress": 100,
+  "created_at": 1800000000,
+  "updated_at": 1800000001,
+  "input": {
+    "search_space_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "toy_enumeration_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "raw_births": 144
+  },
+  "result": {
+    "schema": "QROS_G12_SYNTHETIC_JOB_RESULT_V1",
+    "classification": "TEST_ONLY_SYNTHETIC_INFRASTRUCTURE",
+    "job_id": "12345678-1234-1234-1234-123456789012",
+    "search_space_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "toy_enumeration_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+    "raw_births": 144,
+    "work_units_completed": 3,
+    "economic_tests": 0,
+    "scientific_approval": false,
+    "holdout_open": false,
+    "ga2_open": false,
+    "mt5_executed": false,
+    "result_sha256": "582e593602593454d76ac3a5a911ac6c69deecbbefb0e279dcd6325f2dfa2b18"
+  },
+  "economic_tests": 0,
+  "scientific_approval": false,
+  "holdout_open": false,
+  "ga2_open": false,
+  "mt5_executed": false
+}
