@@ -1,0 +1,32 @@
+name: QROS G12 toolchain security
+on:
+  push:
+    branches: [product/mobile-g12-toolchain-security-20261003]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      WRANGLER_SEND_METRICS: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - name: Audit and exercise pinned toolchain
+        run: |
+          mkdir -p /tmp/g12-security
+          npm ci --ignore-scripts --prefix product/mobile/g12
+          npm audit --json --prefix product/mobile/g12 > /tmp/g12-security/npm-audit.json
+          node --test product/mobile/g12/tests/core.test.mjs product/mobile/g12/tests/workerd.test.mjs product/mobile/g12/tests/security.test.mjs | tee /tmp/g12-security/test-results.txt
+          ./product/mobile/g12/node_modules/.bin/wrangler deploy --dry-run --config product/mobile/g12/wrangler.jsonc --outdir /tmp/g12-security/worker
+          git rev-parse HEAD > /tmp/g12-security/source-commit.txt
+          sha256sum product/mobile/g12/package*.json > /tmp/g12-security/lockfile-sha256.txt
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g12-toolchain-security
+          path: /tmp/g12-security/
+          if-no-files-found: error
+          retention-days: 14
