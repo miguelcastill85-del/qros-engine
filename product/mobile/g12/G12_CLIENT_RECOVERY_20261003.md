@@ -18,3 +18,5 @@ Próxima acción exacta: verificar CI de este commit, descargar el artefacto, co
 MOBILE_PRODUCT_HEAD y main científico no se modifican. economic_tests=0; holdout/GA2/MT5/live cerrados.
 
 Revisión previa al gate: un trabajo anterior no puede borrar el request_id pendiente de otro universo. Se añade una cuarta regresión. Se conserva el intento inicial de CI 37125776941.
+
+Incidente VERIFICADO: CI 37125776941 reprodujo tres fallos del padre y se detuvo en flutter analyze por tres avisos de interpolación en las pruebas nuevas. Se corrigen las expresiones, sin desactivar el analizador ni reducir gates.

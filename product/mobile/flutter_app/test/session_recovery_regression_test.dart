@@ -43,7 +43,7 @@ Future<SessionStore> enrolled(LocalVault vault, FakeGateway gateway,
     {int now = 950}) async {
   final s = SessionStore(vault: vault, gateway: gateway,
     clock: () => DateTime.fromMillisecondsSinceEpoch(now * 1000, isUtc: true),
-    deviceIdFactory: () => 'device_' + rep('D', 43));
+    deviceIdFactory: () => 'device_${rep('D', 43)}');
   await s.initialize();
   await s.enroll('https://g12.example', rep('B', 48));
   return s;
@@ -88,10 +88,10 @@ void main() {
       thesis: 'Synthetic infrastructure recovery only.',
       blueprint: UniverseBlueprint.sample());
     final first = SyntheticJobStore(vault: vault, sessionStore: s,
-      gateway: gateway, requestIdFactory: () => 'req_' + rep('A', 22));
+      gateway: gateway, requestIdFactory: () => 'req_${rep('A', 22)}');
     await expectLater(first.start(draft), throwsStateError);
     final restored = SyntheticJobStore(vault: vault, sessionStore: s,
-      gateway: gateway, requestIdFactory: () => 'req_' + rep('B', 22));
+      gateway: gateway, requestIdFactory: () => 'req_${rep('B', 22)}');
     await restored.initialize();
     await restored.start(draft);
     expect(gateway.requests.length, 2);
@@ -109,7 +109,7 @@ void main() {
       blueprint: UniverseBlueprint.sample());
     var counter = 0;
     final jobs = SyntheticJobStore(vault: vault, sessionStore: s,
-      gateway: gateway, requestIdFactory: () => 'req_' + rep('${++counter}', 22));
+      gateway: gateway, requestIdFactory: () => 'req_${rep('${++counter}', 22)}');
     await jobs.start(a);
     final b = UniverseSessionDraft(title: a.title, thesis: a.thesis,
       blueprint: a.blueprint, searchSpaceSha256: rep('3', 64),
