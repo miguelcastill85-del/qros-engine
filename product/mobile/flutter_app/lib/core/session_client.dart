@@ -679,7 +679,20 @@ class SyntheticJobStore extends ChangeNotifier {
         current.searchSpaceSha256 == draft.searchSpaceSha256 &&
         current.toyEnumerationSha256 == draft.toyEnumerationSha256 &&
         current.rawBirths == draft.blueprint.rawBirths) {
-      await _vault.delete(pendingKey);
+      final pendingRaw = await _vault.read(pendingKey);
+      if (pendingRaw != null) {
+        final pending = jsonDecode(pendingRaw);
+        if (pending is! Map<String, dynamic> ||
+            pending['request_id'] != current.requestId ||
+            pending['client_id'] != current.clientId ||
+            pending['origin'] != session.origin ||
+            pending['search_space_sha256'] != current.searchSpaceSha256 ||
+            pending['toy_enumeration_sha256'] != current.toyEnumerationSha256 ||
+            pending['raw_births'] != current.rawBirths) {
+          throw const FormatException('PENDING_JOB_REQUIRES_RECOVERY');
+        }
+        await _vault.delete(pendingKey);
+      }
       return _sync();
     }
     final binding = <String, Object?>{

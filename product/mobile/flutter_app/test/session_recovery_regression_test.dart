@@ -98,4 +98,27 @@ void main() {
     expect(gateway.requests.toSet().length, 1);
     first.dispose(); restored.dispose(); universe.dispose(); s.dispose();
   });
+
+  test('opening an old job cannot discard a different pending request', () async {
+    final vault = MemoryLocalVault();
+    final gateway = LostResponseGateway()..loseFirst = false;
+    final s = await enrolled(vault, gateway, now: 100);
+    final universe = UniverseSessionStore(vault: MemoryLocalVault());
+    final a = await universe.save(title: 'First universe',
+      thesis: 'First synthetic universe for retry isolation.',
+      blueprint: UniverseBlueprint.sample());
+    var counter = 0;
+    final jobs = SyntheticJobStore(vault: vault, sessionStore: s,
+      gateway: gateway, requestIdFactory: () => 'req_' + rep('${++counter}', 22));
+    await jobs.start(a);
+    final b = UniverseSessionDraft(title: a.title, thesis: a.thesis,
+      blueprint: a.blueprint, searchSpaceSha256: rep('3', 64),
+      toyEnumerationSha256: a.toyEnumerationSha256);
+    gateway.loseFirst = true;
+    await expectLater(jobs.start(b), throwsStateError);
+    await expectLater(jobs.start(a), throwsFormatException);
+    await jobs.start(b);
+    expect(gateway.requests[1], gateway.requests[2]);
+    jobs.dispose(); universe.dispose(); s.dispose();
+  });
 }

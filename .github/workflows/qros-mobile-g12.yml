@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
-        with: {persist-credentials: false, fetch-depth: 2}
+        with: {persist-credentials: false, fetch-depth: 0}
 
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with: {node-version: '24.19.0'}
@@ -70,8 +70,8 @@ jobs:
               try: rows.append(json.loads(line))
               except ValueError: pass
           failures=[r for r in rows if r.get('type')=='testDone' and r.get('result')=='failure']
-          assert len(failures)==3, len(failures)
-          print('G12_BASELINE_SESSION_AND_RETRY_FAILURES=3')
+          assert len(failures)==4, len(failures)
+          print('G12_BASELINE_SESSION_AND_RETRY_FAILURES=4')
           PY
 
       - name: Analyze and run Flutter regressions
