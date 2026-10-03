@@ -73,9 +73,16 @@ void main() {
     await tester.pumpWidget(QrosApp(store: store, demoGateway: DemoGatewayStub()));
     await tester.tap(find.text('Evidencias').last);
     await tester.pumpAndSettle();
-    await tester.scrollUntilVisible(find.byKey(const Key('open-remote-demo')), 220.0,
-      scrollable: find.byType(Scrollable).last);
-    await tester.tap(find.byKey(const Key('open-remote-demo')));
+    final remoteDemo = find.byKey(const Key('open-remote-demo'));
+    final evidenceScroll = find.byType(Scrollable).last;
+    await tester.scrollUntilVisible(remoteDemo, 220.0, scrollable: evidenceScroll);
+    await tester.pumpAndSettle();
+    final viewportHeight =
+        tester.view.physicalSize.height / tester.view.devicePixelRatio;
+    final remoteDemoCenter = tester.getCenter(remoteDemo);
+    expect(remoteDemoCenter.dy, greaterThan(80));
+    expect(remoteDemoCenter.dy, lessThan(viewportHeight - 80));
+    await tester.tapAt(remoteDemoCenter);
     await tester.pumpAndSettle();
     expect(find.textContaining('SOLO LECTURA'), findsOneWidget);
     await tester.enterText(find.byKey(const Key('remote-demo-url')), 'https://valid.example.com');

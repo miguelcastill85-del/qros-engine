@@ -1,0 +1,20 @@
+{
+  "schema": "QROS_G12_INTEGRATION_VERIFICATION_V1",
+  "date_utc": "2026-10-02",
+  "classification": "VERIFICADO",
+  "source_commit": "7c0606846461b8c45f60607bcee5e40c0987d3c9",
+  "ci_run": 37069386637,
+  "g11_parent": "2bf00ff2e8185c90fcb1e9b8f23134d05160da08",
+  "g11_ci_run": 37068782427,
+  "baseline_data_integrity_failures_reproduced": 6,
+  "g11_artifact_sha256": "bbb965e0a5b0b7287bffd55252ae9765bf8ba05aa8348b34f7f1f89ca88222b4",
+  "g12_artifact_id": 11253867060,
+  "g12_artifact_sha256": "124bbc6d1e42e9eb262bfcd23949157cab0f7aabb74f59c5aef6810aaeb25c91",
+  "apk_bytes": 146657269,
+  "apk_sha256": "c810e85b201f8663eb8b7b4ca6e3223501492666f43b5aeaa127e8b431e35ffb",
+  "downloaded_and_independently_hashed": true,
+  "public_g12_deployment": "NOT_RUN",
+  "physical_g12_android": "NOT_RUN",
+  "commercial_release": "BLOCKED",
+  "scientific_promotion": false
+}

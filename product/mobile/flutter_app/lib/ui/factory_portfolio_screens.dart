@@ -8,9 +8,15 @@ const _muted = Color(0xFFA7B9CF);
 const _panel = Color(0xFF142339);
 
 class UniverseFactoryScreen extends StatelessWidget {
-  const UniverseFactoryScreen({super.key, required this.store, required this.onOpenIdea});
+  const UniverseFactoryScreen({
+    super.key,
+    required this.store,
+    required this.onOpenIdea,
+    required this.onOpenJob,
+  });
   final UniverseSessionStore store;
   final VoidCallback onOpenIdea;
+  final VoidCallback onOpenJob;
 
   Future<void> _copyDraft(BuildContext context) async {
     final draft = store.latest;
@@ -40,7 +46,7 @@ class UniverseFactoryScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final latest = store.latest;
     return ListView(key: const Key('factory-screen'),padding: const EdgeInsets.fromLTRB(16, 20, 16, 32),children: [
-      const Text('STRATEGY FACTORY · G1',style: TextStyle(color: _teal,letterSpacing: 1.2,fontSize: 11,fontWeight:FontWeight.w800)),
+      const Text('STRATEGY FACTORY · G12 TEST_ONLY',style: TextStyle(color: _teal,letterSpacing: 1.2,fontSize: 11,fontWeight:FontWeight.w800)),
       const SizedBox(height: 9),
       const Text('Tu universo, bajo control.',style: TextStyle(fontSize: 27,fontWeight: FontWeight.w900)),
       const SizedBox(height: 12),
@@ -73,6 +79,13 @@ class UniverseFactoryScreen extends StatelessWidget {
           SelectableText(latest.searchSpaceSha256,key:const Key('factory-verified-hash'),style:const TextStyle(fontSize:12,color:_teal)),
           const SizedBox(height:13),
           OutlinedButton.icon(key:const Key('g1-export'),onPressed:()=>_copyDraft(context),icon:const Icon(Icons.copy_outlined),label:const Text('Copiar contrato de prueba')),
+          const SizedBox(height:10),
+          FilledButton.icon(
+            key:const Key('g12-open-job'),
+            onPressed:onOpenJob,
+            icon:const Icon(Icons.cloud_sync_outlined),
+            label:const Text('Abrir trabajo sintético G12'),
+          ),
         ])),
       ],
       const SizedBox(height:21),
@@ -83,7 +96,7 @@ class UniverseFactoryScreen extends StatelessWidget {
       const _StageRow(number:'05',title:'RISE-Q y holdout',state:'CERRADO'),
       const _StageRow(number:'06',title:'Paridad MT5',state:'NO EJECUTADO'),
       const SizedBox(height:15),
-      const Text('Los millones de configuraciones y el motor real se habilitarán únicamente después de pruebas de escala, costes y paridad.',style:TextStyle(fontSize:12,color:_muted,height:1.5)),
+      const Text('G12 sólo prueba infraestructura de trabajos reanudables. Los millones de configuraciones y el motor real siguen cerrados hasta validar escala, costes, autoridad y paridad.',style:TextStyle(fontSize:12,color:_muted,height:1.5)),
     ]);
   }
 

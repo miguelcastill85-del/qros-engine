@@ -55,3 +55,14 @@ class LocalPersistenceException implements Exception {
   @override
   String toString() => 'QROS_LOCAL_PERSISTENCE_ERROR:$code';
 }
+
+/// One transaction completes (including in-memory commit) before the next starts.
+/// A failed operation must not poison subsequent retries.
+class LocalMutationQueue {
+  Future<void> _tail = Future<void>.value();
+  Future<T> run<T>(Future<T> Function() operation) {
+    final result = _tail.then((_) => operation());
+    _tail = result.then<void>((_) {}, onError: (Object _, StackTrace __) {});
+    return result;
+  }
+}

@@ -8,11 +8,14 @@ import '../core/local_vault.dart';
 import '../core/verified_demo.dart';
 import '../core/g5_snapshot.dart';
 import '../core/universe_store.dart';
+import '../core/session_client.dart';
 import 'factory_portfolio_screens.dart';
 import 'hypothesis_studio_screen.dart';
 import 'verified_demo_screen.dart';
 import 'g5_snapshot_screen.dart';
 import 'new_project_screen.dart';
+import 'session_screen.dart';
+import 'synthetic_job_screen.dart';
 
 const qrosBackground = Color(0xFF09111F);
 const qrosPanel = Color(0xFF142339);
@@ -24,10 +27,19 @@ const qrosAmber = Color(0xFFFBD67A);
 enum _LegacyDestination { projects, history, security }
 
 class QrosShell extends StatefulWidget {
-  const QrosShell({super.key, required this.store,
-    required this.universeStore, required this.demoGateway, required this.g5Gateway});
+  const QrosShell({
+    super.key,
+    required this.store,
+    required this.universeStore,
+    required this.sessionStore,
+    required this.jobStore,
+    required this.demoGateway,
+    required this.g5Gateway,
+  });
   final ResearchStore store;
   final UniverseSessionStore universeStore;
+  final SessionStore sessionStore;
+  final SyntheticJobStore jobStore;
   final DemoGateway demoGateway;
   final G5SnapshotGateway g5Gateway;
 
@@ -49,6 +61,22 @@ class _QrosShellState extends State<QrosShell> {
     );
   }
 
+  void _openSession() {
+    Navigator.of(context).push(MaterialPageRoute<void>(
+      builder: (_) => SessionScreen(store: widget.sessionStore),
+    ));
+  }
+
+  void _openJob() {
+    Navigator.of(context).push(MaterialPageRoute<void>(
+      builder: (_) => SyntheticJobScreen(
+        universeStore: widget.universeStore,
+        sessionStore: widget.sessionStore,
+        jobStore: widget.jobStore,
+      ),
+    ));
+  }
+
   void _openLegacy(_LegacyDestination destination) {
     final title = switch (destination) {
       _LegacyDestination.projects => 'Proyectos',
@@ -57,14 +85,18 @@ class _QrosShellState extends State<QrosShell> {
     };
     Navigator.of(context).push(MaterialPageRoute<void>(builder: (_) => Scaffold(
       appBar: AppBar(title: Text(title)),
-      body: AnimatedBuilder(animation: widget.store, builder: (_, __) => switch (destination) {
+      body: AnimatedBuilder(animation: Listenable.merge([widget.store, widget.sessionStore]), builder: (_, __) => switch (destination) {
         _LegacyDestination.projects => _ProjectsPage(store: widget.store, onNewProject: _newProject),
         _LegacyDestination.history => _HistoryPage(store: widget.store),
-        _LegacyDestination.security => _EvidencePage(store: widget.store, onOpenDemo: () =>
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway))), onOpenG5: () =>
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (_) => G5SnapshotScreen(gateway: widget.g5Gateway)))),
+        _LegacyDestination.security => _EvidencePage(
+          store: widget.store,
+          onOpenSession: _openSession,
+          sessionStore: widget.sessionStore,
+          onOpenDemo: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway))),
+          onOpenG5: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (_) => G5SnapshotScreen(gateway: widget.g5Gateway))),
+        ),
       }),
     )));
   }
@@ -97,20 +129,32 @@ class _QrosShellState extends State<QrosShell> {
         ],
       ),
       body: AnimatedBuilder(
-        animation: Listenable.merge([widget.store, widget.universeStore]),
+        animation: Listenable.merge([
+          widget.store,
+          widget.universeStore,
+          widget.sessionStore,
+          widget.jobStore,
+        ]),
         builder: (context, _) => switch (_page) {
           0 => _HomePage(store: widget.store, onNewProject: _newProject,
              onOpenProjects: () => _openLegacy(_LegacyDestination.projects),
              onOpenIdea: () => setState(() => _page = 1)),
           1 => HypothesisStudioScreen(store: widget.universeStore,
              onOpenFactory: () => setState(() => _page = 2)),
-          2 => UniverseFactoryScreen(store: widget.universeStore,
-             onOpenIdea: () => setState(() => _page = 1)),
-          3 => _EvidencePage(store: widget.store, onOpenDemo: () =>
-             Navigator.of(context).push(MaterialPageRoute(
-               builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway))), onOpenG5: () =>
-             Navigator.of(context).push(MaterialPageRoute(
-               builder: (_) => G5SnapshotScreen(gateway: widget.g5Gateway)))),
+          2 => UniverseFactoryScreen(
+             store: widget.universeStore,
+             onOpenIdea: () => setState(() => _page = 1),
+             onOpenJob: _openJob,
+          ),
+          3 => _EvidencePage(
+             store: widget.store,
+             sessionStore: widget.sessionStore,
+             onOpenSession: _openSession,
+             onOpenDemo: () => Navigator.of(context).push(MaterialPageRoute(
+               builder: (_) => VerifiedDemoScreen(gateway: widget.demoGateway))),
+             onOpenG5: () => Navigator.of(context).push(MaterialPageRoute(
+               builder: (_) => G5SnapshotScreen(gateway: widget.g5Gateway))),
+          ),
           _ => const PortfolioLabPlaceholder(),
         },
       ),
@@ -531,8 +575,16 @@ class _HistoryPage extends StatelessWidget {
 }
 
 class _EvidencePage extends StatelessWidget {
-  const _EvidencePage({required this.store, required this.onOpenDemo, required this.onOpenG5});
+  const _EvidencePage({
+    required this.store,
+    required this.sessionStore,
+    required this.onOpenSession,
+    required this.onOpenDemo,
+    required this.onOpenG5,
+  });
   final ResearchStore store;
+  final SessionStore sessionStore;
+  final VoidCallback onOpenSession;
   final VoidCallback onOpenDemo;
   final VoidCallback onOpenG5;
 
@@ -566,6 +618,7 @@ class _EvidencePage extends StatelessWidget {
         _EvidenceLine(label: 'Permisos científicos', value: 'NINGUNO'),
         _EvidenceLine(label: 'HEAD externo confiable', value: 'PENDIENTE'),
         _EvidenceLine(label: 'Persistencia local', value: 'ALMACÉN SEGURO · G11'),
+        _EvidenceLine(label: 'Sesión cliente', value: 'G12 · ROTATORIA TEST_ONLY'),
         _EvidenceLine(label: 'Recibos autenticados', value: 'PENDIENTE'),
         _EvidenceLine(label: 'Holdout', value: 'CERRADO'),
         _EvidenceLine(label: 'Trading automático', value: 'DESACTIVADO'),
@@ -584,6 +637,26 @@ class _EvidencePage extends StatelessWidget {
         FilledButton.icon(key: const Key('open-g6-snapshot'), onPressed: onOpenG5,
           icon: const Icon(Icons.verified_user_outlined), label: const Text('Verificar snapshot G5 · G9')),
       ])), 
+      const SectionHeading('Identidad y sesión'),
+      QrosPanel(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Text(
+          sessionStore.enrolled ? 'Dispositivo vinculado' : 'Dispositivo sin vincular',
+          style: const TextStyle(fontWeight: FontWeight.w700),
+        ),
+        const SizedBox(height: 8),
+        const Text(
+          'G12 usa bootstrap de un solo uso y después rota access/refresh tokens guardados sólo en el almacén seguro.',
+          style: TextStyle(fontSize: 12, color: qrosMuted),
+        ),
+        const SizedBox(height: 14),
+        FilledButton.icon(
+          key: const Key('open-g12-session'),
+          onPressed: onOpenSession,
+          icon: const Icon(Icons.phonelink_lock_outlined),
+          label: Text(sessionStore.enrolled ? 'Administrar sesión G12' : 'Vincular dispositivo G12'),
+        ),
+      ])),
+      const SizedBox(height: 20),
       const SizedBox(height: 20),
       FilledButton.icon(
         key: const Key('open-draft-backup'),
@@ -607,7 +680,7 @@ class _EvidencePage extends StatelessWidget {
         ),
       ])),
       const SizedBox(height: 18),
-      const Text('QROS Mobile G11 · TEST_ONLY · No utilizar para operar.',
+      const Text('QROS Mobile G12 · TEST_ONLY · No utilizar para operar.',
         style: TextStyle(color: qrosMuted, fontSize: 11, height: 1.5),
       ),
     ],

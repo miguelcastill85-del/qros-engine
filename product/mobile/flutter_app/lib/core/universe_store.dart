@@ -16,13 +16,24 @@ class UniverseSessionStore extends ChangeNotifier {
   UniverseSessionDraft? _latest;
   String? _storageWarning;
   bool _initialized = false;
+  bool _loadBlocked = true;
+  final _queue = LocalMutationQueue();
 
   UniverseSessionDraft? get latest => _latest;
   String? get storageWarning => _storageWarning;
   bool get initialized => _initialized;
   bool get persistentStorageHealthy => _initialized && _storageWarning == null;
 
-  Future<void> initialize() async {
+  Future<void> initialize() => _queue.run(_load);
+
+  Future<void> _ensureLoaded() async {
+    await _load();
+    if (_loadBlocked) {
+      throw const LocalPersistenceException('UNIVERSE_STORE_RECOVERY_REQUIRED');
+    }
+  }
+
+  Future<void> _load() async {
     if (_initialized) return;
     try {
       final raw = await _vault.read(storageKey);
@@ -30,6 +41,7 @@ class UniverseSessionStore extends ChangeNotifier {
         _latest = await _decode(raw);
       }
       _storageWarning = null;
+      _loadBlocked = false;
     } on LocalPersistenceException catch (e) {
       _storageWarning = e.code;
       _latest = null;
@@ -46,7 +58,8 @@ class UniverseSessionStore extends ChangeNotifier {
     required String title,
     required String thesis,
     required UniverseBlueprint blueprint,
-  }) async {
+  }) => _queue.run(() async {
+    await _ensureLoaded();
     final cleanTitle = title.trim();
     final cleanThesis = thesis.trim();
     if (cleanTitle.length < 3 || cleanTitle.length > 72) {
@@ -75,9 +88,10 @@ class UniverseSessionStore extends ChangeNotifier {
     _storageWarning = null;
     notifyListeners();
     return draft;
-  }
+  });
 
-  Future<void> clear() async {
+  Future<void> clear() => _queue.run(() async {
+    await _ensureLoaded();
     try {
       await _vault.delete(storageKey);
     } catch (_) {
@@ -88,7 +102,7 @@ class UniverseSessionStore extends ChangeNotifier {
     _latest = null;
     _storageWarning = null;
     notifyListeners();
-  }
+  });
 
   Map<String, Object?> _record(UniverseSessionDraft draft) => {
         'schema': storageSchema,
