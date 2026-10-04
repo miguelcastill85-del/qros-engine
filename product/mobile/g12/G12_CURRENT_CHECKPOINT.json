@@ -1,0 +1,62 @@
+{
+  "schema": "QROS_G12_DURABLE_CHECKPOINT_V1",
+  "verified_at": "2026-10-04",
+  "classification": "VERIFICADO",
+  "scope": "ENGINEERING_TEST_ONLY",
+  "source_commit": "217cd842cb195fa92e52aa39068b97892752e48e",
+  "source_tree": "9d314edbc6a8b102dc0933b9a18d3b884b71f38f",
+  "branch": "product/mobile-g12-renewable-session-jobs-20261002",
+  "pr": 78,
+  "ci": {
+    "run": 37126514681,
+    "status": "completed",
+    "conclusion": "success",
+    "job": 111212767959,
+    "worker_tests": "PASS",
+    "flutter_regressions": "PASS",
+    "parent_defects_reproduced": 4,
+    "android_build": "PASS"
+  },
+  "artifact": {
+    "id": 11274928396,
+    "expires_at": "2026-10-10T13:37:02Z",
+    "zip_bytes": 71244615,
+    "zip_sha256": "c07a3058988c1945c9d6a12023a4c0d756713958328b366f2a67d21a99e8fd26",
+    "apk_bytes": 146666789,
+    "apk_sha256": "40568dc3f612cb452513b2f933090e4549f2109d7560cfc944fb8f5f84221822",
+    "version": "0.12.1+13",
+    "signing": "DEBUG_NOT_PRODUCTION",
+    "independent_local_rehash": "PASS"
+  },
+  "gates": {
+    "g12_public_deployment": "NOT_RUN",
+    "g12_physical_android": "NOT_RUN",
+    "commercial_ready": false,
+    "production_signing": "PENDING",
+    "external_custody": "NOT_ESTABLISHED",
+    "scientific_authority": false
+  },
+  "preserved": {
+    "mobile_product_head": "v11_UNCHANGED",
+    "g9_physical_evidence": "USER_REPORTED_PRIOR_EVIDENCE_NOT_REPEATED",
+    "main_scientific": "NOT_MODIFIED",
+    "holdout_open": false,
+    "ga2_open": false,
+    "economic_tests": 0,
+    "paid_services_activated": false
+  },
+  "incidents": [
+    {
+      "scope": "local artifact inspection",
+      "cause": "Parser initially expected testDone.result=error; actual Dart failure value is failure",
+      "correction": "Inspected original JSONL: four visible testDone failure records, hidden loader success, done.success=false; product tests unchanged"
+    }
+  ],
+  "execution_state": "BLOCKED_PUBLIC_DEPLOYMENT",
+  "running_jobs": [],
+  "next_action": {
+    "exact": "Recover authorized Cloudflare access at dash.cloudflare.com, resolve the previously observed login verification error through user interaction if still present; confirm Free plan and account, then prepare/review isolated G12 deployment and external HTTPS canary before phone test. Never redeploy or retest G9 by default.",
+    "requires": "Cloudflare authenticated access; no credentials in chat",
+    "fallback": "Keep G12 disabled and TEST_ONLY until authenticated deployment and external validation succeed."
+  }
+}
