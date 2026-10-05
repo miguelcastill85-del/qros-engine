@@ -1,5 +1,6 @@
 """Verify the frozen G12 APK on Android 35; never classify emulator as physical."""
 import argparse,hashlib,importlib.util,json,os,pathlib,re,time,xml.etree.ElementTree as ET
+from startup_state import startup_state
 
 spec=importlib.util.spec_from_file_location('approved_probe_helpers',pathlib.Path(__file__).parents[1]/'g9/emulator_smoke.py')
 helpers=importlib.util.module_from_spec(spec)
@@ -58,7 +59,20 @@ def main():
      except helpers.SmokeDeny:time.sleep(2)
    assert rendered
    pid=cmd('shell','pidof','-s',PACKAGE).decode().strip();assert pid.isdecimal()
-   home=dump('01-home');assert any('QROS' in t for t in texts(home))
+   r['stage']='native_home_readiness';home=None;launcher_dialogs=0
+   for attempt in range(24):
+     candidate=dump('00-readiness-'+str(attempt));state=startup_state(candidate,PACKAGE)
+     if state=='home':home=candidate;break
+     if state=='launcher_anr':
+       launcher_dialogs+=1
+       if launcher_dialogs>2:raise RuntimeError('launcher ANR recovery limit reached')
+       tap(candidate,'Close app')
+       cmd('shell','am','start','-W','-n',PACKAGE+'/.MainActivity')
+     time.sleep(2)
+   r['launcher_anr_dialogs_observed']=launcher_dialogs
+   assert home is not None,'native QROS home not observed within bounded startup wait'
+   home=dump('01-home');assert startup_state(home,PACKAGE)=='home'
+   r['stage']='g12_session_navigation'
    tap(home,'Más módulos y seguridad');menu=dump('02-menu');tap(menu,'Seguridad');security=dump('03-security')
    for attempt in range(10):
      if any('Vincular dispositivo G12' in t for t in texts(security)):break
@@ -69,12 +83,13 @@ def main():
    observed=texts(session)
    for text in ['Identidad del dispositivo','Servidor HTTPS G12','Bootstrap temporal de un solo uso','Vincular dispositivo']:
      assert any(text in t for t in observed),text
+   r['stage']='empty_bootstrap_rejection'
    tap(session,'Vincular dispositivo');rejected=dump('05-empty-bootstrap-rejected')
    assert any('No se pudo crear la sesión' in t for t in texts(rejected))
    assert not any('SESIÓN ACTIVA' in t for t in texts(rejected))
    logs=cmd('logcat','-d','-t','1800','-v','brief').decode(errors='replace')
    for m in re.finditer('FATAL EXCEPTION',logs):assert ('Process: '+PACKAGE) not in logs[m.start():m.start()+650]
-   r.update(status='PASS_REAL_ANDROID35_EMULATOR_TEST_ONLY',process_observed=True,g12_session_navigation='PASS',empty_bootstrap_fail_closed='PASS')
+   r.update(status='PASS_REAL_ANDROID35_EMULATOR_TEST_ONLY',stage='complete',process_observed=True,g12_session_navigation='PASS',empty_bootstrap_fail_closed='PASS')
  except Exception as e:r['failure']=type(e).__name__+': '+str(e)[:200]
  finally:
    r['evidence_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}

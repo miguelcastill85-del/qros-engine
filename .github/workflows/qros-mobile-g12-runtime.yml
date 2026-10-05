@@ -1,5 +1,11 @@
 name: QROS G12 exact APK Android 35 runtime
 on:
+  push:
+    branches: [product/mobile-g12-renewable-session-jobs-20261002]
+    paths:
+      - '.github/workflows/qros-mobile-g12-runtime.yml'
+      - 'product/mobile/g12_deployment/android_smoke.py'
+      - 'product/mobile/g12_deployment/startup_state*.py'
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,9 +25,11 @@ jobs:
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
           name: qros-mobile-g12-test-only
-          run-id: 37126514681
+          run-id: 37259618369
           github-token: ${{ github.token }}
           path: /tmp/qros-g12-runtime/input
+      - name: Verify startup readiness classifier
+        run: python3 product/mobile/g12_deployment/startup_state_test.py
       - name: Enable emulator virtualization and install existing PNG verifier dependency
         run: |
           python3 -m pip install --disable-pip-version-check Pillow==11.3.0
@@ -39,7 +47,7 @@ jobs:
           emulator-boot-timeout: 540
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
-          script: python3 product/mobile/g12_deployment/android_smoke.py --input /tmp/qros-g12-runtime/input --evidence /tmp/qros-g12-runtime/evidence
+          script: python3 product/mobile/g12_deployment/android_smoke.py --input /tmp/qros-g12-runtime/input --evidence /tmp/qros-g12-runtime/evidence --source e2c9b0a4404ebdd3d821abc7d9672f547f43f357 --apk-sha b6250899380e781e0d5b38667d5a6e6f3660cfb458032589c0bc60cbb094ddc4 --apk-bytes 146666937
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
