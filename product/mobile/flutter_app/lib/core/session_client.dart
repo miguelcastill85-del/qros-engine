@@ -254,11 +254,17 @@ abstract interface class SessionGateway {
 class HttpsSessionGateway implements SessionGateway {
   const HttpsSessionGateway();
 
+  // Independently fixed product origin; session credentials never follow a user-supplied server.
+  static const trustedOrigin =
+      'https://qros-mobile-g12-test-only.miguelcastill85.workers.dev';
+
   Uri _origin(String value) {
     final input = Uri.tryParse(value.trim());
     if (input == null ||
         input.scheme != 'https' ||
         input.host.isEmpty ||
+        input.origin != trustedOrigin ||
+        input.hasPort ||
         input.userInfo.isNotEmpty ||
         (input.path.isNotEmpty && input.path != '/') ||
         input.query.isNotEmpty ||

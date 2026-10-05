@@ -3,6 +3,7 @@ package app.qros.g12.accessibility_probe;
 import android.app.Activity;
 import android.app.Instrumentation;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,6 +15,41 @@ public final class NativeProbe extends Instrumentation {
   @Override public void onCreate(Bundle arguments) { super.onCreate(arguments); start(); }
 
   private static String text(CharSequence value) { return value == null ? "" : value.toString(); }
+
+  private AccessibilityNodeInfo field(AccessibilityNodeInfo node, String hint) {
+    if (node == null) return null;
+    if (APP.equals(text(node.getPackageName())) && "android.widget.EditText".equals(text(node.getClassName())) && text(node.getHintText()).contains(hint)) return node;
+    for (int i = 0; i < node.getChildCount(); i++) {
+      AccessibilityNodeInfo found = field(node.getChild(i), hint);
+      if (found != null) return found;
+    }
+    return null;
+  }
+
+  private void verifyEditing(JSONObject record) throws Exception {
+    String label = record.getString("hint").split("\\n")[0];
+    AccessibilityNodeInfo input = field(getUiAutomation().getRootInActiveWindow(), label);
+    if (input == null || !input.performAction(AccessibilityNodeInfo.ACTION_CLICK)) throw new IllegalStateException("field focus rejected");
+    Thread.sleep(600);
+    input = field(getUiAutomation().getRootInActiveWindow(), label);
+    if (input == null) throw new IllegalStateException("focused field absent");
+    record.put("set_text_action_after_focus", (input.getActions() & AccessibilityNodeInfo.ACTION_SET_TEXT) != 0);
+    Bundle text = new Bundle();
+    text.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, "SYNTHETIC_NATIVE_FIELD_PROBE");
+    record.put("synthetic_set_text_accepted", input.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, text));
+    Thread.sleep(300);
+    input = field(getUiAutomation().getRootInActiveWindow(), label);
+    if (input == null) throw new IllegalStateException("edited field absent");
+    record.put("synthetic_value_length", text(input.getText()).length());
+    text.putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, "");
+    record.put("clear_text_accepted", input.performAction(AccessibilityNodeInfo.ACTION_SET_TEXT, text));
+    Thread.sleep(300);
+    input = field(getUiAutomation().getRootInActiveWindow(), label);
+    record.put("empty_after_clear", input != null && text(input.getText()).length() == 0);
+    getUiAutomation().injectInputEvent(new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_BACK), true);
+    getUiAutomation().injectInputEvent(new KeyEvent(KeyEvent.ACTION_UP, KeyEvent.KEYCODE_BACK), true);
+    Thread.sleep(300);
+  }
 
   private void collect(AccessibilityNodeInfo node, JSONArray fields, int depth) throws Exception {
     if (node == null) return;
@@ -49,6 +85,7 @@ public final class NativeProbe extends Instrumentation {
         Thread.sleep(500);
       }
       if (fields == null || fields.length() != 2) throw new IllegalStateException("exact QROS fields not observed");
+      for (int i = 0; i < fields.length(); i++) verifyEditing(fields.getJSONObject(i));
       result.putString("qros_native_fields", fields.toString());
       finish(Activity.RESULT_OK, result);
     } catch (Exception error) {

@@ -118,23 +118,18 @@ class _SessionScreenState extends State<SessionScreen> {
                 style: const TextStyle(color: Color(0xFFF28F94)),
               ),
             if (session == null) ...[
-              Semantics(
-                label: 'Servidor HTTPS G12',
-                child: TextField(
+              TextField(
                 key: const Key('g12-origin'),
                 controller: _origin,
                 autocorrect: false,
                 keyboardType: TextInputType.url,
                 decoration: const InputDecoration(
                   labelText: 'Servidor HTTPS G12',
-                  hintText: 'https://qros-mobile-g12-test-only.example.workers.dev',
-                ),
+                  hintText: HttpsSessionGateway.trustedOrigin,
                 ),
               ),
               const SizedBox(height: 12),
-              Semantics(
-                label: 'Bootstrap temporal de un solo uso',
-                child: TextField(
+              TextField(
                 key: const Key('g12-bootstrap'),
                 controller: _bootstrap,
                 obscureText: true,
@@ -142,7 +137,6 @@ class _SessionScreenState extends State<SessionScreen> {
                 enableSuggestions: false,
                 decoration: const InputDecoration(
                   labelText: 'Bootstrap temporal de un solo uso',
-                ),
                 ),
               ),
               const SizedBox(height: 16),

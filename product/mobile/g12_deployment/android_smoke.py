@@ -98,7 +98,9 @@ def main():
      matched=[f for f in fields if label in (f['hint']+' '+f['content_description'])]
      assert len(matched)==1,label
      field=matched[0]
-     assert field['editable'] and field['set_text_action'] and field['password']==password and field['value_length']==0,label
+     assert field['editable'] and field['password']==password and field['value_length']==0,label
+     assert field['set_text_action_after_focus'] and field['synthetic_set_text_accepted'] and field['synthetic_value_length']==len('SYNTHETIC_NATIVE_FIELD_PROBE'),label
+     assert field['clear_text_accepted'] and field['empty_after_clear'],label
    r['native_input_labels']='PASS_NATIVE_HINT_EDITABILITY_AND_PASSWORD_PROTECTION'
    session=dump('04-session-after-native-probe')
    r['stage']='empty_bootstrap_rejection'
