@@ -1,10 +1,10 @@
 {
-  "schema": "QROS_G12_DURABLE_CHECKPOINT_V1",
-  "verified_at": "2026-10-04",
+  "schema": "QROS_G12_DURABLE_CHECKPOINT_V2",
+  "verified_at": "2026-10-05",
   "classification": "VERIFICADO",
   "scope": "ENGINEERING_TEST_ONLY",
-  "source_commit": "217cd842cb195fa92e52aa39068b97892752e48e",
-  "source_tree": "9d314edbc6a8b102dc0933b9a18d3b884b71f38f",
+  "source_commit": "e2c9b0a4404ebdd3d821abc7d9672f547f43f357",
+  "source_tree": "c8212792f7c9a097616c8c58d4c03522df64b4eb",
   "branch": "product/mobile-g12-renewable-session-jobs-20261002",
   "pr": 78,
   "ci": {
@@ -50,13 +50,73 @@
       "scope": "local artifact inspection",
       "cause": "Parser initially expected testDone.result=error; actual Dart failure value is failure",
       "correction": "Inspected original JSONL: four visible testDone failure records, hidden loader success, done.success=false; product tests unchanged"
+    },
+    {
+      "run": 37259211673,
+      "classification": "VERIFICADO",
+      "installed_apk_sha256": "40568dc3f612cb452513b2f933090e4549f2109d7560cfc944fb8f5f84221822",
+      "adb_install": "SUCCESS",
+      "android_api": 35,
+      "root_cause": "G12 origin and bootstrap controls rendered visibly but native accessibility labels missing (NAF=true); field-label assertion failed.",
+      "evidence_artifact": 11323579237,
+      "evidence_sha256": "5dec7d66c2c4f0b7309683bbace124693df1880e068c4efbd8b43ac6acfdfa89",
+      "correction": "Explicit Semantics labels in SessionScreen; version 0.12.2+14; same native assertions retained.",
+      "correction_status": "PENDING_CI_AND_ANDROID35"
     }
   ],
-  "execution_state": "BLOCKED_PUBLIC_DEPLOYMENT",
-  "running_jobs": [],
+  "execution_state": "BUILD_AND_ANDROID_VERIFICATION_RUNNING",
+  "running_jobs": [
+    {
+      "run": 37259618369,
+      "source_commit": "e2c9b0a4404ebdd3d821abc7d9672f547f43f357",
+      "scope": "G12_0122_BUILD_AND_ANDROID35",
+      "status": "IN_PROGRESS"
+    }
+  ],
   "next_action": {
-    "exact": "Recover authorized Cloudflare access at dash.cloudflare.com, resolve the previously observed login verification error through user interaction if still present; confirm Free plan and account, then prepare/review isolated G12 deployment and external HTTPS canary before phone test. Never redeploy or retest G9 by default.",
-    "requires": "Cloudflare authenticated access; no credentials in chat",
-    "fallback": "Keep G12 disabled and TEST_ONLY until authenticated deployment and external validation succeed."
+    "exact": "Inspect CI 37259618369 without restarting; download its APK and Android35 evidence, verify all hashes/receipt/source and native labels; then record verified checkpoint. Public deploy awaits one current user confirmation that the same Cloudflare account remains on Workers Free. Record that report in cost_gate.json with one-hour validity, push only that gate and inspect deployment/canary run. No new token or broader provider permissions.",
+    "physical": "After external HTTPS succeeds, issue one-use bootstrap through provider secrets and run/report exact new APK on physical Android; preserve G9 evidence. Do not uninstall existing app without exported local drafts."
+  },
+  "previous_verified_application_source": "217cd842cb195fa92e52aa39068b97892752e48e",
+  "provider_access": {
+    "classification": "VERIFICADO",
+    "run": 37258559675,
+    "source_commit": "ad9badbee7234094dd0272a92d8dd50dc2893c37",
+    "artifact_id": 11324021196,
+    "artifact_sha256": "76e25bb2238fe7b86d3ff5aab8bb9afa0e808fe27751061778d324beaaadf75f",
+    "account_workers_api_status": 200,
+    "credentials_valid": true,
+    "browser_error_does_not_block_authorized_api": true,
+    "free_plan_previous_gate": "REPORTADO",
+    "free_plan_current": "NO_DISPONIBLE_API_PERMISSION_403",
+    "permissions_not_expanded": true
+  },
+  "deployment_preparation": {
+    "classification": "VERIFICADO",
+    "run": 37259435859,
+    "source_commit": "031a2ce0b6ffbc74809c63fbc3eeed970130c45d",
+    "status": "PASS_PREPARATION_DEPLOY_SKIPPED",
+    "artifact": {
+      "id": 11323833304,
+      "name": "qros-g12-prepared-deployment",
+      "size_in_bytes": 13649,
+      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/actions/artifacts/11323833304",
+      "archive_download_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/actions/artifacts/11323833304/zip",
+      "expired": false,
+      "created_at": "2026-10-05T03:26:34Z",
+      "expires_at": "2026-10-12T03:26:33Z",
+      "updated_at": "2026-10-05T03:26:34Z",
+      "digest": "sha256:f0fb97c7d5e8735b49f021c7b482d81c3bb881df88f0af7686058660c70bfaad",
+      "workflow_run": {
+        "id": 37259435859,
+        "repository_id": 1350660669,
+        "head_repository_id": 1350660669,
+        "head_branch": "product/mobile-g12-renewable-session-jobs-20261002",
+        "head_sha": "031a2ce0b6ffbc74809c63fbc3eeed970130c45d"
+      }
+    },
+    "canary_protocol": "PASS_LOCAL_ONLY",
+    "public_deployment": "NOT_RUN",
+    "proof_does_not_establish_external_https": true
   }
 }
