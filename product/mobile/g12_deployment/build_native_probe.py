@@ -1,12 +1,20 @@
 """Compile a CI-only native evidence probe with already installed Android SDK tools."""
-import os, pathlib, subprocess, zipfile
+import os, pathlib, re, subprocess, zipfile
+
+
+def platform_jar(sdk):
+    jars = list((pathlib.Path(sdk)/'platforms').glob('android-*/android.jar'))
+    candidates = [(p, re.fullmatch(r'android-(\d+)(?:-ext(\d+))?', p.parent.name)) for p in jars]
+    candidates = [(p, (int(m[1]), int(m[2] or 0))) for p, m in candidates if m]
+    if not candidates:
+        raise RuntimeError('installed stable Android platform jar absent')
+    return max(candidates, key=lambda item: item[1])[0]
 
 
 def build_probe(out):
     out = pathlib.Path(out); out.mkdir(parents=True, exist_ok=False)
     sdk = pathlib.Path(os.environ['ANDROID_HOME'])
-    jars = list((sdk/'platforms').glob('android-*/android.jar'))
-    jar = max(jars, key=lambda p: int(p.parent.name.split('-')[-1]))
+    jar = platform_jar(sdk)
     candidates = [p for p in (sdk/'build-tools').iterdir() if (p/'aapt').is_file() and (p/'d8').is_file()]
     bt = max(candidates, key=lambda p: tuple(int(v) for v in p.name.split('.') if v.isdigit()))
     source = pathlib.Path(__file__).parent/'native_probe'

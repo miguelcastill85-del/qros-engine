@@ -6,7 +6,7 @@ on:
       - '.github/workflows/qros-mobile-g12-runtime.yml'
       - 'product/mobile/g12_deployment/android_smoke.py'
       - 'product/mobile/g12_deployment/startup_state*.py'
-      - 'product/mobile/g12_deployment/build_native_probe.py'
+      - 'product/mobile/g12_deployment/build_native_probe*.py'
       - 'product/mobile/g12_deployment/native_probe/**'
   workflow_dispatch:
 permissions:
@@ -31,7 +31,9 @@ jobs:
           github-token: ${{ github.token }}
           path: /tmp/qros-g12-runtime/input
       - name: Verify startup readiness classifier
-        run: python3 product/mobile/g12_deployment/startup_state_test.py
+        run: |
+          python3 product/mobile/g12_deployment/startup_state_test.py
+          python3 product/mobile/g12_deployment/build_native_probe_test.py
       - name: Enable emulator virtualization and install existing PNG verifier dependency
         run: |
           python3 -m pip install --disable-pip-version-check Pillow==11.3.0
