@@ -1,0 +1,134 @@
+name: QROS G12 synthetic hash transparency explicit gate
+on:
+  push:
+    branches: [product/mobile-g12-renewable-session-jobs-20261002]
+    paths: ['.github/workflows/qros-mobile-g12-sigstore.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qros-g12-public-transparency
+  cancel-in-progress: false
+jobs:
+  witness:
+    if: github.ref == 'refs/heads/product/mobile-g12-renewable-session-jobs-20261002' && github.event.repository.private == false
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      QROS_IDENTITY: https://github.com/miguelcastill85-del/qros-engine/.github/workflows/qros-mobile-g12-sigstore.yml@refs/heads/product/mobile-g12-renewable-session-jobs-20261002
+      QROS_ISSUER: https://token.actions.githubusercontent.com
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - name: Enforce exact authorized synthetic subject before public write
+        run: |
+          mkdir -p /tmp/g12-witness
+          python3 - <<'PY'
+          import hashlib,json,pathlib,os
+          a=json.loads(pathlib.Path('product/mobile/g12/receipts/G12_SIGSTORE_HASH_AUTHORITY_20261005.json').read_bytes())
+          assert a['authorized'] is True and a['paid_services_authorized'] is False
+          assert a['repository_visibility_verified']=='public'
+          assert a['subject_path']=='product/mobile/g12/receipts/G12_APK_0123_ENGINEERING_RAW_20261005.json'
+          raw=pathlib.Path(a['subject_path']).read_bytes()
+          h=hashlib.sha256(raw).hexdigest()
+          assert h==a['subject_sha256']=='bbda292bbcc68fdd8226ef3fb1537d2dd47caba81f7bb6fd52494e6083bd7457'
+          r=json.loads(raw)
+          assert r['scientific_gate_pass'] is False and a['release_signed'] is False
+          assert r['source_commit']==a['subject_source_commit']=='e7c365f7c951e74073e11a21fe876164c6ce2237'
+          assert r['economic_tests']==0 and r['holdout_open'] is False and r['ga2_open'] is False
+          assert r['public_g12_deployment']=='NOT_RUN' and r['physical_android']=='NOT_RUN'
+          assert r['apk_sha256']=='8bf45b7a13d519866d91dcfe72592a5e5cd5933a63a9025a96207f94895be456'
+          pathlib.Path('/tmp/g12-witness/synthetic-receipt.sha256').write_text(h+'\n')
+          pathlib.Path('/tmp/g12-witness/SUBJECT.json').write_text(json.dumps({'schema':'QROS_G12_SIGSTORE_SUBJECT_V1','subject_path':a['subject_path'],'subject_sha256':h,'subject_source_commit':a['subject_source_commit'],'signing_source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'scope':'SYNTHETIC_ENGINEERING_ONLY','independent_backend_custody':False},indent=2)+'\n')
+          PY
+      - uses: sigstore/cosign-installer@6f9f17788090df1f26f669e9d70d6ae9567deba6
+        with: {cosign-release: 'v3.1.3'}
+      - name: Sign only the hash using public GitHub OIDC and Rekor
+        run: cosign sign-blob --yes --oidc-provider github-actions --bundle /tmp/g12-witness/bundle.sigstore.json /tmp/g12-witness/synthetic-receipt.sha256
+      - name: Verify identity, issuer and inclusion with Cosign
+        run: |
+          cosign verify-blob /tmp/g12-witness/synthetic-receipt.sha256 --bundle /tmp/g12-witness/bundle.sigstore.json --certificate-identity "$QROS_IDENTITY" --certificate-oidc-issuer "$QROS_ISSUER" --certificate-github-workflow-sha "$GITHUB_SHA"
+          printf '%s\n' 'COSIGN_STRICT_VERIFICATION_PASS' > /tmp/g12-witness/COSIGN_VERIFIED.txt
+      - name: Preserve public bundle even if later verification fails
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g12-sigstore-bundle
+          path: /tmp/g12-witness/
+          retention-days: 7
+          if-no-files-found: error
+  independent-verification:
+    needs: witness
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    env:
+      QROS_IDENTITY: https://github.com/miguelcastill85-del/qros-engine/.github/workflows/qros-mobile-g12-sigstore.yml@refs/heads/product/mobile-g12-renewable-session-jobs-20261002
+      QROS_ISSUER: https://token.actions.githubusercontent.com
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with: {name: qros-g12-sigstore-bundle, path: /tmp/g12-witness}
+      - name: Install independent Python verifier
+        run: |
+          python3 -m venv /tmp/g12-sigstore-venv
+          /tmp/g12-sigstore-venv/bin/pip install --disable-pip-version-check sigstore==4.5.0
+      - name: Independently verify downloaded bundle and reject tamper and wrong identity
+        run: |
+          /tmp/g12-sigstore-venv/bin/python - <<'PY'
+          import pathlib,subprocess,os,json,hashlib,sys,base64,urllib.request
+          d=pathlib.Path('/tmp/g12-witness');b=d/'bundle.sigstore.json';f=d/'synthetic-receipt.sha256'
+          expected=b'bbda292bbcc68fdd8226ef3fb1537d2dd47caba81f7bb6fd52494e6083bd7457\n'
+          assert f.read_bytes()==expected
+          def verify(path,identity):
+              cmd=[sys.executable,'-m','sigstore','verify','identity','--bundle',str(b),'--cert-identity',identity,'--cert-oidc-issuer',os.environ['QROS_ISSUER'],str(path)]
+              p=subprocess.run(cmd,capture_output=True,text=True)
+              print(p.stdout);print(p.stderr)
+              return p.returncode
+          assert verify(f,os.environ['QROS_IDENTITY'])==0
+          t=d/'tampered.sha256';t.write_bytes(b'0'*64+b'\n')
+          assert verify(t,os.environ['QROS_IDENTITY'])!=0
+          assert verify(f,'https://github.com/invalid/invalid/.github/workflows/invalid.yml@refs/heads/main')!=0
+          t.unlink()
+          github_cmd=[sys.executable,'-m','sigstore','verify','github','--bundle',str(b),'--cert-identity',os.environ['QROS_IDENTITY'],'--repository','miguelcastill85-del/qros-engine','--ref','refs/heads/product/mobile-g12-renewable-session-jobs-20261002','--sha',os.environ['GITHUB_SHA'],str(f)]
+          verified_sha=subprocess.run(github_cmd,capture_output=True,text=True)
+          print(verified_sha.stdout);print(verified_sha.stderr)
+          assert verified_sha.returncode==0
+          wrong_sha=github_cmd.copy();wrong_sha[wrong_sha.index('--sha')+1]='0'*40
+          assert subprocess.run(wrong_sha,capture_output=True,text=True).returncode!=0
+          bundle=json.loads(b.read_bytes());entries=bundle['verificationMaterial']['tlogEntries']
+          assert entries and all(e.get('inclusionProof') for e in entries)
+          # A provider read is separate from signing; never republish after a read failure.
+          external=[]
+          for e in entries:
+              if e.get('kindVersion') != {'kind':'hashedrekord','version':'0.0.1'}:
+                  external.append({'status':'NO_DISPONIBLE_REGISTRY_GET_FOR_KIND','kind_version':e.get('kindVersion'),'offline_inclusion_verified':True})
+                  continue
+              index=str(e['logIndex'])
+              assert index.isdecimal()
+              url='https://rekor.sigstore.dev/api/v1/log/entries?logIndex='+index
+              with urllib.request.urlopen(url,timeout=25) as response:
+                  assert response.status==200
+                  raw=response.read(1024*1024+1)
+                  assert len(raw)<=1024*1024
+              remote=json.loads(raw);assert len(remote)==1
+              uuid,item=next(iter(remote.items()))
+              assert str(item['logIndex'])==index
+              assert base64.b64decode(item['body'])==base64.b64decode(e['canonicalizedBody'])
+              body=json.loads(base64.b64decode(item['body']))
+              assert body['spec']['data']['hash']['algorithm']=='sha256'
+              assert body['spec']['data']['hash']['value']==hashlib.sha256(f.read_bytes()).hexdigest()
+              (d/('REKOR_ENTRY_'+index+'.json')).write_bytes(raw)
+              external.append({'status':'PASS_EXTERNAL_HTTPS_EXACT_BODY','url':url,'uuid':uuid,'log_index':index,'response_sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw)})
+          r={'schema':'QROS_G12_SIGSTORE_INDEPENDENT_VERIFICATION_V1','status':'PASS','run_id':os.environ['GITHUB_RUN_ID'],'signing_source_commit':os.environ['GITHUB_SHA'],'cosign':'3.1.3 PASS','sigstore_python':'4.5.0 PASS','identity':os.environ['QROS_IDENTITY'],'issuer':os.environ['QROS_ISSUER'],'tamper_rejected':True,'wrong_identity_rejected':True,'wrong_source_commit_rejected':True,'certificate_source_commit_verified':True,'external_registry_reads':external,'bundle_sha256':hashlib.sha256(b.read_bytes()).hexdigest(),'subject_file_sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'transparency_entries':[{'log_index':e['logIndex'],'log_id':e['logId'],'kind_version':e.get('kindVersion'),'inclusion_proof_present':True} for e in entries],'independent_backend_custody':False,'physical_android':'NOT_RUN','scientific_gate_pass':False}
+          (d/'INDEPENDENT_VERIFICATION.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r,indent=2))
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g12-sigstore-independently-verified
+          path: /tmp/g12-witness/
+          retention-days: 7
+          if-no-files-found: error
