@@ -1,0 +1,15 @@
+# G12: transparencia pública del hash sintético
+
+Estado al preparar esta operación: compatibilidad documental y G9 previamente verificada; resultado G12 aún PENDIENTE en CI37313164714. No se certifica custodia externa del backend.
+
+La autoridad es TAREA4 del usuario: publicar únicamente hashes o recibos sintéticos por identidad verificable GitHub Actions, si compatible y gratuito. El repositorio es público. Se utiliza la instancia pública de Sigstore, sin contratación, credenciales de Cloudflare ni secretos del APK. La identidad pública del workflow se incluye en el certificado; no se publica información del broker ni credenciales personales.
+
+El objeto firmado es exactamente 64 caracteres ASCII hex SHA256 del recibo inmutable `product/mobile/g12/receipts/G12_APK_0123_ENGINEERING_RAW_20261005.json`, seguidos de LF. Hash del recibo: `bbda292bbcc68fdd8226ef3fb1537d2dd47caba81f7bb6fd52494e6083bd7457`. El recibo liga la APK0.12.3, SHA256 `8bf45b7a13d519866d91dcfe72592a5e5cd5933a63a9025a96207f94895be456`, a fuente e7c365f7c951e74073e11a21fe876164c6ce2237. No se firma el checkpoint mutable. El hash del objeto firmado es el hash de esa línea, no el hash de la APK.
+
+Se reutilizan Cosign3.1.3 y sigstore-python4.5.0 fijados, verificados en G9. La implementación vigente se contrastó el 2026-10-05 con fuentes primarias: [sign-blob v3.1.3](https://github.com/sigstore/cosign/blob/v3.1.3/doc/cosign_sign-blob.md), [verify-blob v3.1.3](https://github.com/sigstore/cosign/blob/v3.1.3/doc/cosign_verify-blob.md), [sigstore-python4.5.0](https://github.com/sigstore/sigstore-python/blob/v4.5.0/README.md), [instancia pública](https://github.com/sigstore/docs/blob/main/content/en/cosign/system_config/public_deployment.md) y [modelo de seguridad](https://docs.sigstore.dev/about/security/).
+
+Sólo el job de firma tiene id-token:write; contents:read, checkout sin credenciales persistentes. Cosign recibe OIDC de GitHub Actions exclusivamente, con clave efímera. Verifica issuer exacto, identidad de workflow/rama y SHA del commit. Un segundo job descarga el bundle y usa el verificador independiente Python con raíces Sigstore/TUF; exige firma, certificado, inclusión, identidad y commit y rechaza modificación del objeto, identidad falsa y commit incorrecto. No se usan bypass de certificado, SCT ni log.
+
+Después de firmar, para hashedrekord0.0.1 se lee la entrada real por HTTPS al índice declarado y se compara el cuerpo canónico completo y su hash del objeto firmado. Un fallo de esa lectura no autoriza otra publicación: debe preservarse el bundle y continuarse sólo la verificación. Si una versión futura del log no admite ese GET, se registra NO_DISPONIBLE; una prueba criptográfica incluida en el bundle no se presenta como una consulta externa realizada.
+
+Límites: transparencia de procedencia e inclusión del hash de un recibo TEST_ONLY. No firma Android de producción, validación física de esta APK, licencia de datos reales, OIDC de clientes finales, ni custodia independiente/dinámica del backend. Dos herramientas de verificación independientes no equivalen a dos custodios independientes.
