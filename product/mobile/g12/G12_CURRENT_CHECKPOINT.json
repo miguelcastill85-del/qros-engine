@@ -1,37 +1,39 @@
 {
-  "schema": "QROS_G12_DURABLE_CHECKPOINT_V3",
-  "verified_at": "2026-10-05T12:32:36.529Z",
+  "schema": "QROS_G12_DURABLE_ENGINEERING_CHECKPOINT_V4",
+  "verified_at": "2026-10-05T12:53:40.219Z",
   "classification": "VERIFICADO",
   "scope": "ENGINEERING_TEST_ONLY",
-  "source_commit": "e2c9b0a4404ebdd3d821abc7d9672f547f43f357",
-  "source_tree": "c8212792f7c9a097616c8c58d4c03522df64b4eb",
+  "source_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237",
+  "source_tree": "45bc77067612a785dfdd8864a3927a9ae4f1a808",
   "branch": "product/mobile-g12-renewable-session-jobs-20261002",
   "pr": 78,
   "ci": {
-    "run": 37259618369,
+    "run": 37310065707,
     "status": "completed",
-    "conclusion": "failure",
-    "build_job": 111603900084,
+    "conclusion": "success",
+    "source_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237",
+    "build_job": 111762999189,
     "build_conclusion": "success",
     "worker_tests": "7_OF_7_PASS",
-    "flutter_regressions": "57_OF_57_PASS",
-    "parent_defects": "REUSED_VERIFIED_BASELINE_217cd842",
+    "flutter_regressions": "59_OF_59_PASS",
+    "flutter_analyze": "ZERO_ISSUES",
+    "parent_defects": "FOUR_FROZEN_DEFECTS_REPRODUCED",
     "android_build": "PASS",
-    "emulator_conclusion": "failure",
+    "emulator_job": 111765201909,
+    "emulator_conclusion": "success",
     "g9_worker_parity_regression": "1_OF_1_PASS"
   },
   "artifact": {
-    "id": 11323449351,
-    "zip_bytes": 71248486,
-    "zip_sha256": "7a5d1bd630c8f654f4bb2ef2b4a4eebe84a54684677a8857090d900aa33eb0be",
-    "apk_bytes": 146666937,
-    "apk_sha256": "b6250899380e781e0d5b38667d5a6e6f3660cfb458032589c0bc60cbb094ddc4",
-    "version": "0.12.2+14",
-    "expires_at": "2026-10-12T03:34:42Z",
+    "id": 11346135588,
+    "zip_bytes": 71250928,
+    "zip_sha256": "229a7e610e69b24d1d4118a8d74f3ce76b95eae9efd794f1880b597dbdb07027",
+    "apk_bytes": 146668121,
+    "apk_sha256": "8bf45b7a13d519866d91dcfe72592a5e5cd5933a63a9025a96207f94895be456",
+    "version": "0.12.3+15",
     "signing": "DEBUG_NOT_PRODUCTION",
     "independent_local_rehash": "PASS",
-    "library_file_id": "libfile_93942f5a981881918c57b0338d025e53",
-    "retained_as": "HISTORICAL_0122_NEW_0123_BUILD_PENDING"
+    "library_file_id": "libfile_1bc9b10fac848191a659b9f4918808bb",
+    "release_signed": false
   },
   "gates": {
     "g12_public_deployment": "NOT_RUN",
@@ -39,7 +41,10 @@
     "commercial_ready": false,
     "production_signing": "PENDING",
     "external_custody": "NOT_ESTABLISHED",
-    "scientific_authority": false
+    "scientific_authority": false,
+    "android35": "PASS_REAL_EMULATOR_TEST_ONLY",
+    "pinned_origin_no_transport_regression": "PASS",
+    "g12_apk_hash_transparency": "NOT_RUN"
   },
   "preserved": {
     "mobile_product_head": "v11_UNCHANGED",
@@ -66,9 +71,10 @@
       "evidence_artifact": 11323579237,
       "evidence_sha256": "5dec7d66c2c4f0b7309683bbace124693df1880e068c4efbd8b43ac6acfdfa89",
       "correction": "Explicit Semantics labels in SessionScreen; version 0.12.2+14; same native assertions retained.",
-      "correction_status": "PENDING_NATIVE_HINT_PROBE",
+      "correction_status": "PRIOR_INFERENCE_RETRACTED",
       "root_cause_classification": "INFERIDO_NOT_ESTABLISHED",
-      "reconciliation": "XML serialization omits hintText. Absence in text/content-desc alone does not establish inaccessible native labels; verify native hint, editability, SET_TEXT and password protection without changing APK."
+      "reconciliation": "XML serialization omits hintText. Absence in text/content-desc alone does not establish inaccessible native labels; verify native hint, editability, SET_TEXT and password protection without changing APK.",
+      "final_reconciliation": "Native evidence 37309209792 showed labels already in hintText. Extra Semantics caused duplication; removed in 0.12.3. Unique native hints and focused set/clear verified in 37310065707."
     },
     {
       "run": 37259618369,
@@ -117,21 +123,15 @@
       "classification": "VERIFICADO_CODE_INSPECTION",
       "finding": "HttpsSessionGateway accepted any user-supplied HTTPS origin; could send synthetic credentials to another server.",
       "correction": "Pin independent product origin and reject other hosts, ports, paths, userinfo, queries and fragments before creating transport.",
-      "regression_status": "PENDING_CI",
+      "regression_status": "PASS_TWO_NEW_TESTS_IN_59_OF_59_SUITE_37310065707",
       "correction_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237"
     }
   ],
-  "execution_state": "PINNED_ORIGIN_BUILD_AND_ANDROID35_RUNNING",
-  "running_jobs": [
-    {
-      "run": 37310065707,
-      "source_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237",
-      "status": "in_progress",
-      "scope": "G12_0123_ORIGIN_TRUST_BUILD_AND_ANDROID35"
-    }
-  ],
+  "execution_state": "APK_0123_AND_ANDROID35_VERIFIED_HASH_TRANSPARENCY_PENDING",
+  "running_jobs": [],
   "next_action": {
-    "exact": "Inspect CI37310065707 without restarting. Validate two new no-transport false-origin regressions, build 0.12.3, native focused editing/clear/password/hints and exact installed APK SHA. Download artifacts and rehash; save final APK; persist checkpoint and PR78. Deployment still requires current Workers Free fact confirmation or independent provider plan read; no new token or wider scopes.",
+    "exact": "Publish only immutable 0.12.3 synthetic engineering receipt hash via GitHub Actions OIDC/Cosign; independently verify bundle using sigstore-python and reject tamper and wrong identity; preserve artifacts/checkpoint. Do not restart completed APK or emulator CI.",
+    "deployment": "Current Workers Free fact confirmation for the same Cloudflare account is required because minimal token cannot read plan and browser verification is blocked. Then update only cost_gate.json with REPORTADO confirmation valid one hour; run deployment guard and verify real outside-build HTTPS using Node and Python before claiming deployment.",
     "physical": "After external HTTPS succeeds, issue one-use bootstrap through provider secrets and run/report exact new APK on physical Android; preserve G9 evidence. Do not uninstall existing app without exported local drafts."
   },
   "previous_verified_application_source": "217cd842cb195fa92e52aa39068b97892752e48e",
@@ -150,33 +150,18 @@
   },
   "deployment_preparation": {
     "classification": "VERIFICADO",
-    "run": 37259435859,
-    "source_commit": "031a2ce0b6ffbc74809c63fbc3eeed970130c45d",
+    "run": 37310731342,
+    "source_commit": "a834bc71d3d3659ba9d50739a9ccacce16e8b366",
     "status": "PASS_PREPARATION_DEPLOY_SKIPPED",
-    "artifact": {
-      "id": 11323833304,
-      "name": "qros-g12-prepared-deployment",
-      "size_in_bytes": 13649,
-      "url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/actions/artifacts/11323833304",
-      "archive_download_url": "https://api.github.com/repos/miguelcastill85-del/qros-engine/actions/artifacts/11323833304/zip",
-      "expired": false,
-      "created_at": "2026-10-05T03:26:34Z",
-      "expires_at": "2026-10-12T03:26:33Z",
-      "updated_at": "2026-10-05T03:26:34Z",
-      "digest": "sha256:f0fb97c7d5e8735b49f021c7b482d81c3bb881df88f0af7686058660c70bfaad",
-      "workflow_run": {
-        "id": 37259435859,
-        "repository_id": 1350660669,
-        "head_repository_id": 1350660669,
-        "head_branch": "product/mobile-g12-renewable-session-jobs-20261002",
-        "head_sha": "031a2ce0b6ffbc74809c63fbc3eeed970130c45d"
-      }
-    },
-    "canary_protocol": "PASS_LOCAL_ONLY",
+    "artifact_id": 11345239093,
+    "artifact_bytes": 13652,
+    "artifact_sha256": "dc51574a4036760e3497e241ce766fe43fd70c8ab3ffbd18b0e1d9c0912dbfee",
+    "canary_protocol": "75_CHECKS_PASS_LOCAL_ONLY",
+    "provider_to_pinned_android_origin_binding": "PASS",
     "public_deployment": "NOT_RUN",
     "proof_does_not_establish_external_https": true
   },
-  "previous_checkpoint_commit": "59c5532e198bd41904486f2ced94208dd76c066d",
+  "previous_checkpoint_commit": "bbc5576384cfe3dd7d861c38ec4663f95645c868",
   "previous_verified_build": {
     "id": 11274928396,
     "expires_at": "2026-10-10T13:37:02Z",
@@ -196,6 +181,42 @@
     "credential_entry": "NONE",
     "plan_changes": "NONE"
   },
-  "pending_application_source": "e7c365f7c951e74073e11a21fe876164c6ce2237",
-  "pending_version": "0.12.3+15"
+  "product_branch_parent": "a834bc71d3d3659ba9d50739a9ccacce16e8b366",
+  "historical_0122_build": {
+    "id": 11323449351,
+    "zip_bytes": 71248486,
+    "zip_sha256": "7a5d1bd630c8f654f4bb2ef2b4a4eebe84a54684677a8857090d900aa33eb0be",
+    "apk_bytes": 146666937,
+    "apk_sha256": "b6250899380e781e0d5b38667d5a6e6f3660cfb458032589c0bc60cbb094ddc4",
+    "version": "0.12.2+14",
+    "expires_at": "2026-10-12T03:34:42Z",
+    "signing": "DEBUG_NOT_PRODUCTION",
+    "independent_local_rehash": "PASS",
+    "library_file_id": "libfile_93942f5a981881918c57b0338d025e53",
+    "retained_as": "HISTORICAL_0122_NEW_0123_BUILD_PENDING"
+  },
+  "android35": {
+    "classification": "VERIFICADO",
+    "receipt_path": "product/mobile/g12/receipts/G12_ANDROID35_0123_VERIFIED_20261005.json",
+    "artifact_id": 11345149798,
+    "artifact_bytes": 1646222,
+    "artifact_sha256": "6a43c043500cc542b9a90115e9a0b12344a7ff8fc5080b6e4f3e4bce313be85e",
+    "library_file_id": "libfile_3a181a3082fc8191849594fbe482c413",
+    "installed_apk_sha256": "8bf45b7a13d519866d91dcfe72592a5e5cd5933a63a9025a96207f94895be456",
+    "native_fields_sha256": "02746e3d9848a18fd546fd378abf949b67953767faee3180d07dcbc935609ea5",
+    "native_hints_unique": true,
+    "bootstrap_password_protected": true,
+    "both_synthetic_set_and_clear_verified": true,
+    "empty_bootstrap_fail_closed": "PASS",
+    "physical_android": "NOT_RUN",
+    "public_g12_pairing": "NOT_RUN"
+  },
+  "scientific_main_read_sha": "4ee8a528b5af6109f6cc6fa7a4dea4fee639c828",
+  "scientific_pointer_version": "V259",
+  "local_baseline_import": {
+    "classification": "VERIFICADO",
+    "status": "FAIL_PARTIAL_CHECKOUT_MISSING_HANDOFF_MANIFEST",
+    "scope": "LOCAL_IMPORT_ONLY_NOT_SCIENTIFIC_PASS",
+    "remote_manifest_and_anchor": "PREVIOUSLY_READ_PRESENT"
+  }
 }
