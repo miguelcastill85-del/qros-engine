@@ -3,6 +3,7 @@ import {spawnSync} from 'node:child_process';
 import {readFile, writeFile, mkdir, rm} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import {validCostGate} from './check_cost_gate.mjs';
+import {bindProviderOrigin} from './origin_binding.mjs';
 
 const output='/tmp/qros-g12-public';
 await mkdir(output,{recursive:true});
@@ -38,6 +39,7 @@ try {
   const response=await api.json();
   if(!api.ok||response.success!==true||!/^[a-z0-9][a-z0-9-]{0,62}$/.test(response.result?.subdomain||'')) throw Error('PROVIDER_ACCESS_DENIED');
   const origin=`https://${cfg.name}.${response.result.subdomain}.workers.dev`;
+  bindProviderOrigin(origin,await readFile('product/mobile/flutter_app/lib/core/session_client.dart','utf8'));
   report.public_origin=origin;report.free_plan='REPORTADO_CURRENT_USER_GATE';
   // Deploy a disabled isolated Worker before any enrollment grant exists.
   report.deployment='INITIAL_WRITE_ATTEMPTED_AWAITING_PROVIDER_RESULT';
