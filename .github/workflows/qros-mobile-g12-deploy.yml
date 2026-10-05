@@ -9,6 +9,7 @@ on:
       - 'product/mobile/g12_deployment/verify_external.py'
       - 'product/mobile/g12_deployment/cost_gate.json'
       - 'product/mobile/g12_deployment/check_cost_gate.mjs'
+      - 'product/mobile/g12_deployment/cost_gate.test.mjs'
   workflow_dispatch:
 permissions:
   contents: read
@@ -39,7 +40,7 @@ jobs:
       - run: npm ci --ignore-scripts --prefix product/mobile/g12
       - name: Verify only the new deployment canary and configuration
         run: |
-          node --test product/mobile/g12_deployment/external_canary.test.mjs
+          node --test product/mobile/g12_deployment/cost_gate.test.mjs product/mobile/g12_deployment/external_canary.test.mjs
           ./product/mobile/g12/node_modules/.bin/wrangler deploy --dry-run --config product/mobile/g12/wrangler.jsonc --outdir /tmp/qros-g12-prepared-worker
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:

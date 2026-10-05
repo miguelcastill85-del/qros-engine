@@ -2,6 +2,7 @@ import {randomBytes, createHash} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {readFile, writeFile, mkdir, rm} from 'node:fs/promises';
 import {resolve} from 'node:path';
+import {validCostGate} from './check_cost_gate.mjs';
 
 const output='/tmp/qros-g12-public';
 await mkdir(output,{recursive:true});
@@ -30,6 +31,7 @@ async function deploy(enabled,origin) {
 async function registry(value) {run([wrangler,'secret','bulk','--config',config],JSON.stringify({BOOTSTRAP_GRANTS_JSON:JSON.stringify(value)}));}
 try {
   if(process.env.QROS_G12_FREE_PLAN_VERIFIED!=='true') throw Error('CURRENT_FREE_PLAN_CONFIRMATION_REQUIRED');
+  if(!validCostGate(JSON.parse(await readFile('product/mobile/g12_deployment/cost_gate.json','utf8')))) throw Error('COST_CONFIRMATION_EXPIRED_OR_INVALID');
   if(!process.env.CLOUDFLARE_API_TOKEN||!/^[0-9a-f]{32}$/.test(process.env.CLOUDFLARE_ACCOUNT_ID||'')) throw Error('MISSING_PROVIDER_CONFIGURATION');
   const api=await fetch(`https://api.cloudflare.com/client/v4/accounts/${process.env.CLOUDFLARE_ACCOUNT_ID}/workers/subdomain`,{
     headers:{Authorization:'Bearer '+process.env.CLOUDFLARE_API_TOKEN},redirect:'error',signal:AbortSignal.timeout(15000)});
