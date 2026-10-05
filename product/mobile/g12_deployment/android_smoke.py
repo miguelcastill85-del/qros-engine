@@ -1,6 +1,7 @@
 """Verify the frozen G12 APK on Android 35; never classify emulator as physical."""
-import argparse,hashlib,importlib.util,json,os,pathlib,re,time,xml.etree.ElementTree as ET
+import argparse,hashlib,importlib.util,json,os,pathlib,re,shutil,time,xml.etree.ElementTree as ET
 from startup_state import startup_state
+from build_native_probe import build_probe
 
 spec=importlib.util.spec_from_file_location('approved_probe_helpers',pathlib.Path(__file__).parents[1]/'g9/emulator_smoke.py')
 helpers=importlib.util.module_from_spec(spec)
@@ -81,8 +82,25 @@ def main():
      security=dump('03-security-scroll-'+str(attempt))
    tap(security,'Vincular dispositivo G12');session=dump('04-session')
    observed=texts(session)
-   for text in ['Identidad del dispositivo','Servidor HTTPS G12','Bootstrap temporal de un solo uso','Vincular dispositivo']:
+   for text in ['Identidad del dispositivo','Vincular dispositivo']:
      assert any(text in t for t in observed),text
+   r['stage']='native_input_label_verification'
+   native_apk=build_probe(out.parent/'native-probe-build')
+   r['native_probe_apk_sha256']=hashlib.file_digest(native_apk.open('rb'),'sha256').hexdigest()
+   shutil.copyfile(native_apk,out/'native-evidence-probe-TEST_ONLY.apk')
+   assert b'Success' in cmd('install','-r','-t',str(native_apk),timeout=90)
+   native_output=cmd('shell','am','instrument','-w','app.qros.g12.accessibility_probe/.NativeProbe',timeout=90).decode()
+   line=next((s.removeprefix('INSTRUMENTATION_RESULT: qros_native_fields=') for s in native_output.splitlines() if s.startswith('INSTRUMENTATION_RESULT: qros_native_fields=')),None)
+   assert line is not None,'native field probe did not return evidence'
+   fields=json.loads(line);assert len(fields)==2
+   (out/'04-native-fields.json').write_text(json.dumps(fields,indent=2,sort_keys=True)+'\n')
+   for label,password in [('Servidor HTTPS G12',False),('Bootstrap temporal de un solo uso',True)]:
+     matched=[f for f in fields if label in (f['hint']+' '+f['content_description'])]
+     assert len(matched)==1,label
+     field=matched[0]
+     assert field['editable'] and field['set_text_action'] and field['password']==password and field['value_length']==0,label
+   r['native_input_labels']='PASS_NATIVE_HINT_EDITABILITY_AND_PASSWORD_PROTECTION'
+   session=dump('04-session-after-native-probe')
    r['stage']='empty_bootstrap_rejection'
    tap(session,'Vincular dispositivo');rejected=dump('05-empty-bootstrap-rejected')
    assert any('No se pudo crear la sesión' in t for t in texts(rejected))

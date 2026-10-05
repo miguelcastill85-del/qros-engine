@@ -1,0 +1,5 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="app.qros.g12.accessibility_probe">
+  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="35" />
+  <application android:label="QROS native evidence probe" android:debuggable="true" android:hasCode="true" />
+  <instrumentation android:name=".NativeProbe" android:targetPackage="app.qros.g12.accessibility_probe" android:functionalTest="true" />
+</manifest>

@@ -6,6 +6,8 @@ on:
       - '.github/workflows/qros-mobile-g12-runtime.yml'
       - 'product/mobile/g12_deployment/android_smoke.py'
       - 'product/mobile/g12_deployment/startup_state*.py'
+      - 'product/mobile/g12_deployment/build_native_probe.py'
+      - 'product/mobile/g12_deployment/native_probe/**'
   workflow_dispatch:
 permissions:
   contents: read
