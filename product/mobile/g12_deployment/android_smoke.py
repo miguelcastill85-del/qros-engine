@@ -11,10 +11,10 @@ SOURCE='217cd842cb195fa92e52aa39068b97892752e48e'
 PACKAGE='app.qros.qros_mobile_studio'
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--input',type=pathlib.Path,required=True);p.add_argument('--evidence',type=pathlib.Path,required=True);a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--input',type=pathlib.Path,required=True);p.add_argument('--evidence',type=pathlib.Path,required=True);p.add_argument('--source',default=SOURCE);p.add_argument('--apk-sha',default=APK_SHA);p.add_argument('--apk-bytes',type=int,default=APK_BYTES);a=p.parse_args()
  out=a.evidence;out.mkdir(parents=True,exist_ok=True)
  if any(out.iterdir()): raise RuntimeError('evidence directory must be empty')
- r={'schema':'QROS_G12_ANDROID35_RUNTIME_V1','status':'FAIL','apk_source_commit':SOURCE,'harness_source_commit':os.environ.get('GITHUB_SHA'),'ci_run':os.environ.get('GITHUB_RUN_ID'),'physical_android':'NOT_RUN','public_g12_pairing':'NOT_RUN','scientific_authority':False}
+ r={'schema':'QROS_G12_ANDROID35_RUNTIME_V1','status':'FAIL','apk_source_commit':a.source,'harness_source_commit':os.environ.get('GITHUB_SHA'),'ci_run':os.environ.get('GITHUB_RUN_ID'),'physical_android':'NOT_RUN','public_g12_pairing':'NOT_RUN','scientific_authority':False}
  probe=helpers.EmulatorProbe();serial='emulator-5554'
  cmd=lambda *args,**kwargs:probe.cmd(serial,*args,**kwargs)
  def dump(name):
@@ -42,12 +42,13 @@ def main():
  try:
    build=json.loads((a.input/'QROS_G12_ENGINEERING_RECEIPT.json').read_text())
    apk=a.input/'QROS_MOBILE_G12_TEST_ONLY.apk'
-   assert build['source_commit']==SOURCE and build['apk_sha256']==APK_SHA and build['apk_bytes']==APK_BYTES
-   assert apk.stat().st_size==APK_BYTES and hashlib.file_digest(apk.open('rb'),'sha256').hexdigest()==APK_SHA
+   assert re.fullmatch('[0-9a-f]{40}',a.source) and re.fullmatch('[0-9a-f]{64}',a.apk_sha) and a.apk_bytes>1000000
+   assert build['source_commit']==a.source and build['apk_sha256']==a.apk_sha and build['apk_bytes']==a.apk_bytes
+   assert apk.stat().st_size==a.apk_bytes and hashlib.file_digest(apk.open('rb'),'sha256').hexdigest()==a.apk_sha
    r.update(probe.emulator_only(serial));assert r['android_api']==35
    assert b'Success' in cmd('install','-r','-t',str(apk),timeout=180)
    path=cmd('shell','pm','path',PACKAGE).decode().strip().splitlines()[0].removeprefix('package:')
-   installed=cmd('shell','sha256sum',path).decode().split()[0];assert installed==APK_SHA
+   installed=cmd('shell','sha256sum',path).decode().split()[0];assert installed==a.apk_sha
    r['installed_apk_sha256']=installed;r['adb_install']='SUCCESS'
    cmd('shell','am','start','-W','-n',PACKAGE+'/.MainActivity')
    rendered=False

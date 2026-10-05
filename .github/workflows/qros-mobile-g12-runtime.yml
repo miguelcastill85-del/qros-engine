@@ -1,10 +1,5 @@
 name: QROS G12 exact APK Android 35 runtime
 on:
-  push:
-    branches: [product/mobile-g12-renewable-session-jobs-20261002]
-    paths:
-      - '.github/workflows/qros-mobile-g12-runtime.yml'
-      - 'product/mobile/g12_deployment/android_smoke.py'
   workflow_dispatch:
 permissions:
   contents: read
