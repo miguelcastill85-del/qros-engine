@@ -30,6 +30,8 @@ export async function inspectProvider({accountId, apiToken, freeReported, fetche
     }
     const codes = Array.isArray(body.errors) ? body.errors.map(e => e.code).filter(Number.isInteger) : [];
     report.checks.push({name: label, http_status: response.status, success: response.ok && body.success === true, error_codes: codes});
+    if (label === 'workers_plan_subscriptions' && (body.result_info?.total_pages > 1 ||
+        body.result_info?.total_count > (Array.isArray(body.result) ? body.result.length : 0))) return null;
     return response.ok && body.success === true ? body.result : null;
   }
   const subdomain = await read('workers/subdomain', 'account_workers_access');
@@ -45,11 +47,20 @@ export async function inspectProvider({accountId, apiToken, freeReported, fetche
     report.worker_usage_model = ['standard', 'bundled', 'unbound'].includes(settings.default_usage_model)
       ? settings.default_usage_model : 'OTHER';
   }
+  const subscriptions = await read('subscriptions?per_page=50', 'workers_plan_subscriptions');
+  if (Array.isArray(subscriptions) && subscriptions.length < 50) {
+    const workers = subscriptions.filter(s => /workers/i.test(String(s.rate_plan?.id || '') + ' ' + String(s.rate_plan?.public_name || '')));
+    report.free_plan = workers.length === 0 ? 'NO_WORKERS_PAID_SUBSCRIPTION_VERIFICADO' : 'WORKERS_SUBSCRIPTION_PRESENT_DEPLOYMENT_BLOCKED';
+    report.free_plan_inference = workers.length === 0 ? 'FREE_BY_PROVIDER_DEFAULT' : 'NONE';
+  } else {
+    report.free_plan_current = 'NO_DISPONIBLE';
+  }
   const existing = await read('workers/scripts/qros-mobile-g12-test-only/settings', 'existing_g12');
   report.existing_g12 = existing ? 'PRESENT' : 'NOT_ESTABLISHED';
-  report.status = 'ACCESS_READY_DEPLOYMENT_GATED';
+  report.status = freeReported === 'true' && report.free_plan === 'NO_WORKERS_PAID_SUBSCRIPTION_VERIFICADO'
+    ? 'READY_FOR_REVIEWED_FREE_DEPLOYMENT' : 'ACCESS_READY_DEPLOYMENT_GATED';
   report.reason = freeReported === 'true'
-    ? 'FREE_PLAN_CURRENT_CONFIRMATION_AND_REVIEWABLE_DEPLOYMENT_REQUIRED'
+    ? 'CURRENT_FREE_PLAN_EVIDENCE_REQUIRED_BEFORE_DEPLOYMENT'
     : 'FREE_PLAN_CONFIRMATION_REQUIRED';
   return report;
 }

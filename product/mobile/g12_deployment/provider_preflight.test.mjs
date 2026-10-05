@@ -38,3 +38,13 @@ test('successful read remains deployment-gated; usage model never certifies Free
   assert(calls.every(c => !c.options.method && c.options.redirect==='error'));
   assert.equal(r.deployment, 'NOT_ATTEMPTED');
 });
+test('paid, unknown or truncated subscriptions block deployment while an empty authenticated list permits the prior Free gate', async () => {
+  for(const subscriptions of [[], [{rate_plan:{id:'workers_paid'}}], Array.from({length:50},()=>({})), null]) {
+    const r = await inspectProvider({...credentials, fetcher: async url => {
+      if(url.endsWith('/workers/subdomain')) return reply(200,{subdomain:'test-account'});
+      if(url.includes('/subscriptions?')) return subscriptions===null ? reply(403,null) : reply(200,subscriptions);
+      return reply(404,null);
+    }});
+    assert.equal(r.status==='READY_FOR_REVIEWED_FREE_DEPLOYMENT', Array.isArray(subscriptions) && subscriptions.length===0);
+  }
+});
