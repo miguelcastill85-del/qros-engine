@@ -1,6 +1,6 @@
 # G12: transparencia pública del hash sintético
 
-Estado al preparar esta operación: compatibilidad documental y G9 previamente verificada; resultado G12 aún PENDIENTE en CI37313164714. No se certifica custodia externa del backend.
+VERIFICADO: CI37313164714 terminó PASS el 2026-10-05. Cosign y Python verificaron issuer, identidad, commit exacto, firma y prueba de inclusión; se rechazaron objeto manipulado, identidad falsa y commit incorrecto. Consulta posterior HTTPS a Rekor3088220065 con cuerpo completo idéntico PASS. ZIP de firma y de verificación independiente descargados, bytes y hashes iguales a artefactos GitHub. Verificación adicional local ECDSA/Merkle consistente PASS. No se certifica custodia externa del backend.
 
 La autoridad es TAREA4 del usuario: publicar únicamente hashes o recibos sintéticos por identidad verificable GitHub Actions, si compatible y gratuito. El repositorio es público. Se utiliza la instancia pública de Sigstore, sin contratación, credenciales de Cloudflare ni secretos del APK. La identidad pública del workflow se incluye en el certificado; no se publica información del broker ni credenciales personales.
 

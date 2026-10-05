@@ -1,6 +1,6 @@
 {
-  "schema": "QROS_G12_DURABLE_ENGINEERING_CHECKPOINT_V4",
-  "verified_at": "2026-10-05T12:58:53.609Z",
+  "schema": "QROS_G12_DURABLE_ENGINEERING_CHECKPOINT_V5",
+  "verified_at": "2026-10-05T13:04:28.168Z",
   "classification": "VERIFICADO",
   "scope": "ENGINEERING_TEST_ONLY",
   "source_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237",
@@ -44,7 +44,7 @@
     "scientific_authority": false,
     "android35": "PASS_REAL_EMULATOR_TEST_ONLY",
     "pinned_origin_no_transport_regression": "PASS",
-    "g12_apk_hash_transparency": "NOT_RUN"
+    "g12_apk_hash_transparency": "PASS_PUBLIC_REKOR_GITHUB_OIDC_EXACT_HASH"
   },
   "preserved": {
     "mobile_product_head": "v11_UNCHANGED",
@@ -127,19 +127,13 @@
       "correction_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237"
     }
   ],
-  "execution_state": "APK_AND_ANDROID35_VERIFIED_SIGSTORE_RUN_IN_PROGRESS",
-  "running_jobs": [
-    {
-      "run": 37313164714,
-      "workflow": ".github/workflows/qros-mobile-g12-sigstore.yml",
-      "source_commit": "6f991b90701cdb52b3b2c37d0957a989cb8775ae",
-      "status": "in_progress"
-    }
-  ],
+  "execution_state": "APK_ANDROID35_AND_SIGSTORE_VERIFIED_WAIT_CURRENT_FREE_PLAN_FACT",
+  "running_jobs": [],
   "next_action": {
-    "exact": "Inspect existing Sigstore run37313164714 without restarting or signing again. Download witness+independently-verified artifacts, compare all bytes/hash/source identity and exact public Rekor body; preserve bundle and failed read if any. Then persist final checkpoint/PR78. APK/build/emulator CI already complete and must not repeat.",
+    "exact": "Obtain only a current fact from user: is Workers Free active in the same Cloudflare account? Existing authorization to deploy remains valid; no new token, permissions, login or paid plan. After fact confirmation update only product/mobile/g12_deployment/cost_gate.json with REPORTADO confirmation time and one-hour validity; this triggers qros-mobile-g12-deploy.yml. Inspect that exact run, enforce app/provider origin binding, test genuine external HTTPS Node/Python, revoke canaries and persist deployment receipt/URL. Do not rebuild APK or republish Sigstore hash.",
     "deployment": "Current Workers Free fact confirmation for the same Cloudflare account is required because minimal token cannot read plan and browser verification is blocked. Then update only cost_gate.json with REPORTADO confirmation valid one hour; run deployment guard and verify real outside-build HTTPS using Node and Python before claiming deployment.",
-    "physical": "After external HTTPS succeeds, issue one-use bootstrap through provider secrets and run/report exact new APK on physical Android; preserve G9 evidence. Do not uninstall existing app without exported local drafts."
+    "physical": "After external HTTPS succeeds, issue one-use bootstrap through provider secrets and run/report exact new APK on physical Android; preserve G9 evidence. Do not uninstall existing app without exported local drafts.",
+    "blocker": "NO_DISPONIBLE_CURRENT_PLAN_FACT_API_403_BROWSER_VERIFICATION_BLOCKED"
   },
   "previous_verified_application_source": "217cd842cb195fa92e52aa39068b97892752e48e",
   "provider_access": {
@@ -168,7 +162,7 @@
     "public_deployment": "NOT_RUN",
     "proof_does_not_establish_external_https": true
   },
-  "previous_checkpoint_commit": "48ab440e42193ab02029f44ce0a26b99eda961bc",
+  "previous_checkpoint_commit": "9d640a11b349f16497c44e69abb4dd0197867d2f",
   "previous_verified_build": {
     "id": 11274928396,
     "expires_at": "2026-10-10T13:37:02Z",
@@ -188,7 +182,7 @@
     "credential_entry": "NONE",
     "plan_changes": "NONE"
   },
-  "product_branch_parent": "6f991b90701cdb52b3b2c37d0957a989cb8775ae",
+  "product_branch_parent": "9d640a11b349f16497c44e69abb4dd0197867d2f",
   "historical_0122_build": {
     "id": 11323449351,
     "zip_bytes": 71248486,
@@ -227,11 +221,49 @@
     "remote_manifest_and_anchor": "PREVIOUSLY_READ_PRESENT"
   },
   "g12_hash_transparency": {
-    "classification": "NO_DISPONIBLE_PENDING",
+    "classification": "VERIFICADO",
     "run": 37313164714,
+    "conclusion": "success",
     "signing_source_commit": "6f991b90701cdb52b3b2c37d0957a989cb8775ae",
     "subject_path": "product/mobile/g12/receipts/G12_APK_0123_ENGINEERING_RAW_20261005.json",
     "subject_sha256": "bbda292bbcc68fdd8226ef3fb1537d2dd47caba81f7bb6fd52494e6083bd7457",
+    "subject_file_sha256": "764ec659f115574883c2fe48d84b556d05f1b74949182b4948c554c7a847adae",
+    "bundle_sha256": "5d3474305c866a9b03e75a3ec3019baa81e5214911a7ad350bfc102b2f22343f",
+    "identity": "https://github.com/miguelcastill85-del/qros-engine/.github/workflows/qros-mobile-g12-sigstore.yml@refs/heads/product/mobile-g12-renewable-session-jobs-20261002",
+    "issuer": "https://token.actions.githubusercontent.com",
+    "cosign": "3.1.3_PASS",
+    "sigstore_python": "4.5.0_PASS",
+    "tamper_rejected": true,
+    "wrong_identity_rejected": true,
+    "wrong_source_commit_rejected": true,
+    "certificate_source_commit_verified": true,
+    "public_rekor_index": "3088220065",
+    "external_registry_read": {
+      "status": "PASS_EXTERNAL_HTTPS_EXACT_BODY",
+      "url": "https://rekor.sigstore.dev/api/v1/log/entries?logIndex=3088220065",
+      "uuid": "108e9186e8c5677a7d2c7938efb36804c23033afe26dae90b77fe26a70d4a34112d0d2b7725c25b5",
+      "log_index": "3088220065",
+      "response_sha256": "2c3496fde3a11d2713e62e9c1f1f7655f78cbcfaa851cdf600d569dffb9a9124",
+      "bytes": 8301
+    },
+    "independent_local_ecdsa_and_merkle_consistency": "PASS",
+    "trusted_root_verification": "SIGSTORE_TUF_BY_BOTH_CI_VERIFIERS",
+    "witness_artifact": {
+      "id": 11346214051,
+      "bytes": 8301,
+      "sha256": "2deba28af8d00a22d64027105b73484dd3385b73a3296f9f6016a2b6ff624b74"
+    },
+    "independent_artifact": {
+      "id": 11346553410,
+      "bytes": 14921,
+      "sha256": "d80593398da0cb2d7159082941df14a794e82cc00d26aba48a509367244de4d5"
+    },
+    "durable_receipts_path": "product/mobile/g12/receipts/sigstore_0123_20261005",
+    "user_evidence_package": {
+      "bytes": 17935,
+      "sha256": "2e0e44807e647974605d1fc0c7588b2cda6e90280ad6b7046c4c13e536081b5f",
+      "library_file_id": "libfile_c097bd8542b8819186c70cd72aef36e4"
+    },
     "independent_backend_custody": false
   }
 }

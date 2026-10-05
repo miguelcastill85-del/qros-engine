@@ -1,0 +1,10 @@
+{
+  "schema": "QROS_G12_SIGSTORE_SUBJECT_V1",
+  "subject_path": "product/mobile/g12/receipts/G12_APK_0123_ENGINEERING_RAW_20261005.json",
+  "subject_sha256": "bbda292bbcc68fdd8226ef3fb1537d2dd47caba81f7bb6fd52494e6083bd7457",
+  "subject_source_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237",
+  "signing_source_commit": "6f991b90701cdb52b3b2c37d0957a989cb8775ae",
+  "run_id": "37313164714",
+  "scope": "SYNTHETIC_ENGINEERING_ONLY",
+  "independent_backend_custody": false
+}
