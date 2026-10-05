@@ -1,6 +1,6 @@
 {
   "schema": "QROS_G12_DURABLE_CHECKPOINT_V3",
-  "verified_at": "2026-10-05T12:21:58.224Z",
+  "verified_at": "2026-10-05T12:32:36.529Z",
   "classification": "VERIFICADO",
   "scope": "ENGINEERING_TEST_ONLY",
   "source_commit": "e2c9b0a4404ebdd3d821abc7d9672f547f43f357",
@@ -29,7 +29,9 @@
     "version": "0.12.2+14",
     "expires_at": "2026-10-12T03:34:42Z",
     "signing": "DEBUG_NOT_PRODUCTION",
-    "independent_local_rehash": "PASS"
+    "independent_local_rehash": "PASS",
+    "library_file_id": "libfile_93942f5a981881918c57b0338d025e53",
+    "retained_as": "HISTORICAL_0122_NEW_0123_BUILD_PENDING"
   },
   "gates": {
     "g12_public_deployment": "NOT_RUN",
@@ -90,19 +92,46 @@
       "launcher_recovery": "PASS_ONE_PIXEL_LAUNCHER_ANR_DISMISSED",
       "app_source_commit": "e2c9b0a4404ebdd3d821abc7d9672f547f43f357",
       "correction": "Native instrumentation reads AccessibilityNodeInfo hintText, editable role, setText action and password flag. No extra app rebuild; same field-label expectations."
-    }
-  ],
-  "execution_state": "NATIVE_HINT_RUNTIME_VERIFICATION_RUNNING",
-  "running_jobs": [
+    },
     {
       "run": 37308747783,
-      "scope": "NATIVE_HINT_PROBE_EXACT_0122_APK_ANDROID35",
-      "source_commit": "76c018fc77c0e5b7b572c07e2c4fd95e2c88ba11",
-      "status": "IN_PROGRESS"
+      "scope": "native probe build",
+      "root_cause": "Installed SDK includes android-35-ext18; first parser expected last dash component to be an integer.",
+      "classification": "VERIFICADO",
+      "correction_commit": "4d46f3329497a09f02465e0b65edd70f81390412",
+      "correction_status": "PASS_PROBE_BUILT_IN_37309209792"
+    },
+    {
+      "run": 37309209792,
+      "scope": "native accessibility evidence",
+      "classification": "VERIFICADO",
+      "artifact_id": 11344728564,
+      "artifact_sha256": "0c0dc0afb043f94c19c05e70ae04226e11cd2f760a84ade7b8e9c80c962df17a",
+      "native_hint_fields_sha256": "6d063f7da43b3f054ed779000d0ce5318a8196d7e0139f827189ad4e8ea19cf0",
+      "finding": "Both labels exist in native hintText and are duplicated by the added Semantics wrappers. Both roles editable and password flag correct; initial SET_TEXT action absent before focus.",
+      "correction": "Remove duplicate wrappers, preserve InputDecoration labels; verify focus, synthetic setText and clearing with native instrumentation.",
+      "prior_missing_label_inference": "RETRACTED_BY_NATIVE_EVIDENCE"
+    },
+    {
+      "scope": "G12 client origin trust",
+      "classification": "VERIFICADO_CODE_INSPECTION",
+      "finding": "HttpsSessionGateway accepted any user-supplied HTTPS origin; could send synthetic credentials to another server.",
+      "correction": "Pin independent product origin and reject other hosts, ports, paths, userinfo, queries and fragments before creating transport.",
+      "regression_status": "PENDING_CI",
+      "correction_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237"
+    }
+  ],
+  "execution_state": "PINNED_ORIGIN_BUILD_AND_ANDROID35_RUNNING",
+  "running_jobs": [
+    {
+      "run": 37310065707,
+      "source_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237",
+      "status": "in_progress",
+      "scope": "G12_0123_ORIGIN_TRUST_BUILD_AND_ANDROID35"
     }
   ],
   "next_action": {
-    "exact": "Inspect CI37308747783 without restarting. Verify native hints/editable actions/password masking, empty-bootstrap fail-closed, all evidence SHAs and installed APK SHA. Download and persist 0.12.2 APK if native runtime passes. For public G12 deploy require one current Workers Free fact confirmation; browser verification is blocked and minimal token cannot read subscription status. No new token or permission expansion.",
+    "exact": "Inspect CI37310065707 without restarting. Validate two new no-transport false-origin regressions, build 0.12.3, native focused editing/clear/password/hints and exact installed APK SHA. Download artifacts and rehash; save final APK; persist checkpoint and PR78. Deployment still requires current Workers Free fact confirmation or independent provider plan read; no new token or wider scopes.",
     "physical": "After external HTTPS succeeds, issue one-use bootstrap through provider secrets and run/report exact new APK on physical Android; preserve G9 evidence. Do not uninstall existing app without exported local drafts."
   },
   "previous_verified_application_source": "217cd842cb195fa92e52aa39068b97892752e48e",
@@ -166,5 +195,7 @@
     "page_state": "Sign in disabled; There was a problem with verification. Please reload and try again. Persists after one reload.",
     "credential_entry": "NONE",
     "plan_changes": "NONE"
-  }
+  },
+  "pending_application_source": "e7c365f7c951e74073e11a21fe876164c6ce2237",
+  "pending_version": "0.12.3+15"
 }
