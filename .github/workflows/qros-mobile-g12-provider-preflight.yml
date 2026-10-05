@@ -1,0 +1,38 @@
+name: QROS G12 read-only Cloudflare access preflight
+on:
+  push:
+    branches: [product/mobile-g12-renewable-session-jobs-20261002]
+    paths:
+      - '.github/workflows/qros-mobile-g12-provider-preflight.yml'
+      - 'product/mobile/g12_deployment/provider_preflight*'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qros-g12-provider-preflight
+  cancel-in-progress: false
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    environment: qros-g9-test-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - name: Verify new provider-report redaction and fail-closed gates
+        run: node --test product/mobile/g12_deployment/provider_preflight.test.mjs
+      - name: Read provider access using already-authorized secrets
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          QROS_FREE_PLAN_REPORTED: ${{ vars.QROS_G9_FREE_PLAN_VERIFIED }}
+        run: node product/mobile/g12_deployment/provider_preflight.mjs /tmp/qros-g12-provider-preflight.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: qros-g12-provider-access-receipt
+          retention-days: 7
+          if-no-files-found: error
+          path: /tmp/qros-g12-provider-preflight.json
