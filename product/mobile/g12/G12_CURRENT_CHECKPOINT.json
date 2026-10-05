@@ -1,6 +1,6 @@
 {
-  "schema": "QROS_G12_DURABLE_CHECKPOINT_V2",
-  "verified_at": "2026-10-05",
+  "schema": "QROS_G12_DURABLE_CHECKPOINT_V3",
+  "verified_at": "2026-10-05T12:21:58.224Z",
   "classification": "VERIFICADO",
   "scope": "ENGINEERING_TEST_ONLY",
   "source_commit": "e2c9b0a4404ebdd3d821abc7d9672f547f43f357",
@@ -8,23 +8,26 @@
   "branch": "product/mobile-g12-renewable-session-jobs-20261002",
   "pr": 78,
   "ci": {
-    "run": 37126514681,
+    "run": 37259618369,
     "status": "completed",
-    "conclusion": "success",
-    "job": 111212767959,
-    "worker_tests": "PASS",
-    "flutter_regressions": "PASS",
-    "parent_defects_reproduced": 4,
-    "android_build": "PASS"
+    "conclusion": "failure",
+    "build_job": 111603900084,
+    "build_conclusion": "success",
+    "worker_tests": "7_OF_7_PASS",
+    "flutter_regressions": "57_OF_57_PASS",
+    "parent_defects": "REUSED_VERIFIED_BASELINE_217cd842",
+    "android_build": "PASS",
+    "emulator_conclusion": "failure",
+    "g9_worker_parity_regression": "1_OF_1_PASS"
   },
   "artifact": {
-    "id": 11274928396,
-    "expires_at": "2026-10-10T13:37:02Z",
-    "zip_bytes": 71244615,
-    "zip_sha256": "c07a3058988c1945c9d6a12023a4c0d756713958328b366f2a67d21a99e8fd26",
-    "apk_bytes": 146666789,
-    "apk_sha256": "40568dc3f612cb452513b2f933090e4549f2109d7560cfc944fb8f5f84221822",
-    "version": "0.12.1+13",
+    "id": 11323449351,
+    "zip_bytes": 71248486,
+    "zip_sha256": "7a5d1bd630c8f654f4bb2ef2b4a4eebe84a54684677a8857090d900aa33eb0be",
+    "apk_bytes": 146666937,
+    "apk_sha256": "b6250899380e781e0d5b38667d5a6e6f3660cfb458032589c0bc60cbb094ddc4",
+    "version": "0.12.2+14",
+    "expires_at": "2026-10-12T03:34:42Z",
     "signing": "DEBUG_NOT_PRODUCTION",
     "independent_local_rehash": "PASS"
   },
@@ -61,20 +64,45 @@
       "evidence_artifact": 11323579237,
       "evidence_sha256": "5dec7d66c2c4f0b7309683bbace124693df1880e068c4efbd8b43ac6acfdfa89",
       "correction": "Explicit Semantics labels in SessionScreen; version 0.12.2+14; same native assertions retained.",
-      "correction_status": "PENDING_CI_AND_ANDROID35"
-    }
-  ],
-  "execution_state": "BUILD_AND_ANDROID_VERIFICATION_RUNNING",
-  "running_jobs": [
+      "correction_status": "PENDING_NATIVE_HINT_PROBE",
+      "root_cause_classification": "INFERIDO_NOT_ESTABLISHED",
+      "reconciliation": "XML serialization omits hintText. Absence in text/content-desc alone does not establish inaccessible native labels; verify native hint, editability, SET_TEXT and password protection without changing APK."
+    },
     {
       "run": 37259618369,
-      "source_commit": "e2c9b0a4404ebdd3d821abc7d9672f547f43f357",
-      "scope": "G12_0122_BUILD_AND_ANDROID35",
+      "classification": "VERIFICADO",
+      "scope": "Android35 emulator infrastructure",
+      "root_cause": "Native hierarchy and screenshot show Pixel Launcher isn't responding over the rendered QROS home; app-field accessibility fix was not reached.",
+      "artifact_id": 11323354822,
+      "artifact_sha256": "8a52c568f36f1ac70242eaca239f38fe28ecbc8553bc285df0c08c62b251ddaa",
+      "installed_apk_sha256": "b6250899380e781e0d5b38667d5a6e6f3660cfb458032589c0bc60cbb094ddc4",
+      "correction": "Bounded native-home readiness and allow dismissal only of observed Android Pixel Launcher ANR. Unknown or QROS ANRs remain fail-closed; retain exact APK.",
+      "correction_commit": "cff4dccff685977794562390e3143467fc0542bc",
+      "correction_status": "PASS_OBSERVED_IN_RUN_37307731966"
+    },
+    {
+      "run": 37307731966,
+      "classification": "VERIFICADO",
+      "artifact_id": 11344790591,
+      "artifact_sha256": "e516d733c3342a983138ed3397c74dfd651e7e99ba0d1a51bfb862717ed17c95",
+      "stage": "g12_session_navigation",
+      "result": "FAIL_XML_FIELD_LABEL_ASSERTION",
+      "launcher_recovery": "PASS_ONE_PIXEL_LAUNCHER_ANR_DISMISSED",
+      "app_source_commit": "e2c9b0a4404ebdd3d821abc7d9672f547f43f357",
+      "correction": "Native instrumentation reads AccessibilityNodeInfo hintText, editable role, setText action and password flag. No extra app rebuild; same field-label expectations."
+    }
+  ],
+  "execution_state": "NATIVE_HINT_RUNTIME_VERIFICATION_RUNNING",
+  "running_jobs": [
+    {
+      "run": 37308747783,
+      "scope": "NATIVE_HINT_PROBE_EXACT_0122_APK_ANDROID35",
+      "source_commit": "76c018fc77c0e5b7b572c07e2c4fd95e2c88ba11",
       "status": "IN_PROGRESS"
     }
   ],
   "next_action": {
-    "exact": "Inspect CI 37259618369 without restarting; download its APK and Android35 evidence, verify all hashes/receipt/source and native labels; then record verified checkpoint. Public deploy awaits one current user confirmation that the same Cloudflare account remains on Workers Free. Record that report in cost_gate.json with one-hour validity, push only that gate and inspect deployment/canary run. No new token or broader provider permissions.",
+    "exact": "Inspect CI37308747783 without restarting. Verify native hints/editable actions/password masking, empty-bootstrap fail-closed, all evidence SHAs and installed APK SHA. Download and persist 0.12.2 APK if native runtime passes. For public G12 deploy require one current Workers Free fact confirmation; browser verification is blocked and minimal token cannot read subscription status. No new token or permission expansion.",
     "physical": "After external HTTPS succeeds, issue one-use bootstrap through provider secrets and run/report exact new APK on physical Android; preserve G9 evidence. Do not uninstall existing app without exported local drafts."
   },
   "previous_verified_application_source": "217cd842cb195fa92e52aa39068b97892752e48e",
@@ -118,5 +146,25 @@
     "canary_protocol": "PASS_LOCAL_ONLY",
     "public_deployment": "NOT_RUN",
     "proof_does_not_establish_external_https": true
+  },
+  "previous_checkpoint_commit": "59c5532e198bd41904486f2ced94208dd76c066d",
+  "previous_verified_build": {
+    "id": 11274928396,
+    "expires_at": "2026-10-10T13:37:02Z",
+    "zip_bytes": 71244615,
+    "zip_sha256": "c07a3058988c1945c9d6a12023a4c0d756713958328b366f2a67d21a99e8fd26",
+    "apk_bytes": 146666789,
+    "apk_sha256": "40568dc3f612cb452513b2f933090e4549f2109d7560cfc944fb8f5f84221822",
+    "version": "0.12.1+13",
+    "signing": "DEBUG_NOT_PRODUCTION",
+    "independent_local_rehash": "PASS"
+  },
+  "browser_plan_check": {
+    "classification": "VERIFICADO",
+    "observed_at": "2026-10-05T12:21:58.224Z",
+    "result": "NO_DISPONIBLE",
+    "page_state": "Sign in disabled; There was a problem with verification. Please reload and try again. Persists after one reload.",
+    "credential_entry": "NONE",
+    "plan_changes": "NONE"
   }
 }
