@@ -1,4 +1,8 @@
-# QROS Mobile G12 — Device Sessions + Resumable Synthetic Jobs
+# QROS Mobile G12 — autoridad durable vigente
+
+VERIFICADO, 2026-10-07: el estado actual está en [G12_CURRENT_CHECKPOINT.json](G12_CURRENT_CHECKPOINT.json) (V8) y [G12_DELIVERY_PROGRESS_20261007.md](G12_DELIVERY_PROGRESS_20261007.md). APK0.12.4+16, CI37619093151 y Android35 PASS; 14 validaciones nuevas PASS; Rekor3131046344 PASS. G12 externo/físico y producción pendientes por credencial Cloudflare rechazada y Free actual no disponible. Los bloques siguientes conservan la cronología inicial; sus gates “pendientes” no sustituyen al checkpoint vigente.
+
+## Cronología preservada: Device Sessions + Resumable Synthetic Jobs
 
 Fecha: 2026-10-02  
 Padre integrado verificable: G10+G11 `da2b18b1f5ea7c690f72007508a72ed6f6497c43`. Su tree SHA `015700369064217e462653c43648add6d0ddd167` es idéntico al tree SHA de G11 fuente `dfc8a435b9f4bac6166fb97ca056e31c06200c5c` (CI 37014105082 PASS).

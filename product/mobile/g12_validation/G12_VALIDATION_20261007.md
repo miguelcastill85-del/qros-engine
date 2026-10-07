@@ -8,8 +8,8 @@ VERIFICADO: certificado autofirmado con el mismo hostname fijado rechazado por T
 
 VERIFICADO: workerd real sobre dependencias G12 congeladas; bordes de expiración access15min/refresh30d exclusivos; cambio de tenant/proyecto/campaña tras reinicio deniega ambos tokens y conserva el trabajo original; GET no adelanta fases. Reloj controlado de prueba, no espera real de 30 días.
 
-Nueva APK0.12.4+16 necesaria porque se modificó el cliente. Run37619093151 sigue ejecutándose; no hay hash nuevo ni aceptación Android nueva todavía. APK0.12.3 y Rekor anteriores conservados como históricos, con el defecto de acuse identificado. No repetir esos bytes ni registros; generar evidencia sólo para el binario corregido.
+Nueva APK0.12.4+16 necesaria porque se modificó el cliente. Run37619093151 completado PASS; bytes146668513/SHA8093b987a939bd642bdefb5442290fe3db79c0d48f681da99882c7c38c98d7da y Android35 PASS verificados independientemente. APK0.12.3 y Rekor anteriores conservados como históricos, con el defecto de acuse identificado. No repetir esos bytes ni registros; generar evidencia sólo para el binario corregido.
 
 NO DISPONIBLE: acceso válido Cloudflare (último preflightHTTP401), Workers Free actual, despliegue HTTPS G12, prueba física G12 y firma de producción. Autorización anterior preservada. Main científico y MOBILE_PRODUCT_HEAD v11 intactos; PnL/holdout/GA2/MT5/trading cerrados, cero servicios de pago.
 
-Siguiente operación: inspeccionar run37619093151 y sus artefactos exactos; verificar APK nueva y Android35; publicar sólo el hash nuevo del recibo sintético si esos gates pasan. En paralelo sigue pendiente reemplazar el secreto proveedor según `G12_PROVIDER_RENEWAL_20261007.md`.
+Build, Android35 y nuevo hash Rekor3131046344 ya verificados. Siguiente operación: reemplazar secreto proveedor y confirmar Workers Free actual según `G12_PROVIDER_RENEWAL_20261007.md`; luego un preflight de sólo lectura y despliegue condicionado. Ver checkpoint V8; no repetir APK ni hash.

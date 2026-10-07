@@ -1,0 +1,42 @@
+{
+  "schema": "QROS_G12_SIGSTORE_INDEPENDENT_VERIFICATION_V1",
+  "status": "PASS",
+  "run_id": "37620989068",
+  "signing_source_commit": "802863d049c3a45c59d442faefeb60ae1289586b",
+  "cosign": "3.1.3 PASS",
+  "sigstore_python": "4.5.0 PASS",
+  "identity": "https://github.com/miguelcastill85-del/qros-engine/.github/workflows/qros-mobile-g12-sigstore.yml@refs/heads/product/mobile-g12-renewable-session-jobs-20261002",
+  "issuer": "https://token.actions.githubusercontent.com",
+  "tamper_rejected": true,
+  "wrong_identity_rejected": true,
+  "wrong_source_commit_rejected": true,
+  "certificate_source_commit_verified": true,
+  "external_registry_reads": [
+    {
+      "status": "PASS_EXTERNAL_HTTPS_EXACT_BODY",
+      "url": "https://rekor.sigstore.dev/api/v1/log/entries?logIndex=3131046344",
+      "uuid": "108e9186e8c5677a75bfb9a7443eedc62d39239dee7e7a60553e7228ae0f42b051bb109a26d4b2dc",
+      "log_index": "3131046344",
+      "response_sha256": "88a6436be1b6659e6a44221061534b975ac1d470acd48ab6b0a96a87678cfc6d",
+      "bytes": 8430
+    }
+  ],
+  "bundle_sha256": "b2a424d583acaf9d1fcf0174aeaadfbef627b35b01ba08bd793a9ac5eee8ba5a",
+  "subject_file_sha256": "e070a48947fe5d67167f3603822086076eefb74adfdc5dfc631535a3650eb212",
+  "transparency_entries": [
+    {
+      "log_index": "3131046344",
+      "log_id": {
+        "keyId": "wNI9atQGlz+VWfO6LRygH4QUfY/8W4RFwiT5i5WRgB0="
+      },
+      "kind_version": {
+        "kind": "hashedrekord",
+        "version": "0.0.1"
+      },
+      "inclusion_proof_present": true
+    }
+  ],
+  "independent_backend_custody": false,
+  "physical_android": "NOT_RUN",
+  "scientific_gate_pass": false
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "QROS_G12_CI_BUILD_REUSE_V1",
+  "build_required": false,
+  "reason": "EXACT_VERIFIED_BUILD_REUSED_NO_NEW_APK",
+  "verified_source_commit": "463e68af09c2dc9c689160284b70d6fb7458148e",
+  "verified_run": 37619093151,
+  "verified_artifact": 11481206837,
+  "verified_zip_sha256": "5ad5ff2c7a68dc27e2c1e6bb359ed6ae76678d75cf71f7cd863dca936ede0674",
+  "current_commit": "39f36e61c331cba71c6acf16986735d1bc6652fe"
+}

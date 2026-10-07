@@ -1,0 +1,23 @@
+{
+  "schema": "QROS_G12_SIGSTORE_0124_LOCAL_AUDIT_V1",
+  "classification": "VERIFICADO",
+  "status": "PASS_HASH_ECDSA_MERKLE_CONSISTENCY",
+  "run": 37620989068,
+  "subject_bytes": 690,
+  "subject_sha256": "1d6f8cc0875fe27d3643d945cd1477845fd739aff9f70107b968caf5f2b740b2",
+  "subject_hash_line_bytes": 65,
+  "subject_hash_line_sha256": "e070a48947fe5d67167f3603822086076eefb74adfdc5dfc631535a3650eb212",
+  "bundle_sha256": "b2a424d583acaf9d1fcf0174aeaadfbef627b35b01ba08bd793a9ac5eee8ba5a",
+  "certificate_identity_and_issuer_and_source": "PASS",
+  "signature": "ECDSA_SHA256_PASS",
+  "certificate_time_at_inclusion": "PASS",
+  "public_rekor_index": "3131046344",
+  "sharded_inclusion_leaf_index": "3009142082",
+  "merkle_inclusion": "PASS",
+  "external_rekor_saved_body_match": "PASS",
+  "external_rekor_response_sha256": "88a6436be1b6659e6a44221061534b975ac1d470acd48ab6b0a96a87678cfc6d",
+  "trusted_root_verification": "COSIGN_3.1.3_AND_SIGSTORE_PYTHON_4.5.0_TUF_IN_CI; LOCAL_CHECK_IS_CONSISTENCY_ONLY",
+  "independent_backend_custody": false,
+  "physical_android": "NOT_RUN",
+  "scientific_authority": false
+}
