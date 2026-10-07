@@ -28,19 +28,19 @@ jobs:
           mkdir -p /tmp/g12-witness
           python3 - <<'PY'
           import hashlib,json,pathlib,os
-          a=json.loads(pathlib.Path('product/mobile/g12/receipts/G12_SIGSTORE_HASH_AUTHORITY_20261005.json').read_bytes())
+          a=json.loads(pathlib.Path('product/mobile/g12/receipts/G12_SIGSTORE_HASH_AUTHORITY_20261007.json').read_bytes())
           assert a['authorized'] is True and a['paid_services_authorized'] is False
           assert a['repository_visibility_verified']=='public'
-          assert a['subject_path']=='product/mobile/g12/receipts/G12_APK_0123_ENGINEERING_RAW_20261005.json'
+          assert a['subject_path']=='product/mobile/g12/receipts/G12_APK_0124_ENGINEERING_RAW_20261007.json'
           raw=pathlib.Path(a['subject_path']).read_bytes()
           h=hashlib.sha256(raw).hexdigest()
-          assert h==a['subject_sha256']=='bbda292bbcc68fdd8226ef3fb1537d2dd47caba81f7bb6fd52494e6083bd7457'
+          assert h==a['subject_sha256']=='1d6f8cc0875fe27d3643d945cd1477845fd739aff9f70107b968caf5f2b740b2'
           r=json.loads(raw)
           assert r['scientific_gate_pass'] is False and a['release_signed'] is False
-          assert r['source_commit']==a['subject_source_commit']=='e7c365f7c951e74073e11a21fe876164c6ce2237'
+          assert r['source_commit']==a['subject_source_commit']=='463e68af09c2dc9c689160284b70d6fb7458148e'
           assert r['economic_tests']==0 and r['holdout_open'] is False and r['ga2_open'] is False
           assert r['public_g12_deployment']=='NOT_RUN' and r['physical_android']=='NOT_RUN'
-          assert r['apk_sha256']=='8bf45b7a13d519866d91dcfe72592a5e5cd5933a63a9025a96207f94895be456'
+          assert r['apk_sha256']=='8093b987a939bd642bdefb5442290fe3db79c0d48f681da99882c7c38c98d7da'
           pathlib.Path('/tmp/g12-witness/synthetic-receipt.sha256').write_text(h+'\n')
           pathlib.Path('/tmp/g12-witness/SUBJECT.json').write_text(json.dumps({'schema':'QROS_G12_SIGSTORE_SUBJECT_V1','subject_path':a['subject_path'],'subject_sha256':h,'subject_source_commit':a['subject_source_commit'],'signing_source_commit':os.environ['GITHUB_SHA'],'run_id':os.environ['GITHUB_RUN_ID'],'scope':'SYNTHETIC_ENGINEERING_ONLY','independent_backend_custody':False},indent=2)+'\n')
           PY
@@ -81,7 +81,7 @@ jobs:
           /tmp/g12-sigstore-venv/bin/python - <<'PY'
           import pathlib,subprocess,os,json,hashlib,sys,base64,urllib.request
           d=pathlib.Path('/tmp/g12-witness');b=d/'bundle.sigstore.json';f=d/'synthetic-receipt.sha256'
-          expected=b'bbda292bbcc68fdd8226ef3fb1537d2dd47caba81f7bb6fd52494e6083bd7457\n'
+          expected=b'1d6f8cc0875fe27d3643d945cd1477845fd739aff9f70107b968caf5f2b740b2\n'
           assert f.read_bytes()==expected
           def verify(path,identity):
               cmd=[sys.executable,'-m','sigstore','verify','identity','--bundle',str(b),'--cert-identity',identity,'--cert-oidc-issuer',os.environ['QROS_ISSUER'],str(path)]
