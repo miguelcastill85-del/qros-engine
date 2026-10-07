@@ -1,3 +1,4 @@
+# Read-only credential and plan revalidation after interruption: 2026-10-07.
 name: QROS G12 read-only Cloudflare access preflight
 on:
   push:
