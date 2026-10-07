@@ -1,0 +1,89 @@
+[
+  {
+    "id": 11481335800,
+    "bytes": 3293,
+    "sha256": "2d22584d9b2b8b931950af78da71514b817500ebbf0ee1371873f6661b08efa0",
+    "members": [
+      {
+        "name": "baseline.json",
+        "bytes": 211,
+        "sha256": "b3b9da5ddeeebf22c086913575801c778d51d68b27a1da35d739685d8f223c9d"
+      },
+      {
+        "name": "inputs.json",
+        "bytes": 555,
+        "sha256": "72555798ff6c92d6fcf5b3b4f1feedf644561513aeaf0666072eb8ea85b6b3cd"
+      },
+      {
+        "name": "revoke-baseline.jsonl",
+        "bytes": 1937,
+        "sha256": "4c8a2ae56ee153bf66b851f9eeaa53c4923ba9d54c339d87a349bfcf9ffdf331"
+      },
+      {
+        "name": "transport-summary.json",
+        "bytes": 865,
+        "sha256": "944cf252dfae4b90535a5eb2f45cdf80f97719a2feead6ee59bc005488306723"
+      },
+      {
+        "name": "transport.jsonl",
+        "bytes": 4356,
+        "sha256": "cb42ce476b5c36fb98804c43e569be04cf327b6ee20e5a250806d6573ad33f0e"
+      }
+    ],
+    "summary": {
+      "schema": "QROS_G12_TRANSPORT_VALIDATION_V1",
+      "status": "PASS_TEST_ONLY",
+      "tests": 8,
+      "passed": 8,
+      "names": [
+        "valid synthetic session is accepted and transport closes",
+        "redirect and denial responses never become sessions or follow locations",
+        "wrong MIME, malformed bytes, oversized and non-object replies fail closed",
+        "session substitution and additional authority fields are rejected",
+        "valid revocation acknowledgement is accepted",
+        "invalid revoke acknowledgements remain unconfirmed and local logout clears secrets",
+        "disconnected pinned G12 transport cannot produce a session",
+        "same-host untrusted TLS certificate is rejected before credentials reach server"
+      ],
+      "loopback_untrusted_tls": "REJECTED_WITH_ZERO_APPLICATION_REQUESTS",
+      "external_cloudflare_https": "NOT_RUN",
+      "physical_android": "NOT_RUN"
+    }
+  },
+  {
+    "id": 11480988968,
+    "bytes": 1220,
+    "sha256": "ab79aa421ad545b13a9616254d6ef92f183c23604a0c6d1bff0e7ffcd37cfd26",
+    "members": [
+      {
+        "name": "auth.tap",
+        "bytes": 1463,
+        "sha256": "2fbc9f8ef162e6a7a1db30e2cc3f288c54651839c46ec7607e556e79aa66d67c"
+      },
+      {
+        "name": "summary.json",
+        "bytes": 872,
+        "sha256": "a46a3e2c321bef00a0f3752fe8660ec526a6492e4f28292eaf4900eb30af8b82"
+      }
+    ],
+    "summary": {
+      "schema": "QROS_G12_DURABLE_AUTH_VALIDATION_V1",
+      "status": "PASS_TEST_ONLY",
+      "source_commit": "463e68af09c2dc9c689160284b70d6fb7458148e",
+      "tests": 6,
+      "passed": 6,
+      "scope": "LOCAL_WORKERD_CONTROLLED_CLOCK_AND_DURABLE_RESTART",
+      "files": {
+        "product/mobile/g12/worker/core.mjs": "5d277acce7bf375165daed40498546dfb14329a1ac368bebf81d5d5c661963a2",
+        "product/mobile/g12/worker/index.mjs": "7e8b87ecfc4ab21a575f72b92a47dfd27a2778f9d60b8569a56590e55194b527",
+        "product/mobile/g12/package-lock.json": "2cb40356512bb596765315b21a4be351b2198392163cf2cd0b7ff4985d3e9829",
+        "product/mobile/g12_validation/auth_boundaries.test.mjs": "c1c2d696a028d4379cdc32c3e1e9a6130e8ed41ca5e9749488ff9dbdfde04245"
+      },
+      "provider_requests": 0,
+      "public_deployment": "NOT_RUN",
+      "scientific_approval": false,
+      "economic_tests": 0,
+      "paid_services_activated": false
+    }
+  }
+]

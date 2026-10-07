@@ -1,6 +1,6 @@
 {
-  "schema": "QROS_G12_DURABLE_ENGINEERING_CHECKPOINT_V6",
-  "verified_at": "2026-10-07T11:49:45.247Z",
+  "schema": "QROS_G12_DURABLE_ENGINEERING_CHECKPOINT_V7",
+  "verified_at": "2026-10-07T12:14:42.976Z",
   "classification": "VERIFICADO",
   "scope": "ENGINEERING_TEST_ONLY",
   "source_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237",
@@ -33,7 +33,8 @@
     "signing": "DEBUG_NOT_PRODUCTION",
     "independent_local_rehash": "PASS",
     "library_file_id": "libfile_1bc9b10fac848191a659b9f4918808bb",
-    "release_signed": false
+    "release_signed": false,
+    "retained_as": "HISTORICAL_0123_WITH_REPRODUCED_REVOKE_ACK_DEFECT"
   },
   "gates": {
     "g12_public_deployment": "NOT_RUN",
@@ -44,7 +45,8 @@
     "scientific_authority": false,
     "android35": "PASS_REAL_EMULATOR_TEST_ONLY",
     "pinned_origin_no_transport_regression": "PASS",
-    "g12_apk_hash_transparency": "PASS_PUBLIC_REKOR_GITHUB_OIDC_EXACT_HASH"
+    "g12_apk_hash_transparency": "PASS_PUBLIC_REKOR_GITHUB_OIDC_EXACT_HASH",
+    "client_revoke_acknowledgement": "PASS_FIXED_CLIENT_14_NEW_VALIDATIONS_NEW_APK_PENDING"
   },
   "preserved": {
     "mobile_product_head": "v11_UNCHANGED",
@@ -140,20 +142,43 @@
       "correction": "Renew only the existing authorized account-specific Workers Scripts Edit and Account Settings Read credential; replace CLOUDFLARE_API_TOKEN in its actual GitHub Actions secret location. Do not print it or expand permissions.",
       "correction_status": "PENDING_PROVIDER_AUTHENTICATED_USER_INTERVENTION",
       "retries_before_replacement": "FORBIDDEN_NO_CHANGE_RETRY"
+    },
+    {
+      "classification": "VERIFICADO",
+      "run": 37618534076,
+      "source_commit": "9a793bcf6d7ebe8d21855da12628125c5ea73735",
+      "affected_scope": "G12 client revocation acknowledgement; prior APK0.12.3",
+      "finding": "HTTP200 with empty/non-revoked/extra-authority JSON was accepted as successful revocation.",
+      "root_cause": "HttpsSessionGateway.revoke discarded parsed JSON and checked only HTTP status/content type.",
+      "reproduction": "ONE_VISIBLE_TEST_FAILURE; SEVEN_NEW_CASES_PASSED; ANALYZER_ZERO",
+      "correction": "Require exactly one JSON field status=revoked. Invalid acknowledgement throws; local logout still deletes session and retains REMOTE_REVOKE_UNCONFIRMED.",
+      "correction_commit": "463e68af09c2dc9c689160284b70d6fb7458148e",
+      "regression_run": 37619093177,
+      "correction_validation": "PASS_8_OF_8_TRANSPORT_TESTS",
+      "apk_propagation": "PENDING_37619093151_NEW_0124_BUILD_AND_ANDROID35",
+      "original_artifact_sha256": "2a06c8b4bcf4770c7f6d9f11a66d75f219df2f3ace26ffa55f572cec3fb810df"
     }
   ],
-  "execution_state": "APK_ANDROID35_REKOR_PRESERVED_PROVIDER_CREDENTIAL_REJECTED_WAIT_REPLACEMENT_AND_CURRENT_FREE_FACT",
-  "running_jobs": [],
+  "execution_state": "REVOKE_ACK_FIXED_14_NEW_CHECKS_PASS_NEW_0124_APK_CI_RUNNING",
+  "running_jobs": [
+    {
+      "run": 37619093151,
+      "job": 112784542162,
+      "scope": "NEW_G12_0124_TEST_AND_BUILD",
+      "observed_status": "in_progress"
+    }
+  ],
   "next_action": {
-    "exact": "User must replace the rejected CLOUDFLARE_API_TOKEN through authenticated Cloudflare and GitHub secret UI, retaining account-specific Workers Scripts Edit and Account Settings Read only, then report whether Workers Free is active in the same account. No token in chat. After replacement trigger exactly one existing read-only provider-preflight and inspect its downloaded receipt. If provider reads succeed and current Free fact is explicit, update only cost_gate.json with REPORTADO confirmation time and one-hour validity. Inspect the resulting deploy workflow, enforce pinned Android origin binding, validate actual external Node/Python HTTPS, revoke canaries and persist exact real URL and receipts. Do not rebuild APK or republish Rekor.",
-    "first_operation": "REPLACE_REJECTED_DEPLOYMENT_SECRET_THROUGH_PROVIDER_AND_GITHUB_SECURE_UI",
+    "exact": "Inspect existing run37619093151 on source463e68af09c2dc9c689160284b70d6fb7458148e; do not launch a duplicate. After build, download APK artifact, verify ZIP/APK bytes and SHA, then inspect its Android35 emulator job. Only after exact new bytes are verified create a new immutable 0.12.4 synthetic receipt and publish its new hash through the already authorized GitHub OIDC/Rekor workflow; preserve 0.12.3 bundles. Keep external deployment blocked until token replacement plus explicit current Workers Free fact, then one read-only provider preflight. Never use emulator evidence as physical acceptance.",
+    "first_operation": "INSPECT_EXISTING_BUILD_37619093151_AND_NEW_APK_BYTES",
     "guide": "product/mobile/g12_deployment/G12_PROVIDER_RENEWAL_20261007.md",
     "user_reply_without_secret": "Token actualizado; Workers Free activo (only if true).",
     "blocker": "HTTP401_PROVIDER_CREDENTIAL_REJECTED_AND_CURRENT_FREE_PLAN_UNKNOWN",
     "deployment": "NOT_ATTEMPTED_CURRENT_SESSION",
     "physical": "After external HTTPS succeeds, issue one-use bootstrap through provider secrets and run/report exact new APK on physical Android; preserve G9 evidence. Do not uninstall existing app without exported local drafts.",
     "scientific_scope": "Main read-only; no holdout, GA2, PnL, MT5 or live trading.",
-    "commercial": "Still TEST_ONLY; production signing, public G12 HTTPS and physical G12 acceptance remain pending."
+    "commercial": "Still TEST_ONLY; production signing, public G12 HTTPS and physical G12 acceptance remain pending.",
+    "cloudflare_first_operation": "REPLACE_REJECTED_DEPLOYMENT_SECRET_THROUGH_PROVIDER_AND_GITHUB_SECURE_UI"
   },
   "previous_verified_application_source": "217cd842cb195fa92e52aa39068b97892752e48e",
   "provider_access": {
@@ -198,7 +223,7 @@
     "public_deployment": "NOT_RUN",
     "proof_does_not_establish_external_https": true
   },
-  "previous_checkpoint_commit": "fe2c3eb18532d48926add8c7d0bfcd84e7c1412f",
+  "previous_checkpoint_commit": "a0c4da5da2856c0139f175ef6ead91932fc44507",
   "previous_verified_build": {
     "id": 11274928396,
     "expires_at": "2026-10-10T13:37:02Z",
@@ -219,7 +244,7 @@
     "retries_this_session": 0,
     "plan_changes": "NONE"
   },
-  "product_branch_parent": "255c27622913fe89026f94b22541266814d1bae6",
+  "product_branch_parent": "463e68af09c2dc9c689160284b70d6fb7458148e",
   "historical_0122_build": {
     "id": 11323449351,
     "zip_bytes": 71248486,
@@ -351,5 +376,126 @@
       "libfile_3a181a3082fc8191849594fbe482c413",
       "libfile_c097bd8542b8819186c70cd72aef36e4"
     ]
+  },
+  "independent_security_validation": {
+    "classification": "VERIFICADO",
+    "source_commit": "463e68af09c2dc9c689160284b70d6fb7458148e",
+    "run": 37619093177,
+    "transport_job": 112784543351,
+    "authentication_job": 112784543619,
+    "transport": "8_OF_8_PASS",
+    "authentication": "6_OF_6_PASS",
+    "tls": "SAME_PINNED_HOST_SELF_SIGNED_CERT_REJECTED_ZERO_APPLICATION_REQUESTS_LOOPBACK_ONLY",
+    "expiry": "ACCESS_900S_AND_REFRESH_30D_EXCLUSIVE_BOUNDARIES_PASS_CONTROLLED_CLOCK",
+    "cross_scope": "TENANT_PROJECT_CAMPAIGN_RESTART_REJECTED_ORIGINAL_JOB_PRESERVED",
+    "readonly_get": "GET_NEVER_ADVANCES_JOB",
+    "external_https": "NOT_RUN",
+    "physical_android": "NOT_RUN",
+    "artifacts": [
+      {
+        "id": 11481335800,
+        "bytes": 3293,
+        "sha256": "2d22584d9b2b8b931950af78da71514b817500ebbf0ee1371873f6661b08efa0",
+        "members": [
+          {
+            "name": "baseline.json",
+            "bytes": 211,
+            "sha256": "b3b9da5ddeeebf22c086913575801c778d51d68b27a1da35d739685d8f223c9d"
+          },
+          {
+            "name": "inputs.json",
+            "bytes": 555,
+            "sha256": "72555798ff6c92d6fcf5b3b4f1feedf644561513aeaf0666072eb8ea85b6b3cd"
+          },
+          {
+            "name": "revoke-baseline.jsonl",
+            "bytes": 1937,
+            "sha256": "4c8a2ae56ee153bf66b851f9eeaa53c4923ba9d54c339d87a349bfcf9ffdf331"
+          },
+          {
+            "name": "transport-summary.json",
+            "bytes": 865,
+            "sha256": "944cf252dfae4b90535a5eb2f45cdf80f97719a2feead6ee59bc005488306723"
+          },
+          {
+            "name": "transport.jsonl",
+            "bytes": 4356,
+            "sha256": "cb42ce476b5c36fb98804c43e569be04cf327b6ee20e5a250806d6573ad33f0e"
+          }
+        ],
+        "summary": {
+          "schema": "QROS_G12_TRANSPORT_VALIDATION_V1",
+          "status": "PASS_TEST_ONLY",
+          "tests": 8,
+          "passed": 8,
+          "names": [
+            "valid synthetic session is accepted and transport closes",
+            "redirect and denial responses never become sessions or follow locations",
+            "wrong MIME, malformed bytes, oversized and non-object replies fail closed",
+            "session substitution and additional authority fields are rejected",
+            "valid revocation acknowledgement is accepted",
+            "invalid revoke acknowledgements remain unconfirmed and local logout clears secrets",
+            "disconnected pinned G12 transport cannot produce a session",
+            "same-host untrusted TLS certificate is rejected before credentials reach server"
+          ],
+          "loopback_untrusted_tls": "REJECTED_WITH_ZERO_APPLICATION_REQUESTS",
+          "external_cloudflare_https": "NOT_RUN",
+          "physical_android": "NOT_RUN"
+        }
+      },
+      {
+        "id": 11480988968,
+        "bytes": 1220,
+        "sha256": "ab79aa421ad545b13a9616254d6ef92f183c23604a0c6d1bff0e7ffcd37cfd26",
+        "members": [
+          {
+            "name": "auth.tap",
+            "bytes": 1463,
+            "sha256": "2fbc9f8ef162e6a7a1db30e2cc3f288c54651839c46ec7607e556e79aa66d67c"
+          },
+          {
+            "name": "summary.json",
+            "bytes": 872,
+            "sha256": "a46a3e2c321bef00a0f3752fe8660ec526a6492e4f28292eaf4900eb30af8b82"
+          }
+        ],
+        "summary": {
+          "schema": "QROS_G12_DURABLE_AUTH_VALIDATION_V1",
+          "status": "PASS_TEST_ONLY",
+          "source_commit": "463e68af09c2dc9c689160284b70d6fb7458148e",
+          "tests": 6,
+          "passed": 6,
+          "scope": "LOCAL_WORKERD_CONTROLLED_CLOCK_AND_DURABLE_RESTART",
+          "files": {
+            "product/mobile/g12/worker/core.mjs": "5d277acce7bf375165daed40498546dfb14329a1ac368bebf81d5d5c661963a2",
+            "product/mobile/g12/worker/index.mjs": "7e8b87ecfc4ab21a575f72b92a47dfd27a2778f9d60b8569a56590e55194b527",
+            "product/mobile/g12/package-lock.json": "2cb40356512bb596765315b21a4be351b2198392163cf2cd0b7ff4985d3e9829",
+            "product/mobile/g12_validation/auth_boundaries.test.mjs": "c1c2d696a028d4379cdc32c3e1e9a6130e8ed41ca5e9749488ff9dbdfde04245"
+          },
+          "provider_requests": 0,
+          "public_deployment": "NOT_RUN",
+          "scientific_approval": false,
+          "economic_tests": 0,
+          "paid_services_activated": false
+        }
+      }
+    ],
+    "raw_evidence_path": "product/mobile/g12_validation/evidence/20261007",
+    "downloaded_and_independent_byte_audit": "PASS",
+    "provider_requests": 0
+  },
+  "candidate_application": {
+    "source_commit": "463e68af09c2dc9c689160284b70d6fb7458148e",
+    "source_tree": "201813da0f6e0390f894cb233b03e4a996beba88",
+    "version": "0.12.4+16",
+    "run": 37619093151,
+    "build_job": 112784542162,
+    "status": "CI_RUNNING",
+    "apk_sha256": null,
+    "android35": "PENDING",
+    "physical_android": "NOT_RUN",
+    "signing": "DEBUG_NOT_PRODUCTION",
+    "prior_validated_application_source": "e7c365f7c951e74073e11a21fe876164c6ce2237",
+    "reason_for_rebuild": "VERIFIED_REVOKE_ACK_CLIENT_FIX_REQUIRES_NEW_BINARY"
   }
 }

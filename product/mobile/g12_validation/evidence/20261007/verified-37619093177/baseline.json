@@ -1,0 +1,7 @@
+{
+  "schema": "QROS_G12_REVOKE_BASELINE_V1",
+  "status": "DEFECT_REPRODUCED_NOT_PRODUCT_PASS",
+  "source_commit": "a0c4da5da2856c0139f175ef6ead91932fc44507",
+  "visible_failures": 1,
+  "compile_success": true
+}
