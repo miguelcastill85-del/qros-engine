@@ -1,6 +1,6 @@
 {
-  "schema": "QROS_G12_DURABLE_ENGINEERING_CHECKPOINT_V5",
-  "verified_at": "2026-10-05T13:04:28.168Z",
+  "schema": "QROS_G12_DURABLE_ENGINEERING_CHECKPOINT_V6",
+  "verified_at": "2026-10-07T11:49:45.247Z",
   "classification": "VERIFICADO",
   "scope": "ENGINEERING_TEST_ONLY",
   "source_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237",
@@ -125,29 +125,65 @@
       "correction": "Pin independent product origin and reject other hosts, ports, paths, userinfo, queries and fragments before creating transport.",
       "regression_status": "PASS_TWO_NEW_TESTS_IN_59_OF_59_SUITE_37310065707",
       "correction_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237"
+    },
+    {
+      "classification": "VERIFICADO",
+      "run": 37615888665,
+      "scope": "Current read-only Cloudflare account Workers API",
+      "root_cause": "Stored deployment credential rejected by real provider: HTTP401/error10000.",
+      "exact_credential_failure_cause": "NO_DISPONIBLE",
+      "probable_expiry": {
+        "classification": "INFERIDO",
+        "basis": "Historical user token review screenshot: expiry October 5, 2026; current date October 7.",
+        "replacement_was_not_observed": true
+      },
+      "correction": "Renew only the existing authorized account-specific Workers Scripts Edit and Account Settings Read credential; replace CLOUDFLARE_API_TOKEN in its actual GitHub Actions secret location. Do not print it or expand permissions.",
+      "correction_status": "PENDING_PROVIDER_AUTHENTICATED_USER_INTERVENTION",
+      "retries_before_replacement": "FORBIDDEN_NO_CHANGE_RETRY"
     }
   ],
-  "execution_state": "APK_ANDROID35_AND_SIGSTORE_VERIFIED_WAIT_CURRENT_FREE_PLAN_FACT",
+  "execution_state": "APK_ANDROID35_REKOR_PRESERVED_PROVIDER_CREDENTIAL_REJECTED_WAIT_REPLACEMENT_AND_CURRENT_FREE_FACT",
   "running_jobs": [],
   "next_action": {
-    "exact": "Obtain only a current fact from user: is Workers Free active in the same Cloudflare account? Existing authorization to deploy remains valid; no new token, permissions, login or paid plan. After fact confirmation update only product/mobile/g12_deployment/cost_gate.json with REPORTADO confirmation time and one-hour validity; this triggers qros-mobile-g12-deploy.yml. Inspect that exact run, enforce app/provider origin binding, test genuine external HTTPS Node/Python, revoke canaries and persist deployment receipt/URL. Do not rebuild APK or republish Sigstore hash.",
-    "deployment": "Current Workers Free fact confirmation for the same Cloudflare account is required because minimal token cannot read plan and browser verification is blocked. Then update only cost_gate.json with REPORTADO confirmation valid one hour; run deployment guard and verify real outside-build HTTPS using Node and Python before claiming deployment.",
+    "exact": "User must replace the rejected CLOUDFLARE_API_TOKEN through authenticated Cloudflare and GitHub secret UI, retaining account-specific Workers Scripts Edit and Account Settings Read only, then report whether Workers Free is active in the same account. No token in chat. After replacement trigger exactly one existing read-only provider-preflight and inspect its downloaded receipt. If provider reads succeed and current Free fact is explicit, update only cost_gate.json with REPORTADO confirmation time and one-hour validity. Inspect the resulting deploy workflow, enforce pinned Android origin binding, validate actual external Node/Python HTTPS, revoke canaries and persist exact real URL and receipts. Do not rebuild APK or republish Rekor.",
+    "first_operation": "REPLACE_REJECTED_DEPLOYMENT_SECRET_THROUGH_PROVIDER_AND_GITHUB_SECURE_UI",
+    "guide": "product/mobile/g12_deployment/G12_PROVIDER_RENEWAL_20261007.md",
+    "user_reply_without_secret": "Token actualizado; Workers Free activo (only if true).",
+    "blocker": "HTTP401_PROVIDER_CREDENTIAL_REJECTED_AND_CURRENT_FREE_PLAN_UNKNOWN",
+    "deployment": "NOT_ATTEMPTED_CURRENT_SESSION",
     "physical": "After external HTTPS succeeds, issue one-use bootstrap through provider secrets and run/report exact new APK on physical Android; preserve G9 evidence. Do not uninstall existing app without exported local drafts.",
-    "blocker": "NO_DISPONIBLE_CURRENT_PLAN_FACT_API_403_BROWSER_VERIFICATION_BLOCKED"
+    "scientific_scope": "Main read-only; no holdout, GA2, PnL, MT5 or live trading.",
+    "commercial": "Still TEST_ONLY; production signing, public G12 HTTPS and physical G12 acceptance remain pending."
   },
   "previous_verified_application_source": "217cd842cb195fa92e52aa39068b97892752e48e",
   "provider_access": {
     "classification": "VERIFICADO",
-    "run": 37258559675,
-    "source_commit": "ad9badbee7234094dd0272a92d8dd50dc2893c37",
-    "artifact_id": 11324021196,
-    "artifact_sha256": "76e25bb2238fe7b86d3ff5aab8bb9afa0e808fe27751061778d324beaaadf75f",
-    "account_workers_api_status": 200,
-    "credentials_valid": true,
-    "browser_error_does_not_block_authorized_api": true,
-    "free_plan_previous_gate": "REPORTADO",
-    "free_plan_current": "NO_DISPONIBLE_API_PERMISSION_403",
-    "permissions_not_expanded": true
+    "checked_at": "2026-10-07T11:42:35.868Z",
+    "run": 37615888665,
+    "job": 112773986449,
+    "source_commit": "255c27622913fe89026f94b22541266814d1bae6",
+    "status": "BLOCKED",
+    "account_workers_api_status": 401,
+    "provider_error_codes": [
+      10000
+    ],
+    "credentials_valid": false,
+    "credential_failure_reason": "NOT_ESTABLISHED_EXPIRED_REVOKED_OR_INVALID_NOT_DISTINGUISHED",
+    "raw_receipt_status": "NOT_CHECKED",
+    "raw_receipt_status_interpretation": "NOT_CHECKED_IS_SCRIPT_AGGREGATE; FIRST_ACTUAL_HTTP_READ_REJECTED_401",
+    "artifact_id": 11479935197,
+    "artifact_bytes": 532,
+    "artifact_sha256": "62eee77c25d6fd8a544131d0ea32b3d35cd9c77288babdf553ff4985e7cf79e9",
+    "receipt_path": "product/mobile/g12/receipts/G12_PROVIDER_PREFLIGHT_RAW_20261007.json",
+    "receipt_bytes": 546,
+    "receipt_sha256": "469a34cfa906a3b8c1609a71516bf8fd95d306f0357ce4f9a1cb8358a821bf4e",
+    "independent_local_byte_audit": "PASS",
+    "redaction_fail_closed_tests": "5_OF_5_PASS",
+    "deployment": "NOT_ATTEMPTED",
+    "provider_mutations": 0,
+    "permissions_not_expanded": true,
+    "free_plan_current": "NO_DISPONIBLE",
+    "stale_github_gate": "REPORTADO_EXISTING_GITHUB_GATE_NOT_CURRENT_PLAN_PROOF"
   },
   "deployment_preparation": {
     "classification": "VERIFICADO",
@@ -162,7 +198,7 @@
     "public_deployment": "NOT_RUN",
     "proof_does_not_establish_external_https": true
   },
-  "previous_checkpoint_commit": "9d640a11b349f16497c44e69abb4dd0197867d2f",
+  "previous_checkpoint_commit": "fe2c3eb18532d48926add8c7d0bfcd84e7c1412f",
   "previous_verified_build": {
     "id": 11274928396,
     "expires_at": "2026-10-10T13:37:02Z",
@@ -176,13 +212,14 @@
   },
   "browser_plan_check": {
     "classification": "VERIFICADO",
-    "observed_at": "2026-10-05T12:21:58.224Z",
+    "observed_on": "2026-10-07",
     "result": "NO_DISPONIBLE",
-    "page_state": "Sign in disabled; There was a problem with verification. Please reload and try again. Persists after one reload.",
+    "page_state": "Cloudflare login: verification error; Sign in disabled.",
     "credential_entry": "NONE",
+    "retries_this_session": 0,
     "plan_changes": "NONE"
   },
-  "product_branch_parent": "9d640a11b349f16497c44e69abb4dd0197867d2f",
+  "product_branch_parent": "255c27622913fe89026f94b22541266814d1bae6",
   "historical_0122_build": {
     "id": 11323449351,
     "zip_bytes": 71248486,
@@ -265,5 +302,54 @@
       "library_file_id": "libfile_c097bd8542b8819186c70cd72aef36e4"
     },
     "independent_backend_custody": false
+  },
+  "provider_access_history": [
+    {
+      "classification": "VERIFICADO",
+      "run": 37258559675,
+      "source_commit": "ad9badbee7234094dd0272a92d8dd50dc2893c37",
+      "artifact_id": 11324021196,
+      "artifact_sha256": "76e25bb2238fe7b86d3ff5aab8bb9afa0e808fe27751061778d324beaaadf75f",
+      "account_workers_api_status": 200,
+      "credentials_valid": true,
+      "browser_error_does_not_block_authorized_api": true,
+      "free_plan_previous_gate": "REPORTADO",
+      "free_plan_current": "NO_DISPONIBLE_API_PERMISSION_403",
+      "permissions_not_expanded": true,
+      "current": false
+    }
+  ],
+  "browser_plan_check_history": [
+    {
+      "classification": "VERIFICADO",
+      "observed_at": "2026-10-05T12:21:58.224Z",
+      "result": "NO_DISPONIBLE",
+      "page_state": "Sign in disabled; There was a problem with verification. Please reload and try again. Persists after one reload.",
+      "credential_entry": "NONE",
+      "plan_changes": "NONE"
+    }
+  ],
+  "current_free_plan_fact": {
+    "classification": "NO_DISPONIBLE",
+    "workers_plan": "UNKNOWN",
+    "user_latest_message": "Adelante",
+    "interpretation": "Authorization to continue, not an explicit current Workers Free plan fact.",
+    "cost_gate_unchanged": true
+  },
+  "scientific_main_read_at": "2026-10-07T11:49:45.247Z",
+  "delivery_recovery": {
+    "classification": "VERIFICADO",
+    "checked_at": "2026-10-07T11:49:45.247Z",
+    "method": "Library metadata search; IDs, byte counts and declared hashes match preserved checkpoint.",
+    "current_full_byte_reverification": "NOT_REPEATED",
+    "prior_independent_byte_reverification": "PRESERVED_PASS",
+    "apk_rebuilt": false,
+    "android35_rerun": false,
+    "rekor_republished": false,
+    "library_file_ids": [
+      "libfile_1bc9b10fac848191a659b9f4918808bb",
+      "libfile_3a181a3082fc8191849594fbe482c413",
+      "libfile_c097bd8542b8819186c70cd72aef36e4"
+    ]
   }
 }

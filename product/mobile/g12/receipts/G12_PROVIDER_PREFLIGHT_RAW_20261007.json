@@ -1,0 +1,21 @@
+{
+  "schema": "QROS_G12_PROVIDER_PREFLIGHT_V1",
+  "status": "BLOCKED",
+  "provider_access": "NOT_CHECKED",
+  "free_plan": "REPORTADO_EXISTING_GITHUB_GATE",
+  "deployment": "NOT_ATTEMPTED",
+  "paid_services_activated": false,
+  "checks": [
+    {
+      "name": "account_workers_access",
+      "http_status": 401,
+      "success": false,
+      "error_codes": [
+        10000
+      ]
+    }
+  ],
+  "reason": "PROVIDER_ACCESS_NOT_ESTABLISHED",
+  "source_commit": "255c27622913fe89026f94b22541266814d1bae6",
+  "checked_at": "2026-10-07T11:42:35.868Z"
+}
