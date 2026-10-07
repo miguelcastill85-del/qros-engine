@@ -1,0 +1,10 @@
+{
+  "schema": "QROS_G12_COST_AUTHORIZATION_V1",
+  "status": "PENDING_CURRENT_FREE_PLAN_CONFIRMATION",
+  "classification": "NO_DISPONIBLE",
+  "workers_plan": "UNKNOWN",
+  "confirmed_at": null,
+  "valid_until": null,
+  "scope": "G12_SYNTHETIC_TEST_ONLY_EXISTING_CLOUDFLARE_ACCOUNT",
+  "paid_services_allowed": false
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "QROS_G12_TRANSPORT_VALIDATION_V1",
+  "status": "PASS_TEST_ONLY",
+  "tests": 8,
+  "passed": 8,
+  "names": [
+    "valid synthetic session is accepted and transport closes",
+    "redirect and denial responses never become sessions or follow locations",
+    "wrong MIME, malformed bytes, oversized and non-object replies fail closed",
+    "session substitution and additional authority fields are rejected",
+    "valid revocation acknowledgement is accepted",
+    "invalid revoke acknowledgements remain unconfirmed and local logout clears secrets",
+    "disconnected pinned G12 transport cannot produce a session",
+    "same-host untrusted TLS certificate is rejected before credentials reach server"
+  ],
+  "loopback_untrusted_tls": "REJECTED_WITH_ZERO_APPLICATION_REQUESTS",
+  "external_cloudflare_https": "NOT_RUN",
+  "physical_android": "NOT_RUN"
+}

@@ -1,0 +1,20 @@
+{
+  "android_min_sdk": 24,
+  "apk_bytes": 146668513,
+  "apk_sha256": "8093b987a939bd642bdefb5442290fe3db79c0d48f681da99882c7c38c98d7da",
+  "economic_tests": 0,
+  "flutter_job_resume_recovery": "PASS",
+  "flutter_secure_session_recovery": "PASS",
+  "ga2_open": false,
+  "holdout_open": false,
+  "mt5_executed": false,
+  "physical_android": "NOT_RUN",
+  "public_g12_deployment": "NOT_RUN",
+  "schema": "QROS_G12_ENGINEERING_RECEIPT_V1",
+  "scientific_gate_pass": false,
+  "session_refresh_rotation": "PASS",
+  "source_commit": "463e68af09c2dc9c689160284b70d6fb7458148e",
+  "status": "PASS_ENGINEERING_TEST_ONLY",
+  "worker_deploy_dry_run": "PASS",
+  "worker_workerd_restart_resume": "PASS"
+}

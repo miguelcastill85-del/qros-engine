@@ -1,0 +1,14 @@
+{
+  "schema": "QROS_G12_SYNTHETIC_HASH_PUBLICATION_AUTHORITY_V1",
+  "authorized": true,
+  "authority": "USER_EXPLICIT_TAREA_4_SIGSTORE_REKOR_SYNTHETIC_HASHES_WITH_GITHUB_ACTIONS_IDENTITY",
+  "paid_services_authorized": false,
+  "repository_visibility_verified": "public",
+  "subject_path": "product/mobile/g12/receipts/G12_APK_0123_ENGINEERING_RAW_20261005.json",
+  "subject_sha256": "bbda292bbcc68fdd8226ef3fb1537d2dd47caba81f7bb6fd52494e6083bd7457",
+  "subject_source_commit": "e7c365f7c951e74073e11a21fe876164c6ce2237",
+  "apk_sha256": "8bf45b7a13d519866d91dcfe72592a5e5cd5933a63a9025a96207f94895be456",
+  "scope": "TEST_ONLY_ENGINEERING_HASH_NO_BROKER_OR_PERSONAL_DATA",
+  "release_signed": false,
+  "independent_backend_custody": false
+}

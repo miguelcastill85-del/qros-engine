@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: access expiry is exclusive and does not prevent still-valid refresh
+ok 1 - access expiry is exclusive and does not prevent still-valid refresh
+  ---
+  duration_ms: 423.698467
+  type: 'test'
+  ...
+# Subtest: refresh expiry is exclusive; last valid rotation rejects both previous tokens
+ok 2 - refresh expiry is exclusive; last valid rotation rejects both previous tokens
+  ---
+  duration_ms: 280.302022
+  type: 'test'
+  ...
+# Subtest: durable session rejects changed TENANT after restart and preserves original job
+ok 3 - durable session rejects changed TENANT after restart and preserves original job
+  ---
+  duration_ms: 537.834603
+  type: 'test'
+  ...
+# Subtest: durable session rejects changed PROJECT after restart and preserves original job
+ok 4 - durable session rejects changed PROJECT after restart and preserves original job
+  ---
+  duration_ms: 523.149725
+  type: 'test'
+  ...
+# Subtest: durable session rejects changed CAMPAIGN after restart and preserves original job
+ok 5 - durable session rejects changed CAMPAIGN after restart and preserves original job
+  ---
+  duration_ms: 505.118786
+  type: 'test'
+  ...
+# Subtest: authenticated GET is read-only; only explicit POST advances one phase
+ok 6 - authenticated GET is read-only; only explicit POST advances one phase
+  ---
+  duration_ms: 96.086108
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2682.763516

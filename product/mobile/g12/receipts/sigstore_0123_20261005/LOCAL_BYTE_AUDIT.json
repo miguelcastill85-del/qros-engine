@@ -1,0 +1,15 @@
+{
+  "schema": "QROS_G12_LOCAL_SIGSTORE_BYTE_AUDIT_V1",
+  "status": "PASS_LOCAL_SIGNATURE_AND_MERKLE_CONSISTENCY",
+  "classification": "VERIFICADO",
+  "certificate_identity": "https://github.com/miguelcastill85-del/qros-engine/.github/workflows/qros-mobile-g12-sigstore.yml@refs/heads/product/mobile-g12-renewable-session-jobs-20261002",
+  "raw_ecdsa_signature_verified": true,
+  "subject_hash_matches_frozen_receipt": true,
+  "merkle_path_consistent": true,
+  "root_trust": "SIGSTORE_TUF_CHAIN_VERIFIED_BY_COSIGN_AND_SIGSTORE_PYTHON_IN_CI37313164714; LOCAL_AUDIT_IS_ADDITIONAL_CONSISTENCY_ONLY",
+  "log_index": "3088220065",
+  "proof_local_index": "2966315803",
+  "apk_sha256": "8bf45b7a13d519866d91dcfe72592a5e5cd5933a63a9025a96207f94895be456",
+  "independent_backend_custody": false,
+  "scientific_gate_pass": false
+}

@@ -1,0 +1,78 @@
+name: QROS G12 isolated Free deployment and external HTTPS canary
+on:
+  push:
+    branches: [product/mobile-g12-renewable-session-jobs-20261002]
+    paths:
+      - '.github/workflows/qros-mobile-g12-deploy.yml'
+      - 'product/mobile/g12_deployment/deploy_verified.mjs'
+      - 'product/mobile/g12_deployment/origin_binding*'
+      - 'product/mobile/g12_deployment/external_canary*'
+      - 'product/mobile/g12_deployment/verify_external.py'
+      - 'product/mobile/g12_deployment/cost_gate.json'
+      - 'product/mobile/g12_deployment/check_cost_gate.mjs'
+      - 'product/mobile/g12_deployment/cost_gate.test.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qros-g12-isolated-deployment
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      free_confirmed: ${{ steps.cost.outputs.free_confirmed }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - name: Check current user-reported Free plan confirmation without broadening provider permissions
+        id: cost
+        run: node product/mobile/g12_deployment/check_cost_gate.mjs
+      - name: Preserve the already-approved runtime bytes
+        run: |
+          git fetch --no-tags --depth=1 origin 217cd842cb195fa92e52aa39068b97892752e48e
+          for file in worker/index.mjs worker/core.mjs package.json package-lock.json wrangler.jsonc; do
+            git show 217cd842cb195fa92e52aa39068b97892752e48e:product/mobile/g12/$file > /tmp/qros-approved-file
+            cmp /tmp/qros-approved-file product/mobile/g12/$file
+          done
+      - run: npm ci --ignore-scripts --prefix product/mobile/g12
+      - name: Verify only the new deployment canary and configuration
+        run: |
+          node --test product/mobile/g12_deployment/cost_gate.test.mjs product/mobile/g12_deployment/external_canary.test.mjs product/mobile/g12_deployment/origin_binding.test.mjs
+          ./product/mobile/g12/node_modules/.bin/wrangler deploy --dry-run --config product/mobile/g12/wrangler.jsonc --outdir /tmp/qros-g12-prepared-worker
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g12-prepared-deployment
+          retention-days: 7
+          path: |
+            /tmp/qros-g12-prepared-worker/
+            /tmp/qros-g12-canary-local.json
+  deploy:
+    needs: prepare
+    if: needs.prepare.outputs.free_confirmed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: qros-g9-test-only
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - run: npm ci --ignore-scripts --prefix product/mobile/g12
+      - name: Deploy, externally verify, revoke canary sessions and clear enrollment grants
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          QROS_G12_FREE_PLAN_VERIFIED: ${{ needs.prepare.outputs.free_confirmed }}
+          WRANGLER_SEND_METRICS: 'false'
+        run: node product/mobile/g12_deployment/deploy_verified.mjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: qros-g12-public-deployment-evidence
+          retention-days: 7
+          if-no-files-found: error
+          path: /tmp/qros-g12-public/

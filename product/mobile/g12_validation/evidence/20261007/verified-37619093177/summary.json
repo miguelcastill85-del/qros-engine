@@ -1,0 +1,19 @@
+{
+  "schema": "QROS_G12_DURABLE_AUTH_VALIDATION_V1",
+  "status": "PASS_TEST_ONLY",
+  "source_commit": "463e68af09c2dc9c689160284b70d6fb7458148e",
+  "tests": 6,
+  "passed": 6,
+  "scope": "LOCAL_WORKERD_CONTROLLED_CLOCK_AND_DURABLE_RESTART",
+  "files": {
+    "product/mobile/g12/worker/core.mjs": "5d277acce7bf375165daed40498546dfb14329a1ac368bebf81d5d5c661963a2",
+    "product/mobile/g12/worker/index.mjs": "7e8b87ecfc4ab21a575f72b92a47dfd27a2778f9d60b8569a56590e55194b527",
+    "product/mobile/g12/package-lock.json": "2cb40356512bb596765315b21a4be351b2198392163cf2cd0b7ff4985d3e9829",
+    "product/mobile/g12_validation/auth_boundaries.test.mjs": "c1c2d696a028d4379cdc32c3e1e9a6130e8ed41ca5e9749488ff9dbdfde04245"
+  },
+  "provider_requests": 0,
+  "public_deployment": "NOT_RUN",
+  "scientific_approval": false,
+  "economic_tests": 0,
+  "paid_services_activated": false
+}

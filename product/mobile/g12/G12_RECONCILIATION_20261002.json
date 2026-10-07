@@ -1,0 +1,49 @@
+{
+  "schema": "QROS_G12_PARALLEL_GENEALOGY_RECONCILIATION_V1",
+  "date": "2026-10-02",
+  "status": "DEVELOPMENT_RUNNING",
+  "classification": "TEST_ONLY",
+  "integrated_parent": {
+    "commit": "da2b18b1f5ea7c690f72007508a72ed6f6497c43",
+    "tree_sha": "015700369064217e462653c43648add6d0ddd167"
+  },
+  "g11_source": {
+    "commit": "dfc8a435b9f4bac6166fb97ca056e31c06200c5c",
+    "tree_sha": "015700369064217e462653c43648add6d0ddd167",
+    "tree_equal_to_integrated_parent": true
+  },
+  "canonical": {
+    "pr": 78,
+    "branch": "product/mobile-g12-renewable-session-jobs-20261002",
+    "pre_reconcile_head": "fc8065c51eb9c702cb429d69dd8f5e4379fba232"
+  },
+  "superseded": {
+    "pr": 77,
+    "branch": "product/mobile-g12-session-jobs-20261002",
+    "strict_head": "d2443694992f1b3e099ef6f99ef56cf327856523",
+    "strict_tree_sha": "b60f167309da1cbcc1b4800a99fab1cd892947c2"
+  },
+  "retained_contracts": [
+    "ONE_USE_BOOTSTRAP_MAX_300S",
+    "DEVICE_BINDING",
+    "ACCESS_15_MIN",
+    "ROTATING_REFRESH_30_DAYS",
+    "SERVER_TOKEN_HASHES_ONLY",
+    "PURE_GET_JOB_STATUS",
+    "EXPLICIT_JOB_RESUME",
+    "REQUEST_ID_IDEMPOTENCY",
+    "DURABLE_RESTART_RECOVERY",
+    "ECONOMIC_TESTS_ZERO",
+    "SCIENTIFIC_AUTHORITY_NONE"
+  ],
+  "forbidden": [
+    "PNL",
+    "HOLDOUT",
+    "GA2",
+    "MT5",
+    "LIVE_TRADING",
+    "BROKER_DATA",
+    "SCIENTIFIC_PASS"
+  ],
+  "prior_ci_is_final_head_evidence": false
+}

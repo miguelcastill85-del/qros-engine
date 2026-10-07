@@ -1,0 +1,95 @@
+name: QROS G12 exact build artifact bounded transfer
+on:
+  push:
+    branches: [product/mobile-g12-renewable-session-jobs-20261002]
+    paths: ['.github/workflows/qros-mobile-g12-artifact-transfer.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: qros-g12-exact-0124-artifact-transfer
+  cancel-in-progress: false
+jobs:
+  transfer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Download existing exact archive once and split without rebuilding
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import os,urllib.request,urllib.error,urllib.parse,pathlib,hashlib,json
+          root=pathlib.Path('/tmp/qros-g12-transfer');root.mkdir()
+          expected='5ad5ff2c7a68dc27e2c1e6bb359ed6ae76678d75cf71f7cd863dca936ede0674'
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self,*args,**kwargs): return None
+          url='https://api.github.com/repos/miguelcastill85-del/qros-engine/actions/artifacts/11481206837/zip'
+          req=urllib.request.Request(url,headers={'Authorization':'Bearer '+os.environ.pop('GH_TOKEN'),
+               'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'})
+          try:
+              urllib.request.build_opener(NoRedirect()).open(req,timeout=30)
+              raise RuntimeError('EXPECTED_PROVIDER_REDIRECT')
+          except urllib.error.HTTPError as e:
+              assert e.code==302
+              location=e.headers['Location']
+          parsed=urllib.parse.urlparse(location)
+          assert parsed.scheme=='https' and parsed.hostname and not parsed.username
+          archive=root/'exact-build.zip';total=0
+          # The signed archive request deliberately has NO GitHub authorization header.
+          with urllib.request.urlopen(urllib.request.Request(location),timeout=40) as response, archive.open('xb') as out:
+              assert response.status==200
+              while True:
+                  chunk=response.read(1024*1024)
+                  if not chunk: break
+                  total+=len(chunk);assert total<=71253986
+                  out.write(chunk)
+          assert total==71253986
+          assert hashlib.file_digest(archive.open('rb'),'sha256').hexdigest()==expected
+          parts=[]
+          with archive.open('rb') as stream:
+              for index in range(1,6):
+                  payload=stream.read(16*1024*1024);assert payload
+                  folder=root/('part'+str(index));folder.mkdir()
+                  (folder/'chunk.bin').write_bytes(payload)
+                  parts.append({'index':index,'bytes':len(payload),'sha256':hashlib.sha256(payload).hexdigest()})
+              assert not stream.read(1)
+          manifest={'schema':'QROS_G12_EXACT_BINARY_TRANSFER_V1','source_run':37619093151,
+              'source_commit':'463e68af09c2dc9c689160284b70d6fb7458148e','source_artifact':11481206837,
+              'archive_bytes':total,'archive_sha256':expected,'parts':parts,'apk_rebuilt':False,
+              'provider_requests':0,'paid_services_activated':False}
+          for index in range(1,6):
+              (root/('part'+str(index))/'transfer.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          print('EXACT_ARCHIVE_VERIFIED; FIVE_PARTS_CREATED; NO_REBUILD')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g12-0124-build-part-1
+          path: /tmp/qros-g12-transfer/part1/
+          retention-days: 7
+          if-no-files-found: error
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g12-0124-build-part-2
+          path: /tmp/qros-g12-transfer/part2/
+          retention-days: 7
+          if-no-files-found: error
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g12-0124-build-part-3
+          path: /tmp/qros-g12-transfer/part3/
+          retention-days: 7
+          if-no-files-found: error
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g12-0124-build-part-4
+          path: /tmp/qros-g12-transfer/part4/
+          retention-days: 7
+          if-no-files-found: error
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g12-0124-build-part-5
+          path: /tmp/qros-g12-transfer/part5/
+          retention-days: 7
+          if-no-files-found: error

@@ -1,0 +1,14 @@
+{
+  "schema": "QROS_G12_ANDROID35_0124_BYTE_AUDIT_V1",
+  "status": "PASS_EMULATOR_TEST_ONLY",
+  "artifact_id": 11481816455,
+  "artifact_bytes": 1649545,
+  "artifact_sha256": "5142a063de0f8a9248852853d240e9fb5156eb0b55edb14478459023064084c8",
+  "receipt_sha256": "206994986fc5d42269d231bd0c23d5e61d8cb8aa22020319a07314848069f5cf",
+  "receipt_bytes": 2829,
+  "all_referenced_members_rehashed": true,
+  "all_png_verified": true,
+  "new_native_fields_sha256": "02746e3d9848a18fd546fd378abf949b67953767faee3180d07dcbc935609ea5",
+  "physical_android": "NOT_RUN",
+  "packaged_path": "/workspace/scratch/030424d0b7e8/qros-g12-validation/evidence/QROS_G12_ANDROID35_0124_VERIFIED_EVIDENCE.zip"
+}

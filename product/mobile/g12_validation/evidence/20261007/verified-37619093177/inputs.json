@@ -1,0 +1,12 @@
+{
+  "schema": "QROS_G12_INDEPENDENT_TRANSPORT_INPUTS_V1",
+  "source_commit": "463e68af09c2dc9c689160284b70d6fb7458148e",
+  "files": {
+    "product/mobile/flutter_app/lib/core/session_client.dart": "76ef485a6361f920bcc55a6d3da45b3445c00e9b691e4fc2702fa510d02d6b60",
+    "product/mobile/g12_validation/session_transport_test.dart": "d496503c11a2c06dc1a9e38753755bb87804176348c9b404286f421926ea9452"
+  },
+  "apk_rebuilt": false,
+  "provider_requests": 0,
+  "paid_services_activated": false,
+  "scope": "TEST_ONLY_SYNTHETIC_LOOPBACK_AND_SCRIPTED_RESPONSES"
+}

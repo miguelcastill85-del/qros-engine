@@ -1,0 +1,63 @@
+{
+  "schema": "QROS_G12_APK_0124_LOCAL_BYTE_AUDIT_V1",
+  "status": "PASS_BYTE_INTEGRITY_TEST_ONLY",
+  "source_commit": "463e68af09c2dc9c689160284b70d6fb7458148e",
+  "source_run": 37619093151,
+  "transfer_run": 37620278083,
+  "original_artifact": 11481206837,
+  "archive_bytes": 71253986,
+  "archive_sha256": "5ad5ff2c7a68dc27e2c1e6bb359ed6ae76678d75cf71f7cd863dca936ede0674",
+  "parts": [
+    {
+      "id": 11482365508,
+      "zip_bytes": 16783081,
+      "zip_sha256": "e50228019a24601a0b2e701630493c92ce3e75debb88bb93f734d00e4b48eaf5",
+      "part": 4,
+      "part_sha256": "cb9877f7c2a932a18db5165720f9c6e56581e5ec4d59c426e97fa80a7b9bc8a3",
+      "part_bytes": 16777216
+    },
+    {
+      "id": 11482150694,
+      "zip_bytes": 16725665,
+      "zip_sha256": "56a2584b5bbd36cd216789bff3417cc5ae9b9fa029a2fa7673f1412e98df9945",
+      "part": 3,
+      "part_sha256": "19fb5eb1ba3a9fd3139fa1c4a667817e89909c67180425f5a34a32c200cf2a06",
+      "part_bytes": 16777216
+    },
+    {
+      "id": 11481921001,
+      "zip_bytes": 4146736,
+      "zip_sha256": "a7ec05e81cb071bfe54edaee0039843eaad2429b3cfbe83e610892c095ac43fa",
+      "part": 5,
+      "part_sha256": "4b7b9153a8b39327a11ca646f420703f51de46fc88190d6afc70461d12f9f328",
+      "part_bytes": 4145122
+    },
+    {
+      "id": 11481597313,
+      "zip_bytes": 16686698,
+      "zip_sha256": "3d7c3596b2de7fb72d0f8d4dcb4c751df8fc7434ed21341908a50670cf67e915",
+      "part": 2,
+      "part_sha256": "f4fa74d8a62a4a27eaceb873debd836f962f6151bd4311d90cd241aa8145b00a",
+      "part_bytes": 16777216
+    },
+    {
+      "id": 11481242588,
+      "zip_bytes": 16615239,
+      "zip_sha256": "ab280c5008a9d6db6e740283d80446799efa1a88ae4f701110c827a7de68d5e1",
+      "part": 1,
+      "part_sha256": "0504f1216e958186bdb3b5fdb4761bee91d9b0a69d4f33da45ec459abee2e82b",
+      "part_bytes": 16777216
+    }
+  ],
+  "receipt_bytes": 690,
+  "receipt_sha256": "1d6f8cc0875fe27d3643d945cd1477845fd739aff9f70107b968caf5f2b740b2",
+  "apk_path": "/workspace/scratch/030424d0b7e8/qros-g12-validation/evidence/QROS_MOBILE_G12_0.12.4_TEST_ONLY.apk",
+  "apk_bytes": 146668513,
+  "apk_sha256": "8093b987a939bd642bdefb5442290fe3db79c0d48f681da99882c7c38c98d7da",
+  "version": "0.12.4+16",
+  "apk_private_pem_pattern_matches": 0,
+  "static_scan_scope": "Complete APK ZIP entries; no claim of universal absence of unknown or encoded secrets.",
+  "embedded_v1_certificates": [],
+  "release_signed": false,
+  "physical_android": "NOT_RUN"
+}

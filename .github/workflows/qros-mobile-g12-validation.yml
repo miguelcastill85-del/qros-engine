@@ -1,0 +1,144 @@
+name: QROS G12 independent transport validation TEST_ONLY
+on:
+  push:
+    branches: [product/mobile-g12-renewable-session-jobs-20261002]
+    paths:
+      - 'product/mobile/g12_validation/**'
+      - '.github/workflows/qros-mobile-g12-validation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: qros-g12-independent-transport-validation
+  cancel-in-progress: false
+jobs:
+  transport:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false, fetch-depth: 0}
+      - uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2
+        with: {channel: stable, flutter-version: '3.35.4'}
+      - name: Resolve existing Flutter dependencies and stage isolated tests
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter pub get
+          cp ../g12_validation/session_transport_test.dart test/g12_transport_boundary_test.dart
+          mkdir -p /tmp/qros-g12-validation
+      - name: Analyze new tests
+        working-directory: product/mobile/flutter_app
+        run: flutter analyze --no-pub test/g12_transport_boundary_test.dart
+      - name: Preserve reproduced revocation defect on frozen parent
+        working-directory: product/mobile/flutter_app
+        run: |
+          cp lib/core/session_client.dart /tmp/qros-g12-validation/fixed-session-client.dart
+          git show a0c4da5da2856c0139f175ef6ead91932fc44507:product/mobile/flutter_app/lib/core/session_client.dart > lib/core/session_client.dart
+          set +e
+          flutter test --no-pub --reporter json --plain-name 'invalid revoke acknowledgements' test/g12_transport_boundary_test.dart > /tmp/qros-g12-validation/revoke-baseline.jsonl 2>&1
+          BASELINE_EXIT=$?
+          set -e
+          cp /tmp/qros-g12-validation/fixed-session-client.dart lib/core/session_client.dart
+          rm /tmp/qros-g12-validation/fixed-session-client.dart
+          test "$BASELINE_EXIT" -ne 0
+          python3 - <<'PY'
+          import json,pathlib
+          rows=[]
+          for line in pathlib.Path('/tmp/qros-g12-validation/revoke-baseline.jsonl').read_text().splitlines():
+              try: rows.append(json.loads(line))
+              except ValueError: pass
+          names={r['test']['id']:r['test']['name'] for r in rows if r.get('type')=='testStart'}
+          visible=[r for r in rows if r.get('type')=='testDone' and not r.get('hidden')]
+          assert len(visible)==1 and visible[0]['result']=='failure', visible
+          assert 'invalid revoke acknowledgements' in names[visible[0]['testID']]
+          assert [r for r in rows if r.get('type')=='done'][-1]['success'] is False
+          pathlib.Path('/tmp/qros-g12-validation/baseline.json').write_text(json.dumps({
+              'schema':'QROS_G12_REVOKE_BASELINE_V1','status':'DEFECT_REPRODUCED_NOT_PRODUCT_PASS',
+              'source_commit':'a0c4da5da2856c0139f175ef6ead91932fc44507',
+              'visible_failures':1,'compile_success':True},indent=2)+'\n')
+          PY
+      - name: Validate transport boundaries without compiling APK
+        working-directory: product/mobile/flutter_app
+        run: |
+          flutter test --no-pub --reporter json test/g12_transport_boundary_test.dart > /tmp/qros-g12-validation/transport.jsonl 2>&1
+      - name: Verify exact new transport coverage
+        working-directory: product/mobile/flutter_app
+        run: |
+          python3 - <<'PY'
+          import json,pathlib
+          rows=[]
+          for line in pathlib.Path('/tmp/qros-g12-validation/transport.jsonl').read_text().splitlines():
+              try: rows.append(json.loads(line))
+              except ValueError: pass
+          names={r['test']['id']:r['test']['name'] for r in rows if r.get('type')=='testStart'}
+          tests=[r for r in rows if r.get('type')=='testDone' and not r.get('hidden')]
+          assert len(tests)==8 and all(r['result']=='success' and not r.get('skipped') for r in tests), tests
+          assert not any(r.get('type')=='error' for r in rows)
+          assert [r for r in rows if r.get('type')=='done'][-1]['success'] is True
+          pathlib.Path('/tmp/qros-g12-validation/transport-summary.json').write_text(json.dumps({
+            'schema':'QROS_G12_TRANSPORT_VALIDATION_V1','status':'PASS_TEST_ONLY',
+            'tests':8,'passed':8,'names':[names[r['testID']] for r in tests],
+            'loopback_untrusted_tls':'REJECTED_WITH_ZERO_APPLICATION_REQUESTS',
+            'external_cloudflare_https':'NOT_RUN','physical_android':'NOT_RUN'},indent=2)+'\n')
+          PY
+      - name: Preserve validation source identity
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib
+          paths=['product/mobile/flutter_app/lib/core/session_client.dart',
+                 'product/mobile/g12_validation/session_transport_test.dart']
+          receipt={'schema':'QROS_G12_INDEPENDENT_TRANSPORT_INPUTS_V1',
+                   'source_commit':os.environ['GITHUB_SHA'],
+                   'files':{p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in paths},
+                   'apk_rebuilt':False,'provider_requests':0,'paid_services_activated':False,
+                   'scope':'TEST_ONLY_SYNTHETIC_LOOPBACK_AND_SCRIPTED_RESPONSES'}
+          pathlib.Path('/tmp/qros-g12-validation/inputs.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: qros-g12-independent-transport-validation
+          retention-days: 14
+          if-no-files-found: error
+          path: /tmp/qros-g12-validation/
+
+  authentication:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with: {node-version: '24.19.0'}
+      - name: Install only the frozen G12 test runtime
+        run: npm ci --ignore-scripts --prefix product/mobile/g12
+      - name: Verify actual durable auth expiry and cross-scope restart boundaries
+        run: |
+          mkdir -p /tmp/qros-g12-auth-validation
+          node --test --test-reporter=tap product/mobile/g12_validation/auth_boundaries.test.mjs > /tmp/qros-g12-auth-validation/auth.tap 2>&1
+      - name: Preserve verified auth coverage and immutable inputs
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,os,pathlib,re
+          log=pathlib.Path('/tmp/qros-g12-auth-validation/auth.tap').read_text()
+          assert re.search(r'^# tests 6$',log,re.M) and re.search(r'^# pass 6$',log,re.M)
+          assert re.search(r'^# fail 0$',log,re.M)
+          assert re.search(r'^# skipped 0$',log,re.M)
+          paths=['product/mobile/g12/worker/core.mjs','product/mobile/g12/worker/index.mjs',
+                 'product/mobile/g12/package-lock.json','product/mobile/g12_validation/auth_boundaries.test.mjs']
+          data={'schema':'QROS_G12_DURABLE_AUTH_VALIDATION_V1','status':'PASS_TEST_ONLY',
+                'source_commit':os.environ['GITHUB_SHA'],'tests':6,'passed':6,
+                'scope':'LOCAL_WORKERD_CONTROLLED_CLOCK_AND_DURABLE_RESTART',
+                'files':{p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in paths},
+                'provider_requests':0,'public_deployment':'NOT_RUN',
+                'scientific_approval':False,'economic_tests':0,'paid_services_activated':False}
+          pathlib.Path('/tmp/qros-g12-auth-validation/summary.json').write_text(json.dumps(data,indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: qros-g12-durable-auth-validation
+          retention-days: 14
+          if-no-files-found: error
+          path: /tmp/qros-g12-auth-validation/
