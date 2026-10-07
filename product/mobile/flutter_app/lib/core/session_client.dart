@@ -397,7 +397,7 @@ class HttpsSessionGateway implements SessionGateway {
 
   @override
   Future<void> revoke(ClientSession current) async {
-    await _jsonRequest(
+    final data = await _jsonRequest(
       origin: current.origin,
       path: '/v1/session/revoke',
       method: 'POST',
@@ -405,6 +405,9 @@ class HttpsSessionGateway implements SessionGateway {
       deviceId: current.deviceId,
       body: const {},
     );
+    if (data.length != 1 || data['status'] != 'revoked') {
+      throw const FormatException('REMOTE_REVOKE_UNCONFIRMED');
+    }
   }
 
   @override
