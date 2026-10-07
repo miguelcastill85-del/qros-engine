@@ -5,7 +5,10 @@ on:
     branches: [product/mobile-g12-renewable-session-jobs-20261002]
     paths:
       - 'product/mobile/flutter_app/**'
-      - 'product/mobile/g12/**'
+      - 'product/mobile/g12/worker/**'
+      - 'product/mobile/g12/tests/**'
+      - 'product/mobile/g12/package*.json'
+      - 'product/mobile/g12/wrangler.jsonc'
       - '.github/workflows/qros-mobile-g12.yml'
   workflow_dispatch:
 
@@ -18,7 +21,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  change-scope:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    outputs:
+      build: ${{ steps.scope.outputs.build }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with: {persist-credentials: false, fetch-depth: 0}
+      - name: Verify fail-closed reuse contract
+        run: python3 product/mobile/g12_deployment/ci_reuse_guard_test.py
+      - id: scope
+        name: Reuse only exact previously verified build inputs and recipe
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 product/mobile/g12_deployment/ci_reuse_guard.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: qros-g12-build-reuse-receipt
+          path: /tmp/qros-g12-build-reuse.json
+          retention-days: 14
+          if-no-files-found: error
+
   test-and-build:
+    needs: change-scope
+    if: needs.change-scope.outputs.build == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
